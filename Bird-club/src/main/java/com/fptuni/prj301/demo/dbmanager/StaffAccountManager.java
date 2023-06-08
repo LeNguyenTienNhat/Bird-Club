@@ -23,7 +23,7 @@ import java.util.List;
  */
 public class StaffAccountManager {
         public boolean approveUser(String UID) {
-        String sql = "UPDATE [User] SET status = 'active' WHERE UID = ?";
+        String sql = "UPDATE [User] SET role = 'member' WHERE UID = ?";
 
         try (Connection conn = DBUtils.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -40,11 +40,11 @@ public class StaffAccountManager {
         
    public List<UserSession> getUsersWithUnactiveStatus() {
         List<UserSession> users = new ArrayList<>();
-        String sql = "SELECT * FROM [User] WHERE status = ?";
+        String sql = "SELECT * FROM [User] WHERE role = ?";
 
         try (Connection conn = DBUtils.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, "unactive");
+            ps.setString(1, "guest");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {

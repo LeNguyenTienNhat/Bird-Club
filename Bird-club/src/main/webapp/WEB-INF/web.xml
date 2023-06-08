@@ -11,6 +11,18 @@
         <servlet-name>HomepageController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.HomepageController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffEvents</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.StaffEvents</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffHomepage</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.StaffHomepage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffMember</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.StaffMember</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomepageController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -20,16 +32,24 @@
         <servlet-class>com.fptuni.prj301.demo.controller.UserAccessController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>UserAccessController</servlet-name>
-        <url-pattern>/UserAccessController/*</url-pattern>
+        <servlet-name>StaffEvents</servlet-name>
+        <url-pattern>/events</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>StaffAccountController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.StaffAccountController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>StaffAccountController</servlet-name>
-        <url-pattern>/StaffAccountController</url-pattern>
+        <servlet-name>StaffHomepage</servlet-name>
+        <url-pattern>/staffhome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffMember</servlet-name>
+        <url-pattern>/members</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserAccessController</servlet-name>
+        <url-pattern>/UserAccessController/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
