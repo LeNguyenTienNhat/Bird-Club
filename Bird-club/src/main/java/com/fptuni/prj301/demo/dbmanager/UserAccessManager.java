@@ -108,7 +108,7 @@ public boolean SignUp(UserSession user) {
         ps.setDate(8, new java.sql.Date(user.getExpriedDate().getTime()));
         ps.setString(9, user.getStatus());
         ps.setDate(10, new java.sql.Date(user.getSignUpDate().getTime()));
-        ps.setString(11, user.getMID());
+        ps.setString(11,"MIDW");
         ps.setString(12, user.getGender());
 
         int rowsAffected = ps.executeUpdate();

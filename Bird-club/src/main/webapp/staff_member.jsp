@@ -310,7 +310,7 @@
                                     <th>Phone</th>
                                     <th>Actions</th>
                                 </tr
-                                <c:if test="${userList.size()==0}">
+                                <c:if test="${ empty userList}">
                                     <div id="memberListContainer">
                                         <h4>Member List</h4>
                                         <p>No members found.</p>

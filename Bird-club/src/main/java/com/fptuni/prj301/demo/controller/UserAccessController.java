@@ -68,6 +68,7 @@ public class UserAccessController extends HttpServlet {
 
             if (isUserExists) {
                 response.sendRedirect(request.getContextPath() + "/login.jsp");
+                request.setAttribute("signup_msg", "Username Exists, Signup Fails");
             } else {
                 // Create a UserSession object with the signup details
                 UserSession user = new UserSession();
