@@ -1,0 +1,6 @@
+INSERT INTO [Membership]
+VALUES('MID01','Supporter',100000,'1 month','This is a sample test');
+INSERT INTO [Membership]
+VALUES('MID02','Contributer',200000,'3 months','This is a sample test');
+INSERT INTO [Membership]
+VALUES('MID03','Sir',200000,'6 months','This is a sample test');
