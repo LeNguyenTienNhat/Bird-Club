@@ -1,0 +1,12 @@
+INSERT INTO [Tournament] (TID, name, description, registrationDeadline, LID, status, startDate, endDate, fee, numberOfParticipant, totalPrize)
+VALUES ('TID0','Giai Dau Chim Chao Mao Q1', 'null', '2022-01-04', 'null', 'finished', '2022-01-11', '2022-01-12', 60, 50, 2000);
+INSERT INTO [Tournament]
+VALUES ('TID1','Giai Dau Chim Chao Mao Q3', 'null', '2022-06-28', 'null', 'finished', '2022-07-05', '2022-07-06', 60, 50, 2000);
+INSERT INTO [Tournament]
+VALUES ('TID2','Giai Dau Chim Chao Mao Q6', 'null', '2023-01-16', 'null', 'pending', '2023-01-23', '2023-01-24', 60, 50, 2000);
+INSERT INTO [Tournament]
+VALUES ('TID3','Giai Dau Chim Chao Mao Q9', 'null', '2023-04-19', 'null', 'pending', '2023-04-26', '2023-04-27', 60, 50, 2000);
+INSERT INTO [Tournament]
+VALUES ('TID4','Giai Dau Chim Chao Mao Q12', 'null', '2023-07-02', 'null', 'formClosed', '2023-07-09', '2023-07-10', 60, 50, 2000);
+INSERT INTO [Tournament]
+VALUES ('TID5','Giai Dau Chim Chao Mao Q10', 'null', '2023-06-07', 'null', 'ongoing', '2023-06-14', GETDATE(), 60, 50, 2000);
