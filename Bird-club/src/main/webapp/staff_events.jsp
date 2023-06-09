@@ -399,13 +399,31 @@ Sign out</a>
                                         + fieldtrip.getCategory()
                                         + "</span>");
                       
-                                            
-                      if (fieldtrip.getStatus().equalsIgnoreCase("") || !fieldtrip.getStatus().isEmpty()) {
-                          out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-teal-100 text-teal-800 text-xs rounded-full'>"
-                                        + fieldtrip.getStatus()
+                      
+                      if (fieldtrip.getStatus().equalsIgnoreCase("pending")) {
+                          out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-green-100 text-green-800 text-xs rounded-full'>"
+                                        + "Pending"
                                         + "</span>");
                       }
-                                     
+                      
+                      if (fieldtrip.getStatus().equalsIgnoreCase("formClosed")) {
+                          out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-yellow-100 text-yellow-800 text-xs rounded-full'>"
+                                        + "Form is closed"
+                                        + "</span>");
+                      }
+                      
+                      if (fieldtrip.getStatus().equalsIgnoreCase("ongoing")) {
+                          out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-red-100 text-red-800 text-xs rounded-full'>"
+                                        + "Ongoing"
+                                        + "</span>");
+                      }
+                                 
+                      if (fieldtrip.getStatus().equalsIgnoreCase("finished")) {
+                          out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-gray-100 text-gray-800 text-xs rounded-full'>"
+                                        + "Finished"
+                                        + "</span>");
+                      }
+                         
                         out.print("</h3><div class='flex items-start space-x-3'><div class='mt-0.5'><span class='sr-only'>"
                                         + "</span><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='text-gray-400 w-5 h-5'>"
                                         + "  <path fill-rule='evenodd' d='M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z' clip-rule='evenodd'></path>"
@@ -437,12 +455,12 @@ Sign out</a>
                                         +"<input class='hover:bg-red-200 group flex items-center hover:text-red-900 text-red-700 block px-4 py-2 text-sm'"
                                         +"type='submit' value='Terminate'></form></span>"
                                                 
-                                        +"<form method='get' id='editfieldtrip'>"
+                                        +"<form method='get'>"
                                         + "<input type='hidden' name='FID' value = '"+ fieldtrip.getFID() + "'>"
                                         +"<input type='hidden' name='action' value='editfieldtrip'>"
+                                        + "<input class='hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm'"
+                                        +"type='submit' value='Edit'>"
                                         + "</form>"
-                                        +"<span><button form='editfieldtrip' class='hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm'"
-                                        +"type='submit'>Edit</button></span>"
                                         +"</div>"                                             
                                         + "</li>"
                             + "");

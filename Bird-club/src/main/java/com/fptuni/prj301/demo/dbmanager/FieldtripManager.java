@@ -14,21 +14,24 @@ import java.util.List;
 
 public class FieldtripManager {
     Tools tool = new Tools();
-    public List<Fieldtrip> getRecords(int skip, int numOfRow, String status, String category) throws ClassNotFoundException {  
+    public List<Fieldtrip> getRecords(int skip, int numOfRow, String status, String sortCategory) throws ClassNotFoundException {  
         List<Fieldtrip> list = new ArrayList<>();        
-        String sql = "SELECT * FROM FieldTrip WHERE status=? ORDER BY "+category; 
+        String sql = "SELECT * FROM FieldTrip "; 
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps;
-            if (numOfRow==10) {
-                sql=sql+" OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
-                ps = conn.prepareStatement(sql);     
-                ps.setInt(1, skip);
-                ps.setInt(2, numOfRow);
+            if (numOfRow==10 && !status.isEmpty()) {
+                sql=sql+"WHERE status=? "
+                        + " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY"
+                        + "ORDER BY "+sortCategory+"DESC";
+                ps = conn.prepareStatement(sql);   
+                ps.setString(1, status);
+                ps.setInt(2, skip);
+                ps.setInt(3, numOfRow);
             }
             else {
+                sql=sql+"ORDER BY "+sortCategory+" DESC";
                 ps = conn.prepareStatement(sql);
-                ps.setString(1, status);
             }     
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -155,7 +158,7 @@ public class FieldtripManager {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(2, FID);
-            ps.setString(1, "form closed");
+            ps.setString(1, "formClosed");
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Failed to close form due to internal error :(" + ex.getMessage());

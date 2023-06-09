@@ -1,3 +1,4 @@
+<%@page import="com.fptuni.prj301.demo.model.Fieldtrip"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="h-full bg-gray-100"><head><style type="text/css" data-tag-name="trix-editor">trix-editor {
@@ -84,11 +85,6 @@ trix-toolbar [data-trix-dialog] [data-trix-validate]:invalid {
   transform: translate3d(0, 0, 0);
 }
 </style>
-  
-  
-
-  
-  
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="stylesheet" href="https://www.bird.club/assets/application-e28f118614ca4a1f17d351ebc8dde1991c2801620fc57b5bed8bdf702a5f10e7.css" data-turbo-track="reload">
 <link rel="stylesheet" href="https://www.bird.club/assets/lightbox-020432d3fc86fbb4b2dd26e6a1f8875311d74ec975db9bc2b15108926f952e7f.css" data-turbo-track="reload">
@@ -99,18 +95,8 @@ trix-toolbar [data-trix-dialog] [data-trix-validate]:invalid {
 <script src="https://www.bird.club/assets/activestorage-2be1208d0cfd359f5a555fbc65d29e0aa9ce544d38844eb59aef0f1213e55ade.js" data-turbo-track="reload" defer="defer"></script>
 <script src="https://www.bird.club/assets/actioncable-ca0a4aee29ae2d01089a4d5e10d0540c43c8e2038d85819b59029ddfa4ca5da5.js" data-turbo-track="reload" defer="defer"></script>
 <script src="https://www.bird.club/assets/actiontext-acde4d42660203a68336896e9c2d2c9865fd2ccc999f75671d83415e7c98c99e.js" data-turbo-track="reload" defer="defer"></script>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <script defer="" data-domain="bird.club" src="https://plausible.io/js/plausible.js"></script>
-<title>Edit Settings · BirdClub</title><meta name="csrf-param" content="authenticity_token"><meta name="csrf-token" content="49sxdQ85g0LxLl4lQRjbW3ADrwu-Y5fcG_7_kePOxck14HeZS_ktOiHOrrqyKzsFEHQGbzxVwIKljjtXyjaQDg"><meta name="action-cable-url" content="wss://www.bird.club/cable"><link rel="stylesheet" href="https://rsms.me/inter/inter.css"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=M4K5PaEa4d"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=M4K5PaEa4d"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=M4K5PaEa4d"><link rel="manifest" href="/site.webmanifest?v=M4K5PaEa4d"><link rel="mask-icon" href="/safari-pinned-tab.svg?v=M4K5PaEa4d" color="#5bbad5"><link rel="shortcut icon" href="/favicon.ico?v=M4K5PaEa4d"><meta name="msapplication-TileColor" content="#0d9488"><meta name="theme-color" content="#ffffff"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"></head>
+<script defer="" data-domain="bird.club" src="https://plausible.io/js/plausible.js"></script>
+<title>Details</title><meta name="csrf-param" content="authenticity_token"><meta name="csrf-token" content="49sxdQ85g0LxLl4lQRjbW3ADrwu-Y5fcG_7_kePOxck14HeZS_ktOiHOrrqyKzsFEHQGbzxVwIKljjtXyjaQDg"><meta name="action-cable-url" content="wss://www.bird.club/cable"><link rel="stylesheet" href="https://rsms.me/inter/inter.css"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=M4K5PaEa4d"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=M4K5PaEa4d"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=M4K5PaEa4d"><link rel="manifest" href="/site.webmanifest?v=M4K5PaEa4d"><link rel="mask-icon" href="/safari-pinned-tab.svg?v=M4K5PaEa4d" color="#5bbad5"><link rel="shortcut icon" href="/favicon.ico?v=M4K5PaEa4d"><meta name="msapplication-TileColor" content="#0d9488"><meta name="theme-color" content="#ffffff"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"></head>
 
   <body class="h-full font-sans">
     <nav class="bg-white" data-controller="navbar">
@@ -298,9 +284,12 @@ Sign out</a>
   <div class="bg-white shadow sm:rounded-lg">
     <div class="bg-white sm:rounded-b-lg sm:rounded-t-lg">
       
+        <%! Fieldtrip fieldtrip; %>
+        <% fieldtrip = (Fieldtrip) request.getAttribute("fieldtrip"); %>
+        
         <div class="p-6">
           <div class="space-y-8 divide-y divide-gray-200">
-            <form data-turbo="false" class="edit_member" id="edit_member" enctype="multipart/form-data" action="/members" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="put" autocomplete="off"><input type="hidden" name="authenticity_token" value="nWYgoAjZM4RgH0g5TTCbnJvJNaD_eMdqd8UNCfdQE_9I8m9cALaFjZq_p_Bkj3whYwcoVFdugwtPeGFWjUC55A" autocomplete="off">
+              <form class="edit_member" id="edit">
               <turbo-frame id="flash"></turbo-frame>
               <div>
                 <div>
@@ -309,178 +298,75 @@ Sign out</a>
                 </div>
                 <div class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-y-6 gap-x-4 sm:grid-cols-8">
                   <div class="col-span-1 sm:col-span-4 md:col-span-3 grid grid-cols-4 gap-4">
-                    <div class="col-span-2">
-                      <label class="block text-sm font-medium text-gray-700" for="member_first_name">Username</label>
+                      
+                    <div class="col-span-3">
+                      <label class="block text-sm font-medium text-gray-700" for="name">Name</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value="Kaedehara" name="member[first_name]" id="member_first_name">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'"+fieldtrip.getName()+"'"); %> name="name" id="name">
                       </div>
                     </div>
-                    <div class="col-span-2">
-                      <label class="block text-sm font-medium text-gray-700" for="member_surname">Full name</label>
+                      
+                      <div class="col-span-1">
+                      <label class="block text-sm font-medium text-gray-700" for="LID">LID</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value="Yamamoto" name="member[surname]" id="member_surname">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+fieldtrip.getLID()+"'"); %> name="LID" id="LID">
                       </div>
                     </div>
-                    <div class="col-span-2">
-                      <label class="block text-sm font-medium text-gray-700" for="member_email">Email</label>
+                      
+                    <div class="col-span-1">
+                      <label class="block text-sm font-medium text-gray-700" for="startDate">Start date</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="email" value="kaedeharayamamoto@gmail.com" name="member[email]" id="member_email">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+fieldtrip.getStartDate()+"'"); %> name="startDate" id="startDate">
                       </div>
                     </div>
-                    <div class="col-span-2 hidden">
-                      <label class="block text-sm font-medium text-gray-700" for="member_time_zone">Time zone</label>
+    
+                    <div class="col-span-1">
+                      <label class="block text-sm font-medium text-gray-700" for="endDate">End date</label>
                       <div class="mt-1">
-                        <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="member[time_zone]" id="member_time_zone"><option value="International Date Line West">(GMT-12:00) International Date Line West</option>
-<option value="American Samoa">(GMT-11:00) American Samoa</option>
-<option value="Midway Island">(GMT-11:00) Midway Island</option>
-<option value="Hawaii">(GMT-10:00) Hawaii</option>
-<option value="Alaska">(GMT-09:00) Alaska</option>
-<option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-<option value="Tijuana">(GMT-08:00) Tijuana</option>
-<option value="Arizona">(GMT-07:00) Arizona</option>
-<option value="Mazatlan">(GMT-07:00) Mazatlan</option>
-<option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-<option value="Central America">(GMT-06:00) Central America</option>
-<option value="Central Time (US &amp; Canada)">(GMT-06:00) Central Time (US &amp; Canada)</option>
-<option value="Chihuahua">(GMT-06:00) Chihuahua</option>
-<option value="Guadalajara">(GMT-06:00) Guadalajara</option>
-<option value="Mexico City">(GMT-06:00) Mexico City</option>
-<option value="Monterrey">(GMT-06:00) Monterrey</option>
-<option value="Saskatchewan">(GMT-06:00) Saskatchewan</option>
-<option value="Bogota">(GMT-05:00) Bogota</option>
-<option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-<option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-<option value="Lima">(GMT-05:00) Lima</option>
-<option value="Quito">(GMT-05:00) Quito</option>
-<option value="Atlantic Time (Canada)">(GMT-04:00) Atlantic Time (Canada)</option>
-<option value="Caracas">(GMT-04:00) Caracas</option>
-<option value="Georgetown">(GMT-04:00) Georgetown</option>
-<option value="La Paz">(GMT-04:00) La Paz</option>
-<option value="Puerto Rico">(GMT-04:00) Puerto Rico</option>
-<option value="Santiago">(GMT-04:00) Santiago</option>
-<option value="Newfoundland">(GMT-03:30) Newfoundland</option>
-<option value="Brasilia">(GMT-03:00) Brasilia</option>
-<option value="Buenos Aires">(GMT-03:00) Buenos Aires</option>
-<option value="Greenland">(GMT-03:00) Greenland</option>
-<option value="Montevideo">(GMT-03:00) Montevideo</option>
-<option value="Mid-Atlantic">(GMT-02:00) Mid-Atlantic</option>
-<option value="Azores">(GMT-01:00) Azores</option>
-<option value="Cape Verde Is.">(GMT-01:00) Cape Verde Is.</option>
-<option value="Edinburgh">(GMT+00:00) Edinburgh</option>
-<option value="Lisbon">(GMT+00:00) Lisbon</option>
-<option selected="selected" value="London">(GMT+00:00) London</option>
-<option value="Monrovia">(GMT+00:00) Monrovia</option>
-<option value="UTC">(GMT+00:00) UTC</option>
-<option value="Amsterdam">(GMT+01:00) Amsterdam</option>
-<option value="Belgrade">(GMT+01:00) Belgrade</option>
-<option value="Berlin">(GMT+01:00) Berlin</option>
-<option value="Bern">(GMT+01:00) Bern</option>
-<option value="Bratislava">(GMT+01:00) Bratislava</option>
-<option value="Brussels">(GMT+01:00) Brussels</option>
-<option value="Budapest">(GMT+01:00) Budapest</option>
-<option value="Casablanca">(GMT+01:00) Casablanca</option>
-<option value="Copenhagen">(GMT+01:00) Copenhagen</option>
-<option value="Dublin">(GMT+01:00) Dublin</option>
-<option value="Ljubljana">(GMT+01:00) Ljubljana</option>
-<option value="Madrid">(GMT+01:00) Madrid</option>
-<option value="Paris">(GMT+01:00) Paris</option>
-<option value="Prague">(GMT+01:00) Prague</option>
-<option value="Rome">(GMT+01:00) Rome</option>
-<option value="Sarajevo">(GMT+01:00) Sarajevo</option>
-<option value="Skopje">(GMT+01:00) Skopje</option>
-<option value="Stockholm">(GMT+01:00) Stockholm</option>
-<option value="Vienna">(GMT+01:00) Vienna</option>
-<option value="Warsaw">(GMT+01:00) Warsaw</option>
-<option value="West Central Africa">(GMT+01:00) West Central Africa</option>
-<option value="Zagreb">(GMT+01:00) Zagreb</option>
-<option value="Zurich">(GMT+01:00) Zurich</option>
-<option value="Athens">(GMT+02:00) Athens</option>
-<option value="Bucharest">(GMT+02:00) Bucharest</option>
-<option value="Cairo">(GMT+02:00) Cairo</option>
-<option value="Harare">(GMT+02:00) Harare</option>
-<option value="Helsinki">(GMT+02:00) Helsinki</option>
-<option value="Jerusalem">(GMT+02:00) Jerusalem</option>
-<option value="Kaliningrad">(GMT+02:00) Kaliningrad</option>
-<option value="Kyiv">(GMT+02:00) Kyiv</option>
-<option value="Pretoria">(GMT+02:00) Pretoria</option>
-<option value="Riga">(GMT+02:00) Riga</option>
-<option value="Sofia">(GMT+02:00) Sofia</option>
-<option value="Tallinn">(GMT+02:00) Tallinn</option>
-<option value="Vilnius">(GMT+02:00) Vilnius</option>
-<option value="Baghdad">(GMT+03:00) Baghdad</option>
-<option value="Istanbul">(GMT+03:00) Istanbul</option>
-<option value="Kuwait">(GMT+03:00) Kuwait</option>
-<option value="Minsk">(GMT+03:00) Minsk</option>
-<option value="Moscow">(GMT+03:00) Moscow</option>
-<option value="Nairobi">(GMT+03:00) Nairobi</option>
-<option value="Riyadh">(GMT+03:00) Riyadh</option>
-<option value="St. Petersburg">(GMT+03:00) St. Petersburg</option>
-<option value="Volgograd">(GMT+03:00) Volgograd</option>
-<option value="Tehran">(GMT+03:30) Tehran</option>
-<option value="Abu Dhabi">(GMT+04:00) Abu Dhabi</option>
-<option value="Baku">(GMT+04:00) Baku</option>
-<option value="Muscat">(GMT+04:00) Muscat</option>
-<option value="Samara">(GMT+04:00) Samara</option>
-<option value="Tbilisi">(GMT+04:00) Tbilisi</option>
-<option value="Yerevan">(GMT+04:00) Yerevan</option>
-<option value="Kabul">(GMT+04:30) Kabul</option>
-<option value="Ekaterinburg">(GMT+05:00) Ekaterinburg</option>
-<option value="Islamabad">(GMT+05:00) Islamabad</option>
-<option value="Karachi">(GMT+05:00) Karachi</option>
-<option value="Tashkent">(GMT+05:00) Tashkent</option>
-<option value="Chennai">(GMT+05:30) Chennai</option>
-<option value="Kolkata">(GMT+05:30) Kolkata</option>
-<option value="Mumbai">(GMT+05:30) Mumbai</option>
-<option value="New Delhi">(GMT+05:30) New Delhi</option>
-<option value="Sri Jayawardenepura">(GMT+05:30) Sri Jayawardenepura</option>
-<option value="Kathmandu">(GMT+05:45) Kathmandu</option>
-<option value="Almaty">(GMT+06:00) Almaty</option>
-<option value="Astana">(GMT+06:00) Astana</option>
-<option value="Dhaka">(GMT+06:00) Dhaka</option>
-<option value="Urumqi">(GMT+06:00) Urumqi</option>
-<option value="Rangoon">(GMT+06:30) Rangoon</option>
-<option value="Bangkok">(GMT+07:00) Bangkok</option>
-<option value="Hanoi">(GMT+07:00) Hanoi</option>
-<option value="Jakarta">(GMT+07:00) Jakarta</option>
-<option value="Krasnoyarsk">(GMT+07:00) Krasnoyarsk</option>
-<option value="Novosibirsk">(GMT+07:00) Novosibirsk</option>
-<option value="Beijing">(GMT+08:00) Beijing</option>
-<option value="Chongqing">(GMT+08:00) Chongqing</option>
-<option value="Hong Kong">(GMT+08:00) Hong Kong</option>
-<option value="Irkutsk">(GMT+08:00) Irkutsk</option>
-<option value="Kuala Lumpur">(GMT+08:00) Kuala Lumpur</option>
-<option value="Perth">(GMT+08:00) Perth</option>
-<option value="Singapore">(GMT+08:00) Singapore</option>
-<option value="Taipei">(GMT+08:00) Taipei</option>
-<option value="Ulaanbaatar">(GMT+08:00) Ulaanbaatar</option>
-<option value="Osaka">(GMT+09:00) Osaka</option>
-<option value="Sapporo">(GMT+09:00) Sapporo</option>
-<option value="Seoul">(GMT+09:00) Seoul</option>
-<option value="Tokyo">(GMT+09:00) Tokyo</option>
-<option value="Yakutsk">(GMT+09:00) Yakutsk</option>
-<option value="Adelaide">(GMT+09:30) Adelaide</option>
-<option value="Darwin">(GMT+09:30) Darwin</option>
-<option value="Brisbane">(GMT+10:00) Brisbane</option>
-<option value="Canberra">(GMT+10:00) Canberra</option>
-<option value="Guam">(GMT+10:00) Guam</option>
-<option value="Hobart">(GMT+10:00) Hobart</option>
-<option value="Melbourne">(GMT+10:00) Melbourne</option>
-<option value="Port Moresby">(GMT+10:00) Port Moresby</option>
-<option value="Sydney">(GMT+10:00) Sydney</option>
-<option value="Vladivostok">(GMT+10:00) Vladivostok</option>
-<option value="Magadan">(GMT+11:00) Magadan</option>
-<option value="New Caledonia">(GMT+11:00) New Caledonia</option>
-<option value="Solomon Is.">(GMT+11:00) Solomon Is.</option>
-<option value="Srednekolymsk">(GMT+11:00) Srednekolymsk</option>
-<option value="Auckland">(GMT+12:00) Auckland</option>
-<option value="Fiji">(GMT+12:00) Fiji</option>
-<option value="Kamchatka">(GMT+12:00) Kamchatka</option>
-<option value="Marshall Is.">(GMT+12:00) Marshall Is.</option>
-<option value="Wellington">(GMT+12:00) Wellington</option>
-<option value="Chatham Is.">(GMT+12:45) Chatham Is.</option>
-<option value="Nuku'alofa">(GMT+13:00) Nuku'alofa</option>
-<option value="Samoa">(GMT+13:00) Samoa</option>
-<option value="Tokelau Is.">(GMT+13:00) Tokelau Is.</option></select>
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+fieldtrip.getEndDate()+"'"); %> name="endDate" id="endDate">
+                      </div>
+                    </div>
+                      
+<!--                      
+                    <div class="col-span-2">
+                   <label class="block text-sm font-medium text-gray-700" for="image">image</label>
+                    <div class="mt-1">
+                     <input accept="image/jpg,image/jpeg,image/png" class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" type="file" name="image" id="image">
+                    </div></div>-->
+    
+                      <div class="sm:col-span-4 md:col-span-2">
+                    <label class="block text-sm font-medium text-gray-700" for="description">Description</label>
+                    <div class="mt-1">
+                      <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="description"  id="description"><% out.print(fieldtrip.getDescription()); %></textarea>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-500">A brief description of the field trip</p>
+                  </div>
+                      
+                    <div class="col-span-1">
+                      <label class="block text-sm font-medium text-gray-700" for="status">status</label>
+                      <div class="mt-1">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+fieldtrip.getStatus()+"'"); %> name="status" id="status">
+                      </div>
+                    </div>
+    
+                <div class="col-span-1">
+                      <label class="block text-sm font-medium text-gray-700" for="fee">Participation fee</label>
+                      <div class="mt-1">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+fieldtrip.getFee()+"'"); %> name="fee" id="fee">
+                      </div>
+                    </div>
+    
+                   <div class="col-span-1">
+                      <label class="block text-sm font-medium text-gray-700" for="registrationDeadline">Registration deadline</label>
+                      <div class="mt-1">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+fieldtrip.getRegistrationDeadline()+"'"); %> name="registrationDeadline" id="registrationDeadline">
+                      </div>
+                    </div>
+    
+                    <div class="col-span-1">
+                      <label class="block text-sm font-medium text-gray-700" for="numberOfParticipant">Max number of participants</label>
+                      <div class="mt-1">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+fieldtrip.getNumberOfParticipant()+"'"); %> name="numberOfParticipant" id="numberOfParticipant">
                       </div>
                     </div>
                   </div>
@@ -492,10 +378,8 @@ Sign out</a>
                         <div class="flex items-center">
                           <div class="flex-shrink-0 inline-block rounded-full overflow-hidden h-12 w-12" aria-hidden="true">
                             <div class="w-12 h-12 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden  flex-shrink-0">
-  <img src="https://www.bird.club/assets/avatars/raven-fcf919bd3575083b93e6c2e97c49df2320e84254f6cd2f7656273601d1ddc12b.png">
-</div>
-
-                          </div>
+                            <img src="https://www.bird.club/assets/avatars/raven-fcf919bd3575083b93e6c2e97c49df2320e84254f6cd2f7656273601d1ddc12b.png">
+                          </div></div>
                           <div class="ml-5 rounded-md shadow-sm">
                             <div class="group relative border border-gray-300 rounded-md py-2 px-3 flex items-center justify-center hover:bg-gray-50 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-sky-500">
                               <label for="mobile-user-photo" class="relative text-sm leading-4 font-medium text-gray-700 pointer-events-none">
@@ -503,42 +387,32 @@ Sign out</a>
                                 <span class="sr-only"> user photo</span>
                               </label>
                               <input class="absolute w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-md block text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" type="file" name="member[photo]" id="member_photo">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                            </div></div></div></div>
 
                       <div class="hidden relative rounded-full overflow-hidden lg:block col-span-2 sm:col-span-4">
                         <div class="w-40 h-40 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden  flex-shrink-0">
-  <img src="https://www.bird.club/assets/avatars/raven-fcf919bd3575083b93e6c2e97c49df2320e84254f6cd2f7656273601d1ddc12b.png">
+  <img src="images/fumo.jpg">
 </div>
 
                         <label for="desktop-user-photo" class="absolute inset-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center text-sm font-medium text-white opacity-0 hover:opacity-100 focus-within:opacity-100">
                           <span>Change</span>
                           <span class="sr-only"> user photo</span>
                           <input class="absolute inset-0 w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-md block text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" type="file" name="member[photo]" id="member_photo">
-                        </label>
-                      </div>
+                        </label></div>
                     </div>
                   </div>
-
-                  <div class="sm:col-span-4 md:col-span-3">
-                    <label class="block text-sm font-medium text-gray-700" for="member_about">Description</label>
-                    <div class="mt-1">
-                      <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="member[about]" id="member_about"></textarea>
-                    </div>
-                    <p class="mt-2 text-sm text-gray-500">A brief description of the field trip</p>
-                  </div>
+                    
                 </div>
                 <div class="pt-5">
                   <div class="flex justify-end">
-                      <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
-    Update
-</button>
+                      <input type="hidden" name="action" value="updatefieldtrip">
+                      <input type="hidden" name="FID" value=<% out.print("'"+fieldtrip.getFID()+"'"); %>>
                   </div>
                 </div>
               </div>
 </form>            
+                      <button type="submit" form="edit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+    Update</button>
 
           </div>
 

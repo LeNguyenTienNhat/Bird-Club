@@ -27,7 +27,7 @@ public class StaffEvents extends HttpServlet {
         //View all events
          if (action == null || action.equals("viewevents")) {
                 //display fieldtrips
-                List<Fieldtrip> eventsList = manager.getRecords(0, 0, "pending", "FID");
+                List<Fieldtrip> eventsList = manager.getRecords(0, 0, null, "startDate");
                 request.setAttribute("eventsList", eventsList);
                 
                 RequestDispatcher rd = request.getRequestDispatcher("staff_events.jsp");
