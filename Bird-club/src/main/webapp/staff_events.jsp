@@ -461,6 +461,14 @@ Sign out</a>
                                         + "<input class='hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm'"
                                         +"type='submit' value='Edit'>"
                                         + "</form>"
+                                                
+                                        +"<form method='get'>"
+                                        + "<input type='hidden' name='FID' value = '"+ fieldtrip.getFID() + "'>"
+                                        +"<input type='hidden' name='action' value='closeform'>"
+                                        + "<input class='hover:bg-gray-100 group flex items-center hover:text-yellow-900 text-yellow-700 block px-4 py-2 text-sm'"
+                                        +"type='submit' value='Close application form'>"
+                                        + "</form>"
+                                                
                                         +"</div>"                                             
                                         + "</li>"
                             + "");
