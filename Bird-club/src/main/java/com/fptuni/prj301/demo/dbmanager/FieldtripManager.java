@@ -44,6 +44,7 @@ public class FieldtripManager {
                 fieldtrip.setStatus(rs.getString("status"));
                 fieldtrip.setFee(rs.getInt("fee"));
                 fieldtrip.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                fieldtrip.setCategory("Field trip");
                 list.add(fieldtrip);
             }
             return list;
@@ -102,6 +103,7 @@ public class FieldtripManager {
                 fieldtrip.setStatus(rs.getString("status"));
                 fieldtrip.setFee(rs.getInt("fee"));
                 fieldtrip.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                fieldtrip.setCategory("Field trip");
                 return fieldtrip;
                }
         }
@@ -146,6 +148,20 @@ public class FieldtripManager {
             System.out.println("Failed to ternimate due to internal error :(" + ex.getMessage());
         }
     }
+    
+    public void closeForm(String FID) {
+        String sql = "UPDATE FieldTrip SET status = ? WHERE FID = ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(2, FID);
+            ps.setString(1, "form closed");
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Failed to close form due to internal error :(" + ex.getMessage());
+        }
+    }
+    
     
     public void remove(String FID) {
         String sql = "DELETE FROM FieldTrip WHERE FID = ?";

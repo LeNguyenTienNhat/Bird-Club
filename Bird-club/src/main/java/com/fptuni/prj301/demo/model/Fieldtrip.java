@@ -12,6 +12,7 @@ public class Fieldtrip {
     private String status;
     private int fee;
     private int numberOfParticipant;
+    private String category;
 
     public Fieldtrip(String FID, String name, String description, String registrationDeadline, String startDate, String endDate, String LID, String status, int fee, int numberOfParticipant) {
         this.FID = FID;
@@ -29,7 +30,13 @@ public class Fieldtrip {
     public Fieldtrip() {
     }
 
-    
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
     
     public String getFID() {
         return FID;

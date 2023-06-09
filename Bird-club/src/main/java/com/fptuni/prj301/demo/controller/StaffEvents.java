@@ -29,6 +29,7 @@ public class StaffEvents extends HttpServlet {
                 //display fieldtrips
                 List<Fieldtrip> eventsList = manager.getRecords(0, 0, "pending", "FID");
                 request.setAttribute("eventsList", eventsList);
+                
                 RequestDispatcher rd = request.getRequestDispatcher("staff_events.jsp");
                 rd.forward(request, response);
             }
@@ -97,10 +98,21 @@ public class StaffEvents extends HttpServlet {
             rd.forward(request, response);
             }
          
+         //Close registration form of a fieldtrip
+         else if (action.equals("closeform")) {
+            String FID = request.getParameter("FID");
+            manager.closeForm(FID);
+
+            request.setAttribute("action","viewevents");
+            RequestDispatcher rd = request.getRequestDispatcher("StaffEvents");
+            rd.forward(request, response);
+            }
+         
          //View a fieldtrip's details
             else if (action.equals("editfieldtrip")) {
                 String FID = request.getParameter("FID");
                 Fieldtrip fieldtrip = manager.load(FID);
+                fieldtrip.setCategory("Field trip");
                 
                 request.setAttribute("fieldtrip", fieldtrip);
                 RequestDispatcher rd = request.getRequestDispatcher("staff_fieldtrip_details.jsp");
