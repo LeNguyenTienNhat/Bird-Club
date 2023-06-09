@@ -1,0 +1,34 @@
+INSERT INTO [Bird] (BID,UID, name, age, gender, description, imageURL, color, addDate)
+VALUES ('BID0','UID0', 'Albedo', '2', 'male', 'null', 'null', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID1','UID1', 'Alhaitham', '4', 'male', 'null', 'null', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID2','UID1', 'Aloy', '2', 'female', 'null', 'null', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID3','UID2', 'Amber', '5', 'female', 'null', 'null', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID4','UID3', 'Baizhu', '2', 'male', 'null', 'null', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID5','UID4', 'Barbara', '4', 'female', 'null', 'null', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID6','UID5', 'Beidou', '4', 'female', 'null', 'null', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID7','UID5', 'Bennett', '9', 'male', 'null', 'null', 'red', GETDATE());
+INSERT INTO [Bird]
+VALUES ('BID8','UID6', 'Candace', '6', 'female', 'null', 'null', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID9','UID6', 'Chongyun', '4', 'male', 'null', 'null', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID10','UID7', 'Collei', '4', 'female', 'null', 'null', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID11','UID7', 'Cyno', '8', 'male', 'null', 'null', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID12','UID8', 'Dehya', '1', 'female', 'null', 'null', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID13','UID8', 'Diluc', '7', 'male', 'null', 'null', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID14','UID9', 'Diona', '6', 'female', 'null', 'null', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID15','UID9', 'Dori', '9', 'female', 'null', 'null', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID16','UID9', 'Eula', '6', 'female', 'null', 'null', 'red', GETDATE());
