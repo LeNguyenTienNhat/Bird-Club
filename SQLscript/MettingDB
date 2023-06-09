@@ -1,0 +1,12 @@
+INSERT INTO [Meeting] (MeID, name, description, registrationDeadline, status, LID, startDate, endDate, numberOfParticipant)
+VALUES ('MeID0','Meeting Q1', 'null', '2022-01-04', 'finished', 'null', '2022-01-11', '2022-01-12', 20);
+INSERT INTO [Meeting]
+VALUES ('MeID1','Meeting Q3', 'null', '2022-06-28', 'finished', 'null', '2022-07-05', '2022-07-06', 20);
+INSERT INTO [Meeting]
+VALUES ('MeID2','Meeting Q6', 'null', '2023-01-16', 'pending', 'null', '2023-01-23', '2023-01-24', 20);
+INSERT INTO [Meeting]
+VALUES ('MeID3','Meeting Q9', 'null', '2023-04-19', 'pending', 'null', '2023-04-26', '2023-04-27', 20);
+INSERT INTO [Meeting]
+VALUES ('MeID4','Meeting Q12', 'null', '2023-07-02', 'formClosed', 'null', '2023-07-09', '2023-07-10', 20);
+INSERT INTO [Meeting]
+VALUES ('MeID5','Meeting Q10', 'null', '2023-06-07', 'ongoing', 'null', '2023-06-14', GETDATE(), 20);
