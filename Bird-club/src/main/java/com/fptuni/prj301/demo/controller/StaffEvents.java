@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class StaffEvents extends HttpServlet {
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
@@ -25,7 +26,7 @@ public class StaffEvents extends HttpServlet {
         Tools tool = new Tools();
         FieldtripManager eventsManager = new FieldtripManager();
         MeetingManager meetingManager = new MeetingManager();
-        
+                
         //View all events
          if (action == null || action.equals("viewevents")) {
                 //display fieldtrips
@@ -115,13 +116,8 @@ public class StaffEvents extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("staff_fieldtrip_details.jsp");
                 rd.forward(request, response);
             }
-         
-         
-         else if (action.equals("test")) {
-             response.sendRedirect("test.html");
-         }
-         
-         //Add a meeting            
+
+            //Add a meeting            
             else if (action.equals("addmeeting")) {
                 String FID = tool.generateID("Meeting", "MeID");
                 String name = request.getParameter("name");
