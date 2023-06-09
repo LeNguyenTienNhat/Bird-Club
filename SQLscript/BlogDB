@@ -1,0 +1,23 @@
+INSERT INTO [Blog] (BID, description, category, uploadDate, UID, vote)
+VALUES ('BID0', 'null', 'null','2023-01-04','UID1',20)
+INSERT INTO [Blog]
+VALUES ('BID1', 'null', 'null','2023-01-08','UID1',6)
+INSERT INTO [Blog]
+VALUES ('BID2', 'null', 'null','2023-01-15','UID3',36)
+INSERT INTO [Blog]
+VALUES ('BID3', 'null', 'null','2023-01-16','UID9',12)
+INSERT INTO [Blog]
+VALUES ('BID4', 'null', 'null','2023-02-03','UID5',12)
+INSERT INTO [Blog]
+VALUES ('BID5', 'null', 'null','2023-02-03','UID6',25)
+INSERT INTO [Blog]
+VALUES ('BID6', 'null', 'null','2023-02-25','UID4',19)
+INSERT INTO [Blog]
+VALUES ('BID7', 'null', 'null','2023-02-26','UID8',2)
+INSERT INTO [Blog]
+VALUES ('BID8', 'null', 'null','2023-03-25','UID5',23)
+INSERT INTO [Blog]
+VALUES ('BID9', 'null', 'null','2023-04-22','UID5',44)
+INSERT INTO [Blog]
+VALUES ('BID10', 'null', 'null','2023-06-04','UID2',5)
+
