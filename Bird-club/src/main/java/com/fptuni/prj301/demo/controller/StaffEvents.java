@@ -2,8 +2,9 @@
 package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.FieldtripManager;
+import com.fptuni.prj301.demo.dbmanager.MeetingManager;
 import com.fptuni.prj301.demo.model.Fieldtrip;
-import com.fptuni.prj301.demo.model.Media;
+import com.fptuni.prj301.demo.model.Meeting;
 import com.fptuni.prj301.demo.utils.Tools;
 import java.io.IOException;
 import java.text.ParseException;
@@ -22,19 +23,23 @@ public class StaffEvents extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("action");
         Tools tool = new Tools();
-        FieldtripManager manager = new FieldtripManager();
+        FieldtripManager eventsManager = new FieldtripManager();
+        MeetingManager meetingManager = new MeetingManager();
         
         //View all events
          if (action == null || action.equals("viewevents")) {
                 //display fieldtrips
-                List<Fieldtrip> eventsList = manager.getRecords(0, 0, null, "startDate");
+                List<Fieldtrip> eventsList = eventsManager.getRecords(0, 0, null, "startDate");
                 request.setAttribute("eventsList", eventsList);
+                //display meetings
+                List<Meeting> meetingsList = meetingManager.getRecords(0, 0, null, "startDate");
+                request.setAttribute("meetingsList", meetingsList);
                 
                 RequestDispatcher rd = request.getRequestDispatcher("staff_events.jsp");
                 rd.forward(request, response);
             }
         
-        //Add a fieldtrip            
+        //Add a field trip            
             else if (action.equals("addfieldtrip")) {
                 String FID = tool.generateID("FieldTrip", "FID");
                 String name = request.getParameter("name");
@@ -50,14 +55,14 @@ public class StaffEvents extends HttpServlet {
                 int numberOfParticipant = Integer.parseInt(request.getParameter("numberOfParticipant"));
                 Fieldtrip fieldtrip = new Fieldtrip(FID, name, description, registrationDeadline, 
                          startDate, endDate, LID, status, fee, numberOfParticipant);
-                manager.insert(fieldtrip);
+                eventsManager.insert(fieldtrip);
                 
                 request.setAttribute("action","viewevents");
                 RequestDispatcher rd = request.getRequestDispatcher("StaffEvents");
                 rd.forward(request, response);
             }
          
-         //Update a fieldtrip's details
+         //Update a field trip's details
          else if (action.equals("updatefieldtrip")) {
                 String FID = request.getParameter("FID");
                 String name = request.getParameter("name");
@@ -68,50 +73,42 @@ public class StaffEvents extends HttpServlet {
                 String endDate  = tool.convertDateFormat(request.getParameter("endDate"));
                 
                 String LID = request.getParameter("LID");
-                String status = request.getParameter("status");
+                String status = request.getParameter("status").trim();
                 int fee = Integer.parseInt(request.getParameter("fee"));
                 int numberOfParticipant = Integer.parseInt(request.getParameter("numberOfParticipant"));
                 Fieldtrip fieldtrip = new Fieldtrip(FID, name, description, registrationDeadline, 
                          startDate, endDate, LID, status, fee, numberOfParticipant);
-                manager.update(fieldtrip);
+                eventsManager.update(fieldtrip);
                 
                 request.setAttribute("action","viewevents");
                 RequestDispatcher rd = request.getRequestDispatcher("StaffEvents");
                 rd.forward(request, response);
             }
-         
-         //Add more images to the fieldtrip
-         else if (action.equals("addfieldtripmedia")) {
-             Media image = new Media();
-             image.setFID(request.getParameter("FID"));
-             image.setURL(request.getParameter("URL"));
-             //manager.insert(image);
-         }
-         
-         //Terminate a fieldtrip
+                  
+         //Terminate a field trip
          else if (action.equals("terminatefieldtrip")) {
             String FID = request.getParameter("FID");
-            manager.terminate(FID);
+            eventsManager.terminate(FID);
 
             request.setAttribute("action","viewevents");
             RequestDispatcher rd = request.getRequestDispatcher("StaffEvents");
             rd.forward(request, response);
             }
          
-         //Close registration form of a fieldtrip
+         //Close registration form of a field trip
          else if (action.equals("closeform")) {
             String FID = request.getParameter("FID");
-            manager.closeForm(FID);
+            eventsManager.closeForm(FID);
 
             request.setAttribute("action","viewevents");
             RequestDispatcher rd = request.getRequestDispatcher("StaffEvents");
             rd.forward(request, response);
             }
          
-         //View a fieldtrip's details
+         //View a field trip's details
             else if (action.equals("editfieldtrip")) {
                 String FID = request.getParameter("FID");
-                Fieldtrip fieldtrip = manager.load(FID);
+                Fieldtrip fieldtrip = eventsManager.load(FID);
                 fieldtrip.setCategory("Field trip");
                 
                 request.setAttribute("fieldtrip", fieldtrip);
@@ -123,6 +120,109 @@ public class StaffEvents extends HttpServlet {
          else if (action.equals("test")) {
              response.sendRedirect("test.html");
          }
+         
+         //Add a meeting            
+            else if (action.equals("addmeeting")) {
+                String FID = tool.generateID("Meeting", "MeID");
+                String name = request.getParameter("name");
+                String description = request.getParameter("description");
+                
+                String registrationDeadline  = tool.convertDateFormat(request.getParameter("registrationDeadline"));
+                String startDate  = tool.convertDateFormat(request.getParameter("startDate"));
+                String endDate  = tool.convertDateFormat(request.getParameter("endDate"));
+                
+                String LID = request.getParameter("LID");
+                String status = "pending";
+                int numberOfParticipant = Integer.parseInt(request.getParameter("numberOfParticipant"));
+                Meeting meeting = new Meeting(FID, name, description, registrationDeadline, 
+                         startDate, endDate, LID, status, numberOfParticipant);
+                meetingManager.insert(meeting);
+                
+                request.setAttribute("action","viewevents");
+                RequestDispatcher rd = request.getRequestDispatcher("StaffEvents");
+                rd.forward(request, response);
+            }
+         
+         //Update a meeting's details
+         else if (action.equals("updatemeeting")) {
+                String FID = request.getParameter("MeID");
+                String name = request.getParameter("name");
+                String description = request.getParameter("description");
+                
+                String registrationDeadline  = tool.convertDateFormat(request.getParameter("registrationDeadline"));
+                String startDate  = tool.convertDateFormat(request.getParameter("startDate"));
+                String endDate  = tool.convertDateFormat(request.getParameter("endDate"));
+                
+                String LID = request.getParameter("LID");
+                String status = request.getParameter("status").trim();
+                int numberOfParticipant = Integer.parseInt(request.getParameter("numberOfParticipant"));
+                Meeting meeting = new Meeting(FID, name, description, registrationDeadline, 
+                         startDate, endDate, LID, status, numberOfParticipant);
+                meetingManager.update(meeting);
+                
+                request.setAttribute("action","viewevents");
+                RequestDispatcher rd = request.getRequestDispatcher("StaffEvents");
+                rd.forward(request, response);
+            }
+         
+         //Terminate a meeting
+         else if (action.equals("terminatemeeting")) {
+            String MeID = request.getParameter("MeID");
+            eventsManager.terminate(MeID);
+
+            request.setAttribute("action","viewevents");
+            RequestDispatcher rd = request.getRequestDispatcher("StaffEvents");
+            rd.forward(request, response);
+            }
+         
+         //Close registration form of a meeting
+         else if (action.equals("closeformmeeting")) {
+            String MeID = request.getParameter("MeID");
+            meetingManager.closeForm(MeID);
+
+            request.setAttribute("action","viewevents");
+            RequestDispatcher rd = request.getRequestDispatcher("StaffEvents");
+            rd.forward(request, response);
+            }
+         
+         //View a meeting's details
+            else if (action.equals("editmeeting")) {
+                String MeID = request.getParameter("MeID");
+                Meeting meeting = meetingManager.load(MeID);
+                meeting.setCategory("Meeting");
+                
+                request.setAttribute("meeting", meeting);
+                RequestDispatcher rd = request.getRequestDispatcher("staff_meeting_details.jsp");
+                rd.forward(request, response);
+            }
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
          
          
          
