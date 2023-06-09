@@ -1,0 +1,13 @@
+INSERT INTO [FieldTrip] (FID, name, description, registrationDeadline, startDate, endDate, LID, status, fee, numberOfParticipant)
+VALUES ('FID0','Tram Chim', 'null', '2022-01-04', '2022-01-07', '2022-01-09', 'null', 'finished', 80, 20);
+INSERT INTO [FieldTrip] 
+VALUES ('FID1','Vuon quoc gia Con Đao', 'null', '2022-06-28', '2022-07-01', '2022-07-03', 'null', 'finished', 200, 30);
+INSERT INTO [FieldTrip] 
+VALUES ('FID2','San chim Ca Mau', 'null', '2023-01-16', '2023-01-19', '2023-01-21', 'null', 'pending', 120, 20);
+INSERT INTO [FieldTrip] 
+VALUES ('FID3','Cao nguyen Langbiang', 'null', '2023-04-19', '2023-04-22', '2023-04-24', 'null', 'pending', 100, 20);
+INSERT INTO [FieldTrip] 
+VALUES ('FID4','Rung Bach Ma', 'null', '2023-07-02', '2023-07-04', '2023-07-07', 'null', 'formClosed', 140, 30);
+INSERT INTO [FieldTrip] 
+VALUES ('FID5','Thung Nham', 'null', '2023-06-07', '2023-06-09', GETDATE(), 'null', 'ongoing', 80, 20);
+
