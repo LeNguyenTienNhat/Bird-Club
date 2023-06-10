@@ -83,10 +83,13 @@
 
 
     <body class="page-template-default page page-id-1248 page-child parent-pageid-1229 wp-embed-responsive theme-green nav-column tribe-no-js">
-<!--Header-->
+        <!--Header-->
         <%@ include file="header.html" %>
-        
+
         <main id="tribe-events-pg-template" class="tribe-events-pg-template"><div class="tribe-events-before-html"></div><span class="tribe-events-ajax-loading"><img alt="Loading Events" data-src="https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/src/resources/images/tribe-loading.gif" class="tribe-events-spinner-medium lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img class="tribe-events-spinner-medium" src="https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/src/resources/images/tribe-loading.gif" alt="Loading Events" /></noscript></span>
+
+
+
 
 
             <article id="article" class="post-10000630 tribe_events type-tribe_events status-publish hentry tribe_events_cat-beginner-bird-walks cat_beginner-bird-walks tribe-recurring-event tribe-recurring-event-parent">
@@ -166,10 +169,24 @@
                                                 <dt> Time: </dt>
                                                 <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
                                                         <div class="tribe-recurring-event-time">9:30 am–10:00 pm</div></dd>
-                                                <dt>Category:</dt>Field trip</dl>
+                                                <dt>Category:</dt>Field trip</dl> 
+
                                             <div class="is-content-justification-center is-layout-flex wp-container-1 wp-block-buttons">
-                                                <div class="wp-block-button"><a class="wp-block-button__link has-orange-background-color has-background" href="">Join field trip</a></div>
+                                                <div class="wp-block-button"><a class="wp-block-button__link has-orange-background-color has-background" href="payment.jsp">Join field trip</a></div>
                                             </div>
+                                            <script>
+                                                // Lấy tham số "registerSuccess" từ URL
+                                                const urlParams = new URLSearchParams(window.location.search);
+                                                const registerSuccess = urlParams.get('registerSuccess');
+
+                                                // Kiểm tra nếu có tham số "registerSuccess" và giá trị là "true"
+                                                if (registerSuccess === 'true') {
+                                                    // Thay thế nút "Join field trip" bằng dòng chữ "Register success"
+                                                    const joinFieldTripButton = document.querySelector('.wp-block-button__link');
+                                                    joinFieldTripButton.textContent = 'Register success';
+                                                    joinFieldTripButton.removeAttribute('href');
+                                                }
+                                            </script>
                                         </div>
                                     </div>
                                 </div>
@@ -199,7 +216,7 @@
             <div class="tribe-events-after-html"></div>
 
         </main>            
-<!--Footer-->
+        <!--Footer-->
         <%@ include file="footer.html" %>
 
 

@@ -38,7 +38,10 @@
     <body>
 
         <section id="content">
-            <form method="post" action="/page/14646/donate/2" class="en__component en__component--page">
+            <form method="post" action="member_fieldtrip_details.jsp?registerSuccess=true" class="en__component en__component--page">
+                <!--
+            <form method="post" action="member_fieldtrip_details.jsp" class="en__component en__component--page">
+                -->
                 <input type="hidden" name="hidden" class="en__hiddenFields" value="">
                 <input type="hidden" name="sessionId" value="b5ce3a8c6c6442fc8fd1031ceda7c622-cac1-prd-web1">
 
@@ -76,114 +79,122 @@
                                 }
                                 --></style>
                             <div class="teg-error-tooltip">&nbsp;</div></div>
-                        
+
                     </div>
                 </div>
-                
-                    
-                    <div class="en__component en__component en__component--column en__component--column--2">
-                        <div class="en__component en__component--copyblock"
-
-                             style="
 
 
+                <div class="en__component en__component en__component--column en__component--column--2">
+                    <div class="en__component en__component--copyblock"
+
+                         style="
 
 
 
 
 
-                             "
-                             >
-                            <h3 class="Payment">Payment</h3>
+
+
+                         "
+                         >
+                        <h3 class="Payment">Payment</h3>
 
 
 
+                    </div>
+
+                    <div class="en__component en__component--formblock" style="">
+
+
+                        <div class="en__field en__field--select en__field--75025 en__field--paymenttype en__mandatory">
+
+
+
+                            <label for="en__field_transaction_paymenttype" class="en__field__label" style="">Payment Type:</label>
+
+
+                            <div class="en__field__element en__field__element--select">
+                                <select id="en__field_transaction_paymenttype" class="en__field__input en__field__input--select" name="transaction.paymenttype" required>
+                                    <option selected="selected" value="">Please Select</option>
+                                    <option value="VI">Visa</option>
+                                    <option value="MC">MasterCard</option>
+                                    <option value="DI">Discover</option>
+                                    <option value="AX">American Express</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="en__field en__field--text en__field--75027 en__field--ccnumber en__mandatory">
+                            <label for="en__field_transaction_ccnumber" class="en__field__label" style="">Credit Card Number:</label>
+                            <div class="en__field__element en__field__element--text">
+                                <input id="en__field_transaction_ccnumber" type="text" class="en__field__input en__field__input--text" name="transaction.ccnumber" value="" required />
+                            </div>
                         </div>
 
-                        <div class="en__component en__component--formblock" style="">
-
-
-                            <div class="en__field en__field--select en__field--75025 en__field--paymenttype en__mandatory">
-                                <label for="en__field_transaction_paymenttype" class="en__field__label" style="">Payment Type:</label>
-                                <div class="en__field__element en__field__element--select">
-                                    <select id="en__field_transaction_paymenttype" class="en__field__input en__field__input--select" name="transaction.paymenttype" >
-                                        <option selected="selected" value="">Please Select</option>
-                                        <option value="VI">Visa</option>
-                                        <option value="MC">MasterCard</option>
-                                        <option value="DI">Discover</option>
-                                        <option value="AX">American Express</option>
+                        <div class="en__field en__field--splitselect en__field--75026 en__field--ccexpire en__mandatory">
+                            <label for="en__field_transaction_ccexpire" class="en__field__label" style="">Card Expiration:</label>
+                            <div class="en__field__element en__field__element--splitselect">
+                                <input type="hidden" name="transaction.ccexpire.delimiter" value="">
+                                <div class="en__field__item">
+                                    <select id="en__field_transaction_ccexpire" class="en__field__input en__field__input--splitselect" name="transaction.ccexpire" required>
+                                        <option selected="selected" value="">MM</option>
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </div>
+                                <div class="en__field__item">
+                                    <select class="en__field__input en__field__input--splitselect" name="transaction.ccexpire" required>
+                                        <option value="">YYYY</option>
+                                        <option value="21">2021</option>
+                                        <option value="22">2022</option>
+                                        <option value="23">2023</option>
+                                        <option value="24">2024</option>
+                                        <option value="25">2025</option>
+                                        <option value="26">2026</option>
+                                        <option value="27">2027</option>
+                                        <option value="28">2028</option>
+                                        <option value="29">2029</option>
+                                        <option value="30">2030</option>
+                                        <option value="31">2031</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="en__field en__field--text en__field--75027 en__field--ccnumber en__mandatory">
-                                <label for="en__field_transaction_ccnumber" class="en__field__label" style="">Credit Card Number:</label>
-                                <div class="en__field__element en__field__element--text">
-                                    <input id="en__field_transaction_ccnumber" type="text" class="en__field__input en__field__input--text" name="transaction.ccnumber" value=""  />
-                                </div>
-                            </div>
-                            <div class="en__field en__field--splitselect en__field--75026 en__field--ccexpire en__mandatory">
-                                <label for="en__field_transaction_ccexpire" class="en__field__label" style="">Card Expiration:</label>
-                                <div class="en__field__element en__field__element--splitselect">
-                                    <input type="hidden" name="transaction.ccexpire.delimiter" value="">
-                                    <div class="en__field__item">
-                                        <select id="en__field_transaction_ccexpire" class="en__field__input en__field__input--splitselect" name="transaction.ccexpire" >
-                                            <option selected="selected" value="MM">MM</option>
-                                            <option value="01">01</option>
-                                            <option value="02">02</option>
-                                            <option value="03">03</option>
-                                            <option value="04">04</option>
-                                            <option value="05">05</option>
-                                            <option value="06">06</option>
-                                            <option value="07">07</option>
-                                            <option value="08">08</option>
-                                            <option value="09">09</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
-                                    </div>
-                                    <div class="en__field__item">
-                                        <select class="en__field__input en__field__input--splitselect" name="transaction.ccexpire" >
-                                            <option value="YYYY">YYYY</option>
-                                            <option value="21">2021</option>
-                                            <option value="22">2022</option>
-                                            <option value="23">2023</option>
-                                            <option value="24">2024</option>
-                                            <option value="25">2025</option>
-                                            <option value="26">2026</option>
-                                            <option value="27">2027</option>
-                                            <option value="28">2028</option>
-                                            <option value="29">2029</option>
-                                            <option value="30">2030</option>
-                                            <option value="31">2031</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="en__field en__field--text en__field--75029 en__field--ccvv en__mandatory">
-                                <label for="en__field_transaction_ccvv" class="en__field__label" style="">Card Security Code:</label>
-                                <div class="en__field__element en__field__element--text">
-                                    <input id="en__field_transaction_ccvv" type="text" class="en__field__input en__field__input--text" name="transaction.ccvv" value=""  />
-                                </div>
-                            </div>
-                            <div class="en__field en__field--text en__field--75028 en__field--othamt3">
-                                <label for="en__field_transaction_othamt3" class="en__field__label" style="">I wish to give an additional contribution of: $</label>
-                                <div class="en__field__element en__field__element--text">
-                                    <input id="en__field_transaction_othamt3" type="text" class="en__field__input en__field__input--text" name="transaction.othamt3" value=""  />
-                                </div>
-                            </div>
-                            <input type="hidden" class="en__field__input en__field__input--hidden" name="transaction.donationAmt" value="" />
-
-                            <input type="hidden" class="en__field__input en__field__input--hidden" name="supporter.address3" value="" />
-
-                            <input type="hidden" class="en__field__input en__field__input--hidden" name="transaction.paycurrency" value="USD" />
-
-
-
-
                         </div>
 
+
+                        <div class="en__field en__field--text en__field--75029 en__field--ccvv en__mandatory">
+                            <label for="en__field_transaction_ccvv" class="en__field__label" style="">Card Security Code:</label>
+                            <div class="en__field__element en__field__element--text">
+                                <input id="en__field_transaction_ccvv" type="text" class="en__field__input en__field__input--text" name="transaction.ccvv" value=""  required/>
+                            </div>
+                        </div>
+                        <div class="en__field en__field--text en__field--75028 en__field--othamt3">
+                            <label for="en__field_transaction_othamt3" class="en__field__label" style="">I wish to give an additional contribution of: $</label>
+                            <div class="en__field__element en__field__element--text">
+                                <input id="en__field_transaction_othamt3" type="text" class="en__field__input en__field__input--text" name="transaction.othamt3" value=""  />
+                            </div>
+                        </div>
+                        <input type="hidden" class="en__field__input en__field__input--hidden" name="transaction.donationAmt" value="" />
+
+                        <input type="hidden" class="en__field__input en__field__input--hidden" name="supporter.address3" value="" />
+
+                        <input type="hidden" class="en__field__input en__field__input--hidden" name="transaction.paycurrency" value="USD" />
+
+
+
+
                     </div>
+
+                </div>
                 </div>
                 <div class="en__component en__component--row en__component--row--1">
                     <div class="en__component en__component en__component--column en__component--column--1">
