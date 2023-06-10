@@ -64,7 +64,7 @@
                                 <h3 class="remove-margin-top has-large-font-size">In connection, we trust</h3>
                                 <p>We bring together our members from all walks of life to exchange new knowledge, share experiences, and help conserve our shared natural world.</p>
                                 <div class="is-layout-flex wp-block-buttons">
-                                    <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="member_events.html">What's happening?</a></div>
+                                    <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="member_events.jsp">What's happening?</a></div>
                                 </div></div>
                             <div class="is-layout-flow wp-block-column"></div></div>
                     </div>
@@ -77,7 +77,7 @@
                         <div id="my_nanogallery2"></div>
 
                         <div class="is-horizontal is-content-justification-center is-layout-flex wp-container-33 wp-block-buttons">
-                            <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="member_gallery.html">Browse More Photos</a></div>
+                            <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="member_gallery.jsp">Browse More Photos</a></div>
                         </div>
                     </div>
                     <style>
@@ -117,7 +117,7 @@
                                                 </div>
                                                 <div class="article-item-body">
                                                    
-                                                    </span>
+                                                    
                                                     <a class="article-item-link" href="member_fieldtrip_details.jsp">
                                                         <span class="article-item-header">National Park field trip</span>
                                                     </a>

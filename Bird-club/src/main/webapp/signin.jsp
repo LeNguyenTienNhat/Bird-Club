@@ -38,12 +38,10 @@
     <body class="flex h-full flex-col">
         <div class="min-h-full">
             <div class="relative flex min-h-full justify-center md:px-12 lg:px-0">
-                <div class="relative z-10 flex flex-1 flex-col bg-white py-10 px-4 shadow-2xl sm:justify-center md:flex-none md:px-28">
+<!--                <div class="relative z-10 flex flex-1 flex-col bg-white py-10 px-4 shadow-2xl sm:justify-center md:flex-none md:px-28">-->
                     <div class="mx-auto w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">
-                        <div class="flex flex-col">
-                            <a href="">
-                                <img alt="BirdClub logo" src="images/logo.png" width="150" height="49">
-                            </a>  <h2 class="mt-16 text-lg font-semibold text-gray-900">
+                        <div class="container-header">
+                              <h2 class="mt-16 text-lg font-semibold text-gray-900">
                                 Sign in to your account
                             </h2>
                             <p class="mt-2 text-sm text-gray-700">
@@ -84,6 +82,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-    </body></html>
+        </div>        
+    </body>
+</html>

@@ -181,7 +181,11 @@
                                         <img src="https://cdn.shopify.com/s/files/1/0020/1926/2510/products/red-whiskered-bulbul-2_1200x1200.jpg?v=1551037285">
                                     </figure>
                                     <br>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <p>Join us for an evening of bird-filled poetic piano pop from Sparkbird, the musical project of queer singer-songwriter Stephan Nance. This concert will be INTERACTIVE – win swag from Sparkbird by playing BIRD BINGO while you listen! Learn more at Sparkbird is the musical project of queer singer-songwriter Stephan Nance, whose performing credits include multiple tours in Japan and Europe. Their album Look at the Harlequins! attracted the attention of Birding Magazine and the National Audubon Society with its references to 21 species of birds.
+Stephan lives in Portland, Oregon, with their partner Adam, along with a 13-year-old Senegal parrot named Georgie, and a 42-year-old Yellow-naped parrot named Fred. Stephan is currently working on their next album and a very birdy young adult novel set in Eastern Oregon.
+
++ GOOGLE CALENDAR+ ICAL EXPORT
+                                    </p>
 
 
 
@@ -250,7 +254,10 @@
 
 
                                                 <dt>Category:</dt>Meeting
-
+                                                
+                                            <div class="is-content-justification-center is-layout-flex wp-container-1 wp-block-buttons">
+                                                <div class="wp-block-button"><a class="wp-block-button__link has-orange-background-color has-background" href="member_meeting_register.jsp">Register Meeting</a></div>
+                                            </div>
 
                                             </dl>
                                         </div>
