@@ -55,7 +55,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	   
         <form method="post" action="payment.jsp" class="en__component en__component--page">
 	<input type="hidden" name="action" class="en__hiddenFields" value="add">
-	<input type="hidden" name="UID" value="${user.getUserId()}">
+	<input type="hidden" name="uid" value="${user.getUserId()}">
     
 	
 	
