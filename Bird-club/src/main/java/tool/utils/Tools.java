@@ -1,6 +1,7 @@
 
-package com.fptuni.prj301.demo.utils;
+package tool.utils;
 
+import com.fptuni.prj301.demo.utils.DBUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -5,7 +5,7 @@ import com.fptuni.prj301.demo.dbmanager.FieldtripManager;
 import com.fptuni.prj301.demo.dbmanager.MeetingManager;
 import com.fptuni.prj301.demo.model.Fieldtrip;
 import com.fptuni.prj301.demo.model.Meeting;
-import com.fptuni.prj301.demo.utils.Tools;
+import tool.utils.Tools;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
