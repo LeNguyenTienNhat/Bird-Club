@@ -4,7 +4,7 @@ import java.util.Properties;
 import javax.mail.*;    
 import javax.mail.internet.*;      
 public class Mailer{  
-    public static void send(final String from, final String password, String to, String sub, String msg, String websiteLink) {
+    public static void send(final String from, final String password, String to, String subject, String msg, String attachedWebsiteLink) {
     // Get properties object
     Properties props = new Properties();
     props.put("mail.smtp.host", "smtp.gmail.com");
@@ -14,6 +14,7 @@ public class Mailer{
     props.put("mail.smtp.port", "465");
     // get Session
     Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+        @Override
         protected PasswordAuthentication getPasswordAuthentication() {
             return new PasswordAuthentication(from, password);
         }
@@ -22,10 +23,10 @@ public class Mailer{
     try {
         MimeMessage message = new MimeMessage(session);
         message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-        message.setSubject(sub);
+        message.setSubject(subject);
 
         // Create the HTML content with the link
-        String htmlContent = "<html><body><p>" + msg + "</p><p>Click <a href='" + websiteLink + "'>here</a> to visit the website.</p></body></html>";
+        String htmlContent = "<html><body><p>" + msg + "</p><p>Click <a href='" + attachedWebsiteLink + "'>here</a> to visit the website.</p></body></html>";
         message.setContent(htmlContent, "text/html");
 
         // send message

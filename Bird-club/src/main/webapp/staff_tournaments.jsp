@@ -378,36 +378,31 @@ Create</button></div></form></turbo-frame></turbo-frame></div></div></div></div>
                                         + tournament.getLID()
                                         + "</div></div></div><div class='mt-4 space-y-4'><p>"
                                         + tournament.getDescription() + "</p></div>"
-                                         +"<div style='margin-top: 15px'>" 
                                                 
+                                         +"<div style='margin-top: 15px' class='flex items-start space-x-3'>" 
                                         +"<span><form method='post'><input type='hidden' name='TID' value = '"+ tournament.getTID() + "'>"
                                         +"<input type='hidden' name='action' value='terminatetournament'>"
-                                        +"<input class='hover:bg-red-200 group flex items-center hover:text-red-900 text-red-700 block px-4 py-2 text-sm'"
+                                        +"<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 hover:bg-red-700 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                         +"type='submit' value='Terminate'></form></span>"
                                                 
                                         +"<form method='get'>"
                                         + "<input type='hidden' name='TID' value = '"+ tournament.getTID() + "'>"
                                         +"<input type='hidden' name='action' value='edittournament'>"
-                                        + "<input class='hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm'"
+                                        + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                         +"type='submit' value='Edit'>"
                                         + "</form>"
                                                 
                                         +"<form method='get'>"
                                         + "<input type='hidden' name='TID' value = '"+ tournament.getTID() + "'>"
                                         +"<input type='hidden' name='action' value='closeform'>"
-                                        + "<input class='hover:bg-gray-100 group flex items-center hover:text-yellow-900 text-yellow-700 block px-4 py-2 text-sm'"
+                                        + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                         +"type='submit' value='Close application form'>"
-                                        + "</form>"
+                                        + "</form>"                                          
                                                 
                                         +"</div>"                                             
                                         + "</li>"
                             + "");
                }%>   
-
-               
-
-               
-               
 
     </ul>
  

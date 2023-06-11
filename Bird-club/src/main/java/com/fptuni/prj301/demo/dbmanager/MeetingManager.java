@@ -3,7 +3,7 @@ package com.fptuni.prj301.demo.dbmanager;
 
 import com.fptuni.prj301.demo.model.Meeting;
 import com.fptuni.prj301.demo.utils.DBUtils;
-import com.fptuni.prj301.demo.utils.Tools;
+import tool.utils.Tools;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
