@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import tool.utils.UIDGenerator;
-import static tool.utils.UIDGenerator.generateTID;
+
 
 /**
  *
@@ -39,7 +39,7 @@ public class TparticipationController extends HttpServlet {
         PrintWriter out = response.getWriter();
         String action = request.getParameter("action");
         if (action != null && action.equals("add")) {
-            String tid = UIDGenerator.generateTID();
+            String tid = request.getParameter("Tid");
             String bid = request.getParameter("bid");
             String docNo = UIDGenerator.generateDocNo();
          

@@ -6,10 +6,13 @@
 package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.StaffAccountManager;
+import com.fptuni.prj301.demo.dbmanager.TournamentManager;
+import com.fptuni.prj301.demo.model.Tournament;
 import com.fptuni.prj301.demo.model.UserSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -67,6 +70,15 @@ public class StaffAccountController extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/staff_member.jsp");
             }
         }
+        else if (action == null || action.equals("viewlist")) {
+                //display tournament
+                 TournamentManager tournamentManager = new TournamentManager();
+                List<Tournament> tournamentsList = tournamentManager.getList();
+                request.setAttribute("tList", tournamentsList);
+                
+                RequestDispatcher rd = request.getRequestDispatcher("member_tournament.jsp");
+                rd.forward(request, response);
+            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
