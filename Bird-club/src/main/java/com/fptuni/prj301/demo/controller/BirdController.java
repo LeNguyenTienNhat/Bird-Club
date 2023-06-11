@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import tool.utils.UIDGenerator;
+import static tool.utils.UIDGenerator.generateDocT;
 
 /**
  *
@@ -52,7 +53,7 @@ public class BirdController extends HttpServlet {
         if (action != null && action.equals("add")) {
             String tid = request.getParameter("TID");
             String bid = request.getParameter("BID");
-            String docNo = UIDGenerator.generateDocNo();
+            String docNo = UIDGenerator.generateDocT();
          
             // Create a new Tparticipation object with the provided parameters
             Tparticipation tparticipation = new Tparticipation();
