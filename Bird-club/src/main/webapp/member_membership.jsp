@@ -30,8 +30,7 @@
         <style type="text/css" media="screen">#comodoTL {display:block;font-size:8px;padding-left:18px;}</style><script type="text/javascript" src="./member_membership_files/check.js.download"></script><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" async="" src="./member_membership_files/f.txt"></script><script type="text/javascript" async="" src="./member_membership_files/f(1).txt"></script></head>
     <body>
 
-<%@ include file="header.html" %> 
-
+<%@ include file="member_header.jsp" %> 
 
 
         <section id="content">

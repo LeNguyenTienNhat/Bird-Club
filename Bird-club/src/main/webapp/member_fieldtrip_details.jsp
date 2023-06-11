@@ -84,7 +84,7 @@
 
     <body class="page-template-default page page-id-1248 page-child parent-pageid-1229 wp-embed-responsive theme-green nav-column tribe-no-js">
         <!--Header-->
-        <%@ include file="header.html" %>
+        <%@ include file="member_header.jsp" %> 
 
         <main id="tribe-events-pg-template" class="tribe-events-pg-template"><div class="tribe-events-before-html"></div><span class="tribe-events-ajax-loading"><img alt="Loading Events" data-src="https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/src/resources/images/tribe-loading.gif" class="tribe-events-spinner-medium lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img class="tribe-events-spinner-medium" src="https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/src/resources/images/tribe-loading.gif" alt="Loading Events" /></noscript></span>
 
@@ -216,7 +216,7 @@
 
         </main>            
         <!--Footer-->
-        <%@ include file="footer.html" %>
+       <%@ include file="member_footer.jsp" %>
 
 
         <!-- BEGIN Search modal -->

@@ -38,7 +38,7 @@
 
         <!-- Modernizr JS -->
         <script src="${pageContext.request.contextPath}/js/modernizr-2.6.2.min.js"></script>
->
+        >
 
     </head>
     <body>
@@ -54,7 +54,7 @@
             <!--<h2 class ="gold-color">VNFLIGHT: Sign in/up Form</h2>-->
             <h4 class="gold-color">${signup_msg}</h4>
             <div class="container" id="container">
-                <div class="form-container sign-up-container">
+                <div class="form-container sign-up-container ">
                     <c:url var="signUpLink" value="${request.contextPath}/UserAccessController/signup"/>
                     <form action="${signUpLink}" name="" method="POST">
                         <h1>Create Account</h1>
@@ -74,9 +74,20 @@
                         <h1>User Login</h1>
                         <input type=text" placeholder="Username" name="username"/>
                         <input type="password" placeholder="Password" name="password"/>
-                        <p class="text-danger">${login_msg}</p>                        
+                     
+      <!-- Checkbox -->
+<!--         <div class="d-flex justify-content-around align-items-start mb-4">
+        
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+              <label class="form-check-label" for="form1Example3"> Remember me </label>
+            </div>
+          </div>-->
+    
+                       <p class="text-danger">${login_msg}</p>                        
                         <button type="submit">Login</button>
-                    </form>
+                    </form> 
+                       
                 </div>
                 <div class="overlay-container">
                     <div class="overlay">

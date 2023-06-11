@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
 <!--Header-->
-<%@ include file="header.html" %>
+ <%@ include file="member_header.jsp" %> 
 <!DOCTYPE html>
 <html class="no-js"  lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
@@ -282,7 +282,7 @@
     </main>
 
     <!--Footer-->
-    <%@ include file="footer.html" %> 
+   <%@ include file="member_footer.jsp" %>
 
 
     <!-- BEGIN Search modal -->

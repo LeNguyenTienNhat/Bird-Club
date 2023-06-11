@@ -52,7 +52,7 @@
 
 
     <body class="home page-template page-template-page-home page-template-page-home-php page page-id-5 wp-embed-responsive theme-green nav-column tribe-no-js">
-         <%@ include file="header.html" %> 
+         <%@ include file="member_header.jsp" %> 
 
         <main id="main-content">
             <div class="is-layout-flow wp-block-group alignfull page-section macaulay">
@@ -73,7 +73,7 @@
             </section>			
         </main>
 
- <%@ include file="footer.html" %> 
+ <%@ include file="member_footer.jsp" %>
 
 
         <!-- BEGIN Search modal -->
