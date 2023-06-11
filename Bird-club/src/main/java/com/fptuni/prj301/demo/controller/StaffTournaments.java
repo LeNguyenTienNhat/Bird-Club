@@ -112,6 +112,7 @@ public class StaffTournaments extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("staff_tournament_details.jsp");
                 rd.forward(request, response);
             }
+
         
         
         

@@ -50,7 +50,7 @@ public class BirdController extends HttpServlet {
         request.getRequestDispatcher("/member_TsignUp.jsp").forward(request, response);
     }
         if (action != null && action.equals("add")) {
-            String tid = UIDGenerator.generateTID();
+            String tid = request.getParameter("TID");
             String bid = request.getParameter("BID");
             String docNo = UIDGenerator.generateDocNo();
          
@@ -73,6 +73,7 @@ public class BirdController extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/failure.jsp");
             }
         }
+                
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

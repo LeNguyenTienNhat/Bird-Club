@@ -1,8 +1,12 @@
 <%@page import="com.fptuni.prj301.demo.model.Image"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--Header-->
- <%@ include file="member_header.jsp" %> 
+
+
+<%@ include file="member_header1.jsp" %>
+
 <!DOCTYPE html>
 <html class="no-js"  lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
     <head>

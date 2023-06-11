@@ -125,7 +125,6 @@
                                                         <table>
                                                             <tr>
                                                                 <td>Bird Name</td>
-                                                                <td>Actions</td>
                                                             </tr>
                                                             <c:if test="${empty birdList}">
                                                                 <div >
@@ -141,6 +140,7 @@
                                                                             <form action="${pageContext.request.contextPath}/BirdController" method="POST">
                                                                                 <input type="hidden" name="action" value="add">
                                                                                <input type="hidden" name="BID" value="${bird.getBID()}" />
+                                                                                <input type="hidden" name="TID" value="${sessionScope.sessionTID}" />
                                                                                 <button type="submit" class="wp-block-button__link wp-element-button">Sign up </button>
                                                                             </form>
                                                                         </td>

@@ -8,7 +8,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Donate Now</title>
+  <title>Register Field Trip</title>
   <!--<link href="https://aaf1a18515da0e792f78-c27fdabe952dfc357fe25ebf5c8897ee.ssl.cf5.rackcdn.com/1806/forms.css?v=1633614981000" rel="stylesheet" type="text/css" />-->
   <link href="https://comm-engagingnetworks.s3.amazonaws.com/live/forms.css" rel="stylesheet" type="text/css" />
  <script type="text/javascript" src="https://aaf1a18515da0e792f78-c27fdabe952dfc357fe25ebf5c8897ee.ssl.cf5.rackcdn.com/1806/jquery-3.5.1.min.js?v=1625767831000"></script>
@@ -54,8 +54,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 	   
         <form method="post" action="payment.jsp" class="en__component en__component--page">
-	<input type="hidden" name="hidden" class="en__hiddenFields" value="">
-	<input type="hidden" name="sessionId" value="c71529fae23b4f62b8541a391e9d27d7-cac1-prd-web1">
+	<input type="hidden" name="action" class="en__hiddenFields" value="add">
+	<input type="hidden" name="uid" value="${user.getUserId()}">
     
 	
 	
@@ -99,7 +99,7 @@ style="
 		<div class="en__component en__component en__component--column en__component--advcolumn giving-monthly" style="">
 		<div class="en__component en__component--formblock giving-amount" style="">	
 </div>
-		<
+		
 		<div class="en__component en__component--formblock" style="">
 		
 </div>
@@ -126,33 +126,21 @@ style="
 </div>
 		<div class="en__component en__component--formblock contact-info" style="">			
 			<div class="en__field en__field--text en__field--727466 en__field--firstName en__mandatory">
-	<label for="en__field_supporter_firstName" class="en__field__label en__field__label--positionabove" style="">First Name</label>
+	<label for="en__field_supporter_firstName" class="en__field__label en__field__label--positionabove" style="">Full name</label>
 	<div class="en__field__element en__field__element--text">
             <input id="en__field_supporter_firstName" type="text" class="en__field__input en__field__input--text" name="supporter.firstName" value=""  required/>
 	 </div>
 </div>
-			<div class="en__field en__field--text en__field--729035 en__field--lastName en__mandatory">
-	<label for="en__field_supporter_lastName" class="en__field__label en__field__label--positionabove" style="">Last Name</label>
-	<div class="en__field__element en__field__element--text">
-            <input id="en__field_supporter_lastName" type="text" class="en__field__input en__field__input--text" name="supporter.lastName" value=""  required/>
-	 </div>
-</div>
 			<div class="en__field en__field--email en__field--729036 en__field--emailAddress en__mandatory">
-	<label for="en__field_supporter_emailAddress" class="en__field__label en__field__label--positionabove" style="">Email Address</label>
+<label for="en__field_supporter_emailAddress" class="en__field__label en__field__label--positionabove" style="">Email Address</label>
 	<div class="en__field__element en__field__element--email">
             <input id="en__field_supporter_emailAddress" type="email" autocomplete="email" class="en__field__input en__field__input--email" name="supporter.emailAddress" value="" required/>
 	 </div>
 </div>		
-			<div class="en__field en__field--text en__field--729038 en__field--address1 en__mandatory">
-	<label for="en__field_supporter_address1" class="en__field__label en__field__label--positionabove" style="">Address </label>
-	<div class="en__field__element en__field__element--text">
-            <input id="en__field_supporter_address1" type="text" class="en__field__input en__field__input--text" name="supporter.address1" value=""  required/>
-	 </div>
-</div>		
-			<div class="en__field en__field--text en__field--729042 en__field--phoneNumber">
+			<div class="en__field en__field--text en__field--729042 en__field--phoneNumber en__mandatory">
 	<label for="en__field_supporter_phoneNumber" class="en__field__label en__field__label--positionabove" style="">Phone Number</label>
 	<div class="en__field__element en__field__element--text">
-		<input id="en__field_supporter_phoneNumber" type="text" class="en__field__input en__field__input--text" name="supporter.phoneNumber" value=""  />
+            <input id="en__field_supporter_phoneNumber" type="text" class="en__field__input en__field__input--text" name="supporter.phoneNumber" value=""  required/>
 	 </div>
 </div>	
                     

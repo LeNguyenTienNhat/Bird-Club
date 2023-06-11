@@ -258,6 +258,20 @@ Stephan lives in Portland, Oregon, with their partner Adam, along with a 13-year
                                             <div class="is-content-justification-center is-layout-flex wp-container-1 wp-block-buttons">
                                                 <div class="wp-block-button"><a class="wp-block-button__link has-orange-background-color has-background" href="member_meeting_register.jsp">Register Meeting</a></div>
                                             </div>
+                                                
+                                                <script>
+                                                // Lấy tham số "registerSuccess" từ URL
+                                                const urlParams = new URLSearchParams(window.location.search);
+                                                const registerSuccess = urlParams.get('registerSuccess');
+
+                                                // Kiểm tra nếu có tham số "registerSuccess" và giá trị là "true"
+                                                if (registerSuccess === 'true') {
+                                                    // Thay thế nút "Join field trip" bằng dòng chữ "Register success"
+                                                    const joinFieldTripButton = document.querySelector('.wp-block-button__link');
+                                                    joinFieldTripButton.textContent = 'Register success';
+                                                    joinFieldTripButton.removeAttribute('href');
+                                                }
+                                            </script>
 
                                             </dl>
                                         </div>
