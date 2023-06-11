@@ -3,11 +3,11 @@ package com.fptuni.prj301.demo.model;
 
 public class Media {
     private String URL;
-    private String FID;
+    private String ID;
 
-    public Media(String URL, String FID) {
+    public Media(String URL, String ID) {
         this.URL = URL;
-        this.FID = FID;
+        this.ID = ID;
     }
     
     public Media() {
@@ -21,11 +21,11 @@ public class Media {
         this.URL = URL;
     }
 
-    public String getFID() {
-        return FID;
+    public String getID() {
+        return ID;
     }
 
-    public void setFID(String FID) {
-        this.FID = FID;
+    public void setID(String ID) {
+        this.ID = ID;
     }
 }

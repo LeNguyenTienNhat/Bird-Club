@@ -3,6 +3,7 @@ package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.TournamentManager;
 import com.fptuni.prj301.demo.model.Tournament;
+import com.oreilly.servlet.MultipartRequest;
 import tool.utils.Tools;
 import java.io.IOException;
 import java.text.ParseException;
@@ -102,17 +103,28 @@ public class StaffTournaments extends HttpServlet {
             rd.forward(request, response);
             }
          
-         //View a field trip's details
+         //View a tournament's details
             else if (action.equals("edittournament")) {
                 String TID = request.getParameter("TID");
                 Tournament tournament = tournamentManager.load(TID);
-                tournament.setCategory("Tournament");
                 
                 request.setAttribute("tournament", tournament);
                 RequestDispatcher rd = request.getRequestDispatcher("staff_tournament_details.jsp");
                 rd.forward(request, response);
             }
         
+         //View a tournament's media
+            else if (action.equals("viewtournamentmedia")) {
+                String TID = request.getParameter("TID");
+                Tournament t = tournamentManager.load(TID);
+                
+                request.setAttribute("tournament", t);
+                RequestDispatcher rd = request.getRequestDispatcher("staff_tournament_media.jsp");
+                rd.forward(request, response);
+            }
+        
+        
+
         
         
         
@@ -121,20 +133,8 @@ public class StaffTournaments extends HttpServlet {
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
     }
 
     @Override

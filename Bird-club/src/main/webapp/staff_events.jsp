@@ -526,24 +526,24 @@ Create</button></div></form></turbo-frame></turbo-frame></div></div></div></div>
                                         + fieldtrip.getLID()
                                         + "</div></div></div><div class='mt-4 space-y-4'><p>"
                                         + fieldtrip.getDescription() + "</p></div>"
-                                         +"<div style='margin-top: 15px'>" 
                                                 
+                                         +"<div style='margin-top: 15px' class='flex items-start space-x-3'>" 
                                         +"<span><form method='post'><input type='hidden' name='FID' value = '"+ fieldtrip.getFID() + "'>"
                                         +"<input type='hidden' name='action' value='terminatefieldtrip'>"
-                                        +"<input class='hover:bg-red-200 group flex items-center hover:text-red-900 text-red-700 block px-4 py-2 text-sm'"
+                                        +"<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 hover:bg-red-700 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                         +"type='submit' value='Terminate'></form></span>"
                                                 
                                         +"<form method='get'>"
                                         + "<input type='hidden' name='FID' value = '"+ fieldtrip.getFID() + "'>"
                                         +"<input type='hidden' name='action' value='editfieldtrip'>"
-                                        + "<input class='hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm'"
+                                        + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                         +"type='submit' value='Edit'>"
                                         + "</form>"
                                                 
                                         +"<form method='get'>"
                                         + "<input type='hidden' name='FID' value = '"+ fieldtrip.getFID() + "'>"
                                         +"<input type='hidden' name='action' value='closeform'>"
-                                        + "<input class='hover:bg-gray-100 group flex items-center hover:text-yellow-900 text-yellow-700 block px-4 py-2 text-sm'"
+                                        + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                         +"type='submit' value='Close application form'>"
                                         + "</form>"
                                                 
@@ -615,24 +615,24 @@ Create</button></div></form></turbo-frame></turbo-frame></div></div></div></div>
                                         + meeting.getLID()
                                         + "</div></div></div><div class='mt-4 space-y-4'><p>"
                                         + meeting.getDescription() + "</p></div>"
-                                         +"<div style='margin-top: 15px'>" 
+                                         +"<div style='margin-top: 15px' class='flex items-start space-x-3'>" 
                                                 
-                                        +"<span><form method='post'><input type='hidden' name='MeID' value = '"+ meeting.getMeID() + "'>"
+                                        +"<form method='post'><input type='hidden' name='MeID' value = '"+ meeting.getMeID() + "'>"
                                         +"<input type='hidden' name='action' value='terminatemeeting'>"
-                                        +"<input class='hover:bg-red-200 group flex items-center hover:text-red-900 text-red-700 block px-4 py-2 text-sm'"
-                                        +"type='submit' value='Terminate'></form></span>"
+                                        +"<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 hover:bg-red-700 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                        +"type='submit' value='Terminate'></form>"
                                                 
                                         +"<form method='get'>"
                                         + "<input type='hidden' name='MeID' value = '"+ meeting.getMeID() + "'>"
                                         +"<input type='hidden' name='action' value='editmeeting'>"
-                                        + "<input class='hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm'"
+                                        + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                         +"type='submit' value='Edit'>"
                                         + "</form>"
                                                 
                                         +"<form method='get'>"
                                         + "<input type='hidden' name='MeID' value = '"+ meeting.getMeID() + "'>"
                                         +"<input type='hidden' name='action' value='closeformmeeting'>"
-                                        + "<input class='hover:bg-gray-100 group flex items-center hover:text-yellow-900 text-yellow-700 block px-4 py-2 text-sm'"
+                                        + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                         +"type='submit' value='Close application form'>"
                                         + "</form>"
                                                 
