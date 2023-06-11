@@ -54,8 +54,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 	   
         <form method="post" action="member_meeting_details.jsp?registerSuccess=true" class="en__component en__component--page">
-	<input type="hidden" name="hidden" class="en__hiddenFields" value="">
-	<input type="hidden" name="sessionId" value="c71529fae23b4f62b8541a391e9d27d7-cac1-prd-web1">
+	<input type="hidden" name="action" class="en__hiddenFields" value="register">
+	<input type="hidden" name="uid" value="${user.getUserId()}">
     
 	
 	
@@ -99,7 +99,7 @@ style="
 		<div class="en__component en__component en__component--column en__component--advcolumn giving-monthly" style="">
 		<div class="en__component en__component--formblock giving-amount" style="">	
 </div>
-		<
+		
 		<div class="en__component en__component--formblock" style="">
 		
 </div>
