@@ -128,25 +128,25 @@ style="
 			<div class="en__field en__field--text en__field--727466 en__field--firstName en__mandatory">
 	<label for="en__field_supporter_firstName" class="en__field__label en__field__label--positionabove" style="">First Name</label>
 	<div class="en__field__element en__field__element--text">
-		<input id="en__field_supporter_firstName" type="text" class="en__field__input en__field__input--text" name="supporter.firstName" value=""  />
+            <input id="en__field_supporter_firstName" type="text" class="en__field__input en__field__input--text" name="supporter.firstName" value=""  required/>
 	 </div>
 </div>
 			<div class="en__field en__field--text en__field--729035 en__field--lastName en__mandatory">
 	<label for="en__field_supporter_lastName" class="en__field__label en__field__label--positionabove" style="">Last Name</label>
 	<div class="en__field__element en__field__element--text">
-		<input id="en__field_supporter_lastName" type="text" class="en__field__input en__field__input--text" name="supporter.lastName" value=""  />
+            <input id="en__field_supporter_lastName" type="text" class="en__field__input en__field__input--text" name="supporter.lastName" value=""  required/>
 	 </div>
 </div>
 			<div class="en__field en__field--email en__field--729036 en__field--emailAddress en__mandatory">
 	<label for="en__field_supporter_emailAddress" class="en__field__label en__field__label--positionabove" style="">Email Address</label>
 	<div class="en__field__element en__field__element--email">
-		<input id="en__field_supporter_emailAddress" type="email" autocomplete="email" class="en__field__input en__field__input--email" name="supporter.emailAddress" value="" />
+            <input id="en__field_supporter_emailAddress" type="email" autocomplete="email" class="en__field__input en__field__input--email" name="supporter.emailAddress" value="" required/>
 	 </div>
 </div>		
 			<div class="en__field en__field--text en__field--729038 en__field--address1 en__mandatory">
 	<label for="en__field_supporter_address1" class="en__field__label en__field__label--positionabove" style="">Address </label>
 	<div class="en__field__element en__field__element--text">
-		<input id="en__field_supporter_address1" type="text" class="en__field__input en__field__input--text" name="supporter.address1" value=""  />
+            <input id="en__field_supporter_address1" type="text" class="en__field__input en__field__input--text" name="supporter.address1" value=""  required/>
 	 </div>
 </div>		
 			<div class="en__field en__field--text en__field--729042 en__field--phoneNumber">
