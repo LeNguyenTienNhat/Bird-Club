@@ -26,12 +26,11 @@ public class Mailer{
         message.setSubject(subject);
 
         // Create the HTML content with the link
-        String htmlContent = "<html><body><p>" + msg + "</p><p>Click <a href='" + attachedWebsiteLink + "'>here</a> to visit the website.</p></body></html>";
+        String htmlContent = "<html><body><p>" + msg + "</p><p>Click <a href='" + attachedWebsiteLink + "'>here</a>Visit our website!</p></body></html>";
         message.setContent(htmlContent, "text/html");
 
         // send message
         Transport.send(message);
-        System.out.println("message sent successfully");
     } catch (MessagingException e) {
         throw new RuntimeException(e);
     }

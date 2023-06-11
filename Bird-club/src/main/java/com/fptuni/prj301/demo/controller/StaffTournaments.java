@@ -1,9 +1,10 @@
 
 package com.fptuni.prj301.demo.controller;
 
+import com.fptuni.prj301.demo.dbmanager.MemberManager;
 import com.fptuni.prj301.demo.dbmanager.TournamentManager;
+import com.fptuni.prj301.demo.model.Member;
 import com.fptuni.prj301.demo.model.Tournament;
-import com.oreilly.servlet.MultipartRequest;
 import tool.utils.Tools;
 import java.io.IOException;
 import java.text.ParseException;
@@ -15,6 +16,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import tool.utils.EmailSender;
+import tool.utils.MessageContent;
 
 public class StaffTournaments extends HttpServlet {
 
@@ -124,14 +127,19 @@ public class StaffTournaments extends HttpServlet {
                 rd.forward(request, response);
             }
         
-        
-
-        
-        
-        
-        
-        
-        
+        else if (action.equals("notifymember")) {
+                MemberManager m = new MemberManager();
+                List<Member> list = m.getRecords(0, 0, "member", "MID");
+                EmailSender e = new EmailSender();
+                MessageContent c = new MessageContent();
+                String content = c.HTMLContentGenerator();
+                for (Member member : list) {
+                    if (!member.getEmail().isEmpty()) e.sendEmail(member.getEmail(), content);
+                }
+                request.setAttribute("action","viewtournaments");
+                RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
+                rd.forward(request, response);
+            }
         
         
 
