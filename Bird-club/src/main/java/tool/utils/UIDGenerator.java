@@ -5,6 +5,7 @@
  */
 package tool.utils;
 
+import com.fptuni.prj301.demo.dbmanager.FieldTripParticipantsManager;
 import com.fptuni.prj301.demo.dbmanager.TparticipationManager;
 import java.util.List;
 import java.util.Random;
@@ -17,6 +18,13 @@ public class UIDGenerator {
         return "u" + randomNumber;
     }
 
+    public static String generateFID() {
+        List<String> existingFIDs = FieldTripParticipantsManager.ExistingFID();
+        int listSize = existingFIDs.size();
+        int fidNumber = listSize + 1;
+        return "FID" + fidNumber;
+    }
+    
     public static String generateTID() {
         List<String> existingTIDs = TparticipationManager.ExistingTID();
         int listSize = existingTIDs.size();

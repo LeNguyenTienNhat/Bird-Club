@@ -53,7 +53,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
            
 
 	   
-        <form method="post" action="member_meeting_details.jsp" class="en__component en__component--page">
+        <form method="post" action="member_meeting_details.jsp?registerSuccess=true" class="en__component en__component--page">
 	<input type="hidden" name="hidden" class="en__hiddenFields" value="">
 	<input type="hidden" name="sessionId" value="c71529fae23b4f62b8541a391e9d27d7-cac1-prd-web1">
     
@@ -126,33 +126,21 @@ style="
 </div>
 		<div class="en__component en__component--formblock contact-info" style="">			
 			<div class="en__field en__field--text en__field--727466 en__field--firstName en__mandatory">
-	<label for="en__field_supporter_firstName" class="en__field__label en__field__label--positionabove" style="">First Name</label>
+	<label for="en__field_supporter_firstName" class="en__field__label en__field__label--positionabove" style="">Full name</label>
 	<div class="en__field__element en__field__element--text">
-		<input id="en__field_supporter_firstName" type="text" class="en__field__input en__field__input--text" name="supporter.firstName" value=""  />
-	 </div>
-</div>
-			<div class="en__field en__field--text en__field--729035 en__field--lastName en__mandatory">
-	<label for="en__field_supporter_lastName" class="en__field__label en__field__label--positionabove" style="">Last Name</label>
-	<div class="en__field__element en__field__element--text">
-		<input id="en__field_supporter_lastName" type="text" class="en__field__input en__field__input--text" name="supporter.lastName" value=""  />
+            <input id="en__field_supporter_firstName" type="text" class="en__field__input en__field__input--text" name="supporter.firstName" value=""  required/>
 	 </div>
 </div>
 			<div class="en__field en__field--email en__field--729036 en__field--emailAddress en__mandatory">
-	<label for="en__field_supporter_emailAddress" class="en__field__label en__field__label--positionabove" style="">Email Address</label>
+<label for="en__field_supporter_emailAddress" class="en__field__label en__field__label--positionabove" style="">Email Address</label>
 	<div class="en__field__element en__field__element--email">
-		<input id="en__field_supporter_emailAddress" type="email" autocomplete="email" class="en__field__input en__field__input--email" name="supporter.emailAddress" value="" />
+            <input id="en__field_supporter_emailAddress" type="email" autocomplete="email" class="en__field__input en__field__input--email" name="supporter.emailAddress" value="" required/>
 	 </div>
 </div>		
-			<div class="en__field en__field--text en__field--729038 en__field--address1 en__mandatory">
-	<label for="en__field_supporter_address1" class="en__field__label en__field__label--positionabove" style="">Address </label>
-	<div class="en__field__element en__field__element--text">
-		<input id="en__field_supporter_address1" type="text" class="en__field__input en__field__input--text" name="supporter.address1" value=""  />
-	 </div>
-</div>		
-			<div class="en__field en__field--text en__field--729042 en__field--phoneNumber">
+			<div class="en__field en__field--text en__field--729042 en__field--phoneNumber en__mandatory">
 	<label for="en__field_supporter_phoneNumber" class="en__field__label en__field__label--positionabove" style="">Phone Number</label>
 	<div class="en__field__element en__field__element--text">
-		<input id="en__field_supporter_phoneNumber" type="text" class="en__field__input en__field__input--text" name="supporter.phoneNumber" value=""  />
+            <input id="en__field_supporter_phoneNumber" type="text" class="en__field__input en__field__input--text" name="supporter.phoneNumber" value=""  required/>
 	 </div>
 </div>	
                     
