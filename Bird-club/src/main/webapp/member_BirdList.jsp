@@ -66,7 +66,7 @@
     <body class="post-template-default single single-post postid-56828 single-format-standard wp-embed-responsive theme-green nav-column tribe-no-js">
         <div id="main-container">
 
-             <%@ include file="header.html" %> 
+             <%@ include file="member_header.jsp" %>  
 
             <main id="main-content">
 
@@ -181,7 +181,7 @@
                 </div>
             </main>
 
-            <%@ include file="footer.html" %> 
+            <%@ include file="member_footer.jsp" %>
         </div>
 
         <div class="reveal" id="search-modal" data-reveal role="dialog" data-animation-in="fade-in fast" aria-label="Search">

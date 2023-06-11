@@ -132,7 +132,7 @@
     <body class="page-template-default page page-id-7 wp-embed-responsive theme-green nav-column tribe-no-js">
 
 
-        <%@ include file="header.html" %> 
+         <%@ include file="member_header.jsp" %> 
 
         <main id="main-content" class="page">
 
@@ -169,7 +169,7 @@
         </main>
 
 
-        <%@ include file="footer.html" %> 
+      <%@ include file="member_footer.jsp" %>
 
                 <div class="footer-contact grid-x">
                     <div class="cell medium-2 small-6 cu-logo">

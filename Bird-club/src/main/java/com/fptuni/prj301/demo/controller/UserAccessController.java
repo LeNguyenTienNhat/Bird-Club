@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import tool.utils.UIDGenerator;
 
 public class UserAccessController extends HttpServlet {
@@ -25,10 +26,12 @@ public class UserAccessController extends HttpServlet {
             System.out.println("Path: " + path);
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            HttpSession ss = request.getSession(true);
 
             if (username == null || password == null) {
                 response.sendRedirect(request.getContextPath() + "/EventDetails.jsp");
             } else {
+
                 UserAccessManager userDao = new UserAccessManager();
                 UserSession user = userDao.searchByName(username);
 
@@ -43,6 +46,8 @@ public class UserAccessController extends HttpServlet {
                         response.sendRedirect(request.getContextPath() + "/EventDetails.jsp");
                     } else {
                         if (role.equals("member")) {
+                            ss.setAttribute("users", user);
+                            ss.setAttribute("userID", userDao.searchByName(user.getUserName()));
                             response.sendRedirect(request.getContextPath() + "/member_homepage.jsp");
                         } else if (role.equals("staff")) {
                             response.sendRedirect(request.getContextPath() + "/staff_homepage.jsp");
@@ -52,6 +57,12 @@ public class UserAccessController extends HttpServlet {
                     }
                 }
             }
+        } else if (path != null && path.equals("/logout")) {
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                session.invalidate();
+            }
+            response.sendRedirect(request.getContextPath() + "/LogoutPage.jsp");
         }
         if (path != null && path.equals("/signup")) {
             String username = request.getParameter("username");
@@ -103,20 +114,9 @@ public class UserAccessController extends HttpServlet {
                 }
             }
         }
-        
 
     }
 
-    public static void main(String[] args) {
-        StaffAccountManager staffAccountManager = new StaffAccountManager();
-        List<UserSession> userList = staffAccountManager.getUsersWithUnactiveStatus();
-
-        // Print the list of users with inactive status
-        System.out.println("Users with inactive status:");
-        for (UserSession user : userList) {
-            System.out.println(user.getUserName());
-        }
-    }
 
     // Handle GET requests
     @Override

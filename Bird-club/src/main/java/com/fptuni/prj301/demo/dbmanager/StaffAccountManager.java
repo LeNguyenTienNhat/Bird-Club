@@ -22,12 +22,13 @@ import java.util.List;
  * @author Administrator
  */
 public class StaffAccountManager {
-        public boolean approveUser(String UID) {
-        String sql = "UPDATE [User] SET role = 'member' WHERE UID = ?";
+        public boolean approveUser(String UID, String role) {
+        String sql = "UPDATE [User] SET role = ? WHERE UID = ?";
 
         try (Connection conn = DBUtils.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, UID);
+            ps.setString(1, role);
+            ps.setString(2, UID);
             int rowsAffected = ps.executeUpdate();
 
             return rowsAffected > 0;

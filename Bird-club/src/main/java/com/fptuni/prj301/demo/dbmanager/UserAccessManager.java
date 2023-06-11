@@ -94,11 +94,11 @@ public boolean SignUp(UserSession user) {
         ps.setString(4, user.getPhone());
         ps.setString(5, user.getEmail());
         ps.setString(6, user.getPassword());
-        ps.setString(7, "member"); // Assuming 'role' is always 'member' for sign up
+        ps.setString(7, "guest"); // Assuming 'role' is always 'member' for sign up
         ps.setDate(8, new java.sql.Date(user.getExpriedDate().getTime()));
         ps.setString(9, user.getStatus());
         ps.setDate(10, new java.sql.Date(user.getSignUpDate().getTime()));
-        ps.setString(11,"MIDW");
+        ps.setString(11,null);
         ps.setString(12, user.getGender());
 
         int rowsAffected = ps.executeUpdate();
@@ -177,34 +177,29 @@ public boolean SignUp(UserSession user) {
     }
 
     
-public static void main(String[] args) {
-    // Create a UserSession object with dummy data
-    UserSession user = new UserSession();
-    user.setUserName("testuser2");
-    user.setFullName("John Doe");
-    user.setPhone("1234567890");
-    user.setEmail("testuser@example.com");
-    user.setPassword("testpass");
-    user.setExpriedDate(new Date());
-    user.setSignUpDate(new Date());
-    user.setMID("M123456");
-    user.setGender("male");
+ public static void main(String[] args) {
+        String username = "duc"; // Replace with the username you want to search
 
-    // Create a UserAccessManager instance
-    UserAccessManager userDao = new UserAccessManager();
+        UserAccessManager manager = new UserAccessManager();
+        UserSession user = manager.searchByName(username);
 
-    // Call the SignUp method and check the result
-    boolean success = userDao.SignUp(user);
-    System.out.println("ExpiredDate: " + user.getExpriedDate());
-    System.out.println("SignUpDate: " + user.getSignUpDate());
-    System.out.println("User ID: " + user.getUserId());
-
-    if (success) {
-        System.out.println("Signup successful. User ID: " + user.getUserId());
-    } else {
-        System.out.println("Signup failed.");
+        if (user != null) {
+            System.out.println("User found:");
+            System.out.println("User ID: " + user.getUserId());
+            System.out.println("Username: " + user.getUserName());
+            System.out.println("Full Name: " + user.getFullName());
+            System.out.println("Phone: " + user.getPhone());
+            System.out.println("Email: " + user.getEmail());
+            System.out.println("Role: " + user.getRole());
+            System.out.println("Expired Date: " + user.getExpriedDate());
+            System.out.println("Status: " + user.getStatus());
+            System.out.println("Signup Date: " + user.getSignUpDate());
+            System.out.println("MID: " + user.getMID());
+            System.out.println("Gender: " + user.getGender());
+        } else {
+            System.out.println("User not found.");
+        }
     }
-}
 
 }
 

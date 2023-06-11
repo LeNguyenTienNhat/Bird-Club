@@ -1,3 +1,11 @@
+<%-- 
+    Document   : member_header1
+    Created on : Jun 11, 2023, 5:11:53 PM
+    Author     : Administrator
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -22,7 +30,7 @@ and open the template in the editor.
                                     <div id="primary-nav-container">   
                                         <ul id="primary-nav" class="dropdown menu">
                                             <li id="nav-menu-item-41114" class="birds guide-active menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="member_homepage.jsp" class="menu-link main-menu-link">Home</a></li>
-                                            <li id="nav-menu-item-41123" class="cams menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="member_tournament.jsp" class="menu-link main-menu-link">Tournament</a></li>
+                                            <li id="nav-menu-item-41123" class="cams menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="${pageContext.request.contextPath}/StaffAccountController?actionviewlist" class="menu-link main-menu-link">Tournament</a></li>
                                             <li id="nav-menu-item-41123" class="cams menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="member_fieldtrip.jsp" class="menu-link main-menu-link">Field trip</a></li>
                                             <li id="nav-menu-item-41123" class="cams menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="member_meeting.jsp" class="menu-link main-menu-link">Meeting</a></li>
                                             <li id="nav-menu-item-41123" class="cams menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="member_article.jsp" class="menu-link main-menu-link">News</a></li>

@@ -5,28 +5,27 @@
  */
 package com.fptuni.prj301.demo.controller;
 
-import com.fptuni.prj301.demo.dbmanager.StaffAccountManager;
-import com.fptuni.prj301.demo.dbmanager.TournamentManager;
-import com.fptuni.prj301.demo.model.Tournament;
-import com.fptuni.prj301.demo.model.UserSession;
+import com.fptuni.prj301.demo.dbmanager.BirdManager;
+import com.fptuni.prj301.demo.dbmanager.TparticipationManager;
+import com.fptuni.prj301.demo.model.Bird;
+import com.fptuni.prj301.demo.model.Tparticipation;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import tool.utils.Mailer;
+import tool.utils.UIDGenerator;
+import static tool.utils.UIDGenerator.generateDocT;
 
 /**
  *
  * @author Administrator
  */
-@WebServlet(name = "StaffAccountController", urlPatterns = {"/StaffAccountController"})
-public class StaffAccountController extends HttpServlet {
+@WebServlet(name = "BirdController", urlPatterns = {"/BirdController"})
+public class BirdController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,43 +41,40 @@ public class StaffAccountController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String action = request.getParameter("action");
+        if (action != null && action.equals("view")) {
+        // Process the view action
+        BirdManager birdController = new BirdManager();
+        String UID = request.getParameter("UID");
+        List<Bird> birds = birdController.getBirdsByUID(UID);
 
-        if (action != null && action.equals("approve")) {
-            String userId = request.getParameter("UID");
-            String role = request.getParameter("role");
+        request.setAttribute("birdList", birds);
+        request.getRequestDispatcher("/member_TsignUp.jsp").forward(request, response);
+    }
+        if (action != null && action.equals("add")) {
+            String tid = request.getParameter("TID");
+            String bid = request.getParameter("BID");
+            String docNo = UIDGenerator.generateDocT();
+         
+            // Create a new Tparticipation object with the provided parameters
+            Tparticipation tparticipation = new Tparticipation();
+            tparticipation.setTid(tid);
+            tparticipation.setBid(bid);
+            tparticipation.setDocNo(docNo);
+            tparticipation.setAchievement(null);
 
-            // Call the DAO to update the user's status as "active"
-            StaffAccountManager userDao = new StaffAccountManager();
-            boolean success = userDao.approveUser(userId, role);
+            // Insert the Tparticipation object into the database
+            TparticipationManager tparticipationManager = new TparticipationManager();
+            boolean success = tparticipationManager.insert(tparticipation);
 
             if (success) {
-                String email= userDao.getUserEmail(userId);
-                Mailer.send("prj301.pgnb@gmail.com","nqlgrybvvyqjoaxw", email,"Bird Club","You account have been approve", "http://localhost:8080/chimowners/member_checkout.jsp");
-                response.sendRedirect(request.getContextPath() +"staff_homepage.jsp");
+                // Redirect to a success page
+                response.sendRedirect(request.getContextPath() + "/payment.jsp");
             } else {
-                response.sendRedirect("staff_approval_failure.jsp");
-            }
-        } else if (action != null && action.equals("view")) {
-
-            StaffAccountManager staffAccountManager = new StaffAccountManager();
-            List<UserSession> userList = staffAccountManager.getUsersWithUnactiveStatus();
-
-            if (!userList.isEmpty()) {
-                request.setAttribute("userList", userList);
-                request.getRequestDispatcher("/staff_member.jsp").forward(request, response);
-            } else {
-                response.sendRedirect(request.getContextPath() + "/staff_member.jsp");
+                // Redirect to a failure page
+                response.sendRedirect(request.getContextPath() + "/failure.jsp");
             }
         }
-        else if (action == null || action.equals("viewlist")) {
-                //display tournament
-                 TournamentManager tournamentManager = new TournamentManager();
-                List<Tournament> tournamentsList = tournamentManager.getList();
-                request.setAttribute("tList", tournamentsList);
                 
-                RequestDispatcher rd = request.getRequestDispatcher("member_tournament.jsp");
-                rd.forward(request, response);
-            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

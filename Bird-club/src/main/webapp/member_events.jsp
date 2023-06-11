@@ -133,7 +133,7 @@ Virtual programs include free webinars and family programs and expert-led paid w
   			
 	<body class="page-template-default page page-id-1248 page-child parent-pageid-1229 wp-embed-responsive theme-green nav-column tribe-no-js">
 
-<%@ include file="header.html" %> 
+ <%@ include file="member_header.jsp" %> 
 
   <main id="main-content" class="page">
 <article id="article" class="post-1248 page type-page status-publish has-post-thumbnail hentry">
@@ -5225,7 +5225,7 @@ class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin"
   </main>
 
 					
- <%@ include file="footer.html" %> 
+ <%@ include file="member_footer.jsp" %>
 
   
 <!-- BEGIN Search modal -->

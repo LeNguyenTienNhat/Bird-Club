@@ -1,26 +1,15 @@
 <%-- 
-    Document   : member_fieldtrip_details
-    Created on : Jun 4, 2023, 2:51:03 PM
+    Document   : member_tournament
+    Created on : Jun 4, 2023, 2:37:05 PM
     Author     : Tue
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html class="no-js"  lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<html class="no-js" lang="en-US">
     <head>
         <meta charset="utf-8">
-        <!-- Force IE to use the latest rendering engine available -->
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!-- Mobile Meta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta class="foundation-mq">
-        <link rel="icon" href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/favicon.png">
-        <link href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/images/apple-icon-touch.png" rel="apple-touch-icon" />	
-
-        <title>Events - Field trips</title>
-        <meta name='robots' content='max-image-preview:large' />
-        <link rel='dns-prefetch' href='//www.birds.cornell.edu' />
-        <link rel='dns-prefetch' href='//code.jquery.com' />
+        <title>Meeting</title>
         <link rel="alternate" type="application/rss+xml" title="Birds, Cornell Lab of Ornithology &raquo; Feed" href="https://www.birds.cornell.edu/home/feed/" />
         <link rel="alternate" type="application/rss+xml" title="Birds, Cornell Lab of Ornithology &raquo; Comments Feed" href="https://www.birds.cornell.edu/home/comments/feed/" />
         <link rel="alternate" type="text/calendar" title="Birds, Cornell Lab of Ornithology &raquo; iCal Feed" href="https://www.birds.cornell.edu/home/events/?ical=1" />
@@ -43,181 +32,368 @@
         <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-includes/js/jquery/jquery.min.js?ver=3.6.1' id='jquery-core-js'></script>
         <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
         <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/vendor/php-date-formatter/js/php-date-formatter.min.js?ver=6.0.6.2' id='tribe-events-php-date-formatter-js'></script>
-        <link rel="https://api.w.org/" href="https://www.birds.cornell.edu/home/wp-json/" /><link rel="alternate" type="application/json" href="https://www.birds.cornell.edu/home/wp-json/wp/v2/pages/1248" /><link rel='shortlink' href='https://www.birds.cornell.edu/home/?p=1248' />
-        <link rel="alternate" type="application/json+oembed" href="https://www.birds.cornell.edu/home/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit%2Fevents%2F" />
-        <link rel="alternate" type="text/xml+oembed" href="https://www.birds.cornell.edu/home/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit%2Fevents%2F&#038;format=xml" />
+        <link rel="https://api.w.org/" href="https://www.birds.cornell.edu/home/wp-json/" /><link rel="alternate" type="application/json" href="https://www.birds.cornell.edu/home/wp-json/wp/v2/pages/1229" /><link rel='shortlink' href='https://www.birds.cornell.edu/home/?p=1229' />
+        <link rel="alternate" type="application/json+oembed" href="https://www.birds.cornell.edu/home/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit%2F" />
+        <link rel="alternate" type="text/xml+oembed" href="https://www.birds.cornell.edu/home/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit%2F&#038;format=xml" />
         <meta name="google-site-verification" content="IGsvze-ViQg5tZuvTMIK4uTycXsQsaApdSmVuW0DhVg" />
-
-        <script>(function (w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({'gtm.start':
-                            new Date().getTime(), event: 'gtm.js'});
-                var f = d.getElementsByTagName(s)[0],
-                        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-                j.async = true;
-                j.src =
-                        '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-                f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-P7854M');</script>
-        <!-- End Google Tag Manager --><!-- SEO meta tags powered by SmartCrawl https://wpmudev.com/project/smartcrawl-wordpress-seo/ -->
-        <link rel="canonical" href="https://www.birds.cornell.edu/home/visit/events/" />
-        <meta name="description" content="The Cornell Lab of Ornithology offers a variety of programs and events for visitors of all ages. Please see our events calendar (below) or call 1-800-843-BI ..." />
-        <script type="application/ld+json">{"@context":"https:\/\/schema.org","@graph":[{"@type":"Organization","@id":"https:\/\/www.birds.cornell.edu\/home\/#schema-publishing-organization","url":"https:\/\/www.birds.cornell.edu\/home","name":"Birds, Cornell Lab of Ornithology"},{"@type":"WebSite","@id":"https:\/\/www.birds.cornell.edu\/home\/#schema-website","url":"https:\/\/www.birds.cornell.edu\/home","name":"Birds, Cornell Lab of Ornithology","encoding":"UTF-8","potentialAction":{"@type":"SearchAction","target":"https:\/\/www.birds.cornell.edu\/home\/search\/{search_term_string}\/","query-input":"required name=search_term_string"}},{"@type":"Person","@id":"https:\/\/www.birds.cornell.edu\/home\/author\/bce_admin_user\/#schema-author","name":"bce_admin_user","url":"https:\/\/www.birds.cornell.edu\/home\/author\/bce_admin_user\/"},{"@type":"WebPage","@id":"https:\/\/www.birds.cornell.edu\/home\/visit\/events\/#schema-webpage","isPartOf":{"@id":"https:\/\/www.birds.cornell.edu\/home\/#schema-website"},"publisher":{"@id":"https:\/\/www.birds.cornell.edu\/home\/#schema-publishing-organization"},"url":"https:\/\/www.birds.cornell.edu\/home\/visit\/events\/"},{"@type":"Article","mainEntityOfPage":{"@id":"https:\/\/www.birds.cornell.edu\/home\/visit\/events\/#schema-webpage"},"author":{"@id":"https:\/\/www.birds.cornell.edu\/home\/author\/bce_admin_user\/#schema-author"},"publisher":{"@id":"https:\/\/www.birds.cornell.edu\/home\/#schema-publishing-organization"},"dateModified":"2023-03-09T08:18:44","datePublished":"2018-10-04T10:44:16","headline":"Events | Birds, Cornell Lab of Ornithology","description":"The Cornell Lab of Ornithology offers a variety of programs and events for visitors of all ages. Please see our events calendar (below) or call 1-800-843-BI ...","name":"Events","image":{"@type":"ImageObject","@id":"https:\/\/www.birds.cornell.edu\/home\/visit\/events\/#schema-article-image","url":"https:\/\/www.birds.cornell.edu\/home\/wp-content\/uploads\/2018\/11\/observatory.jpg","height":960,"width":1280},"thumbnailUrl":"https:\/\/www.birds.cornell.edu\/home\/wp-content\/uploads\/2018\/11\/observatory.jpg"}]}</script>
-        <!-- /SEO -->
-        <meta name="tec-api-version" content="v1"><meta name="tec-api-origin" content="https://www.birds.cornell.edu/home"><link rel="alternate" href="https://www.birds.cornell.edu/home/wp-json/tribe/events/v1/" />			<link rel="preload" href="https://www.birds.cornell.edu/home/wp-content/plugins/hustle/assets/hustle-ui/fonts/hustle-icons-font.woff2" as="font" type="font/woff2" crossorigin>
-        <script>
-            document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-        </script>
-        <style>
-            .no-js img.lazyload { display: none; }
-            figure.wp-block-image img.lazyloading { min-width: 150px; }
-            .lazyload, .lazyloading { opacity: 0; }
-            .lazyloaded {
-                opacity: 1;
-                transition: opacity 400ms;
-                transition-delay: 0ms;
-            }
-        </style>
     </head>
 
 
-
-    <body class="page-template-default page page-id-1248 page-child parent-pageid-1229 wp-embed-responsive theme-green nav-column tribe-no-js">
-        <!--Header-->
+    <body class="page-template-default page page-id-1229 page-parent wp-embed-responsive theme-green nav-column tribe-no-js">
         <%@ include file="member_header.jsp" %> 
 
-        <main id="tribe-events-pg-template" class="tribe-events-pg-template"><div class="tribe-events-before-html"></div><span class="tribe-events-ajax-loading"><img alt="Loading Events" data-src="https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/src/resources/images/tribe-loading.gif" class="tribe-events-spinner-medium lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img class="tribe-events-spinner-medium" src="https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/src/resources/images/tribe-loading.gif" alt="Loading Events" /></noscript></span>
+        <main id="main-content" class="page has-hero">
+            <article id="article" class="post-1229 page type-page status-publish has-post-thumbnail hentry">
+                <header id="hero-wrapper" aria-label="Banner">
+                    <div id="hero-content-container" class="hero-container mobile-stack">
+                    </div>
+                        
+                </header> 
 
+                <div class="content-container page-wide has-cta" data-sticky-container>             
+                    <section id="content" class="content" aria-label="Main content">         
+                        
 
-
-
-
-            <article id="article" class="post-10000630 tribe_events type-tribe_events status-publish hentry tribe_events_cat-beginner-bird-walks cat_beginner-bird-walks tribe-recurring-event tribe-recurring-event-parent">
-
-                <div class="content-container page-wide">
-
-                    <section id="content" class="content" aria-label="Main content">
-
-                        <div id="tribe-events-content" class="tribe-events-single tribe-blocks-editor">
-
-                            <h1 class="tribe-events-single-event-title">National Park field trip</h1>            
-
-                            <div class="tribe-events-schedule tribe-clearfix">
-                                <h2 class="tribe-events-schedule__datetime">
-                                    <span class="tribe-events-schedule__date tribe-events-schedule__date--start">
-                                        June 12		</span>
-
-                                    <span class="tribe-events-schedule__separator tribe-events-schedule__separator--date">
-                                        at 			</span>
-                                    <span class="tribe-events-schedule__time tribe-events-schedule__time--start">
-                                        9:30 am			</span>
-
-                                    <span class="tribe-events-schedule__separator tribe-events-schedule__separator--time">
-                                        –				</span>
-
-                                    <span class="tribe-events-schedule__time tribe-events-schedule__time--end">
-                                        10:00 pm				</span>
-
-                                </h2>
-
-                            </div>
-
-
-
-                            <div class="is-layout-flex wp-container-4 wp-block-columns">
-                                <div class="is-layout-flow wp-block-column" style="flex-basis:66.66%">
-                                    <figure class="">
-                                        <img src="https://cdn.shopify.com/s/files/1/0020/1926/2510/products/red-whiskered-bulbul-2_1200x1200.jpg?v=1551037285">
-                                    </figure>
-                                    <br>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  
-
-
-                                    <div class="is-layout-flex wp-block-buttons"></div>
-
-
-                                    <h2>Location</h2>
-                                    <div class="tribe-block tribe-block__venue tribe-block__venue--has-map">
-                                        <div class="tribe-block__venue__meta">
-                                            <div class="tribe-block__venue__name">
-                                                <h3>Dong Hoi, Quang Binh</h3></div>
-                                            <address class="tribe-block__venue__address">
-                                                <span class="tribe-address">
-                                                    <span class="tribe-street-address">121 Republic Street</span><br></span>
-                                                <a class="tribe-events-gmap" href="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=159+Sapsucker+Woods+Road+Ithaca+NY+14850+United+States" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">Map</a></address>
-                                        </div>	
-                                        <div class="tribe-block__venue__map">	
-                                            <iframe aria-label="Venue location map" width="100%" height="350px" frameborder="0" style="border:0" allowfullscreen="" data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDNsicAsP6-VuGtAb1O9riI3oc_NOb7IOU&amp;q=159+Sapsucker+Woods+Road+Ithaca+NY+NY+14850+United+States+" class=" lazyloaded" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" title="View location in Google Maps">
-                                            </iframe>
+                        <div class="is-layout-flow wp-block-group alignfull has-bg-gray-background-color has-background narrow">
+                            <h2 class="has-text-align-center has-large-font-size">Meeting List</h2>
+                            <link rel='stylesheet' id='tec-variables-skeleton-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/common/src/resources/css/variables-skeleton.min.css?ver=5.0.6' type='text/css' media='all' />
+                            <link rel='stylesheet' id='tribe-common-skeleton-style-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/common/src/resources/css/common-skeleton.min.css?ver=5.0.6' type='text/css' media='all' />
+                            <link rel='stylesheet' id='tribe-events-views-v2-bootstrap-datepicker-styles-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/vendor/bootstrap-datepicker/css/bootstrap-datepicker.standalone.min.css?ver=6.0.6.2' type='text/css' media='all' />
+                            <link rel='stylesheet' id='tribe-tooltipster-css-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/common/vendor/tooltipster/tooltipster.bundle.min.css?ver=5.0.6' type='text/css' media='all' />
+                            <link rel='stylesheet' id='tribe-events-views-v2-skeleton-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/src/resources/css/views-skeleton.min.css?ver=6.0.6.2' type='text/css' media='all' />
+                            <link rel='stylesheet' id='tribe-events-pro-views-v2-skeleton-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/events-calendar-pro/src/resources/css/views-skeleton.min.css?ver=6.0.5.1' type='text/css' media='all' />
+                            <link rel='stylesheet' id='tec-variables-full-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/common/src/resources/css/variables-full.min.css?ver=5.0.6' type='text/css' media='all' />
+                            <link rel='stylesheet' id='tribe-common-full-style-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/common/src/resources/css/common-full.min.css?ver=5.0.6' type='text/css' media='all' />
+                            <link rel='stylesheet' id='tribe-events-views-v2-full-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/src/resources/css/views-full.min.css?ver=6.0.6.2' type='text/css' media='all' />
+                            <link rel='stylesheet' id='tribe-events-pro-views-v2-full-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/events-calendar-pro/src/resources/css/views-full.min.css?ver=6.0.5.1' type='text/css' media='all' />
+                            <link rel='stylesheet' id='tribe-events-pro-views-v2-print-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/events-calendar-pro/src/resources/css/views-print.min.css?ver=6.0.5.1' type='text/css' media='print' />
+                            <link rel='stylesheet' id='tribe-events-views-v2-print-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/src/resources/css/views-print.min.css?ver=6.0.6.2' type='text/css' media='print' />
+                            <div
+                                class="tribe-common tribe-events tribe-events-view tribe-events-view--list alignwide tribe-events-view--shortcode tribe-events-view--shortcode-0e2a3254" 	data-js="tribe-events-view"
+                                data-view-rest-nonce="6a47ab0393"
+                                data-view-rest-url="https://www.birds.cornell.edu/home/wp-json/tribe/views/v2/html"
+                                data-view-rest-method="POST"
+                                data-view-manage-url=""
+                                data-view-shortcode="0e2a3254"
+                                data-view-breakpoint-pointer="fda4f16f-e37f-4b14-8962-cbb5ead01572"
+                                >
+                                <div class="tribe-common-l-container tribe-events-l-container">
+                                    <div
+                                        class="tribe-events-view-loader tribe-common-a11y-hidden"
+                                        role="alert"
+                                        aria-live="polite"
+                                        >
+                                        <span class="tribe-events-view-loader__text tribe-common-a11y-visual-hide">
+                                            Loading view.	</span>
+                                        <div class="tribe-events-view-loader__dots tribe-common-c-loader">
+                                            <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--dot tribe-common-c-loader__dot tribe-common-c-loader__dot--first"  viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg"><circle cx="7.5" cy="7.5" r="7.5"/></svg>
+                                            <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--dot tribe-common-c-loader__dot tribe-common-c-loader__dot--second"  viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg"><circle cx="7.5" cy="7.5" r="7.5"/></svg>
+                                            <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--dot tribe-common-c-loader__dot tribe-common-c-loader__dot--third"  viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg"><circle cx="7.5" cy="7.5" r="7.5"/></svg>
                                         </div>
                                     </div>
-                                </div>
+
+
+                                    <script data-js="tribe-events-view-data" type="application/json">
+                                        {"slug":"list","prev_url":"https:\/\/www.birds.cornell.edu\/home\/events\/list\/?pagename=visit&shortcode=0e2a3254&eventDisplay=past","next_url":"https:\/\/www.birds.cornell.edu\/home\/events\/list\/page\/2\/?shortcode=0e2a3254","view_class":"Tribe\\Events\\Views\\V2\\Views\\List_View","view_slug":"list","view_label":"List","title":"Visit Us | Birds, Cornell Lab of Ornithology","events":[10000630,10000631,10000679,10000678],"url":"https:\/\/www.birds.cornell.edu\/home\/events\/list\/?shortcode=0e2a3254","url_event_date":false,"bar":{"keyword":"","date":""},"today":"2023-05-27 00:00:00","now":"2023-05-27 09:41:48","rest_url":"https:\/\/www.birds.cornell.edu\/home\/wp-json\/tribe\/views\/v2\/html","rest_method":"POST","rest_nonce":"6a47ab0393","should_manage_url":false,"today_url":"https:\/\/www.birds.cornell.edu\/home\/events\/list\/?pagename=visit&shortcode=0e2a3254","today_title":"Click to select today's date","today_label":"Today","prev_label":"","next_label":"","date_formats":{"compact":"m\/d\/Y","month_and_year_compact":"m\/Y","month_and_year":"F Y","time_range_separator":"\u2013","date_time_separator":" at "},"messages":[],"start_of_week":"0","breadcrumbs":[],"before_events":"","after_events":"","display_events_bar":true,"disable_event_search":true,"live_refresh":false,"ical":{"display_link":true,"link":{"url":"https:\/\/www.birds.cornell.edu\/home\/events\/list\/?shortcode=0e2a3254&#038;ical=1","text":"Export Events","title":"Use this to share calendar data with Google Calendar, Apple iCal and other compatible apps"}},"container_classes":["tribe-common","tribe-events","tribe-events-view","tribe-events-view--list","alignwide","tribe-events-view--shortcode","tribe-events-view--shortcode-0e2a3254"],"container_data":{"shortcode":"0e2a3254"},"is_past":false,"breakpoints":{"xsmall":500,"medium":768,"full":960},"breakpoint_pointer":"fda4f16f-e37f-4b14-8962-cbb5ead01572","is_initial_load":true,"public_views":{"month":{"view_class":"Tribe\\Events\\Views\\V2\\Views\\Month_View","view_url":"https:\/\/www.birds.cornell.edu\/home\/events\/month\/?shortcode=0e2a3254","view_label":"Month"}},"show_latest_past":true,"show_now":true,"now_label":"Now","now_label_mobile":"Now","show_end":true,"selected_start_datetime":"2023-05-27","selected_start_date_mobile":"05\/27\/2023","selected_start_date_label":"May 27","selected_end_datetime":"2023-06-02","selected_end_date_mobile":"06\/02\/2023","selected_end_date_label":"June 2","datepicker_date":"05\/27\/2023","subscribe_links":{"gcal":{"block_slug":"hasGoogleCalendar","label":"Google Calendar","single_label":"Add to Google Calendar","visible":true},"ical":{"block_slug":"hasiCal","label":"iCalendar","single_label":"Add to iCalendar","visible":true},"outlook-365":{"block_slug":"hasOutlook365","label":"Outlook 365","single_label":"Outlook 365","visible":true},"outlook-live":{"block_slug":"hasOutlookLive","label":"Outlook Live","single_label":"Outlook Live","visible":true},"ics":{"label":"Export .ics file","single_label":"Export .ics file","visible":true,"block_slug":null},"outlook-ics":{"label":"Export Outlook .ics file","single_label":"Export Outlook .ics file","visible":true,"block_slug":null}},"display_recurring_toggle":false,"_context":{"slug":"list","should_manage_url":false},"text":"Loading...","classes":["tribe-common-c-loader__dot","tribe-common-c-loader__dot--third"]}</script>
+
+
+                                    <header  class="tribe-events-header" >
 
 
 
-                                <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%">
-                                    <div class="tribe-events-single-section tribe-events-event-meta primary tribe-clearfix">
-                                        <div class="tribe-events-meta-group tribe-events-meta-group-details">
-                                            <h3 class="tribe-events-single-section-title">Details</h3>
-                                            <dl>
-                                                <dt> Date: </dt>
-                                                <dd><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" title="2023-05-27"> June 12</abbr>
-                                                </dd>
-                                                <dt> Time: </dt>
-                                                <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
-                                                        <div class="tribe-recurring-event-time">9:30 am–10:00 pm</div></dd>
-                                                <dt>Category:</dt>Field trip</dl> 
+                                        <div class="tribe-events-c-top-bar tribe-events-header__top-bar">
 
-                                            <div class="is-content-justification-center is-layout-flex wp-container-1 wp-block-buttons">
-                                                <div class="wp-block-button"><a class="wp-block-button__link has-orange-background-color has-background" href="member_fieldtrip_register.jsp">Join field trip</a></div>
+                                            <nav class="tribe-events-c-top-bar__nav tribe-common-a11y-hidden">
+                                                <ul class="tribe-events-c-top-bar__nav-list">
+                                                    <li class="tribe-events-c-top-bar__nav-list-item">
+                                                        <a
+                                                            href="https://www.birds.cornell.edu/home/events/list/?pagename=visit&#038;shortcode=0e2a3254&#038;eventDisplay=past"
+                                                            class="tribe-common-c-btn-icon tribe-common-c-btn-icon--caret-left tribe-events-c-top-bar__nav-link tribe-events-c-top-bar__nav-link--prev"
+                                                            aria-label="Previous Events"
+                                                            title="Previous Events"
+                                                            data-js="tribe-events-view-link"
+                                                            >
+                                                            <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-left tribe-common-c-btn-icon__icon-svg tribe-events-c-top-bar__nav-link-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M9.7 14.4l-1.5 1.5L.3 8 8.2.1l1.5 1.5L3.3 8l6.4 6.4z"/></svg>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="tribe-events-c-top-bar__nav-list-item">
+                                                        <a
+                                                            href="https://www.birds.cornell.edu/home/events/list/page/2/?shortcode=0e2a3254"
+                                                            class="tribe-common-c-btn-icon tribe-common-c-btn-icon--caret-right tribe-events-c-top-bar__nav-link tribe-events-c-top-bar__nav-link--next"
+                                                            aria-label="Next Events"
+                                                            title="Next Events"
+                                                            data-js="tribe-events-view-link"
+                                                            >
+                                                            <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-right tribe-common-c-btn-icon__icon-svg tribe-events-c-top-bar__nav-link-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M.3 1.6L1.8.1 9.7 8l-7.9 7.9-1.5-1.5L6.7 8 .3 1.6z"/></svg>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+
+                                            <a
+                                                href="https://www.birds.cornell.edu/home/events/list/?pagename=visit&#038;shortcode=0e2a3254"
+                                                class="tribe-common-c-btn-border-small tribe-events-c-top-bar__today-button tribe-common-a11y-hidden"
+                                                data-js="tribe-events-view-link"
+                                                aria-label="Today"
+                                                title="Today"
+                                                >
+                                                Today</a>
+
+                                            <div class="tribe-events-c-top-bar__datepicker">
+                                                <button
+                                                    class="tribe-common-h3 tribe-common-h--alt tribe-events-c-top-bar__datepicker-button"
+                                                    data-js="tribe-events-top-bar-datepicker-button"
+                                                    type="button"
+                                                    aria-label="Click to toggle datepicker"
+                                                    title="Click to toggle datepicker"
+                                                    >
+                                                    <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--month tribe-events-c-top-bar__datepicker-button-icon-svg"  viewBox="0 0 18 19" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 .991v17.04c0 .236.162.428.361.428h17.175c.2 0 .361-.192.361-.429V.991c0-.237-.162-.428-.361-.428H.36C.161.563 0 .754 0 .99zm.985.803H16.89v2.301H.985v-2.3zM16.89 5.223H.985v12H16.89v-12zM6.31 7.366v.857c0 .237.192.429.429.429h.857a.429.429 0 00.428-.429v-.857a.429.429 0 00-.428-.429H6.74a.429.429 0 00-.429.429zm3.429.857v-.857c0-.237.191-.429.428-.429h.857c.237 0 .429.192.429.429v.857a.429.429 0 01-.429.429h-.857a.429.429 0 01-.428-.429zm3.428-.857v.857c0 .237.192.429.429.429h.857a.429.429 0 00.428-.429v-.857a.429.429 0 00-.428-.429h-.857a.429.429 0 00-.429.429zm-6.857 4.286v-.858c0-.236.192-.428.429-.428h.857c.236 0 .428.192.428.428v.858a.429.429 0 01-.428.428H6.74a.429.429 0 01-.429-.428zm3.429-.858v.858c0 .236.191.428.428.428h.857a.429.429 0 00.429-.428v-.858a.429.429 0 00-.429-.428h-.857a.428.428 0 00-.428.428zm3.428.858v-.858c0-.236.192-.428.429-.428h.857c.236 0 .428.192.428.428v.858a.429.429 0 01-.428.428h-.857a.429.429 0 01-.429-.428zm-10.286-.858v.858c0 .236.192.428.429.428h.857a.429.429 0 00.429-.428v-.858a.429.429 0 00-.429-.428h-.857a.429.429 0 00-.429.428zm0 4.286v-.857c0-.237.192-.429.429-.429h.857c.237 0 .429.192.429.429v.857a.429.429 0 01-.429.429h-.857a.429.429 0 01-.429-.429zm3.429-.857v.857c0 .237.192.429.429.429h.857a.429.429 0 00.428-.429v-.857a.429.429 0 00-.428-.429H6.74a.429.429 0 00-.429.429zm3.429.857v-.857c0-.237.191-.429.428-.429h.857c.237 0 .429.192.429.429v.857a.429.429 0 01-.429.429h-.857a.429.429 0 01-.428-.429z" class="tribe-common-c-svgicon__svg-fill"/></svg>	</button>
+                                                <span class="date-range">
+                                                    <time
+                                                        datetime="2023-05-27"
+                                                        class="tribe-events-c-top-bar__datepicker-time"
+                                                        >
+                                                        <span class="tribe-events-c-top-bar__datepicker-mobile">
+                                                            Now				</span>
+                                                        <span class="tribe-events-c-top-bar__datepicker-desktop tribe-common-a11y-hidden">
+                                                            Now				</span>
+                                                    </time>
+                                                    <span class="tribe-events-c-top-bar__datepicker-separator"> - </span>
+                                                    <time
+                                                        datetime="2023-06-02"
+                                                        class="tribe-events-c-top-bar__datepicker-time"
+                                                        >
+                                                        <span class="tribe-events-c-top-bar__datepicker-mobile">
+                                                            06/02/2023				</span>
+                                                        <span class="tribe-events-c-top-bar__datepicker-desktop tribe-common-a11y-hidden">
+                                                            June 2				</span>
+                                                    </time>
+                                                </span>
+                                                <label
+                                                    class="tribe-events-c-top-bar__datepicker-label tribe-common-a11y-visual-hide"
+                                                    for="tribe-events-top-bar-date"
+                                                    >
+                                                    Select date.	</label>
+                                                <input
+                                                    type="text"
+                                                    class="tribe-events-c-top-bar__datepicker-input tribe-common-a11y-visual-hide"
+                                                    data-js="tribe-events-top-bar-date"
+                                                    id="tribe-events-top-bar-date"
+                                                    name="tribe-events-views[tribe-bar-date]"
+                                                    value="05/27/2023"
+                                                    tabindex="-1"
+                                                    autocomplete="off"
+                                                    readonly="readonly"
+                                                    />
+                                                <div class="tribe-events-c-top-bar__datepicker-container" data-js="tribe-events-top-bar-datepicker-container"></div>
+                                                <template class="tribe-events-c-top-bar__datepicker-template-prev-icon">
+                                                    <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-left tribe-events-c-top-bar__datepicker-nav-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M9.7 14.4l-1.5 1.5L.3 8 8.2.1l1.5 1.5L3.3 8l6.4 6.4z"/></svg>
+                                                </template>
+                                                <template class="tribe-events-c-top-bar__datepicker-template-next-icon">
+                                                    <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-right tribe-events-c-top-bar__datepicker-nav-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M.3 1.6L1.8.1 9.7 8l-7.9 7.9-1.5-1.5L6.7 8 .3 1.6z"/></svg>
+                                                </template>
                                             </div>
-                                            <script>
-                                                // Lấy tham số "registerSuccess" từ URL
-                                                const urlParams = new URLSearchParams(window.location.search);
-                                                const registerSuccess = urlParams.get('registerSuccess');
 
-                                                // Kiểm tra nếu có tham số "registerSuccess" và giá trị là "true"
-                                                if (registerSuccess === 'true') {
-                                                    // Thay thế nút "Join field trip" bằng dòng chữ "Register success"
-                                                    const joinFieldTripButton = document.querySelector('.wp-block-button__link');
-                                                    joinFieldTripButton.textContent = 'Register success';
-                                                    joinFieldTripButton.removeAttribute('href');
-                                                }
-                                            </script>
+                                            <div class="tribe-events-c-top-bar__actions tribe-common-a11y-hidden">
+                                            </div>
+
                                         </div>
+                                    </header>
+
+
+                                    <div class="tribe-events-calendar-list">
+
+
+                                        <h2 class="tribe-events-calendar-list__month-separator">
+                                            <time
+                                                class="tribe-events-calendar-list__month-separator-text tribe-common-h7 tribe-common-h6--min-medium tribe-common-h--alt"
+                                                datetime="2023-05"
+                                                >
+                                                May 2023	</time>
+                                        </h2>
+
+                                        <div  class="tribe-common-g-row tribe-events-calendar-list__event-row" >
+                                            <div class="tribe-events-calendar-list__event-date-tag tribe-common-g-col">
+                                                <time class="tribe-events-calendar-list__event-date-tag-datetime" datetime="2023-05-27" aria-hidden="true">
+                                                    <span class="tribe-events-calendar-list__event-date-tag-weekday">Mon</span>
+                                                    <span class="tribe-events-calendar-list__event-date-tag-daynum tribe-common-h5 tribe-common-h4--min-medium">12</span>
+                                                </time>
+                                            </div>
+
+                                            <div class="tribe-events-calendar-list__event-wrapper tribe-common-g-col">
+                                                <article  class="tribe-events-calendar-list__event tribe-common-g-row tribe-common-g-row--gutters post-10000630 tribe_events type-tribe_events status-publish hentry tribe_events_cat-beginner-bird-walks cat_beginner-bird-walks tribe-recurring-event tribe-recurring-event-parent" >
+                                                    <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
+                                                        <header class="tribe-events-calendar-list__event-header">
+                                                            <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2">
+                                                                <time class="tribe-events-calendar-list__event-datetime" datetime="2023-05-27">
+                                                                    <span class="tribe-event-date-start">June 12 at 9:30 am</span>
+                                                                    –<span class="tribe-event-time">10:00 pm</span>	
+                                                                </time>
+                                                            </div>
+                                                            <h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
+                                                                <a href="member_meeting_details.jsp"
+                                                                   title="National Park field"
+                                                                   rel="bookmark"
+                                                                   class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
+                                                                    National Park field trip-June 12</a>
+                                                            </h3></header>
+                                                        <div class="tribe-events-calendar-list__event-description tribe-common-b2 tribe-common-a11y-hidden">
+                                                            <p>Join us for an evening of bird-filled poetic piano pop from Sparkbird, the musical project of queer singer-songwriter Stephan Nance. This concert will be INTERACTIVE – win swag from Sparkbird by playing BIRD BINGO while you listen! Learn more at Sparkbird is the musical project of queer singer-songwriter Stephan Nance, whose performing credits include multiple tours in Japan and Europe...
+                                                            </p>
+                                                            <a href="member_meeting_details.jsp" class="tribe-events-read-more" rel="bookmark">More detail »</a>
+                                                        </div>
+                                                    </div></article></div></div>
+
+                                        <div  class="tribe-common-g-row tribe-events-calendar-list__event-row" >
+                                            <div class="tribe-events-calendar-list__event-date-tag tribe-common-g-col">
+                                                <time class="tribe-events-calendar-list__event-date-tag-datetime" datetime="2023-05-27" aria-hidden="true">
+                                                    <span class="tribe-events-calendar-list__event-date-tag-weekday">Mon</span>
+                                                    <span class="tribe-events-calendar-list__event-date-tag-daynum tribe-common-h5 tribe-common-h4--min-medium">29</span>
+                                                </time>
+                                            </div>
+
+                                            <div class="tribe-events-calendar-list__event-wrapper tribe-common-g-col">
+                                                <article  class="tribe-events-calendar-list__event tribe-common-g-row tribe-common-g-row--gutters post-10000630 tribe_events type-tribe_events status-publish hentry tribe_events_cat-beginner-bird-walks cat_beginner-bird-walks tribe-recurring-event tribe-recurring-event-parent" >
+                                                    <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
+                                                        <header class="tribe-events-calendar-list__event-header">
+                                                            <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2">
+                                                                <time class="tribe-events-calendar-list__event-datetime" datetime="2023-05-27">
+                                                                    <span class="tribe-event-date-start">May 29 at 8:30 am</span>
+                                                                    –<span class="tribe-event-time">10:00 am</span>	
+                                                                </time>
+                                                            </div>
+                                                            <h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
+                                                                <a href=""
+                                                                   title="Northern Vietnam Area"
+                                                                   rel="bookmark"
+                                                                   class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
+                                                                    Northern Vietnam Area - May 29</a>
+                                                            </h3></header>
+                                                        <div class="tribe-events-calendar-list__event-description tribe-common-b2 tribe-common-a11y-hidden">
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                    <a href="member_meeting_details.jsp" class="tribe-events-read-more" rel="bookmark">More detail »</a>                                                            
+                                                            </p>
+                                                        </div>
+
+                                                    </div></article></div></div>							
+
+                                        <h2 class="tribe-events-calendar-list__month-separator">
+                                            <time
+                                                class="tribe-events-calendar-list__month-separator-text tribe-common-h7 tribe-common-h6--min-medium tribe-common-h--alt"
+                                                datetime="2023-06">June 2023</time>
+                                        </h2>
+                                        <div  class="tribe-common-g-row tribe-events-calendar-list__event-row" >
+                                            <div class="tribe-events-calendar-list__event-date-tag tribe-common-g-col">
+                                                <time class="tribe-events-calendar-list__event-date-tag-datetime" datetime="2023-06-02" aria-hidden="true">
+                                                    <span class="tribe-events-calendar-list__event-date-tag-weekday">Fri</span>
+                                                    <span class="tribe-events-calendar-list__event-date-tag-daynum tribe-common-h5 tribe-common-h4--min-medium">2</time>
+                                            </div>
+                                            <div class="tribe-events-calendar-list__event-wrapper tribe-common-g-col">
+                                                <article  class="tribe-events-calendar-list__event tribe-common-g-row tribe-common-g-row--gutters post-10000678 tribe_events type-tribe_events status-publish hentry" >
+                                                    <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
+                                                        <header class="tribe-events-calendar-list__event-header">
+                                                            <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2">
+                                                                <time class="tribe-events-calendar-list__event-datetime" datetime="2023-06-02">
+                                                                    <span class="tribe-event-date-start">June 2 at 4:00 pm</span>–<span class="tribe-event-time">5:00 pm</span>	</time>
+                                                            </div><h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
+                                                                <a
+                                                                    href=""
+                                                                    title="FINAL"
+                                                                    rel="bookmark"
+                                                                    class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin"
+                                                                    >FINAL - Finding out the champion!</a>
+                                                            </h3>
+                                                        </header>
+                                                        <div class="tribe-events-calendar-list__event-description tribe-common-b2 tribe-common-a11y-hidden">
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                            </p>
+                                                    <a href="member_meeting_details.jsp" class="tribe-events-read-more" rel="bookmark">More detail »</a>                                                            
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </div>
+
+                            <script class="tribe-events-breakpoints">
+                                (function () {
+                                    var completed = false;
+
+                                    function initBreakpoints() {
+                                        if (completed) {
+                                            // This was fired already and completed no need to attach to the event listener.
+                                            document.removeEventListener('DOMContentLoaded', initBreakpoints);
+                                            return;
+                                        }
+
+                                        if ('undefined' === typeof window.tribe) {
+                                            return;
+                                        }
+
+                                        if ('undefined' === typeof window.tribe.events) {
+                                            return;
+                                        }
+
+                                        if ('undefined' === typeof window.tribe.events.views) {
+                                            return;
+                                        }
+
+                                        if ('undefined' === typeof window.tribe.events.views.breakpoints) {
+                                            return;
+                                        }
+
+                                        if ('function' !== typeof (window.tribe.events.views.breakpoints.setup)) {
+                                            return;
+                                        }
+
+                                        var container = document.querySelectorAll('[data-view-breakpoint-pointer="fda4f16f-e37f-4b14-8962-cbb5ead01572"]');
+                                        if (!container) {
+                                            return;
+                                        }
+
+                                        window.tribe.events.views.breakpoints.setup(container);
+                                        completed = true;
+                                        // This was fired already and completed no need to attach to the event listener.
+                                        document.removeEventListener('DOMContentLoaded', initBreakpoints);
+                                    }
+
+                                    // Try to init the breakpoints right away.
+                                    initBreakpoints();
+                                    document.addEventListener('DOMContentLoaded', initBreakpoints);
+                                })();
+                            </script>
+
                         </div>
 
-                </div>
-
-                </section> 
-
-                </div>
-
-            </article>
+                    </section> <!-- end Main content -->
 
 
-            <section id="global-cta" aria-label="Call to action" class="global-cta">
-                <div class="wp-block-group cta">
 
-                    <h2>Don't miss a thing! Join our email list</h2>
-                    <script data-hubspot-rendered="true">hbspt.forms.create({portalId: "95627", formId: "ee3402b4-bebe-48ff-870f-7e51695b366d"});</script>
-                    <div id="hbspt-form-c5130a24-3b0a-4ee5-a933-0664caffedf7" class="hbspt-form" data-hs-forms-root="true">
-                        <form id="hsForm_ee3402b4-bebe-48ff-870f-7e51695b366d" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="" action="https://forms.hsforms.com/submissions/v3/public/submit/formsnext/multipart/95627/ee3402b4-bebe-48ff-870f-7e51695b366d" class="hs-form-private hsForm_ee3402b4-bebe-48ff-870f-7e51695b366d hs-form-ee3402b4-bebe-48ff-870f-7e51695b366d hs-form-ee3402b4-bebe-48ff-870f-7e51695b366d_c5130a24-3b0a-4ee5-a933-0664caffedf7 hs-form stacked" target="target_iframe_ee3402b4-bebe-48ff-870f-7e51695b366d" data-instance-id="c5130a24-3b0a-4ee5-a933-0664caffedf7" data-form-id="ee3402b4-bebe-48ff-870f-7e51695b366d" data-portal-id="95627"><div class="hs_email hs-email hs-fieldtype-text field hs-form-field"><label id="label-email-ee3402b4-bebe-48ff-870f-7e51695b366d" class="" placeholder="Enter your Email Address" for="email-ee3402b4-bebe-48ff-870f-7e51695b366d"><span>Email Address</span><span class="hs-form-required">*</span></label><legend class="hs-field-desc" style="display: none;"></legend>
-                                <div class="input"><input id="email-ee3402b4-bebe-48ff-870f-7e51695b366d" name="email" required="" placeholder="Enter your email" type="email" class="hs-input" inputmode="email" autocomplete="email" value=""></div></div><div class="hs_submit hs-submit"><div class="hs-field-desc" style="display: none;"></div>
-                                <div class="actions"><input type="submit" class="hs-button primary large" value="Subscribe"></div></div>
-                            <input name="hs_context" type="hidden" value="{&quot;embedAtTimestamp&quot;:&quot;1685177938503&quot;,&quot;formDefinitionUpdatedAt&quot;:&quot;1672780155224&quot;,&quot;disableCookieSubmission&quot;:&quot;true&quot;,&quot;renderRawHtml&quot;:&quot;true&quot;,&quot;isLegacyThemeAllowed&quot;:&quot;true&quot;,&quot;userAgent&quot;:&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50&quot;,&quot;pageTitle&quot;:&quot;Beginner Bird Walk | Birds, Cornell Lab of Ornithology&quot;,&quot;pageUrl&quot;:&quot;https://www.birds.cornell.edu/home/event/beginner-bird-walk-2/2023-05-27/?__hstc=181257784.be32163685d64de8af3236339b100540.1685172002340.1685172002340.1685177625873.2&amp;__hssc=181257784.6.1685177625873&amp;__hsfp=1596690040&amp;_gl=1*esyhvo*_ga*OTQ5Nzg4OTE0LjE2ODUxNzIwMDA.*_ga_QR4NVXZ8BM*MTY4NTE3NzYyNC4yLjEuMTY4NTE3NzkyOS4yNS4wLjA.&amp;_ga=2.77067221.1752550753.1685172000-949788914.1685172000&quot;,&quot;referrer&quot;:&quot;http://localhost:8080/&quot;,&quot;urlParams&quot;:{&quot;__hstc&quot;:&quot;181257784.be32163685d64de8af3236339b100540.1685172002340.1685172002340.1685177625873.2&quot;,&quot;__hssc&quot;:&quot;181257784.6.1685177625873&quot;,&quot;__hsfp&quot;:&quot;1596690040&quot;,&quot;_gl&quot;:&quot;1*esyhvo*_ga*OTQ5Nzg4OTE0LjE2ODUxNzIwMDA.*_ga_QR4NVXZ8BM*MTY4NTE3NzYyNC4yLjEuMTY4NTE3NzkyOS4yNS4wLjA.&quot;,&quot;_ga&quot;:&quot;2.77067221.1752550753.1685172000-949788914.1685172000&quot;},&quot;isHubSpotCmsGeneratedPage&quot;:false,&quot;hutk&quot;:&quot;b1c34786141bb12cb035702f36aa5205&quot;,&quot;__hsfp&quot;:1596690040,&quot;__hssc&quot;:&quot;161696355.2.1685177901406&quot;,&quot;__hstc&quot;:&quot;161696355.b1c34786141bb12cb035702f36aa5205.1685177901405.1685177901405.1685177901405.1&quot;,&quot;formTarget&quot;:&quot;#hbspt-form-c5130a24-3b0a-4ee5-a933-0664caffedf7&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;timestamp&quot;:1685177943543,&quot;originalEmbedContext&quot;:{&quot;portalId&quot;:&quot;95627&quot;,&quot;formId&quot;:&quot;ee3402b4-bebe-48ff-870f-7e51695b366d&quot;,&quot;region&quot;:&quot;na1&quot;,&quot;target&quot;:&quot;#hbspt-form-c5130a24-3b0a-4ee5-a933-0664caffedf7&quot;,&quot;isBuilder&quot;:false,&quot;isTestPage&quot;:false,&quot;isPreview&quot;:false,&quot;isMobileResponsive&quot;:true},&quot;correlationId&quot;:&quot;c5130a24-3b0a-4ee5-a933-0664caffedf7&quot;,&quot;renderedFieldsIds&quot;:[&quot;email&quot;],&quot;captchaStatus&quot;:&quot;NOT_APPLICABLE&quot;,&quot;emailResubscribeStatus&quot;:&quot;NOT_APPLICABLE&quot;,&quot;isInsideCrossOriginFrame&quot;:false,&quot;source&quot;:&quot;forms-embed-1.3243&quot;,&quot;sourceName&quot;:&quot;forms-embed&quot;,&quot;sourceVersion&quot;:&quot;1.3243&quot;,&quot;sourceVersionMajor&quot;:&quot;1&quot;,&quot;sourceVersionMinor&quot;:&quot;3243&quot;,&quot;_debug_allPageIds&quot;:{},&quot;_debug_embedLogLines&quot;:[{&quot;clientTimestamp&quot;:1685177939420,&quot;level&quot;:&quot;INFO&quot;,&quot;message&quot;:&quot;Retrieved pageContext values which may be overriden by the embed context: {\&quot;pageTitle\&quot;:\&quot;Beginner Bird Walk | Birds, Cornell Lab of Ornithology\&quot;,\&quot;pageUrl\&quot;:\&quot;https://www.birds.cornell.edu/home/event/beginner-bird-walk-2/2023-05-27/?__hstc=181257784.be32163685d64de8af3236339b100540.1685172002340.1685172002340.1685177625873.2&amp;__hssc=181257784.6.1685177625873&amp;__hsfp=1596690040&amp;_gl=1*esyhvo*_ga*OTQ5Nzg4OTE0LjE2ODUxNzIwMDA.*_ga_QR4NVXZ8BM*MTY4NTE3NzYyNC4yLjEuMTY4NTE3NzkyOS4yNS4wLjA.&amp;_ga=2.77067221.1752550753.1685172000-949788914.1685172000\&quot;,\&quot;referrer\&quot;:\&quot;http://localhost:8080/\&quot;,\&quot;userAgent\&quot;:\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50\&quot;,\&quot;urlParams\&quot;:{\&quot;__hstc\&quot;:\&quot;181257784.be32163685d64de8af3236339b100540.1685172002340.1685172002340.1685177625873.2\&quot;,\&quot;__hssc\&quot;:\&quot;181257784.6.1685177625873\&quot;,\&quot;__hsfp\&quot;:\&quot;1596690040\&quot;,\&quot;_gl\&quot;:\&quot;1*esyhvo*_ga*OTQ5Nzg4OTE0LjE2ODUxNzIwMDA.*_ga_QR4NVXZ8BM*MTY4NTE3NzYyNC4yLjEuMTY4NTE3NzkyOS4yNS4wLjA.\&quot;,\&quot;_ga\&quot;:\&quot;2.77067221.1752550753.1685172000-949788914.1685172000\&quot;},\&quot;isHubSpotCmsGeneratedPage\&quot;:false}&quot;},{&quot;clientTimestamp&quot;:1685177939422,&quot;level&quot;:&quot;INFO&quot;,&quot;message&quot;:&quot;Retrieved countryCode property from normalized embed definition response: \&quot;VN\&quot;&quot;},{&quot;clientTimestamp&quot;:1685177943536,&quot;level&quot;:&quot;INFO&quot;,&quot;message&quot;:&quot;Retrieved analytics values from API response which may be overriden by the embed context: {\&quot;hutk\&quot;:\&quot;b1c34786141bb12cb035702f36aa5205\&quot;}&quot;}]}"><iframe name="target_iframe_ee3402b4-bebe-48ff-870f-7e51695b366d" style="display: none;"></iframe></form></div></p>      </div>
-            </section>
-            <div class="tribe-events-after-html"></div>
 
-        </main>            
-        <!--Footer-->
+
+                    <section id="global-cta" aria-label="Call to action" class="global-cta">
+                        <div class="wp-block-group cta">
+
+                            <h2>Don't miss a thing! Join our email list</h2>
+                            <p><!--[if lte IE 8]><script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script> <![endif]--><script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script> <script>hbspt.forms.create({portalId: "95627", formId: "ee3402b4-bebe-48ff-870f-7e51695b366d"});</script></p>      </div>
+                    </section>
+
+
+
+                </div><!-- .content-container -->
+
+            </article> <!-- end article -->      
+
+
+        </main>
+
+
        <%@ include file="member_footer.jsp" %>
-
 
         <!-- BEGIN Search modal -->
         <div class="reveal" id="search-modal" data-reveal role="dialog" data-animation-in="fade-in fast" aria-label="Search">
@@ -234,7 +410,7 @@
             </div><!-- .search-container -->
             <aside id="search-modal-content" class="search-links" aria-label="Explore these links">
 
-                <div class="is-layout-flex wp-container-13 wp-block-columns">
+                <div class="is-layout-flex wp-container-32 wp-block-columns">
                     <div class="is-layout-flow wp-block-column">
                         <p class="has-text-align-center">Bird ID help, Bird Guide</p>
 
@@ -264,7 +440,7 @@
 
 
 
-                        <div class="is-layout-flex wp-container-11 wp-block-columns">
+                        <div class="is-layout-flex wp-container-30 wp-block-columns">
                             <div class="is-layout-flow wp-block-column">
                                 <p class="has-text-align-center"><a href="https://www.birds.cornell.edu/home/visit/" data-type="page" data-id="1229">Visit Us</a><br><a href="https://www.birds.cornell.edu/home/staff-directory/" data-type="page" data-id="1414">Staff Directory</a></p>
                             </div>
@@ -311,7 +487,7 @@
                                         }
                                     }
                                 })();
-                                            </script><!-- Mailchimp for WordPress v4.8.12 - https://wordpress.org/plugins/mailchimp-for-wp/ --><form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-9819 mc4wp-ajax" method="post" data-id="9819" data-name="Sapsucker Woods eNewsletter" ><div class="mc4wp-form-fields"><fieldset>
+                                            </script><form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-9819 mc4wp-ajax" method="post" data-id="9819" data-name="Sapsucker Woods eNewsletter" ><div class="mc4wp-form-fields"><fieldset>
                                                     <label>
                                                         <input name="INTERESTS[e49185fbaf][]" type="checkbox" value="5f780d73e0"
                                                                checked="true"> <span>Cornell Lab eNews (general birding tips and news)</span>
@@ -327,7 +503,7 @@
                                                 <input type="submit" value="Sign up" class="button-left" />
 
 
-                                            </div><label style="display: none !important;">Leave this field empty if you're human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" /></label><input type="hidden" name="_mc4wp_timestamp" value="1685177575" /><input type="hidden" name="_mc4wp_form_id" value="9819" /><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" /><div class="mc4wp-response"></div></form><!-- / Mailchimp for WordPress Plugin --></p>
+                                            </div><label style="display: none !important;">Leave this field empty if you're human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" /></label><input type="hidden" name="_mc4wp_timestamp" value="1685194908" /><input type="hidden" name="_mc4wp_form_id" value="9819" /><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" /><div class="mc4wp-response"></div></form><!-- / Mailchimp for WordPress Plugin --></p>
                                     </div></div></div></div></div></div></div></div><noscript><iframe 
             height="0" width="0" style="display:none;visibility:hidden" data-src="//www.googletagmanager.com/ns.html?id=GTM-P7854M" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></iframe></noscript>
 
@@ -358,7 +534,7 @@
                     }
                 }
             })();</script><script> /* <![CDATA[ */var tribe_l10n_datatables = {"aria": {"sort_ascending": ": activate to sort column ascending", "sort_descending": ": activate to sort column descending"}, "length_menu": "Show _MENU_ entries", "empty_table": "No data available in table", "info": "Showing _START_ to _END_ of _TOTAL_ entries", "info_empty": "Showing 0 to 0 of 0 entries", "info_filtered": "(filtered from _MAX_ total entries)", "zero_records": "No matching records found", "search": "Search:", "all_selected_text": "All items on this page were selected. ", "select_all_link": "Select all pages", "clear_selection": "Clear Selection.", "pagination": {"all": "All", "next": "Next", "previous": "Previous"}, "select": {"rows": {"0": "", "_": ": Selected %d rows", "1": ": Selected 1 row"}}, "datepicker": {"dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"], "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesShort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesMin": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "nextText": "Next", "prevText": "Prev", "currentText": "Today", "closeText": "Done", "today": "Today", "clear": "Clear"}};/* ]]> */</script><style id='core-block-supports-inline-css' type='text/css'>
-            .wp-block-columns.wp-container-4,.wp-block-columns.wp-container-11,.wp-block-columns.wp-container-13{flex-wrap:nowrap;}
+            .wp-block-buttons.wp-container-1,.wp-block-buttons.wp-container-3,.wp-block-buttons.wp-container-5,.wp-block-buttons.wp-container-16{justify-content:center;}.wp-block-columns.wp-container-7,.wp-block-columns.wp-container-10,.wp-block-columns.wp-container-14,.wp-block-columns.wp-container-22,.wp-block-columns.wp-container-30,.wp-block-columns.wp-container-32{flex-wrap:nowrap;}
         </style>
         <link rel='stylesheet' id='hustle_icons-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/hustle/assets/hustle-ui/css/hustle-icons.min.css?ver=4.6.3' type='text/css' media='all' />
         <link rel='stylesheet' id='hustle_global-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/hustle/assets/hustle-ui/css/hustle-global.min.css?ver=4.6.3' type='text/css' media='all' />
@@ -392,7 +568,7 @@
         <script type='text/javascript' id='hustle_front-js-extra'>
                 /* <![CDATA[ */
                 var Modules = [{"settings": {"auto_close_success_message": "0", "triggers": {"on_time_delay": "0", "on_time_unit": "seconds", "on_scroll": "scrolled", "on_scroll_page_percent": "2", "on_scroll_css_selector": "", "enable_on_click_element": "1", "on_click_element": "", "enable_on_click_shortcode": "1", "on_exit_intent_per_session": "1", "on_exit_intent_delayed_time": "0", "on_exit_intent_delayed_unit": "seconds", "on_adblock_delay": "0", "on_adblock_delay_unit": "seconds", "trigger": ["scroll"], "on_exit_intent": "true", "on_exit_intent_delayed": "0", "on_adblock": "false", "enable_on_adblock_delay": "0", "on_time": "false", "on_adblock_delayed": "false", "on_adblock_delayed_time": "5", "on_adblock_delayed_unit": "seconds"}, "animation_in": "slideInUp", "animation_out": "slideOutUp", "after_close": "no_show_all", "expiration": "1", "expiration_unit": "days", "after_optin_expiration": 365, "after_optin_expiration_unit": "days", "after_cta_expiration": 365, "after_cta_expiration_unit": "days", "on_submit": "default", "on_submit_delay": "5", "on_submit_delay_unit": "seconds", "close_cta": "0", "close_cta_time": "0", "close_cta_unit": "seconds", "hide_after_cta": "keep_show", "hide_after_subscription": "keep_show", "is_schedule": "0", "schedule": {"not_schedule_start": "1", "start_date": "10\/21\/2020", "start_hour": "12", "start_minute": "00", "start_meridiem_offset": "am", "not_schedule_end": "1", "end_date": "10\/27\/2020", "end_hour": "11", "end_minute": "59", "end_meridiem_offset": "pm", "active_days": "all", "week_days": [], "is_active_all_day": "1", "day_start_hour": "00", "day_start_minute": "00", "day_start_meridiem_offset": "am", "day_end_hour": "11", "day_end_minute": "59", "day_end_meridiem_offset": "pm", "time_to_use": "server", "custom_timezone": "UTC"}, "display_position": "se", "auto_hide": "0", "auto_hide_unit": "hours", "auto_hide_time": "5", "after_close_trigger": ["click_close_icon"], "conditions": {"pages": {"filter_type": "except", "pages": ["7606"]}}, "allow_scroll_page": "0", "not_close_on_background_click": "false", "pages": ["7606"], "filter_type": "except", "close_on_background_click": "1"}, "module_id": "13", "blog_id": "0", "module_name": "Sapsucker Woods eNews", "module_type": "slidein", "active": "1", "test_mode": "0", "module_mode": "informational"}];
-                var incOpt = {"conditional_tags": {"is_single": false, "is_singular": true, "is_tag": false, "is_category": false, "is_author": false, "is_date": false, "is_post_type_archive": false, "is_404": false, "is_front_page": false, "is_search": false}, "is_admin": "", "real_page_id": "1248", "thereferrer": "https:\/\/www.birds.cornell.edu\/home\/visit\/", "actual_url": "www.birds.cornell.edu\/home\/visit\/events\/", "full_actual_url": "https:\/\/www.birds.cornell.edu\/home\/visit\/events\/", "native_share_enpoints": {"facebook": "https:\/\/www.facebook.com\/sharer\/sharer.php?u=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit%2Fevents", "twitter": "https:\/\/twitter.com\/intent\/tweet?url=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit%2Fevents&text=Events", "pinterest": "https:\/\/www.pinterest.com\/pin\/create\/button\/?url=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit%2Fevents", "reddit": "https:\/\/www.reddit.com\/submit?url=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit%2Fevents", "linkedin": "https:\/\/www.linkedin.com\/shareArticle?mini=true&url=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit%2Fevents", "vkontakte": "https:\/\/vk.com\/share.php?url=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit%2Fevents", "whatsapp": "https:\/\/api.whatsapp.com\/send?text=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit%2Fevents", "email": "mailto:?subject=Events&body=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit%2Fevents"}, "ajaxurl": "https:\/\/www.birds.cornell.edu\/home\/wp-admin\/admin-ajax.php", "page_id": "1248", "page_slug": "visit-events", "is_upfront": "", "script_delay": "3000"};
+                var incOpt = {"conditional_tags": {"is_single": false, "is_singular": true, "is_tag": false, "is_category": false, "is_author": false, "is_date": false, "is_post_type_archive": false, "is_404": false, "is_front_page": false, "is_search": false}, "is_admin": "", "real_page_id": "1229", "thereferrer": "https:\/\/www.birds.cornell.edu\/home\/", "actual_url": "www.birds.cornell.edu\/home\/visit\/", "full_actual_url": "https:\/\/www.birds.cornell.edu\/home\/visit\/", "native_share_enpoints": {"facebook": "https:\/\/www.facebook.com\/sharer\/sharer.php?u=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit", "twitter": "https:\/\/twitter.com\/intent\/tweet?url=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit&text=Visit%20Us", "pinterest": "https:\/\/www.pinterest.com\/pin\/create\/button\/?url=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit", "reddit": "https:\/\/www.reddit.com\/submit?url=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit", "linkedin": "https:\/\/www.linkedin.com\/shareArticle?mini=true&url=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit", "vkontakte": "https:\/\/vk.com\/share.php?url=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit", "whatsapp": "https:\/\/api.whatsapp.com\/send?text=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit", "email": "mailto:?subject=Visit%20Us&body=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit"}, "ajaxurl": "https:\/\/www.birds.cornell.edu\/home\/wp-admin\/admin-ajax.php", "page_id": "1229", "page_slug": "visit", "is_upfront": "", "script_delay": "3000"};
                 /* ]]> */
         </script>
         <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/plugins/hustle/assets/js/front.min.js?ver=4.6.3' id='hustle_front-js'></script>
@@ -403,7 +579,7 @@
         <script type='text/javascript' src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js' id='jquery-ui-js'></script>
         <script type='text/javascript' id='bp-bce-site-js-js-extra'>
                 /* <![CDATA[ */
-                var wp_post_vars = {"postSlug": "events"};
+                var wp_post_vars = {"postSlug": "visit"};
                 /* ]]> */
         </script>
         <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/themes/birdpress2-bce/scripts/scripts.js?ver=1684846858' id='bp-bce-site-js-js'></script>
@@ -454,6 +630,6 @@
             @media only screen and (max-width: 900px) { .hustle-ui.hustle_module_id_13[data-id="13"] .hustle-layout .hustle-image.hustle-image-fit--cover{display: none;}.hustle-ui.hustle_module_id_13[data-id="13"] .hustle-layout .hustle-content{padding:  15px;} } 
 
             @media only screen and (max-width: 400px){ .hustle-ui.hustle_module_id_13[data-id="13"] h2 span{font-size: 12px;} }</style>		
-    </body><!-- end body from header.php -->
+    </body>
 
 </html>

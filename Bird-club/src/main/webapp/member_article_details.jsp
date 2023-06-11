@@ -65,7 +65,7 @@
     <body class="post-template-default single single-post postid-56828 single-format-standard wp-embed-responsive theme-green nav-column tribe-no-js">
         <div id="main-container">
 <!--Header-->
-            <%@ include file="header.html" %>
+            <%@ include file="member_header.jsp" %> 
             <main id="main-content" class="single has-social">
 
                 <article id="article" class="post-56828 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized tag-evergreen topic-bird-watching-news-and-features topic-news-and-features content-format-article host-project-ebird read-more-tag-evergreen">
@@ -179,7 +179,7 @@
                 </article> 
             </main>
             <!--Footer-->
-            <%@ include file="footer.html" %>
+            <%@ include file="member_footer.jsp" %>
         </div>
 
         <div class="reveal" id="search-modal" data-reveal role="dialog" data-animation-in="fade-in fast" aria-label="Search">
