@@ -40,7 +40,7 @@ public class FieldTripParticipantsController extends HttpServlet {
         if (action != null && action.equals("add")) {
             String fid = UIDGenerator.generateFID();
             String uid = request.getParameter("uid");
-            String docNo = UIDGenerator.generateDocNo();
+            String docNo = UIDGenerator.generateDocF();
          
             // Create a new Tparticipation object with the provided parameters
             FieldTripParticipants fieldTripParticipants = new FieldTripParticipants();

@@ -33,7 +33,7 @@ public class MettingPaicipant extends HttpServlet {
         if (action != null && action.equals("register")) {
             String meid = UIDGenerator.generateMeID();
             String uid = request.getParameter("uid");
-            String docNo = UIDGenerator.generateDocNo();
+            String docNo = UIDGenerator.generateDocM();
             
             
             MeetingParticipants meetingparticipants = new MeetingParticipants();

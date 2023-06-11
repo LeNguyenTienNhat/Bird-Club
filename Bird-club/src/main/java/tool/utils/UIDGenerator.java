@@ -41,15 +41,31 @@ public class UIDGenerator {
         return "MeID" + meidNumber;
     }
     
-    public static String generateDocNo() {
+    public static String generateDocT() {
         List<String> existingTIDs = TparticipationManager.ExistingDoc("Doc.T%");
         int listSize = existingTIDs.size();
         int randomNumber = listSize + 1;
         return "Doc.T" + randomNumber;
     }
+    public static String generateDocF() {
+        List<String> existingFIDs = FieldTripParticipantsManager.ExistingDoc("Doc.F%");
+        int listSize = existingFIDs.size();
+        int randomNumber = listSize + 1;
+        return "Doc.F" + randomNumber;
+    }
+    public static String generateDocM() {
+        List<String> existingMeIDs = FieldTripParticipantsManager.ExistingDoc("Doc.M%");
+        int listSize = existingMeIDs.size();
+        int randomNumber = listSize + 1;
+        return "Doc.M" + randomNumber;
+    }
     public static void main(String[] args) {
-    String docNo = generateDocNo();
-    System.out.println("Generated DocNo: " + docNo);
+    String docNoT = generateDocT();
+    System.out.println("Generated DocNo: " + docNoT);
+    String docNoF = generateDocF();
+    System.out.println("Generated DocNo: " + docNoF);
+    String docNoM = generateDocM();
+    System.out.println("Generated DocNo: " + docNoM);
 }
 
 }

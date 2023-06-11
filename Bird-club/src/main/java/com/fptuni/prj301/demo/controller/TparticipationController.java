@@ -41,7 +41,7 @@ public class TparticipationController extends HttpServlet {
         if (action != null && action.equals("add")) {
             String tid = request.getParameter("Tid");
             String bid = request.getParameter("bid");
-            String docNo = UIDGenerator.generateDocNo();
+            String docNo = UIDGenerator.generateDocT();
          
             // Create a new Tparticipation object with the provided parameters
             Tparticipation tparticipation = new Tparticipation();
