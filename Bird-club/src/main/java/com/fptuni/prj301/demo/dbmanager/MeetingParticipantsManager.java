@@ -56,7 +56,7 @@ public class MeetingParticipantsManager {
 
         return existingTIDs;
     }
-public static List<String> ExistingDoc(String pattern) {
+public static List<String> ExistingDocM(String pattern) {
     List<String> existingDocNos = new ArrayList<>();
     String sql = "SELECT docNo FROM [MeetingParticipants] WHERE docNo LIKE ?";
 
