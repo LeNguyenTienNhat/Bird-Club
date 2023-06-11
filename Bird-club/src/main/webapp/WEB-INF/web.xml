@@ -11,6 +11,10 @@
         <servlet-name>HomepageController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.HomepageController</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>HomepageController</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>StaffEvents</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.StaffEvents</servlet-class>
@@ -27,14 +31,31 @@
         <servlet-name>StaffTournament</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.StaffTournaments</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BirdController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.BirdController</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>HomepageController</servlet-name>
-        <url-pattern>/home</url-pattern>
+        <servlet-name>BirdController</servlet-name>
+        <url-pattern>/BirdController</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>TparticipationController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.TparticipationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TparticipationController</servlet-name>
+        <url-pattern>/TparticipationController</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>UserAccessController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.UserAccessController</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>UserAccessController</servlet-name>
+        <url-pattern>/UserAccessController/*</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>StaffEvents</servlet-name>
         <url-pattern>/events</url-pattern>
@@ -51,10 +72,7 @@
         <servlet-name>StaffMember</servlet-name>
         <url-pattern>/members</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UserAccessController</servlet-name>
-        <url-pattern>/UserAccessController/*</url-pattern>
-    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>StaffTournament</servlet-name>
         <url-pattern>/tournaments</url-pattern>

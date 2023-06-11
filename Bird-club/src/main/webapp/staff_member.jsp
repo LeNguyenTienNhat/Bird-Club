@@ -304,11 +304,11 @@
                                                     </div>-->
                             <table>
                                 <tr>
-                                    <th>User Name</th>
-                                    <th> Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Actions</th>
+                                    <td>User Name</td>
+                                    <td> Name</td>
+                                    <td>Email</td>
+                                    <td>Phone</td>
+                                    <td>Actions</td>
                                 </tr
                                 <c:if test="${ empty userList}">
                                     <div id="memberListContainer">
@@ -328,6 +328,7 @@
                                                 <form action="./StaffAccountController?action=approve" method="POST">
 <!--                                                    <input type="hidden" name="action" value="approve" />-->
                                                     <input type="hidden" name="UID" value="${user.userId}" />
+                                                    <input type="hidden" name="role" value="member" />
                                                     <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" data-turbo-frame="modal">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="-ml-1 mr-3 w-5 h-5">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
