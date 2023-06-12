@@ -59,7 +59,7 @@ public class MemberManager {
     }   
     
      public void approve(String UID) {
-        String sql = "UPDATE User SET role = ? WHERE UID = ?";
+        String sql = "UPDATE [User] SET role = ? WHERE UID = ?";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);

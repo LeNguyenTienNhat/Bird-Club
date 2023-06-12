@@ -24,7 +24,9 @@ public class StaffMember extends HttpServlet {
         
         //display a list of unapproved members
          if (action == null || action.equals("viewmembers")) {
-                List<Member> membersList = manager.getRecords(0, 10, "guest", "UID");
+                List<Member> guestsList = manager.getRecords(0, 10, "guest", "UID");
+                List<Member> membersList = manager.getRecords(0, 10, "member", "UID");          
+                request.setAttribute("guestsList", guestsList);
                 request.setAttribute("membersList", membersList);
                 RequestDispatcher rd = request.getRequestDispatcher("staff_members.jsp");
                 rd.forward(request, response);

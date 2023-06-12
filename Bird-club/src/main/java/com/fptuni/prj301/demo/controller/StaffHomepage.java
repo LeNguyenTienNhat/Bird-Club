@@ -13,9 +13,7 @@ public class StaffHomepage extends HttpServlet {
             String action = request.getParameter("action");
             
             if (action == null || action.equals("staffhome")) {
-//                GalleryAccessManager load = new GalleryAccessManager();
-//                List<Image> gallery = load.loadGallery();
-//                request.setAttribute("gallery", gallery);
+
                 RequestDispatcher rd = request.getRequestDispatcher("staff_homepage.jsp");
                 rd.forward(request, response);                
             }            
