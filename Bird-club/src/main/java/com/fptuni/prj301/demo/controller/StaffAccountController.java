@@ -5,9 +5,11 @@
  */
 package com.fptuni.prj301.demo.controller;
 
+import com.fptuni.prj301.demo.dbmanager.FieldtripManager;
 import com.fptuni.prj301.demo.dbmanager.StaffAccountManager;
 import com.fptuni.prj301.demo.dbmanager.TournamentManager;
 import com.fptuni.prj301.demo.model.Tournament;
+import com.fptuni.prj301.demo.model.Fieldtrip;
 import com.fptuni.prj301.demo.model.UserSession;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -77,6 +79,15 @@ public class StaffAccountController extends HttpServlet {
                 request.setAttribute("tList", tournamentsList);
                 
                 RequestDispatcher rd = request.getRequestDispatcher("member_tournament.jsp");
+                rd.forward(request, response);
+            }
+        else if (action == null || action.equals("viewfieldtrip")) {
+                //display tournament
+                 FieldtripManager fieldtripManager = new FieldtripManager();
+                List<Fieldtrip> fieldtripsList = fieldtripManager.getList();
+                request.setAttribute("fList", fieldtripsList);
+                
+                RequestDispatcher rd = request.getRequestDispatcher("member_fieldtrip.jsp");
                 rd.forward(request, response);
             }
     }

@@ -55,7 +55,71 @@ public class FieldtripManager {
             System.out.println("Query error!" + ex.getMessage());
         }
         return list;	 
-    }   
+    } 
+    
+    public List<Fieldtrip> getStatus(String status) {
+        List<Fieldtrip> fieldtrips = new ArrayList<>();
+        String sql = "SELECT * FROM Fieldtrip WHERE status = ?";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, status);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Fieldtrip fieldtrip = new Fieldtrip();
+                    fieldtrip.setFID(rs.getString("FID"));
+                    fieldtrip.setName(rs.getString("name"));
+                    fieldtrip.setDescription(rs.getString("description"));
+                    fieldtrip.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
+                    fieldtrip.setStartDate(tool.trimDate(rs.getString("startDate")));
+                    fieldtrip.setEndDate(tool.trimDate(rs.getString("endDate")));
+                    fieldtrip.setLID(rs.getString("LID"));
+                    fieldtrip.setStatus(rs.getString("status"));
+                    fieldtrip.setFee(rs.getInt("fee"));
+                    fieldtrip.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                    fieldtrip.setCategory("Fieldtrip");
+                    fieldtrips.add(fieldtrip);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return fieldtrips;
+    }
+    
+    public List<Fieldtrip> getList() {
+        List<Fieldtrip> fieldtrips = new ArrayList<>();
+        String sql = "SELECT * FROM Fieldtrip ";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Fieldtrip fieldtrip = new Fieldtrip();
+                    fieldtrip.setFID(rs.getString("FID"));
+                    fieldtrip.setName(rs.getString("name"));
+                    fieldtrip.setDescription(rs.getString("description"));
+                    fieldtrip.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
+                    fieldtrip.setStartDate(tool.trimDate(rs.getString("startDate")));
+                    fieldtrip.setEndDate(tool.trimDate(rs.getString("endDate")));
+                    fieldtrip.setLID(rs.getString("LID"));
+                    fieldtrip.setStatus(rs.getString("status"));
+                    fieldtrip.setFee(rs.getInt("fee"));
+                    fieldtrip.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                    fieldtrip.setCategory("Fieldtrip");
+                    fieldtrips.add(fieldtrip);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return fieldtrips;
+    }
     
     public void insert(Fieldtrip fieldtrip) throws ClassNotFoundException, ParseException  {
         String sql = "INSERT INTO FieldTrip"               

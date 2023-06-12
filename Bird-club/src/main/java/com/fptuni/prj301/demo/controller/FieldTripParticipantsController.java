@@ -38,7 +38,7 @@ public class FieldTripParticipantsController extends HttpServlet {
         PrintWriter out = response.getWriter();
         String action = request.getParameter("action");
         if (action != null && action.equals("add")) {
-            String fid = UIDGenerator.generateFID();
+            String fid = request.getParameter("Fid");
             String uid = request.getParameter("uid");
             String docNo = UIDGenerator.generateDocF();
          

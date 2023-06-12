@@ -11,6 +11,10 @@
         <servlet-name>HomepageController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.HomepageController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffFieldTrips</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.StaffFieldTrips</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomepageController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -47,7 +51,6 @@
         <servlet-name>TparticipationController</servlet-name>
         <url-pattern>/TparticipationController</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>MemberPaicipant</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.MemberPaicipant</servlet-class>
@@ -56,7 +59,6 @@
         <servlet-name>MemberPaicipant</servlet-name>
         <url-pattern>/MemberPaicipant</url-pattern>
     </servlet-mapping>
-  
     <servlet>
         <servlet-name>UserAccessController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.UserAccessController</servlet-class>
@@ -81,10 +83,13 @@
         <servlet-name>StaffMember</servlet-name>
         <url-pattern>/members</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>StaffTournament</servlet-name>
         <url-pattern>/tournaments</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffFieldTrips</servlet-name>
+        <url-pattern>/staffFieldTrips</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
