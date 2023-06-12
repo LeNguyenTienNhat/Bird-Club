@@ -77,6 +77,194 @@
                                     <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="member_events.html">Learn More</a></div>
                                 </div></div></div>
 
+<!--                                                                                                                           <div class="tribe-events-c-top-bar tribe-events-header__top-bar">
+                                                                                <nav class="tribe-events-c-top-bar__nav tribe-common-a11y-hidden">
+                                                                                    <ul class="tribe-events-c-top-bar__nav-list">
+                                                                                        <li class="tribe-events-c-top-bar__nav-list-item">
+                                                                                            <a
+                                                                                                href="https://www.birds.cornell.edu/home/events/list/?pagename=visit&#038;shortcode=0e2a3254&#038;eventDisplay=past"
+                                                                                                class="tribe-common-c-btn-icon tribe-common-c-btn-icon--caret-left tribe-events-c-top-bar__nav-link tribe-events-c-top-bar__nav-link--prev"
+                                                                                                aria-label="Previous Events"
+                                                                                                title="Previous Events"
+                                                                                                data-js="tribe-events-view-link"
+                                                                                                >
+                                                                                                <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-left tribe-common-c-btn-icon__icon-svg tribe-events-c-top-bar__nav-link-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M9.7 14.4l-1.5 1.5L.3 8 8.2.1l1.5 1.5L3.3 8l6.4 6.4z"/></svg>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="tribe-events-c-top-bar__nav-list-item">
+                                                                                            <a
+                                                                                                href="https://www.birds.cornell.edu/home/events/list/page/2/?shortcode=0e2a3254"
+                                                                                                class="tribe-common-c-btn-icon tribe-common-c-btn-icon--caret-right tribe-events-c-top-bar__nav-link tribe-events-c-top-bar__nav-link--next"
+                                                                                                aria-label="Next Events"
+                                                                                                title="Next Events"
+                                                                                                data-js="tribe-events-view-link"
+                                                                                                >
+                                                                                                <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-right tribe-common-c-btn-icon__icon-svg tribe-events-c-top-bar__nav-link-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M.3 1.6L1.8.1 9.7 8l-7.9 7.9-1.5-1.5L6.7 8 .3 1.6z"/></svg>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </nav>
+                                                                                <a
+                                                                                    href="https://www.birds.cornell.edu/home/events/list/?pagename=visit&#038;shortcode=0e2a3254"
+                                                                                    class="tribe-common-c-btn-border-small tribe-events-c-top-bar__today-button tribe-common-a11y-hidden"
+                                                                                    data-js="tribe-events-view-link"
+                                                                                    aria-label="Today"
+                                                                                    title="Today"
+                                                                                    >
+                                                                                    Today</a>
+                                                                                <div class="tribe-events-c-top-bar__datepicker">
+                                                                                    <button
+                                                                                        class="tribe-common-h3 tribe-common-h--alt tribe-events-c-top-bar__datepicker-button"
+                                                                                        data-js="tribe-events-top-bar-datepicker-button"
+                                                                                        type="button"
+                                                                                        aria-label="Click to toggle datepicker"
+                                                                                        title="Click to toggle datepicker"
+                                                                                        >
+                                                                                        <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--month tribe-events-c-top-bar__datepicker-button-icon-svg"  viewBox="0 0 18 19" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 .991v17.04c0 .236.162.428.361.428h17.175c.2 0 .361-.192.361-.429V.991c0-.237-.162-.428-.361-.428H.36C.161.563 0 .754 0 .99zm.985.803H16.89v2.301H.985v-2.3zM16.89 5.223H.985v12H16.89v-12zM6.31 7.366v.857c0 .237.192.429.429.429h.857a.429.429 0 00.428-.429v-.857a.429.429 0 00-.428-.429H6.74a.429.429 0 00-.429.429zm3.429.857v-.857c0-.237.191-.429.428-.429h.857c.237 0 .429.192.429.429v.857a.429.429 0 01-.429.429h-.857a.429.429 0 01-.428-.429zm3.428-.857v.857c0 .237.192.429.429.429h.857a.429.429 0 00.428-.429v-.857a.429.429 0 00-.428-.429h-.857a.429.429 0 00-.429.429zm-6.857 4.286v-.858c0-.236.192-.428.429-.428h.857c.236 0 .428.192.428.428v.858a.429.429 0 01-.428.428H6.74a.429.429 0 01-.429-.428zm3.429-.858v.858c0 .236.191.428.428.428h.857a.429.429 0 00.429-.428v-.858a.429.429 0 00-.429-.428h-.857a.428.428 0 00-.428.428zm3.428.858v-.858c0-.236.192-.428.429-.428h.857c.236 0 .428.192.428.428v.858a.429.429 0 01-.428.428h-.857a.429.429 0 01-.429-.428zm-10.286-.858v.858c0 .236.192.428.429.428h.857a.429.429 0 00.429-.428v-.858a.429.429 0 00-.429-.428h-.857a.429.429 0 00-.429.428zm0 4.286v-.857c0-.237.192-.429.429-.429h.857c.237 0 .429.192.429.429v.857a.429.429 0 01-.429.429h-.857a.429.429 0 01-.429-.429zm3.429-.857v.857c0 .237.192.429.429.429h.857a.429.429 0 00.428-.429v-.857a.429.429 0 00-.428-.429H6.74a.429.429 0 00-.429.429zm3.429.857v-.857c0-.237.191-.429.428-.429h.857c.237 0 .429.192.429.429v.857a.429.429 0 01-.429.429h-.857a.429.429 0 01-.428-.429z" class="tribe-common-c-svgicon__svg-fill"/></svg>	</button>
+                                                                                    <span class="date-range">
+                                                                                        <time
+                                                                                            datetime="2023-05-27"
+                                                                                            class="tribe-events-c-top-bar__datepicker-time"
+                                                                                            >
+                                                                                            <span class="tribe-events-c-top-bar__datepicker-mobile">
+                                                                                                Now				</span>
+                                                                                            <span class="tribe-events-c-top-bar__datepicker-desktop tribe-common-a11y-hidden">
+                                                                                                Now				</span>
+                                                                                        </time>
+                                                                                        <span class="tribe-events-c-top-bar__datepicker-separator"> - </span>
+                                                                                        <time
+                                                                                            datetime="2023-06-02"
+                                                                                            class="tribe-events-c-top-bar__datepicker-time"
+                                                                                            >
+                                                                                            <span class="tribe-events-c-top-bar__datepicker-mobile">
+                                                                                                06/02/2023				</span>
+                                                                                            <span class="tribe-events-c-top-bar__datepicker-desktop tribe-common-a11y-hidden">
+                                                                                                June 2				</span>
+                                                                                        </time>
+                                                                                    </span>
+                                                                                    <label
+                                                                                        class="tribe-events-c-top-bar__datepicker-label tribe-common-a11y-visual-hide"
+                                                                                        for="tribe-events-top-bar-date"
+                                                                                        >
+                                                                                        Select date.	</label>
+                                                                                    <input
+                                                                                        type="text"
+                                                                                        class="tribe-events-c-top-bar__datepicker-input tribe-common-a11y-visual-hide"
+                                                                                        data-js="tribe-events-top-bar-date"
+                                                                                        id="tribe-events-top-bar-date"
+                                                                                        name="tribe-events-views[tribe-bar-date]"
+                                                                                        value="05/27/2023"
+                                                                                        tabindex="-1"
+                                                                                        autocomplete="off"
+                                                                                        readonly="readonly"
+                                                                                        />
+                                                                                    <div class="tribe-events-c-top-bar__datepicker-container" data-js="tribe-events-top-bar-datepicker-container"></div>
+                                                                                    <template class="tribe-events-c-top-bar__datepicker-template-prev-icon">
+                                                                                        <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-left tribe-events-c-top-bar__datepicker-nav-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M9.7 14.4l-1.5 1.5L.3 8 8.2.1l1.5 1.5L3.3 8l6.4 6.4z"/></svg>
+                                                                                    </template>
+                                                                                    <template class="tribe-events-c-top-bar__datepicker-template-next-icon">
+                                                                                        <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-right tribe-events-c-top-bar__datepicker-nav-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M.3 1.6L1.8.1 9.7 8l-7.9 7.9-1.5-1.5L6.7 8 .3 1.6z"/></svg>
+                                                                                    </template>
+                                                                                </div>
+                                                                                <div class="tribe-events-c-top-bar__actions tribe-common-a11y-hidden">
+                                                                                </div>
+                                                                            </div>
+                                                                        </header>
+                                                                        <div class="tribe-events-calendar-list">
+                                                                            <h2 class="tribe-events-calendar-list__month-separator">
+                                                                                <time
+                                                                                    class="tribe-events-calendar-list__month-separator-text tribe-common-h7 tribe-common-h6--min-medium tribe-common-h--alt"
+                                                                                    datetime="2023-05"
+                                                                                    >
+                                                                                    May 2023	</time>
+                                                                            </h2>
+                                                                            <div  class="tribe-common-g-row tribe-events-calendar-list__event-row" >
+                                                                                <div class="tribe-events-calendar-list__event-date-tag tribe-common-g-col">
+                                                                                    <time class="tribe-events-calendar-list__event-date-tag-datetime" datetime="2023-05-27" aria-hidden="true">
+                                                                                        <span class="tribe-events-calendar-list__event-date-tag-weekday">Sat</span>
+                                                                                        <span class="tribe-events-calendar-list__event-date-tag-daynum tribe-common-h5 tribe-common-h4--min-medium">27</span>
+                                                                                    </time>
+                                                                                </div>
+                                                                                <div class="tribe-events-calendar-list__event-wrapper tribe-common-g-col">
+                                                                                    <article  class="tribe-events-calendar-list__event tribe-common-g-row tribe-common-g-row--gutters post-10000630 tribe_events type-tribe_events status-publish hentry tribe_events_cat-beginner-bird-walks cat_beginner-bird-walks tribe-recurring-event tribe-recurring-event-parent" >
+                                                                                        <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
+                                                                                            <header class="tribe-events-calendar-list__event-header">
+                                                                                                <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2">
+                                                                                                    <time class="tribe-events-calendar-list__event-datetime" datetime="2023-05-27">
+                                                                                                        <span class="tribe-event-date-start">May 27 at 8:30 am</span>
+                                                                                                        –<span class="tribe-event-time">10:00 am</span>	
+                                                                                                    </time>
+                                                                                                </div>
+                                                                                                <h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
+                                                                                                    <a href=""
+                                                                                                       title="Southern Vietnam Area"
+                                                                                                       rel="bookmark"
+                                                                                                       class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
+                                                                                                        Southern Vietnam Area - May 27</a>
+                                                                                                </h3></header>
+                                                                                            <div class="tribe-events-calendar-list__event-description tribe-common-b2 tribe-common-a11y-hidden">
+                                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+                                                                                        </div></article></div></div>
+                                                                            <div  class="tribe-common-g-row tribe-events-calendar-list__event-row" >
+                                                                                <div class="tribe-events-calendar-list__event-date-tag tribe-common-g-col">
+                                                                                    <time class="tribe-events-calendar-list__event-date-tag-datetime" datetime="2023-05-27" aria-hidden="true">
+                                                                                        <span class="tribe-events-calendar-list__event-date-tag-weekday">Mon</span>
+                                                                                        <span class="tribe-events-calendar-list__event-date-tag-daynum tribe-common-h5 tribe-common-h4--min-medium">29</span>
+                                                                                    </time>
+                                                                                </div>
+                                                                                <div class="tribe-events-calendar-list__event-wrapper tribe-common-g-col">
+                                                                                    <article  class="tribe-events-calendar-list__event tribe-common-g-row tribe-common-g-row--gutters post-10000630 tribe_events type-tribe_events status-publish hentry tribe_events_cat-beginner-bird-walks cat_beginner-bird-walks tribe-recurring-event tribe-recurring-event-parent" >
+                                                                                        <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
+                                                                                            <header class="tribe-events-calendar-list__event-header">
+                                                                                                <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2">
+                                                                                                    <time class="tribe-events-calendar-list__event-datetime" datetime="2023-05-27">
+                                                                                                        <span class="tribe-event-date-start">May 29 at 8:30 am</span>
+                                                                                                        –<span class="tribe-event-time">10:00 am</span>	
+                                                                                                    </time>
+                                                                                                </div>
+                                                                                                <h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
+                                                                                                    <a href=""
+                                                                                                       title="Northern Vietnam Area"
+                                                                                                       rel="bookmark"
+                                                                                                       class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
+                                                                                                        Northern Vietnam Area - May 29</a>
+                                                                                                </h3></header>
+                                                                                            <div class="tribe-events-calendar-list__event-description tribe-common-b2 tribe-common-a11y-hidden">
+                                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+                                                                                        </div></article></div></div>							
+                                                                            <h2 class="tribe-events-calendar-list__month-separator">
+                                                                                <time
+                                                                                    class="tribe-events-calendar-list__month-separator-text tribe-common-h7 tribe-common-h6--min-medium tribe-common-h--alt"
+                                                                                    datetime="2023-06">June 2023</time>
+                                                                            </h2>
+                                                                            <div  class="tribe-common-g-row tribe-events-calendar-list__event-row" >
+                                                                                <div class="tribe-events-calendar-list__event-date-tag tribe-common-g-col">
+                                                                                    <time class="tribe-events-calendar-list__event-date-tag-datetime" datetime="2023-06-02" aria-hidden="true">
+                                                                                        <span class="tribe-events-calendar-list__event-date-tag-weekday">Fri</span>
+                                                                                        <span class="tribe-events-calendar-list__event-date-tag-daynum tribe-common-h5 tribe-common-h4--min-medium">2</time>
+                                                                                </div>
+                                                                                <div class="tribe-events-calendar-list__event-wrapper tribe-common-g-col">
+                                                                                    <article  class="tribe-events-calendar-list__event tribe-common-g-row tribe-common-g-row--gutters post-10000678 tribe_events type-tribe_events status-publish hentry" >
+                                                                                        <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
+                                                                                            <header class="tribe-events-calendar-list__event-header">
+                                                                                                <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2">
+                                                                                                    <time class="tribe-events-calendar-list__event-datetime" datetime="2023-06-02">
+                                                                                                        <span class="tribe-event-date-start">June 2 at 4:00 pm</span>–<span class="tribe-event-time">5:00 pm</span>	</time>
+                                                                                                </div><h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
+                                                                                                    <a
+                                                                                                        href=""
+                                                                                                        title="FINAL"
+                                                                                                        rel="bookmark"
+                                                                                                        class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin"
+                                                                                                        >FINAL - Finding out the champion!</a>
+                                                                                                </h3>
+                                                                                            </header>
+                                                                                            <div class="tribe-events-calendar-list__event-description tribe-common-b2 tribe-common-a11y-hidden">
+                                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div></div></article></div></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>-->
+
                         <div class="is-layout-flow wp-block-group alignfull has-bg-gray-background-color has-background narrow">
                             <h2 class="has-text-align-center has-large-font-size">Tournament List:</h2>
                             <link rel='stylesheet' id='tec-variables-skeleton-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/common/src/resources/css/variables-skeleton.min.css?ver=5.0.6' type='text/css' media='all' />
@@ -130,6 +318,7 @@
                                     <div class="tribe-events-calendar-list">
 
                                     </div>
+
                                     <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
 
                                         <div class="grid grid-cols-1 items-start lg:grid-cols-5 lg:gap-8">
@@ -165,7 +354,7 @@
                                                         <c:if test="${not empty tList}">
                                                             <c:forEach var="t" items="${tList}">
                                                                 <tr>
-                                                                    <td>${t.getName()}</td>
+                                                                    <td><a href="detail.jsp?TID=${t.getTID()}">${t.getName()}</a></td>
                                                                     <td>${t.getStartDate()}</td>
                                                                     <td>${t.getEndDate()}</td>
                                                                     

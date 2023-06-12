@@ -94,7 +94,7 @@ public boolean SignUp(UserSession user) {
         ps.setString(4, user.getPhone());
         ps.setString(5, user.getEmail());
         ps.setString(6, user.getPassword());
-        ps.setString(7, "guest"); // Assuming 'role' is always 'member' for sign up
+        ps.setString(7, "guest"); 
         ps.setDate(8, new java.sql.Date(user.getExpriedDate().getTime()));
         ps.setString(9, user.getStatus());
         ps.setDate(10, new java.sql.Date(user.getSignUpDate().getTime()));
@@ -122,25 +122,25 @@ public boolean SignUp(UserSession user) {
 
 
     
-       public static void updateUserPassword(String password, String username) {
+    public static boolean updatePassword(String username, String newPassword) {
+        String sql = "UPDATE [User] SET password = ? WHERE userName = ?";
 
-        String sql = "UPDATE [user]  \n"
-                + "SET [password] = ? \n"
-                + "where [name] = ? \n";
-        try {
-            Connection conn = DBUtils.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-
-            ps.setString(1, password);
+        try (Connection conn = DBUtils.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, newPassword);
             ps.setString(2, username);
-            ResultSet rs = ps.executeQuery();
-            rs.close();          
-            ps.close();
-            conn.close();
-        } catch (SQLException ex) {
-            System.out.println("Query Student error!" + ex.getMessage());
+
+            int rowsUpdated = ps.executeUpdate();
+
+            // Check if any rows were affected by the update
+            if (rowsUpdated > 0) {
+                return true; // Password update successful
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
+        return false; // Password update failed
     }
 
     public UserSession searchByName(String username) {

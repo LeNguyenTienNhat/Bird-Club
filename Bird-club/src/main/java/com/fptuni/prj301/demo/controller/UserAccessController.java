@@ -88,7 +88,7 @@ public class UserAccessController extends HttpServlet {
                 user.setPhone(phone);
                 user.setEmail(email);
                 user.setGender(gender);
-                user.setStatus("unactive"); // Set the initial status as unactive
+                user.setStatus("active"); // Set the initial status as unactive
 
                 // Generate UID
                 String userId = UIDGenerator.generateUID();
