@@ -27,20 +27,6 @@ public class UIDGenerator {
         return "FID" + fidNumber;
     }
     
-    public static String generateTID() {
-        List<String> existingTIDs = TparticipationManager.ExistingTID();
-        int listSize = existingTIDs.size();
-        int tidNumber = listSize + 1;
-        return "TID" + tidNumber;
-    }
-    
-    public static String generateMeID() {
-        List<String> existingMeIDs = MeetingParticipantsManager.ExistingMeID();
-        int listSize = existingMeIDs.size();
-        int meidNumber = listSize + 1;
-        return "MeID" + meidNumber;
-    }
-    
     public static String generateDocT() {
         List<String> existingTIDs = TparticipationManager.ExistingDoc("Doc.T%");
         int listSize = existingTIDs.size();
@@ -59,6 +45,26 @@ public class UIDGenerator {
         int randomNumber = listSize + 1;
         return "Doc.M" + randomNumber;
     }
+    private String generateNewPassword() {
+    // Define the characters that can be used in the password
+    String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+
+    // Set the length of the password
+    int length = 10;
+
+    // Create a StringBuilder to store the generated password
+    StringBuilder password = new StringBuilder();
+
+    // Generate random characters to form the password
+    Random random = new Random();
+    for (int i = 0; i < length; i++) {
+        int index = random.nextInt(characters.length());
+        password.append(characters.charAt(index));
+    }
+
+    // Convert the StringBuilder to a String and return the generated password
+    return password.toString();
+}
     public static void main(String[] args) {
     String docNoT = generateDocT();
     System.out.println("Generated DocNo: " + docNoT);

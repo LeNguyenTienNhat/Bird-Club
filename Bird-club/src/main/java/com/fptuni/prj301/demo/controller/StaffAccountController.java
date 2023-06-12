@@ -53,7 +53,7 @@ public class StaffAccountController extends HttpServlet {
 
             if (success) {
                 String email= userDao.getUserEmail(userId);
-                Mailer.send("prj301.pgnb@gmail.com","nqlgrybvvyqjoaxw", email,"Bird Club","You account have been approve", "http://localhost:8080/chimowners/member_checkout.jsp");
+                Mailer.send("fptswp@gmail.com","fijqfrjphrrkenna", email,"Bird Club","You account have been approve", "http://localhost:8080/chimowners/member_checkout.jsp");
                 response.sendRedirect(request.getContextPath() +"staff_homepage.jsp");
             } else {
                 response.sendRedirect("staff_approval_failure.jsp");
