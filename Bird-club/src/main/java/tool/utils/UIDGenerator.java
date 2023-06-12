@@ -27,14 +27,6 @@ public class UIDGenerator {
         return "FID" + fidNumber;
     }
     
-    
-    public static String generateMeID() {
-        List<String> existingMeIDs = MeetingParticipantsManager.ExistingMeID();
-        int listSize = existingMeIDs.size();
-        int meidNumber = listSize + 1;
-        return "MeID" + meidNumber;
-    }
-    
     public static String generateDocT() {
         List<String> existingTIDs = TparticipationManager.ExistingDoc("Doc.T%");
         int listSize = existingTIDs.size();
