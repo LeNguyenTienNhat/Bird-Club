@@ -5,7 +5,7 @@
 <!--Header-->
 
 
-<%@ include file="member_header1.jsp" %>
+<%@ include file="member_header.jsp" %>
 
 <!DOCTYPE html>
 <html class="no-js"  lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
