@@ -111,8 +111,6 @@ public class TournamentManager {
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
-
-
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     Tournament tournament = new Tournament();

@@ -6,6 +6,7 @@
 package com.fptuni.prj301.demo.dbmanager;
 
 import com.fptuni.prj301.demo.model.Bird;
+import com.fptuni.prj301.demo.model.Member;
 import com.fptuni.prj301.demo.utils.DBUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -74,4 +75,21 @@ public class BirdManager {
         System.out.println("---------------------------------");
     }
 }
+    
+    public String getBirdOwnerUIDByBID(String BID) {
+        String sql = "SELECT * FROM [Bird] WHERE BID = ?";
+        String UID = null;
+         try {
+                Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setString(1, BID);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    UID = rs.getString("UID");
+                }
+                return UID;
+        } catch (SQLException e) {
+        }
+         return UID;
+    }
 }

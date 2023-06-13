@@ -424,8 +424,8 @@ Create</button></div></form></turbo-frame></turbo-frame></div></div></div></div>
                                         +"type='submit'>Add image</button>"
                                         + "</form>"        
                                                
-                                        +"<form>"
-                                        +"<input type='hidden'>"
+                                        +"<form action='./mail'>"
+                                        + "<input type='hidden' name='ID' value = '"+ tournament.getTID() + "'>"
                                         + "<button class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                         +"type='submit'>Notify members</button>"
                                         + "</form>"    
