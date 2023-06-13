@@ -91,7 +91,6 @@ public class StaffTournaments extends HttpServlet {
                          startDate, endDate, LID, status, fee, numberOfParticipant, totalPrize, note, incharge, host, contact);
                 
                 tournamentManager.update(tournament);
-                
                 request.setAttribute("action","viewtournaments");
                 RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
                 rd.forward(request, response);

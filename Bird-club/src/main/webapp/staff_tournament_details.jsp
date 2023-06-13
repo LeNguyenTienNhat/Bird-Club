@@ -289,7 +289,7 @@ Sign out</a>
         
         <div class="p-6">
           <div class="space-y-8 divide-y divide-gray-200">
-              <form class="edit_member" id="edit">
+              <form class="edit_member" id="edit" action="./tournaments" method="post">
               <turbo-frame id="flash"></turbo-frame>
               <div>
                 <div>
@@ -370,13 +370,22 @@ Sign out</a>
                     </div>
                     <p class="mt-2 text-sm text-gray-500">A brief note to notice our participants</p>
                   </div>
+                                            
+                      <div class="sm:col-span-6">
+                  <label class="block text-sm font-medium text-gray-700" for="status">Status: <% out.print("  "+tournament.getStatus()); %></label>
+                  <div class="mt-1">
                       
-                    <div class="col-span-1">
-                      <label class="block text-sm font-medium text-gray-700" for="status">status</label>
-                      <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+tournament.getStatus()+"'"); %> name="status" id="status">
-                      </div>
-                    </div>
+                    <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="status" id="status">
+                        <option selected="selected" value="pending">Pending</option>
+                        <option value="formClosed">Form closed</option>
+                        <option value="ongoing">On going</option>
+                        <option value="finished">Terminated</option>
+                    </select>
+                      
+                  </div>
+                  <p class="mt-2 text-sm text-gray-500">Public clubs will allow non-members to learn about your club and apply to join. <br>
+                    Private clubs are invite-only and visible only to members. <br></p>
+                </div>
     
                 <div class="col-span-1">
                       <label class="block text-sm font-medium text-gray-700" for="fee">Participation fee</label>
