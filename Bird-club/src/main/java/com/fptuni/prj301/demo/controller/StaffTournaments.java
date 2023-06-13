@@ -55,8 +55,12 @@ public class StaffTournaments extends HttpServlet {
                 int fee = Integer.parseInt(request.getParameter("fee"));
                 int numberOfParticipant = Integer.parseInt(request.getParameter("numberOfParticipant"));
                 int totalPrize = Integer.parseInt(request.getParameter("totalPrize"));
+                String note = request.getParameter("note");
+                String incharge = request.getParameter("incharge");
+                String host = request.getParameter("host");
+                String contact = request.getParameter("contact");
                 Tournament tournament = new Tournament(TID, name, description, registrationDeadline, 
-                         startDate, endDate, LID, status, fee, numberOfParticipant, totalPrize);
+                         startDate, endDate, LID, status, fee, numberOfParticipant, totalPrize, note, incharge, host, contact);
                 tournamentManager.insert(tournament);
                 
                 request.setAttribute("action","viewtournaments");
@@ -79,8 +83,12 @@ public class StaffTournaments extends HttpServlet {
                 int fee = Integer.parseInt(request.getParameter("fee"));
                 int numberOfParticipant = Integer.parseInt(request.getParameter("numberOfParticipant"));
                 int totalPrize = Integer.parseInt(request.getParameter("totalPrize"));
+                String note = request.getParameter("note");
+                String incharge = request.getParameter("incharge");
+                String host = request.getParameter("host");
+                String contact = request.getParameter("contact");
                 Tournament tournament = new Tournament(TID, name, description, registrationDeadline, 
-                         startDate, endDate, LID, status, fee, numberOfParticipant, totalPrize);
+                         startDate, endDate, LID, status, fee, numberOfParticipant, totalPrize, note, incharge, host, contact);
                 
                 tournamentManager.update(tournament);
                 

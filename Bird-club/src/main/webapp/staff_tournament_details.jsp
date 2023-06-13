@@ -306,6 +306,27 @@ Sign out</a>
                       </div>
                     </div>
                       
+                      <div class="col-span-3">
+                      <label class="block text-sm font-medium text-gray-700" for="host">Host</label>
+                      <div class="mt-1">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'"+tournament.getHost()+"'"); %> name="host" id="host">
+                      </div>
+                    </div>
+                      
+                      <div class="col-span-3">
+                      <label class="block text-sm font-medium text-gray-700" for="incharge">In charge</label>
+                      <div class="mt-1">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'"+tournament.getIncharge()+"'"); %> name="incharge" id="incharge">
+                      </div>
+                    </div>
+                      
+                      <div class="col-span-3">
+                      <label class="block text-sm font-medium text-gray-700" for="contact">Contact</label>
+                      <div class="mt-1">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'"+tournament.getContact()+"'"); %> name="contact" id="contact">
+                      </div>
+                    </div>
+                      
                       <div class="col-span-1">
                       <label class="block text-sm font-medium text-gray-700" for="LID">LID</label>
                       <div class="mt-1">
@@ -340,6 +361,14 @@ Sign out</a>
                       <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="description"  id="description"><% out.print(tournament.getDescription()); %></textarea>
                     </div>
                     <p class="mt-2 text-sm text-gray-500">A brief description of the tournament</p>
+                  </div>
+                    
+                    <div class="sm:col-span-4 md:col-span-2">
+                    <label class="block text-sm font-medium text-gray-700" for="note">Note</label>
+                    <div class="mt-1">
+                      <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="note"  id="note"><% out.print(tournament.getNote()); %></textarea>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-500">A brief note to notice our participants</p>
                   </div>
                       
                     <div class="col-span-1">

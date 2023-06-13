@@ -20,6 +20,29 @@ public class Tools {
         return sb.toString();
     }
     
+    public String convertDisplayDate(String date) {
+        String str = date;
+        String d,m,y;
+        String[] arrOfStr;
+        arrOfStr = str.split("-", 3);
+        d = arrOfStr[2];
+        m = arrOfStr[1];
+        y = arrOfStr[0];
+        if (m.equalsIgnoreCase("01")) m="January";
+        else if (m.equalsIgnoreCase("02")) m="February";
+        else if (m.equalsIgnoreCase("03")) m="March";
+        else if (m.equalsIgnoreCase("04")) m="April";
+        else if (m.equalsIgnoreCase("05")) m="May";
+        else if (m.equalsIgnoreCase("06")) m="June";
+        else if (m.equalsIgnoreCase("07")) m="July";
+        else if (m.equalsIgnoreCase("08")) m="August";
+        else if (m.equalsIgnoreCase("09")) m="September";
+        else if (m.equalsIgnoreCase("10")) m="Octorber";
+        else if (m.equalsIgnoreCase("11")) m="November";
+        else if (m.equalsIgnoreCase("12")) m="December";
+        return m+" "+d+"";
+    }
+    
     public String trimDate(String date) {
         String str = date;
         String[] arrOfStr;
