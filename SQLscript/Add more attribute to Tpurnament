@@ -1,0 +1,8 @@
+ALTER TABLE [Tournament]
+ADD note nvarchar(MAX);
+ALTER TABLE [Tournament]
+ADD incharge nvarchar(50);
+ALTER TABLE [Tournament]
+ADD host nvarchar(50);
+ALTER TABLE [Tournament]
+ADD contact nvarchar(50);
