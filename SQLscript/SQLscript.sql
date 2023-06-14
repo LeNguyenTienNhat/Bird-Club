@@ -402,7 +402,7 @@ CREATE TABLE [dbo].[User](
 	[password] [nvarchar](50) NOT NULL,
 	[role] [nchar](10) NOT NULL,
 	[expiredDate] [datetime] NOT NULL,
-	[status] [nchar](10) NOT NULL,
+	[status] [nchar](20) NOT NULL,
 	[signupDate] [datetime] NOT NULL,
 	[MID] [nchar](10) NULL,
 	[gender] [nchar](10) NULL,
