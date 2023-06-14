@@ -338,6 +338,10 @@ CREATE TABLE [dbo].[Tournament](
 	[fee] [decimal](18, 0) NOT NULL,
 	[numberOfParticipant] [decimal](18, 0) NOT NULL,
 	[totalPrize] [decimal](18, 0) NOT NULL,
+	[note] [nvarchar](MAX) NOT NULL,
+	[incharge] [nvarchar](50) NOT NULL,
+	[host] [nvarchar](50) NOT NULL,
+	[contact] [nvarchar](50) NOT NULL,
  CONSTRAINT [PK_Tournament] PRIMARY KEY CLUSTERED 
 (
 	[TID] ASC
