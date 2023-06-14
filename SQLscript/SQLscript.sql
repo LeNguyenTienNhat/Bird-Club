@@ -161,7 +161,7 @@ GO
 CREATE TABLE [dbo].[FieldTrip](
 	[FID] [nchar](10) NOT NULL,
 	[name] [nvarchar](50) NOT NULL,
-	[description] [nvarchar](50) NOT NULL,
+	[description] [nvarchar](max) NOT NULL,
 	[registrationDeadline] [datetime] NOT NULL,
 	[startDate] [datetime] NOT NULL,
 	[endDate] [datetime] NOT NULL,
