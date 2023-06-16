@@ -10,7 +10,7 @@
 <html class="no-js" lang="en-US">
     <head>
         <meta charset="utf-8">
-        <title>Fieldtrip</title>
+        <title>Field Trip</title>
         <link rel="alternate" type="application/rss+xml" title="Birds, Cornell Lab of Ornithology &raquo; Feed" href="https://www.birds.cornell.edu/home/feed/" />
         <link rel="alternate" type="application/rss+xml" title="Birds, Cornell Lab of Ornithology &raquo; Comments Feed" href="https://www.birds.cornell.edu/home/comments/feed/" />
         <link rel="alternate" type="text/calendar" title="Birds, Cornell Lab of Ornithology &raquo; iCal Feed" href="https://www.birds.cornell.edu/home/events/?ical=1" />
@@ -266,7 +266,7 @@
                                                                 </div>-->
 
                         <div class="is-layout-flow wp-block-group alignfull has-bg-gray-background-color has-background narrow">
-                            <h2 class="has-text-align-center has-large-font-size">Tournament List:</h2>
+                            <h2 class="has-text-align-center has-large-font-size">Field Trip List:</h2>
                             <link rel='stylesheet' id='tec-variables-skeleton-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/common/src/resources/css/variables-skeleton.min.css?ver=5.0.6' type='text/css' media='all' />
                             <link rel='stylesheet' id='tribe-common-skeleton-style-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/common/src/resources/css/common-skeleton.min.css?ver=5.0.6' type='text/css' media='all' />
                             <link rel='stylesheet' id='tribe-events-views-v2-bootstrap-datepicker-styles-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/vendor/bootstrap-datepicker/css/bootstrap-datepicker.standalone.min.css?ver=6.0.6.2' type='text/css' media='all' />
@@ -340,36 +340,36 @@
                                                                             </div>-->
                                                     <table>
                                                         <tr>
-                                                            <td>tournament</td>
+                                                            <td>field trip</td>
                                                             <td>start </td>
                                                             <td>end</td>
 
                                                         </tr>
-                                                        <c:if test="${empty tList}">
+                                                        <c:if test="${empty eventsList}">
                                                             <div >
-                                                                <p>No tournament found.</p>
+                                                                <p>No field trip found.</p>
                                                             </div>
                                                         </c:if>
 
-                                                        <c:if test="${not empty tList}">
-                                                            <c:forEach var="t" items="${tList}">
+                                                        <c:if test="${not empty eventsList}">
+                                                            <c:forEach var="f" items="${eventsList}">
                                                                 <tr>
-                                                                    <td><a href="detail.jsp?TID=${t.getTID()}">${t.getName()}</a></td>
-                                                                    <td>${t.getStartDate()}</td>
-                                                                    <td>${t.getEndDate()}</td>
+                                                                    <td><a href="detail.jsp?FID=${f.getFID()}">${f.getName()}</a></td>
+                                                                    <td>${f.getStartDate()}</td>
+                                                                    <td>${f.getEndDate()}</td>
                                                                     
                                                                     <td>
                                                                         <c:choose>
-                                                                            <c:when test="${t.getStatus().trim() eq 'pending'}">
-                                                                                <form action="${pageContext.request.contextPath}/BirdController" method="POST">
-                                                                                    <input type="hidden" name="action" value="view">
+                                                                            <c:when test="${f.getStatus().trim() eq 'pending'}">
+                                                                                <form action="${pageContext.request.contextPath}/FieldTripParticipantsController" method="POST">
+                                                                                    <input type="hidden" name="action" value="viewfieldtrip">
                                                                                     <input type="hidden" name="UID" value="${users.userId}">
-                                                                                   <c:set var="sessionTID" scope="session" value="${t.getTID()}"/>
+                                                                                   <c:set var="sessionFID" scope="session" value="${f.getFID()}"/>
                                                                                     <button type="submit" class="wp-block-button__link wp-element-button">Sign up now!</button>
                                                                                 </form>
                                                                             </c:when>
-                                                                            <c:when test="${t.getStatus().trim() eq 'finished'}">
-                                                                                <form action="${pageContext.request.contextPath}/BirdController" method="POST">
+                                                                            <c:when test="${f.getStatus().trim() eq 'finished'}">
+                                                                                <form action="${pageContext.request.contextPath}/FieldTripParticipantsController" method="POST">
                                                                                     <input type="hidden" name="action" value="result">
                                                                                     <input type="hidden" name="UID" value="${users.userId}">
                                                                                     <button type="submit" class="wp-block-button__link wp-element-button">View Results</button>

@@ -5,25 +5,27 @@
  */
 package com.fptuni.prj301.demo.controller;
 
-import com.fptuni.prj301.demo.dbmanager.FieldTripParticipantsManager;
 import com.fptuni.prj301.demo.dbmanager.FieldtripManager;
-import com.fptuni.prj301.demo.model.FieldTripParticipants;
+import com.fptuni.prj301.demo.dbmanager.StaffAccountManager;
+import com.fptuni.prj301.demo.dbmanager.TournamentManager;
 import com.fptuni.prj301.demo.model.Fieldtrip;
+import com.fptuni.prj301.demo.model.Tournament;
+import com.fptuni.prj301.demo.model.UserSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import tool.utils.UIDGenerator;
+import tool.utils.Mailer;
 
 /**
  *
  * @author DELL-7391
  */
-public class FieldTripParticipantsController extends HttpServlet {
+public class StaffAccountFTController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,37 +41,41 @@ public class FieldTripParticipantsController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String action = request.getParameter("action");
-        if (action != null && action.equals("viewfieldtrip")) {
-            // Process the view action
-            FieldtripManager eventsManager = new FieldtripManager();
-            String UID = request.getParameter("UID");
-            List<Fieldtrip> eventsList = eventsManager.getList();
-            request.setAttribute("eventsList", eventsList);
-            request.getRequestDispatcher("/payment.jsp").forward(request, response);
-        }
 
-        if (action != null && action.equals("add")) {
-            String fid = request.getParameter("Fid");
-            String uid = request.getParameter("uid");
-            String docNo = UIDGenerator.generateDocF();
-         
-            // Create a new Tparticipation object with the provided parameters
-            FieldTripParticipants fieldTripParticipants = new FieldTripParticipants();
-            fieldTripParticipants.setFid(fid);
-            fieldTripParticipants.setUid(uid);
-            fieldTripParticipants.setDocNo(docNo);
+        if (action != null && action.equals("approve")) {
+            String userId = request.getParameter("UID");
+            String role = request.getParameter("role");
 
-            // Insert the Tparticipation object into the database
-            FieldTripParticipantsManager fieldTripParticipantsManager = new FieldTripParticipantsManager();
-            boolean success = fieldTripParticipantsManager.insert(fieldTripParticipants);
+            // Call the DAO to update the user's status as "active"
+            StaffAccountManager userDao = new StaffAccountManager();
+            boolean success = userDao.approveUser(userId, role);
 
             if (success) {
-                // Redirect to a success page
-                response.sendRedirect(request.getContextPath() + "/payment.jsp");
+                String email = userDao.getUserEmail(userId);
+                Mailer.send("fptswp@gmail.com", "fijqfrjphrrkenna", email, "Bird Club", "You account have been approve", "http://localhost:8080/chimowners/member_checkout.jsp");
+                response.sendRedirect(request.getContextPath() + "staff_homepage.jsp");
             } else {
-                // Redirect to a failure page
-                response.sendRedirect(request.getContextPath() + "/failure.jsp");
+                response.sendRedirect("staff_approval_failure.jsp");
             }
+        } else if (action != null && action.equals("view")) {
+
+            StaffAccountManager staffAccountManager = new StaffAccountManager();
+            List<UserSession> userList = staffAccountManager.getUsersWithUnactiveStatus();
+
+            if (!userList.isEmpty()) {
+                request.setAttribute("userList", userList);
+                request.getRequestDispatcher("/staff_member.jsp").forward(request, response);
+            } else {
+                response.sendRedirect(request.getContextPath() + "/staff_member.jsp");
+            }
+        } else if (action == null || action.equals("viewfieldtrip")) {
+            //display tournament
+            FieldtripManager eventsManager = new FieldtripManager();
+            List<Fieldtrip> eventsList = eventsManager.getList();
+            request.setAttribute("eventsList", eventsList);
+
+            RequestDispatcher rd = request.getRequestDispatcher("member_fieldtrip.jsp");
+            rd.forward(request, response);
         }
     }
 

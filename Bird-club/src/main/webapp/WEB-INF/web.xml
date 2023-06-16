@@ -23,6 +23,14 @@
         <servlet-name>StaffMediaController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.StaffMediaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffAccountFTController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.StaffAccountFTController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FieldTripParticipantsController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.FieldTripParticipantsController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomepageController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -106,6 +114,14 @@
     <servlet-mapping>
         <servlet-name>StaffMediaController</servlet-name>
         <url-pattern>/media</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffAccountFTController</servlet-name>
+        <url-pattern>/StaffAccountFTController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FieldTripParticipantsController</servlet-name>
+        <url-pattern>/FieldTripParticipantsController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

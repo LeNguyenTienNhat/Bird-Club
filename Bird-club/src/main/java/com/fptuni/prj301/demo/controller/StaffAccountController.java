@@ -81,15 +81,6 @@ public class StaffAccountController extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("member_tournament.jsp");
                 rd.forward(request, response);
             }
-        else if (action == null || action.equals("viewfieldtrip")) {
-                //display tournament
-                 FieldtripManager fieldtripManager = new FieldtripManager();
-                List<Fieldtrip> fieldtripsList = fieldtripManager.getList();
-                request.setAttribute("fList", fieldtripsList);
-                
-                RequestDispatcher rd = request.getRequestDispatcher("member_fieldtrip.jsp");
-                rd.forward(request, response);
-            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
