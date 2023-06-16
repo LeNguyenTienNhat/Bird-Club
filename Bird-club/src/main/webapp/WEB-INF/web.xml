@@ -31,6 +31,14 @@
         <servlet-name>FieldTripParticipantsController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.FieldTripParticipantsController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffAccountMTController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.StaffAccountMTController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MeetingParticipantsController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.MeetingParticipantsController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomepageController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -122,6 +130,14 @@
     <servlet-mapping>
         <servlet-name>FieldTripParticipantsController</servlet-name>
         <url-pattern>/FieldTripParticipantsController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffAccountMTController</servlet-name>
+        <url-pattern>/StaffAccountMTController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MeetingParticipantsController</servlet-name>
+        <url-pattern>/MeetingParticipantsController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
