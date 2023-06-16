@@ -1,13 +1,10 @@
 
 package com.fptuni.prj301.demo.controller;
 
-import com.fptuni.prj301.demo.dbmanager.MemberManager;
+import com.fptuni.prj301.demo.dbmanager.MediaManager;
 import com.fptuni.prj301.demo.dbmanager.TournamentManager;
-import com.fptuni.prj301.demo.model.Member;
+import com.fptuni.prj301.demo.model.Media;
 import com.fptuni.prj301.demo.model.Tournament;
-
-//import com.oreilly.servlet.MultipartRequest;
-
 import tool.utils.Tools;
 import java.io.IOException;
 import java.text.ParseException;
@@ -19,9 +16,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import tool.utils.EmailSender;
-import tool.utils.MessageContent;
-
 public class StaffTournaments extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -55,8 +49,12 @@ public class StaffTournaments extends HttpServlet {
                 int fee = Integer.parseInt(request.getParameter("fee"));
                 int numberOfParticipant = Integer.parseInt(request.getParameter("numberOfParticipant"));
                 int totalPrize = Integer.parseInt(request.getParameter("totalPrize"));
+                String note = request.getParameter("note");
+                String incharge = request.getParameter("incharge");
+                String host = request.getParameter("host");
+                String contact = request.getParameter("contact");
                 Tournament tournament = new Tournament(TID, name, description, registrationDeadline, 
-                         startDate, endDate, LID, status, fee, numberOfParticipant, totalPrize);
+                         startDate, endDate, LID, status, fee, numberOfParticipant, totalPrize, note, incharge, host, contact);
                 tournamentManager.insert(tournament);
                 
                 request.setAttribute("action","viewtournaments");
@@ -79,11 +77,14 @@ public class StaffTournaments extends HttpServlet {
                 int fee = Integer.parseInt(request.getParameter("fee"));
                 int numberOfParticipant = Integer.parseInt(request.getParameter("numberOfParticipant"));
                 int totalPrize = Integer.parseInt(request.getParameter("totalPrize"));
+                String note = request.getParameter("note");
+                String incharge = request.getParameter("incharge");
+                String host = request.getParameter("host");
+                String contact = request.getParameter("contact");
                 Tournament tournament = new Tournament(TID, name, description, registrationDeadline, 
-                         startDate, endDate, LID, status, fee, numberOfParticipant, totalPrize);
+                         startDate, endDate, LID, status, fee, numberOfParticipant, totalPrize, note, incharge, host, contact);
                 
                 tournamentManager.update(tournament);
-                
                 request.setAttribute("action","viewtournaments");
                 RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
                 rd.forward(request, response);
@@ -124,28 +125,14 @@ public class StaffTournaments extends HttpServlet {
             else if (action.equals("viewtournamentmedia")) {
                 String TID = request.getParameter("TID");
                 Tournament t = tournamentManager.load(TID);
+                MediaManager m = new MediaManager();
+                List<Media> list = m.getList("TournamentMedia", TID);
                 
                 request.setAttribute("tournament", t);
+                request.setAttribute("list", list);
                 RequestDispatcher rd = request.getRequestDispatcher("staff_tournament_media.jsp");
                 rd.forward(request, response);
             }
-        
-        else if (action.equals("notifymember")) {
-                MemberManager m = new MemberManager();
-                List<Member> list = m.getRecords(0, 0, "member", "MID");
-                EmailSender e = new EmailSender();
-                MessageContent c = new MessageContent();
-                String content = c.HTMLContentGenerator();
-                for (Member member : list) {
-                    if (!member.getEmail().isEmpty()) e.sendEmail(member.getEmail(), content);
-                }
-                request.setAttribute("action","viewtournaments");
-                RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
-                rd.forward(request, response);
-            }
-        
-        
-
 
     }
 

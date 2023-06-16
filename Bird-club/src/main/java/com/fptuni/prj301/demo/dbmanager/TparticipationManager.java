@@ -97,4 +97,25 @@ public static List<String> ExistingDoc(String pattern) {
             System.out.println("Failed to insert Tparticipation.");
         }
     }
+     
+     public List<Tparticipation> getParticipantList(String TID) {
+         List<Tparticipation> list = new ArrayList();
+         String sql = "SELECT * FROM [Tparticipation] WHERE TID = ?";
+         try {
+                Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setString(1, TID);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    Tparticipation t = new Tparticipation();
+                    t.setTid(rs.getString("TID"));
+                    t.setBid(rs.getString("BID"));
+                    t.setDocNo(rs.getString("docNo"));
+                    t.setAchievement(rs.getString("achievement"));
+                    list.add(t);
+                }
+        } catch (SQLException e) {
+        }
+         return list;
+     }
 }

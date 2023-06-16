@@ -161,7 +161,7 @@ GO
 CREATE TABLE [dbo].[FieldTrip](
 	[FID] [nchar](10) NOT NULL,
 	[name] [nvarchar](50) NOT NULL,
-	[description] [nvarchar](50) NOT NULL,
+	[description] [nvarchar](max) NOT NULL,
 	[registrationDeadline] [datetime] NOT NULL,
 	[startDate] [datetime] NOT NULL,
 	[endDate] [datetime] NOT NULL,
@@ -338,6 +338,10 @@ CREATE TABLE [dbo].[Tournament](
 	[fee] [decimal](18, 0) NOT NULL,
 	[numberOfParticipant] [decimal](18, 0) NOT NULL,
 	[totalPrize] [decimal](18, 0) NOT NULL,
+	[note] [nvarchar](MAX) NULL,
+	[incharge] [nvarchar](50) NULL,
+	[host] [nvarchar](50) NULL,
+	[contact] [nvarchar](50) NULL,
  CONSTRAINT [PK_Tournament] PRIMARY KEY CLUSTERED 
 (
 	[TID] ASC
@@ -396,16 +400,20 @@ GO
 CREATE TABLE [dbo].[User](
 	[UID] [nchar](10) NOT NULL,
 	[userName] [nvarchar](50) NOT NULL,
+	[password] [nvarchar](50) NOT NULL,
 	[fullName] [nvarchar](50) NOT NULL,
+	[gender] [nchar](10) NULL,
 	[phone] [nchar](10) NULL,
 	[email] [nvarchar](50) NULL,
-	[password] [nvarchar](50) NOT NULL,
+	[status] [nchar](20) NOT NULL,
 	[role] [nchar](10) NOT NULL,
-	[expiredDate] [datetime] NOT NULL,
-	[status] [nchar](10) NOT NULL,
 	[signupDate] [datetime] NOT NULL,
+	[expiredDate] [datetime] NOT NULL,
 	[MID] [nchar](10) NULL,
-	[gender] [nchar](10) NULL,
+	[avatar] [nvarchar](50) NULL,
+	
+	
+	
  CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
 (
 	[UID] ASC

@@ -1,34 +1,224 @@
 INSERT INTO [Bird] (BID,UID, name, age, gender, description, imageURL, color, addDate)
-VALUES ('BID0','UID0', 'Albedo', '2', 'male', 'null', 'null', 'brown', GETDATE());
+VALUES ('BID0','UID17', 'Albedo', '2', 'male', 'My bird has vibrant feathers and a melodious song that fills my home with joy.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID1','UID1', 'Alhaitham', '4', 'male', 'null', 'null', 'gray', GETDATE());
+VALUES ('BID1','UID8', 'Alhaitham', '4', 'male', 'This little bird has the cutest chirp I have ever heard.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID2','UID1', 'Aloy', '2', 'female', 'null', 'null', 'black', GETDATE());
+VALUES ('BID2','UID33', 'Aloy', '2', 'female', 'I adore my birds playful personality and its ability to mimic my laughter.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID3','UID2', 'Amber', '5', 'female', 'null', 'null', 'black', GETDATE());
+VALUES ('BID3','UID26', 'Amber', '5', 'female', 'The way my bird gracefully soars through the air is truly mesmerizing.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID4','UID3', 'Baizhu', '2', 'male', 'null', 'null', 'brown', GETDATE());
+VALUES ('BID4','UID45', 'Baizhu', '2', 'male', 'With its vibrant plumage, my bird is like a living work of art.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID5','UID4', 'Barbara', '4', 'female', 'null', 'null', 'black', GETDATE());
+VALUES ('BID5','UID22', 'Barbara', '4', 'female', 'I love how my bird hops around with such energy and enthusiasm.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID6','UID5', 'Beidou', '4', 'female', 'null', 'null', 'white', GETDATE());
+VALUES ('BID6','UID30', 'Beidou', '4', 'female', 'The intricate patterns on my bird wings make it truly unique.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID7','UID5', 'Bennett', '9', 'male', 'null', 'null', 'red', GETDATE());
+VALUES ('BID7','UID21', 'Bennett', '9', 'male', 'My bird gentle cooing puts me in a peaceful state of mind.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
 INSERT INTO [Bird]
-VALUES ('BID8','UID6', 'Candace', '6', 'female', 'null', 'null', 'yellow', GETDATE());
+VALUES ('BID8','UID15', 'Candace', '6', 'female', 'This bird has an amazing ability to mimic human speech with incredible accuracy.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID9','UID6', 'Chongyun', '4', 'male', 'null', 'null', 'white', GETDATE());
+VALUES ('BID9','UID47', 'Chongyun', '4', 'male', 'I am constantly amazed by my bird intelligence and problem-solving skills.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID10','UID7', 'Collei', '4', 'female', 'null', 'null', 'brown', GETDATE());
+VALUES ('BID10','UID11', 'Collei', '4', 'female', 'My bird playful antics always bring a smile to my face.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID11','UID7', 'Cyno', '8', 'male', 'null', 'null', 'gray', GETDATE());
+VALUES ('BID11','UID36', 'Cyno', '8', 'male', 'The way my bird spreads its wings and takes flight is a sight to behold.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID12','UID8', 'Dehya', '1', 'female', 'null', 'null', 'red', GETDATE());
+VALUES ('BID12','UID1', 'Dehya', '1', 'female', 'My bird sweet singing fills my mornings with a delightful melody.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID13','UID8', 'Diluc', '7', 'male', 'null', 'null', 'yellow', GETDATE());
+VALUES ('BID13','UID40', 'Diluc', '7', 'male', 'This little bird has a big personality and brings so much happiness into my life.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID14','UID9', 'Diona', '6', 'female', 'null', 'null', 'red', GETDATE());
+VALUES ('BID14','UID31', 'Diona', '6', 'female', 'The vibrant colors of my bird feathers never fail to impress.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID15','UID9', 'Dori', '9', 'female', 'null', 'null', 'black', GETDATE());
+VALUES ('BID15','UID7', 'Dori', '9', 'female', 'My bird curiosity knows no bounds as it explores its surroundings.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID16','UID9', 'Eula', '6', 'female', 'null', 'null', 'red', GETDATE());
+VALUES ('BID16','UID23', 'Eula', '6', 'female', 'The gentle fluttering of my bird wings is a soothing sight.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID17','UID42', 'Faruzan', '2', 'female', 'I can spend hours watching my bird build its nest with such precision and care.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID18','UID48', 'Fischl', '6', 'female', 'This bird elegant posture and graceful movements are a true marvel.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID19','UID16', 'Ganyu', '4', 'female', 'My bird playful nature and social interactions bring endless entertainment.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID20','UID43', 'Gorou', '1', 'male', 'The way my bird perches on my finger makes me feel a special bond with it.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID21','UID19', 'Hutao', '10', 'female', 'My bird melodic singing has become the soundtrack of my home.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID22','UID2', 'Jean', '10', 'female', 'The unique patterns on my bird feathers make it easily recognizable.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird]
+VALUES ('BID23','UID28', 'Kazuha', '4', 'male', 'My bird inquisitive eyes seem to hold a world of wisdom.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID24','UID38', 'Kaeya', '10', 'male', 'This bird ability to mimic sounds from its environment is simply astonishing.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID25','UID20', 'Ayaka', '3', 'female', 'The way my bird stretches its wings after a long flight is a sight of freedom.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID26','UID4', 'Ayato', '3', 'male', 'My bird loyal and affectionate nature is truly heartwarming.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID27','UID5', 'Kaveh', '8', 'male', 'The way my bird preens its feathers with such meticulousness is fascinating to watch.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID28','UID41', 'Keqing', '2', 'female', 'This bird vibrant plumage stands out beautifully against its natural habitat.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID29','UID35', 'Kirara', '2', 'female', 'My bird cheerful chirping brings a lively atmosphere to our home.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID30','UID9', 'Klee', '7', 'female', 'The way my bird interacts with other birds showcases its social intelligence.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID31','UID6', 'Sara', '1', 'female', 'My bird gentle pecking on my hand is its way of showing affection.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID32','UID10', 'Charlotte', '7', 'female', 'This bird ability to navigate long distances during migration is awe-inspiring.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID33','UID46', 'Shinobu', '3', 'female', 'My bird graceful movements during its courtship dance are a true spectacle.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID34','UID13', 'Layla', '2', 'female', 'The way my bird nuzzles against my cheek fills my heart with warmth.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID35','UID25', 'Lisa', '10', 'female', 'My bird intelligence shines through as it solves puzzles and learns new tricks.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID36','UID32', 'Mika', '7', 'male', 'This bird swift flight across the sky is a symbol of freedom and agility.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID37','UID0', 'Mona', '6', 'female', 'My bird soft feathers are incredibly soothing to touch', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID38','UID37', 'Nahida', '3', 'female', 'The way my bird fluffs up its feathers to keep warm is an adorable sight.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID39','UID24', 'Nilou', '9', 'female', 'My bird distinctive call echoes through the forest, creating a serene ambiance.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID40','UID44', 'Ningguang', '3', 'female', 'This bird long beak is perfectly adapted for extracting nectar from flowers.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID41','UID14', 'Itto', '4', 'male', 'The way my bird bobs its head to music shows its rhythmic nature.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID42','UID39', 'Qiqi', '7', 'female', 'My bird curious exploration of new toys and objects is an endless source of amusement.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID43','UID49', 'Shogun', '6', 'female', 'This bird swift dives into the water to catch fish are a testament to its hunting skills.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID44','UID18', 'Razor', '4', 'male', 'My bird majestic wingspan is a testament to its power and agility in flight.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID45','UID3', 'Rosaria', '2', 'female', 'The way my bird flaps its wings in excitement before taking off is a sight of anticipation.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID46','UID34', 'Kokomi', '5', 'female', 'My bird ability to navigate back to its nest with precision is a marvel of instinct.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID47','UID12', 'Sayu', '2', 'female', 'This bird unique mating dance is a visual spectacle that mesmerizes onlookers.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID48','UID27', 'Shenhe', '11', 'female', 'My bird gentle grooming of its mate demonstrates its bond and care.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID49','UID50', 'Heizou', '4', 'male', 'The way my bird puffs up its chest to display its vibrant plumage is a stunning sight.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID50','UID51', 'Sucrose', '1', 'female', 'My bird gentle peck on my cheek is its way of showing love and affection.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID51','UID52', 'Tartaglia', '10', 'male', 'This bird incredible stamina during long flights is a testament to its endurance.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID52','UID53', 'Thoma', '8', 'male', 'My bird swift reaction to danger demonstrates its sharp instincts for survival.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID53','UID54', 'Tighnari', '3', 'male', 'The way my bird collects twigs and leaves to construct its nest is a display of dedication.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID54','UID55', 'Traveler', '9', 'male', 'My bird soft and melodic trilling brings tranquility to my surroundings.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID55','UID56', 'Venti', '1', 'male', 'This bird dexterity in catching insects mid-flight is a remarkable feat.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID56','UID57', 'Wanderer', '5', 'male', 'My bird perky and alert posture is a reflection of its vibrant energy.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID57','UID58', 'Xiangling', '11', 'female', 'The way my bird spreads its wings wide during sunbathing is a moment of pure bliss.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID58','UID59', 'Xiao', '11', 'male', 'My bird synchronized flock movements during migration are a marvel of coordination.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID59','UID18', 'Xingqiu', '3', 'male', 'This bird delicate balance while perched on thin branches is a display of agility.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID60','UID21', 'Xinyan', '5', 'female', 'My bird ability to learn and mimic complex melodies showcases its musicality.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID61','UID10', 'Miko', '9', 'female', 'The way my bird nuzzles against my hand shows its trust and affection.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID62','UID35', 'Yanfei', '8', 'female', 'My bird aerial acrobatics during mating displays are truly captivating.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID63','UID2', 'Yaoyao', '7', 'female', 'This bird ability to camouflage itself among its surroundings is an incredible adaptation.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID64','UID46', 'Yelan', '11', 'female', 'My bird gentle tapping on its food bowl lets me know it feeding time.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID65','UID47', 'Yoimiya', '10', 'female', 'The way my bird basks in the sunlight, soaking up its warmth, is a picture of contentment.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID66','UID15', 'YunJin', '7', 'female', 'My bird swift takeoff and landing demonstrate its precise control over flight.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID67','UID37', 'Zhongli', '9', 'male', 'This bird ability to imitate household sounds adds a touch of whimsy to my home.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID68','UID22', 'Paimon', '4', 'female', 'My bird cautious approach to new objects shows its keen sense of awareness.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID69','UID4', 'Signora', '4', 'female', 'The way my bird carefully arranges its feathers after preening is a display of self-care.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID70','UID14', 'Scaramouche', '6', 'male', 'My bird soft and gentle touch with its beak during feeding is a gesture of tenderness.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID71','UID8', 'Lyney', '3', 'male', 'This bird rhythmic hopping on the ground is an adorable sight of playfulness.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID72','UID24', 'Lynette', '8', 'female', 'My bird delightful chatter keeps me company throughout the day.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID73','UID23', 'Pulcinella', '10', 'male', 'The way my bird fans out its tail feathers during courtship displays is a stunning visual.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID74','UID48', 'Pierro', '5', 'male', 'My bird ability to recognize my voice among others fills me with a sense of connection.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID75','UID16', 'Pantalone', '8', 'male', 'This bird intricate nest weaving using grass and twigs is a testament to its craftsmanship.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID76','UID45', 'Arlecchino', '4', 'female', 'My bird quick and precise movements while catching insects are a display of agility.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID77','UID27', 'Sandrone', '8', 'female', 'The way my bird flaps its wings vigorously to dry off after bathing is a moment of joy.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID78','UID32', 'Capiano', '6', 'male', 'My bird gentle preening of its mate feathers is an act of mutual care and affection.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID79','UID33', 'Dottore', '11', 'male', 'This bird swift and agile flight through narrow gaps showcases its maneuverability.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID80','UID25', 'Columbia', '2', 'female', 'My bird distinctive squawk lets me know it excited to see me.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID81','UID36', 'Arlan', '1', 'male', 'My bird distinctive squawk lets me know it excited to see me.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID82','UID1', 'Asta', '10', 'female', 'My bird gentle and cautious approach to new visitors reveals its cautious nature.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID83','UID9', 'Bailu', '1', 'female', 'This bird precision in building intricate nests high in the trees is a testament to its engineering skills.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID84','UID20', 'Bronya', '8', 'female', 'My bird melodious whistling is a constant reminder of the beauty of nature.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID85','UID29', 'Clara', '7', 'female', 'The way my bird dips its beak into fresh water and takes a sip is a moment of refreshment.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID86','UID38', 'DanHeng', '8', 'male', 'My bird synchronized flock movements during migration are a marvel of unity.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID87','UID12', 'Gepard', '2', 'male', 'This bird ability to glide effortlessly on air currents is a true display of grace.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID88','UID0', 'Herta', '7', 'female', 'My bird alert and watchful eyes always keep a lookout for potential threats.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID89','UID4', 'Himeko', '7', 'female', 'The way my bird fluffs up its feathers to keep warm during cold weather is a cute sight.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID90','UID38', 'Hook', '7', 'female', 'My bird delicate and precise grooming of its feathers maintains their vibrant appearance.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID91','UID16', 'JingYuan', '11', 'male', 'This bird impressive ability to build intricate nests from mud and twigs is a testament to its resourcefulness.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID92','UID10', 'March7th', '2', 'female', 'My bird melodious singing at sunrise is a beautiful alarm clock for me.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID93','UID24', 'Natasha', '6', 'female', 'The way my bird stretches its wings wide after a long period of rest is a refreshing sight.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID94','UID22', 'Pela', '3', 'female', 'My bird gentle tapping on the window indicates its desire to explore the outside world.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID95','UID36', 'Qingque', '7', 'female', 'This bird agile movements while foraging for food on the forest floor are a joy to watch.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID96','UID23', 'Sampo', '7', 'male', 'My bird curious tilt of the head when observing something new shows its inquisitive nature.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID97','UID48', 'Seele', '3', 'female', 'The way my bird bobs up and down on a branch while chirping adds a touch of playfulness to its song.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID98','UID15', 'Serval', '1', 'female', 'My bird intricate patterns on its feathers resemble a beautiful mosaic of colors.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID99','UID10', 'SilverWolf', '2', 'female', 'This bird melodious trill echoes through the meadow, creating a symphony of nature.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID100','UID36', 'Sushang', '9', 'female', 'My bird meticulous arrangement of nesting materials showcases its attention to detail.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID101','UID4', 'Tingyun', '11', 'female', 'The way my bird flits from branch to branch with quick and agile movements is a marvel.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID102','UID48', 'Traiblazer', '10', 'male', 'My bird tender feeding of its chicks demonstrates its nurturing instinct.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID103','UID22', 'Welt', '10', 'male', 'This bird ability to balance on a slender tree branch with grace is a sight to behold.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID104','UID52', 'Yanqing', '3', 'male', 'My bird soothing call at dusk brings a sense of tranquility to the evening.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID105','UID56', 'Blade', '3', 'male', 'The way my bird expertly preens its feathers to maintain their optimal condition is a ritual of self-care.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID106','UID51', 'FuXuan', '8', 'female', 'My bird fluttering flight pattern, resembling a delicate dance, is a joy to witness.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID107','UID25', 'Kafka', '7', 'female', 'This bird patient observation of its surroundings before taking flight reveals its cautious nature.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID108','UID53', 'Luka', '9', 'male', 'My bird delicate and precise pecking at a fruit displays its exquisite feeding technique.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID109','UID32', 'Loucha', '1', 'male', 'My bird gentle and cautious approach to new visitors reveals its cautious nature.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID110','UID18', 'Yukong', '4', 'female', 'My bird sweet singing fills my mornings with a delightful melody.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID111','UID29', 'Noelle', '10', 'female', 'My bird ability to mimic various bird songs adds a symphony of sounds to our garden.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());

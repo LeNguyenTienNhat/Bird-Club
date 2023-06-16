@@ -1,4 +1,10 @@
-<%@page import="com.fptuni.prj301.demo.model.Tournament"%>
+<%-- 
+    Document   : staff_fieldtrip.jsp
+    Created on : Jun 12, 2023, 9:59:25 PM
+    Author     : DELL-7391
+--%>
+
+<%@page import="com.fptuni.prj301.demo.model.Fieldtrip"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -264,7 +270,7 @@ Create</button></div></form></turbo-frame></turbo-frame></div></div></div></div>
       <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="members">Members</a>
       <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_blogs.html">Blogs</a>
       <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="events">Events</a>
-      <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-teal-600 border-teal-600 focus:outline-none" href="tournaments">Tournaments</a>
+      <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-teal-600 border-teal-600 focus:outline-none" href="tournaments">Tournament</a>
       <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_article.html">Articles</a>
       <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_gallery.html">Gallery</a>
       <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_feedback.html">Feedback</a>
@@ -291,9 +297,9 @@ Create</button></div></form></turbo-frame></turbo-frame></div></div></div></div>
     
   <div class="sm:flex sm:items-center px-4 sm:px-0">
   <div class="sm:flex-auto">
-    <h1 class="text-xl font-semibold text-gray-900">TOURNAMENTS</h1>
+    <h1 class="text-xl font-semibold text-gray-900">Events</h1>
     <p class="mt-2 text-sm text-gray-700">
-      Available tournaments hosted by Chim Owners.
+      Available events hosted by Chim Owners.
     </p>
   </div>
       
@@ -319,9 +325,14 @@ Create</button></div></form></turbo-frame></turbo-frame></div></div></div></div>
             
                for (Tournament tournament : tournamentsList){
                       out.print("<li class='relative flex flex-col bg-white sm:rounded-lg shadow p-6'>"
-                                        + "<div><h1 class='font-bold text-xl text-gray-900 space-x-2'><span>"
-                                      + tournament.getName()
+                                        + "<div><h3 class='font-semibold text-gray-900 space-x-2 mb-4'><span>"
+                                        + tournament.getName()
                                         + "</span>");
+                      
+                     out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-teal-100 text-teal-800 text-xs rounded-full'>"
+                                        + tournament.getCategory()
+                                        + "</span>");
+                      
                       
                       if (tournament.getStatus().trim().equalsIgnoreCase("pending")) {
                           out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-green-100 text-green-800 text-xs rounded-full'>"
@@ -347,57 +358,32 @@ Create</button></div></form></turbo-frame></turbo-frame></div></div></div></div>
                                         + "</span>");
                       }
                          
-                      out.print("<h1 class='font-semibold text-lg text-gray-900 space-x-2 mb-4'>"+tournament.getStartDate()+"</h1>");
-                      
-                        out.print("</h1>"
-                                        + "<div class='flex items-start space-x-3'>"
-                                        + "<div class='mt-0.5'><span class='sr-only'></span>"
-                                        + "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='text-gray-400 w-5 h-5'>"
+                        out.print("</h3><div class='flex items-start space-x-3'><div class='mt-0.5'><span class='sr-only'>"
+                                        + "</span><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='text-gray-400 w-5 h-5'>"
                                         + "  <path fill-rule='evenodd' d='M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z' clip-rule='evenodd'></path>"
-                                        + "</svg></div><div class='font-semibold text-gray-700 space-x-2 mb-2'>In charge: </div>"
-                                        + "<div>"+ tournament.getIncharge() + "</div></div>"
-                                
-                                        + "<div class='mt-2 flex items-start space-x-3'>"
-                                        + "<div class='mt-0.5'><span class='sr-only'></span>"
-                                        + "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='text-gray-400 w-5 h-5'>"
+                                        + "</svg></div><div>Form closed at: "
+                                        + tournament.getRegistrationDeadline()
+                                        + "</div></div>"
+                                        + "<div class='flex items-start space-x-3'><div class='mt-0.5'><span class='sr-only'>"                    
+                                        + " </span><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='text-gray-400 w-5 h-5'>"
                                         + "  <path fill-rule='evenodd' d='M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z' clip-rule='evenodd'></path>"
-                                        + "</svg></div><div class='font-semibold text-gray-700 space-x-2 mb-2'>Registration deadline: </div>"
-                                        + "<div>"+ tournament.getRegistrationDeadline() + "</div></div>"
-      
-                                        + "<div class='mt-2 flex items-start space-x-3 '>"
-                                        + "<div class='mt-0.5'><span class='sr-only'></span><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='text-gray-400 w-5 h-5'>"
+                                        + "</svg></div><div>Field trip starts at:   "
+                                        + tournament.getStartDate()
+                                        + "</div></div>"
+                                        + "      <div class='flex items-start space-x-3'><div class='mt-0.5'><span class='sr-only'>"
+                                        + "           </span><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='text-gray-400 w-5 h-5'>"
+                                        + "  <path fill-rule='evenodd' d='M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z' clip-rule='evenodd'></path>"
+                                        + "           </svg></div><div>Field trip ends at:  "
+                                        + tournament.getEndDate()
+                                        + "</div></div><div class='mt-2 flex items-start space-x-3 xl:mt-0'>"
+                                        + "<div class='mt-0.5'><span class='sr-only'>Location</span><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='text-gray-400 w-5 h-5'>"
                                         + "<path fill-rule='evenodd' d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z' clip-rule='evenodd'></path>"
-                                        + "</svg></div><div class='font-semibold text-gray-700 space-x-2 mb-2'>Location:   </div> <div>" + tournament.getLID()+ "</div></div></div>"
-                                        
-                                        + "<div class='mt-2 flex items-start space-x-3'>"
-                                        + "<div class='mt-0.5'><span class='sr-only'></span>"
-                                        +"<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-person-exclamation text-gray-400' viewBox='0 0 16 16'>"
-                                        +"<path d='M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z'/>"
-                                        +"<path d='M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1.5a.5.5 0 0 0 1 0V11a.5.5 0 0 0-.5-.5Zm0 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z'/>"
-                                        + "</div><div class='font-semibold text-gray-700 space-x-2'>Participant limit:   </div> <div>" + tournament.getNumberOfParticipant()+ " members</div></div>"
+                                        + "</svg></div><div>"
+                                        + tournament.getLID()
+                                        + "</div></div></div><div class='mt-4 space-y-4'><p>"
+                                        + tournament.getDescription() + "</p></div>"
                                                 
-                                        + "<div class='mt-2 flex items-start space-x-3'>"
-                                        + "<div class='mt-0.5'><span class='sr-only'></span>"
-                                        +"<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-currency-dollar text-gray-400' viewBox='0 0 16 16'>"
-                                        +"<path d='M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z'/></svg>"
-                                        + "</div><div class='font-semibold text-gray-700 space-x-2'>Registration fee:   </div> <div>" + tournament.getFee()+ " USD</div></div>"       
-                                                
-                                                
-                                        + "<div class='mt-2 flex items-start space-x-3'>"
-                                        + "<div class='mt-0.5'><span class='sr-only'></span>"
-                                        +"<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-info-circle-fill text-gray-400' viewBox='0 0 16 16'>"
-                                        +"<path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z'/></svg>"
-                                        + "</div><div class='font-semibold text-gray-700 space-x-2'>Description:   </div></div>"         
-                                        + "<div class='mt-2 space-y-4 space-x-3'>"+ tournament.getDescription() + "</div>"
-                                           
-                                                
-                                        + "<div class='mt-2 flex items-start space-x-3'>"
-                                        + "<div class='mt-0.5'><span class='sr-only'></span>"+ "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-exclamation-circle-fill  text-gray-400' viewBox='0 0 16 16'>"
-                                        +"<path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z'/></svg>"
-                                        + "</div><div class='font-semibold text-gray-700 space-x-2'>Note:   </div></div>"         
-                                        + "<div class='mt-2 space-y-4 space-x-3'>"+ tournament.getNote() + "</div>"
-                                 
-                                        +"<div style='margin-top: 15px' class='flex items-start space-x-3'>" 
+                                         +"<div style='margin-top: 15px' class='flex items-start space-x-3'>" 
                                         +"<form method='post'><input type='hidden' name='TID' value = '"+ tournament.getTID() + "'>"
                                         +"<input type='hidden' name='action' value='terminatetournament'>"
                                         +"<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 hover:bg-red-700 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
@@ -414,18 +400,18 @@ Create</button></div></form></turbo-frame></turbo-frame></div></div></div></div>
                                         + "<input type='hidden' name='TID' value = '"+ tournament.getTID() + "'>"
                                         +"<input type='hidden' name='action' value='closeform'>"
                                         + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                        +"type='submit' value='Close registration'>"
+                                        +"type='submit' value='Close application form'>"
                                         + "</form>"                                          
                                              
                                          +"<form>"
                                         + "<input type='hidden' name='TID' value = '"+ tournament.getTID() + "'>"
                                         +"<input type='hidden' name='action' value='viewtournamentmedia'>"
                                         + "<button class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                        +"type='submit'>Media</button>"
+                                        +"type='submit'>Add image</button>"
                                         + "</form>"        
                                                
-                                        +"<form action='./mail'>"
-                                        + "<input type='hidden' name='ID' value = '"+ tournament.getTID() + "'>"
+                                        +"<form>"
+                                        +"<input type='hidden' name='action' value='notifymember'>"
                                         + "<button class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                         +"type='submit'>Notify members</button>"
                                         + "</form>"    

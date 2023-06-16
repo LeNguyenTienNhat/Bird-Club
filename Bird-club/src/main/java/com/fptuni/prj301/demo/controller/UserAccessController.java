@@ -67,6 +67,7 @@ public class UserAccessController extends HttpServlet {
         if (path != null && path.equals("/signup")) {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            String cpassword = request.getParameter("confirmpassword");
             String fullName = request.getParameter("fullName");
             String phone = request.getParameter("phone");
             String email = request.getParameter("email");
@@ -79,6 +80,9 @@ public class UserAccessController extends HttpServlet {
             if (isUserExists) {
                 response.sendRedirect(request.getContextPath() + "/login.jsp");
                 request.setAttribute("signup_msg", "Username Exists, Signup Fails");
+            } else if (!password.equals(cpassword)) {
+                response.sendRedirect(request.getContextPath() + "/login.jsp");
+                request.setAttribute("signup_msg", "Password and Confirm Password do not match");
             } else {
                 // Create a UserSession object with the signup details
                 UserSession user = new UserSession();
@@ -116,7 +120,6 @@ public class UserAccessController extends HttpServlet {
         }
 
     }
-
 
     // Handle GET requests
     @Override

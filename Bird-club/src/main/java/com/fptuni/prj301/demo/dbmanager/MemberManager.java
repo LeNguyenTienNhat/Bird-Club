@@ -72,7 +72,7 @@ public class MemberManager {
     }
      
      public Member load(String UID) throws ClassNotFoundException {
-        String sql = "select * from User where UID = ?";
+        String sql = "select * from [User] where UID = ?";
         try {
             Connection conn = DBUtils.getConnection();      
             PreparedStatement ps = conn.prepareStatement(sql);                         

@@ -39,15 +39,27 @@ public class TournamentManager {
                 tournament.setTID(rs.getString("TID"));
                 tournament.setName(rs.getString("name"));
                 tournament.setDescription(rs.getString("description"));
-                tournament.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
-                tournament.setStartDate(tool.trimDate(rs.getString("startDate")));
-                tournament.setEndDate(tool.trimDate(rs.getString("endDate")));
+                String registrationDeadline  = tool.trimDate(rs.getString("registrationDeadline"));
+                String startDate  = tool.trimDate(rs.getString("startDate"));
+                String endDate  = tool.trimDate(rs.getString("endDate"));
+                registrationDeadline  = tool.convertDisplayDate(registrationDeadline);
+                startDate  = tool.convertDisplayDate(startDate);
+                endDate  = tool.convertDisplayDate(endDate);
+                tournament.setRegistrationDeadline(registrationDeadline);
+                tournament.setStartDate(startDate);
+                tournament.setEndDate(endDate);
                 tournament.setLID(rs.getString("LID"));
                 tournament.setStatus(rs.getString("status"));
                 tournament.setFee(rs.getInt("fee"));
                 tournament.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
                 tournament.setTotalPrize(rs.getInt("totalPrize"));
                 tournament.setCategory("Tournament");
+                tournament.setNote(rs.getString("note"));
+                tournament.setIncharge(rs.getString("incharge"));
+                tournament.setHost(rs.getString("host"));
+                tournament.setContact(rs.getString("contact"));
+                
+                
                 list.add(tournament);
             }
             return list;
@@ -80,6 +92,10 @@ public class TournamentManager {
                     tournament.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
                     tournament.setTotalPrize(rs.getInt("totalPrize"));
                     tournament.setCategory("Tournament");
+                    tournament.setNote(rs.getString("note"));
+                    tournament.setIncharge(rs.getString("incharge"));
+                    tournament.setHost(rs.getString("host"));
+                    tournament.setContact(rs.getString("contact"));
                     tournaments.add(tournament);
                 }
             }
@@ -95,8 +111,6 @@ public class TournamentManager {
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
-
-
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     Tournament tournament = new Tournament();
@@ -112,6 +126,10 @@ public class TournamentManager {
                     tournament.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
                     tournament.setTotalPrize(rs.getInt("totalPrize"));
                     tournament.setCategory("Tournament");
+                    tournament.setNote(rs.getString("note"));
+                    tournament.setIncharge(rs.getString("incharge"));
+                    tournament.setHost(rs.getString("host"));
+                    tournament.setContact(rs.getString("contact"));
                     tournaments.add(tournament);
                 }
             }
@@ -129,7 +147,7 @@ public class TournamentManager {
                 + "?, ?,"
                 + "CONVERT(DATETIME,'" + tournament.getStartDate() + "', 103), "
                 + "CONVERT(DATETIME,'" + tournament.getEndDate() + "', 103), "
-                + "?, ?, ?)";
+                + "?, ?, ?, ?, ?, ?, ?)";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -141,6 +159,10 @@ public class TournamentManager {
             ps.setInt(6, tournament.getFee());
             ps.setInt(7, tournament.getNumberOfParticipant());
             ps.setInt(8, tournament.getTotalPrize());
+            ps.setString(9, tournament.getNote());
+            ps.setString(10, tournament.getIncharge());
+            ps.setString(11, tournament.getHost());
+            ps.setString(12, tournament.getContact());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Insertion failed due to internal error :(" + ex.getMessage());
@@ -168,6 +190,10 @@ public class TournamentManager {
                 tournament.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
                 tournament.setTotalPrize(rs.getInt("totalPrize"));
                 tournament.setCategory("Tournament");
+                tournament.setNote(rs.getString("note"));
+                tournament.setIncharge(rs.getString("incharge"));
+                tournament.setHost(rs.getString("host"));
+                tournament.setContact(rs.getString("contact"));
                 return tournament;
             }
         } catch (SQLException ex) {
@@ -181,7 +207,7 @@ public class TournamentManager {
                 + "registrationDeadline = CONVERT(DATETIME,'" + tournament.getRegistrationDeadline() + "', 103), "
                 + "startDate = CONVERT(DATETIME,'" + tournament.getStartDate() + "', 103), "
                 + "endDate = CONVERT(DATETIME,'" + tournament.getEndDate() + "', 103), "
-                + "LID = ? , status = ? , fee = ? , numberOfParticipant = ?, totalPrize = ? WHERE TID = ?";
+                + "LID = ? , status = ? , fee = ? , numberOfParticipant = ?, totalPrize = ?, note = ?, incharge = ?, host = ?, contact = ? WHERE TID = ?";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -192,7 +218,11 @@ public class TournamentManager {
             ps.setInt(5, tournament.getFee());
             ps.setInt(6, tournament.getNumberOfParticipant());
             ps.setInt(7, tournament.getTotalPrize());
-            ps.setString(8, tournament.getTID());
+            ps.setString(8, tournament.getNote());
+            ps.setString(9, tournament.getIncharge());
+            ps.setString(10, tournament.getHost());
+            ps.setString(11, tournament.getContact());
+            ps.setString(12, tournament.getTID());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Failed to update due to internal error :(" + ex.getMessage());

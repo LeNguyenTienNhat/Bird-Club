@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en-US">
     <head>
@@ -40,22 +41,232 @@
 
 
     <body class="page-template-default page page-id-1229 page-parent wp-embed-responsive theme-green nav-column tribe-no-js">
-          <%@ include file="member_header.jsp" %> 
+       <%@ include file="member_header.jsp" %> 
 
         <main id="main-content" class="page has-hero">
             <article id="article" class="post-1229 page type-page status-publish has-post-thumbnail hentry">
-                <header id="hero-wrapper" aria-label="Banner">
-                    <div id="hero-content-container" class="hero-container mobile-stack">
-                    </div>
-                        
-                </header> 
 
                 <div class="content-container page-wide has-cta" data-sticky-container>             
                     <section id="content" class="content" aria-label="Main content">         
-                        
+                        <div class="is-layout-flex wp-container-7 wp-block-columns three-column-section">
+                            <div class="is-layout-flow wp-block-column">
+                                <h2>Application available</h2>
+                                <p>Start: 24th March 2023<br>End: 26th May 2023</p>
+                                <div class="is-horizontal is-content-justification-center is-layout-flex wp-container-1 wp-block-buttons">
+                                    <div class="wp-block-button">
+
+                                        <form action="login.jsp" method="POST">
+                                            <button type="submit" class="wp-block-button__link wp-element-button">join us !</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="is-layout-flow wp-block-column is-style-green-background">
+                                <h2>It's not merely competition</h2>
+                                <p>Conference, meetings, and more!</p>
+                                <div class="is-horizontal is-content-justification-center is-layout-flex wp-container-3 wp-block-buttons">
+                                    <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://www.birds.cornell.edu/home/virtual-experiences/">Explore</a></div>
+                                </div>
+                            </div>
+
+                            <div class="is-layout-flow wp-block-column is-style-green-background">
+                                <h2>Events</h2>
+                                <p>Check out our event calendar to find out what’s happening</p>
+                                <div class="is-horizontal is-content-justification-center is-layout-flex wp-container-5 wp-block-buttons">
+                                    <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="member_events.html">Learn More</a></div>
+                                </div></div></div>
+
+<!--                                                                                                                           <div class="tribe-events-c-top-bar tribe-events-header__top-bar">
+                                                                                <nav class="tribe-events-c-top-bar__nav tribe-common-a11y-hidden">
+                                                                                    <ul class="tribe-events-c-top-bar__nav-list">
+                                                                                        <li class="tribe-events-c-top-bar__nav-list-item">
+                                                                                            <a
+                                                                                                href="https://www.birds.cornell.edu/home/events/list/?pagename=visit&#038;shortcode=0e2a3254&#038;eventDisplay=past"
+                                                                                                class="tribe-common-c-btn-icon tribe-common-c-btn-icon--caret-left tribe-events-c-top-bar__nav-link tribe-events-c-top-bar__nav-link--prev"
+                                                                                                aria-label="Previous Events"
+                                                                                                title="Previous Events"
+                                                                                                data-js="tribe-events-view-link"
+                                                                                                >
+                                                                                                <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-left tribe-common-c-btn-icon__icon-svg tribe-events-c-top-bar__nav-link-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M9.7 14.4l-1.5 1.5L.3 8 8.2.1l1.5 1.5L3.3 8l6.4 6.4z"/></svg>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="tribe-events-c-top-bar__nav-list-item">
+                                                                                            <a
+                                                                                                href="https://www.birds.cornell.edu/home/events/list/page/2/?shortcode=0e2a3254"
+                                                                                                class="tribe-common-c-btn-icon tribe-common-c-btn-icon--caret-right tribe-events-c-top-bar__nav-link tribe-events-c-top-bar__nav-link--next"
+                                                                                                aria-label="Next Events"
+                                                                                                title="Next Events"
+                                                                                                data-js="tribe-events-view-link"
+                                                                                                >
+                                                                                                <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-right tribe-common-c-btn-icon__icon-svg tribe-events-c-top-bar__nav-link-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M.3 1.6L1.8.1 9.7 8l-7.9 7.9-1.5-1.5L6.7 8 .3 1.6z"/></svg>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </nav>
+                                                                                <a
+                                                                                    href="https://www.birds.cornell.edu/home/events/list/?pagename=visit&#038;shortcode=0e2a3254"
+                                                                                    class="tribe-common-c-btn-border-small tribe-events-c-top-bar__today-button tribe-common-a11y-hidden"
+                                                                                    data-js="tribe-events-view-link"
+                                                                                    aria-label="Today"
+                                                                                    title="Today"
+                                                                                    >
+                                                                                    Today</a>
+                                                                                <div class="tribe-events-c-top-bar__datepicker">
+                                                                                    <button
+                                                                                        class="tribe-common-h3 tribe-common-h--alt tribe-events-c-top-bar__datepicker-button"
+                                                                                        data-js="tribe-events-top-bar-datepicker-button"
+                                                                                        type="button"
+                                                                                        aria-label="Click to toggle datepicker"
+                                                                                        title="Click to toggle datepicker"
+                                                                                        >
+                                                                                        <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--month tribe-events-c-top-bar__datepicker-button-icon-svg"  viewBox="0 0 18 19" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 .991v17.04c0 .236.162.428.361.428h17.175c.2 0 .361-.192.361-.429V.991c0-.237-.162-.428-.361-.428H.36C.161.563 0 .754 0 .99zm.985.803H16.89v2.301H.985v-2.3zM16.89 5.223H.985v12H16.89v-12zM6.31 7.366v.857c0 .237.192.429.429.429h.857a.429.429 0 00.428-.429v-.857a.429.429 0 00-.428-.429H6.74a.429.429 0 00-.429.429zm3.429.857v-.857c0-.237.191-.429.428-.429h.857c.237 0 .429.192.429.429v.857a.429.429 0 01-.429.429h-.857a.429.429 0 01-.428-.429zm3.428-.857v.857c0 .237.192.429.429.429h.857a.429.429 0 00.428-.429v-.857a.429.429 0 00-.428-.429h-.857a.429.429 0 00-.429.429zm-6.857 4.286v-.858c0-.236.192-.428.429-.428h.857c.236 0 .428.192.428.428v.858a.429.429 0 01-.428.428H6.74a.429.429 0 01-.429-.428zm3.429-.858v.858c0 .236.191.428.428.428h.857a.429.429 0 00.429-.428v-.858a.429.429 0 00-.429-.428h-.857a.428.428 0 00-.428.428zm3.428.858v-.858c0-.236.192-.428.429-.428h.857c.236 0 .428.192.428.428v.858a.429.429 0 01-.428.428h-.857a.429.429 0 01-.429-.428zm-10.286-.858v.858c0 .236.192.428.429.428h.857a.429.429 0 00.429-.428v-.858a.429.429 0 00-.429-.428h-.857a.429.429 0 00-.429.428zm0 4.286v-.857c0-.237.192-.429.429-.429h.857c.237 0 .429.192.429.429v.857a.429.429 0 01-.429.429h-.857a.429.429 0 01-.429-.429zm3.429-.857v.857c0 .237.192.429.429.429h.857a.429.429 0 00.428-.429v-.857a.429.429 0 00-.428-.429H6.74a.429.429 0 00-.429.429zm3.429.857v-.857c0-.237.191-.429.428-.429h.857c.237 0 .429.192.429.429v.857a.429.429 0 01-.429.429h-.857a.429.429 0 01-.428-.429z" class="tribe-common-c-svgicon__svg-fill"/></svg>	</button>
+                                                                                    <span class="date-range">
+                                                                                        <time
+                                                                                            datetime="2023-05-27"
+                                                                                            class="tribe-events-c-top-bar__datepicker-time"
+                                                                                            >
+                                                                                            <span class="tribe-events-c-top-bar__datepicker-mobile">
+                                                                                                Now				</span>
+                                                                                            <span class="tribe-events-c-top-bar__datepicker-desktop tribe-common-a11y-hidden">
+                                                                                                Now				</span>
+                                                                                        </time>
+                                                                                        <span class="tribe-events-c-top-bar__datepicker-separator"> - </span>
+                                                                                        <time
+                                                                                            datetime="2023-06-02"
+                                                                                            class="tribe-events-c-top-bar__datepicker-time"
+                                                                                            >
+                                                                                            <span class="tribe-events-c-top-bar__datepicker-mobile">
+                                                                                                06/02/2023				</span>
+                                                                                            <span class="tribe-events-c-top-bar__datepicker-desktop tribe-common-a11y-hidden">
+                                                                                                June 2				</span>
+                                                                                        </time>
+                                                                                    </span>
+                                                                                    <label
+                                                                                        class="tribe-events-c-top-bar__datepicker-label tribe-common-a11y-visual-hide"
+                                                                                        for="tribe-events-top-bar-date"
+                                                                                        >
+                                                                                        Select date.	</label>
+                                                                                    <input
+                                                                                        type="text"
+                                                                                        class="tribe-events-c-top-bar__datepicker-input tribe-common-a11y-visual-hide"
+                                                                                        data-js="tribe-events-top-bar-date"
+                                                                                        id="tribe-events-top-bar-date"
+                                                                                        name="tribe-events-views[tribe-bar-date]"
+                                                                                        value="05/27/2023"
+                                                                                        tabindex="-1"
+                                                                                        autocomplete="off"
+                                                                                        readonly="readonly"
+                                                                                        />
+                                                                                    <div class="tribe-events-c-top-bar__datepicker-container" data-js="tribe-events-top-bar-datepicker-container"></div>
+                                                                                    <template class="tribe-events-c-top-bar__datepicker-template-prev-icon">
+                                                                                        <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-left tribe-events-c-top-bar__datepicker-nav-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M9.7 14.4l-1.5 1.5L.3 8 8.2.1l1.5 1.5L3.3 8l6.4 6.4z"/></svg>
+                                                                                    </template>
+                                                                                    <template class="tribe-events-c-top-bar__datepicker-template-next-icon">
+                                                                                        <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-right tribe-events-c-top-bar__datepicker-nav-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M.3 1.6L1.8.1 9.7 8l-7.9 7.9-1.5-1.5L6.7 8 .3 1.6z"/></svg>
+                                                                                    </template>
+                                                                                </div>
+                                                                                <div class="tribe-events-c-top-bar__actions tribe-common-a11y-hidden">
+                                                                                </div>
+                                                                            </div>
+                                                                        </header>
+                                                                        <div class="tribe-events-calendar-list">
+                                                                            <h2 class="tribe-events-calendar-list__month-separator">
+                                                                                <time
+                                                                                    class="tribe-events-calendar-list__month-separator-text tribe-common-h7 tribe-common-h6--min-medium tribe-common-h--alt"
+                                                                                    datetime="2023-05"
+                                                                                    >
+                                                                                    May 2023	</time>
+                                                                            </h2>
+                                                                            <div  class="tribe-common-g-row tribe-events-calendar-list__event-row" >
+                                                                                <div class="tribe-events-calendar-list__event-date-tag tribe-common-g-col">
+                                                                                    <time class="tribe-events-calendar-list__event-date-tag-datetime" datetime="2023-05-27" aria-hidden="true">
+                                                                                        <span class="tribe-events-calendar-list__event-date-tag-weekday">Sat</span>
+                                                                                        <span class="tribe-events-calendar-list__event-date-tag-daynum tribe-common-h5 tribe-common-h4--min-medium">27</span>
+                                                                                    </time>
+                                                                                </div>
+                                                                                <div class="tribe-events-calendar-list__event-wrapper tribe-common-g-col">
+                                                                                    <article  class="tribe-events-calendar-list__event tribe-common-g-row tribe-common-g-row--gutters post-10000630 tribe_events type-tribe_events status-publish hentry tribe_events_cat-beginner-bird-walks cat_beginner-bird-walks tribe-recurring-event tribe-recurring-event-parent" >
+                                                                                        <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
+                                                                                            <header class="tribe-events-calendar-list__event-header">
+                                                                                                <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2">
+                                                                                                    <time class="tribe-events-calendar-list__event-datetime" datetime="2023-05-27">
+                                                                                                        <span class="tribe-event-date-start">May 27 at 8:30 am</span>
+                                                                                                        –<span class="tribe-event-time">10:00 am</span>	
+                                                                                                    </time>
+                                                                                                </div>
+                                                                                                <h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
+                                                                                                    <a href=""
+                                                                                                       title="Southern Vietnam Area"
+                                                                                                       rel="bookmark"
+                                                                                                       class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
+                                                                                                        Southern Vietnam Area - May 27</a>
+                                                                                                </h3></header>
+                                                                                            <div class="tribe-events-calendar-list__event-description tribe-common-b2 tribe-common-a11y-hidden">
+                                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+                                                                                        </div></article></div></div>
+                                                                            <div  class="tribe-common-g-row tribe-events-calendar-list__event-row" >
+                                                                                <div class="tribe-events-calendar-list__event-date-tag tribe-common-g-col">
+                                                                                    <time class="tribe-events-calendar-list__event-date-tag-datetime" datetime="2023-05-27" aria-hidden="true">
+                                                                                        <span class="tribe-events-calendar-list__event-date-tag-weekday">Mon</span>
+                                                                                        <span class="tribe-events-calendar-list__event-date-tag-daynum tribe-common-h5 tribe-common-h4--min-medium">29</span>
+                                                                                    </time>
+                                                                                </div>
+                                                                                <div class="tribe-events-calendar-list__event-wrapper tribe-common-g-col">
+                                                                                    <article  class="tribe-events-calendar-list__event tribe-common-g-row tribe-common-g-row--gutters post-10000630 tribe_events type-tribe_events status-publish hentry tribe_events_cat-beginner-bird-walks cat_beginner-bird-walks tribe-recurring-event tribe-recurring-event-parent" >
+                                                                                        <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
+                                                                                            <header class="tribe-events-calendar-list__event-header">
+                                                                                                <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2">
+                                                                                                    <time class="tribe-events-calendar-list__event-datetime" datetime="2023-05-27">
+                                                                                                        <span class="tribe-event-date-start">May 29 at 8:30 am</span>
+                                                                                                        –<span class="tribe-event-time">10:00 am</span>	
+                                                                                                    </time>
+                                                                                                </div>
+                                                                                                <h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
+                                                                                                    <a href=""
+                                                                                                       title="Northern Vietnam Area"
+                                                                                                       rel="bookmark"
+                                                                                                       class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
+                                                                                                        Northern Vietnam Area - May 29</a>
+                                                                                                </h3></header>
+                                                                                            <div class="tribe-events-calendar-list__event-description tribe-common-b2 tribe-common-a11y-hidden">
+                                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+                                                                                        </div></article></div></div>							
+                                                                            <h2 class="tribe-events-calendar-list__month-separator">
+                                                                                <time
+                                                                                    class="tribe-events-calendar-list__month-separator-text tribe-common-h7 tribe-common-h6--min-medium tribe-common-h--alt"
+                                                                                    datetime="2023-06">June 2023</time>
+                                                                            </h2>
+                                                                            <div  class="tribe-common-g-row tribe-events-calendar-list__event-row" >
+                                                                                <div class="tribe-events-calendar-list__event-date-tag tribe-common-g-col">
+                                                                                    <time class="tribe-events-calendar-list__event-date-tag-datetime" datetime="2023-06-02" aria-hidden="true">
+                                                                                        <span class="tribe-events-calendar-list__event-date-tag-weekday">Fri</span>
+                                                                                        <span class="tribe-events-calendar-list__event-date-tag-daynum tribe-common-h5 tribe-common-h4--min-medium">2</time>
+                                                                                </div>
+                                                                                <div class="tribe-events-calendar-list__event-wrapper tribe-common-g-col">
+                                                                                    <article  class="tribe-events-calendar-list__event tribe-common-g-row tribe-common-g-row--gutters post-10000678 tribe_events type-tribe_events status-publish hentry" >
+                                                                                        <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
+                                                                                            <header class="tribe-events-calendar-list__event-header">
+                                                                                                <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2">
+                                                                                                    <time class="tribe-events-calendar-list__event-datetime" datetime="2023-06-02">
+                                                                                                        <span class="tribe-event-date-start">June 2 at 4:00 pm</span>–<span class="tribe-event-time">5:00 pm</span>	</time>
+                                                                                                </div><h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
+                                                                                                    <a
+                                                                                                        href=""
+                                                                                                        title="FINAL"
+                                                                                                        rel="bookmark"
+                                                                                                        class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin"
+                                                                                                        >FINAL - Finding out the champion!</a>
+                                                                                                </h3>
+                                                                                            </header>
+                                                                                            <div class="tribe-events-calendar-list__event-description tribe-common-b2 tribe-common-a11y-hidden">
+                                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div></div></article></div></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>-->
 
                         <div class="is-layout-flow wp-block-group alignfull has-bg-gray-background-color has-background narrow">
-                            <h2 class="has-text-align-center has-large-font-size">Field Trip List</h2>
+                            <h2 class="has-text-align-center has-large-font-size">Field Trip List:</h2>
                             <link rel='stylesheet' id='tec-variables-skeleton-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/common/src/resources/css/variables-skeleton.min.css?ver=5.0.6' type='text/css' media='all' />
                             <link rel='stylesheet' id='tribe-common-skeleton-style-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/common/src/resources/css/common-skeleton.min.css?ver=5.0.6' type='text/css' media='all' />
                             <link rel='stylesheet' id='tribe-events-views-v2-bootstrap-datepicker-styles-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/vendor/bootstrap-datepicker/css/bootstrap-datepicker.standalone.min.css?ver=6.0.6.2' type='text/css' media='all' />
@@ -101,136 +312,44 @@
 
 
 
-                                        <div class="tribe-events-c-top-bar tribe-events-header__top-bar">
-
-                                            <nav class="tribe-events-c-top-bar__nav tribe-common-a11y-hidden">
-                                                <ul class="tribe-events-c-top-bar__nav-list">
-                                                    <li class="tribe-events-c-top-bar__nav-list-item">
-                                                        <a
-                                                            href="https://www.birds.cornell.edu/home/events/list/?pagename=visit&#038;shortcode=0e2a3254&#038;eventDisplay=past"
-                                                            class="tribe-common-c-btn-icon tribe-common-c-btn-icon--caret-left tribe-events-c-top-bar__nav-link tribe-events-c-top-bar__nav-link--prev"
-                                                            aria-label="Previous Events"
-                                                            title="Previous Events"
-                                                            data-js="tribe-events-view-link"
-                                                            >
-                                                            <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-left tribe-common-c-btn-icon__icon-svg tribe-events-c-top-bar__nav-link-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M9.7 14.4l-1.5 1.5L.3 8 8.2.1l1.5 1.5L3.3 8l6.4 6.4z"/></svg>
-                                                        </a>
-                                                    </li>
-
-                                                    <li class="tribe-events-c-top-bar__nav-list-item">
-                                                        <a
-                                                            href="https://www.birds.cornell.edu/home/events/list/page/2/?shortcode=0e2a3254"
-                                                            class="tribe-common-c-btn-icon tribe-common-c-btn-icon--caret-right tribe-events-c-top-bar__nav-link tribe-events-c-top-bar__nav-link--next"
-                                                            aria-label="Next Events"
-                                                            title="Next Events"
-                                                            data-js="tribe-events-view-link"
-                                                            >
-                                                            <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-right tribe-common-c-btn-icon__icon-svg tribe-events-c-top-bar__nav-link-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M.3 1.6L1.8.1 9.7 8l-7.9 7.9-1.5-1.5L6.7 8 .3 1.6z"/></svg>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-
-                                            <a
-                                                href="https://www.birds.cornell.edu/home/events/list/?pagename=visit&#038;shortcode=0e2a3254"
-                                                class="tribe-common-c-btn-border-small tribe-events-c-top-bar__today-button tribe-common-a11y-hidden"
-                                                data-js="tribe-events-view-link"
-                                                aria-label="Today"
-                                                title="Today"
-                                                >
-                                                Today</a>
-
-                                            <div class="tribe-events-c-top-bar__datepicker">
-                                                <button
-                                                    class="tribe-common-h3 tribe-common-h--alt tribe-events-c-top-bar__datepicker-button"
-                                                    data-js="tribe-events-top-bar-datepicker-button"
-                                                    type="button"
-                                                    aria-label="Click to toggle datepicker"
-                                                    title="Click to toggle datepicker"
-                                                    >
-                                                    <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--month tribe-events-c-top-bar__datepicker-button-icon-svg"  viewBox="0 0 18 19" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 .991v17.04c0 .236.162.428.361.428h17.175c.2 0 .361-.192.361-.429V.991c0-.237-.162-.428-.361-.428H.36C.161.563 0 .754 0 .99zm.985.803H16.89v2.301H.985v-2.3zM16.89 5.223H.985v12H16.89v-12zM6.31 7.366v.857c0 .237.192.429.429.429h.857a.429.429 0 00.428-.429v-.857a.429.429 0 00-.428-.429H6.74a.429.429 0 00-.429.429zm3.429.857v-.857c0-.237.191-.429.428-.429h.857c.237 0 .429.192.429.429v.857a.429.429 0 01-.429.429h-.857a.429.429 0 01-.428-.429zm3.428-.857v.857c0 .237.192.429.429.429h.857a.429.429 0 00.428-.429v-.857a.429.429 0 00-.428-.429h-.857a.429.429 0 00-.429.429zm-6.857 4.286v-.858c0-.236.192-.428.429-.428h.857c.236 0 .428.192.428.428v.858a.429.429 0 01-.428.428H6.74a.429.429 0 01-.429-.428zm3.429-.858v.858c0 .236.191.428.428.428h.857a.429.429 0 00.429-.428v-.858a.429.429 0 00-.429-.428h-.857a.428.428 0 00-.428.428zm3.428.858v-.858c0-.236.192-.428.429-.428h.857c.236 0 .428.192.428.428v.858a.429.429 0 01-.428.428h-.857a.429.429 0 01-.429-.428zm-10.286-.858v.858c0 .236.192.428.429.428h.857a.429.429 0 00.429-.428v-.858a.429.429 0 00-.429-.428h-.857a.429.429 0 00-.429.428zm0 4.286v-.857c0-.237.192-.429.429-.429h.857c.237 0 .429.192.429.429v.857a.429.429 0 01-.429.429h-.857a.429.429 0 01-.429-.429zm3.429-.857v.857c0 .237.192.429.429.429h.857a.429.429 0 00.428-.429v-.857a.429.429 0 00-.428-.429H6.74a.429.429 0 00-.429.429zm3.429.857v-.857c0-.237.191-.429.428-.429h.857c.237 0 .429.192.429.429v.857a.429.429 0 01-.429.429h-.857a.429.429 0 01-.428-.429z" class="tribe-common-c-svgicon__svg-fill"/></svg>	</button>
-                                                <span class="date-range">
-                                                    <time
-                                                        datetime="2023-05-27"
-                                                        class="tribe-events-c-top-bar__datepicker-time"
-                                                        >
-                                                        <span class="tribe-events-c-top-bar__datepicker-mobile">
-                                                            Now				</span>
-                                                        <span class="tribe-events-c-top-bar__datepicker-desktop tribe-common-a11y-hidden">
-                                                            Now				</span>
-                                                    </time>
-                                                    <span class="tribe-events-c-top-bar__datepicker-separator"> - </span>
-                                                    <time
-                                                        datetime="2023-06-02"
-                                                        class="tribe-events-c-top-bar__datepicker-time"
-                                                        >
-                                                        <span class="tribe-events-c-top-bar__datepicker-mobile">
-                                                            06/02/2023				</span>
-                                                        <span class="tribe-events-c-top-bar__datepicker-desktop tribe-common-a11y-hidden">
-                                                            June 2				</span>
-                                                    </time>
-                                                </span>
-                                                <label
-                                                    class="tribe-events-c-top-bar__datepicker-label tribe-common-a11y-visual-hide"
-                                                    for="tribe-events-top-bar-date"
-                                                    >
-                                                    Select date.	</label>
-                                                <input
-                                                    type="text"
-                                                    class="tribe-events-c-top-bar__datepicker-input tribe-common-a11y-visual-hide"
-                                                    data-js="tribe-events-top-bar-date"
-                                                    id="tribe-events-top-bar-date"
-                                                    name="tribe-events-views[tribe-bar-date]"
-                                                    value="05/27/2023"
-                                                    tabindex="-1"
-                                                    autocomplete="off"
-                                                    readonly="readonly"
-                                                    />
-                                                <div class="tribe-events-c-top-bar__datepicker-container" data-js="tribe-events-top-bar-datepicker-container"></div>
-                                                <template class="tribe-events-c-top-bar__datepicker-template-prev-icon">
-                                                    <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-left tribe-events-c-top-bar__datepicker-nav-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M9.7 14.4l-1.5 1.5L.3 8 8.2.1l1.5 1.5L3.3 8l6.4 6.4z"/></svg>
-                                                </template>
-                                                <template class="tribe-events-c-top-bar__datepicker-template-next-icon">
-                                                    <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--caret-right tribe-events-c-top-bar__datepicker-nav-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M.3 1.6L1.8.1 9.7 8l-7.9 7.9-1.5-1.5L6.7 8 .3 1.6z"/></svg>
-                                                </template>
-                                            </div>
-
-                                            <div class="tribe-events-c-top-bar__actions tribe-common-a11y-hidden">
-                                            </div>
-
-                                        </div>
                                     </header>
 
 
                                     <div class="tribe-events-calendar-list">
 
+                                    </div>
 
-                                        <h2 class="tribe-events-calendar-list__month-separator">
-                                            <time
-                                                class="tribe-events-calendar-list__month-separator-text tribe-common-h7 tribe-common-h6--min-medium tribe-common-h--alt"
-                                                datetime="2023-05"
-                                                >
-                                                May 2023	</time>
-                                        </h2>
+                                    <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
 
-                                        <div  class="tribe-common-g-row tribe-events-calendar-list__event-row" >
-                                            <div class="tribe-events-calendar-list__event-date-tag tribe-common-g-col">
-                                                <time class="tribe-events-calendar-list__event-date-tag-datetime" datetime="2023-05-27" aria-hidden="true">
-                                                    <span class="tribe-events-calendar-list__event-date-tag-weekday">Mon</span>
-                                                    <span class="tribe-events-calendar-list__event-date-tag-daynum tribe-common-h5 tribe-common-h4--min-medium">12</span>
-                                                </time>
-                                            </div>
+                                        <div class="grid grid-cols-1 items-start lg:grid-cols-5 lg:gap-8">
+                                            <div class="grid grid-cols-1 gap-4 lg:col-span-5">
 
-                                            <div class="tribe-events-calendar-list__event-wrapper tribe-common-g-col">
-                                                <article  class="tribe-events-calendar-list__event tribe-common-g-row tribe-common-g-row--gutters post-10000630 tribe_events type-tribe_events status-publish hentry tribe_events_cat-beginner-bird-walks cat_beginner-bird-walks tribe-recurring-event tribe-recurring-event-parent" >
-                                                    <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
-                                                        <header class="tribe-events-calendar-list__event-header">
-                                                            <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2">
-                                                                <time class="tribe-events-calendar-list__event-datetime" datetime="2023-05-27">
-                                                                    <span class="tribe-event-date-start">June 12 at 9:30 am</span>
-                                                                    –<span class="tribe-event-time">10:00 pm</span>	
-                                                                </time>
+                                                <div class="sm:flex sm:items-center px-4 sm:px-0">
+
+
+
+                                                    <!--                        <div class="mt-4 sm:mt-0 sm:ml-16 flex flex-row items-center space-x-6">
+                                                                                <button id="loadMembersButton" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2"
+                                                                                        type="button"
+                                                                                        onclick="location.href = '${pageContext.request.contextPath}/UserAccessController/getUnactiveMembers'">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="-ml-1 mr-3 w-5 h-5">
+                                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                                                                    </svg>
+                                                                                    New Members
+                                                                                </button>
+                                                                            </div>-->
+                                                    <table>
+                                                        <tr>
+                                                            <td>field trip</td>
+                                                            <td>start </td>
+                                                            <td>end</td>
+
+                                                        </tr>
+                                                        <c:if test="${empty eventsList}">
+                                                            <div >
+                                                                <p>No field trip found.</p>
                                                             </div>
+<<<<<<< HEAD
                                                             <h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
                                                                 <a href="member_fieldtrip_details.jsp"
                                                                    title="National Park field"
@@ -250,126 +369,183 @@
                                                         
                                                     </div></article></div>
                                         </div>
+=======
+                                                        </c:if>
+>>>>>>> eda1ca6cc20d212168fb63e00ee2e1d5540ed3d5
 
-                                        <div  class="tribe-common-g-row tribe-events-calendar-list__event-row" >
-                                            <div class="tribe-events-calendar-list__event-date-tag tribe-common-g-col">
-                                                <time class="tribe-events-calendar-list__event-date-tag-datetime" datetime="2023-05-27" aria-hidden="true">
-                                                    <span class="tribe-events-calendar-list__event-date-tag-weekday">Mon</span>
-                                                    <span class="tribe-events-calendar-list__event-date-tag-daynum tribe-common-h5 tribe-common-h4--min-medium">29</span>
-                                                </time>
+                                                        <c:if test="${not empty eventsList}">
+                                                            <c:forEach var="f" items="${eventsList}">
+                                                                <tr>
+                                                                    <td><a href="detail.jsp?FID=${f.getFID()}">${f.getName()}</a></td>
+                                                                    <td>${f.getStartDate()}</td>
+                                                                    <td>${f.getEndDate()}</td>
+                                                                    
+                                                                    <td>
+                                                                        <c:choose>
+                                                                            <c:when test="${f.getStatus().trim() eq 'pending'}">
+                                                                                <form action="${pageContext.request.contextPath}/FieldTripParticipantsController" method="POST">
+                                                                                    <input type="hidden" name="action" value="viewfieldtrip">
+                                                                                    <input type="hidden" name="UID" value="${users.userId}">
+                                                                                   <c:set var="sessionFID" scope="session" value="${f.getFID()}"/>
+                                                                                    <button type="submit" class="wp-block-button__link wp-element-button">Sign up now!</button>
+                                                                                </form>
+                                                                            </c:when>
+                                                                            <c:when test="${f.getStatus().trim() eq 'finished'}">
+                                                                                <form action="${pageContext.request.contextPath}/FieldTripParticipantsController" method="POST">
+                                                                                    <input type="hidden" name="action" value="result">
+                                                                                    <input type="hidden" name="UID" value="${users.userId}">
+                                                                                    <button type="submit" class="wp-block-button__link wp-element-button">View Results</button>
+                                                                                </form>
+                                                                            </c:when>
+                                                                        </c:choose>
+                                                                    </td>
+                                                                </tr>
+                                                            </c:forEach>
+                                                        </c:if>
+                                                    </table>
+
+
+                                                    <!--                        <script>
+                                                                                function toggleMemberList() {
+                                                                                    var memberListContainer = document.getElementById("memberListContainer");
+                                                                                    if (memberListContainer.style.display === "none") {
+                                                                                        memberListContainer.style.display = "block";
+                                                                                    } else {
+                                                                                        memberListContainer.style.display = "none";
+                                                                                    }
+                                                                                }
+                                                                            </script>-->
+
+                                                    <!--                        <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-4">
+                                                                                <li class="col-span-1 flex flex-col text-center bg-white sm:rounded-lg shadow">
+                                                                                    <div class="absolute flex-shrink-0 self-end flex mt-4 mr-4">
+                                                                                        <div class="relative z-30 inline-block text-left">
+                                                                                            <div data-controller="dropdown">
+                                                                                                <div data-dropdown-target="button" data-action="click->dropdown#toggleMenu click@window->dropdown#hideMenu">
+                                                    
+                                                                                                    <button type="button" class="-m-2 p-2 rounded-full flex items-center text-gray-400 hover:text-gray-600" id="menu-0-button" aria-expanded="false" aria-haspopup="true">
+                                                                                                        <span class="sr-only">Open options</span>
+                                                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class=" w-5 h-5">
+                                                                                                        <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
+                                                                                                        </svg>
+                                                    
+                                                                                                    </button>
+                                                    
+                                                                                                </div>
+                                                                                                <div class="hidden z-10 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-100" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" data-dropdown-target="menu" data-transition-enter="transition ease-out duration-100" data-transition-enter-start="transform opacity-0 scale-95" data-transition-enter-end="transform opacity-100 scale-100" data-transition-leave="transition ease-in duration-75" data-transition-leave-start="transform opacity-100 scale-100" data-transition-leave-end="transform opacity-0 scale-95">
+                                                                                                    <div class="py-1" role="none">
+                                                                                                        <a data-turbo-frame="modal" class="hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm" href="/clubs/birds-in-ohio/club_memberships/595/edit"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5">
+                                                                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                                                                                            </svg>
+                                                                                                            Edit Membership</a>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="flex-1 flex flex-col p-8">
+                                                                                        <div class="w-32 h-32 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden mx-auto flex-shrink-0">
+                                                                                            <img src="https://www.bird.club/assets/avatars/raven-fcf919bd3575083b93e6c2e97c49df2320e84254f6cd2f7656273601d1ddc12b.png">
+                                                                                        </div>
+                                                    
+                                                                                        <h3 class="mt-6 text-gray-900 text-sm font-medium">Nguoi choi chim</h3>
+                                                                                        <dl class="mt-1 flex-grow flex flex-col justify-between">
+                                                                                            <dt class="sr-only">Title</dt>
+                                                                                            <dd class="text-gray-500 text-sm">Joined <span class="font-bold">May 15, 2023</span></dd>
+                                                                                            <dt class="sr-only">Role</dt>
+                                                                                            <dd class="mt-3">
+                                                                                                <span class="inline-flex items-center px-2.5 py-0.5 font-medium bg-green-100 text-green-800 text-xs rounded-full">Admin</span>
+                                                                                            </dd>
+                                                                                        </dl>
+                                                                                    </div>
+                                                                                    <div class=" border-t border-gray-200 bg-gray-50 overflow-hidden sm:rounded-b-lg">
+                                                                                        <div class="-mt-px flex divide-x divide-gray-200">
+                                                                                            <div class="w-0 flex-1 flex">
+                                                                                                <a class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500" href="/clubs/birds-in-ohio/members/808">
+                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-gray-400 w-5 h-5">
+                                                                                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path>
+                                                                                                    </svg>
+                                                    
+                                                                                                    <span class="ml-3">Profile</span>
+                                                                                                </a>          </div>
+                                                                                            <div class="-ml-px w-0 flex-1 flex">
+                                                                                                <form class="contents" method="post" action="/conversations?conversation%5Brecipient_id%5D=808&amp;conversation%5Bsender_id%5D=808"><button class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500" type="submit">
+                                                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-gray-400 w-5 h-5">
+                                                                                                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                                                                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                                                                                        </svg>
+                                                    
+                                                                                                        <span class="ml-3">Message</span>
+                                                                                                    </button><input type="hidden" name="authenticity_token" value="RBoAJvfa7vxb8-RjHiX7A5s9KgRDw5PkRnAj4jpaB2XPA07U8AQWCYlM3ODPqulm_izLJH2jYeb7mHFhADviFQ" autocomplete="off"></form>          </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>-->
+
+                                                    <!--                        <div class="pt-6 flex items-center justify-between">
+                                                                                <div class="hidden sm:block">
+                                                                                    <span class="pagy-info">Displaying <b>1</b> Member</span>
+                                                                                </div>
+                                                                                <nav class="pagy-nav pagination" aria-label="pager"><span class="page prev disabled">Prev</span> <span class="page next disabled">Next</span></nav>
+                                                                            </div>-->
+
+                                                </div>
                                             </div>
 
-                                            <div class="tribe-events-calendar-list__event-wrapper tribe-common-g-col">
-                                                <article  class="tribe-events-calendar-list__event tribe-common-g-row tribe-common-g-row--gutters post-10000630 tribe_events type-tribe_events status-publish hentry tribe_events_cat-beginner-bird-walks cat_beginner-bird-walks tribe-recurring-event tribe-recurring-event-parent" >
-                                                    <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
-                                                        <header class="tribe-events-calendar-list__event-header">
-                                                            <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2">
-                                                                <time class="tribe-events-calendar-list__event-datetime" datetime="2023-05-27">
-                                                                    <span class="tribe-event-date-start">May 29 at 8:30 am</span>
-                                                                    –<span class="tribe-event-time">10:00 am</span>	
-                                                                </time>
-                                                            </div>
-                                                            <h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
-                                                                <a href=""
-                                                                   title="Northern Vietnam Area"
-                                                                   rel="bookmark"
-                                                                   class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
-                                                                    Northern Vietnam Area - May 29</a>
-                                                            </h3></header>
-                                                        <div class="tribe-events-calendar-list__event-description tribe-common-b2 tribe-common-a11y-hidden">
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                                            </p>
-                                                    <a href="member_fieldtrip_details.jsp" class="tribe-events-read-more" rel="bookmark">More detail »</a>                                                            
-                                                        </div>
-                                                    </div></article></div></div>							
-
-                                        <h2 class="tribe-events-calendar-list__month-separator">
-                                            <time
-                                                class="tribe-events-calendar-list__month-separator-text tribe-common-h7 tribe-common-h6--min-medium tribe-common-h--alt"
-                                                datetime="2023-06">June 2023</time>
-                                        </h2>
-                                        <div  class="tribe-common-g-row tribe-events-calendar-list__event-row" >
-                                            <div class="tribe-events-calendar-list__event-date-tag tribe-common-g-col">
-                                                <time class="tribe-events-calendar-list__event-date-tag-datetime" datetime="2023-06-02" aria-hidden="true">
-                                                    <span class="tribe-events-calendar-list__event-date-tag-weekday">Fri</span>
-                                                    <span class="tribe-events-calendar-list__event-date-tag-daynum tribe-common-h5 tribe-common-h4--min-medium">2</time>
-                                            </div>
-                                            <div class="tribe-events-calendar-list__event-wrapper tribe-common-g-col">
-                                                <article  class="tribe-events-calendar-list__event tribe-common-g-row tribe-common-g-row--gutters post-10000678 tribe_events type-tribe_events status-publish hentry" >
-                                                    <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
-                                                        <header class="tribe-events-calendar-list__event-header">
-                                                            <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2">
-                                                                <time class="tribe-events-calendar-list__event-datetime" datetime="2023-06-02">
-                                                                    <span class="tribe-event-date-start">June 2 at 4:00 pm</span>–<span class="tribe-event-time">5:00 pm</span>	</time>
-                                                            </div><h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
-                                                                <a
-                                                                    href=""
-                                                                    title="FINAL"
-                                                                    rel="bookmark"
-                                                                    class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin"
-                                                                    >FINAL - Finding out the champion!</a>
-                                                            </h3>
-                                                        </header>
-                                                        <div class="tribe-events-calendar-list__event-description tribe-common-b2 tribe-common-a11y-hidden">
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                                            </p>
-                                                    <a href="member_fieldtrip_details.jsp" class="tribe-events-read-more" rel="bookmark">More detail »</a>                                                            
-                                                        </div></div></article></div></div>
-
+                                        </div>
 
                                     </div>
                                 </div>
-                            </div>
 
-                            <script class="tribe-events-breakpoints">
-                                (function () {
-                                    var completed = false;
+                                <script class="tribe-events-breakpoints">
+                                    (function () {
+                                        var completed = false;
 
-                                    function initBreakpoints() {
-                                        if (completed) {
+                                        function initBreakpoints() {
+                                            if (completed) {
+                                                // This was fired already and completed no need to attach to the event listener.
+                                                document.removeEventListener('DOMContentLoaded', initBreakpoints);
+                                                return;
+                                            }
+
+                                            if ('undefined' === typeof window.tribe) {
+                                                return;
+                                            }
+
+                                            if ('undefined' === typeof window.tribe.events) {
+                                                return;
+                                            }
+
+                                            if ('undefined' === typeof window.tribe.events.views) {
+                                                return;
+                                            }
+
+                                            if ('undefined' === typeof window.tribe.events.views.breakpoints) {
+                                                return;
+                                            }
+
+                                            if ('function' !== typeof (window.tribe.events.views.breakpoints.setup)) {
+                                                return;
+                                            }
+
+                                            var container = document.querySelectorAll('[data-view-breakpoint-pointer="fda4f16f-e37f-4b14-8962-cbb5ead01572"]');
+                                            if (!container) {
+                                                return;
+                                            }
+
+                                            window.tribe.events.views.breakpoints.setup(container);
+                                            completed = true;
                                             // This was fired already and completed no need to attach to the event listener.
                                             document.removeEventListener('DOMContentLoaded', initBreakpoints);
-                                            return;
                                         }
 
-                                        if ('undefined' === typeof window.tribe) {
-                                            return;
-                                        }
+                                        // Try to init the breakpoints right away.
+                                        initBreakpoints();
+                                        document.addEventListener('DOMContentLoaded', initBreakpoints);
+                                    })();
+                                </script>
 
-                                        if ('undefined' === typeof window.tribe.events) {
-                                            return;
-                                        }
-
-                                        if ('undefined' === typeof window.tribe.events.views) {
-                                            return;
-                                        }
-
-                                        if ('undefined' === typeof window.tribe.events.views.breakpoints) {
-                                            return;
-                                        }
-
-                                        if ('function' !== typeof (window.tribe.events.views.breakpoints.setup)) {
-                                            return;
-                                        }
-
-                                        var container = document.querySelectorAll('[data-view-breakpoint-pointer="fda4f16f-e37f-4b14-8962-cbb5ead01572"]');
-                                        if (!container) {
-                                            return;
-                                        }
-
-                                        window.tribe.events.views.breakpoints.setup(container);
-                                        completed = true;
-                                        // This was fired already and completed no need to attach to the event listener.
-                                        document.removeEventListener('DOMContentLoaded', initBreakpoints);
-                                    }
-
-                                    // Try to init the breakpoints right away.
-                                    initBreakpoints();
-                                    document.addEventListener('DOMContentLoaded', initBreakpoints);
-                                })();
-                            </script>
-
-                        </div>
+                            </div>
 
                     </section> <!-- end Main content -->
 
@@ -394,7 +570,7 @@
         </main>
 
 
-      <%@ include file="member_footer.jsp" %>
+       <%@ include file="member_footer.jsp" %>
 
 
         <!-- BEGIN Search modal -->
