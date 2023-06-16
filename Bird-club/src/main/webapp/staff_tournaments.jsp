@@ -414,14 +414,14 @@ Create</button></div></form></turbo-frame></turbo-frame></div></div></div></div>
                                         + "<input type='hidden' name='TID' value = '"+ tournament.getTID() + "'>"
                                         +"<input type='hidden' name='action' value='closeform'>"
                                         + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                        +"type='submit' value='Close application form'>"
+                                        +"type='submit' value='Close registration'>"
                                         + "</form>"                                          
                                              
                                          +"<form>"
                                         + "<input type='hidden' name='TID' value = '"+ tournament.getTID() + "'>"
                                         +"<input type='hidden' name='action' value='viewtournamentmedia'>"
                                         + "<button class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                        +"type='submit'>Add image</button>"
+                                        +"type='submit'>Media</button>"
                                         + "</form>"        
                                                
                                         +"<form action='./mail'>"

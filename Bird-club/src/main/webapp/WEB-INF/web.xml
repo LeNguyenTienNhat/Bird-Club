@@ -19,6 +19,10 @@
         <servlet-name>StaffMailCenter</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.StaffMailCenter</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffMediaController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.StaffMediaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomepageController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -98,6 +102,10 @@
     <servlet-mapping>
         <servlet-name>StaffMailCenter</servlet-name>
         <url-pattern>/mail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffMediaController</servlet-name>
+        <url-pattern>/media</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

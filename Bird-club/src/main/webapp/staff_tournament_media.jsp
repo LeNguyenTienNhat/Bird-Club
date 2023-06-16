@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.fptuni.prj301.demo.model.Media"%>
 <%@page import="com.fptuni.prj301.demo.model.Tournament"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -207,16 +209,18 @@ Sign out</a>
     <%! Tournament t; %>
     <% t = (Tournament) request.getAttribute("tournament"); %>
     
-    <form class="space-y-4" action="zprocess_media.jsp" method="post" id="tournament" enctype="multipart/form-data">
+    <form class="space-y-4" action="./media" method="post" id="tournament" enctype="multipart/form-data">
 <div class="mt-3">
     <label class="block text-sm font-medium text-gray-700" for="image">Media</label>
     <div class="mt-1">
     <input accept="image/jpg,image/jpeg,image/png" color="teal" 
            class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" 
            type="file" name="image" id="image"></div></div>
-    <input type="hidden" name="TID"  <%  out.print("value='"+t.getTID()+"'");  %>      >
+    <input type="hidden" name="ID"  <%  out.print("value='"+t.getTID()+"'");  %>      >
+    <input type='hidden' name="tableName" value="TournamentMedia">
+    <input type="text" name='description' placeholder="A brief description of the image">
 <div class="text-right sm:col-span-4">
-<button type="submit" form="tournament" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+<button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
 Add image</button>
 </div></form>
 
@@ -298,13 +302,21 @@ Add image</button>
       </div>
       <div class="lg:col-span-7 xl:col-span-8" id="events_list">
           
+          
+          <%! List<Media> list; %>    
+          <% list = (ArrayList) request.getAttribute("list"); %>
+          
     <ul role="list" class="grid grid-cols-2 gap-x-0.5 gap-y-0.5 sm:grid-cols-3 lg:grid-cols-4 mt-8 px-4 sm:px-0">
                         
-                        <li class="relative hover:opacity-75">
-                            <a data-turbo-frame="photo_modal" href=""></a><a data-turbo-frame="photo_modal" class="hover:opacity-75" href="">
-                                <img src="media/fumo.jpg">
-                            </a></li>
-                        
+        <%
+            for (Media m : list) {
+                out.print("<li class='relative hover:opacity-75'>"
+                        + "<a data-turbo-frame='photo_modal'></a><a data-turbo-frame='photo_modal' class='hover:opacity-75'>"
+                        + "<img src='"+m.getURL()+"'>"
+                        + "</a></li>");
+            }
+        %>
+        
                     </ul>
  
 </div></div></div></div></div></div>       

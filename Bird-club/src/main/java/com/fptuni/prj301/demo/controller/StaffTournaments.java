@@ -1,9 +1,9 @@
 
 package com.fptuni.prj301.demo.controller;
 
-import com.fptuni.prj301.demo.dbmanager.MemberManager;
+import com.fptuni.prj301.demo.dbmanager.MediaManager;
 import com.fptuni.prj301.demo.dbmanager.TournamentManager;
-import com.fptuni.prj301.demo.model.Member;
+import com.fptuni.prj301.demo.model.Media;
 import com.fptuni.prj301.demo.model.Tournament;
 import tool.utils.Tools;
 import java.io.IOException;
@@ -125,15 +125,15 @@ public class StaffTournaments extends HttpServlet {
             else if (action.equals("viewtournamentmedia")) {
                 String TID = request.getParameter("TID");
                 Tournament t = tournamentManager.load(TID);
+                MediaManager m = new MediaManager();
+                List<Media> list = m.getList("TournamentMedia", TID);
                 
                 request.setAttribute("tournament", t);
+                request.setAttribute("list", list);
                 RequestDispatcher rd = request.getRequestDispatcher("staff_tournament_media.jsp");
                 rd.forward(request, response);
             }
 
-         
-         
-        
     }
 
     @Override
