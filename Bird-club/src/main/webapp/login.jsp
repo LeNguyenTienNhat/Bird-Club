@@ -60,11 +60,22 @@
                         <h1>Create Account</h1>
                         <input type="text" placeholder="Username" name="username"  />
                         <input type="text" placeholder="FullName" name="fullName"/>
-                        <input type="text" placeholder="Gender" name="gender"/>
+                        
+                        <select 
+                            style="  background-color: #eee;
+                                border: none;
+                                padding: 10px 10px;
+                                margin: 0px 0;
+                                width: 100%;  name="gender">Gender
+                             <option value="Gender">Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
                         <input type="email" placeholder="Email" name="email"/>
                         <input type="number" placeholder="Phone" name="phone" />
                         <input type="password" placeholder="Password" name="password"/>
-                        <p class="text-danger">${signup_msg}</p>
+                        <input type="password" placeholder="Confirm password" name="confirmPassword"/>
+<!--                        <p class="text-danger">${signup_msg}</p>-->
                         <button type="submit">Sign Up</button>
                     </form>
                 </div>
@@ -74,20 +85,20 @@
                         <h1>User Login</h1>
                         <input type=text" placeholder="Username" name="username"/>
                         <input type="password" placeholder="Password" name="password"/>
-                     
-      <!-- Checkbox -->
-<!--         <div class="d-flex justify-content-around align-items-start mb-4">
-        
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-              <label class="form-check-label" for="form1Example3"> Remember me </label>
-            </div>
-          </div>-->
-    
-                       <p class="text-danger">${login_msg}</p>                        
+
+                        <!-- Checkbox -->
+                        <!--         <div class="d-flex justify-content-around align-items-start mb-4">
+                                
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                                      <label class="form-check-label" for="form1Example3"> Remember me </label>
+                                    </div>
+                                  </div>-->
+
+                        <p class="text-danger">${login_msg}</p>                        
                         <button type="submit">Login</button>
                     </form> 
-                       
+
                 </div>
                 <div class="overlay-container">
                     <div class="overlay">

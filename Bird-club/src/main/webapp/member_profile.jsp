@@ -155,7 +155,7 @@
                                         <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
                                     </div>
                                     <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
-                                    <a href="member_BridList" >Bird profile</a>
+                                    <a href="member_BirdList.jsp" >Bird profile</a>
                                 </div>
                             </div>
 

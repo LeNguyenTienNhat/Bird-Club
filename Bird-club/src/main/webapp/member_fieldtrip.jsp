@@ -241,9 +241,15 @@
                                                         <div class="tribe-events-calendar-list__event-description tribe-common-b2 tribe-common-a11y-hidden">
                                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                                                             </p>
+                                                             <div class="tribe-events-calendar-list__event-image ">
+            <img src="https://xenanghungviet.com/wp-content/uploads/2021/09/z2746111427532_b0e2ec16559dd1da7b79bd09a573ef90.jpg" alt="Event Image">
+        </div>
                                                     <a href="member_fieldtrip_details.jsp" class="tribe-events-read-more" rel="bookmark">More detail »</a>                                                            
                                                         </div>
-                                                    </div></article></div></div>
+                                                        
+                                                        
+                                                    </div></article></div>
+                                        </div>
 
                                         <div  class="tribe-common-g-row tribe-events-calendar-list__event-row" >
                                             <div class="tribe-events-calendar-list__event-date-tag tribe-common-g-col">

@@ -33,8 +33,8 @@ public class MemberHomepage extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8"); 
         String action = request.getParameter("action");
-            
             if (action == null || action.equals("member_homepage.jsp")) {
+                
 
                 RequestDispatcher rd = request.getRequestDispatcher("member_homepage.jsp");
                 rd.forward(request, response);                
