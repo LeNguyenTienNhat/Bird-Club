@@ -7,17 +7,23 @@ package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.BirdManager;
 import com.fptuni.prj301.demo.dbmanager.TparticipationManager;
+import com.fptuni.prj301.demo.dbmanager.TransactionManager;
 import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.Tparticipation;
+import com.fptuni.prj301.demo.model.Transaction;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import tool.utils.UIDGenerator;
+
 import static tool.utils.UIDGenerator.generateDocT;
 
 /**
@@ -42,19 +48,19 @@ public class BirdController extends HttpServlet {
         PrintWriter out = response.getWriter();
         String action = request.getParameter("action");
         if (action != null && action.equals("view")) {
-        // Process the view action
-        BirdManager birdController = new BirdManager();
-        String UID = request.getParameter("UID");
-        List<Bird> birds = birdController.getBirdsByUID(UID);
+            // Process the view action
+            BirdManager birdController = new BirdManager();
+            String UID = request.getParameter("UID");
+            List<Bird> birds = birdController.getBirdsByUID(UID);
 
-        request.setAttribute("birdList", birds);
-        request.getRequestDispatcher("/member_TsignUp.jsp").forward(request, response);
-    }
+            request.setAttribute("birdList", birds);
+            request.getRequestDispatcher("/member_TsignUp.jsp").forward(request, response);
+        }
         if (action != null && action.equals("add")) {
             String tid = request.getParameter("TID");
             String bid = request.getParameter("BID");
             String docNo = UIDGenerator.generateDocT();
-         
+            HttpSession ss = request.getSession(true);
             // Create a new Tparticipation object with the provided parameters
             Tparticipation tparticipation = new Tparticipation();
             tparticipation.setTid(tid);
@@ -68,13 +74,58 @@ public class BirdController extends HttpServlet {
 
             if (success) {
                 // Redirect to a success page
-                response.sendRedirect(request.getContextPath() + "/payment.jsp");
+                request.setAttribute("docT", docNo);
+                ss.setAttribute("docT", docNo);
+                response.sendRedirect(request.getContextPath() + "/index.jsp");
             } else {
                 // Redirect to a failure page
                 response.sendRedirect(request.getContextPath() + "/failure.jsp");
             }
         }
-                
+        if (action != null && action.equals("delete")) {
+             String docNoToDelete = request.getParameter("docT");
+
+            if (docNoToDelete != null) {
+                TparticipationManager tparticipationManager = new TparticipationManager();
+                boolean deletionSuccess = tparticipationManager.delete(docNoToDelete);
+
+                if (deletionSuccess) {
+                    // Deletion successful, redirect to a success page
+                    response.sendRedirect(request.getContextPath() + "/member_homepage.jsp");
+                } else {
+                    // Deletion failed, redirect to a failure page
+                    response.sendRedirect(request.getContextPath() + "/failure.jsp");
+                }
+            } else {
+                // Missing docT attribute, redirect to a failure page
+                response.sendRedirect(request.getContextPath() + "/failure.jsp");
+            }
+        }
+         if (action != null && action.equals("save")) {
+            String PID = UIDGenerator.generatePID();
+            BigDecimal amount1 = new BigDecimal(request.getParameter("amount")).multiply(BigDecimal.valueOf(100));
+            String uid = request.getParameter("UID");
+            String TT = request.getParameter("TT");
+            String doc = request.getParameter("docT");
+
+            Transaction transaction = new Transaction();
+            transaction.setPID(PID);
+            transaction.setUID(uid);
+            transaction.setValue(amount1); // Set the value
+            transaction.setPaymentDate(new Date()); // Set the payment date
+            transaction.setTransactionType(TT); // Set the transaction type
+            transaction.setDocNo(doc); // Set the DocNo
+
+            TransactionManager transactionManager = new TransactionManager();
+            boolean insertionSuccess = transactionManager.insertTransaction(transaction);
+            if (insertionSuccess) {
+                request.setAttribute("successMessage", "Transaction saved successfully");
+                request.getRequestDispatcher("/vnpay_pay.jsp").forward(request, response);
+                return;
+            }
+        }
+
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

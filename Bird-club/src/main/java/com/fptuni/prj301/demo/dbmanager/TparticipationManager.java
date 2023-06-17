@@ -39,6 +39,22 @@ public boolean insert(Tparticipation tparticipation) {
 
     return false;
 }
+public boolean delete(String docNo) {
+    String sql = "DELETE FROM [Tparticipation] WHERE docNo = ?";
+
+    try (Connection conn = DBUtils.getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        ps.setString(1, docNo);
+
+        int rowsAffected = ps.executeUpdate();
+
+        return rowsAffected > 0;
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return false;
+}
 
     public static List<String> ExistingTID() {
         List<String> existingTIDs = new ArrayList<>();
@@ -78,25 +94,6 @@ public static List<String> ExistingDoc(String pattern) {
 
     return existingDocNos;
 }
-     public static void main(String[] args) {
-        // Create a sample Tparticipation object
-        Tparticipation tparticipation = new Tparticipation();
-        tparticipation.setTid("TID1");
-        tparticipation.setBid("BID0");
-        tparticipation.setDocNo("Doc.T01");
-        tparticipation.setAchievement("Sample Achievement");
-
-        // Create an instance of TparticipationManager
-        TparticipationManager tparticipationManager = new TparticipationManager();
-
-        // Call the insert method and check the result
-        boolean success = tparticipationManager.insert(tparticipation);
-        if (success) {
-            System.out.println("Tparticipation inserted successfully!");
-        } else {
-            System.out.println("Failed to insert Tparticipation.");
-        }
-    }
      
      public List<Tparticipation> getParticipantList(String TID) {
          List<Tparticipation> list = new ArrayList();
@@ -118,4 +115,17 @@ public static List<String> ExistingDoc(String pattern) {
         }
          return list;
      }
+     
+   public static void main(String[] args) {
+    TparticipationManager tparticipationManager = new TparticipationManager();
+
+    // Delete a record by docNo
+    String docNoToDelete = null;
+    boolean deletionSuccess = tparticipationManager.delete(docNoToDelete);
+    if (deletionSuccess) {
+        System.out.println("Record with docNo " + docNoToDelete + " deleted successfully.");
+    } else {
+        System.out.println("Failed to delete record with docNo " + docNoToDelete + ".");
+    }
+}  
 }

@@ -1,11 +1,15 @@
 <!DOCTYPE HTML>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<!--
+        Traveler by freehtml5.co
+        Twitter: http://twitter.com/fh5co
+        URL: http://freehtml5.co
+-->
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>User Login</title>
+        <title>Admin Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
         <meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -35,10 +39,15 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styleLogin.css">
 
 
+        <!-- Theme style  -->
+        <!-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"> -->
 
         <!-- Modernizr JS -->
         <script src="${pageContext.request.contextPath}/js/modernizr-2.6.2.min.js"></script>
-        >
+        <!-- FOR IE9 below -->
+        <!--[if lt IE 9]>
+        <script src="${pageContext.request.contextPath}/js/respond.min.js"></script>
+        <![endif]-->
 
     </head>
     <body>
@@ -52,55 +61,30 @@
 
 
             <!--<h2 class ="gold-color">VNFLIGHT: Sign in/up Form</h2>-->
-            <h4 class="gold-color">${signup_msg}</h4>
             <div class="container" id="container">
-                <div class="form-container sign-up-container ">
-                    <c:url var="signUpLink" value="${request.contextPath}/UserAccessController/signup"/>
-                    <form action="${signUpLink}" name="" method="POST">
-                        <h1>Create Account</h1>
-                        <input type="text" placeholder="Username" name="username"  />
-                        <input type="text" placeholder="FullName" name="fullName"/>
-
-                        <select style="background-color: #eee;
-                                border: none;
-                                padding: 10px 10px;
-                                margin: 0px 0;
-                                width: 100%;" name="gender">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                        </select>
-                        <input type="email" placeholder="Email" name="email"/>
-                        <input type="number" placeholder="Phone" name="phone" />
-                        <input type="password" placeholder="Password" name="password"/>
-                        <input type="password" placeholder="Confirm password" name="confirmPassword"/>
-                        <p class="text-danger">${signup_msg}</p>
-                        <button type="submit">Sign Up</button>
-                    </form>
-                </div>
+                
                 <div class="form-container sign-in-container">
-                    <c:url var="loginLink" value="${request.contextPath}/UserAccessController/login"/>
+                    <c:url var="loginLink" value="${request.contextPath}/UserAccessController/forgot"/>
                     <form action="${loginLink}" name="" method="POST">
-                        <h1>User Login</h1>
-                        <input type=text" placeholder="Username" name="username"/>
-                        <input type="password" placeholder="Password" name="password"/>
-                        <p class="text-danger">${login_msg}</p> 
-                        <button type="submit">Login</button>
-                        <a href="${pageContext.request.contextPath}/forgot.jsp">forgot password</a>
-                    </form> 
-
+                        <h1>enter your email</h1>
+                        <input type="email" placeholder="email" name="email"/>
+                        <p class="text-danger">${forgot_msg}</p>
+                        <button type="submit">submit</button>
+                        <a href="${pageContext.request.contextPath}/login.jsp">Login</a>
+                    </form>
                 </div>
                 <div class="overlay-container">
                     <div class="overlay">
                         <div class="overlay-panel overlay-left">
                             <h1>Welcome Back!</h1>
                             <p>To keep connected with us please login with your personal info</p>
-                            <button class="ghost" id="signIn">Log In</button>
+                            <button class="ghost" id="signIn">Sign In</button>
                         </div>
-                        <div class="overlay-panel overlay-right">
-                            <h1>Hello!</h1>
+<!--                        <div class="overlay-panel overlay-right">
+                            <h1>Hello, Friend!</h1>
                             <p>Enter your personal details and start journey with us</p>
                             <button class="ghost" id="signUp">Sign Up</button>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -148,6 +132,7 @@
         <!-- Main -->
         <script src="${pageContext.request.contextPath}/js/main.js"></script>
         <script src="${pageContext.request.contextPath}/js/loginpage.js"></script>
+
     </body>
 </html>
 
