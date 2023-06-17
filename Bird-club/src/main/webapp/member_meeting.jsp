@@ -361,7 +361,7 @@
                                                                     <td>
                                                                         <c:choose>
                                                                             <c:when test="${m.getStatus().trim() eq 'pending'}">
-                                                                                <form action="${pageContext.request.contextPath}/MeetingParticipantsController" method="POST">
+                                                                                <form action="${pageContext.request.contextPath}/MeetingParticipantsController?registerSuccess=true" method="POST">
                                                                                     <input type="hidden" name="action" value="viewmeeting">
                                                                                     <input type="hidden" name="UID" value="${users.userId}">
                                                                                    <c:set var="sessionMeID" scope="session" value="${m.getMeID()}"/>
@@ -369,7 +369,7 @@
                                                                                 </form>
                                                                             </c:when>
                                                                             <c:when test="${m.getStatus().trim() eq 'finished'}">
-                                                                                <form action="${pageContext.request.contextPath}/MeetingParticipantsController" method="POST">
+                                                                                <form action="${pageContext.request.contextPath}/MeetingParticipantsController?registerSuccess=true" method="POST">
                                                                                     <input type="hidden" name="action" value="result">
                                                                                     <input type="hidden" name="UID" value="${users.userId}">
                                                                                     <button type="submit" class="wp-block-button__link wp-element-button">View Results</button>
