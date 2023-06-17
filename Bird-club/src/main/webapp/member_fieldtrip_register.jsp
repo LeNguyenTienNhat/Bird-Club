@@ -1,10 +1,9 @@
-
 <!DOCTYPE HTML>
 
 <html>
 
 <head>
-    
+
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,31 +36,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 <body>
-   
+
     <!-- Google Tag Manager (noscript) @formatter:off -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7854M"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) @formatter:on -->
-    
-    
+
+
     <!-- Template Body Wrapper -->
     <div id="main-content-wrapper">
      <div id="main-content">
         <div id="main-content-inner">
-        
-            <!-- Header Section-->
-           
 
-	   
+            <!-- Header Section-->
+
+
+
         <form method="post" action="payment.jsp" class="en__component en__component--page">
 	<input type="hidden" name="action" class="en__hiddenFields" value="add">
 	<input type="hidden" name="uid" value="${user.getUserId()}">
         <input type="hidden" name="MeID" value="${sessionScope.sessionMeID}" />
-	
-	
-	
-	
-	
+
+
+
+
+
 	<ul class="en__errorList">
 	</ul>
 
@@ -69,19 +68,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<div class="en__component en__component en__component--column en__component--advcolumn hero dark" style="flex-grow:0; flex-shrink:0; flex-basis:100%;">
 		<div class="en__component en__component--imageblock">
 	<img src="https://aaf1a18515da0e792f78-c27fdabe952dfc357fe25ebf5c8897ee.ssl.cf5.rackcdn.com/1806/CedarWaxwing.jpg?v=1596639665000" class="pageImage" height="519px" width="1260px" alt="Cedar Waxwing on branch with berries" data-unit="px" data-ratio-lock="true" style="height: 519px; width: 1260px;">
-	
-	
+
+
 </div>
 		<div class="en__component en__component--copyblock"
 
 style="
-
-
-
-
-
-
-
 "
 >
 	<div class="banner-text">
@@ -90,8 +82,8 @@ style="
 <p>Exact location and time of meeting will be provided at time of registration!</p>
 </div>
 
-	
-	
+
+
 </div>
 </div>
 </div>
@@ -99,9 +91,9 @@ style="
 		<div class="en__component en__component en__component--column en__component--advcolumn giving-monthly" style="">
 		<div class="en__component en__component--formblock giving-amount" style="">	
 </div>
-		
+
 		<div class="en__component en__component--formblock" style="">
-		
+
 </div>
 </div>
 </div>
@@ -110,19 +102,12 @@ style="
 		<div class="en__component en__component--copyblock"
 
 style="
-
-
-
-
-
-
-
 "
 >
 	<h2 id="personal-information-section-header">Sign Up For Field Trip</h2>
 
-	
-	
+
+
 </div>
 		<div class="en__component en__component--formblock contact-info" style="">			
 			<div class="en__field en__field--text en__field--727466 en__field--firstName en__mandatory">
@@ -143,7 +128,7 @@ style="
             <input id="en__field_supporter_phoneNumber" type="text" class="en__field__input en__field__input--text" name="supporter.phoneNumber" value=""  required/>
 	 </div>
 </div>	
-                    
+
 </div>
 </div>
 </div>
@@ -156,56 +141,42 @@ style="
 		<div class="en__component en__component--copyblock"
 
 style="
-
-
-
-
-
-
-
 "
 >
-	
 
-	
-	
+
+
+
 </div>		
 </div>
 </div>
 		<div class="en__component en__component--row en__component--advrow">
 		<div class="en__component en__component en__component--column en__component--advcolumn bottom" style="">
 		<div class="en__component en__component--formblock" style="">
-	
-	
-			
-	
+
+
+
+
 	<div class="en__submit"><button style="">Register Now</button></div>
 </div>
 		<div class="en__component en__component--copyblock"
 
 style="
-
-
-
-
-
-
-
 "
 >
-	
 
-	
-	
+
+
+
 </div>
 </div>
 </div>
 </form>
-           
+
     </div>
     </div> 
     </div>
-   
+
 
 </body>
 

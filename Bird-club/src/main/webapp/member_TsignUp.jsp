@@ -4,6 +4,7 @@
     Author     : Tue
 --%>
 
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -141,6 +142,7 @@
                                                                                 <input type="hidden" name="action" value="add">
                                                                                <input type="hidden" name="BID" value="${bird.getBID()}" />
                                                                                 <input type="hidden" name="TID" value="${sessionScope.sessionTID}" />
+                                                                                <c:set var="TransactionType" scope="session" value="fee" /> 
                                                                                 <button type="submit" class="wp-block-button__link wp-element-button">Sign up </button>
                                                                             </form>
                                                                         </td>

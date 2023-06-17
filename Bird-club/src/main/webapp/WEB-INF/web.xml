@@ -23,6 +23,22 @@
         <servlet-name>StaffMediaController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.StaffMediaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffAccountFTController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.StaffAccountFTController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FieldTripParticipantsController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.FieldTripParticipantsController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffAccountMTController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.StaffAccountMTController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MeetingParticipantsController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.MeetingParticipantsController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomepageController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -106,6 +122,54 @@
     <servlet-mapping>
         <servlet-name>StaffMediaController</servlet-name>
         <url-pattern>/media</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffAccountFTController</servlet-name>
+        <url-pattern>/StaffAccountFTController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FieldTripParticipantsController</servlet-name>
+        <url-pattern>/FieldTripParticipantsController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffAccountMTController</servlet-name>
+        <url-pattern>/StaffAccountMTController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MeetingParticipantsController</servlet-name>
+        <url-pattern>/MeetingParticipantsController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ajaxServlet</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.ajaxServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>vnpayQuery</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.vnpayQuery</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>vnpayRefund</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.vnpayRefund</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ajaxServlet</servlet-name>
+        <url-pattern>/vnpayajax/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>vnpayQuery</servlet-name>
+        <url-pattern>/vnpayquery/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>vnpayRefund</servlet-name>
+        <url-pattern>/vnpayrefund/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TransactionController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.TransactionController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TransactionController</servlet-name>
+        <url-pattern>/TransactionController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

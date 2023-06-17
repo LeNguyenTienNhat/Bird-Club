@@ -95,7 +95,7 @@ public class StaffAccountManager {
     return email;
 }
    public static void main(String[] args) {
-    String userId = "user"; // Replace with the actual user ID you want to approve
+    String userId = "u48218"; // Replace with the actual user ID you want to approve
 
     StaffAccountManager userDao = new StaffAccountManager();
     String email = userDao.getUserEmail(userId);

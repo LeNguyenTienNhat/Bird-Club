@@ -11,6 +11,8 @@ import com.fptuni.prj301.demo.dbmanager.TparticipationManager;
 import java.util.List;
 import java.util.Random;
 
+import static com.fptuni.prj301.demo.dbmanager.TransactionManager.existingPIDs;
+
 public class UIDGenerator {
 
     public static String generateUID() {
@@ -45,9 +47,9 @@ public class UIDGenerator {
         int randomNumber = listSize + 1;
         return "Doc.M" + randomNumber;
     }
-    private String generateNewPassword() {
+    public static String generateNewPassword() {
     // Define the characters that can be used in the password
-    String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+    String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     // Set the length of the password
     int length = 10;
@@ -65,13 +67,16 @@ public class UIDGenerator {
     // Convert the StringBuilder to a String and return the generated password
     return password.toString();
 }
+    
+    public static String generatePID() {
+    List<String> existingPIDs = existingPIDs("PID%");
+    int listSize = existingPIDs.size();
+    int randomNumber = listSize + 1;
+    return "PID" + randomNumber;
+}
     public static void main(String[] args) {
-    String docNoT = generateDocT();
+    String docNoT = generateNewPassword();
     System.out.println("Generated DocNo: " + docNoT);
-    String docNoF = generateDocF();
-    System.out.println("Generated DocNo: " + docNoF);
-    String docNoM = generateDocM();
-    System.out.println("Generated DocNo: " + docNoM);
 }
 
 }

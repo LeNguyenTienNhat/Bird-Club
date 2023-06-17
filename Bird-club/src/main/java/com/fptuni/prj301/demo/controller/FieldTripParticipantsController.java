@@ -6,9 +6,12 @@
 package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.FieldTripParticipantsManager;
+import com.fptuni.prj301.demo.dbmanager.FieldtripManager;
 import com.fptuni.prj301.demo.model.FieldTripParticipants;
+import com.fptuni.prj301.demo.model.Fieldtrip;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,23 +23,23 @@ import tool.utils.UIDGenerator;
  *
  * @author DELL-7391
  */
-@WebServlet(name = "FieldTripParticipantsController", urlPatterns = {"/FieldTripParticipantsController"})
 public class FieldTripParticipantsController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String action = request.getParameter("action");
+        if (action != null && action.equals("viewfieldtrip")) {
+            // Process the view action
+            FieldtripManager eventsManager = new FieldtripManager();
+            String UID = request.getParameter("UID");
+            List<Fieldtrip> eventsList = eventsManager.getList();
+            request.setAttribute("eventsList", eventsList);
+            request.getRequestDispatcher("/payment.jsp").forward(request, response);
+        }
+
         if (action != null && action.equals("add")) {
             String fid = request.getParameter("Fid");
             String uid = request.getParameter("uid");

@@ -8,27 +8,24 @@ package com.fptuni.prj301.demo.controller;
 import com.fptuni.prj301.demo.dbmanager.FieldtripManager;
 import com.fptuni.prj301.demo.dbmanager.StaffAccountManager;
 import com.fptuni.prj301.demo.dbmanager.TournamentManager;
-import com.fptuni.prj301.demo.model.Tournament;
 import com.fptuni.prj301.demo.model.Fieldtrip;
+import com.fptuni.prj301.demo.model.Tournament;
 import com.fptuni.prj301.demo.model.UserSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import tool.utils.Mailer;
 
 /**
  *
- * @author Administrator
+ * @author DELL-7391
  */
-@WebServlet(name = "StaffAccountController", urlPatterns = {"/StaffAccountController"})
-public class StaffAccountController extends HttpServlet {
+public class StaffAccountFTController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -54,9 +51,9 @@ public class StaffAccountController extends HttpServlet {
             boolean success = userDao.approveUser(userId, role);
 
             if (success) {
-                String email= userDao.getUserEmail(userId);
-                Mailer.send("fptswp@gmail.com","fijqfrjphrrkenna", email,"Bird Club","You account have been approve", "http://localhost:8080/chimowners/member_checkout.jsp");
-                response.sendRedirect(request.getContextPath() +"staff_homepage.jsp");
+                String email = userDao.getUserEmail(userId);
+                Mailer.send("fptswp@gmail.com", "fijqfrjphrrkenna", email, "Bird Club", "You account have been approve", "http://localhost:8080/chimowners/member_checkout.jsp");
+                response.sendRedirect(request.getContextPath() + "staff_homepage.jsp");
             } else {
                 response.sendRedirect("staff_approval_failure.jsp");
             }
@@ -71,16 +68,15 @@ public class StaffAccountController extends HttpServlet {
             } else {
                 response.sendRedirect(request.getContextPath() + "/staff_member.jsp");
             }
+        } else if (action == null || action.equals("viewfieldtrip")) {
+            //display tournament
+            FieldtripManager eventsManager = new FieldtripManager();
+            List<Fieldtrip> eventsList = eventsManager.getList();
+            request.setAttribute("eventsList", eventsList);
+
+            RequestDispatcher rd = request.getRequestDispatcher("member_fieldtrip.jsp");
+            rd.forward(request, response);
         }
-        else if (action == null || action.equals("viewlist")) {
-                //display tournament
-                 TournamentManager tournamentManager = new TournamentManager();
-                List<Tournament> tournamentsList = tournamentManager.getList();
-                request.setAttribute("tList", tournamentsList);
-                
-                RequestDispatcher rd = request.getRequestDispatcher("member_tournament.jsp");
-                rd.forward(request, response);
-            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

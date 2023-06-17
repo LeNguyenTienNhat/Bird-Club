@@ -180,7 +180,34 @@ public class MeetingManager {
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Failed to ternimate due to internal error :(" + ex.getMessage());
+        }       
+    }
+    public List<Meeting> getList() {
+        List<Meeting> meetings = new ArrayList<>();
+        String sql = "SELECT * FROM Meeting ";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Meeting meeting = new Meeting();
+                    meeting.setMeID(rs.getString("MeID"));
+                    meeting.setName(rs.getString("name"));
+                    meeting.setDescription(rs.getString("description"));
+                    meeting.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
+                    meeting.setStatus(rs.getString("status"));
+                    meeting.setLID(rs.getString("LID"));
+                    meeting.setStartDate(tool.trimDate(rs.getString("startDate")));
+                    meeting.setEndDate(tool.trimDate(rs.getString("endDate")));
+                    meeting.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                    meetings.add(meeting);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
+        return meetings;
     }
 
 }

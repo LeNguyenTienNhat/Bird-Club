@@ -142,6 +142,27 @@ public boolean SignUp(UserSession user) {
 
         return false; // Password update failed
     }
+    
+    public static boolean updatePasswordByEmail(String email, String newPassword) {
+    String sql = "UPDATE [User] SET password = ? WHERE email = ?";
+
+    try (Connection conn = DBUtils.getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        ps.setString(1, newPassword);
+        ps.setString(2, email);
+
+        int rowsUpdated = ps.executeUpdate();
+
+        // Check if any rows were affected by the update
+        if (rowsUpdated > 0) {
+            return true; // Password update successful
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return false; // Password update failed
+}
 
     public UserSession searchByName(String username) {
         UserSession user = null;
