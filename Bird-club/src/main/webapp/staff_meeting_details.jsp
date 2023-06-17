@@ -1,5 +1,4 @@
 <%@page import="com.fptuni.prj301.demo.model.Meeting"%>
-<%@page import="com.fptuni.prj301.demo.model.Fieldtrip"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="h-full bg-gray-100"><head><style type="text/css" data-tag-name="trix-editor">trix-editor {
@@ -285,17 +284,17 @@ Sign out</a>
   <div class="bg-white shadow sm:rounded-lg">
     <div class="bg-white sm:rounded-b-lg sm:rounded-t-lg">
       
-        <%! Meeting meeting; %>
-        <% meeting = (Meeting) request.getAttribute("meeting"); %>
+        <%! Meeting m; %>
+        <% m = (Meeting) request.getAttribute("meeting"); %>
         
         <div class="p-6">
           <div class="space-y-8 divide-y divide-gray-200">
-              <form class="edit_member" id="edit">
+              <form class="edit_member" id="edit" action="./events" method="post">
               <turbo-frame id="flash"></turbo-frame>
               <div>
                 <div>
                   <h3 class="text-lg leading-6 font-medium text-gray-900">Edit</h3>
-                  <p class="mt-1 text-sm text-gray-500">View and edit the meeting's details</p>
+                  <p class="mt-1 text-sm text-gray-500">View and edit the field trip's details</p>
                 </div>
                 <div class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-y-6 gap-x-4 sm:grid-cols-8">
                   <div class="col-span-1 sm:col-span-4 md:col-span-3 grid grid-cols-4 gap-4">
@@ -303,58 +302,95 @@ Sign out</a>
                     <div class="col-span-3">
                       <label class="block text-sm font-medium text-gray-700" for="name">Name</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'"+meeting.getName()+"'"); %> name="name" id="name">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'"+m.getName()+"'"); %> name="name" id="name">
+                      </div>
+                    </div>
+                      
+                      <div class="col-span-3">
+                      <label class="block text-sm font-medium text-gray-700" for="host">Host</label>
+                      <div class="mt-1">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'"+m.getHost()+"'"); %> name="host" id="host">
+                      </div>
+                    </div>
+                      
+                      <div class="col-span-3">
+                      <label class="block text-sm font-medium text-gray-700" for="incharge">In charge</label>
+                      <div class="mt-1">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'"+m.getIncharge()+"'"); %> name="incharge" id="incharge">
+                      </div>
+                    </div>
+                      
+                      <div class="col-span-3">
+                      <label class="block text-sm font-medium text-gray-700" for="contact">Contact</label>
+                      <div class="mt-1">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'"+m.getContact()+"'"); %> name="contact" id="contact">
                       </div>
                     </div>
                       
                       <div class="col-span-1">
                       <label class="block text-sm font-medium text-gray-700" for="LID">LID</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+meeting.getLID()+"'"); %> name="LID" id="LID">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+m.getLID()+"'"); %> name="LID" id="LID">
                       </div>
                     </div>
                       
                     <div class="col-span-1">
                       <label class="block text-sm font-medium text-gray-700" for="startDate">Start date</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+meeting.getStartDate()+"'"); %> name="startDate" id="startDate">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+m.getStartDate()+"'"); %> name="startDate" id="startDate">
                       </div>
                     </div>
     
                     <div class="col-span-1">
                       <label class="block text-sm font-medium text-gray-700" for="endDate">End date</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+meeting.getEndDate()+"'"); %> name="endDate" id="endDate">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+m.getEndDate()+"'"); %> name="endDate" id="endDate">
                       </div>
                     </div>
-
+                      
                       <div class="sm:col-span-4 md:col-span-2">
                     <label class="block text-sm font-medium text-gray-700" for="description">Description</label>
                     <div class="mt-1">
-                      <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="description"  id="description"><% out.print(meeting.getDescription()); %></textarea>
+                      <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="description"  id="description"><% out.print(m.getDescription()); %></textarea>
                     </div>
-                    <p class="mt-2 text-sm text-gray-500">A brief description of the field trip</p>
+                    <p class="mt-2 text-sm text-gray-500">A brief description of the tournament</p>
                   </div>
-                      
-                    <div class="col-span-1">
-                      <label class="block text-sm font-medium text-gray-700" for="status">status</label>
-                      <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+meeting.getStatus()+"'"); %> name="status" id="status">
-                      </div>
+                    
+                    <div class="sm:col-span-4 md:col-span-2">
+                    <label class="block text-sm font-medium text-gray-700" for="note">Note</label>
+                    <div class="mt-1">
+                      <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="note"  id="note"><% out.print(m.getNote()); %></textarea>
                     </div>
-
+                    <p class="mt-2 text-sm text-gray-500">A brief note to notice our participants</p>
+                  </div>
+                                            
+                      <div class="sm:col-span-6">
+                  <label class="block text-sm font-medium text-gray-700" for="status">Status: <% out.print("  "+m.getStatus()); %></label>
+                  <div class="mt-1">
+                      
+                    <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="status" id="status">
+                        <option selected="selected" value="pending">Pending</option>
+                        <option value="formClosed">Form closed</option>
+                        <option value="ongoing">On going</option>
+                        <option value="finished">Terminated</option>
+                    </select>
+                      
+                  </div>
+                  <p class="mt-2 text-sm text-gray-500">Public clubs will allow non-members to learn about your club and apply to join. <br>
+                    Private clubs are invite-only and visible only to members. <br></p>
+                </div>
     
                    <div class="col-span-1">
                       <label class="block text-sm font-medium text-gray-700" for="registrationDeadline">Registration deadline</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+meeting.getRegistrationDeadline()+"'"); %> name="registrationDeadline" id="registrationDeadline">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+m.getRegistrationDeadline()+"'"); %> name="registrationDeadline" id="registrationDeadline">
                       </div>
                     </div>
     
                     <div class="col-span-1">
                       <label class="block text-sm font-medium text-gray-700" for="numberOfParticipant">Max number of participants</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+meeting.getNumberOfParticipant()+"'"); %> name="numberOfParticipant" id="numberOfParticipant">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+m.getNumberOfParticipant()+"'"); %> name="numberOfParticipant" id="numberOfParticipant">
                       </div>
                     </div>
                   </div>
@@ -378,9 +414,6 @@ Sign out</a>
                             </div></div></div></div>
 
                       <div class="hidden relative rounded-full overflow-hidden lg:block col-span-2 sm:col-span-4">
-                        <div class="w-40 h-40 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden  flex-shrink-0">
-  <img src="images/fumo.jpg">
-</div>
 
                         <label for="desktop-user-photo" class="absolute inset-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center text-sm font-medium text-white opacity-0 hover:opacity-100 focus-within:opacity-100">
                           <span>Change</span>
@@ -394,7 +427,7 @@ Sign out</a>
                 <div class="pt-5">
                   <div class="flex justify-end">
                       <input type="hidden" name="action" value="updatemeeting">
-                      <input type="hidden" name="MeID" value=<% out.print("'"+meeting.getMeID()+"'"); %>>
+                      <input type="hidden" name="MeID" value=<% out.print("'"+m.getMeID()+"'"); %>>
                   </div>
                 </div>
               </div>

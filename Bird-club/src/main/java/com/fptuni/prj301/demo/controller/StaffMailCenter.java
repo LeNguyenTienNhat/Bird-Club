@@ -103,6 +103,14 @@ public class StaffMailCenter extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("StaffMailCenter");
                 rd.forward(request, response);
             }
+         
+         else if (action.equalsIgnoreCase("sendapprovalmessage")) {
+             String UID = request.getParameter("UID");
+             
+             
+             RequestDispatcher rd = request.getRequestDispatcher("StaffMember");
+             rd.forward(request, response);
+         }
         
         
         

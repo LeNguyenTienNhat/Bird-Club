@@ -1,4 +1,3 @@
-
 package com.fptuni.prj301.demo.dbmanager;
 
 import com.fptuni.prj301.demo.model.Meeting;
@@ -13,26 +12,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MeetingManager {
+
     Tools tool = new Tools();
-    public List<Meeting> getRecords(int skip, int numOfRow, String status, String sortCategory) throws ClassNotFoundException {  
-        List<Meeting> list = new ArrayList<>();        
-        String sql = "SELECT * FROM Meeting "; 
+
+    public List<Meeting> getRecords(int skip, int numOfRow, String status, String sortCategory) throws ClassNotFoundException {
+        List<Meeting> list = new ArrayList<>();
+        String sql = "SELECT * FROM Meeting ";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps;
-            if (numOfRow==10 && !status.isEmpty()) {
-                sql=sql+"WHERE status=? "
+            if (numOfRow == 10 && !status.isEmpty()) {
+                sql = sql + "WHERE status=? "
                         + " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY"
-                        + "ORDER BY "+sortCategory+"DESC";
-                ps = conn.prepareStatement(sql);   
+                        + "ORDER BY " + sortCategory + "DESC";
+                ps = conn.prepareStatement(sql);
                 ps.setString(1, status);
                 ps.setInt(2, skip);
                 ps.setInt(3, numOfRow);
-            }
-            else {
-                sql=sql+"ORDER BY "+sortCategory+" DESC";
+            } else {
+                sql = sql + "ORDER BY " + sortCategory + " DESC";
                 ps = conn.prepareStatement(sql);
-            }     
+            }
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Meeting meeting = new Meeting();
@@ -42,10 +42,13 @@ public class MeetingManager {
                 meeting.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
                 meeting.setStartDate(tool.trimDate(rs.getString("startDate")));
                 meeting.setEndDate(tool.trimDate(rs.getString("endDate")));
-                
                 meeting.setLID(rs.getString("LID"));
                 meeting.setStatus(rs.getString("status"));
                 meeting.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                meeting.setNote(rs.getString("note"));
+                meeting.setIncharge(rs.getString("incharge"));
+                meeting.setHost(rs.getString("host"));
+                meeting.setContact(rs.getString("contact"));
                 meeting.setCategory("Meeting");
                 list.add(meeting);
             }
@@ -53,42 +56,45 @@ public class MeetingManager {
         } catch (SQLException ex) {
             System.out.println("Query error!" + ex.getMessage());
         }
-        return list;	 
-    }   
-    
-    public void insert(Meeting meeting) throws ClassNotFoundException, ParseException  {
-        String sql = "INSERT INTO Meeting"               
+        return list;
+    }
+
+    public void insert(Meeting meeting) throws ClassNotFoundException, ParseException {
+        String sql = "INSERT INTO Meeting"
                 + " VALUES (?, ?, ?, "
-                + "CONVERT(DATETIME,'"+ meeting.getRegistrationDeadline()+ "', 103), "
+                + "CONVERT(DATETIME,'" + meeting.getRegistrationDeadline() + "', 103), "
                 + "?, ?,"
-                + "CONVERT(DATETIME,'"+ meeting.getStartDate()+ "', 103), "
-                + "CONVERT(DATETIME,'"+ meeting.getEndDate()+ "', 103), "
-                + "?)";    
-        
+                + "CONVERT(DATETIME,'" + meeting.getStartDate() + "', 103), "
+                + "CONVERT(DATETIME,'" + meeting.getEndDate() + "', 103), "
+                + "?,?,?,?,?)";
+
         try {
             Connection conn = DBUtils.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql); 
+            PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, meeting.getMeID());
             ps.setString(2, meeting.getName());
             ps.setString(3, meeting.getDescription());
             ps.setString(4, meeting.getStatus());
             ps.setString(5, meeting.getLID());
             ps.setInt(6, meeting.getNumberOfParticipant());
+            ps.setString(7, meeting.getNote());
+            ps.setString(8, meeting.getIncharge());
+            ps.setString(9, meeting.getHost());
+            ps.setString(10, meeting.getContact());
             ps.executeUpdate();
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println("Insertion failed due to internal error :(" + ex.getMessage());
         }
     }
-    
+
     public Meeting load(String MeID) throws ClassNotFoundException {
         String sql = "select * from Meeting where MeID = ?";
         try {
-            Connection conn = DBUtils.getConnection();      
-            PreparedStatement ps = conn.prepareStatement(sql);                         
-            ps.setString(1, MeID);     
-            ResultSet rs = ps.executeQuery();       
-            if (rs.next()){
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, MeID);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
                 Meeting meeting = new Meeting();
                 meeting.setMeID(rs.getString("MeID"));
                 meeting.setName(rs.getString("name"));
@@ -99,23 +105,26 @@ public class MeetingManager {
                 meeting.setLID(rs.getString("LID"));
                 meeting.setStatus(rs.getString("status"));
                 meeting.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                meeting.setNote(rs.getString("note"));
+                meeting.setIncharge(rs.getString("incharge"));
+                meeting.setHost(rs.getString("host"));
+                meeting.setContact(rs.getString("contact"));
                 meeting.setCategory("Meeting");
                 return meeting;
-               }
-        }
-        catch (SQLException ex) {
+            }
+        } catch (SQLException ex) {
             System.out.println("Failed to load the meeting details due to internal error :(" + ex.getMessage());
         }
         return null;
     }
-    
-        public boolean update(Meeting meeting) throws ClassNotFoundException{
+
+    public boolean update(Meeting meeting) throws ClassNotFoundException {
         String sql = "UPDATE Meeting SET name = ?, description = ?, "
-                + "registrationDeadline = CONVERT(DATETIME,'"+meeting.getRegistrationDeadline() + "', 103), "
+                + "registrationDeadline = CONVERT(DATETIME,'" + meeting.getRegistrationDeadline() + "', 103), "
                 + "status = ?, LID = ? ,"
-                + "startDate = CONVERT(DATETIME,'"+ meeting.getStartDate()+ "', 103), "
-                + "endDate = CONVERT(DATETIME,'"+ meeting.getEndDate()+ "', 103), "
-                + " numberOfParticipant = ? WHERE MeID = ?";
+                + "startDate = CONVERT(DATETIME,'" + meeting.getStartDate() + "', 103), "
+                + "endDate = CONVERT(DATETIME,'" + meeting.getEndDate() + "', 103), "
+                + " numberOfParticipant = ?, note = ?, incharge = ?, host = ?, contact = ? WHERE MeID = ?";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -124,7 +133,11 @@ public class MeetingManager {
             ps.setString(4, meeting.getLID());
             ps.setString(3, meeting.getStatus());
             ps.setInt(5, meeting.getNumberOfParticipant());
-            ps.setString(6, meeting.getMeID());
+            ps.setString(6, meeting.getNote());
+            ps.setString(7, meeting.getIncharge());
+            ps.setString(8, meeting.getHost());
+            ps.setString(9, meeting.getContact());
+            ps.setString(10, meeting.getMeID());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Failed to update due to internal error :(" + ex.getMessage());
@@ -144,7 +157,7 @@ public class MeetingManager {
             System.out.println("Failed to ternimate due to internal error :(" + ex.getMessage());
         }
     }
-    
+
     public void closeForm(String MeID) {
         String sql = "UPDATE Meeting SET status = ? WHERE MeID = ?";
         try {
@@ -157,8 +170,7 @@ public class MeetingManager {
             System.out.println("Failed to close form due to internal error :(" + ex.getMessage());
         }
     }
-    
-    
+
     public void remove(String MeID) {
         String sql = "DELETE FROM Meeting WHERE MeID = ?";
         try {
@@ -170,5 +182,5 @@ public class MeetingManager {
             System.out.println("Failed to ternimate due to internal error :(" + ex.getMessage());
         }
     }
-    
+
 }

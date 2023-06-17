@@ -284,12 +284,12 @@ Sign out</a>
   <div class="bg-white shadow sm:rounded-lg">
     <div class="bg-white sm:rounded-b-lg sm:rounded-t-lg">
       
-        <%! Fieldtrip fieldtrip; %>
-        <% fieldtrip = (Fieldtrip) request.getAttribute("fieldtrip"); %>
+        <%! Fieldtrip f; %>
+        <% f = (Fieldtrip) request.getAttribute("fieldtrip"); %>
         
         <div class="p-6">
           <div class="space-y-8 divide-y divide-gray-200">
-              <form class="edit_member" id="edit">
+              <form class="edit_member" id="edit" action="./events" method="post">
               <turbo-frame id="flash"></turbo-frame>
               <div>
                 <div>
@@ -302,71 +302,103 @@ Sign out</a>
                     <div class="col-span-3">
                       <label class="block text-sm font-medium text-gray-700" for="name">Name</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'"+fieldtrip.getName()+"'"); %> name="name" id="name">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'"+f.getName()+"'"); %> name="name" id="name">
+                      </div>
+                    </div>
+                      
+                      <div class="col-span-3">
+                      <label class="block text-sm font-medium text-gray-700" for="host">Host</label>
+                      <div class="mt-1">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'"+f.getHost()+"'"); %> name="host" id="host">
+                      </div>
+                    </div>
+                      
+                      <div class="col-span-3">
+                      <label class="block text-sm font-medium text-gray-700" for="incharge">In charge</label>
+                      <div class="mt-1">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'"+f.getIncharge()+"'"); %> name="incharge" id="incharge">
+                      </div>
+                    </div>
+                      
+                      <div class="col-span-3">
+                      <label class="block text-sm font-medium text-gray-700" for="contact">Contact</label>
+                      <div class="mt-1">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'"+f.getContact()+"'"); %> name="contact" id="contact">
                       </div>
                     </div>
                       
                       <div class="col-span-1">
                       <label class="block text-sm font-medium text-gray-700" for="LID">LID</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+fieldtrip.getLID()+"'"); %> name="LID" id="LID">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+f.getLID()+"'"); %> name="LID" id="LID">
                       </div>
                     </div>
                       
                     <div class="col-span-1">
                       <label class="block text-sm font-medium text-gray-700" for="startDate">Start date</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+fieldtrip.getStartDate()+"'"); %> name="startDate" id="startDate">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+f.getStartDate()+"'"); %> name="startDate" id="startDate">
                       </div>
                     </div>
     
                     <div class="col-span-1">
                       <label class="block text-sm font-medium text-gray-700" for="endDate">End date</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+fieldtrip.getEndDate()+"'"); %> name="endDate" id="endDate">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+f.getEndDate()+"'"); %> name="endDate" id="endDate">
                       </div>
                     </div>
                       
-<!--                      
-                    <div class="col-span-2">
-                   <label class="block text-sm font-medium text-gray-700" for="image">image</label>
-                    <div class="mt-1">
-                     <input accept="image/jpg,image/jpeg,image/png" class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" type="file" name="image" id="image">
-                    </div></div>-->
-    
+                      
                       <div class="sm:col-span-4 md:col-span-2">
                     <label class="block text-sm font-medium text-gray-700" for="description">Description</label>
                     <div class="mt-1">
-                      <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="description"  id="description"><% out.print(fieldtrip.getDescription()); %></textarea>
+                      <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="description"  id="description"><% out.print(f.getDescription()); %></textarea>
                     </div>
-                    <p class="mt-2 text-sm text-gray-500">A brief description of the field trip</p>
+                    <p class="mt-2 text-sm text-gray-500">A brief description of the tournament</p>
                   </div>
-                      
-                    <div class="col-span-1">
-                      <label class="block text-sm font-medium text-gray-700" for="status">status</label>
-                      <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+fieldtrip.getStatus()+"'"); %> name="status" id="status">
-                      </div>
+                    
+                    <div class="sm:col-span-4 md:col-span-2">
+                    <label class="block text-sm font-medium text-gray-700" for="note">Note</label>
+                    <div class="mt-1">
+                      <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="note"  id="note"><% out.print(f.getNote()); %></textarea>
                     </div>
+                    <p class="mt-2 text-sm text-gray-500">A brief note to notice our participants</p>
+                  </div>
+                                            
+                      <div class="sm:col-span-6">
+                  <label class="block text-sm font-medium text-gray-700" for="status">Status: <% out.print("  "+f.getStatus()); %></label>
+                  <div class="mt-1">
+                      
+                    <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="status" id="status">
+                        <option selected="selected" value="pending">Pending</option>
+                        <option value="formClosed">Form closed</option>
+                        <option value="ongoing">On going</option>
+                        <option value="finished">Terminated</option>
+                    </select>
+                      
+                  </div>
+                  <p class="mt-2 text-sm text-gray-500">Public clubs will allow non-members to learn about your club and apply to join. <br>
+                    Private clubs are invite-only and visible only to members. <br></p>
+                </div>
     
                 <div class="col-span-1">
                       <label class="block text-sm font-medium text-gray-700" for="fee">Participation fee</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+fieldtrip.getFee()+"'"); %> name="fee" id="fee">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+f.getFee()+"'"); %> name="fee" id="fee">
                       </div>
                     </div>
     
                    <div class="col-span-1">
                       <label class="block text-sm font-medium text-gray-700" for="registrationDeadline">Registration deadline</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+fieldtrip.getRegistrationDeadline()+"'"); %> name="registrationDeadline" id="registrationDeadline">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+f.getRegistrationDeadline()+"'"); %> name="registrationDeadline" id="registrationDeadline">
                       </div>
                     </div>
     
                     <div class="col-span-1">
                       <label class="block text-sm font-medium text-gray-700" for="numberOfParticipant">Max number of participants</label>
                       <div class="mt-1">
-                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+fieldtrip.getNumberOfParticipant()+"'"); %> name="numberOfParticipant" id="numberOfParticipant">
+                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'"+f.getNumberOfParticipant()+"'"); %> name="numberOfParticipant" id="numberOfParticipant">
                       </div>
                     </div>
                   </div>
@@ -390,9 +422,6 @@ Sign out</a>
                             </div></div></div></div>
 
                       <div class="hidden relative rounded-full overflow-hidden lg:block col-span-2 sm:col-span-4">
-                        <div class="w-40 h-40 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden  flex-shrink-0">
-  <img src="images/fumo.jpg">
-</div>
 
                         <label for="desktop-user-photo" class="absolute inset-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center text-sm font-medium text-white opacity-0 hover:opacity-100 focus-within:opacity-100">
                           <span>Change</span>
@@ -406,7 +435,7 @@ Sign out</a>
                 <div class="pt-5">
                   <div class="flex justify-end">
                       <input type="hidden" name="action" value="updatefieldtrip">
-                      <input type="hidden" name="FID" value=<% out.print("'"+fieldtrip.getFID()+"'"); %>>
+                      <input type="hidden" name="FID" value=<% out.print("'"+f.getFID()+"'"); %>>
                   </div>
                 </div>
               </div>

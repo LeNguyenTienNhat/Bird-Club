@@ -62,7 +62,7 @@ public class StaffTournaments extends HttpServlet {
                 rd.forward(request, response);
             }
          
-         //Update a field trip's details
+         //Update a tournament's details
          else if (action.equals("updatetournament")) {
                 String TID = request.getParameter("TID");
                 String name = request.getParameter("name");
@@ -90,7 +90,7 @@ public class StaffTournaments extends HttpServlet {
                 rd.forward(request, response);
             }
                   
-         //Terminate a field trip
+         //Terminate a tournament
          else if (action.equals("terminatetournament")) {
             String TID = request.getParameter("TID");
             tournamentManager.terminate(TID);
@@ -100,7 +100,7 @@ public class StaffTournaments extends HttpServlet {
             rd.forward(request, response);
             }
          
-         //Close registration form of a field trip
+         //Close registration form of a tournament
          else if (action.equals("closeform")) {
             String TID = request.getParameter("TID");
             tournamentManager.closeForm(TID);
