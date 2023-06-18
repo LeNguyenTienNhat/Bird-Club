@@ -23,11 +23,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.fptuni.prj301.demo.model.Transaction;
-import com.fptuni.prj301.demo.dbmanager.TransactionManager;
-import java.math.BigDecimal;
-import java.util.Date;
-import tool.utils.UIDGenerator;
 
 /**
  *

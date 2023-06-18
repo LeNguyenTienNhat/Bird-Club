@@ -168,7 +168,7 @@
                                                                     <span class="inline-flex items-center px-2.5 py-0.5 font-medium bg-red-100 text-red-800 text-xs rounded-full"> ${t.getStatus()}</span>
 
                                                                 <h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
-                                                                    <a href="detail.jsp?TID=${t.getTID()}"
+                                                                    <a href="${pageContext.request.contextPath}/TparticipationController?action=view&TID=${t.getTID()}"
                                                                        title="${t.getName()}"
                                                                        class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
                                                                         ${t.getName()}

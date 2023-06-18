@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html class="no-js"  lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
@@ -100,13 +101,13 @@
 
                         <div id="tribe-events-content" class="tribe-events-single tribe-blocks-editor">
 
-                            <h1 class="tribe-events-single-event-title">Giai Dau Chim Chao Mao Q1</h1> 
-                      
+                            <h1 class="tribe-events-single-event-title">${tournament.getName()}</h1> 
+
 
                             <div class="tribe-events-schedule tribe-clearfix">
                                 <h2 class="tribe-events-schedule__datetime">
                                     <span class="tribe-events-schedule__date tribe-events-schedule__date--start">
-                                        January 1 - December 1</span>
+                                        ${tournament.getStartDate()} - ${tournament.getEndDate()}</span>
 
                                 </h2>
 
@@ -121,9 +122,8 @@
                                     </figure>
                                     <br>
 
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-
+                                    <dt>Focus</dt>${tournament.getDescription()}
+                                    <dt>Note</dt>${tournament.getNote()}
 
                                     <div class="is-layout-flex wp-block-buttons"></div>
 
@@ -136,31 +136,57 @@
                                         <div class="tribe-events-meta-group tribe-events-meta-group-details">
                                             <h3 class="tribe-events-single-section-title">Details</h3>
                                             <dl>
+                                                <dt> Leader: </dt>
+                                                <dd><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" > ${tournament.getIncharge()}</abbr>
+                                                </dd>
+                                                <dt> Participant: </dt>
+                                                <dd><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" > ${tournament.getNumberOfParticipant()}</abbr>
+                                                </dd>
                                                 <dt> Start: </dt>
-                                                <dd><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" title="2023-05-27"> January 1</abbr>
+                                                <dd><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" title="2023-05-27"> ${tournament.getStartDate()}</abbr>
                                                 </dd>
                                                 <dt> End: </dt>
                                                 <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
-                                                        <div class="tribe-recurring-event-time">December 1</div></dd>
-                                                <dt>Category:</dt>Tournament
+                                                        <div class="tribe-recurring-event-time">${tournament.getEndDate()}</div></dd>
+                                                <dt> Registration Deadline: </dt>
+                                                <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
+                                                        <div class="tribe-recurring-event-time">${tournament.getRegistrationDeadline()}</div></dd>
+                                                <dt>Prize</dt>${tournament.getTotalPrize()}$
+                                                <dt>Fee</dt>${tournament.getFee()}$
+                                                <dt>Contact</dt>${tournament.getContact()}
+                                                <dt>ORGANIZER</dt>${tournament.getHost()}
                                                 <dt>Location:</dt>
                                                 <div class="tribe-block tribe-block__venue tribe-block__venue--has-map">
-                                        <div class="tribe-block__venue__meta">
-                                            <div class="tribe-block__venue__name">
-                                                <dd>FPT University<dd></div>
-                                            <address class="tribe-block__venue__address">
-                                                <span class="tribe-address">
-                                                    <span class="tribe-street-address">121 Republic Street</span><br></span>
-                                                <a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>
-                                        </div>	
-<!--                                        <div class="tribe-block__venue__map">	
-                                            <iframe aria-label="Venue location map" width="100%" height="350px" frameborder="0" style="border:0" allowfullscreen="" data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDNsicAsP6-VuGtAb1O9riI3oc_NOb7IOU&amp;q=159+Sapsucker+Woods+Road+Ithaca+NY+NY+14850+United+States+" class=" lazyloaded" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" title="View location in Google Maps">
-                                            </iframe>
-                                        </div>-->
-                                    </div>
+                                                    <div class="tribe-block__venue__meta">
+                                                        <div class="tribe-block__venue__name">
+                                                            <dd>FPT University<dd></div>
+                                                        <address class="tribe-block__venue__address">
+                                                            <span class="tribe-address">
+                                                                <span class="tribe-street-address">121 Republic Street</span><br></span>
+                                                            <a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>
+                                                    </div>	
+
+                                                </div>
                                             </dl>
                                             <div class="is-content-justification-center is-layout-flex wp-container-1 wp-block-buttons">
-                                                <div class="wp-block-button"><a class="wp-block-button__link has-orange-background-color has-background" href="member_fieldtrip_register.jsp">Join Tournament</a></div>
+                                                <div class="wp-block-button">
+                                                    <c:choose>
+                                                        <c:when test="${tournament.getStatus().trim() eq 'pending'}">
+                                                            <form action="${pageContext.request.contextPath}/BirdController" method="POST">
+                                                                <input type="hidden" name="action" value="view">
+                                                                <input type="hidden" name="UID" value="${users.userId}">
+                                                                <input type="hidden" name="TID" value="${t.getTID()}">
+                                                                <button type="submit" class="wp-block-button__link has-orange-background-color has-background">Join Tournament</button>
+                                                            </form>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <form action="${pageContext.request.contextPath}/StaffAccountController" method="GET">
+                                                                <input type="hidden" name="action" value="viewlist">
+                                                                <button type="submit" class="wp-block-button__link has-blue-background-color has-background">Return</button>
+                                                            </form>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </div>
                                             </div>
                                             <script>
                                                 // Lấy tham số "registerSuccess" từ URL
@@ -188,18 +214,7 @@
                 </div>
 
             </article>
-            <!--            <section id="global-cta" aria-label="Call to action" class="global-cta">
-                            <div class="wp-block-group cta">
-            
-                                <h2>Don't miss a thing! Join our email list</h2>
-                                <script data-hubspot-rendered="true">hbspt.forms.create({portalId: "95627", formId: "ee3402b4-bebe-48ff-870f-7e51695b366d"});</script>
-                                <div id="hbspt-form-c5130a24-3b0a-4ee5-a933-0664caffedf7" class="hbspt-form" data-hs-forms-root="true">
-                                    <form id="hsForm_ee3402b4-bebe-48ff-870f-7e51695b366d" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="" action="https://forms.hsforms.com/submissions/v3/public/submit/formsnext/multipart/95627/ee3402b4-bebe-48ff-870f-7e51695b366d" class="hs-form-private hsForm_ee3402b4-bebe-48ff-870f-7e51695b366d hs-form-ee3402b4-bebe-48ff-870f-7e51695b366d hs-form-ee3402b4-bebe-48ff-870f-7e51695b366d_c5130a24-3b0a-4ee5-a933-0664caffedf7 hs-form stacked" target="target_iframe_ee3402b4-bebe-48ff-870f-7e51695b366d" data-instance-id="c5130a24-3b0a-4ee5-a933-0664caffedf7" data-form-id="ee3402b4-bebe-48ff-870f-7e51695b366d" data-portal-id="95627"><div class="hs_email hs-email hs-fieldtype-text field hs-form-field"><label id="label-email-ee3402b4-bebe-48ff-870f-7e51695b366d" class="" placeholder="Enter your Email Address" for="email-ee3402b4-bebe-48ff-870f-7e51695b366d"><span>Email Address</span><span class="hs-form-required">*</span></label><legend class="hs-field-desc" style="display: none;"></legend>
-                                            <div class="input"><input id="email-ee3402b4-bebe-48ff-870f-7e51695b366d" name="email" required="" placeholder="Enter your email" type="email" class="hs-input" inputmode="email" autocomplete="email" value=""></div></div><div class="hs_submit hs-submit"><div class="hs-field-desc" style="display: none;"></div>
-                                            <div class="actions"><input type="submit" class="hs-button primary large" value="Subscribe"></div></div>
-                                        <input name="hs_context" type="hidden" value="{&quot;embedAtTimestamp&quot;:&quot;1685177938503&quot;,&quot;formDefinitionUpdatedAt&quot;:&quot;1672780155224&quot;,&quot;disableCookieSubmission&quot;:&quot;true&quot;,&quot;renderRawHtml&quot;:&quot;true&quot;,&quot;isLegacyThemeAllowed&quot;:&quot;true&quot;,&quot;userAgent&quot;:&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50&quot;,&quot;pageTitle&quot;:&quot;Beginner Bird Walk | Birds, Cornell Lab of Ornithology&quot;,&quot;pageUrl&quot;:&quot;https://www.birds.cornell.edu/home/event/beginner-bird-walk-2/2023-05-27/?__hstc=181257784.be32163685d64de8af3236339b100540.1685172002340.1685172002340.1685177625873.2&amp;__hssc=181257784.6.1685177625873&amp;__hsfp=1596690040&amp;_gl=1*esyhvo*_ga*OTQ5Nzg4OTE0LjE2ODUxNzIwMDA.*_ga_QR4NVXZ8BM*MTY4NTE3NzYyNC4yLjEuMTY4NTE3NzkyOS4yNS4wLjA.&amp;_ga=2.77067221.1752550753.1685172000-949788914.1685172000&quot;,&quot;referrer&quot;:&quot;http://localhost:8080/&quot;,&quot;urlParams&quot;:{&quot;__hstc&quot;:&quot;181257784.be32163685d64de8af3236339b100540.1685172002340.1685172002340.1685177625873.2&quot;,&quot;__hssc&quot;:&quot;181257784.6.1685177625873&quot;,&quot;__hsfp&quot;:&quot;1596690040&quot;,&quot;_gl&quot;:&quot;1*esyhvo*_ga*OTQ5Nzg4OTE0LjE2ODUxNzIwMDA.*_ga_QR4NVXZ8BM*MTY4NTE3NzYyNC4yLjEuMTY4NTE3NzkyOS4yNS4wLjA.&quot;,&quot;_ga&quot;:&quot;2.77067221.1752550753.1685172000-949788914.1685172000&quot;},&quot;isHubSpotCmsGeneratedPage&quot;:false,&quot;hutk&quot;:&quot;b1c34786141bb12cb035702f36aa5205&quot;,&quot;__hsfp&quot;:1596690040,&quot;__hssc&quot;:&quot;161696355.2.1685177901406&quot;,&quot;__hstc&quot;:&quot;161696355.b1c34786141bb12cb035702f36aa5205.1685177901405.1685177901405.1685177901405.1&quot;,&quot;formTarget&quot;:&quot;#hbspt-form-c5130a24-3b0a-4ee5-a933-0664caffedf7&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;timestamp&quot;:1685177943543,&quot;originalEmbedContext&quot;:{&quot;portalId&quot;:&quot;95627&quot;,&quot;formId&quot;:&quot;ee3402b4-bebe-48ff-870f-7e51695b366d&quot;,&quot;region&quot;:&quot;na1&quot;,&quot;target&quot;:&quot;#hbspt-form-c5130a24-3b0a-4ee5-a933-0664caffedf7&quot;,&quot;isBuilder&quot;:false,&quot;isTestPage&quot;:false,&quot;isPreview&quot;:false,&quot;isMobileResponsive&quot;:true},&quot;correlationId&quot;:&quot;c5130a24-3b0a-4ee5-a933-0664caffedf7&quot;,&quot;renderedFieldsIds&quot;:[&quot;email&quot;],&quot;captchaStatus&quot;:&quot;NOT_APPLICABLE&quot;,&quot;emailResubscribeStatus&quot;:&quot;NOT_APPLICABLE&quot;,&quot;isInsideCrossOriginFrame&quot;:false,&quot;source&quot;:&quot;forms-embed-1.3243&quot;,&quot;sourceName&quot;:&quot;forms-embed&quot;,&quot;sourceVersion&quot;:&quot;1.3243&quot;,&quot;sourceVersionMajor&quot;:&quot;1&quot;,&quot;sourceVersionMinor&quot;:&quot;3243&quot;,&quot;_debug_allPageIds&quot;:{},&quot;_debug_embedLogLines&quot;:[{&quot;clientTimestamp&quot;:1685177939420,&quot;level&quot;:&quot;INFO&quot;,&quot;message&quot;:&quot;Retrieved pageContext values which may be overriden by the embed context: {\&quot;pageTitle\&quot;:\&quot;Beginner Bird Walk | Birds, Cornell Lab of Ornithology\&quot;,\&quot;pageUrl\&quot;:\&quot;https://www.birds.cornell.edu/home/event/beginner-bird-walk-2/2023-05-27/?__hstc=181257784.be32163685d64de8af3236339b100540.1685172002340.1685172002340.1685177625873.2&amp;__hssc=181257784.6.1685177625873&amp;__hsfp=1596690040&amp;_gl=1*esyhvo*_ga*OTQ5Nzg4OTE0LjE2ODUxNzIwMDA.*_ga_QR4NVXZ8BM*MTY4NTE3NzYyNC4yLjEuMTY4NTE3NzkyOS4yNS4wLjA.&amp;_ga=2.77067221.1752550753.1685172000-949788914.1685172000\&quot;,\&quot;referrer\&quot;:\&quot;http://localhost:8080/\&quot;,\&quot;userAgent\&quot;:\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50\&quot;,\&quot;urlParams\&quot;:{\&quot;__hstc\&quot;:\&quot;181257784.be32163685d64de8af3236339b100540.1685172002340.1685172002340.1685177625873.2\&quot;,\&quot;__hssc\&quot;:\&quot;181257784.6.1685177625873\&quot;,\&quot;__hsfp\&quot;:\&quot;1596690040\&quot;,\&quot;_gl\&quot;:\&quot;1*esyhvo*_ga*OTQ5Nzg4OTE0LjE2ODUxNzIwMDA.*_ga_QR4NVXZ8BM*MTY4NTE3NzYyNC4yLjEuMTY4NTE3NzkyOS4yNS4wLjA.\&quot;,\&quot;_ga\&quot;:\&quot;2.77067221.1752550753.1685172000-949788914.1685172000\&quot;},\&quot;isHubSpotCmsGeneratedPage\&quot;:false}&quot;},{&quot;clientTimestamp&quot;:1685177939422,&quot;level&quot;:&quot;INFO&quot;,&quot;message&quot;:&quot;Retrieved countryCode property from normalized embed definition response: \&quot;VN\&quot;&quot;},{&quot;clientTimestamp&quot;:1685177943536,&quot;level&quot;:&quot;INFO&quot;,&quot;message&quot;:&quot;Retrieved analytics values from API response which may be overriden by the embed context: {\&quot;hutk\&quot;:\&quot;b1c34786141bb12cb035702f36aa5205\&quot;}&quot;}]}"><iframe name="target_iframe_ee3402b4-bebe-48ff-870f-7e51695b366d" style="display: none;"></iframe></form></div></p>      </div>
-                        </section>-->
-            <!--            <div class="tribe-events-after-html"></div>-->
+
 
         </main>            
         <!--Footer-->

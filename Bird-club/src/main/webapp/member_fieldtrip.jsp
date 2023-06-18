@@ -93,7 +93,7 @@
                                                 <c:choose>
                                                     <c:when test="${f.getStatus().trim() eq 'pending'}">
                                                         <form action="${pageContext.request.contextPath}/FieldTripParticipantsController" method="POST">
-                                                            <input type="hidden" name="action" value="viewfieldtrip">
+                                                            <input type="hidden" name="action" value="add">
                                                             <input type="hidden" name="UID" value="${users.userId}">
                                                             <c:set var="sessionFID" scope="session" value="${f.getFID()}"/>
                                                             <button type="submit" class="wp-block-button__link wp-element-button">Sign up now!</button>
