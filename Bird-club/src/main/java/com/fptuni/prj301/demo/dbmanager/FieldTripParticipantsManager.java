@@ -39,6 +39,23 @@ public class FieldTripParticipantsManager {
     return false;
 }
 
+    public boolean delete(String docNo) {
+    String sql = "DELETE FROM [FieldTripParticipants] WHERE docNo = ?";
+
+    try (Connection conn = DBUtils.getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        ps.setString(1, docNo);
+
+        int rowsAffected = ps.executeUpdate();
+
+        return rowsAffected > 0;
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return false;
+}
+    
     public static List<String> ExistingFID() {
         List<String> existingFIDs = new ArrayList<>();
         String sql = "SELECT FID FROM [FieldTripParticipants]";

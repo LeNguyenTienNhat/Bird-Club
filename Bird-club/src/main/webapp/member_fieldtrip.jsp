@@ -74,8 +74,14 @@
                                                                                     to <span class="tribe-event-time">${f.getEndDate()}</span>
                                                                                 </time>
                                                                             </div>
+                                                                                <span class="inline-flex items-center px-2.5 py-0.5 font-medium bg-red-100 text-red-800 text-xs rounded-full"> ${f.getStatus()}</span>
                                                                             <h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
-                                                                                <a href="detail.jsp?FID=${f.getFID()}">${f.getName()}</a>
+                                                                                <a href="${pageContext.request.contextPath}/FieldTripParticipantsController?action=view&FID=${f.getFID()}"
+                                                                                   title="${f.getName()}"
+                                                                                   class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
+                                                                                    ${f.getName()}
+                                                                            </a>
+                                                                            <!--${f.getNumberOfParticipant()}-->
 
                                                                             </h3>
                                                                         </header>
@@ -93,7 +99,7 @@
                                                 <c:choose>
                                                     <c:when test="${f.getStatus().trim() eq 'pending'}">
                                                         <form action="${pageContext.request.contextPath}/FieldTripParticipantsController" method="POST">
-                                                            <input type="hidden" name="action" value="add">
+                                                            <input type="hidden" name="action" value="viewfieldtrip">
                                                             <input type="hidden" name="UID" value="${users.userId}">
                                                             <c:set var="sessionFID" scope="session" value="${f.getFID()}"/>
                                                             <button type="submit" class="wp-block-button__link wp-element-button">Sign up now!</button>

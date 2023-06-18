@@ -7,16 +7,22 @@ package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.FieldTripParticipantsManager;
 import com.fptuni.prj301.demo.dbmanager.FieldtripManager;
+import com.fptuni.prj301.demo.dbmanager.TransactionManager;
 import com.fptuni.prj301.demo.model.FieldTripParticipants;
 import com.fptuni.prj301.demo.model.Fieldtrip;
+import com.fptuni.prj301.demo.model.Transaction;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import tool.utils.UIDGenerator;
 
 /**
@@ -44,23 +50,83 @@ public class FieldTripParticipantsController extends HttpServlet {
             String fid = request.getParameter("Fid");
             String uid = request.getParameter("uid");
             String docNo = UIDGenerator.generateDocF();
-         
+            HttpSession ss = request.getSession(true);
             // Create a new Tparticipation object with the provided parameters
             FieldTripParticipants fieldTripParticipants = new FieldTripParticipants();
             fieldTripParticipants.setFid(fid);
             fieldTripParticipants.setUid(uid);
             fieldTripParticipants.setDocNo(docNo);
-
             // Insert the Tparticipation object into the database
             FieldTripParticipantsManager fieldTripParticipantsManager = new FieldTripParticipantsManager();
             boolean success = fieldTripParticipantsManager.insert(fieldTripParticipants);
 
             if (success) {
                 // Redirect to a success page
+                request.setAttribute("docF", docNo);
+                ss.setAttribute("docF", docNo);
                 response.sendRedirect(request.getContextPath() + "/index.jsp");
             } else {
                 // Redirect to a failure page
                 response.sendRedirect(request.getContextPath() + "/failure.jsp");
+            }
+        }else if (action.equals("view")) {
+            // Retrieve the Tparticipation object from the database based on the provided parameters (e.g., docNo)
+            String fid = request.getParameter("FID");
+            FieldtripManager fieldtripManager = new FieldtripManager();
+             Fieldtrip fieldtrip = fieldtripManager.getFieldTripById(fid);
+
+            if (fieldtrip != null) {
+                // Store the Tparticipation object in request scope
+                request.setAttribute("fieldtrip", fieldtrip);
+
+                // Forward the request to the view page
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/member_fieldtrip_details.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                // Redirect to a failure page
+                response.sendRedirect(request.getContextPath() + "/vnpay_pay.jsp");
+            }
+        }
+        if (action != null && action.equals("delete")) {
+             String docNoToDelete = request.getParameter("docF");
+
+            if (docNoToDelete != null) {
+                FieldTripParticipantsManager eventsManager = new FieldTripParticipantsManager();
+                boolean deletionSuccess = eventsManager.delete(docNoToDelete);
+
+                if (deletionSuccess) {
+                    // Deletion successful, redirect to a success page
+                    response.sendRedirect(request.getContextPath() + "/member_homepage.jsp");
+                } else {
+                    // Deletion failed, redirect to a failure page
+                    response.sendRedirect(request.getContextPath() + "/failure.jsp");
+                }
+            } else {
+                // Missing docT attribute, redirect to a failure page
+                response.sendRedirect(request.getContextPath() + "/failure.jsp");
+            }
+        }
+         if (action != null && action.equals("save")) {
+            String PID = UIDGenerator.generatePID();
+            BigDecimal amount1 = new BigDecimal(request.getParameter("amount")).multiply(BigDecimal.valueOf(100));
+            String uid = request.getParameter("UID");
+            String TT = request.getParameter("TT");
+            String doc = request.getParameter("docF");
+
+            Transaction transaction = new Transaction();
+            transaction.setPID(PID);
+            transaction.setUID(uid);
+            transaction.setValue(amount1); // Set the value
+            transaction.setPaymentDate(new Date()); // Set the payment date
+            transaction.setTransactionType(TT); // Set the transaction type
+            transaction.setDocNo(doc); // Set the DocNo
+
+            TransactionManager transactionManager = new TransactionManager();
+            boolean insertionSuccess = transactionManager.insertTransaction(transaction);
+            if (insertionSuccess) {
+                request.setAttribute("successMessage", "Transaction saved successfully");
+                request.getRequestDispatcher("/vnpay_pay.jsp").forward(request, response);
+                return;
             }
         }
     }
