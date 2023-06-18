@@ -7,11 +7,14 @@ package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.MeetingManager;
 import com.fptuni.prj301.demo.dbmanager.MeetingParticipantsManager;
+import com.fptuni.prj301.demo.dbmanager.TournamentManager;
 import com.fptuni.prj301.demo.model.Meeting;
 import com.fptuni.prj301.demo.model.MeetingParticipants;
+import com.fptuni.prj301.demo.model.Tournament;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -57,6 +60,23 @@ public class MeetingParticipantsController extends HttpServlet {
             if (success) {
                 // Redirect to a success page
                 response.sendRedirect(request.getContextPath() + "/member_meeting_details.jsp");
+            } else {
+                // Redirect to a failure page
+                response.sendRedirect(request.getContextPath() + "/failure.jsp");
+            }
+        }else if (action.equals("view")) {
+            // Retrieve the Tparticipation object from the database based on the provided parameters (e.g., docNo)
+            String meid = request.getParameter("MeID");
+            MeetingManager mparticipationManager = new  MeetingManager();
+             Meeting meeting = mparticipationManager.getMeetingById(meid);
+
+            if (meeting != null) {
+                // Store the Tparticipation object in request scope
+                request.setAttribute("meeting", meeting);
+
+                // Forward the request to the view pagemember_tournament_details
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/member_meeting_details.jsp");
+                dispatcher.forward(request, response);
             } else {
                 // Redirect to a failure page
                 response.sendRedirect(request.getContextPath() + "/failure.jsp");

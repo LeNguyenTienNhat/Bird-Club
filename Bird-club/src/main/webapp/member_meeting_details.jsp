@@ -1,30 +1,24 @@
 <%-- 
-    Document   : member_meeting_details
-    Created on : Jun 4, 2023, 2:48:46 PM
+    Document   : member_fieldtrip_details
+    Created on : Jun 4, 2023, 2:51:03 PM
     Author     : Tue
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html class="no-js"  lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
-
     <head>
-
         <meta charset="utf-8">
-
         <!-- Force IE to use the latest rendering engine available -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
         <!-- Mobile Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta class="foundation-mq">
-
-        <!-- If Site Icon isn't set in customizer -->
-        <!-- Icons & Favicons -->
         <link rel="icon" href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/favicon.png">
         <link href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/images/apple-icon-touch.png" rel="apple-touch-icon" />	
 
-        <title>Events - Meeting</title>
+        <title>Events - Field trips</title>
         <meta name='robots' content='max-image-preview:large' />
         <link rel='dns-prefetch' href='//www.birds.cornell.edu' />
         <link rel='dns-prefetch' href='//code.jquery.com' />
@@ -55,7 +49,6 @@
         <link rel="alternate" type="text/xml+oembed" href="https://www.birds.cornell.edu/home/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.birds.cornell.edu%2Fhome%2Fvisit%2Fevents%2F&#038;format=xml" />
         <meta name="google-site-verification" content="IGsvze-ViQg5tZuvTMIK4uTycXsQsaApdSmVuW0DhVg" />
 
-        <!-- Google Tag Manager -->
         <script>(function (w, d, s, l, i) {
                 w[l] = w[l] || [];
                 w[l].push({'gtm.start':
@@ -86,62 +79,18 @@
                 transition-delay: 0ms;
             }
         </style>
-
-        <!-- START - Open Graph and Twitter Card Tags 3.2.0 -->
-        <!-- Facebook Open Graph -->
-        <meta property="og:locale" content="en_US"/>
-        <meta property="og:site_name" content="Birds, Cornell Lab of Ornithology"/>
-        <meta property="og:title" content="Events"/>
-        <meta property="og:url" content="https://www.birds.cornell.edu/home/visit/events/"/>
-        <meta property="og:type" content="article"/>
-        <meta property="og:description" content="The Cornell Lab of Ornithology offers a variety of programs and events for visitors of all ages. Please see our events calendar (below) or call 1-800-843-BIRD for more information.
-
-
-
-              Virtual Programs
-              Virtual programs include free webinars and family programs and expert-led paid workshops. Check the"/>
-        <meta property="og:image" content="https://www.birds.cornell.edu/home/wp-content/uploads/2018/11/observatory.jpg"/>
-        <meta property="og:image:url" content="https://www.birds.cornell.edu/home/wp-content/uploads/2018/11/observatory.jpg"/>
-        <meta property="og:image:secure_url" content="https://www.birds.cornell.edu/home/wp-content/uploads/2018/11/observatory.jpg"/>
-        <meta property="article:publisher" content="https://www.facebook.com/cornellbirds"/>
-        <!-- Google+ / Schema.org -->
-        <meta itemprop="name" content="Events"/>
-        <meta itemprop="headline" content="Events"/>
-        <meta itemprop="description" content="The Cornell Lab of Ornithology offers a variety of programs and events for visitors of all ages. Please see our events calendar (below) or call 1-800-843-BIRD for more information.
-
-
-
-              Virtual Programs
-              Virtual programs include free webinars and family programs and expert-led paid workshops. Check the"/>
-        <meta itemprop="image" content="https://www.birds.cornell.edu/home/wp-content/uploads/2018/11/observatory.jpg"/>
-        <meta itemprop="author" content="bce_admin_user"/>
-        <!--<meta itemprop="publisher" content="Birds, Cornell Lab of Ornithology"/>--> <!-- To solve: The attribute publisher.itemtype has an invalid value -->
-        <!-- Twitter Cards -->
-        <meta name="twitter:title" content="Events"/>
-        <meta name="twitter:url" content="https://www.birds.cornell.edu/home/visit/events/"/>
-        <meta name="twitter:description" content="The Cornell Lab of Ornithology offers a variety of programs and events for visitors of all ages. Please see our events calendar (below) or call 1-800-843-BIRD for more information.
-
-
-
-              Virtual Programs
-              Virtual programs include free webinars and family programs and expert-led paid workshops. Check the"/>
-        <meta name="twitter:image" content="https://www.birds.cornell.edu/home/wp-content/uploads/2018/11/observatory.jpg"/>
-        <meta name="twitter:card" content="summary_large_image"/>
-        <meta name="twitter:site" content="@cornellbirds"/>
-        <!-- SEO -->
-        <!-- Misc. tags -->
-        <!-- is_singular -->
-        <!-- END - Open Graph and Twitter Card Tags 3.2.0 -->
-
-
     </head>
 
 
-    <body class="page-template-default page page-id-1248 page-child parent-pageid-1229 wp-embed-responsive theme-green nav-column tribe-no-js">
 
+    <body class="page-template-default page page-id-1248 page-child parent-pageid-1229 wp-embed-responsive theme-green nav-column tribe-no-js">
+        <!--Header-->
         <%@ include file="member_header.jsp" %> 
 
         <main id="tribe-events-pg-template" class="tribe-events-pg-template"><div class="tribe-events-before-html"></div><span class="tribe-events-ajax-loading"><img alt="Loading Events" data-src="https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/src/resources/images/tribe-loading.gif" class="tribe-events-spinner-medium lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img class="tribe-events-spinner-medium" src="https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/src/resources/images/tribe-loading.gif" alt="Loading Events" /></noscript></span>
+
+
+
 
 
             <article id="article" class="post-10000630 tribe_events type-tribe_events status-publish hentry tribe_events_cat-beginner-bird-walks cat_beginner-bird-walks tribe-recurring-event tribe-recurring-event-parent">
@@ -152,25 +101,16 @@
 
                         <div id="tribe-events-content" class="tribe-events-single tribe-blocks-editor">
 
-                            <h1 class="tribe-events-single-event-title">Red-Whiskered Bulbul conference</h1>            
+                            <h1 class="tribe-events-single-event-title">${meeting.getName()}</h1> 
+
 
                             <div class="tribe-events-schedule tribe-clearfix">
                                 <h2 class="tribe-events-schedule__datetime">
                                     <span class="tribe-events-schedule__date tribe-events-schedule__date--start">
-                                        May 27		</span>
-
-                                    <span class="tribe-events-schedule__separator tribe-events-schedule__separator--date">
-                                        at 			</span>
-                                    <span class="tribe-events-schedule__time tribe-events-schedule__time--start">
-                                        8:30 am			</span>
-
-                                    <span class="tribe-events-schedule__separator tribe-events-schedule__separator--time">
-                                        –				</span>
-
-                                    <span class="tribe-events-schedule__time tribe-events-schedule__time--end">
-                                        10:00 am				</span>
+                                        ${meeting.getStartDate()} - ${meeting.getEndDate()}</span>
 
                                 </h2>
+
                             </div>
 
 
@@ -181,113 +121,112 @@
                                         <img src="https://cdn.shopify.com/s/files/1/0020/1926/2510/products/red-whiskered-bulbul-2_1200x1200.jpg?v=1551037285">
                                     </figure>
                                     <br>
-                                    <p>Join us for an evening of bird-filled poetic piano pop from Sparkbird, the musical project of queer singer-songwriter Stephan Nance. This concert will be INTERACTIVE – win swag from Sparkbird by playing BIRD BINGO while you listen! Learn more at Sparkbird is the musical project of queer singer-songwriter Stephan Nance, whose performing credits include multiple tours in Japan and Europe. Their album Look at the Harlequins! attracted the attention of Birding Magazine and the National Audubon Society with its references to 21 species of birds.
-Stephan lives in Portland, Oregon, with their partner Adam, along with a 13-year-old Senegal parrot named Georgie, and a 42-year-old Yellow-naped parrot named Fred. Stephan is currently working on their next album and a very birdy young adult novel set in Eastern Oregon.
 
-+ GOOGLE CALENDAR+ ICAL EXPORT
-                                    </p>
-
-
-
+                                    <dt>Focus</dt>${meeting.getDescription()}
 
                                     <div class="is-layout-flex wp-block-buttons"></div>
 
-
-                                    <h2>Location</h2>
-                                    <div class="tribe-block tribe-block__venue tribe-block__venue--has-map">
-
-
-                                        <div class="tribe-block__venue__meta">
-                                            <div class="tribe-block__venue__name">
-                                                <h3>FPT University, Ho Chi Minh City Campus</h3>
-                                            </div>
-
-
-                                            <address class="tribe-block__venue__address">
-                                                <span class="tribe-address">
-
-                                                    <span class="tribe-street-address">003 High Tech Road</span>
-
-                                                    <br>
-
-                                                </span>
-
-                                                <a class="tribe-events-gmap" href="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=159+Sapsucker+Woods+Road+Ithaca+NY+14850+United+States" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">+ Google Map</a>					</address>
-
-
-
-                                        </div>
-
-                                        <div class="tribe-block__venue__map">
-
-                                            <iframe aria-label="Venue location map" width="100%" height="350px" frameborder="0" style="border:0" allowfullscreen="" data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDNsicAsP6-VuGtAb1O9riI3oc_NOb7IOU&amp;q=159+Sapsucker+Woods+Road+Ithaca+NY+NY+14850+United+States+" class=" lazyloaded" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" title="View location in Google Maps">
-                                            </iframe></div>
-
-                                    </div>
                                 </div>
 
 
 
-                                <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%">
-
+                                <div class="is-layout-flow wp-block-column" style="flex-basis:50%">
                                     <div class="tribe-events-single-section tribe-events-event-meta primary tribe-clearfix">
-
-
                                         <div class="tribe-events-meta-group tribe-events-meta-group-details">
-                                            <h3 class="tribe-events-single-section-title">
-                                                Details		
-                                            </h3>
+                                            <h3 class="tribe-events-single-section-title">Details</h3>
                                             <dl>
+                                                <style>
+                                                    .row {
+                                                        display: grid;
+                                                        grid-template-columns: 1fr 1fr;
+                                                        grid-gap: 10px;
+                                                        margin-bottom: 10px;
+                                                    }
 
+                                                    dt, dd {
+                                                        padding: 5px;
 
-                                                <dt> Date: </dt>
-                                                <dd>
-                                                    <abbr class="tribe-events-abbr tribe-events-start-date published dtstart" title="2023-05-27"> May 27 </abbr>
+                                                    }
+                                                </style>                                                
                                                 </dd>
-
-                                                <dt> Time: </dt>
-                                                <dd>
-                                                    <div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
-                                                        <div class="tribe-recurring-event-time">8:30 am–10:00 am</div>									</div>
+                                                <div class="row">
+                                                    <dt> Participant </dt>
+                                                    <dd ><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" > ${meeting.getNumberOfParticipant()}</abbr>
+                                                    </dd>
+                                                </div>
+                                                    <div class="row">
+                                                <dt> Start </dt>
+                                                <dd><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" title="2023-05-27"> ${meeting.getStartDate()}</abbr>
                                                 </dd>
+                                                    </div>
+                                                <div class="row">
+                                                <dt> End </dt>
+                                                <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
+                                                        <div class="tribe-recurring-event-time">${meeting.getEndDate()}</div>
+                                                </dd>
+                                                </div>
+                                                 <div class="row">
+                                                <dt > Registration Deadline </dt>
+                                                <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
+                                                        <div class="tribe-recurring-event-time">${meeting.getRegistrationDeadline()}</div>
+                                                </dd>
+                                                 </div>                                                                                                                    
+                                                <div class="row">
+                                                    <dt>Location:</dt>
+                                                    <div  class=" tribe-block tribe-block__venue tribe-block__venue--has-map">
+                                                        <div class="tribe-block__venue__meta">
+                                                            <div class="tribe-block__venue__name">
+                                                                <dd><dd></div>
+                                                            <address class="tribe-block__venue__address">
+                                                                <span class="tribe-address">
+                                                                    <span class="tribe-street-address"></span><br></span>
+                                                        </div>
+                                                        <!--<a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>-->
+                                                    </div>	
+                                                </div> 
+                                                 <a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>
 
-
-
-                                                <dt>Category:</dt>Meeting
-                                                
-                                            <div class="is-content-justification-center is-layout-flex wp-container-1 wp-block-buttons">
-                                                <div class="wp-block-button"><a class="wp-block-button__link has-orange-background-color has-background" href="member_meeting_register.jsp">Register Meeting</a></div>
-                                            </div>
-                                                
-                                                <script>
-                                                // Lấy tham số "registerSuccess" từ URL
-                                                const urlParams = new URLSearchParams(window.location.search);
-                                                const registerSuccess = urlParams.get('registerSuccess');
-
-                                                // Kiểm tra nếu có tham số "registerSuccess" và giá trị là "true"
-                                                if (registerSuccess === 'true') {
-                                                    // Thay thế nút "Join field trip" bằng dòng chữ "Register success"
-                                                    const joinFieldTripButton = document.querySelector('.wp-block-button__link');
-                                                    joinFieldTripButton.textContent = 'Register success';
-                                                    joinFieldTripButton.removeAttribute('href');
-                                                }
-                                            </script>
-
-                                            </dl>
                                         </div>
+                                        </dl>
+                                        <div class="is-content-justification-center is-layout-flex wp-container-1 wp-block-buttons">
+                                            <div class="wp-block-button">
+                                                <c:choose>
+                                                    <c:when test="${meeting.getStatus().trim() eq 'pending'}">
+                                                        <form action="${pageContext.request.contextPath}/MeetingParticipantsController?registerSuccess=true" method="POST">
+                                                            <input type="hidden" name="action" value="viewmeeting">
+                                                            <input type="hidden" name="UID" value="${users.userId}">
+                                                            <input type="hidden" name="MeID" value="${m.getMeID()}">
+                                                            <button type="submit" class="wp-block-button__link has-orange-background-color has-background">Join Meeting</button>
+                                                        </form>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <form action="${pageContext.request.contextPath}/StaffAccountMTController" method="GET">
+                                                            <input type="hidden" name="action" value="viewmeeting">
+                                                            <button type="submit" class="wp-block-button__link has-blue-background-color has-background">Return</button>
+                                                        </form>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            // Lấy tham số "registerSuccess" từ URL
+                                            const urlParams = new URLSearchParams(window.location.search);
+                                            const registerSuccess = urlParams.get('registerSuccess');
 
+                                            // Kiểm tra nếu có tham số "registerSuccess" và giá trị là "true"
+                                            if (registerSuccess === 'true') {
+                                                // Thay thế nút "Join field trip" bằng dòng chữ "Register success"
+                                                const joinFieldTripButton = document.querySelector('.wp-block-button__link');
+                                                joinFieldTripButton.textContent = 'Register success';
+                                                joinFieldTripButton.removeAttribute('href');
+                                            }
+                                        </script>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                </div>
 
-                        <div id="tribe-events-footer">
-                            <h3 class="tribe-events-visuallyhidden">Event Navigation</h3>
-                            <ul class="tribe-events-sub-nav">
-                                <li class="tribe-events-nav-previous"><a href="https://www.birds.cornell.edu/home/event/beginner-bird-walk-2/2023-05-21/"><span>«</span> Beginner Bird Walk</a></li>
-                                <li class="tribe-events-nav-next"><a href="https://www.birds.cornell.edu/home/event/beginner-bird-walk-2/2023-05-28/">Beginner Bird Walk <span>»</span></a></li>
-                            </ul>
-                        </div>
                 </div>
 
                 </section> 
@@ -297,22 +236,9 @@ Stephan lives in Portland, Oregon, with their partner Adam, along with a 13-year
             </article>
 
 
-            <section id="global-cta" aria-label="Call to action" class="global-cta">
-                <div class="wp-block-group cta">
-
-                    <h2>Don't miss a thing! Join our email list</h2>
-                    <script data-hubspot-rendered="true">hbspt.forms.create({portalId: "95627", formId: "ee3402b4-bebe-48ff-870f-7e51695b366d"});</script>
-                    <div id="hbspt-form-c5130a24-3b0a-4ee5-a933-0664caffedf7" class="hbspt-form" data-hs-forms-root="true">
-                        <form id="hsForm_ee3402b4-bebe-48ff-870f-7e51695b366d" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="" action="https://forms.hsforms.com/submissions/v3/public/submit/formsnext/multipart/95627/ee3402b4-bebe-48ff-870f-7e51695b366d" class="hs-form-private hsForm_ee3402b4-bebe-48ff-870f-7e51695b366d hs-form-ee3402b4-bebe-48ff-870f-7e51695b366d hs-form-ee3402b4-bebe-48ff-870f-7e51695b366d_c5130a24-3b0a-4ee5-a933-0664caffedf7 hs-form stacked" target="target_iframe_ee3402b4-bebe-48ff-870f-7e51695b366d" data-instance-id="c5130a24-3b0a-4ee5-a933-0664caffedf7" data-form-id="ee3402b4-bebe-48ff-870f-7e51695b366d" data-portal-id="95627"><div class="hs_email hs-email hs-fieldtype-text field hs-form-field"><label id="label-email-ee3402b4-bebe-48ff-870f-7e51695b366d" class="" placeholder="Enter your Email Address" for="email-ee3402b4-bebe-48ff-870f-7e51695b366d"><span>Email Address</span><span class="hs-form-required">*</span></label><legend class="hs-field-desc" style="display: none;"></legend>
-                                <div class="input"><input id="email-ee3402b4-bebe-48ff-870f-7e51695b366d" name="email" required="" placeholder="Enter your email" type="email" class="hs-input" inputmode="email" autocomplete="email" value=""></div></div><div class="hs_submit hs-submit"><div class="hs-field-desc" style="display: none;"></div>
-                                <div class="actions"><input type="submit" class="hs-button primary large" value="Subscribe"></div></div>
-                            <input name="hs_context" type="hidden" value="{&quot;embedAtTimestamp&quot;:&quot;1685177938503&quot;,&quot;formDefinitionUpdatedAt&quot;:&quot;1672780155224&quot;,&quot;disableCookieSubmission&quot;:&quot;true&quot;,&quot;renderRawHtml&quot;:&quot;true&quot;,&quot;isLegacyThemeAllowed&quot;:&quot;true&quot;,&quot;userAgent&quot;:&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50&quot;,&quot;pageTitle&quot;:&quot;Beginner Bird Walk | Birds, Cornell Lab of Ornithology&quot;,&quot;pageUrl&quot;:&quot;https://www.birds.cornell.edu/home/event/beginner-bird-walk-2/2023-05-27/?__hstc=181257784.be32163685d64de8af3236339b100540.1685172002340.1685172002340.1685177625873.2&amp;__hssc=181257784.6.1685177625873&amp;__hsfp=1596690040&amp;_gl=1*esyhvo*_ga*OTQ5Nzg4OTE0LjE2ODUxNzIwMDA.*_ga_QR4NVXZ8BM*MTY4NTE3NzYyNC4yLjEuMTY4NTE3NzkyOS4yNS4wLjA.&amp;_ga=2.77067221.1752550753.1685172000-949788914.1685172000&quot;,&quot;referrer&quot;:&quot;http://localhost:8080/&quot;,&quot;urlParams&quot;:{&quot;__hstc&quot;:&quot;181257784.be32163685d64de8af3236339b100540.1685172002340.1685172002340.1685177625873.2&quot;,&quot;__hssc&quot;:&quot;181257784.6.1685177625873&quot;,&quot;__hsfp&quot;:&quot;1596690040&quot;,&quot;_gl&quot;:&quot;1*esyhvo*_ga*OTQ5Nzg4OTE0LjE2ODUxNzIwMDA.*_ga_QR4NVXZ8BM*MTY4NTE3NzYyNC4yLjEuMTY4NTE3NzkyOS4yNS4wLjA.&quot;,&quot;_ga&quot;:&quot;2.77067221.1752550753.1685172000-949788914.1685172000&quot;},&quot;isHubSpotCmsGeneratedPage&quot;:false,&quot;hutk&quot;:&quot;b1c34786141bb12cb035702f36aa5205&quot;,&quot;__hsfp&quot;:1596690040,&quot;__hssc&quot;:&quot;161696355.2.1685177901406&quot;,&quot;__hstc&quot;:&quot;161696355.b1c34786141bb12cb035702f36aa5205.1685177901405.1685177901405.1685177901405.1&quot;,&quot;formTarget&quot;:&quot;#hbspt-form-c5130a24-3b0a-4ee5-a933-0664caffedf7&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;timestamp&quot;:1685177943543,&quot;originalEmbedContext&quot;:{&quot;portalId&quot;:&quot;95627&quot;,&quot;formId&quot;:&quot;ee3402b4-bebe-48ff-870f-7e51695b366d&quot;,&quot;region&quot;:&quot;na1&quot;,&quot;target&quot;:&quot;#hbspt-form-c5130a24-3b0a-4ee5-a933-0664caffedf7&quot;,&quot;isBuilder&quot;:false,&quot;isTestPage&quot;:false,&quot;isPreview&quot;:false,&quot;isMobileResponsive&quot;:true},&quot;correlationId&quot;:&quot;c5130a24-3b0a-4ee5-a933-0664caffedf7&quot;,&quot;renderedFieldsIds&quot;:[&quot;email&quot;],&quot;captchaStatus&quot;:&quot;NOT_APPLICABLE&quot;,&quot;emailResubscribeStatus&quot;:&quot;NOT_APPLICABLE&quot;,&quot;isInsideCrossOriginFrame&quot;:false,&quot;source&quot;:&quot;forms-embed-1.3243&quot;,&quot;sourceName&quot;:&quot;forms-embed&quot;,&quot;sourceVersion&quot;:&quot;1.3243&quot;,&quot;sourceVersionMajor&quot;:&quot;1&quot;,&quot;sourceVersionMinor&quot;:&quot;3243&quot;,&quot;_debug_allPageIds&quot;:{},&quot;_debug_embedLogLines&quot;:[{&quot;clientTimestamp&quot;:1685177939420,&quot;level&quot;:&quot;INFO&quot;,&quot;message&quot;:&quot;Retrieved pageContext values which may be overriden by the embed context: {\&quot;pageTitle\&quot;:\&quot;Beginner Bird Walk | Birds, Cornell Lab of Ornithology\&quot;,\&quot;pageUrl\&quot;:\&quot;https://www.birds.cornell.edu/home/event/beginner-bird-walk-2/2023-05-27/?__hstc=181257784.be32163685d64de8af3236339b100540.1685172002340.1685172002340.1685177625873.2&amp;__hssc=181257784.6.1685177625873&amp;__hsfp=1596690040&amp;_gl=1*esyhvo*_ga*OTQ5Nzg4OTE0LjE2ODUxNzIwMDA.*_ga_QR4NVXZ8BM*MTY4NTE3NzYyNC4yLjEuMTY4NTE3NzkyOS4yNS4wLjA.&amp;_ga=2.77067221.1752550753.1685172000-949788914.1685172000\&quot;,\&quot;referrer\&quot;:\&quot;http://localhost:8080/\&quot;,\&quot;userAgent\&quot;:\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.50\&quot;,\&quot;urlParams\&quot;:{\&quot;__hstc\&quot;:\&quot;181257784.be32163685d64de8af3236339b100540.1685172002340.1685172002340.1685177625873.2\&quot;,\&quot;__hssc\&quot;:\&quot;181257784.6.1685177625873\&quot;,\&quot;__hsfp\&quot;:\&quot;1596690040\&quot;,\&quot;_gl\&quot;:\&quot;1*esyhvo*_ga*OTQ5Nzg4OTE0LjE2ODUxNzIwMDA.*_ga_QR4NVXZ8BM*MTY4NTE3NzYyNC4yLjEuMTY4NTE3NzkyOS4yNS4wLjA.\&quot;,\&quot;_ga\&quot;:\&quot;2.77067221.1752550753.1685172000-949788914.1685172000\&quot;},\&quot;isHubSpotCmsGeneratedPage\&quot;:false}&quot;},{&quot;clientTimestamp&quot;:1685177939422,&quot;level&quot;:&quot;INFO&quot;,&quot;message&quot;:&quot;Retrieved countryCode property from normalized embed definition response: \&quot;VN\&quot;&quot;},{&quot;clientTimestamp&quot;:1685177943536,&quot;level&quot;:&quot;INFO&quot;,&quot;message&quot;:&quot;Retrieved analytics values from API response which may be overriden by the embed context: {\&quot;hutk\&quot;:\&quot;b1c34786141bb12cb035702f36aa5205\&quot;}&quot;}]}"><iframe name="target_iframe_ee3402b4-bebe-48ff-870f-7e51695b366d" style="display: none;"></iframe></form></div></p>      </div>
-            </section>
-            <div class="tribe-events-after-html"></div>
-
         </main>            
-
-   <%@ include file="member_footer.jsp" %>
+        <!--Footer-->
+        <%@ include file="member_footer.jsp" %>
 
 
         <!-- BEGIN Search modal -->
@@ -552,4 +478,4 @@ Stephan lives in Portland, Oregon, with their partner Adam, along with a 13-year
             @media only screen and (max-width: 400px){ .hustle-ui.hustle_module_id_13[data-id="13"] h2 span{font-size: 12px;} }</style>		
     </body><!-- end body from header.php -->
 
-</html><!-- end html from header.php -->
+</html>

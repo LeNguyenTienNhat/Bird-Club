@@ -25,6 +25,24 @@
             .wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
             :where(.wp-block-columns.is-layout-flex){gap: 2em;}
             .wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+            .event-wrapper {
+                display: flex;
+                align-items: center;
+            }
+
+            .tribe-events-calendar-list__event-details {
+                flex: 1;
+                /* Existing styles for the event details div */
+            }
+
+            .image-container {
+                margin-left: 20px; /* Adjust this value to set the desired spacing between the div and the image */
+            }
+
+            .image-container img {
+                max-width: 100%; /* Ensure the image does not exceed its container's width */
+                height: 300px; /* Maintain the image's aspect ratio */
+            }
         </style>
         <link rel='stylesheet' id='contact-form-7-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.7.2' type='text/css' media='all' />
         <link rel='stylesheet' id='bp-site-css-css' href='https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/styles/style.css?ver=1678365708' type='text/css' media='all' />
@@ -43,123 +61,160 @@
     <body class="page-template-default page page-id-1229 page-parent wp-embed-responsive theme-green nav-column tribe-no-js">
         <%@ include file="member_header.jsp" %> 
         <h2 class="has-text-align-center has-large-font-size">Meeting List:</h2>
+
         <main id="main-content" class="page has-hero">
             <article id="article" class="post-1229 page type-page status-publish has-post-thumbnail hentry">
 
                 <div class="content-container page-wide has-cta" data-sticky-container>             
-                    <section id="content" class="content" aria-label="Main content">         
+                    <section id="content" class="content" aria-label="Main content">     
+                        <style>
+                            .tribe-events-calendar-list__event-title span.tribe-event-date-start {
+  /* CSS properties for the status */
+  font-weight: bold;
+  color: #ff0000; /* Replace with your desired color */
+}
 
+/* Target the "Sign up now!" and "View Results" buttons */
+.wp-block-button__link.wp-element-button {
+  /* CSS properties for the buttons */
+  background-color: #007bff; /* Replace with your desired color */
+  color: #ffffff; /* Replace with your desired color */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.wp-block-button__link.wp-element-button:hover {
+  /* CSS properties for the button hover state */
+  background-color: #0056b3; /* Replace with your desired color */
+}
+/*You can add the above CSS code to your existing CSS file or include it in a <style> block within your HTML file. Adjust the colors and other properties as needed to match your desired styling.*/
+
+.tribe-events-calendar-list__event-title span.tribe-event-date-start[status="formClosed"] {
+  font-weight: bold;
+  color: red;
+}
+
+/* Status: finish (Green) */
+.tribe-events-calendar-list__event-title span.tribe-event-date-start[status="finish"] {
+  font-weight: bold;
+  color: green;
+}
+
+/* Status: ongoing (Cyan) */
+.tribe-events-calendar-list__event-title span.tribe-event-date-start[status="ongoing"] {
+  font-weight: bold;
+  color: cyan;
+}
+
+/* Status: pending (Gray) */
+.tribe-events-calendar-list__event-title span.tribe-event-date-start[status="pending"] {
+  font-weight: bold;
+  color: gray;
+}
+
+/* Button Styles */
+.wp-block-button__link.wp-element-button {
+  /* CSS properties for the buttons */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.wp-block-button__link.wp-element-button:hover {
+  /* CSS properties for the button hover state */
+  opacity: 0.8;
+}
+
+
+
+
+
+                            </style>
                         <table>
-                            <c:if test="${not empty meetingsList}">
-                                <c:forEach var="m" items="${meetingsList}">
-                                    <tr>
-                                        <td>
-                                            <div class="tribe-events-calendar-list">
-                                                <h2 class="tribe-events-calendar-list__month-separator">
-                                                </h2>
-                                                <div class="tribe-events-calendar-list__event-wrapper tribe-common-g-col">
-                                                    <article class="tribe-events-calendar-list__event tribe-common-g-row tribe-common-g-row--gutters post-10000630 tribe_events type-tribe_events status-publish hentry tribe_events_cat-beginner-bird-walks cat_beginner-bird-walks tribe-recurring-event tribe-recurring-event-parent">
-                                                        <div class="event-wrapper">
-                                                            <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
-                                                                <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
-                                                                    <header class="tribe-events-calendar-list__event-header">
-                                                                        <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2">
-                                                                            <time class="tribe-events-calendar-list__event-datetime" datetime="2023-05-27">
-                                                                                <span class="tribe-event-date-start">${m.getStartDate()}</span>
-                                                                                to <span class="tribe-event-time">${m.getEndDate()}</span>
-                                                                            </time>
-                                                                        </div>
-                                                                        <h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
-                                                                            <a href="detail.jsp?MeID=${m.getMeID()}">${m.getName()}</a>
-
-                                                                        </h3>
-                                                                    </header>
-                                                                    <div class="tribe-events-calendar-list__event-description tribe-common-b2 tribe-common-a11y-hidden">
-                                                                        <p>${m.getDescription()}</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </article>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <c:choose>
-                                                <c:when test="${m.getStatus().trim() eq 'pending'}">
-                                                    <form action="${pageContext.request.contextPath}/MeetingParticipantsController?registerSuccess=true" method="POST">
-                                                        <input type="hidden" name="action" value="viewmeeting">
-                                                        <input type="hidden" name="UID" value="${users.userId}">
-                                                        <c:set var="sessionMeID" scope="session" value="${m.getMeID()}"/>
-                                                        <button type="submit" class="wp-block-button__link wp-element-button">Sign up now!</button>
-                                                    </form>
-                                                </c:when>
-                                                <c:when test="${m.getStatus().trim() eq 'finished'}">
-                                                    <form action="${pageContext.request.contextPath}/MeetingParticipantsController?registerSuccess=true" method="POST">
-                                                        <input type="hidden" name="action" value="result">
-                                                        <input type="hidden" name="UID" value="${users.userId}">
-                                                        <button type="submit" class="wp-block-button__link wp-element-button">View Results</button>
-                                                    </form>
-                                                </c:when>
-                                            </c:choose>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-                            </c:if>
-                        </table>
-
-                        <!--                                                    <table>
-                                                                                <tr>
-                                                                                    <td>meeting</td>
-                                                                                    <td>start </td>
-                                                                                    <td>end</td>
-                        
-                                                                                </tr>
-                        <c:if test="${empty meetingsList}">
-                            <div >
-                                <p>No meeting found.</p>
-                            </div>
-                        </c:if>
-
-                        <c:if test="${not empty meetingsList}">
-                            <c:forEach var="m" items="${meetingsList}">
-                                <tr>
-                                    <td><a href="detail.jsp?MeID=${m.getMeID()}">${m.getName()}</a></td>
-                                    <td>${m.getStartDate()}</td>
-                                    <td>${m.getEndDate()}</td>
-                                    
-                                    <td>
-                                <c:choose>
-                                    <c:when test="${m.getStatus().trim() eq 'pending'}">
-                                        <form action="${pageContext.request.contextPath}/MeetingParticipantsController?registerSuccess=true" method="POST">
-                                            <input type="hidden" name="action" value="viewmeeting">
-                                            <input type="hidden" name="UID" value="${users.userId}">
-                                        <c:set var="sessionMeID" scope="session" value="${m.getMeID()}"/>
-                                         <button type="submit" class="wp-block-button__link wp-element-button">Sign up now!</button>
-                                     </form>
-                                    </c:when>
-                                    <c:when test="${m.getStatus().trim() eq 'finished'}">
-                                        <form action="${pageContext.request.contextPath}/MeetingParticipantsController?registerSuccess=true" method="POST">
-                                            <input type="hidden" name="action" value="result">
-                                            <input type="hidden" name="UID" value="${users.userId}">
-                                            <button type="submit" class="wp-block-button__link wp-element-button">View Results</button>
-                                        </form>
-                                    </c:when>
-                                </c:choose>
+                    <c:if test="${empty meetingsList}">
+                        <tr>
+                            <td colspan="3">
+                                <div>
+                                    <p>No meeting found.</p>
+                                </div>
                             </td>
                         </tr>
-                            </c:forEach>
-                        </c:if>
-                    </table>-->
+                    </c:if>
+                    <c:if test="${not empty meetingsList}">
+                        <c:forEach var="m" items="${meetingsList}">
+                            <tr>
+                                <td>
+                                    <div class="tribe-events-calendar-list">
+                                        <h2 class="tribe-events-calendar-list__month-separator">
+                                        </h2>
+                                        <div class="tribe-events-calendar-list__event-wrapper tribe-common-g-col">
+                                            <article class="tribe-events-calendar-list__event tribe-common-g-row tribe-common-g-row--gutters post-10000630 tribe_events type-tribe_events status-publish hentry tribe_events_cat-beginner-bird-walks cat_beginner-bird-walks tribe-recurring-event tribe-recurring-event-parent">
+                                                <div class="event-wrapper">
+                                                    <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
+                                                        <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
+                                                            <header class="tribe-events-calendar-list__event-header">
+                                                                <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2">
+                                                                    <time class="tribe-events-calendar-list__event-datetime" datetime="2023-05-27">
+                                                                        <span class="tribe-event-date-start">${m.getStartDate()}</span>
+                                                                        to <span class="tribe-event-time">${m.getEndDate()}</span>
+                                                                    </time>
+                                                                </div>
+                                                               
+                                                                    <span class="inline-flex items-center px-2.5 py-0.5 font-medium bg-red-100 text-red-800 text-xs rounded-full"> ${m.getStatus()}</span>
 
-                </div>
+                                                                <h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium">
+                                                                    <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}"
+                                                                       title="${m.getName()}"
+                                                                       class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
+                                                                        ${m.getName()}
+                                                                    </a>
+                                                                    <!--${m.getNumberOfParticipant()}-->
+
+                                                                </h3>
+                                                            </header>
+                                                            <div class="tribe-events-calendar-list__event-description tribe-common-b2 tribe-common-a11y-hidden">
+                                                                <p>${m.getDescription()}</p>
+                                                                
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${m.getStatus().trim() eq 'pending'}">
+                                            <form action="${pageContext.request.contextPath}/MeetingParticipantsController?registerSuccess=true" method="POST">
+                                                <input type="hidden" name="action" value="viewmeeting">
+                                                <input type="hidden" name="UID" value="${users.userId}">
+                                                <c:set var="sessionMeID" scope="session" value="${m.getMeID()}"/>
+                                                <button type="submit" class="wp-block-button__link wp-element-button">Sign up now!</button>
+                                            </form>
+                                        </c:when>
+                                        <c:when test="${m.getStatus().trim() eq 'finished'}">
+                                            <form action="${pageContext.request.contextPath}/MeetingParticipantsController" method="POST">
+                                                <input type="hidden" name="action" value="result">
+                                                <input type="hidden" name="UID" value="${users.userId}">
+                                                <button type="submit" class="wp-block-button__link wp-element-button">View Results</button>
+                                            </form>
+                                        </c:when>
+                                    </c:choose>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </c:if>
+                </table>
                 </div>
 
-                </div>
 
-                </div>
-                </div>
-                </div>
 
                 <script class="tribe-events-breakpoints">
                     (function () {
@@ -199,11 +254,11 @@
 
                             window.tribe.events.views.breakpoints.setup(container);
                             completed = true;
-                            // This was fired already and completed no need to attach to the event listener.
+// This was fired already and completed no need to attach to the event listener.
                             document.removeEventListener('DOMContentLoaded', initBreakpoints);
                         }
 
-                        // Try to init the breakpoints right away.
+// Try to init the breakpoints right away.
                         initBreakpoints();
                         document.addEventListener('DOMContentLoaded', initBreakpoints);
                     })();
@@ -212,12 +267,6 @@
                 </div>
 
                 </section> <!-- end Main content -->
-
-
-
-
-
-
 
                 </div><!-- .content-container -->
 
