@@ -13,6 +13,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+     
+<!--        <footer class="mt-8 grid-container" aria-labelledby="footer-heading">
+  <h2 id="footer-heading" class="sr-only">Footer</h2>
+  <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:py-12 lg:px-8">
+    <div class="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
+      <div class="flex space-x-6 md:order-2">
+        <a href="mailto:hello@bird.club" class="text-gray-400 hover:text-gray-900">Contact us</a>
+      </div>
+      <p class="mt-8 text-base  background-color: darkgray; text-gray-400 md:mt-0 md:order-1">&copy; 2023 BirdClub. All rights reserved.</p>
+    </div>
+  </div>
+</footer>-->
         <footer id="main-footer">
         <div class="grid-container">
 
@@ -91,12 +103,12 @@
                             </ul>
                         </li>
                     </ul>          </nav>
-            </div><!-- .footer-menu -->
+            </div> .footer-menu 
 
             <div class="footer-contact grid-x">
                 <div class="cell medium-2 small-6 cu-logo">
                     <img  alt="Cornell University" data-src="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/images/cornell-logo.svg" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img src="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/images/cornell-logo.svg" alt="Cornell University"></noscript>
-                </div><!-- .cu-logo -->
+                </div> .cu-logo 
 
 
                 <div class="cell medium-auto small-12 flex-child-grow contact">
@@ -109,11 +121,11 @@
                             <li id="menu-item-11355" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11355"><a href="https://privacy.cornell.edu/information-use-cornell">Privacy Policy</a></li>
                             <li id="menu-item-2643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2643"><a href="https://www.birds.cornell.edu/home/terms-of-use/">Terms of use</a></li>
                         </ul></div>
-                    <p class="source-org copyright">&copy; 2023 Cornell University</p>          </div><!-- .contact -->
+                    <p class="source-org copyright">&copy; 2023 Cornell University</p>          </div> .contact 
 
-            </div><!-- .footer-contact -->
+            </div> .footer-contact 
 
-        </div> <!-- end .grid-container -->
+        </div>  end .grid-container 
 
     </footer>
     </body>

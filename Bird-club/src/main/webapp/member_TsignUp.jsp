@@ -40,10 +40,16 @@
         <meta name="google-site-verification" content="IGsvze-ViQg5tZuvTMIK4uTycXsQsaApdSmVuW0DhVg" />
     </head>
 
-
-    <body class="page-template-default page page-id-1229 page-parent wp-embed-responsive theme-green nav-column tribe-no-js">
+<style>
+  body.page-template-default {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCRQP4F2XsL4dpJlIKQ32AzaJpMRixGmguUw&usqp=CAU');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+    <body class="page-template-default page page-id-1229 page-parent wp-embed-responsive theme-green nav-column tribe-no-js ">
         <%@ include file="member_header.jsp" %> 
-<h2 class="has-text-align-center has-large-font-size">Bird List:</h2>
+<!--<h2 class="has-text-align-center has-large-font-size">Bird List</h2>-->
         <main id="main-content" class="page has-hero">
             <article id="article" class="post-1229 page type-page status-publish has-post-thumbnail hentry">
                 <div class="content-container page-wide has-cta" data-sticky-container>             
@@ -82,11 +88,19 @@
                                                                 </c:forEach>
                                                             </c:if>
                                                         </table>-->
-<table style="border: 2px solid black;">
-  <tr style="border: 1px solid black;">
-    <td style="text-align: center; border: 1px solid black;">Bird Name</td>
-    <td style="text-align: center; border: 1px solid black;">Image</td>
-  </tr>
+<table >
+    <style>
+  .table-heading {
+    text-align: center;
+    text-size: 100px;
+  }
+</style>
+ <td class="table-heading has-text-align-center has-large-font-size" colspan="3">Bird List</td>
+  <tr >
+  
+    <td style="text-align: center;">Bird Name</td>
+    <td style="text-align: center;">Image</td>
+    <td style="text-align: center;"></td>
   <c:if test="${empty birdList}">
     <tr>
       <td colspan="2">
@@ -99,13 +113,13 @@
 
   <c:if test="${not empty birdList}">
     <c:forEach var="bird" items="${birdList}">
-      <tr style="border: 1px solid black;">
+      <tr>
         <td style="text-align: center;">${bird.getName()}</td>
-        <td style="border: 1px solid black;">
+        <td >
           <img src="${bird.getImageURL()}" alt="Description of the image" style="display: block;
-    margin: auto; width: 200px; height: 150px; border: 1px solid black;">
+    margin: auto; width: 200px; height: 150px; ">
         </td>
-        <td style="border: 1px solid black; text-align: center;">
+        <td  text-align: center;">
           <form action="${pageContext.request.contextPath}/BirdController" method="POST">
             <input type="hidden" name="action" value="add">
             <input type="hidden" name="BID" value="${bird.getBID()}" />
