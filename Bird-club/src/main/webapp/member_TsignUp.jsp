@@ -43,87 +43,17 @@
 
     <body class="page-template-default page page-id-1229 page-parent wp-embed-responsive theme-green nav-column tribe-no-js">
         <%@ include file="member_header.jsp" %> 
-
+<h2 class="has-text-align-center has-large-font-size">Bird List:</h2>
         <main id="main-content" class="page has-hero">
             <article id="article" class="post-1229 page type-page status-publish has-post-thumbnail hentry">
-
                 <div class="content-container page-wide has-cta" data-sticky-container>             
                     <section id="content" class="content" aria-label="Main content">         
-
-                        <div class="is-layout-flow wp-block-group alignfull has-bg-gray-background-color has-background narrow">
-                            <h2 class="has-text-align-center has-large-font-size">Bird List:</h2>
-                            <link rel='stylesheet' id='tec-variables-skeleton-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/common/src/resources/css/variables-skeleton.min.css?ver=5.0.6' type='text/css' media='all' />
-                            <link rel='stylesheet' id='tribe-common-skeleton-style-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/common/src/resources/css/common-skeleton.min.css?ver=5.0.6' type='text/css' media='all' />
-                            <link rel='stylesheet' id='tribe-events-views-v2-bootstrap-datepicker-styles-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/vendor/bootstrap-datepicker/css/bootstrap-datepicker.standalone.min.css?ver=6.0.6.2' type='text/css' media='all' />
-                            <link rel='stylesheet' id='tribe-tooltipster-css-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/common/vendor/tooltipster/tooltipster.bundle.min.css?ver=5.0.6' type='text/css' media='all' />
-                            <link rel='stylesheet' id='tribe-events-views-v2-skeleton-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/src/resources/css/views-skeleton.min.css?ver=6.0.6.2' type='text/css' media='all' />
-                            <link rel='stylesheet' id='tribe-events-pro-views-v2-skeleton-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/events-calendar-pro/src/resources/css/views-skeleton.min.css?ver=6.0.5.1' type='text/css' media='all' />
-                            <link rel='stylesheet' id='tec-variables-full-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/common/src/resources/css/variables-full.min.css?ver=5.0.6' type='text/css' media='all' />
-                            <link rel='stylesheet' id='tribe-common-full-style-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/common/src/resources/css/common-full.min.css?ver=5.0.6' type='text/css' media='all' />
-                            <link rel='stylesheet' id='tribe-events-views-v2-full-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/src/resources/css/views-full.min.css?ver=6.0.6.2' type='text/css' media='all' />
-                            <link rel='stylesheet' id='tribe-events-pro-views-v2-full-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/events-calendar-pro/src/resources/css/views-full.min.css?ver=6.0.5.1' type='text/css' media='all' />
-                            <link rel='stylesheet' id='tribe-events-pro-views-v2-print-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/events-calendar-pro/src/resources/css/views-print.min.css?ver=6.0.5.1' type='text/css' media='print' />
-                            <link rel='stylesheet' id='tribe-events-views-v2-print-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/the-events-calendar/src/resources/css/views-print.min.css?ver=6.0.6.2' type='text/css' media='print' />
-                            <div
-                                class="tribe-common tribe-events tribe-events-view tribe-events-view--list alignwide tribe-events-view--shortcode tribe-events-view--shortcode-0e2a3254" 	data-js="tribe-events-view"
-                                data-view-rest-nonce="6a47ab0393"
-                                data-view-rest-url="https://www.birds.cornell.edu/home/wp-json/tribe/views/v2/html"
-                                data-view-rest-method="POST"
-                                data-view-manage-url=""
-                                data-view-shortcode="0e2a3254"
-                                data-view-breakpoint-pointer="fda4f16f-e37f-4b14-8962-cbb5ead01572"
-                                >
+<!--                        <div class="is-layout-flow wp-block-group alignfull has-bg-gray-background-color has-background narrow">                       -->
                                 <div class="tribe-common-l-container tribe-events-l-container">
-                                    <div
-                                        class="tribe-events-view-loader tribe-common-a11y-hidden"
-                                        role="alert"
-                                        aria-live="polite"
-                                        >
-                                        <span class="tribe-events-view-loader__text tribe-common-a11y-visual-hide">
-                                            Loading view.	</span>
-                                        <div class="tribe-events-view-loader__dots tribe-common-c-loader">
-                                            <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--dot tribe-common-c-loader__dot tribe-common-c-loader__dot--first"  viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg"><circle cx="7.5" cy="7.5" r="7.5"/></svg>
-                                            <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--dot tribe-common-c-loader__dot tribe-common-c-loader__dot--second"  viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg"><circle cx="7.5" cy="7.5" r="7.5"/></svg>
-                                            <svg  class="tribe-common-c-svgicon tribe-common-c-svgicon--dot tribe-common-c-loader__dot tribe-common-c-loader__dot--third"  viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg"><circle cx="7.5" cy="7.5" r="7.5"/></svg>
-                                        </div>
-                                    </div>
-
-
-                                    <script data-js="tribe-events-view-data" type="application/json">
-                                        {"slug":"list","prev_url":"https:\/\/www.birds.cornell.edu\/home\/events\/list\/?pagename=visit&shortcode=0e2a3254&eventDisplay=past","next_url":"https:\/\/www.birds.cornell.edu\/home\/events\/list\/page\/2\/?shortcode=0e2a3254","view_class":"Tribe\\Events\\Views\\V2\\Views\\List_View","view_slug":"list","view_label":"List","title":"Visit Us | Birds, Cornell Lab of Ornithology","events":[10000630,10000631,10000679,10000678],"url":"https:\/\/www.birds.cornell.edu\/home\/events\/list\/?shortcode=0e2a3254","url_event_date":false,"bar":{"keyword":"","date":""},"today":"2023-05-27 00:00:00","now":"2023-05-27 09:41:48","rest_url":"https:\/\/www.birds.cornell.edu\/home\/wp-json\/tribe\/views\/v2\/html","rest_method":"POST","rest_nonce":"6a47ab0393","should_manage_url":false,"today_url":"https:\/\/www.birds.cornell.edu\/home\/events\/list\/?pagename=visit&shortcode=0e2a3254","today_title":"Click to select today's date","today_label":"Today","prev_label":"","next_label":"","date_formats":{"compact":"m\/d\/Y","month_and_year_compact":"m\/Y","month_and_year":"F Y","time_range_separator":"\u2013","date_time_separator":" at "},"messages":[],"start_of_week":"0","breadcrumbs":[],"before_events":"","after_events":"","display_events_bar":true,"disable_event_search":true,"live_refresh":false,"ical":{"display_link":true,"link":{"url":"https:\/\/www.birds.cornell.edu\/home\/events\/list\/?shortcode=0e2a3254&#038;ical=1","text":"Export Events","title":"Use this to share calendar data with Google Calendar, Apple iCal and other compatible apps"}},"container_classes":["tribe-common","tribe-events","tribe-events-view","tribe-events-view--list","alignwide","tribe-events-view--shortcode","tribe-events-view--shortcode-0e2a3254"],"container_data":{"shortcode":"0e2a3254"},"is_past":false,"breakpoints":{"xsmall":500,"medium":768,"full":960},"breakpoint_pointer":"fda4f16f-e37f-4b14-8962-cbb5ead01572","is_initial_load":true,"public_views":{"month":{"view_class":"Tribe\\Events\\Views\\V2\\Views\\Month_View","view_url":"https:\/\/www.birds.cornell.edu\/home\/events\/month\/?shortcode=0e2a3254","view_label":"Month"}},"show_latest_past":true,"show_now":true,"now_label":"Now","now_label_mobile":"Now","show_end":true,"selected_start_datetime":"2023-05-27","selected_start_date_mobile":"05\/27\/2023","selected_start_date_label":"May 27","selected_end_datetime":"2023-06-02","selected_end_date_mobile":"06\/02\/2023","selected_end_date_label":"June 2","datepicker_date":"05\/27\/2023","subscribe_links":{"gcal":{"block_slug":"hasGoogleCalendar","label":"Google Calendar","single_label":"Add to Google Calendar","visible":true},"ical":{"block_slug":"hasiCal","label":"iCalendar","single_label":"Add to iCalendar","visible":true},"outlook-365":{"block_slug":"hasOutlook365","label":"Outlook 365","single_label":"Outlook 365","visible":true},"outlook-live":{"block_slug":"hasOutlookLive","label":"Outlook Live","single_label":"Outlook Live","visible":true},"ics":{"label":"Export .ics file","single_label":"Export .ics file","visible":true,"block_slug":null},"outlook-ics":{"label":"Export Outlook .ics file","single_label":"Export Outlook .ics file","visible":true,"block_slug":null}},"display_recurring_toggle":false,"_context":{"slug":"list","should_manage_url":false},"text":"Loading...","classes":["tribe-common-c-loader__dot","tribe-common-c-loader__dot--third"]}</script>
-
-
-                                    <header  class="tribe-events-header" >
-
-
-
-                                    </header>
-
-
-                                    <div class="tribe-events-calendar-list">
-
-                                    </div>
-                                    <main class="pb-8 pt-8">
-                                        <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
-
-                                            <div class="grid grid-cols-1 items-start lg:grid-cols-5 lg:gap-8">
-                                                <div class="grid grid-cols-1 gap-4 lg:col-span-5">
-
-                                                    <div class="sm:flex sm:items-center px-4 sm:px-0">
-
-
-
-                                                        <!--                        <div class="mt-4 sm:mt-0 sm:ml-16 flex flex-row items-center space-x-6">
-                                                                                    <button id="loadMembersButton" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2"
-                                                                                            type="button"
-                                                                                            onclick="location.href = '${pageContext.request.contextPath}/UserAccessController/getUnactiveMembers'">
-                                                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="-ml-1 mr-3 w-5 h-5">
-                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                                                                        </svg>
-                                                                                        New Members
-                                                                                    </button>
-                                                                                </div>-->
-                                                        <table>
+                                    <main class="pb-8 pt-8">                                                                          
+                                                <div class="grid grid-cols-1 gap-4 lg:col-span-5">             
+<!--                                                        <table>
+                                                            
                                                             <tr>
                                                                 <td>Bird Name</td>
                                                             </tr>
@@ -137,6 +67,8 @@
                                                                 <c:forEach var="bird" items="${birdList}">
                                                                     <tr>
                                                                         <td>${bird.getName()}</td>
+                                                       
+                                                                        <img src=${bird.getImageURL()} alt="Description of the image">
                                                                         <td>
                                                                             <form action="${pageContext.request.contextPath}/BirdController" method="POST">
                                                                                 <input type="hidden" name="action" value="add">
@@ -149,92 +81,45 @@
                                                                     </tr>
                                                                 </c:forEach>
                                                             </c:if>
-                                                        </table>
+                                                        </table>-->
+<table style="border: 2px solid black;">
+  <tr style="border: 1px solid black;">
+    <td style="text-align: center; border: 1px solid black;">Bird Name</td>
+    <td style="text-align: center; border: 1px solid black;">Image</td>
+  </tr>
+  <c:if test="${empty birdList}">
+    <tr>
+      <td colspan="2">
+        <div>
+          <p>No bird found.</p>
+        </div>
+      </td>
+    </tr>
+  </c:if>
+
+  <c:if test="${not empty birdList}">
+    <c:forEach var="bird" items="${birdList}">
+      <tr style="border: 1px solid black;">
+        <td style="text-align: center;">${bird.getName()}</td>
+        <td style="border: 1px solid black;">
+          <img src="${bird.getImageURL()}" alt="Description of the image" style="display: block;
+    margin: auto; width: 200px; height: 150px; border: 1px solid black;">
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+          <form action="${pageContext.request.contextPath}/BirdController" method="POST">
+            <input type="hidden" name="action" value="add">
+            <input type="hidden" name="BID" value="${bird.getBID()}" />
+            <input type="hidden" name="TID" value="${sessionScope.sessionTID}" />
+            <c:set var="TransactionType" scope="session" value="fee" /> 
+            <button type="submit" class="wp-block-button__link wp-element-button">Sign up</button>
+          </form>
+        </td>
+      </tr>
+    </c:forEach>
+  </c:if>
+</table>
 
 
-                                                        <!--                        <script>
-                                                                                    function toggleMemberList() {
-                                                                                        var memberListContainer = document.getElementById("memberListContainer");
-                                                                                        if (memberListContainer.style.display === "none") {
-                                                                                            memberListContainer.style.display = "block";
-                                                                                        } else {
-                                                                                            memberListContainer.style.display = "none";
-                                                                                        }
-                                                                                    }
-                                                                                </script>-->
-
-                                                        <!--                        <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-4">
-                                                                                    <li class="col-span-1 flex flex-col text-center bg-white sm:rounded-lg shadow">
-                                                                                        <div class="absolute flex-shrink-0 self-end flex mt-4 mr-4">
-                                                                                            <div class="relative z-30 inline-block text-left">
-                                                                                                <div data-controller="dropdown">
-                                                                                                    <div data-dropdown-target="button" data-action="click->dropdown#toggleMenu click@window->dropdown#hideMenu">
-                                                        
-                                                                                                        <button type="button" class="-m-2 p-2 rounded-full flex items-center text-gray-400 hover:text-gray-600" id="menu-0-button" aria-expanded="false" aria-haspopup="true">
-                                                                                                            <span class="sr-only">Open options</span>
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class=" w-5 h-5">
-                                                                                                            <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
-                                                                                                            </svg>
-                                                        
-                                                                                                        </button>
-                                                        
-                                                                                                    </div>
-                                                                                                    <div class="hidden z-10 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-100" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" data-dropdown-target="menu" data-transition-enter="transition ease-out duration-100" data-transition-enter-start="transform opacity-0 scale-95" data-transition-enter-end="transform opacity-100 scale-100" data-transition-leave="transition ease-in duration-75" data-transition-leave-start="transform opacity-100 scale-100" data-transition-leave-end="transform opacity-0 scale-95">
-                                                                                                        <div class="py-1" role="none">
-                                                                                                            <a data-turbo-frame="modal" class="hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm" href="/clubs/birds-in-ohio/club_memberships/595/edit"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5">
-                                                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
-                                                                                                                </svg>
-                                                                                                                Edit Membership</a>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="flex-1 flex flex-col p-8">
-                                                                                            <div class="w-32 h-32 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden mx-auto flex-shrink-0">
-                                                                                                <img src="https://www.bird.club/assets/avatars/raven-fcf919bd3575083b93e6c2e97c49df2320e84254f6cd2f7656273601d1ddc12b.png">
-                                                                                            </div>
-                                                        
-                                                                                            <h3 class="mt-6 text-gray-900 text-sm font-medium">Nguoi choi chim</h3>
-                                                                                            <dl class="mt-1 flex-grow flex flex-col justify-between">
-                                                                                                <dt class="sr-only">Title</dt>
-                                                                                                <dd class="text-gray-500 text-sm">Joined <span class="font-bold">May 15, 2023</span></dd>
-                                                                                                <dt class="sr-only">Role</dt>
-                                                                                                <dd class="mt-3">
-                                                                                                    <span class="inline-flex items-center px-2.5 py-0.5 font-medium bg-green-100 text-green-800 text-xs rounded-full">Admin</span>
-                                                                                                </dd>
-                                                                                            </dl>
-                                                                                        </div>
-                                                                                        <div class=" border-t border-gray-200 bg-gray-50 overflow-hidden sm:rounded-b-lg">
-                                                                                            <div class="-mt-px flex divide-x divide-gray-200">
-                                                                                                <div class="w-0 flex-1 flex">
-                                                                                                    <a class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500" href="/clubs/birds-in-ohio/members/808">
-                                                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-gray-400 w-5 h-5">
-                                                                                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path>
-                                                                                                        </svg>
-                                                        
-                                                                                                        <span class="ml-3">Profile</span>
-                                                                                                    </a>          </div>
-                                                                                                <div class="-ml-px w-0 flex-1 flex">
-                                                                                                    <form class="contents" method="post" action="/conversations?conversation%5Brecipient_id%5D=808&amp;conversation%5Bsender_id%5D=808"><button class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500" type="submit">
-                                                                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-gray-400 w-5 h-5">
-                                                                                                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                                                                                                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                                                                                                            </svg>
-                                                        
-                                                                                                            <span class="ml-3">Message</span>
-                                                                                                        </button><input type="hidden" name="authenticity_token" value="RBoAJvfa7vxb8-RjHiX7A5s9KgRDw5PkRnAj4jpaB2XPA07U8AQWCYlM3ODPqulm_izLJH2jYeb7mHFhADviFQ" autocomplete="off"></form>          </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </li>
-                                                                                </ul>-->
-
-                                                        <!--                        <div class="pt-6 flex items-center justify-between">
-                                                                                    <div class="hidden sm:block">
-                                                                                        <span class="pagy-info">Displaying <b>1</b> Member</span>
-                                                                                    </div>
-                                                                                    <nav class="pagy-nav pagination" aria-label="pager"><span class="page prev disabled">Prev</span> <span class="page next disabled">Next</span></nav>
-                                                                                </div>-->
 
                                                     </div>
                                                 </div>
@@ -244,7 +129,7 @@
 
 
                                 </div>
-                            </div>
+                        
 
                             <script class="tribe-events-breakpoints">
                                 (function () {

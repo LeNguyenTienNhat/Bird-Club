@@ -37,7 +37,7 @@ public class FieldTripParticipantsController extends HttpServlet {
             String UID = request.getParameter("UID");
             List<Fieldtrip> eventsList = eventsManager.getList();
             request.setAttribute("eventsList", eventsList);
-            request.getRequestDispatcher("/payment.jsp").forward(request, response);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
 
         if (action != null && action.equals("add")) {
@@ -57,7 +57,7 @@ public class FieldTripParticipantsController extends HttpServlet {
 
             if (success) {
                 // Redirect to a success page
-                response.sendRedirect(request.getContextPath() + "/payment.jsp");
+                response.sendRedirect(request.getContextPath() + "/index.jsp");
             } else {
                 // Redirect to a failure page
                 response.sendRedirect(request.getContextPath() + "/failure.jsp");

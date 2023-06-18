@@ -267,5 +267,62 @@ public class TournamentManager {
             System.out.println("Failed to ternimate due to internal error :(" + ex.getMessage());
         }
     }
+    public Tournament getTournamentById(String tid) {
+    Tournament tournament = null;
+    String query = "SELECT * FROM Tournament WHERE TID = ?";
+
+     try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(query)) {
+        ps.setString(1, tid);
+
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                tournament = new Tournament();
+                tournament.setTID(rs.getString("TID"));
+                tournament.setName(rs.getString("name"));
+                tournament.setDescription(rs.getString("description"));
+                String registrationDeadline = rs.getString("registrationDeadline");
+                String startDate = rs.getString("startDate");
+                String endDate = rs.getString("endDate");
+                registrationDeadline = tool.trimDate(registrationDeadline);
+                startDate = tool.trimDate(startDate);
+                endDate = tool.trimDate(endDate);
+                tournament.setRegistrationDeadline(tool.convertDisplayDate(registrationDeadline));
+                tournament.setStartDate(tool.convertDisplayDate(startDate));
+                tournament.setEndDate(tool.convertDisplayDate(endDate));
+                tournament.setLID(rs.getString("LID"));
+                tournament.setStatus(rs.getString("status"));
+                tournament.setFee(rs.getInt("fee"));
+                tournament.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                tournament.setTotalPrize(rs.getInt("totalPrize"));
+                tournament.setCategory("Tournament");
+                tournament.setNote(rs.getString("note"));
+                tournament.setIncharge(rs.getString("incharge"));
+                tournament.setHost(rs.getString("host"));
+                tournament.setContact(rs.getString("contact"));
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return tournament;
+}
+    
+    public static void main(String[] args) {
+        // Test the getTournamentById method
+        TournamentManager tournamentDAO = new TournamentManager();
+        String tid = "TID0"; // Replace with the actual tournament ID
+        Tournament tournament = tournamentDAO.getTournamentById(tid);
+
+        if (tournament != null) {
+            System.out.println("Tournament found:");
+            System.out.println("TID: " + tournament.getTID());
+            System.out.println("Name: " + tournament.getName());
+            // Print other tournament details as needed
+        } else {
+            System.out.println("Tournament not found.");
+        }
+    }
   
 }

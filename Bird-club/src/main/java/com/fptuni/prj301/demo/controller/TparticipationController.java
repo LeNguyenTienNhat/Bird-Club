@@ -5,17 +5,19 @@
  */
 package com.fptuni.prj301.demo.controller;
 
+import com.fptuni.prj301.demo.dbmanager.TournamentManager;
 import com.fptuni.prj301.demo.dbmanager.TparticipationManager;
+import com.fptuni.prj301.demo.model.Tournament;
 import com.fptuni.prj301.demo.model.Tparticipation;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import tool.utils.UIDGenerator;
-
 
 /**
  *
@@ -42,7 +44,7 @@ public class TparticipationController extends HttpServlet {
             String tid = request.getParameter("Tid");
             String bid = request.getParameter("bid");
             String docNo = UIDGenerator.generateDocT();
-         
+
             // Create a new Tparticipation object with the provided parameters
             Tparticipation tparticipation = new Tparticipation();
             tparticipation.setTid(tid);
@@ -57,6 +59,23 @@ public class TparticipationController extends HttpServlet {
             if (success) {
                 // Redirect to a success page
                 response.sendRedirect(request.getContextPath() + "/payment.jsp");
+            } else {
+                // Redirect to a failure page
+                response.sendRedirect(request.getContextPath() + "/failure.jsp");
+            }
+        } else if (action.equals("view")) {
+            // Retrieve the Tparticipation object from the database based on the provided parameters (e.g., docNo)
+            String tid = request.getParameter("TID");
+            TournamentManager tparticipationManager = new  TournamentManager();
+             Tournament tournament = tparticipationManager.getTournamentById(tid);
+
+            if (tournament != null) {
+                // Store the Tparticipation object in request scope
+                request.setAttribute("tournament", tournament);
+
+                // Forward the request to the view page
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/member_tournament_details.jsp");
+                dispatcher.forward(request, response);
             } else {
                 // Redirect to a failure page
                 response.sendRedirect(request.getContextPath() + "/failure.jsp");

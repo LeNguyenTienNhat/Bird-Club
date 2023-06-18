@@ -150,7 +150,7 @@
                                         <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
+                                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="number" class="form-control" placeholder="enter phone number" value=""></div>
                                         <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
                                         <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
                                     </div>
@@ -173,7 +173,6 @@
                             e.preventDefault();
                         });</script>
                     </div>
-
                     <section id="global-cta" aria-label="Call to action" class="global-cta">
                         <div class="wp-block-group cta">
                             <h2 class="has-text-align-center">All About Birds is a free resource</h2>
@@ -183,80 +182,9 @@
                             </div>
                         </div>
                     </section>
-                    <footer class="article-footer hide-for-print" aria-label="Related articles">
-                        <h2>More from experts</h2>
-                        <div class="article-list card-display card-five">
-                            <ul>
-                                <li class="article-item  content-article">
-                                    <a class="article-item-link" target="_self" class="internal-link" data-link-location="related-content-bottom" href="https://www.allaboutbirds.org/news/a-hawk-has-started-hunting-the-feeder-birds-in-my-yard-what-can-i-do/">
-                                        <div class="article-item-container">
-                                            <div class="article-item-media">
-                                                <div class="article-item-media-ratio">
-                                                    <img data-srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/Coopers-feeder.jpg 613w, https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/Coopers-feeder-240x135.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/Coopers-feeder-480x270.jpg 480w' alt='Just as birdseed attracts small birds, those birds may attract hawks like this Cooper' s Hawk that is checking out the birds at a backyard feeder. Photo by Vanessa Hardy via Birdshare.' loading="lazy" data-src="https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/Coopers-feeder-480x270.jpg" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src='https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/Coopers-feeder-480x270.jpg' srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/Coopers-feeder.jpg 613w, https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/Coopers-feeder-240x135.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/Coopers-feeder-480x270.jpg 480w' sizes='(max-width: 480px) 100vw, 480px' alt='Just as birdseed attracts small birds, those birds may attract hawks like this Cooper's Hawk that is checking out the birds at a backyard feeder. Photo by Vanessa Hardy via Birdshare.' loading="lazy" /></noscript> </div>
-                                            </div>
-                                            <div class="article-item-body">
-                                                <span class="article-item-header">A hawk has started hunting the feeder birds in my yard. What can I do?</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="article-item  content-article">
-                                    <a class="article-item-link" target="_self" class="internal-link" data-link-location="related-content-bottom" href="https://www.allaboutbirds.org/news/should-i-worry-that-my-small-five-pound-dog-might-get-attacked-by-a-hawk-or-owl/">
-                                        <div class="article-item-container">
-                                            <div class="article-item-media">
-                                                <div class="article-item-media-ratio">
-                                                    <img data-srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/GHOtalons.jpg 610w, https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/GHOtalons-240x135.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/GHOtalons-480x270.jpg 480w' alt='The powerful talons of a Great Horned Owl can take prey over five pounds. Photo by Matt Cuda via Birdshare.' loading="lazy" data-src="https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/GHOtalons-480x270.jpg" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src='https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/GHOtalons-480x270.jpg' srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/GHOtalons.jpg 610w, https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/GHOtalons-240x135.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2009/04/GHOtalons-480x270.jpg 480w' sizes='(max-width: 480px) 100vw, 480px' alt='The powerful talons of a Great Horned Owl can take prey over five pounds. Photo by Matt Cuda via Birdshare.' loading="lazy" /></noscript> </div>
-                                            </div>
-                                            <div class="article-item-body">
-                                                <span class="article-item-header">Should I worry that my small, five-pound dog might get attacked by a hawk or owl?</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="article-item  content-article">
-                                    <a class="article-item-link" target="_self" class="internal-link" data-link-location="related-content-bottom" href="https://www.allaboutbirds.org/news/how-to-clean-your-bird-feeder/">
-                                        <div class="article-item-container">
-                                            <div class="article-item-media">
-                                                <div class="article-item-media-ratio">
-                                                    <img data-srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/scrub_jay_spread-1.jpg 552w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/scrub_jay_spread-1-480x311.jpg 480w' alt='western scrub-jay at bird feeder' loading="lazy" data-src="https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/scrub_jay_spread-1-480x311.jpg" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src='https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/scrub_jay_spread-1-480x311.jpg' srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/scrub_jay_spread-1.jpg 552w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/scrub_jay_spread-1-480x311.jpg 480w' sizes='(max-width: 480px) 100vw, 480px' alt='western scrub-jay at bird feeder' loading="lazy" /></noscript> </div>
-                                            </div>
-                                            <div class="article-item-body">
-                                                <span class="article-item-header">How to Clean Your Bird Feeder</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="article-item  content-article">
-                                    <a class="article-item-link" target="_self" class="internal-link" data-link-location="related-content-bottom" href="https://www.allaboutbirds.org/news/analysis-the-economic-value-of-birds/">
-                                        <div class="article-item-container">
-                                            <div class="article-item-media">
-                                                <div class="article-item-media-ratio">
-                                                    <img data-srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2017/06/Bay-breasted_Warbler-Arni_Stinnissen-FI-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2017/06/Bay-breasted_Warbler-Arni_Stinnissen-FI-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2017/06/Bay-breasted_Warbler-Arni_Stinnissen-FI-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2017/06/Bay-breasted_Warbler-Arni_Stinnissen-FI.jpg 732w' alt='Bay-breasted Warblers are one of many bird species that control pest populations in timber stands. Photo by Arni Stinnissen/ArniWorks Nature Photography, www.arniworks.com.' loading="lazy" data-src="https://www.allaboutbirds.org/news/wp-content/uploads/2017/06/Bay-breasted_Warbler-Arni_Stinnissen-FI-480x360.jpg" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src='https://www.allaboutbirds.org/news/wp-content/uploads/2017/06/Bay-breasted_Warbler-Arni_Stinnissen-FI-480x360.jpg' srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2017/06/Bay-breasted_Warbler-Arni_Stinnissen-FI-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2017/06/Bay-breasted_Warbler-Arni_Stinnissen-FI-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2017/06/Bay-breasted_Warbler-Arni_Stinnissen-FI-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2017/06/Bay-breasted_Warbler-Arni_Stinnissen-FI.jpg 732w' sizes='(max-width: 480px) 100vw, 480px' alt='Bay-breasted Warblers are one of many bird species that control pest populations in timber stands. Photo by Arni Stinnissen/ArniWorks Nature Photography, www.arniworks.com.' loading="lazy" /></noscript> </div>
-                                            </div>
-                                            <div class="article-item-body">
-                                                <span class="article-item-header">Analysis: The Economic Value of Birds</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="article-item  content-article">
-                                    <a class="article-item-link" target="_self" class="internal-link" data-link-location="related-content-bottom" href="https://www.allaboutbirds.org/news/snowy-owls-arent-starving-two-canadian-farmers-help-bust-a-pervasive-myth/">
-                                        <div class="article-item-container">
-                                            <div class="article-item-media">
-                                                <div class="article-item-media-ratio">
-                                                    <img data-srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2022/01/Snowy_Owl-Roberta_Olenick-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2022/01/Snowy_Owl-Roberta_Olenick-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2022/01/Snowy_Owl-Roberta_Olenick-768x576.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2022/01/Snowy_Owl-Roberta_Olenick-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2022/01/Snowy_Owl-Roberta_Olenick.jpg 963w' alt='white and black speckled large bird flying.' loading="lazy" data-src="https://www.allaboutbirds.org/news/wp-content/uploads/2022/01/Snowy_Owl-Roberta_Olenick-480x360.jpg" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src='https://www.allaboutbirds.org/news/wp-content/uploads/2022/01/Snowy_Owl-Roberta_Olenick-480x360.jpg' srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2022/01/Snowy_Owl-Roberta_Olenick-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2022/01/Snowy_Owl-Roberta_Olenick-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2022/01/Snowy_Owl-Roberta_Olenick-768x576.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2022/01/Snowy_Owl-Roberta_Olenick-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2022/01/Snowy_Owl-Roberta_Olenick.jpg 963w' sizes='(max-width: 480px) 100vw, 480px' alt='white and black speckled large bird flying.' loading="lazy" /></noscript> </div>
-                                            </div>
-                                            <div class="article-item-body">
-                                                <span class="article-item-header">Snowy Owls Aren't Starving: Two Canadian Farmers Help Bust a Pervasive Myth</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </footer> 
-                    <div id="disqus_thread"></div>
-                    </div>
+                 
+        
+                    
                     </article> 
             </main>
            <%@ include file="member_footer.jsp" %>

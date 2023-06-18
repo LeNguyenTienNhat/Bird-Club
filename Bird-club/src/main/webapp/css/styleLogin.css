@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
-    margin: -20px 0 50px;
+    margin: -10px 0 50px;
 }
 
 h1 {
@@ -98,6 +98,7 @@ select{
     margin: 8px 0;
     width: 100%;
 }
+
 
 .container {
     background-color: #fff;
