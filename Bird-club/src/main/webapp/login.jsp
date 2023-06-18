@@ -66,6 +66,7 @@
                                 padding: 10px 10px;
                                 margin: 0px 0;
                                 width: 100%;" name="gender">
+                            <option value="Gender">Gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
@@ -83,9 +84,13 @@
                         <h1>User Login</h1>
                         <input type=text" placeholder="Username" name="username"/>
                         <input type="password" placeholder="Password" name="password"/>
+<!--                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                            <label class="form-check-label" for="form2Example31"> Remember me </label>
+                        </div>-->
                         <p class="text-danger">${login_msg}</p> 
                         <button type="submit">Login</button>
-                        <a href="${pageContext.request.contextPath}/forgot.jsp">forgot password</a>
+                        <a href="${pageContext.request.contextPath}/forgot.jsp">Forgot password?</a>
                     </form> 
 
                 </div>

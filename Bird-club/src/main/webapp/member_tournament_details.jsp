@@ -131,81 +131,122 @@
 
 
 
-                                <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%">
+                                <div class="is-layout-flow wp-block-column" style="flex-basis:50%">
                                     <div class="tribe-events-single-section tribe-events-event-meta primary tribe-clearfix">
                                         <div class="tribe-events-meta-group tribe-events-meta-group-details">
                                             <h3 class="tribe-events-single-section-title">Details</h3>
                                             <dl>
-                                                <dt> Leader: </dt>
-                                                <dd><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" > ${tournament.getIncharge()}</abbr>
+                                                <style>
+                                                    .row {
+                                                        display: grid;
+                                                        grid-template-columns: 1fr 1fr;
+                                                        grid-gap: 10px;
+                                                        margin-bottom: 10px;
+                                                    }
+
+                                                    dt, dd {
+                                                        padding: 5px;
+
+                                                    }
+                                                </style>
+                                                <div class="row">
+                                                    <dt> Leader </dt>
+                                                    <dd><abbr  class="tribe-events-abbr tribe-events-start-date published dtstart" > ${tournament.getIncharge()}</abbr>
+                                                </div>
                                                 </dd>
-                                                <dt> Participant: </dt>
-                                                <dd><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" > ${tournament.getNumberOfParticipant()}</abbr>
-                                                </dd>
-                                                <dt> Start: </dt>
+                                                <div class="row">
+                                                    <dt> Participant </dt>
+                                                    <dd ><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" > ${tournament.getNumberOfParticipant()}</abbr>
+                                                    </dd>
+                                                </div>
+                                                    <div class="row">
+                                                <dt> Start </dt>
                                                 <dd><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" title="2023-05-27"> ${tournament.getStartDate()}</abbr>
                                                 </dd>
-                                                <dt> End: </dt>
+                                                    </div>
+                                                <div class="row">
+                                                <dt> End </dt>
                                                 <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
-                                                        <div class="tribe-recurring-event-time">${tournament.getEndDate()}</div></dd>
-                                                <dt> Registration Deadline: </dt>
+                                                        <div class="tribe-recurring-event-time">${tournament.getEndDate()}</div>
+                                                </dd>
+                                                </div>
+                                                 <div class="row">
+                                                <dt > Registration Deadline </dt>
                                                 <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
-                                                        <div class="tribe-recurring-event-time">${tournament.getRegistrationDeadline()}</div></dd>
-                                                <dt>Prize</dt>${tournament.getTotalPrize()}$
-                                                <dt>Fee</dt>${tournament.getFee()}$
-                                                <dt>Contact</dt>${tournament.getContact()}
-                                                <dt>ORGANIZER</dt>${tournament.getHost()}
-                                                <dt>Location:</dt>
-                                                <div class="tribe-block tribe-block__venue tribe-block__venue--has-map">
-                                                    <div class="tribe-block__venue__meta">
-                                                        <div class="tribe-block__venue__name">
-                                                            <dd>FPT University<dd></div>
-                                                        <address class="tribe-block__venue__address">
-                                                            <span class="tribe-address">
-                                                                <span class="tribe-street-address">121 Republic Street</span><br></span>
-                                                            <a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>
+                                                        <div class="tribe-recurring-event-time">${tournament.getRegistrationDeadline()}</div>
+                                                </dd>
+                                                 </div>
+                                                <div class="row">
+                                                    <dt>Prize</dt>
+                                                    <dd>${tournament.getTotalPrize()}</dd>
+                                                </div>
+                                                <div class="row">
+                                                    <dt>Fee</dt>
+                                                    <dd >${tournament.getFee()}</dd>
+                                                </div>
+                                                <div class="row">
+                                                <dt>Contact</dt>
+                                                <dd>${tournament.getContact()}</dd>
+                                                </div>
+                                                 <div class="row">
+                                                <dt>Organizer</dt>
+                                                <dd>${tournament.getHost()}</dd>
+                                                 </div>
+                                                <div class="row">
+                                                    <dt>Location:</dt>
+                                                    <div  class=" tribe-block tribe-block__venue tribe-block__venue--has-map">
+                                                        <div class="tribe-block__venue__meta">
+                                                            <div class="tribe-block__venue__name">
+                                                                <dd><dd></div>
+                                                            <address class="tribe-block__venue__address">
+                                                                <span class="tribe-address">
+                                                                    <span class="tribe-street-address"></span><br></span>
+                                                        </div>
+                                                        <!--<a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>-->
                                                     </div>	
+                                                </div> 
+                                                 <a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>
 
-                                                </div>
-                                            </dl>
-                                            <div class="is-content-justification-center is-layout-flex wp-container-1 wp-block-buttons">
-                                                <div class="wp-block-button">
-                                                    <c:choose>
-                                                        <c:when test="${tournament.getStatus().trim() eq 'pending'}">
-                                                            <form action="${pageContext.request.contextPath}/BirdController" method="POST">
-                                                                <input type="hidden" name="action" value="view">
-                                                                <input type="hidden" name="UID" value="${users.userId}">
-                                                                <input type="hidden" name="TID" value="${t.getTID()}">
-                                                                <button type="submit" class="wp-block-button__link has-orange-background-color has-background">Join Tournament</button>
-                                                            </form>
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            <form action="${pageContext.request.contextPath}/StaffAccountController" method="GET">
-                                                                <input type="hidden" name="action" value="viewlist">
-                                                                <button type="submit" class="wp-block-button__link has-blue-background-color has-background">Return</button>
-                                                            </form>
-                                                        </c:otherwise>
-                                                    </c:choose>
-                                                </div>
-                                            </div>
-                                            <script>
-                                                // Lấy tham số "registerSuccess" từ URL
-                                                const urlParams = new URLSearchParams(window.location.search);
-                                                const registerSuccess = urlParams.get('registerSuccess');
-
-                                                // Kiểm tra nếu có tham số "registerSuccess" và giá trị là "true"
-                                                if (registerSuccess === 'true') {
-                                                    // Thay thế nút "Join field trip" bằng dòng chữ "Register success"
-                                                    const joinFieldTripButton = document.querySelector('.wp-block-button__link');
-                                                    joinFieldTripButton.textContent = 'Register success';
-                                                    joinFieldTripButton.removeAttribute('href');
-                                                }
-                                            </script>
                                         </div>
+                                        </dl>
+                                        <div class="is-content-justification-center is-layout-flex wp-container-1 wp-block-buttons">
+                                            <div class="wp-block-button">
+                                                <c:choose>
+                                                    <c:when test="${tournament.getStatus().trim() eq 'pending'}">
+                                                        <form action="${pageContext.request.contextPath}/BirdController" method="POST">
+                                                            <input type="hidden" name="action" value="view">
+                                                            <input type="hidden" name="UID" value="${users.userId}">
+                                                            <input type="hidden" name="TID" value="${t.getTID()}">
+                                                            <button type="submit" class="wp-block-button__link has-orange-background-color has-background">Join Tournament</button>
+                                                        </form>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <form action="${pageContext.request.contextPath}/StaffAccountController" method="GET">
+                                                            <input type="hidden" name="action" value="viewlist">
+                                                            <button type="submit" class="wp-block-button__link has-blue-background-color has-background">Return</button>
+                                                        </form>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            // Lấy tham số "registerSuccess" từ URL
+                                            const urlParams = new URLSearchParams(window.location.search);
+                                            const registerSuccess = urlParams.get('registerSuccess');
+
+                                            // Kiểm tra nếu có tham số "registerSuccess" và giá trị là "true"
+                                            if (registerSuccess === 'true') {
+                                                // Thay thế nút "Join field trip" bằng dòng chữ "Register success"
+                                                const joinFieldTripButton = document.querySelector('.wp-block-button__link');
+                                                joinFieldTripButton.textContent = 'Register success';
+                                                joinFieldTripButton.removeAttribute('href');
+                                            }
+                                        </script>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                </div>
 
                 </div>
 

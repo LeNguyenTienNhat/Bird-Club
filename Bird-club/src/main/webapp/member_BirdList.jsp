@@ -71,8 +71,8 @@
             <main id="main-content">
 
                 <div class="content-container archive page-wider">
-                    <header class="article-header" aria-label="Title">
-                        <h1 id="archive-header" class="page-title"> All Brid list</h1>
+                    <header class="article-header" aria-label="Title" style="text-align: center">
+                        <h1 id="archive-header" class="page-title"> My bird list</h1>
                     </header> 
                     <section aria-labelledby="archive-header">
                         <div class="wp-block-columns">
@@ -108,12 +108,12 @@
                                                     <div class="row p-2 bg-white border rounded">
                                                         <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://www.google.com.vn/imgres?imgurl=https%3A%2F%2Fagridoctor.vn%2Fsites%2Fdefault%2Ffiles%2Fgiong-chim-chao-mao-2.jpg&tbnid=QoffjvbHAJ9qUM&vet=12ahUKEwiav8Hv1ZX_AhWMdHAKHel8AnQQMygDegUIARDIAQ..i&imgrefurl=https%3A%2F%2Fwww.agridoctor.vn%2Fvi%2Fgiong-chim-chao-mao-tim-hieu-nguon-goc-dac-diem-tap-tinh-cua-chim-0&docid=d99d2jMUzvXW5M&w=900&h=600&q=chim%20ch%C3%A0o%20m%C3%A0o&ved=2ahUKEwiav8Hv1ZX_AhWMdHAKHel8AnQQMygDegUIARDIAQ"></div>
                                                         <div class="col-md-6 mt-1">
-                                                            <h5>brid Name</h5>
+                                                            <h5>Bird Name</h5>
 
                                                             <p class="text-justify text-truncate para mb-0">description<br><br></p>
                                                         </div>
                                                         <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                                                            <div class="d-flex flex-column mt-4"><a href="member_BirdDetail.html" >Details</a><div>
+                                                            <div class="d-flex flex-column mt-4"><a href="member_BirdDetail.jsp" >Details</a><div>
                                                                 </div>
                                                             </div>
 
@@ -127,7 +127,7 @@
                                                             <p class="text-justify text-truncate para mb-0">description<br><br></p>
                                                         </div>
                                                         <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                                                            <div class="d-flex flex-column mt-4"><a href="member_BirdDetail.html" >Details</a><div>
+                                                            <div class="d-flex flex-column mt-4"><a href="member_BirdDetail.jsp" >Details</a><div>
                                                                 </div>
                                                             </div>
 
@@ -141,7 +141,7 @@
                                                             <p class="text-justify text-truncate para mb-0">description<br><br></p>
                                                         </div>
                                                         <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                                                            <div class="d-flex flex-column mt-4"><a href="member_BirdDetail.html" >Details</a><div>
+                                                            <div class="d-flex flex-column mt-4"><a href="member_BirdDetail.jsp" >Details</a><div>
                                                                 </div>
                                                             </div>
 
@@ -155,7 +155,7 @@
                                                             <p class="text-justify text-truncate para mb-0">description<br><br></p>
                                                         </div>
                                                         <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                                                            <div class="d-flex flex-column mt-4"><a href="member_BirdDetail.html" >Details</a><div>
+                                                            <div class="d-flex flex-column mt-4"><a href="member_BirdDetail.jsp" >Details</a><div>
                                                                 </div>
                                                             </div>
 
