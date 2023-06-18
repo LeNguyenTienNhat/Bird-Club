@@ -355,7 +355,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[TournamentMedia](
 	[TID] [nchar](10) NOT NULL,
-	[URL] [nvarchar](max) NOT NULL
+	[URL] [nvarchar](max) NOT NULL,
+	[description] [nvarchar](max) NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 /****** Object:  Table [dbo].[Tparticipation]    Script Date: 6/2/2023 8:22:23 PM ******/
