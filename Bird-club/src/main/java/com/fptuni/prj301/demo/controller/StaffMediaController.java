@@ -28,8 +28,8 @@ public class StaffMediaController extends HttpServlet {
             Enumeration files = mr.getFileNames();
             String name = (String) files.nextElement();
             String filename = mr.getFilesystemName(name);
-            Media i = new Media(ID,"media/"+filename, description);
-            mm.insert(tableName,i);
+            Media media = new Media(ID,"media/"+filename, description);
+            mm.insert(tableName,media);
             
             response.sendRedirect("staffhome");
             

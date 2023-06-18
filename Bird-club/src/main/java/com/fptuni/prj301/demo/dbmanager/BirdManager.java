@@ -92,4 +92,30 @@ public class BirdManager {
         }
          return UID;
     }
+    
+    public Bird load(String BID) {
+        String sql = "SELECT * FROM [Bird] WHERE BID = ?";
+        Bird bird = new Bird();
+         try {
+                Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setString(1, BID);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    String UID = rs.getString("UID");
+                    String name = rs.getString("name");
+                    int age = rs.getInt("age");
+                    String gender = rs.getString("gender");
+                    String description = rs.getString("description");
+                    String imageURL = rs.getString("imageURL");
+                    String color = rs.getString("color");
+                    Date addDate = rs.getTimestamp("addDate");
+
+                    bird = new Bird(BID, UID, name, age, gender, description, imageURL, color, addDate);
+                }
+                return bird;
+        } catch (SQLException e) {
+        }
+         return bird;
+    }
 }

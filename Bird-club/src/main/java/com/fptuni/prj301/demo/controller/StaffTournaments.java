@@ -1,13 +1,21 @@
 
 package com.fptuni.prj301.demo.controller;
 
+import com.fptuni.prj301.demo.dbmanager.BirdManager;
 import com.fptuni.prj301.demo.dbmanager.MediaManager;
+import com.fptuni.prj301.demo.dbmanager.MemberManager;
 import com.fptuni.prj301.demo.dbmanager.TournamentManager;
+import com.fptuni.prj301.demo.dbmanager.TparticipationManager;
+import com.fptuni.prj301.demo.model.Bird;
+import com.fptuni.prj301.demo.model.BirdParticipation;
 import com.fptuni.prj301.demo.model.Media;
+import com.fptuni.prj301.demo.model.Member;
 import com.fptuni.prj301.demo.model.Tournament;
+import com.fptuni.prj301.demo.model.Tparticipation;
 import tool.utils.Tools;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -62,7 +70,7 @@ public class StaffTournaments extends HttpServlet {
                 rd.forward(request, response);
             }
          
-         //Update a field trip's details
+         //Update a tournament's details
          else if (action.equals("updatetournament")) {
                 String TID = request.getParameter("TID");
                 String name = request.getParameter("name");
@@ -90,7 +98,7 @@ public class StaffTournaments extends HttpServlet {
                 rd.forward(request, response);
             }
                   
-         //Terminate a field trip
+         //Terminate a tournament
          else if (action.equals("terminatetournament")) {
             String TID = request.getParameter("TID");
             tournamentManager.terminate(TID);
@@ -100,7 +108,7 @@ public class StaffTournaments extends HttpServlet {
             rd.forward(request, response);
             }
          
-         //Close registration form of a field trip
+         //Close registration form of a tournament
          else if (action.equals("closeform")) {
             String TID = request.getParameter("TID");
             tournamentManager.closeForm(TID);
@@ -131,6 +139,45 @@ public class StaffTournaments extends HttpServlet {
                 request.setAttribute("tournament", t);
                 request.setAttribute("list", list);
                 RequestDispatcher rd = request.getRequestDispatcher("staff_tournament_media.jsp");
+                rd.forward(request, response);
+            }
+         
+            else if (action.equals("viewtournamentparticipants")) {
+                String TID = request.getParameter("TID");
+                TparticipationManager tm = new TparticipationManager();
+                BirdManager bm = new BirdManager();
+                MemberManager mm = new MemberManager();
+                List<Tparticipation> list = tm.getParticipantList(TID);
+                List<BirdParticipation> bl = new ArrayList();
+                for (Tparticipation tp : list) {
+                    Bird bird = bm.load(tp.getBid());
+                    Member member = mm.load(bird.getUID());
+                    BirdParticipation bp = new BirdParticipation();
+                    bp.setDocNo(tp.getDocNo());
+                    bp.setBID(tp.getBid());
+                    bp.setBirdName(bird.getName());
+                    bp.setUID(bird.getUID());
+                    bp.setFullname(member.getFullName());
+                    bp.setAchievement(tp.getAchievement());
+                    bl.add(bp);
+                }
+                
+                request.setAttribute("TID", TID);
+                request.setAttribute("list", bl);
+                RequestDispatcher rd = request.getRequestDispatcher("staff_tournament_participants.jsp");
+                rd.forward(request, response);
+            }
+         
+            else if (action.equals("updateachievement")) {
+                String achievement = (String) request.getParameter("ach");
+                String docNo = (String) request.getParameter("docNo");
+                String TID = (String) request.getParameter("TID");
+                TparticipationManager tm = new TparticipationManager();
+                tm.updateAchievement(docNo, achievement);
+                
+                request.setAttribute("action","viewtournamentparticipants");
+                request.setAttribute("TID",TID);
+                RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
                 rd.forward(request, response);
             }
 

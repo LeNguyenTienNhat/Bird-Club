@@ -13,8 +13,12 @@ public class Fieldtrip {
     private int fee;
     private int numberOfParticipant;
     private String category;
+    private String note;
+    private String incharge;
+    private String host;
+    private String contact;
 
-    public Fieldtrip(String FID, String name, String description, String registrationDeadline, String startDate, String endDate, String LID, String status, int fee, int numberOfParticipant) {
+    public Fieldtrip(String FID, String name, String description, String registrationDeadline, String startDate, String endDate, String LID, String status, int fee, int numberOfParticipant, String note, String incharge, String host, String contact) {
         this.FID = FID;
         this.name = name;
         this.description = description;
@@ -25,7 +29,46 @@ public class Fieldtrip {
         this.status = status;
         this.fee = fee;
         this.numberOfParticipant = numberOfParticipant;
+        this.category = category;
+        this.note = note;
+        this.incharge = incharge;
+        this.host = host;
+        this.contact = contact;
     }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getIncharge() {
+        return incharge;
+    }
+
+    public void setIncharge(String incharge) {
+        this.incharge = incharge;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    
 
     public Fieldtrip() {
     }

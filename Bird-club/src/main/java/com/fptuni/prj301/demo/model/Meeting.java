@@ -1,7 +1,7 @@
-
 package com.fptuni.prj301.demo.model;
 
 public class Meeting {
+
     private String MeID;
     private String name;
     private String description;
@@ -12,9 +12,13 @@ public class Meeting {
     private String status;
     private int numberOfParticipant;
     private String category;
+    private String note;
+    private String incharge;
+    private String host;
+    private String contact;
 
-    public Meeting(String FID, String name, String description, String registrationDeadline, String startDate, String endDate, String LID, String status, int numberOfParticipant) {
-        this.MeID = FID;
+    public Meeting(String MeID, String name, String description, String registrationDeadline, String startDate, String endDate, String LID, String status, int numberOfParticipant, String note, String incharge, String host, String contact) {
+        this.MeID = MeID;
         this.name = name;
         this.description = description;
         this.registrationDeadline = registrationDeadline;
@@ -23,6 +27,42 @@ public class Meeting {
         this.LID = LID;
         this.status = status;
         this.numberOfParticipant = numberOfParticipant;
+        this.note = note;
+        this.incharge = incharge;
+        this.host = host;
+        this.contact = contact;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getIncharge() {
+        return incharge;
+    }
+
+    public void setIncharge(String incharge) {
+        this.incharge = incharge;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     public Meeting() {
@@ -35,7 +75,7 @@ public class Meeting {
     public void setCategory(String category) {
         this.category = category;
     }
-    
+
     public String getMeID() {
         return MeID;
     }
@@ -107,6 +147,5 @@ public class Meeting {
     public void setNumberOfParticipant(int numberOfParticipant) {
         this.numberOfParticipant = numberOfParticipant;
     }
-    
-    
+
 }
