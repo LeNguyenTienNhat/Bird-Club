@@ -118,18 +118,6 @@ public class TparticipationManager {
         return list;
     }
 
-    public static void main(String[] args) {
-        TparticipationManager tparticipationManager = new TparticipationManager();
-
-        // Delete a record by docNo
-        String docNoToDelete = null;
-        boolean deletionSuccess = tparticipationManager.delete(docNoToDelete);
-        if (deletionSuccess) {
-            System.out.println("Record with docNo " + docNoToDelete + " deleted successfully.");
-        } else {
-            System.out.println("Failed to delete record with docNo " + docNoToDelete + ".");
-        }
-    }
 
     public void updateAchievement(String docNo, String achievement) {
         String sql = "UPDATE [Tparticipation] SET achievement = ? WHERE docNo = ?";

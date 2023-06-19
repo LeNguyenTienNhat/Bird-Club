@@ -68,6 +68,7 @@ public class UserAccessController extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/guest_homepage.jsp");
         }
         if (path != null && path.equals("/signup")) {
+            HttpSession ss = request.getSession(true);
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             String cpassword = request.getParameter("confirmPassword");
@@ -117,7 +118,8 @@ public class UserAccessController extends HttpServlet {
                 boolean success = userDao.SignUp(user);
 
                 if (success) {
-                    response.sendRedirect(request.getContextPath() + "/member_homepage.jsp");
+                    ss.setAttribute("users", user);
+                    response.sendRedirect(request.getContextPath() + "/MemberShipController?action=view");
                 } else {
                     response.sendRedirect(request.getContextPath() + "/EventDetails.jsp");
                 }

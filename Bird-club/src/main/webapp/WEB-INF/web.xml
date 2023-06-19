@@ -171,6 +171,14 @@
         <servlet-name>TransactionController</servlet-name>
         <url-pattern>/TransactionController</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>MemberShipController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.MemberShipController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MemberShipController</servlet-name>
+        <url-pattern>/MemberShipController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
