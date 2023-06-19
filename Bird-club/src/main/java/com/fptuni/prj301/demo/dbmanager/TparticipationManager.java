@@ -28,7 +28,7 @@ public class TparticipationManager {
             ps.setString(1, tparticipation.getTid());
             ps.setString(2, tparticipation.getBid());
             ps.setString(3, tparticipation.getDocNo());
-            ps.setString(4, tparticipation.getAchievement()); // Set the achievement value directly
+            ps.setString(4, "non"); // Set the achievement value directly
 
             int rowsAffected = ps.executeUpdate();
 
