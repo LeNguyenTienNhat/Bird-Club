@@ -73,7 +73,7 @@ VALUES ('BID35','UID25', 'Lisa', '10', 'female', 'My bird intelligence shines th
 INSERT INTO [Bird] 
 VALUES ('BID36','UID32', 'Mika', '7', 'male', 'This bird swift flight across the sky is a symbol of freedom and agility.', 'https://indiabiodiversity.org/files-api/api/get/raw/img/Pycnonotus%20jocosus/609.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID37','UID0', 'Mona', '6', 'female', 'My bird soft feathers are incredibly soothing to touch', 'https://cdn.virily.com/wp-content/uploads/2020/02/bullbull2-1-313x277.jpg, 'gray', GETDATE());
+VALUES ('BID37','UID0', 'Mona', '6', 'female', 'My bird soft feathers are incredibly soothing to touch', 'https://cdn.virily.com/wp-content/uploads/2020/02/bullbull2-1-313x277.jpg ','gray', GETDATE());
 INSERT INTO [Bird] 
 VALUES ('BID38','UID37', 'Nahida', '3', 'female', 'The way my bird fluffs up its feathers to keep warm is an adorable sight.', 'https://www.birdsofmurrieta.com/uploads/7/5/8/4/75844173/red-whiskered-bulbul-pycnonotus-jocosus-apr07-010.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
@@ -125,103 +125,103 @@ VALUES ('BID61','UID10', 'Miko', '9', 'female', 'The way my bird nuzzles against
 INSERT INTO [Bird] 
 VALUES ('BID62','UID35', 'Yanfei', '8', 'female', 'My bird aerial acrobatics during mating displays are truly captivating.', 'https://thewildernessalternative.files.wordpress.com/2012/10/taman-negara-21.jpg?w=1024', 'white', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID63','UID2', 'Yaoyao', '7', 'female', 'This bird ability to camouflage itself among its surroundings is an incredible adaptation.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID63','UID2', 'Yaoyao', '7', 'female', 'This bird ability to camouflage itself among its surroundings is an incredible adaptation.', 'https://1.bp.blogspot.com/_PrZJGhT0amE/TC85b_QASEI/AAAAAAAABEY/CUPAWv3cGHM/s400/broadbill_silverbreasted2.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID64','UID46', 'Yelan', '11', 'female', 'My bird gentle tapping on its food bowl lets me know it feeding time.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+VALUES ('BID64','UID46', 'Yelan', '11', 'female', 'My bird gentle tapping on its food bowl lets me know it feeding time.', 'https://www.birdsofmurrieta.com/uploads/7/5/8/4/75844173/red-whiskered-bulbul-pycnonotus-jocosus-apr07-010.jpg', 'yellow', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID65','UID47', 'Yoimiya', '10', 'female', 'The way my bird basks in the sunlight, soaking up its warmth, is a picture of contentment.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+VALUES ('BID65','UID47', 'Yoimiya', '10', 'female', 'The way my bird basks in the sunlight, soaking up its warmth, is a picture of contentment.', 'https://kerala.birds.watch/photos/0001/001/00010035001.jpg', 'gray', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID66','UID15', 'YunJin', '7', 'female', 'My bird swift takeoff and landing demonstrate its precise control over flight.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+VALUES ('BID66','UID15', 'YunJin', '7', 'female', 'My bird swift takeoff and landing demonstrate its precise control over flight.', 'https://www.birdsofgujarat.in/site-content/uploads/red-whiskered-bulbul-768x512.jpg', 'gray', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID67','UID37', 'Zhongli', '9', 'male', 'This bird ability to imitate household sounds adds a touch of whimsy to my home.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+VALUES ('BID67','UID37', 'Zhongli', '9', 'male', 'This bird ability to imitate household sounds adds a touch of whimsy to my home.', 'https://www.stevografix.com.au/birds/images/red-wiskered-bulbul-3974.jpg', 'gray', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID68','UID22', 'Paimon', '4', 'female', 'My bird cautious approach to new objects shows its keen sense of awareness.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+VALUES ('BID68','UID22', 'Paimon', '4', 'female', 'My bird cautious approach to new objects shows its keen sense of awareness.', 'https://live.staticflickr.com/8301/8001932482_19696ebd8f.jpg', 'red', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID69','UID4', 'Signora', '4', 'female', 'The way my bird carefully arranges its feathers after preening is a display of self-care.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID69','UID4', 'Signora', '4', 'female', 'The way my bird carefully arranges its feathers after preening is a display of self-care.', 'https://i.pinimg.com/236x/d6/df/9b/d6df9b0c59e0c249b3df6903ed6821db--bird-watching-image.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID70','UID14', 'Scaramouche', '6', 'male', 'My bird soft and gentle touch with its beak during feeding is a gesture of tenderness.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+VALUES ('BID70','UID14', 'Scaramouche', '6', 'male', 'My bird soft and gentle touch with its beak during feeding is a gesture of tenderness.', 'https://image.shutterstock.com/image-photo/redwhiskered-bulbul-pycnonotus-jocosustall-crested-260nw-1046276362.jpg', 'red', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID71','UID8', 'Lyney', '3', 'male', 'This bird rhythmic hopping on the ground is an adorable sight of playfulness.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+VALUES ('BID71','UID8', 'Lyney', '3', 'male', 'This bird rhythmic hopping on the ground is an adorable sight of playfulness.', 'https://live.staticflickr.com/8493/8322803178_47b86a068b.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID72','UID24', 'Lynette', '8', 'female', 'My bird delightful chatter keeps me company throughout the day.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID72','UID24', 'Lynette', '8', 'female', 'My bird delightful chatter keeps me company throughout the day.', 'https://i.pinimg.com/originals/1c/bb/23/1cbb234c4839789c000ece080f757b04.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID73','UID23', 'Pulcinella', '10', 'male', 'The way my bird fans out its tail feathers during courtship displays is a stunning visual.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+VALUES ('BID73','UID23', 'Pulcinella', '10', 'male', 'The way my bird fans out its tail feathers during courtship displays is a stunning visual.', 'https://blog.openspacefoundation.in/content/images/size/w1000/2020/11/Red-Vented-Bul-Bul-1.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID74','UID48', 'Pierro', '5', 'male', 'My bird ability to recognize my voice among others fills me with a sense of connection.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+VALUES ('BID74','UID48', 'Pierro', '5', 'male', 'My bird ability to recognize my voice among others fills me with a sense of connection.', 'https://live.staticflickr.com/7110/7420772414_5078b6e11e.jpg', 'white', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID75','UID16', 'Pantalone', '8', 'male', 'This bird intricate nest weaving using grass and twigs is a testament to its craftsmanship.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID75','UID16', 'Pantalone', '8', 'male', 'This bird intricate nest weaving using grass and twigs is a testament to its craftsmanship.', 'https://live.staticflickr.com/4028/4632014578_2faf18612b_z.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID76','UID45', 'Arlecchino', '4', 'female', 'My bird quick and precise movements while catching insects are a display of agility.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+VALUES ('BID76','UID45', 'Arlecchino', '4', 'female', 'My bird quick and precise movements while catching insects are a display of agility.', 'https://i.pinimg.com/736x/ec/ee/9e/ecee9ef90028b5865583fc2528b5175c.jpg', 'red', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID77','UID27', 'Sandrone', '8', 'female', 'The way my bird flaps its wings vigorously to dry off after bathing is a moment of joy.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+VALUES ('BID77','UID27', 'Sandrone', '8', 'female', 'The way my bird flaps its wings vigorously to dry off after bathing is a moment of joy.', 'https://2.bp.blogspot.com/-mxHQ_jlo8nE/VAqYuq-DTXI/AAAAAAAABW8/yZBkzqIIK7s/s1600/Red-Whiskered-Wallpaper.jpg', 'red', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID78','UID32', 'Capiano', '6', 'male', 'My bird gentle preening of its mate feathers is an act of mutual care and affection.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID78','UID32', 'Capiano', '6', 'male', 'My bird gentle preening of its mate feathers is an act of mutual care and affection.', 'https://www.pixellicious.com/wp-content/uploads/2016/12/201-1024x768.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID79','UID33', 'Dottore', '11', 'male', 'This bird swift and agile flight through narrow gaps showcases its maneuverability.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+VALUES ('BID79','UID33', 'Dottore', '11', 'male', 'This bird swift and agile flight through narrow gaps showcases its maneuverability.', 'https://res-3.cloudinary.com/ebirdr/image/upload/s--eJlN_eG6--/f_auto,q_auto,t_full/2654-red-whiskered-bulbul.jpg', 'white', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID80','UID25', 'Columbia', '2', 'female', 'My bird distinctive squawk lets me know it excited to see me.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+VALUES ('BID80','UID25', 'Columbia', '2', 'female', 'My bird distinctive squawk lets me know it excited to see me.', 'https://www.susanfleck.com/Birds/Birds_images_08small/Bulbul_Red-whiskered_4762191_small.jpg', 'yellow', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID81','UID36', 'Arlan', '1', 'male', 'My bird distinctive squawk lets me know it excited to see me.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID81','UID36', 'Arlan', '1', 'male', 'My bird distinctive squawk lets me know it excited to see me.', 'https://4.bp.blogspot.com/-kqnIx3oqMpI/VAqYtpDZrTI/AAAAAAAABWw/1VHS0NyxRxg/s1600/Red-Whiskered-Standing-Tall.jpeg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID82','UID1', 'Asta', '10', 'female', 'My bird gentle and cautious approach to new visitors reveals its cautious nature.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+VALUES ('BID82','UID1', 'Asta', '10', 'female', 'My bird gentle and cautious approach to new visitors reveals its cautious nature.', 'https://thumbs.dreamstime.com/b/red-whiskered-bulbul-25525642.jpg', 'gray', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID83','UID9', 'Bailu', '1', 'female', 'This bird precision in building intricate nests high in the trees is a testament to its engineering skills.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID83','UID9', 'Bailu', '1', 'female', 'This bird precision in building intricate nests high in the trees is a testament to its engineering skills.', 'https://farm8.staticflickr.com/7102/7288616018_2febcdc782_c.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID84','UID20', 'Bronya', '8', 'female', 'My bird melodious whistling is a constant reminder of the beauty of nature.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID84','UID20', 'Bronya', '8', 'female', 'My bird melodious whistling is a constant reminder of the beauty of nature.', 'https://c2.staticflickr.com/6/5510/14177796138_1de2ce5a80_b.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID85','UID29', 'Clara', '7', 'female', 'The way my bird dips its beak into fresh water and takes a sip is a moment of refreshment.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID85','UID29', 'Clara', '7', 'female', 'The way my bird dips its beak into fresh water and takes a sip is a moment of refreshment.', 'https://c2.staticflickr.com/8/7788/18039432128_419c3decb4_b.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID86','UID38', 'DanHeng', '8', 'male', 'My bird synchronized flock movements during migration are a marvel of unity.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+VALUES ('BID86','UID38', 'DanHeng', '8', 'male', 'My bird synchronized flock movements during migration are a marvel of unity.', 'https://live.staticflickr.com/65535/52980594937_f5056a6d17_b.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID87','UID12', 'Gepard', '2', 'male', 'This bird ability to glide effortlessly on air currents is a true display of grace.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID87','UID12', 'Gepard', '2', 'male', 'This bird ability to glide effortlessly on air currents is a true display of grace.', 'https://img2.juzaphoto.com/001/shared_files/uploads/1424365.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID88','UID0', 'Herta', '7', 'female', 'My bird alert and watchful eyes always keep a lookout for potential threats.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+VALUES ('BID88','UID0', 'Herta', '7', 'female', 'My bird alert and watchful eyes always keep a lookout for potential threats.', 'https://img2.juzaphoto.com/001/shared_files/uploads_hr/426107_large73963.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID89','UID4', 'Himeko', '7', 'female', 'The way my bird fluffs up its feathers to keep warm during cold weather is a cute sight.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+VALUES ('BID89','UID4', 'Himeko', '7', 'female', 'The way my bird fluffs up its feathers to keep warm during cold weather is a cute sight.', 'https://www.publicdomainpictures.net/pictures/30000/velka/rotohrbulbul.jpg', 'red', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID90','UID38', 'Hook', '7', 'female', 'My bird delicate and precise grooming of its feathers maintains their vibrant appearance.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+VALUES ('BID90','UID38', 'Hook', '7', 'female', 'My bird delicate and precise grooming of its feathers maintains their vibrant appearance.', 'https://content.eol.org/data/media/28/c6/0f/18.https___www_inaturalist_org_photos_1145051.jpg', 'yellow', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID91','UID16', 'JingYuan', '11', 'male', 'This bird impressive ability to build intricate nests from mud and twigs is a testament to its resourcefulness.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+VALUES ('BID91','UID16', 'JingYuan', '11', 'male', 'This bird impressive ability to build intricate nests from mud and twigs is a testament to its resourcefulness.', 'https://www.birdforum.net/gallery/red-whiskered-bulbul.640451/full', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID92','UID10', 'March7th', '2', 'female', 'My bird melodious singing at sunrise is a beautiful alarm clock for me.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+VALUES ('BID92','UID10', 'March7th', '2', 'female', 'My bird melodious singing at sunrise is a beautiful alarm clock for me.', 'https://res-4.cloudinary.com/ebirdr/image/upload/s--KXdPkodx--/f_auto,q_auto,t_full/2656-red-whiskered-bulbul.jpg', 'white', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID93','UID24', 'Natasha', '6', 'female', 'The way my bird stretches its wings wide after a long period of rest is a refreshing sight.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+VALUES ('BID93','UID24', 'Natasha', '6', 'female', 'The way my bird stretches its wings wide after a long period of rest is a refreshing sight.', 'https://thaibirding.photography/wp-content/uploads/2019/08/redwhiskered-1-2.jpg', 'white', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID94','UID22', 'Pela', '3', 'female', 'My bird gentle tapping on the window indicates its desire to explore the outside world.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+VALUES ('BID94','UID22', 'Pela', '3', 'female', 'My bird gentle tapping on the window indicates its desire to explore the outside world.', 'https://focusingonwildlife.com/news/wp-content/gallery/best-photo-of-the-week-competition-25-apr-2015/p1350506.jpg', 'red', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID95','UID36', 'Qingque', '7', 'female', 'This bird agile movements while foraging for food on the forest floor are a joy to watch.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+VALUES ('BID95','UID36', 'Qingque', '7', 'female', 'This bird agile movements while foraging for food on the forest floor are a joy to watch.', 'https://www.oiseaux.net/photos/singhal.sunil/images/bulbul.orphee.sisu.1g.jpg', 'yellow', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID96','UID23', 'Sampo', '7', 'male', 'My bird curious tilt of the head when observing something new shows its inquisitive nature.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID96','UID23', 'Sampo', '7', 'male', 'My bird curious tilt of the head when observing something new shows its inquisitive nature.', 'https://delicioustacos.files.wordpress.com/2020/12/800px-red-whiskered_bulbul_.jpg?w=768', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID97','UID48', 'Seele', '3', 'female', 'The way my bird bobs up and down on a branch while chirping adds a touch of playfulness to its song.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+VALUES ('BID97','UID48', 'Seele', '3', 'female', 'The way my bird bobs up and down on a branch while chirping adds a touch of playfulness to its song.', 'https://2.bp.blogspot.com/-Y7hezKXegLs/Wb3RYir0RXI/AAAAAAAAKPk/CSw-15sAxOk-qxoc8gANx0_Qp0fYgh4jgCLcBGAs/s1600/REDWHISKEREDBULBUL2_RICHMONDNSW_JGRAY_140917.jpg', 'red', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID98','UID15', 'Serval', '1', 'female', 'My bird intricate patterns on its feathers resemble a beautiful mosaic of colors.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+VALUES ('BID98','UID15', 'Serval', '1', 'female', 'My bird intricate patterns on its feathers resemble a beautiful mosaic of colors.', 'https://www.oiseaux.net/photos/guilhem.cantegrel/images/bulbul.orphee.gcan.1g.jpg', 'white', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID99','UID10', 'SilverWolf', '2', 'female', 'This bird melodious trill echoes through the meadow, creating a symphony of nature.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+VALUES ('BID99','UID10', 'SilverWolf', '2', 'female', 'This bird melodious trill echoes through the meadow, creating a symphony of nature.', 'https://www.oiseaux.net/photos/jean-claude.jamoulle/images/bulbul.orphee.jcja.2g.jpg', 'red', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID100','UID36', 'Sushang', '9', 'female', 'My bird meticulous arrangement of nesting materials showcases its attention to detail.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+VALUES ('BID100','UID36', 'Sushang', '9', 'female', 'My bird meticulous arrangement of nesting materials showcases its attention to detail.', 'https://th.bing.com/th/id/OIP.ySsq0S8Gz88funtmfKOrowHaHa?pid=ImgDet&rs=1', 'yellow', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID101','UID4', 'Tingyun', '11', 'female', 'The way my bird flits from branch to branch with quick and agile movements is a marvel.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+VALUES ('BID101','UID4', 'Tingyun', '11', 'female', 'The way my bird flits from branch to branch with quick and agile movements is a marvel.', 'https://www.oiseaux.net/photos/neil.fifer/images/bulbul.orphee.nefi.8g.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID102','UID48', 'Traiblazer', '10', 'male', 'My bird tender feeding of its chicks demonstrates its nurturing instinct.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+VALUES ('BID102','UID48', 'Traiblazer', '10', 'male', 'My bird tender feeding of its chicks demonstrates its nurturing instinct.', 'https://3.bp.blogspot.com/-WI7DX9fbeos/T6028snRbcI/AAAAAAAASZw/2rPHA36EKiA/s1600/redwhiskered_bulbul_copy1.jpg', 'white', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID103','UID22', 'Welt', '10', 'male', 'This bird ability to balance on a slender tree branch with grace is a sight to behold.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+VALUES ('BID103','UID22', 'Welt', '10', 'male', 'This bird ability to balance on a slender tree branch with grace is a sight to behold.', 'https://www.sdakotabirds.com/species/photos/red_whiskered_bulbul.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID104','UID52', 'Yanqing', '3', 'male', 'My bird soothing call at dusk brings a sense of tranquility to the evening.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+VALUES ('BID104','UID52', 'Yanqing', '3', 'male', 'My bird soothing call at dusk brings a sense of tranquility to the evening.', 'https://farm5.staticflickr.com/4249/34167744933_f857f4ee50_b.jpg', 'gray', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID105','UID56', 'Blade', '3', 'male', 'The way my bird expertly preens its feathers to maintain their optimal condition is a ritual of self-care.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID105','UID56', 'Blade', '3', 'male', 'The way my bird expertly preens its feathers to maintain their optimal condition is a ritual of self-care.', 'https://2.bp.blogspot.com/-mxHQ_jlo8nE/VAqYuq-DTXI/AAAAAAAABW8/yZBkzqIIK7s/s1600/Red-Whiskered-Wallpaper.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID106','UID51', 'FuXuan', '8', 'female', 'My bird fluttering flight pattern, resembling a delicate dance, is a joy to witness.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID106','UID51', 'FuXuan', '8', 'female', 'My bird fluttering flight pattern, resembling a delicate dance, is a joy to witness.', 'https://www.pixellicious.com/wp-content/uploads/2016/12/201-1024x768.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID107','UID25', 'Kafka', '7', 'female', 'This bird patient observation of its surroundings before taking flight reveals its cautious nature.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID107','UID25', 'Kafka', '7', 'female', 'This bird patient observation of its surroundings before taking flight reveals its cautious nature.', 'https://res-3.cloudinary.com/ebirdr/image/upload/s--eJlN_eG6--/f_auto,q_auto,t_full/2654-red-whiskered-bulbul.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID108','UID53', 'Luka', '9', 'male', 'My bird delicate and precise pecking at a fruit displays its exquisite feeding technique.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+VALUES ('BID108','UID53', 'Luka', '9', 'male', 'My bird delicate and precise pecking at a fruit displays its exquisite feeding technique.', 'https://www.oiseaux.net/photos/jean-claude.jamoulle/images/bulbul.orphee.jcja.3g.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID109','UID32', 'Loucha', '1', 'male', 'My bird gentle and cautious approach to new visitors reveals its cautious nature.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+VALUES ('BID109','UID32', 'Loucha', '1', 'male', 'My bird gentle and cautious approach to new visitors reveals its cautious nature.', 'https://th.bing.com/th/id/OIP.l5bGdJktxvSr3PFbbTMHSwHaFI?pid=ImgDet&rs=1', 'gray', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID110','UID18', 'Yukong', '4', 'female', 'My bird sweet singing fills my mornings with a delightful melody.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+VALUES ('BID110','UID18', 'Yukong', '4', 'female', 'My bird sweet singing fills my mornings with a delightful melody.', 'https://4.bp.blogspot.com/-kqnIx3oqMpI/VAqYtpDZrTI/AAAAAAAABWw/1VHS0NyxRxg/s1600/Red-Whiskered-Standing-Tall.jpeg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID111','UID29', 'Noelle', '10', 'female', 'My bird ability to mimic various bird songs adds a symphony of sounds to our garden.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID111','UID29', 'Noelle', '10', 'female', 'My bird ability to mimic various bird songs adds a symphony of sounds to our garden.', 'https://c2.staticflickr.com/6/5510/14177796138_1de2ce5a80_b.jpg', 'black', GETDATE());
 INSERT INTO [Bird]
 VALUES ('BID112','UID51', 'Shido', '5', 'male', 'My Red-whiskered bulbul is a lively songbird, filling my garden with its melodious tunes.', 'https://wallpapercave.com/wp/wp4424834.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
@@ -282,4 +282,3 @@ INSERT INTO [Bird]
 VALUES ('BID140','UID16', 'Yuuki', '10', 'female', 'My bird is boundless energy and enthusiasm remind me to appreciate the simple joys in life.', 'https://wallpapercave.com/wp/wp4424886.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
 VALUES ('BID141','UID53', 'Kazuto', '2', 'male', 'The Red-whiskered bulbul is presence in my garden brings a sense of harmony and connection to the natural world.', 'https://wallpapercave.com/wp/wp4424893.jpg', 'yellow', GETDATE());
-
