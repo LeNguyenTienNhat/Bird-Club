@@ -233,7 +233,7 @@ GO
 CREATE TABLE [dbo].[Magazine](
 	[MaID] [nchar](10) NOT NULL,
 	[description] [nvarchar](max) NOT NULL,
-	[URL] [nvarchar](50) NOT NULL,
+	[URL] [nvarchar](100) NOT NULL,
 	[uploadDate] [date] NOT NULL,
  CONSTRAINT [PK_Magazine] PRIMARY KEY CLUSTERED 
 (
