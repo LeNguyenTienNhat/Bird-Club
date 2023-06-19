@@ -25,7 +25,7 @@
             </div>
             <h3>Tạo mới đơn hàng</h3>
             <div class="table-responsive">
-                <form action="/vnpay_jsp/vnpayajax" id="frmCreateOrder" method="post">
+                <form action="/chimowners/vnpayajax" id="frmCreateOrder" method="post">
                     <div class="form-group">
                         <label for="amount" id="amountLabel">Số tiền</label>
                         <input class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="number" value="10000" />
@@ -37,7 +37,7 @@
                         <input type="radio" id="language" name="language" value="en">
                         <label for="language">Tiếng anh</label><br>
                     </div>
-                    <button type="submit" id="thanhtoanBtn" class="btn btn-default" href style="display: none;">Thanh toán</button>
+                    <button type="submit" id="thanhtoanBtn" class="btn btn-default">Thanh toán</button>
                 </form>
 
                 <form action="${pageContext.request.contextPath}/TransactionController?action=add" method="post">
