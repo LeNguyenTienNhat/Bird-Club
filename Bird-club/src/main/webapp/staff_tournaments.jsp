@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html class="h-full bg-gray-100">
     <head>
-        <title>Events</title>
+        <title>Tournaments</title>
         <meta name="csrf-param" content="authenticity_token" />
         <meta name="csrf-token" content="ahyUHbKwmmr7zSFLLkzvePiJVwXBL4woYSFM9G8nKMgn3UlVf_owDxDiNS3QLvjzvqSyEyX4pnBqDc1tkk2xTg" />
 
