@@ -1,49 +1,49 @@
 INSERT INTO [Bird] (BID,UID, name, age, gender, description, imageURL, color, addDate)
-VALUES ('BID0','UID17', 'Albedo', '2', 'male', 'My bird has vibrant feathers and a melodious song that fills my home with joy.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+VALUES ('BID0','UID17', 'Albedo', '2', 'male', 'My bird has vibrant feathers and a melodious song that fills my home with joy.', 'http://nejohnston.org/birds/2014/11/Images/IMG_0908.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID1','UID8', 'Alhaitham', '4', 'male', 'This little bird has the cutest chirp I have ever heard.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+VALUES ('BID1','UID8', 'Alhaitham', '4', 'male', 'This little bird has the cutest chirp I have ever heard.', 'http://nejohnston.org/birds/2014/11/Images/IMG_0941.jpg', 'gray', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID2','UID33', 'Aloy', '2', 'female', 'I adore my birds playful personality and its ability to mimic my laughter.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID2','UID33', 'Aloy', '2', 'female', 'I adore my birds playful personality and its ability to mimic my laughter.', 'http://nejohnston.org/birds/2015/12/Images/IMG_7766.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID3','UID26', 'Amber', '5', 'female', 'The way my bird gracefully soars through the air is truly mesmerizing.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID3','UID26', 'Amber', '5', 'female', 'The way my bird gracefully soars through the air is truly mesmerizing.', 'http://nejohnston.org/birds/2015/12/Images/IMG_7770.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID4','UID45', 'Baizhu', '2', 'male', 'With its vibrant plumage, my bird is like a living work of art.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+VALUES ('BID4','UID45', 'Baizhu', '2', 'male', 'With its vibrant plumage, my bird is like a living work of art.', 'http://nejohnston.org/birds/2014/11/Images/IMG_0913.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID5','UID22', 'Barbara', '4', 'female', 'I love how my bird hops around with such energy and enthusiasm.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID5','UID22', 'Barbara', '4', 'female', 'I love how my bird hops around with such energy and enthusiasm.', 'http://nejohnston.org/birds/2015/12/Images/IMG_7901.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID6','UID30', 'Beidou', '4', 'female', 'The intricate patterns on my bird wings make it truly unique.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+VALUES ('BID6','UID30', 'Beidou', '4', 'female', 'The intricate patterns on my bird wings make it truly unique.', 'http://nejohnston.org/birds/2008/01/Images/IMG_3864.jpg', 'white', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID7','UID21', 'Bennett', '9', 'male', 'My bird gentle cooing puts me in a peaceful state of mind.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+VALUES ('BID7','UID21', 'Bennett', '9', 'male', 'My bird gentle cooing puts me in a peaceful state of mind.', 'https://i.imgur.com/qt3AdcQ.jpg', 'red', GETDATE());
 INSERT INTO [Bird]
-VALUES ('BID8','UID15', 'Candace', '6', 'female', 'This bird has an amazing ability to mimic human speech with incredible accuracy.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+VALUES ('BID8','UID15', 'Candace', '6', 'female', 'This bird has an amazing ability to mimic human speech with incredible accuracy.', 'https://blog.hankchristensen.com/wp-content/uploads/2015/11/red-whiskered-bulbul-112474-Edit-1024x682.jpg', 'yellow', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID9','UID47', 'Chongyun', '4', 'male', 'I am constantly amazed by my bird intelligence and problem-solving skills.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+VALUES ('BID9','UID47', 'Chongyun', '4', 'male', 'I am constantly amazed by my bird intelligence and problem-solving skills.', 'https://blog.hankchristensen.com/wp-content/uploads/2015/11/red-whiskered-bulbul-112491-Edit-1024x682.jpg', 'white', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID10','UID11', 'Collei', '4', 'female', 'My bird playful antics always bring a smile to my face.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+VALUES ('BID10','UID11', 'Collei', '4', 'female', 'My bird playful antics always bring a smile to my face.', 'https://blog.hankchristensen.com/wp-content/uploads/2015/11/red-whiskered-bulbul-112431-1024x682.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID11','UID36', 'Cyno', '8', 'male', 'The way my bird spreads its wings and takes flight is a sight to behold.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+VALUES ('BID11','UID36', 'Cyno', '8', 'male', 'The way my bird spreads its wings and takes flight is a sight to behold.', 'https://www.publicdomainpictures.net/pictures/30000/velka/rotohrbulbul.jpg', 'gray', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID12','UID1', 'Dehya', '1', 'female', 'My bird sweet singing fills my mornings with a delightful melody.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+VALUES ('BID12','UID1', 'Dehya', '1', 'female', 'My bird sweet singing fills my mornings with a delightful melody.', 'https://as2.ftcdn.net/v2/jpg/00/50/88/53/1000_F_50885387_xqO4sNnBLwvFudxT1uFRsslGyjkxswRf.jpg', 'red', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID13','UID40', 'Diluc', '7', 'male', 'This little bird has a big personality and brings so much happiness into my life.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+VALUES ('BID13','UID40', 'Diluc', '7', 'male', 'This little bird has a big personality and brings so much happiness into my life.', 'https://as1.ftcdn.net/v2/jpg/03/08/89/36/1000_F_308893654_O5IYkqAYkPq23CU07JLD9Mi7zAqVLj7a.jpg', 'yellow', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID14','UID31', 'Diona', '6', 'female', 'The vibrant colors of my bird feathers never fail to impress.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+VALUES ('BID14','UID31', 'Diona', '6', 'female', 'The vibrant colors of my bird feathers never fail to impress.', 'https://as2.ftcdn.net/v2/jpg/02/38/94/95/1000_F_238949576_YJNb6uvgSnHipSIXF3H6tQn88x7Yhxs5.jpg', 'red', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID15','UID7', 'Dori', '9', 'female', 'My bird curiosity knows no bounds as it explores its surroundings.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID15','UID7', 'Dori', '9', 'female', 'My bird curiosity knows no bounds as it explores its surroundings.', 'https://as1.ftcdn.net/v2/jpg/01/86/41/90/1000_F_186419037_T2r8VOpoEUDDaTBiYT1I5lU0G5g7xqiH.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID16','UID23', 'Eula', '6', 'female', 'The gentle fluttering of my bird wings is a soothing sight.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+VALUES ('BID16','UID23', 'Eula', '6', 'female', 'The gentle fluttering of my bird wings is a soothing sight.', 'https://as2.ftcdn.net/v2/jpg/01/84/06/47/1000_F_184064713_6JCnhEMyMMMX2auN0qHVREHUtwk6FvsB.jpg', 'red', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID17','UID42', 'Faruzan', '2', 'female', 'I can spend hours watching my bird build its nest with such precision and care.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+VALUES ('BID17','UID42', 'Faruzan', '2', 'female', 'I can spend hours watching my bird build its nest with such precision and care.', 'https://as2.ftcdn.net/v2/jpg/02/94/87/15/1000_F_294871523_KrTHmTbKHL4KlzNP90V3UGjsNjc2Suid.jpg', 'white', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID18','UID48', 'Fischl', '6', 'female', 'This bird elegant posture and graceful movements are a true marvel.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+VALUES ('BID18','UID48', 'Fischl', '6', 'female', 'This bird elegant posture and graceful movements are a true marvel.', 'https://as1.ftcdn.net/v2/jpg/01/25/23/46/1000_F_125234670_h9hanBPD83BibI9OWUX45uA9NCbrckxA.jpg', 'yellow', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID19','UID16', 'Ganyu', '4', 'female', 'My bird playful nature and social interactions bring endless entertainment.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+VALUES ('BID19','UID16', 'Ganyu', '4', 'female', 'My bird playful nature and social interactions bring endless entertainment.', 'https://www.susanfleck.com/Birds/Birds_images_08/Bulbul_Red-whiskered_4762191.jpg', 'yellow', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID20','UID43', 'Gorou', '1', 'male', 'The way my bird perches on my finger makes me feel a special bond with it.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+VALUES ('BID20','UID43', 'Gorou', '1', 'male', 'The way my bird perches on my finger makes me feel a special bond with it.', 'https://www.susanfleck.com/Birds/Birds_images_08/Bulbul_Red-whiskered_4762193.jpg', 'gray', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID21','UID19', 'Hutao', '10', 'female', 'My bird melodic singing has become the soundtrack of my home.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+VALUES ('BID21','UID19', 'Hutao', '10', 'female', 'My bird melodic singing has become the soundtrack of my home.', 'https://www.susanfleck.com/Birds/Birds_images_08/Bulbul_Red-whiskered_4762163.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID22','UID2', 'Jean', '10', 'female', 'The unique patterns on my bird feathers make it easily recognizable.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID22','UID2', 'Jean', '10', 'female', 'The unique patterns on my bird feathers make it easily recognizable.', 'https://www.susanfleck.com/Birds/Birds_images_08/Bulbul_Red-whiskered_4762160.jpg', 'black', GETDATE());
 INSERT INTO [Bird]
 VALUES ('BID23','UID28', 'Kazuha', '4', 'male', 'My bird inquisitive eyes seem to hold a world of wisdom.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
 INSERT INTO [Bird] 
@@ -222,3 +222,64 @@ INSERT INTO [Bird]
 VALUES ('BID110','UID18', 'Yukong', '4', 'female', 'My bird sweet singing fills my mornings with a delightful melody.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
 INSERT INTO [Bird] 
 VALUES ('BID111','UID29', 'Noelle', '10', 'female', 'My bird ability to mimic various bird songs adds a symphony of sounds to our garden.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+INSERT INTO [Bird]
+VALUES ('BID112','UID51', 'Shido', '5', 'male', 'My Red-whiskered bulbul is a lively songbird, filling my garden with its melodious tunes.', 'https://wallpapercave.com/wp/wp4424834.jpg', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID113','UID35', 'Tohka', '8', 'female', 'With its vibrant red crest and distinctive whiskers, my Red-whiskered bulbul is a stunning sight to behold.', 'https://wallpapercave.com/wp/wp4424835.jpg', 'gray', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID114','UID21', 'Kotori', '7', 'female', 'The agile flight of my bird, darting from branch to branch, showcases its incredible maneuverability.f', 'https://wallpapercave.com/wp/wp4424836.jpg', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID115','UID21', 'Origami', '1', 'female', 'My Red-whiskered bulbul is cheerful call brightens up even the gloomiest of days.', 'https://wallpapercave.com/wp/wp4424838.jpg', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID116','UID5', 'Mio', '3', 'female', 'The playful nature of my bird brings a sense of joy and liveliness to my backyard.', 'https://wallpapercave.com/wp/wp4424839.jpg', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID117','UID45', 'Yoshino', '11', 'female', 'With its sleek black plumage and red accents, my Red-whiskered bulbul is a true fashionista of the avian world.', 'https://wallpapercave.com/wp/wp4424840.jpg', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID118','UID4', 'Kurumi', '11', 'female', 'The intricate nest-building skills of my bird demonstrate its dedication to creating a safe haven for its young.', 'https://wallpapercave.com/wp/wp4424841.jpg', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID119','UID32', 'Yuzuru', '4', 'female', 'My Red-whiskered bulbul is acrobatic displays during courtship are a sight of pure grace and elegance.', 'https://wallpapercave.com/wp/wp4424842.jpg', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID120','UID17', 'Miku', '8', 'female', 'The inquisitive nature of my bird leads it to explore every nook and cranny of its environment.', 'https://wallpapercave.com/wp/wp4424843.jpg', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID121','UID38', 'Natsumi', '7', 'female', 'The charming personality of my Red-whiskered bulbul makes it a favorite among fellow bird enthusiasts.', 'https://wallpapercave.com/wp/wp4424844.jpg', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID122','UID2', 'Nia', '7', 'female', 'My bird is friendly demeanor and willingness to interact with humans make it a delightful companion.', 'https://wallpapercave.com/wp/wp4424845.jpg', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID123','UID55', 'Mukuro', '5', 'female', 'The synchronized singing of my bird and its mates creates a symphony of nature in my backyard.', 'https://wallpapercave.com/wp/wp4424846.jpg', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID124','UID18', 'Tenka', '2', 'female', 'With its swift movements and nimble feet, my Red-whiskered bulbul is always ready for a playful chase.', 'https://wallpapercave.com/wp/wp4424847.jpg', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID125','UID24', 'Mayuri', '10', 'female', 'My bird is ability to mimic other bird calls adds an element of surprise to its melodious repertoire.', 'https://wallpapercave.com/wp/wp4424848.jpg', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID126','UID14', 'Rinne', '5', 'female', 'The captivating eyes of my Red-whiskered bulbul reflect a curiosity and intelligence that never ceases to amaze me.', 'https://wallpapercave.com/wp/wp4424849.jpg', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID127','UID52', 'Maria', '11', 'female', 'With its agile beak, my bird expertly plucks fruits and insects from the foliage, showcasing its resourcefulness.', 'https://wallpapercave.com/wp/wp4424851.jpg', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID128','UID59', 'Marina', '10', 'female', 'The Red-whiskered bulbul is constant grooming rituals remind me of its meticulous nature and attention to appearance.', 'https://wallpapercave.com/wp/wp4424853.jpg', 'red', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID129','UID8', 'Rio', '5', 'female', 'My bird is sociable nature allows it to form close bonds with other bird species, creating a harmonious avian community.', 'https://wallpapercave.com/wp/wp4424856.jpg', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID130','UID54', 'Reine', '5', 'female', 'The confident stance and proud posture of my Red-whiskered bulbul exude a sense of self-assurance.', 'https://wallpapercave.com/wp/wp4424859.jpg', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID131','UID45', 'Kannazuki', '3', 'female', 'With its distinctive vocalizations, my bird adds a touch of wilderness to my otherwise urban surroundings.', 'https://wallpapercave.com/wp/wp4424868.jpg', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID132','UID49', 'Mana', '4', 'female', 'My bird is vibrant red whiskers are like delicate brushstrokes, adding a splash of color to its already beautiful plumage.', 'https://wallpapercave.com/wp/wp4424873.jpg', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID133','UID0', 'Westcott', '11', 'male', 'The Red-whiskered bulbul is swift flights and aerial acrobatics are a testament to its agility and strength.', 'https://wallpapercave.com/wp/wp4424878.jpg', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID134','UID40', 'Ellen', '4', 'female', 'My bird is natural curiosity leads it to investigate every new object or visitor in its territory.', 'https://wallpapercave.com/wp/wp4424879.jpg', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID135','UID59', 'Shiori', '9', 'male', 'With its melodious songs, my Red-whiskered bulbul serves as a delightful alarm clock, signaling the start of a new day.', 'https://wallpapercave.com/wp/wp4424880.jpg', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID136','UID35', 'Woodman', '9', 'male', 'The playful interactions between my bird and its reflection in the window mirror never fail to entertain and amuse me.', 'https://wallpapercave.com/wp/wp4424881.jpg', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID137','UID14', 'Kirito', '5', 'male', 'My bird is meticulous nest-building skills showcase its dedication to creating a safe and comfortable home.', 'https://wallpapercave.com/wp/wp4424882.jpg', 'white', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID138','UID43', 'Asuna', '10', 'female', 'The Red-whiskered bulbul is harmonious melodies create a serene atmosphere that lulls me into a state of tranquility.', 'https://wallpapercave.com/wp/wp4424883.jpg', 'yellow', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID139','UID48', 'Yui', '2', 'male', 'With its swift and precise movements, my bird swiftly catches insects mid-air, demonstrating its impressive hunting skills.', 'https://wallpapercave.com/wp/wp4424885.jpg', 'brown', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID140','UID16', 'Yuuki', '10', 'female', 'My bird is boundless energy and enthusiasm remind me to appreciate the simple joys in life.', 'https://wallpapercave.com/wp/wp4424886.jpg', 'black', GETDATE());
+INSERT INTO [Bird] 
+VALUES ('BID141','UID53', 'Kazuto', '2', 'male', 'The Red-whiskered bulbul is presence in my garden brings a sense of harmony and connection to the natural world.', 'https://wallpapercave.com/wp/wp4424893.jpg', 'yellow', GETDATE());
+
