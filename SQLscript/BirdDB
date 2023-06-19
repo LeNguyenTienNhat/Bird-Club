@@ -45,25 +45,25 @@ VALUES ('BID21','UID19', 'Hutao', '10', 'female', 'My bird melodic singing has b
 INSERT INTO [Bird] 
 VALUES ('BID22','UID2', 'Jean', '10', 'female', 'The unique patterns on my bird feathers make it easily recognizable.', 'https://www.susanfleck.com/Birds/Birds_images_08/Bulbul_Red-whiskered_4762160.jpg', 'black', GETDATE());
 INSERT INTO [Bird]
-VALUES ('BID23','UID28', 'Kazuha', '4', 'male', 'My bird inquisitive eyes seem to hold a world of wisdom.', 'https://logodix.com/logo/1070634.png', 'black', GETDATE());
+VALUES ('BID23','UID28', 'Kazuha', '4', 'male', 'My bird inquisitive eyes seem to hold a world of wisdom.', 'https://www.dlifejourney.com/wp-content/uploads/2020/10/portrait-of-a-red-whiskered-bulbul.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID24','UID38', 'Kaeya', '10', 'male', 'This bird ability to mimic sounds from its environment is simply astonishing.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+VALUES ('BID24','UID38', 'Kaeya', '10', 'male', 'This bird ability to mimic sounds from its environment is simply astonishing.', 'https://3.bp.blogspot.com/-hUpofm3-txo/WXHY2k8G3hI/AAAAAAABApc/gt4fIQjx6Tcl3qU6LkZYWbau-Eu0DnH5ACLcBGAs/s1600/OIS-Bulbul-D500C-8405.jpg', 'red', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID25','UID20', 'Ayaka', '3', 'female', 'The way my bird stretches its wings after a long flight is a sight of freedom.', 'https://logodix.com/logo/1070634.png', 'red', GETDATE());
+VALUES ('BID25','UID20', 'Ayaka', '3', 'female', 'The way my bird stretches its wings after a long flight is a sight of freedom.', 'https://static.uglyhedgehog.com/upload/2012/8/26/thumb-1346001448930-rw_bulbul__01.jpg', 'red', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID26','UID4', 'Ayato', '3', 'male', 'My bird loyal and affectionate nature is truly heartwarming.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+VALUES ('BID26','UID4', 'Ayato', '3', 'male', 'My bird loyal and affectionate nature is truly heartwarming.', 'https://i.pinimg.com/736x/e2/11/58/e21158e95a8d33d521bd2689174cc69f--bangladesh-amazing-nature.jpg', 'yellow', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID27','UID5', 'Kaveh', '8', 'male', 'The way my bird preens its feathers with such meticulousness is fascinating to watch.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+VALUES ('BID27','UID5', 'Kaveh', '8', 'male', 'The way my bird preens its feathers with such meticulousness is fascinating to watch.', 'http://1.bp.blogspot.com/-sdRmDAAU9GI/UMceh0P8k_I/AAAAAAAAGOI/DbIdNc7iIZQ/s1600/red_whiskered_bulbul_nepal.jpg', 'yellow', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID28','UID41', 'Keqing', '2', 'female', 'This bird vibrant plumage stands out beautifully against its natural habitat.', 'https://logodix.com/logo/1070634.png', 'white', GETDATE());
+VALUES ('BID28','UID41', 'Keqing', '2', 'female', 'This bird vibrant plumage stands out beautifully against its natural habitat.', 'https://farm5.static.flickr.com/4048/4444216707_de44e43f6c_m.jpg', 'white', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID29','UID35', 'Kirara', '2', 'female', 'My bird cheerful chirping brings a lively atmosphere to our home.', 'https://logodix.com/logo/1070634.png', 'gray', GETDATE());
+VALUES ('BID29','UID35', 'Kirara', '2', 'female', 'My bird cheerful chirping brings a lively atmosphere to our home.', 'https://i.ytimg.com/vi/L99HW-XiMjw/maxresdefault.jpg', 'gray', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID30','UID9', 'Klee', '7', 'female', 'The way my bird interacts with other birds showcases its social intelligence.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+VALUES ('BID30','UID9', 'Klee', '7', 'female', 'The way my bird interacts with other birds showcases its social intelligence.', 'https://i.pinimg.com/originals/c1/78/8e/c1788e1521acf2421dd210f01a1cd419.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID31','UID6', 'Sara', '1', 'female', 'My bird gentle pecking on my hand is its way of showing affection.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
+VALUES ('BID31','UID6', 'Sara', '1', 'female', 'My bird gentle pecking on my hand is its way of showing affection.', 'https://avise-birds.bio.uci.edu/passeriformes/pycnonotidae/pycnonotus_jocosus/images/7rwbu_copy.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID32','UID10', 'Charlotte', '7', 'female', 'This bird ability to navigate long distances during migration is awe-inspiring.', 'https://logodix.com/logo/1070634.png', 'yellow', GETDATE());
+VALUES ('BID32','UID10', 'Charlotte', '7', 'female', 'This bird ability to navigate long distances during migration is awe-inspiring.', 'https://i.pinimg.com/originals/69/9b/2b/699b2bd1dae1e04a94c8bd5f3d8e478c.jpg', 'yellow', GETDATE());
 INSERT INTO [Bird] 
 VALUES ('BID33','UID46', 'Shinobu', '3', 'female', 'My bird graceful movements during its courtship dance are a true spectacle.', 'https://logodix.com/logo/1070634.png', 'brown', GETDATE());
 INSERT INTO [Bird] 
