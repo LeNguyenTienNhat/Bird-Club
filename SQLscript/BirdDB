@@ -73,7 +73,7 @@ VALUES ('BID35','UID25', 'Lisa', '10', 'female', 'My bird intelligence shines th
 INSERT INTO [Bird] 
 VALUES ('BID36','UID32', 'Mika', '7', 'male', 'This bird swift flight across the sky is a symbol of freedom and agility.', 'https://indiabiodiversity.org/files-api/api/get/raw/img/Pycnonotus%20jocosus/609.jpg', 'brown', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID37','UID0', 'Mona', '6', 'female', 'My bird soft feathers are incredibly soothing to touch', 'https://cdn.virily.com/wp-content/uploads/2020/02/bullbull2-1-313x277.jpg, 'gray', GETDATE());
+VALUES ('BID37','UID0', 'Mona', '6', 'female', 'My bird soft feathers are incredibly soothing to touch', 'https://cdn.virily.com/wp-content/uploads/2020/02/bullbull2-1-313x277.jpg ','gray', GETDATE());
 INSERT INTO [Bird] 
 VALUES ('BID38','UID37', 'Nahida', '3', 'female', 'The way my bird fluffs up its feathers to keep warm is an adorable sight.', 'https://www.birdsofmurrieta.com/uploads/7/5/8/4/75844173/red-whiskered-bulbul-pycnonotus-jocosus-apr07-010.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
@@ -159,7 +159,7 @@ VALUES ('BID78','UID32', 'Capiano', '6', 'male', 'My bird gentle preening of its
 INSERT INTO [Bird] 
 VALUES ('BID79','UID33', 'Dottore', '11', 'male', 'This bird swift and agile flight through narrow gaps showcases its maneuverability.', 'https://res-3.cloudinary.com/ebirdr/image/upload/s--eJlN_eG6--/f_auto,q_auto,t_full/2654-red-whiskered-bulbul.jpg', 'white', GETDATE());
 INSERT INTO [Bird] 
-VALUES ('BID80','UID25', 'Columbia', '2', 'female', 'My bird distinctive squawk lets me know it excited to see me.', https://www.susanfleck.com/Birds/Birds_images_08small/Bulbul_Red-whiskered_4762191_small.jpg', 'yellow', GETDATE());
+VALUES ('BID80','UID25', 'Columbia', '2', 'female', 'My bird distinctive squawk lets me know it excited to see me.', 'https://www.susanfleck.com/Birds/Birds_images_08small/Bulbul_Red-whiskered_4762191_small.jpg', 'yellow', GETDATE());
 INSERT INTO [Bird] 
 VALUES ('BID81','UID36', 'Arlan', '1', 'male', 'My bird distinctive squawk lets me know it excited to see me.', 'https://4.bp.blogspot.com/-kqnIx3oqMpI/VAqYtpDZrTI/AAAAAAAABWw/1VHS0NyxRxg/s1600/Red-Whiskered-Standing-Tall.jpeg', 'black', GETDATE());
 INSERT INTO [Bird] 
@@ -282,4 +282,3 @@ INSERT INTO [Bird]
 VALUES ('BID140','UID16', 'Yuuki', '10', 'female', 'My bird is boundless energy and enthusiasm remind me to appreciate the simple joys in life.', 'https://wallpapercave.com/wp/wp4424886.jpg', 'black', GETDATE());
 INSERT INTO [Bird] 
 VALUES ('BID141','UID53', 'Kazuto', '2', 'male', 'The Red-whiskered bulbul is presence in my garden brings a sense of harmony and connection to the natural world.', 'https://wallpapercave.com/wp/wp4424893.jpg', 'yellow', GETDATE());
-
