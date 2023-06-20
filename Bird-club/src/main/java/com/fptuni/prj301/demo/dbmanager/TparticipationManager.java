@@ -118,7 +118,6 @@ public class TparticipationManager {
         return list;
     }
 
-
     public void updateAchievement(String docNo, String achievement) {
         String sql = "UPDATE [Tparticipation] SET achievement = ? WHERE docNo = ?";
         try {
@@ -127,7 +126,47 @@ public class TparticipationManager {
             ps.setString(1, achievement);
             ps.setString(2, docNo);
             ps.executeUpdate();
-        } catch (SQLException ex) { }
+        } catch (SQLException ex) {
+        }
+    }
+
+    public List<Tparticipation> getRecords(int skip, int numOfRow, String TID) {
+        List<Tparticipation> list = new ArrayList();
+        String sql = "SELECT * FROM [Tparticipation] WHERE TID = ? ORDER BY TID OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, TID);
+            ps.setInt(2, skip);
+            ps.setInt(3, numOfRow);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Tparticipation t = new Tparticipation();
+                t.setTid(rs.getString("TID"));
+                t.setBid(rs.getString("BID"));
+                t.setDocNo(rs.getString("docNo"));
+                t.setAchievement(rs.getString("achievement"));
+                list.add(t);
+            }
+        } catch (SQLException e) {
+        }
+        return list;
+    }
+    
+    public int getParticipantListSize(String TID) {
+        int count = 0;
+        String sql = "SELECT * FROM [Tparticipation] WHERE TID = ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, TID);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                count++;
+            }
+        } catch (SQLException e) {
+        }
+        return count;
     }
 
 }

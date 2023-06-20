@@ -143,11 +143,20 @@ public class StaffTournaments extends HttpServlet {
             }
          
             else if (action.equals("viewtournamentparticipants")) {
+                int page, skip;
+                try {
+                    page = Integer.parseInt(request.getParameter("page"));
+                    skip=(page-1)*20;
+                } catch (NumberFormatException e) {
+                    skip = 0;
+                }
+               
                 String TID = request.getParameter("TID");
                 TparticipationManager tm = new TparticipationManager();
                 BirdManager bm = new BirdManager();
                 MemberManager mm = new MemberManager();
-                List<Tparticipation> list = tm.getParticipantList(TID);
+                List<Tparticipation> list = tm.getRecords(skip,20,TID);
+                int size = tm.getParticipantListSize(TID);
                 List<BirdParticipation> bl = new ArrayList();
                 for (Tparticipation tp : list) {
                     Bird bird = bm.load(tp.getBid());
@@ -164,6 +173,7 @@ public class StaffTournaments extends HttpServlet {
                 
                 request.setAttribute("TID", TID);
                 request.setAttribute("list", bl);
+                request.setAttribute("size", size);
                 RequestDispatcher rd = request.getRequestDispatcher("staff_tournament_participants.jsp");
                 rd.forward(request, response);
             }

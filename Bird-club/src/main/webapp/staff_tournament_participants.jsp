@@ -218,10 +218,14 @@
     </div>
 
     <main class="pb-8 pt-8">
-        
-<%! List<BirdParticipation> bpList; String TID; String color; %>
-<% bpList = (List<BirdParticipation>) request.getAttribute("list"); 
-TID = (String) request.getAttribute("TID"); %>
+
+        <%! List<BirdParticipation> bpList;
+            String TID;
+            String color;
+            int size; %>
+        <% bpList = (List<BirdParticipation>) request.getAttribute("list");
+            TID = (String) request.getAttribute("TID");
+            size = (int) request.getAttribute("size"); %>
 
         <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
 
@@ -258,11 +262,11 @@ TID = (String) request.getAttribute("TID"); %>
                                                         </svg>Filter</button></div></div></div>
 
                                         <form class="hidden" data-record-filters-target="form" data-turbo-action="advance" accept-charset="UTF-8" method="get">
-                                            
+
                                             <div class="border-t border-gray-200 py-10" id="disclosure-1">
                                                 <div class="max-w-7xl mx-auto  gap-x-4 px-4 text-sm md:gap-x-6">
                                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 lg:grid-cols-3 md:gap-x-6 w-full">
-                                                       
+
                                                         <div class="space-y-4">
                                                             <div>
                                                                 <legend class="block font-medium">Family</legend>
@@ -299,7 +303,7 @@ TID = (String) request.getAttribute("TID"); %>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="action" value="viewtournamentparticipants">
-                                            <input type="hidden" name="TID" <% out.print("value='"+TID+"'"); %> >
+                                            <input type="hidden" name="TID" <% out.print("value='" + TID + "'"); %> >
                                         </form>  </section>
                                 </div>
 
@@ -311,7 +315,7 @@ TID = (String) request.getAttribute("TID"); %>
                                                 <dt class="text-base font-normal text-gray-900">Total participants</dt>
                                                 <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                                     <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                        <% out.print(bpList.size()); %>
+                                                        <% out.print(size); %>
                                                     </div>
                                                 </dd>
                                             </div>
@@ -363,19 +367,22 @@ TID = (String) request.getAttribute("TID"); %>
                                             <div class="table-header-group bg-white">
                                                 <turbo-frame id="row_record_9959" class="contents" target="_top">
 
-                                                    
+
 
                                                     <%
-                                                        
+
                                                         for (BirdParticipation bp : bpList) {
-                                                            color="bg-white";
+                                                            color = "bg-white";
                                                             String achievement = bp.getAchievement().trim();
-                                                            if (achievement.equalsIgnoreCase("gold")) color="bg-yellow-100";
-                                                            else if (achievement.trim().equalsIgnoreCase("silver")) color="bg-gray-200";
-                                                            else if (achievement.trim().equalsIgnoreCase("bronze")) color="bg-orange-100";
-                                                            
-                                                            
-                                                            out.print("<div class='table-row "+color+"'>"
+                                                            if (achievement.equalsIgnoreCase("gold")) {
+                                                                color = "bg-yellow-100";
+                                                            } else if (achievement.trim().equalsIgnoreCase("silver")) {
+                                                                color = "bg-gray-200";
+                                                            } else if (achievement.trim().equalsIgnoreCase("bronze")) {
+                                                                color = "bg-orange-100";
+                                                            }
+
+                                                            out.print("<div class='table-row " + color + "'>"
                                                                     + "<div class='table-cell border-b border-gray-200 text-sm w-full max-w-0 py-4 pl-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
                                                                     + bp.getDocNo() + "</div>"
                                                                     + "<div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
@@ -394,7 +401,7 @@ TID = (String) request.getAttribute("TID"); %>
                                                                     + "  <input type='hidden' name='action' value='updateachievement'>"
                                                                     + "  <input type='hidden' name='docNo' value='" + bp.getDocNo() + "'>"
                                                                     + "  <input type='hidden' name='TID' value='" + TID + "'>"
-                                                                     + " <button class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2' type='submit'>Confirm</button>"
+                                                                    + " <button class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2' type='submit'>Confirm</button>"
                                                                     + "  </form>"
                                                                     + " </div>"
                                                                     + " <div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden sm:table-cell'>"
@@ -417,14 +424,31 @@ TID = (String) request.getAttribute("TID"); %>
 
 
                                 <div class="pt-6 flex items-center justify-between">
-                                    <nav class="pagy-nav pagination" aria-label="pager"><span class="page prev disabled">‹&nbsp;Prev</span> <span class="page next disabled">Next&nbsp;›</span></nav>
-                                </div>
+                                    <nav class="pagy-nav pagination" aria-label="pager">
 
+                                        <%! int i;%>
+                                        <% int size = (bpList.size() / 20) + 1;
+                                            for (i = 1; i <= size; i++) {
+                                                out.print("<span class='page'><form>"
+                                                        + "<input type='hidden' name='page' value='" + i + "'>"
+                                                        + "<input type='hidden' name='action' value='viewtournamentparticipants'>"
+                                                        + "<input type='hidden' name='TID' value='" + TID + "'>"
+                                                        + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
+                                                        + "</form></span>");
+                                            }
+                                        %>
+
+                                    </nav>
+                                </div>
                             </div>
 
 
 
-                        </div></div></div></div></div>       
+
+                        </div></div>
+                
+                
+                </div></div></div>       
     </main>
 
     <footer class="mt-8" aria-labelledby="footer-heading">
