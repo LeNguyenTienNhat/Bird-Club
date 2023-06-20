@@ -1,7 +1,7 @@
 package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.FieldtripManager;
-import com.fptuni.prj301.demo.dbmanager.MediaManager;
+import com.fptuni.prj301.demo.dbmanager.EventsMediaManager;
 import com.fptuni.prj301.demo.dbmanager.MeetingManager;
 import com.fptuni.prj301.demo.model.Fieldtrip;
 import com.fptuni.prj301.demo.model.Media;
@@ -190,7 +190,7 @@ public class StaffEvents extends HttpServlet {
             else if (action.equals("viewfieldtripmedia")) {
                 String FID = request.getParameter("FID");
                 Fieldtrip f = fieldtripManager.load(FID);
-                MediaManager m = new MediaManager();
+                EventsMediaManager m = new EventsMediaManager();
                 List<Media> list = m.getList("FieldTripMedia", FID);
                 
                 request.setAttribute("fieldtrip", f);
@@ -204,7 +204,7 @@ public class StaffEvents extends HttpServlet {
             else if (action.equals("viewmeetingmedia")) {
                 String MeID = request.getParameter("MeID");
                 Meeting me = meetingManager.load(MeID);
-                MediaManager m = new MediaManager();
+                EventsMediaManager m = new EventsMediaManager();
                 List<Media> list = m.getList("MeetingMedia", MeID);
                 
                 request.setAttribute("meeting", me);

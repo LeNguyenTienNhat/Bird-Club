@@ -1,7 +1,9 @@
 
 package com.fptuni.prj301.demo.controller;
 
-import com.fptuni.prj301.demo.dbmanager.MediaManager;
+import com.fptuni.prj301.demo.dbmanager.EventsMediaManager;
+import com.fptuni.prj301.demo.dbmanager.GalleryManager;
+import com.fptuni.prj301.demo.model.Image;
 import com.fptuni.prj301.demo.model.Media;
 import com.oreilly.servlet.MultipartRequest;
 import java.io.IOException;
@@ -17,7 +19,8 @@ public class StaffMediaController extends HttpServlet {
         try {
             response.setContentType("text/html;charset=UTF-8");
             
-            MediaManager mm = new MediaManager();
+            EventsMediaManager mm = new EventsMediaManager();
+            GalleryManager gm = new GalleryManager();
             String root = "D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media";
             MultipartRequest mr = new MultipartRequest(request,root);
             
@@ -28,11 +31,18 @@ public class StaffMediaController extends HttpServlet {
             Enumeration files = mr.getFileNames();
             String name = (String) files.nextElement();
             String filename = mr.getFilesystemName(name);
-            Media media = new Media(ID,"media/"+filename, description);
-            mm.insert(tableName,media);
-            
-            response.sendRedirect("staffhome");
-            
+            //Inserting the image for club's gallery
+            if (ID.equalsIgnoreCase("Gallery")) {
+                Image image = new Image("media/"+filename, description);
+                gm.insert(image);
+                response.sendRedirect("gallery");
+            }
+            //Inserting Tournament/Field Trip/Meeting media
+            else {
+                Media media = new Media(ID,"media/"+filename, description);
+                mm.insert(tableName,media);
+                response.sendRedirect("http://localhost:8080/chimowners/tournaments?TID="+ID+"&action=viewtournamentmedia");
+            }            
         } catch (ClassNotFoundException | ParseException ex) {}
         
         }

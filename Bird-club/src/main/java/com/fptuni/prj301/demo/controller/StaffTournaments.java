@@ -2,7 +2,7 @@
 package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.BirdManager;
-import com.fptuni.prj301.demo.dbmanager.MediaManager;
+import com.fptuni.prj301.demo.dbmanager.EventsMediaManager;
 import com.fptuni.prj301.demo.dbmanager.MemberManager;
 import com.fptuni.prj301.demo.dbmanager.TournamentManager;
 import com.fptuni.prj301.demo.dbmanager.TparticipationManager;
@@ -133,7 +133,7 @@ public class StaffTournaments extends HttpServlet {
             else if (action.equals("viewtournamentmedia")) {
                 String TID = request.getParameter("TID");
                 Tournament t = tournamentManager.load(TID);
-                MediaManager m = new MediaManager();
+                EventsMediaManager m = new EventsMediaManager();
                 List<Media> list = m.getList("TournamentMedia", TID);
                 
                 request.setAttribute("tournament", t);

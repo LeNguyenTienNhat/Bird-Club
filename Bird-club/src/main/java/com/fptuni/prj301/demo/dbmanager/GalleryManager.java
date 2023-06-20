@@ -1,7 +1,7 @@
 
 package com.fptuni.prj301.demo.dbmanager;
 
-import com.fptuni.prj301.demo.model.Media;
+import com.fptuni.prj301.demo.model.Image;
 import com.fptuni.prj301.demo.utils.DBUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,15 +11,14 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MediaManager {
-        public void insert(String tableName ,Media media) throws ClassNotFoundException, ParseException  {
-        String sql = "INSERT INTO ["+tableName+"] VALUES (?, ?, ?)";    
+public class GalleryManager {
+        public void insert(Image i) throws ClassNotFoundException, ParseException  {
+        String sql = "INSERT INTO [GalleryImage] VALUES (?, ?)";    
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql); 
-            ps.setString(1, media.getID());
-            ps.setString(2, media.getURL());
-            ps.setString(3, media.getDescription());
+            ps.setString(1, i.getUrl());
+            ps.setString(2, i.getDescription());
             ps.executeUpdate();
         }
         catch (SQLException ex) {
@@ -27,23 +26,17 @@ public class MediaManager {
         }
     }
         
-        public List<Media> getList(String tableName, String ID) {
-        List<Media> list = new ArrayList<>();
-        String IDtype;
-        if (tableName.equalsIgnoreCase("TournamentMedia")) IDtype = "TID";
-        else if (tableName.equalsIgnoreCase("FieldTripMedia")) IDtype = "FID";
-        else IDtype = "MeID";
-        String sql = "SELECT * FROM ["+tableName +"] WHERE "+IDtype+"= ?";
+        public List<Image> getList() {
+        List<Image> list = new ArrayList<>();
+        String sql = "SELECT * FROM [GalleryImage]";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, ID);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Media i = new Media();
-                i.setID(rs.getString(IDtype));
+                Image i = new Image();
                 i.setDescription(rs.getString("description"));
-                i.setURL(rs.getString("URL"));
+                i.setUrl(rs.getString("URL"));
                 list.add(i);
             } rs.close();
         } catch (SQLException e) {

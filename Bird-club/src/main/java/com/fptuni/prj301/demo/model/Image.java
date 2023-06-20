@@ -5,6 +5,16 @@ public class Image {
     String url;
     String description;
 
+    public Image(String url, String description) {
+        this.url = url;
+        this.description = description;
+    }
+
+    public Image() {
+    }
+
+    
+    
     public String getUrl() {
         return url;
     }
