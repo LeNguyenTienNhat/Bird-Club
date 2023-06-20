@@ -182,7 +182,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <dt>Fee</dt>
-                                                    <dd >${tournament.getFee()}</dd>
+                                                    <dd >${tournament.getFee()}$</dd>
                                                 </div>
                                                 <div class="row">
                                                 <dt>Contact</dt>

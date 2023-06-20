@@ -48,7 +48,7 @@
                                                 <li id="nav-menu-item-41702" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="member_BirdList.jsp" class="menu-link sub-menu-link">My bird</a></li>
                                                 <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="member_checkout.jsp" class="menu-link sub-menu-link">Membership</a></li>
                                                 <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="member_Feedback.jsp" class="menu-link sub-menu-link">Feedback</a></li>
-                                                <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="member_checkout.jsp" class="menu-link sub-menu-link">Donation</a></li>
+                                                <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="vnpay_pay.jsp" class="menu-link sub-menu-link">Donation</a></li>
                                                 <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="${pageContext.request.contextPath}/UserAccessController/logout" class="menu-link sub-menu-link">Log out</a></li></ul>
                                         </li> 
                                     </ul>
