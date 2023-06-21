@@ -18,11 +18,13 @@
                         <div class="grid-container top-bar">
                             <div class="top-bar-left grid-x align-middle small-auto logos">
                                 <div class="cell logo lab">
-                                    <a href="" title="ChimOwners"><img alt="ChimOwners" data-src="" class="lazyload" src=""><noscript><img src="" alt=""></noscript></a>
+                               
                                 </div></div></div></div>
                     <div class="website-header-container grid-container">
                         <div class="grid-x header-content persistent-nav main-nav align-bottom nav-column">
                             <div class="cell flex-child-grow website-nav-container medium-auto small-12">
+                                                            <img alt="BirdClub logo" srcset="https://www.bird.club/assets/logo/logo@2x-956290beed33ed2841b61b3f880995d6c6951252a264e6615c7338a75336109e.png 2x, https://www.bird.club/assets/logo/logo@4x-fd2728b28bda915145a696aa1dd9344b6b1211bce8a3d93ece4a28683fbe4d88.png 4x" src="https://www.bird.club/assets/logo/logo-312ed022e9e8abb1fcfcdfd5eaa3fd93fb11e7d70d4eef74149a7ba17c311e71.png" width="150" height="49">
+
                                 <nav class="grid-x website-nav hide-for-print" aria-label="Primary">
                                     <div id="primary-nav-container">   
                                         <ul id="primary-nav" class="dropdown menu">

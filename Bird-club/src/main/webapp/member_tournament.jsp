@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html class="no-js" lang="en-US">
     <head>
@@ -62,25 +63,25 @@
 
         <h2 class="has-text-align-center has-large-font-size">Tournament List</h2>
 
-       <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var searchInput = document.getElementById('searchInput');
-    var tournamentItems = document.getElementsByClassName('tournament-item');
+        <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var searchInput = document.getElementById('searchInput');
+        var tournamentItems = document.getElementsByClassName('tournament-item');
 
-    searchInput.addEventListener('input', function() {
-        var searchValue = searchInput.value.toLowerCase();
+        searchInput.addEventListener('input', function () {
+            var searchValue = searchInput.value.toLowerCase();
 
-        for (var i = 0; i < tournamentItems.length; i++) {
-            var tournamentName = tournamentItems[i].querySelector('.tribe-events-calendar-list__event-title').textContent.toLowerCase();
-            if (tournamentName.includes(searchValue)) {
-                tournamentItems[i].style.display = 'block';
-            } else {
-                tournamentItems[i].style.display = 'none';
+            for (var i = 0; i < tournamentItems.length; i++) {
+                var tournamentName = tournamentItems[i].querySelector('.tribe-events-calendar-list__event-title').textContent.toLowerCase();
+                var tournamentStatus = tournamentItems[i].querySelector('.status-button').textContent.toLowerCase();
+                if (tournamentName.includes(searchValue) || tournamentStatus.includes(searchValue)) {
+                    tournamentItems[i].style.display = 'block';
+                } else {
+                    tournamentItems[i].style.display = 'none';
+                }
             }
-        }
+        });
     });
-});
-
 </script>
 
 
@@ -159,66 +160,235 @@
                                 width: 100%;
 
                             }
+                            .search-container {
+                                position: relative;
+                                display: inline-block;
+                                margin-bottom: 20px;
+                            }
 
+                            .search-icon {
+                                position: absolute;
+                                top: 50%;
+                                left: 5px;
+                                transform: translateY(-50%);
+                                color: #999;
+                            }
+
+                            #searchInput {
+                                width: 150px; /* Adjust the width as needed */
+                                padding: 5px 5px 5px 25px; /* Added padding to accommodate the icon */
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                            }
+
+                            /* Position the search input on the right */
+                            #searchInput::placeholder {
+                                text-align: left;
+                            }
+
+                            /* Align the search input to the right */
+                            #searchInput {
+                                text-align: left;
+                            }
+                            .row {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                                grid-gap: 10px;
+                                margin-bottom: 5px;
+                            }
+
+                            dt, dd {
+                                padding: 5px;
+
+                            }
+                            .status-button {
+                                display: inline-block;
+                                padding: 5px 10px;
+                                border: none;
+                                border-radius: 1000px;
+                                color: white;
+                                font-weight: bold;
+                                text-align: center;
+                                text-decoration: none;
+                                cursor: pointer;
+                            }
+
+
+                            .status-pending {
+                                background-color: #dcfce7;
+                                color: #166534;
+                            }
+
+                            .status-formClosed {
+                                background-color: #fef9c3;
+                                color: #804d5e;
+                                margin-right: 10px;
+
+                            }
+
+                            .status-ongoing {
+                                background-color: #FEE2E2;
+                                color: #991b1b;
+                            }
+
+                            .status-finished {
+                                background-color: darkgray;
+                                color: #1f2937;
+                            }
 
                         </style>
-                        <input type="text" id="searchInput" placeholder="Search tournaments">
-
-   <div class="tournament-container">
-    <c:if test="${empty tList}">
-        <div>
-            <p>No tournament found.</p>
-        </div>
-    </c:if>
-    <c:if test="${not empty tList}">
-        <c:forEach var="t" items="${tList}" varStatus="loop">
-            <div class="tournament-item">
-                <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
-                    <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
-                        <header class="tribe-events-calendar-list__event-header">
-                            <h3 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium" style="display: flex; justify-content: center;">
-                                <a href="${pageContext.request.contextPath}/TparticipationController?action=view&TID=${t.getTID()}"
-                                   title="${t.getName()}"
-                                   style=""
-                                   class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
-                                    ${t.getName()}
-                                </a>
-                            </h3>
-                            <div class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2">
-                                <time class="tribe-events-calendar-list__event-datetime" datetime="2023-05-27">
-                                    <span class="tribe-event-date-start">${t.getStartDate()}</span>
-                                    to <span class="tribe-event-time">${t.getEndDate()}</span>
-                                </time>
-                            </div>
-                            <div>
-                                <span class="inline-flex items-center px-2.5 py-0.5 font-medium text-xs rounded-full 
-                                  
-                                    ${t.getStatus()}
-                                </span>
-                            </div>
-                        </header>
-                         <div class="tribe-events-calendar-list__event-description tribe-common-b2 tribe-common-a11y-hidden">
-                          <p>${t.getDescription()}</p>
+                        <div class="search-container">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" id="searchInput" placeholder="Search">
                         </div>
-                    </div>
-                </div>
-            </div>
-        </c:forEach>
-    </c:if>
-</div>
-                       <style>
-    .tournament-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
 
-    .tournament-item {
-        border: 1px solid #ccc;
-        padding: 20px;
-        background-color: #f2f2f2; /* Add your desired background color here */
-    }
-</style>
+                        <div class="tournament-container">
+                            <c:if test="${empty tList}">
+                                <div>
+                                    <p>No tournament found.</p>
+                                </div>
+                            </c:if>
+                            <c:if test="${not empty tList}">
+                                <c:forEach var="t" items="${tList}" varStatus="loop">
+                                    <div class="tournament-item">
+                                        <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
+                                            <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
+
+                                                <h4 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium" style="display: flex; justify-content: center;">
+                                                    <a href="${pageContext.request.contextPath}/TparticipationController?action=view&TID=${t.getTID()}"
+                                                       title="${t.getName()}"
+                                                       style="display: flex; align-items: center;"
+                                                       class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
+                                                        ${t.getName()}
+                                                    </a>
+                                                </h4>
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <dt><strong>Date Start</strong></dt></dt>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <dd>
+                                                                        <abbr class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2" title="2023-05-27">${t.getStartDate()}</abbr>
+                                                                    </dd>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <dt><strong>Date End</strong></dt></dt>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <dd>
+                                                                        <div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
+                                                                            <div class="tribe-recurring-event-time">${t.getEndDate()}</div>
+                                                                        </div>
+                                                                    </dd>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <dt><strong>Status</strong></dt></dt>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <dd>
+                                                                        <span class="status-button
+                                                                              <c:choose>
+                                                                                  <c:when test="${t.getStatus().contains('pending')}">
+                                                                                      status-pending
+                                                                                  </c:when>
+                                                                                  <c:when test="${t.getStatus().contains('formClosed')}">
+                                                                                      status-formClosed 
+                                                                                  </c:when>
+                                                                                  <c:when test="${t.getStatus().contains('ongoing')}">
+                                                                                      status-ongoing
+                                                                                  </c:when>
+                                                                                  <c:when test="${t.getStatus().contains('finished')}">
+                                                                                      status-finished
+                                                                                  </c:when>
+                                                                              </c:choose>"
+                                                                              >
+                                                                            ${t.getStatus()}
+                                                                        </span>
+                                                                    </dd>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <dt><strong>Fee</strong></dt></dt>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <dd>
+                                                                        <div class="tribe-recurring-event-time">${t.getFee()}$</div>
+                                                                    </dd>
+                                                                </div>
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <dt><strong>Total Prize</strong></dt></dt>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <dd>
+                                                                        <div class="tribe-recurring-event-time">${t.getTotalPrize()}$</div>
+                                                                    </dd>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                                     <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <dt><strong>Participants</strong></dt></dt>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <dd>
+                                                                        <div class="tribe-recurring-event-time">${t.getNumberOfParticipant()}</div>
+                                                                    </dd>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </c:if>
+                        </div>
+                        <style>
+                            .tournament-container {
+                                display: grid;
+                                grid-template-columns: repeat(2, 1fr);
+                                gap: 20px;
+                            }
+
+                            .tournament-item {
+                                border: 1px solid #ccc;
+                                padding: 20px;
+                                background-color: #f2f2f2; /* Add your desired background color here */
+                            }
+                        </style>
 
 
 
