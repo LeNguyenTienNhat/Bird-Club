@@ -112,7 +112,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Blog](
 	[BID] [nchar](10) NOT NULL,
-	[description] [nvarchar](50) NOT NULL,
+	[description] [nvarchar](max) NOT NULL,
 	[category] [nvarchar](50) NOT NULL,
 	[uploadDate] [datetime] NOT NULL,
 	[UID] [nchar](10) NOT NULL,
@@ -312,7 +312,7 @@ GO
 CREATE TABLE [dbo].[News](
 	[NID] [nchar](10) NOT NULL,
 	[UID] [nchar](10) NOT NULL,
-	[description] [nvarchar](50) NOT NULL,
+	[description] [nvarchar](max) NOT NULL,
 	[category] [nvarchar](50) NOT NULL,
 	[uploadDate] [datetime] NOT NULL,
  CONSTRAINT [PK_Article] PRIMARY KEY CLUSTERED 
