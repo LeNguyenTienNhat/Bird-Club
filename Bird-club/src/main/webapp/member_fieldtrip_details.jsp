@@ -176,7 +176,7 @@
                                                 
                                                 <div class="row">
                                                     <dt>Fee</dt>
-                                                    <dd >${fieldtrip.getFee()}</dd>
+                                                    <dd >${fieldtrip.getFee()}$</dd>
                                                 </div>
                                                 
                                                  
