@@ -44,7 +44,6 @@ public class StaffMember extends HttpServlet {
             String UID = request.getParameter("UID");
             manager.approve(UID);
 
-            request.setAttribute("action", "viewmembers");
             RequestDispatcher rd = request.getRequestDispatcher("StaffMember");
             rd.forward(request, response);
         } //view a member's details
@@ -53,7 +52,7 @@ public class StaffMember extends HttpServlet {
             Member member = manager.load(UID);
 
             request.setAttribute("member", member);
-            RequestDispatcher rd = request.getRequestDispatcher("staff_member_details.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("staff_member_profile.jsp");
             rd.forward(request, response);
         }
 
