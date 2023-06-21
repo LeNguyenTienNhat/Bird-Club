@@ -208,15 +208,14 @@
                             <turbo-frame id="new_event" target="_top">
 
                                 <%! String ID; %>
-                                <% String tableName = (String) request.getAttribute("tableName"); 
-                                if (tableName.equalsIgnoreCase("FieldTripMedia")) {
-                                    Fieldtrip f = (Fieldtrip) request.getAttribute("fieldtrip"); 
-                                    ID = f.getFID();
-                                }
-                                else {
-                                    Meeting m = (Meeting) request.getAttribute("meeting");
-                                    ID = m.getMeID();
-                                }
+                                <% String tableName = (String) request.getAttribute("tableName");
+                                    if (tableName.equalsIgnoreCase("FieldTripMedia")) {
+                                        Fieldtrip f = (Fieldtrip) request.getAttribute("fieldtrip");
+                                        ID = f.getFID();
+                                    } else {
+                                        Meeting m = (Meeting) request.getAttribute("meeting");
+                                        ID = m.getMeID();
+                                    }
                                 %>
 
                                 <form class="space-y-4" action="./media" method="post" enctype="multipart/form-data">
@@ -261,12 +260,14 @@
                 <nav class="-mb-px flex space-x-8">
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staffhome">Home</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="members">Members</a>
-                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_blogs.jsp">Blogs</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="blogs">Blogs</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-teal-600 border-teal-600 focus:outline-none" href="events">Events</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="tournaments">Tournaments</a>
-                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_article.jsp">News</a>
-                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_gallery.jsp">Gallery</a>
-                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_feedback.jsp">Feedback</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="news">News</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="gallery">Gallery</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="memberships">Membership</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="locations">Location</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="feedbacks">Feedback</a>
                 </nav>
             </div>
             <div class="sm:hidden py-4">

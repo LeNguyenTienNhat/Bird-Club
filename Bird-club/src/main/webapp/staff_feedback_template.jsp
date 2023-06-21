@@ -1,14 +1,10 @@
-<%-- 
-    Document   : staff_blogs
-    Created on : Jun 4, 2023, 3:23:12 PM
-    Author     : Tue
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="h-full bg-gray-100">
     <head>
-        <title>Blogs</title>
+        <title>Feedback</title>
         <meta name="csrf-param" content="authenticity_token" />
         <meta name="csrf-token" content="ahyUHbKwmmr7zSFLLkzvePiJVwXBL4woYSFM9G8nKMgn3UlVf_owDxDiNS3QLvjzvqSyEyX4pnBqDc1tkk2xTg" />
 
@@ -107,9 +103,10 @@
                                         <div>
                                             <button type="button" class="max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                                 <div class="w-8 h-8 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden  flex-shrink-0">
-                                                    <img src="https://staticg.sportskeeda.com/editor/2021/04/bd904-16194408810325-800.jpg" />
-                                                </div> 
-                                                <span class="hidden ml-3 text-gray-700 text-sm font-medium lg:block"><span class="sr-only">Open user menu for </span>Nguoi choi chim</span>
+                                                    <img src="https://drive.google.com/file/d/11b8c4a-9wrfw_nqBXh0IYQh6FwF22e1t/view" />
+                                                </div>
+
+                                                <span class="hidden ml-3 text-gray-700 text-sm font-medium lg:block"><span class="sr-only">Open user menu for </span>Kaedehara Yamamoto</span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="hidden flex-shrink-0 ml-1 h-5 w-5 text-gray-400 lg:block w-5 h-5">
                                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                                                 </svg>
@@ -164,7 +161,7 @@
 
                             </div>
                             <div class="ml-3">
-                                <div class="text-base font-medium text-gray-800">Nguoi choi chim</div>
+                                <div class="text-base font-medium text-gray-800">Kaedehara Yamamoto</div>
                                 <div class="text-sm font-medium text-gray-500">kaedeharayamamoto@gmail.com</div>
                             </div>
                         </div>
@@ -269,7 +266,6 @@
             </div>
         </div>
 
-   <%@ include file="staff_header.html" %> 
 
     <main class="pb-8 pt-8">
         <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
@@ -279,79 +275,78 @@
 
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
                         <div class="sm:flex-auto">
-                            <h1 class="text-xl font-semibold text-gray-900">
-                                Members' delicious contribution hehe
-                            </h1>
+                            <h1 class="text-xl font-semibold text-gray-900">Feedback</h1>
                             <p class="mt-2 text-sm text-gray-700">
-                                A full list of pending blogs waiting for your approval.
+                                Available feedbacks waiting to be reviewed from Chim Owners' members.
                             </p>
-                            <p></p>
                         </div>
-
                     </div>
 
-                    <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-4">
-                        <li class="col-span-1 flex flex-col text-center bg-white sm:rounded-lg shadow">
 
-                            <div class="flex-1 flex flex-col p-8">
-                                <div class="w-52 h-40 flex items-center justify-center overflow-hidden mx-auto flex-shrink-0">
-                                    <img src="https://th.bing.com/th/id/OIP.28bL6wtSllVDL8PJKxtdnwHaE8?pid=ImgDet&rs=1">
+                    <turbo-frame class="lg:col-span-7 xl:col-span-8" id="events_list">
+                        <ol class="space-y-4 leading-6 text-sm mt-4">
+                            <li class="relative flex flex-col bg-white sm:rounded-lg shadow p-6">
+                                <div class="">
+                                    <h3 class="font-semibold text-gray-900 space-x-2 mb-4">
+                                        <span>I'm unable to add a new bird</span>
+
+                                    </h3>
+
+                                    <div class="flex items-start space-x-3">
+                                        <div class="mt-0.5">
+                                            <span class="sr-only">Date</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-gray-400 w-5 h-5">
+                                            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <div><time datetime="2023-05-17">Wednesday 17th at  4:38pm</time></div>
+                                    </div>
                                 </div>
-
-                                <h3 class="mt-6 text-gray-900 text-sm font-medium">Nguoi choi chim</h3>
-                                <dl class="mt-1 flex-grow flex flex-col justify-between">
-                                    <dt class="sr-only">Title</dt>
-                                    <dd class="text-gray-500 text-sm">Uploaded <span class="font-bold">May 15, 2023</span></dd>
-                                    <dt class="sr-only">Role</dt>
-                                    <dd class="mt-3">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 font-medium bg-green-100 text-green-800 text-xs rounded-full">Member</span>
-                                    </dd>
-                                </dl>
-                            </div>
-                            <div class=" border-t border-gray-200 bg-gray-50 overflow-hidden sm:rounded-b-lg">
-                                <div class="-mt-px flex divide-x divide-gray-200">
-                                    <div class="w-0 flex-1 flex">
-                                        <a class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500" href="/clubs/birds-in-ohio/members/808">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eyeglasses" viewBox="0 0 16 16">
-                                            <path d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A1.993 1.993 0 0 0 8 6c-.532 0-1.016.208-1.375.547zM14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
-                                            </svg><span class="ml-2">View</span>
-                                        </a>          </div>
-                                    <div class="-ml-px w-0 flex-1 flex bg-lime-100">
-                                        <form class="contents" method="post" action="/conversations?conversation%5Brecipient_id%5D=808&amp;conversation%5Bsender_id%5D=808"><button class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500" type="submit">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
-                                                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
-                                                <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
-                                                </svg><span class="ml-1">Approve</span>
-                                            </button><input type="hidden" name="authenticity_token" value="RBoAJvfa7vxb8-RjHiX7A5s9KgRDw5PkRnAj4jpaB2XPA07U8AQWCYlM3ODPqulm_izLJH2jYeb7mHFhADviFQ" autocomplete="off"></form>          </div>
-
-                                    <div class="-ml-px w-0 flex-1 flex bg-red-500">
-                                        <form class="contents" method="post" action="/conversations?conversation%5Brecipient_id%5D=808&amp;conversation%5Bsender_id%5D=808"><button class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500" type="submit">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
-                                                </svg><span class="ml-2">Remove</span>
-                                            </button><input type="hidden" name="authenticity_token" value="RBoAJvfa7vxb8-RjHiX7A5s9KgRDw5PkRnAj4jpaB2XPA07U8AQWCYlM3ODPqulm_izLJH2jYeb7mHFhADviFQ" autocomplete="off"></form>          </div>
-
+                                <div class="mt-4 space-y-4">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
+                                <div class="absolute flex-shrink-0 self-end flex top-4 right-4">
+                                    <div class="relative z-30 inline-block text-left">
+                                        <div data-controller="dropdown">
+                                            <div data-dropdown-target="button" data-action="click->dropdown#toggleMenu click@window->dropdown#hideMenu">
 
-                    <div class="pt-6 flex items-center justify-between">
-                        <div class="hidden sm:block">
-                            <span class="pagy-info">Displaying <b>1</b> Blog(s)</span>
-                        </div>
-                        <nav class="pagy-nav pagination" aria-label="pager"><span class="page prev disabled">Prev</span> <span class="page next disabled">Next</span></nav>
-                    </div>
+                                                <button type="button" class="-m-2 p-2 rounded-full flex items-center text-gray-400 hover:text-gray-600" id="menu-0-button" aria-expanded="false" aria-haspopup="true">
+                                                    <span class="sr-only">Open options</span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class=" w-5 h-5">
+                                                    <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
+                                                    </svg>
 
+                                                </button>
+
+                                            </div>
+                                            <div class="hidden z-10 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-100" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" data-dropdown-target="menu" data-transition-enter="transition ease-out duration-100" data-transition-enter-start="transform opacity-0 scale-95" data-transition-enter-end="transform opacity-100 scale-100" data-transition-leave="transition ease-in duration-75" data-transition-leave-start="transform opacity-100 scale-100" data-transition-leave-end="transform opacity-0 scale-95">
+                                                <div class="py-1" role="none">
+                                                    <a data-turbo-frame="modal" class="hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm" href="/clubs/birds-in-ohio/events/140/edit">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eyeglasses mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5" viewBox="0 0 16 16">
+                                                        <path d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A1.993 1.993 0 0 0 8 6c-.532 0-1.016.208-1.375.547zM14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+                                                        </svg>View</a>
+                                                    <a data-turbo-method="delete" data-turbo-confirm="Are you sure?" class="hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm" href="/clubs/birds-in-ohio/events/140"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                        </svg>
+                                                        Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ol>
+                    </turbo-frame>
                 </div>
             </div>
 
         </div>
-    </main>
+    </div>
 
+</div>
+</main>
 
-    <%@ include file="staff_footer.html" %> 
 
 </body>
 </html>
-

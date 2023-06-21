@@ -43,6 +43,10 @@
         <servlet-name>StaffGallery</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.StaffGallery</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffNews</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.StaffNews</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomepageController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -186,6 +190,10 @@
     <servlet-mapping>
         <servlet-name>StaffGallery</servlet-name>
         <url-pattern>/gallery</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffNews</servlet-name>
+        <url-pattern>/news</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

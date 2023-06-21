@@ -195,12 +195,14 @@
                 <nav class="-mb-px flex space-x-8">
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staffhome">Home</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-teal-600 border-teal-600 focus:outline-none" href="members">Members</a>
-                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_blogs.html">Blogs</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="blogs">Blogs</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="events">Events</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="tournaments">Tournaments</a>
-                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_article.html">Articles</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="news">News</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="gallery">Gallery</a>
-                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_feedback.html">Feedback</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="memberships">Membership</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="locations">Location</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="feedbacks">Feedback</a>
                 </nav>
             </div>
             <div class="sm:hidden py-4">
@@ -215,9 +217,9 @@
             </div>
         </div>
     </div>
-    
-<%! Member m;%>
-<% m = (Member) request.getAttribute("member"); %>
+
+    <%! Member m;%>
+    <% m = (Member) request.getAttribute("member"); %>
 
     <main class="pb-8 pt-8">
         <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
@@ -244,7 +246,7 @@
                     <div>
                         <div class="lg:grid lg:grid-cols-12 lg:gap-x-16">
                             <div class="px-6 sm:px-0 lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-9">
-                                        <img src="media/5.jpg">
+                                <img src="media/5.jpg">
 
                             </div>
                             <div class="lg:col-span-7 xl:col-span-8">
@@ -277,53 +279,57 @@
                                         <div class='font-semibold text-gray-700 space-x-2'>Email address:   </div></div>
                                     <div class='mt-2 space-y-4 space-x-3'>  <% out.print(m.getEmail()); %>  </div>
 
-                                    
-                                    <%! String role; String theme; String value; String action;  String inputStatus="";%>
+
+                                    <%! String role;
+                                        String theme;
+                                        String value;
+                                        String action;
+                                        String inputStatus = "";%>
                                     <% //Guest case
                                         value = "Ignore";
                                         action = "ignore";
                                         theme = "flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 hover:bg-red-700 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2";
                                         //Approved case
-                                        role = m.getRole(); 
+                                        role = m.getRole();
                                         if (role.trim().equalsIgnoreCase("member")) {
-                                        theme="flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2";
-                                        value="Cancel approval";
-                                        action = "cancel";
-                                    }   //Ignored case
-                                        role = m.getRole(); 
+                                            theme = "flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2";
+                                            value = "Cancel approval";
+                                            action = "cancel";
+                                        }   //Ignored case
+                                        role = m.getRole();
                                         if (role.trim().equalsIgnoreCase("ignored")) {
-                                        theme="flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2";
-                                        value="The request is ignored";
-                                        action = "";
-                                        inputStatus="disabled";
-                                    }
+                                            theme = "flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2";
+                                            value = "The request is ignored";
+                                            action = "";
+                                            inputStatus = "disabled";
+                                        }
                                     %>
-                                    
+
                                     <div style='margin-top: 15px' class='flex items-start space-x-3'>
                                         <form method='post' action="./members">
                                             <input type='hidden' name='UID' <% out.print("value='" + m.getUID() + "'"); %> >
-                                            <input type='hidden' name='action' <% out.print("value='"+action+"'"); %>               >
-                                            <input <% out.print("class='"+theme+"'"); %>
-                                                   type='submit' <% out.print("value='"+value+"'"); %> <% out.print(inputStatus); %>      >
+                                            <input type='hidden' name='action' <% out.print("value='" + action + "'"); %>               >
+                                            <input <% out.print("class='" + theme + "'"); %>
+                                                type='submit' <% out.print("value='" + value + "'"); %> <% out.print(inputStatus); %>      >
                                         </form>
 
                                         <form method='post' action="./members">
                                             <input type='hidden' name='UID' <% out.print("value='" + m.getUID() + "'");%> >
                                             <input type='hidden' name='action' value='approvemember'>
 
-                                            <%  
-                                                value="Approve"; 
-                                                theme="flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-green-600 hover:bg-green-700 focus:ring-green-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2"; 
+                                            <%
+                                                value = "Approve";
+                                                theme = "flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-green-600 hover:bg-green-700 focus:ring-green-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2";
                                                 if (role.trim().equalsIgnoreCase("member")) {
-                                                    inputStatus="disabled";
-                                                    theme="flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-green-600 focus:ring-green-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2";
-                                                    value="Approved successfully";
+                                                    inputStatus = "disabled";
+                                                    theme = "flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-green-600 focus:ring-green-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2";
+                                                    value = "Approved successfully";
                                                 }
                                             %>
-                                            
-                                            <input <% out.print("class='"+theme+"'"); %>
-                                                   type='submit'     <% out.print("value='"+value+"'"); %>     <% out.print(inputStatus); %>       >
-                                            
+
+                                            <input <% out.print("class='" + theme + "'"); %>
+                                                type='submit'     <% out.print("value='" + value + "'"); %>     <% out.print(inputStatus);%>       >
+
                                         </form>
 
                                     </div>
