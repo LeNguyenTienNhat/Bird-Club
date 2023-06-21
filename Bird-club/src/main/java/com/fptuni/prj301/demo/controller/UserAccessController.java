@@ -116,10 +116,9 @@ public class UserAccessController extends HttpServlet {
 
                 // Call the DAO to add the user to the database
                 boolean success = userDao.SignUp(user);
-                ss.setAttribute("users", user);
 
                 if (success) {
-                    
+                    ss.setAttribute("users", user);
                     response.sendRedirect(request.getContextPath() + "/MemberShipController?action=view");
                 } else {
                     response.sendRedirect(request.getContextPath() + "/EventDetails.jsp");
@@ -174,6 +173,5 @@ public class UserAccessController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
 
 }

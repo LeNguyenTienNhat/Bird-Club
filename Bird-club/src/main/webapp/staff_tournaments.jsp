@@ -1,7 +1,6 @@
 <%@page import="com.fptuni.prj301.demo.model.Tournament"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html class="h-full bg-gray-100">
     <head>
@@ -259,7 +258,22 @@
                 </div>
             </div>
 
-            <%@ include file="staff_header.jsp" %> 
+            <div class="hidden sm:block mt-4">
+                <nav class="-mb-px flex space-x-8">
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staffhome">Home</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="members">Members</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_blogs.html">Blogs</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="events">Events</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-teal-600 border-teal-600 focus:outline-none" href="tournaments">Tournaments</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_article.html">Articles</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="gallery">Gallery</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_feedback.html">Feedback</a>
+                </nav>
+            </div>
+            <div class="sm:hidden py-4">
+                <label for="current-tab" class="sr-only">Select a tab</label>
+
+            </div>
 
             <div class="hidden xs:block md:hidden mt-6 min-w-0 flex-1">
                 <h1 class="text-2xl font-bold text-gray-900 truncate">
