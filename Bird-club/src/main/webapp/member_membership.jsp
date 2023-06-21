@@ -91,7 +91,6 @@
                                 <input type="radio" id="individual" name="membershipType" value="Individual">
                             </div>
                         </div>
-
                         <input type="submit" value="Proceed to Payment">
                     </form>
                 </c:forEach>
