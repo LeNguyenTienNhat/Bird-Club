@@ -55,7 +55,7 @@ public class Tools {
         } else if (m.equalsIgnoreCase("12")) {
             m = "December";
         }
-        return m + " " + d + "" + y;
+        return m + " " + d + ", " + y;
     }
 
     public String trimDate(String date) {
@@ -102,7 +102,15 @@ public class Tools {
     public String getCurrentDate() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-        return dtf.format(now);
+        String date = dtf.format(now);
+        date = trimDate(date);
+        StringBuilder sb = new StringBuilder();
+        String[] arrOfStr = date.split("/", 3);
+        sb.append(arrOfStr[2]).append("/");
+        sb.append(arrOfStr[1]).append("/");
+        sb.append(arrOfStr[0]);
+        
+        return sb.toString(); //target: dd/MM/yyyy
     }
 
     public String getShortDescription(String content) {

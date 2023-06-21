@@ -27,8 +27,13 @@ public class StaffNews extends HttpServlet {
         if (action == null || action.equals("viewnews")) {
             List<News> list = nm.getList();
             for (News n : list) {
-                String shortDescription = tool.getShortDescription(n.getNewsContent())+"..." ;
-                n.setNewsContent(shortDescription);
+                String shortDescription;
+                try {
+                    shortDescription = tool.getShortDescription(n.getNewsContent());
+                } catch (Exception e) {
+                    shortDescription = n.getNewsContent();
+                }
+                n.setNewsContent(shortDescription+"...");
             }
             int numOfNews = list.size();
 
@@ -43,9 +48,14 @@ public class StaffNews extends HttpServlet {
             String UID = "UID100";
             String title = request.getParameter("title");
             String category = request.getParameter("category");
-            
-            String newsContent = tool.formatPara(request.getParameter("newsContent"));
+            String newsContent;
+            try {
+                newsContent = tool.formatPara(request.getParameter("newsContent"));
+            } catch (Exception e) {
+                newsContent = "Content hasn't been uploaded yet";
+            }
             String uploadDate = tool.getCurrentDate();
+            
             String status = request.getParameter("status");
             String image = "placeholder.png";
             News n = new News(NID, UID, title, category, newsContent, uploadDate, status, image);

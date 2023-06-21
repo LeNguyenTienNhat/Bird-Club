@@ -15,8 +15,8 @@ import tool.utils.Tools;
 public class NewsManager {
     Tools tool = new Tools();
     public void insert(News n) throws ClassNotFoundException, ParseException  {
-        String sql = "INSERT INTO [News] VALUES (?, ?, ?, ?, ?"
-                 + "CONVERT(DATETIME,'" + n.getUploadDate() + "', 103), ?, ?)";    
+        String sql = "INSERT INTO [News] VALUES (?, ?, ?, ?, ?, "
+                 + " CONVERT(DATETIME,'" + n.getUploadDate() + "', 103), ?, ?)";    
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql); 
