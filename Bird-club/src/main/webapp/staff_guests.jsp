@@ -237,214 +237,88 @@
 
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
                         <div class="sm:flex-auto">
-                            <% int memberNum = (int) request.getAttribute("memberNum");
-                                int guestNum = (int) request.getAttribute("guestNum");
-                                int ignoredNum = (int) request.getAttribute("ignoredNum");
-                            %>
+                            <% int guestNum = (int) request.getAttribute("guestNum"); 
+                           %>
                             <h1 class="text-xl font-semibold text-gray-900">
-                                Our club currently has <% out.print(memberNum); %> members
+                                Our club currently has <% out.print(guestNum); %> registration request.
                             </h1>
-                            <p class="mt-2 text-sm text-gray-700">
-                                A full list of current members and approval requests of CHIM OWNERS.
-                            </p>
-                            <p></p>
                         </div>
-                            
                         <div class="mt-4 sm:mt-0 sm:ml-16 flex flex-row items-center space-x-6">
-                            <form id="viewguests">
-                                <input type="hidden" name="action" value="viewguests">
-                            </form>
-                            <button class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" form="viewguests" type="submit">
-                                <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-bell-fill -ml-1 mr-3 w-5 h-5" viewBox="0 0 16 16">
-                                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
-                                </svg>
-                                Check registration requests
-                            </button>
+                            <a class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" data-turbo-frame="modal" href="/clubs/birds-in-ohio/invites/new">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="-ml-1 mr-3 w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>Members
+                            </a>
                         </div>
                     </div>
 
-                    <%! List<Member> membersList;%>
-                    <% membersList = (List<Member>) request.getAttribute("membersList"); %>  
-
-
-                    <div>
-                        <div class="">
-                            <div class="lg:col-span-7 xl:col-span-8" id="events_list">
-                                <div data-controller="record-filters">
-                                    <!-- Filters -->
-                                    <section aria-labelledby="filter-heading" class="relative z-10 grid items-center">
-                                        <h2 id="filter-heading" class="sr-only">Filters</h2>
-                                        <div class="relative col-start-1 row-start-1 py-4">
-                                            <div class="max-w-7xl mx-auto flex space-x-6 divide-x divide-gray-200 text-sm px-4">
-                                                <div><button data-record-filters-target="toggle" data-action="record-filters#toggle" type="button" class="group text-gray-700 font-medium flex items-center" aria-controls="disclosure-1" aria-expanded="false">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="flex-none mr-2 text-gray-400 group-hover:text-gray-500 w-5 h-5">
-                                                        <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd"></path>
-                                                        </svg>Filter</button></div></div></div>
-
-                                        <form class="hidden" data-record-filters-target="form" data-turbo-action="advance" accept-charset="UTF-8" method="get">
-                                            <div class="border-t border-gray-200 py-10" id="disclosure-1">
-                                                <div class="max-w-7xl mx-auto  gap-x-4 px-4 text-sm md:gap-x-6">
-                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 lg:grid-cols-3 md:gap-x-6 w-full">
-
-                                                        <div class="space-y-4">
-
-                                                            <div>
-                                                                <legend class="block font-medium">Family</legend>
-                                                                <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="family" id="family"><option value="" label=" "></option>
-                                                                        <option value="Ducks, Geese, Swans">Ducks, Geese, Swans</option></select>
-                                                                </div>
-                                                            </div>
-
-                                                            <div>
-                                                                <legend class="block font-medium">Species</legend>
-                                                                <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="bird_id" id="bird_id"><option value="" label=" "></option>
-                                                                        <option value="49">Tufted Duck</option></select>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-
-                                                        <div class="space-y-4">
-
-                                                            <div>
-                                                                <legend class="block font-medium">Location</legend>
-                                                                <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="location_id" id="location_id"><option value="" label=" "></option>
-                                                                        <option value="1254">At Home</option></select>
-                                                                </div>
-                                                            </div>
-
-                                                            <div>
-                                                                <legend class="block font-medium">Member</legend>
-                                                                <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="member_id" id="member_id"><option value="" label=" "></option>
-                                                                        <option value="808">Kaedehara Yamamoto</option></select>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <input type="hidden" name="action" value="viewmembers">
-                                        </form>  </section>
-                                </div>
-
-                                <!--                                Brief data-->
-                                <div class="flex flex-col sm:rounded-lg shadow">
-                                    <div>
-                                        <dl class="sm:rounded-t-lg grid grid-cols-1 bg-white overflow-hidden border-b border-gray-200 divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x">
-                                            <div class="px-4 py-5 sm:p-6">
-                                                <dt class="text-base font-normal text-gray-900">Total participants</dt>
-                                                <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
-                                                    <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                        <% out.print(memberNum); %>
-                                                    </div>
-                                                </dd>
-                                            </div>
-
-                                            <div class="px-4 py-5 sm:p-6">
-                                                <dt class="text-base font-normal text-gray-900">Waiting for approval</dt>
-                                                <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
-                                                    <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                        <% out.print(guestNum); %>
-                                                    </div>
-                                                </dd>
-                                            </div>
-
-                                            <div class="px-4 py-5 sm:p-6">
-                                                <dt class="text-base font-normal text-gray-900">Ignored</dt>
-                                                <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
-                                                    <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                        <% out.print(ignoredNum); %>
-                                                    </div>
-                                                </dd>
-                                            </div>
-                                        </dl>
-                                    </div>
-
-                                    <div class="overflow-hidden ring-1 ring-black ring-opacity-5 sm:rounded-b-lg">
-                                        <div class="table min-w-full">
-                                            <div class="bg-gray-50 table-header-group">
-                                                <div class="table-row">
-                                                    <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 pl-4 pr-3 sm:pl-6">
-                                                        Full Name
-                                                    </div>
-                                                    <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 relative">
-                                                        <span class="sr-only"></span>
-                                                    </div>
-                                                    <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3">
-                                                        Membership
-                                                    </div>
-                                                    <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden sm:table-cell">
-                                                        Phone number
-                                                    </div>
-                                                    <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden lg:table-cell">
-                                                        Email
-                                                    </div>
-                                                    <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 relative pl-3 pr-4 sm:pr-6">
-                                                        <span class="sr-only">Edit</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="table-header-group bg-white">
-                                                <turbo-frame id="row_record_9959" class="contents" target="_top">
-
-                                                    <!--List-->
-
-                                                    <%
-
-                                                        for (Member m : membersList) {
-                                                            out.print("<div class='table-row bg-white'>"
-                                                                    + "<div class='table-cell border-b border-gray-500 text-sm w-full max-w-0 py-4 pl-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
-                                                                    + "<a class='hover:text-teal-600' href=''>" + m.getFullName() + "</a></div>"
-                                                                    + "<div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
-                                                                    + " <div class='flex flex-row items-center space-x-2'>"
-                                                                    + " <div class='text-teal-600 -mb-1'></div></div></div>"
-                                                                    + " <div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
-                                                                    + m.getMID() + "</div>"
-                                                                    + "<div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden lg:table-cell'>"
-                                                                    + m.getPhone() + "</div>"
-                                                                    + " <div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden sm:table-cell'>"
-                                                                    + " <a class='hover:text-gray-900' href=''>" + m.getEmail() + "</a></div>"
-                                                                    + "<div class='table-cell border-b border-gray-200 text-sm text-gray-500 pl-3 pr-4 text-right sm:pr-6'>"
-                                                                    + " </div> </div>"
-                                                                    + "");
-
-                                                        }
-                                                    %>
-
-                                                </turbo-frame>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div></div></div>
-
-
-
-
-                    <div class="pt-6 flex items-center justify-between">
-                        <div class="hidden sm:block">
-                            <span class="pagy-info">Displaying <b><% out.print(membersList.size()); %></b> member(s)</span>
+                    <div class="sm:flex sm:items-center px-4 sm:px-0" >
+                        <div class="sm:flex-auto">
+                            <h1 class="text-xl font-semibold text-gray-900 ">
+                                Waiting for your approval
+                            </h1>
                         </div>
+                    </div>
 
-                        <%! int i;%>
-                        <% memberNum = (memberNum / 20) + 1;
-                            for (i = 1; i <= memberNum; i++) {
-                                out.print("<span class='page'><form>"
-                                        + "<input type='hidden' name='page' value='" + i + "'>"
-                                        + "<input type='hidden' name='action' value='viewmembers'>"
-                                        + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
-                                        + "</form></span>");
-                            }
-                        %>
+                    <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-4">
+                        <%! List<Member> guestsList; %>
+                        <% guestsList = (List<Member>) request.getAttribute("guestsList");
+
+                            for (Member member : guestsList) {
+                                out.print(""
+                                        + "<li class='col-span-1 flex flex-col text-center bg-white sm:rounded-lg shadow'>"
+                                        + "<div class='absolute flex-shrink-0 self-end flex mt-4 mr-4'><div class='relative z-30 inline-block text-left'> <div data-controller='dropdown'>"
+                                        + "<div data-dropdown-target='button' data-action='click->dropdown#toggleMenu click@window->dropdown#hideMenu'>"
+                                        + "<button type='button' class='-m-2 p-2 rounded-full flex items-center text-gray-400 hover:text-gray-600' id='menu-0-button' aria-expanded='false' aria-haspopup='true'>"
+                                        + "<span class='sr-only'>Open options</span><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class=' w-5 h-5'>"
+                                        + "<path d='M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z'></path></svg></button></div>"
+                                        + "<div class='hidden z-10 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-100' role='menu' aria-orientation='vertical' aria-labelledby='menu-button' tabindex='-1' "
+                                        + "data-dropdown-target='menu' data-transition-enter='transition ease-out duration-100' data-transition-enter-start='transform opacity-0 scale-95' data-transition-enter-end='transform opacity-100 scale-100' "
+                                        + "data-transition-leave='transition ease-in duration-75' data-transition-leave-start='transform opacity-100 scale-100' data-transition-leave-end='transform opacity-0 scale-95'><div class='py-1' role='none'>"
+                                        + "<a data-turbo-frame='modal' class='hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm' href=''><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' class='mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5'>"
+                                        + "<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z'></path>"
+                                        + "</svg>Placeholder option</a></div></div></div></div></div>"
+                                        + "<div class='flex-1 flex flex-col p-8'>"
+                                        + "<div class='w-40 h-40 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden mx-auto flex-shrink-0'>"
+                                        + "<img src='media/" + member.getAvatar() + "'></div> <h3 class='mt-6 text-gray-900 text-sm font-medium'>" + member.getFullName() + "</h3>"
+                                        + "<dl class='mt-1 flex-grow flex flex-col justify-between'>"
+                                        + "<dt class='sr-only'>Title</dt>"
+                                        + "<dd class='text-gray-500 text-sm'>Joined <span class='font-bold'>" + member.getSignupDate() + "</span></dd>"
+                                        + "<dt class='sr-only'>Role</dt>"
+                                        + "<dd class='mt-3'> <span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-red-100 text-red-800 text-xs rounded-full'>" + member.getRole() + "</span>"
+                                        + "</dd></dl></div>"
+                                        + "<div class=' border-t border-gray-200 bg-gray-50 overflow-hidden sm:rounded-b-lg'>"
+                                        + "<div class='-mt-px flex divide-x divide-gray-200'>"
+                                                
+                                        + "<div class='-ml-px w-0 flex-1 flex'>"
+                                        + "<form class='contents' action='./members'>"
+                                        + "<button class='relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500' type='submit'>"
+                                        + "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='text-gray-400 w-5 h-5'>"
+                                        + "<path fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z' clip-rule='evenodd'></path>"
+                                        + "</svg><span class='ml-3'>Profile</span>"
+                                        + "</button><input type='hidden' name='action' value='viewmemberdetails'><input type='hidden' name='UID' value='" + member.getUID() + "'></form></div>"
+                                        
+                                        + "<div class='-ml-px w-0 flex-1 flex'>"
+                                        + "<form class='contents'>"
+                                        + "<button class='relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500' type='submit'>"
+                                        + "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-check-circle' viewBox='0 0 16 16'>"
+                                        + " <path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/>"
+                                        + "<path d='M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z'/>"
+                                        + "</svg><span class='ml-3'>Approve</span></button>"
+                                        + "<input type='hidden' name='UID' value='" + member.getUID() + "' >"
+                                        + "<input type='hidden' name='action' value='approvemember' >"
+                                        + "</form></div></div> </div></li>"
+                                );
+                            }%>
+
+                    </ul>
+
+                    <div class="sm:flex sm:items-center px-4 sm:px-0" style="margin-top: 50px">
+                        <div class="sm:flex-auto">
+                            <h1 class="text-xl font-semibold text-gray-900">
+                                Available members
+                            </h1>
+                        </div>
                     </div>
 
                 </div>

@@ -19,10 +19,9 @@ public class StaffMember extends HttpServlet {
             throws ServletException, IOException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("action");
-        Tools tool = new Tools();
         MemberManager manager = new MemberManager();
 
-        //display a list of unapproved members
+        //display a list of members
         if (action == null || action.equals("viewmembers")) {
             int page, skip;
             try {
@@ -31,18 +30,47 @@ public class StaffMember extends HttpServlet {
             } catch (NumberFormatException e) {
                 skip = 0;
             }
-            List<Member> guestsList = manager.getRecords(0, 0, "guest", "UID");
             List<Member> membersList = manager.getRecords(skip, 20, "member", "UID");
-            int size = manager.getNumberOfMembers();
-            request.setAttribute("guestsList", guestsList);
+            int memberNum = manager.getNumberOfMembers("member");
+            int guestNum = manager.getNumberOfMembers("guest");
+            int ignoredNum = manager.getNumberOfMembers("ignored");
+            
             request.setAttribute("membersList", membersList);
-            request.setAttribute("size", size);
+            request.setAttribute("memberNum", memberNum);
+            request.setAttribute("guestNum", guestNum);
+            request.setAttribute("ignoredNum", ignoredNum);
             RequestDispatcher rd = request.getRequestDispatcher("staff_members.jsp");
             rd.forward(request, response);
-        } //approve a member
+        } 
+        
+        else if (action.equals("viewguests")) {
+            int page, skip;
+            try {
+                page = Integer.parseInt(request.getParameter("page"));
+                skip = (page - 1) * 20;
+            } catch (NumberFormatException e) {
+                skip = 0;
+            }
+            List<Member> guestsList = manager.getRecords(skip, 20, "guest", "UID");
+            List<Member> ignoredList = manager.getRecords(skip, 20, "ignored", "UID");
+            int guestNum = manager.getNumberOfMembers("guest");
+            int ignoredNum = manager.getNumberOfMembers("ignored");
+            
+            request.setAttribute("guestsList", guestsList);
+            request.setAttribute("ignoredList", ignoredList);
+            request.setAttribute("guestNum", guestNum);
+            request.setAttribute("ignoredNum", ignoredNum);
+            RequestDispatcher rd = request.getRequestDispatcher("staff_guests.jsp");
+            rd.forward(request, response);
+        } 
+
+
+
+
+        //approve a member
         else if (action.equals("approvemember")) {
             String UID = request.getParameter("UID");
-            manager.approve(UID);
+            manager.updateRole(UID, "member");
 
             RequestDispatcher rd = request.getRequestDispatcher("StaffMember");
             rd.forward(request, response);
@@ -53,6 +81,20 @@ public class StaffMember extends HttpServlet {
 
             request.setAttribute("member", member);
             RequestDispatcher rd = request.getRequestDispatcher("staff_member_profile.jsp");
+            rd.forward(request, response);
+        } //Cancel approving a guest
+        else if (action.equals("cancel")) {
+            String UID = request.getParameter("UID");
+            manager.updateRole(UID, "guest");
+
+            RequestDispatcher rd = request.getRequestDispatcher("StaffMember");
+            rd.forward(request, response);
+        } //Ignore a guest
+        else if (action.equals("ignore")) {
+            String UID = request.getParameter("UID");
+            manager.updateRole(UID, "ignored");
+
+            RequestDispatcher rd = request.getRequestDispatcher("StaffMember");
             rd.forward(request, response);
         }
 

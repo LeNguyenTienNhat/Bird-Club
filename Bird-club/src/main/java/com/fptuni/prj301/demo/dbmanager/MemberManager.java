@@ -56,12 +56,12 @@ public class MemberManager {
         return list;
     }
 
-    public void approve(String UID) {
+    public void updateRole(String UID, String role) {
         String sql = "UPDATE [User] SET role = ? WHERE UID = ?";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, "member");
+            ps.setString(1, role);
             ps.setString(2, UID);
             ps.executeUpdate();
         } catch (SQLException ex) {
@@ -99,13 +99,13 @@ public class MemberManager {
         return null;
     }
 
-    public int getNumberOfMembers() throws ClassNotFoundException {
+    public int getNumberOfMembers(String role) throws ClassNotFoundException {
         int count = 0;
-        String sql = "SELECT * FROM [User]";
+        String sql = "SELECT * FROM [User] WHERE role = ? ";
         try {
             Connection conn = DBUtils.getConnection();
-            PreparedStatement ps;
-            ps = conn.prepareStatement(sql);
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, role);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 count++;

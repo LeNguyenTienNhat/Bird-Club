@@ -76,4 +76,9 @@ public class Tools {
         sb.append(id);
         return sb.toString();
     }
+    
+    public String generateExclusiveID() {
+        
+        return null;
+    }
 }
