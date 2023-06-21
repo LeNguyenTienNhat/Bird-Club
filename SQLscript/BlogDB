@@ -1,23 +1,40 @@
-INSERT INTO [Blog] (BID, description, category, uploadDate, UID, vote)
-VALUES ('BID0', 'null', 'null','2023-01-04','UID1',20)
-INSERT INTO [Blog]
-VALUES ('BID1', 'null', 'null','2023-01-08','UID1',6)
-INSERT INTO [Blog]
-VALUES ('BID2', 'null', 'null','2023-01-15','UID3',36)
-INSERT INTO [Blog]
-VALUES ('BID3', 'null', 'null','2023-01-16','UID9',12)
-INSERT INTO [Blog]
-VALUES ('BID4', 'null', 'null','2023-02-03','UID5',12)
-INSERT INTO [Blog]
-VALUES ('BID5', 'null', 'null','2023-02-03','UID6',25)
-INSERT INTO [Blog]
-VALUES ('BID6', 'null', 'null','2023-02-25','UID4',19)
-INSERT INTO [Blog]
-VALUES ('BID7', 'null', 'null','2023-02-26','UID8',2)
-INSERT INTO [Blog]
-VALUES ('BID8', 'null', 'null','2023-03-25','UID5',23)
-INSERT INTO [Blog]
-VALUES ('BID9', 'null', 'null','2023-04-22','UID5',44)
-INSERT INTO [Blog]
-VALUES ('BID10', 'null', 'null','2023-06-04','UID2',5)
-
+Insert into [Blog]
+Values ('BID0','Nature is Feathered Gems: Red-whiskered bulbuls are exquisite avian jewels that grace our surroundings.','Red-whiskered bulbul','06-22-2023','UID4','7');
+Insert into [Blog]
+Values ('BID1','Melody in Motion: Their melodious songs dance through the air, filling our hearts with pure delight.','Red-whiskered bulbul','12-02-2023','UID7','12');
+Insert into [Blog]
+Values ('BID2','Playful Feathered Acrobats: Watching their acrobatic flights and playful stunts is a source of endless entertainment.','Red-whiskered bulbul','03-15-2023','UID13','34');
+Insert into [Blog]
+Values ('BID3','Whiskers of Happiness: The crimson whiskers that adorn their cheeks are like tiny bursts of joy.','Red-whiskered bulbul','11-30-2022','UID24','74');
+Insert into [Blog]
+Values ('BID4','Endearing Social Butterflies: Red-whiskered bulbuls thrive in the company of their flock, spreading warmth and camaraderie.','Red-whiskered bulbul','12-08-2022','UID33','63');
+Insert into [Blog]
+Values ('BID5','Guardians of Gardens: These bulbuls are diligent garden helpers, keeping pests at bay and maintaining nature is balance.','Red-whiskered bulbul','06-25-2023','UID12','12');
+Insert into [Blog]
+Values ('BID6','Painted with Passion: Their vibrant plumage is a testament to the artist brushstrokes of nature palette.','Red-whiskered bulbul','11-02-2023','UID41','4');
+Insert into [Blog]
+Values ('BID7','Chirps of Welcome: The chirps and calls of red-whiskered bulbuls greet each day with a symphony of welcoming notes.','Red-whiskered bulbul','04-22-2023','UID7','42');
+Insert into [Blog]
+Values ('BID8','Parenting Marvels: Witnessing their nurturing instincts and devoted care for their young is a heartwarming sight.','Red-whiskered bulbul','02-22-2023','UID54','41');
+Insert into [Blog]
+Values ('BID9','Captivating Charisma: Red-whiskered bulbuls possess a magnetic charm that captivates and enchants all who encounter them.','Red-whiskered bulbul','01-24-2023','UID23','22');
+Insert into [Blog]
+Values ('BID10','Breathtaking Flight Patterns: Their graceful flight patterns, combined with their striking colors, create a visual spectacle.','Red-whiskered bulbul','06-15-2023','UID22','32');
+Insert into [Blog]
+Values ('BID11','A Serenade for the Senses: The harmonious blend of their songs, vibrant plumage, and playful nature is a sensory delight.','Red-whiskered bulbul','06-29-2023','UID11','42');
+Insert into [Blog]
+Values ('BID12','Nature Alarm Clock: Their early morning melodies gently rouse us from slumber, infusing our day with energy.','Red-whiskered bulbul','02-18-2023','UID24','64');
+Insert into [Blog]
+Values ('BID13','Adaptable Adventurers: Red-whiskered bulbuls thrive in diverse habitats, adapting to both urban and rural environments.','Red-whiskered bulbul','11-01-2023','UID9','53');
+Insert into [Blog]
+Values ('BID14','Lifelong Companions: Once they choose your garden as their home, they become faithful companions for years to come.','Red-whiskered bulbul','04-23-2023','UID6','75');
+Insert into [Blog]
+Values ('BID15','Whistlers of Happiness: The cheerful whistling notes of red-whiskered bulbuls create an aura of positivity.','Red-whiskered bulbul','03-13-2023','UID3','43');
+Insert into [Blog]
+Values ('BID16','Fluttering Happiness: Their presence evokes a feeling of happiness, as if colorful butterflies have taken flight.','Red-whiskered bulbul','06-04-2023','UID6','52');
+Insert into [Blog]
+Values ('BID17','Enchanting Garden Ornaments: Red-whiskered bulbuls transform our gardens into enchanting, lively spaces.','Red-whiskered bulbul','01-03-2023','UID13','2');
+Insert into [Blog]
+Values ('BID18','Watchful Guardians: With their alert eyes and vigilant nature, these bulbuls serve as guardians of the surrounding wildlife.','Red-whiskered bulbul','02-03-2023','UID19','74');
+Insert into [Blog]
+Values ('BID19','Pure Avian Delight: Being in the company of red-whiskered bulbuls is a pure delight, a reminder of the wonders of the natural world.','Red-whiskered bulbul','07-23-2023','UID26','11');
