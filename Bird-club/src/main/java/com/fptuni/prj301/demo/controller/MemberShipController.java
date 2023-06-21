@@ -6,6 +6,7 @@
 package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.MemberShipManager;
+import com.fptuni.prj301.demo.dbmanager.UserAccessManager;
 import com.fptuni.prj301.demo.model.MemberShip;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -42,7 +43,18 @@ public class MemberShipController extends HttpServlet {
             List<MemberShip> records = mbs.getAllRecords();
             request.setAttribute("records", records);
             request.getRequestDispatcher("/member_membership.jsp").forward(request, response);
+        }else if (action != null && action.equals("new")){
+             String MID = request.getParameter("MID");
+             String UID = request.getParameter("UID");
+             UserAccessManager uam= new UserAccessManager();
+             boolean membership =uam.updateMemberShip(UID,MID);
+              if (membership) {
+                    response.sendRedirect(request.getContextPath() + "/index.jsp");
+                } else {
+                    response.sendRedirect(request.getContextPath() + "/EventDetails.jsp");
+                }
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
