@@ -44,15 +44,21 @@ public class StaffMember extends HttpServlet {
         } 
         
         else if (action.equals("viewguests")) {
-            int page, skip;
+            int guestPage, guestSkip, ignoredPage, ignoredSkip;
             try {
-                page = Integer.parseInt(request.getParameter("page"));
-                skip = (page - 1) * 20;
+                guestPage = Integer.parseInt(request.getParameter("guestPage"));
+                guestSkip = (guestPage - 1) * 20;
             } catch (NumberFormatException e) {
-                skip = 0;
+                guestSkip = 0;
             }
-            List<Member> guestsList = manager.getRecords(skip, 20, "guest", "UID");
-            List<Member> ignoredList = manager.getRecords(skip, 20, "ignored", "UID");
+            try {
+                ignoredPage = Integer.parseInt(request.getParameter("ignoredPage"));
+                ignoredSkip = (ignoredPage - 1) * 20;
+            } catch (NumberFormatException e) {
+                ignoredSkip = 0;
+            }
+            List<Member> guestsList = manager.getRecords(guestSkip, 20, "guest", "UID");
+            List<Member> ignoredList = manager.getRecords(ignoredSkip, 20, "ignored", "UID");
             int guestNum = manager.getNumberOfMembers("guest");
             int ignoredNum = manager.getNumberOfMembers("ignored");
             

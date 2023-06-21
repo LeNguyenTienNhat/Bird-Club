@@ -200,12 +200,14 @@
                 <nav class="-mb-px flex space-x-8">
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staffhome">Home</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-teal-600 border-teal-600 focus:outline-none" href="members">Members</a>
-                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_blogs.html">Blogs</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="blogs">Blogs</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="events">Events</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="tournaments">Tournaments</a>
-                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_article.html">Articles</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="news">News</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="gallery">Gallery</a>
-                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staff_feedback.html">Feedback</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="memberships">Membership</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="locations">Location</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="feedbacks">Feedback</a>
                 </nav>
             </div>
             <div class="sm:hidden py-4">
@@ -237,14 +239,14 @@
 
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
                         <div class="sm:flex-auto">
-                            <% int guestNum = (int) request.getAttribute("guestNum"); 
-                           %>
+                            <% int guestNum = (int) request.getAttribute("guestNum");
+                            %>
                             <h1 class="text-xl font-semibold text-gray-900">
                                 Our club currently has <% out.print(guestNum); %> registration request.
                             </h1>
                         </div>
                         <div class="mt-4 sm:mt-0 sm:ml-16 flex flex-row items-center space-x-6">
-                            <a class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" data-turbo-frame="modal" href="/clubs/birds-in-ohio/invites/new">
+                            <a class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" data-turbo-frame="modal" href="./members">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="-ml-1 mr-3 w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                                 </svg>Members
@@ -289,7 +291,6 @@
                                         + "</dd></dl></div>"
                                         + "<div class=' border-t border-gray-200 bg-gray-50 overflow-hidden sm:rounded-b-lg'>"
                                         + "<div class='-mt-px flex divide-x divide-gray-200'>"
-                                                
                                         + "<div class='-ml-px w-0 flex-1 flex'>"
                                         + "<form class='contents' action='./members'>"
                                         + "<button class='relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500' type='submit'>"
@@ -297,7 +298,6 @@
                                         + "<path fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z' clip-rule='evenodd'></path>"
                                         + "</svg><span class='ml-3'>Profile</span>"
                                         + "</button><input type='hidden' name='action' value='viewmemberdetails'><input type='hidden' name='UID' value='" + member.getUID() + "'></form></div>"
-                                        
                                         + "<div class='-ml-px w-0 flex-1 flex'>"
                                         + "<form class='contents'>"
                                         + "<button class='relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500' type='submit'>"
@@ -313,13 +313,103 @@
 
                     </ul>
 
+                    <div class="pt-6 flex items-center justify-between">
+                        <div class="hidden sm:block">
+                            <span class="pagy-info">Displaying <b><% out.print(guestsList.size()); %></b> guest(s)</span>
+                        </div>
+
+                        <%! int i;
+                            int guestNum; %>
+                        <% guestNum = (int) request.getAttribute("guestNum");
+                            guestNum = (guestNum / 20) + 1;
+                            for (i = 1; i <= guestNum; i++) {
+                                out.print("<span class='page'><form>"
+                                        + "<input type='hidden' name='page' value='" + i + "'>"
+                                        + "<input type='hidden' name='action' value='viewmembers'>"
+                                        + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
+                                        + "</form></span>");
+                            }
+                        %>
+                    </div>
+
                     <div class="sm:flex sm:items-center px-4 sm:px-0" style="margin-top: 50px">
                         <div class="sm:flex-auto">
                             <h1 class="text-xl font-semibold text-gray-900">
-                                Available members
+                                Ignored requests:
                             </h1>
                         </div>
                     </div>
+
+                    <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-4">
+                        <%! List<Member> ignoredList;%>
+                        <% ignoredList = (List<Member>) request.getAttribute("ignoredList");
+
+                            for (Member ignoredGuest : ignoredList) {
+                                out.print(""
+                                        + "<li class='col-span-1 flex flex-col text-center bg-white sm:rounded-lg shadow'>"
+                                        + "<div class='absolute flex-shrink-0 self-end flex mt-4 mr-4'><div class='relative z-30 inline-block text-left'> <div data-controller='dropdown'>"
+                                        + "<div data-dropdown-target='button' data-action='click->dropdown#toggleMenu click@window->dropdown#hideMenu'>"
+                                        + "<button type='button' class='-m-2 p-2 rounded-full flex items-center text-gray-400 hover:text-gray-600' id='menu-0-button' aria-expanded='false' aria-haspopup='true'>"
+                                        + "<span class='sr-only'>Open options</span><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class=' w-5 h-5'>"
+                                        + "<path d='M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z'></path></svg></button></div>"
+                                        + "<div class='hidden z-10 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-100' role='menu' aria-orientation='vertical' aria-labelledby='menu-button' tabindex='-1' "
+                                        + "data-dropdown-target='menu' data-transition-enter='transition ease-out duration-100' data-transition-enter-start='transform opacity-0 scale-95' data-transition-enter-end='transform opacity-100 scale-100' "
+                                        + "data-transition-leave='transition ease-in duration-75' data-transition-leave-start='transform opacity-100 scale-100' data-transition-leave-end='transform opacity-0 scale-95'><div class='py-1' role='none'>"
+                                        + "<a data-turbo-frame='modal' class='hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm' href=''><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' class='mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5'>"
+                                        + "<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z'></path>"
+                                        + "</svg>Placeholder option</a></div></div></div></div></div>"
+                                        + "<div class='flex-1 flex flex-col p-8'>"
+                                        + "<div class='w-40 h-40 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden mx-auto flex-shrink-0'>"
+                                        + "<img src='media/" + ignoredGuest.getAvatar() + "'></div> <h3 class='mt-6 text-gray-900 text-sm font-medium'>" + ignoredGuest.getFullName() + "</h3>"
+                                        + "<dl class='mt-1 flex-grow flex flex-col justify-between'>"
+                                        + "<dt class='sr-only'>Title</dt>"
+                                        + "<dd class='text-gray-500 text-sm'>Sign Up <span class='font-bold'>" + ignoredGuest.getSignupDate() + "</span></dd>"
+                                        + "<dt class='sr-only'>Role</dt>"
+                                        + "<dd class='mt-3'> <span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-red-100 text-red-800 text-xs rounded-full'>" + ignoredGuest.getRole() + "</span>"
+                                        + "</dd></dl></div>"
+                                        + "<div class=' border-t border-gray-200 bg-gray-50 overflow-hidden sm:rounded-b-lg'>"
+                                        + "<div class='-mt-px flex divide-x divide-gray-200'>"
+                                        + "<div class='-ml-px w-0 flex-1 flex'>"
+                                        + "<form class='contents' action='./members'>"
+                                        + "<button class='relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500' type='submit'>"
+                                        + "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='text-gray-400 w-5 h-5'>"
+                                        + "<path fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z' clip-rule='evenodd'></path>"
+                                        + "</svg><span class='ml-3'>Profile</span>"
+                                        + "</button><input type='hidden' name='action' value='viewmemberdetails'><input type='hidden' name='UID' value='" + ignoredGuest.getUID() + "'></form></div>"
+                                        + "<div class='-ml-px w-0 flex-1 flex'>"
+                                        + "<form class='contents'>"
+                                        + "<button class='relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500' type='submit'>"
+                                        + "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-check-circle' viewBox='0 0 16 16'>"
+                                        + " <path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/>"
+                                        + "<path d='M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z'/>"
+                                        + "</svg><span class='ml-3'>Approve</span></button>"
+                                        + "<input type='hidden' name='UID' value='" + ignoredGuest.getUID() + "' >"
+                                        + "<input type='hidden' name='action' value='approvemember' >"
+                                        + "</form></div></div> </div></li>"
+                                );
+                            }%>
+
+                    </ul>  
+
+                    <div class="pt-6 flex items-center justify-between">
+                        <div class="hidden sm:block">
+                            <span class="pagy-info">Displaying <b><% out.print(ignoredList.size()); %></b> ignored request(s)</span>
+                        </div>
+
+                        <%! int ignoredNum;%>
+                        <% ignoredNum = (int) request.getAttribute("ignoredNum");
+                            ignoredNum = (ignoredNum / 20) + 1;
+                            for (i = 1; i <= ignoredNum; i++) {
+                                out.print("<span class='page'><form>"
+                                        + "<input type='hidden' name='page' value='" + i + "'>"
+                                        + "<input type='hidden' name='action' value='viewmembers'>"
+                                        + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
+                                        + "</form></span>");
+                            }
+                        %>
+                    </div>
+
+
 
                 </div>
             </div>
