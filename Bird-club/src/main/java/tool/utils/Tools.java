@@ -119,6 +119,12 @@ public class Tools {
 
         return content;
     }
+    
+        public String getPlainText(String content) {
+        content = content.replace("<p>", "");
+        content = content.replace("</p>", "\n");
+        return content;
+    }
 
     public String formatPara(String content) {
         StringBuilder sb = new StringBuilder();

@@ -64,6 +64,35 @@ public class StaffNews extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("StaffNews");
             rd.forward(request, response);
         }
+        
+        //Edit
+        else if (action.equals("edit")) {
+            String NID = request.getParameter("NID");
+            News n = nm.load(NID);
+            String plainContent = tool.getPlainText(n.getNewsContent());
+            n.setNewsContent(plainContent);
+            request.setAttribute("news", n);
+            RequestDispatcher rd = request.getRequestDispatcher("staff_news_details.jsp");
+            rd.forward(request, response);
+        }
+        
+        else if (action.equals("update")) {
+            String NID = request.getParameter("NID");
+            String title = request.getParameter("title");
+            String status = request.getParameter("status");
+            String category = request.getParameter("category");
+            String content;
+            try {
+                content = tool.formatPara(request.getParameter("content"));
+            } catch (Exception e) {
+                content = "Content is removed";
+            }
+            News n = new News(NID, title, status, category, content);
+            nm.update(n);
+            
+            RequestDispatcher rd = request.getRequestDispatcher("StaffNews");
+            rd.forward(request, response);
+        }
 
     }
 

@@ -293,7 +293,6 @@
                             </p>
                         </div>
 
-
                         <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none" style="margin-left:1rem">
                             <a class="w-full flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" data-turbo-frame="modal" href="">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="-ml-1 mr-3 w-5 h-5">
@@ -301,20 +300,51 @@
                                 </svg>Upload</a>
                         </div>
                     </div>
+                    
 
+                    
                     <div>
                         <div class="lg:grid lg:grid-cols-12 lg:gap-x-16">
-                            <div class="px-6 sm:px-0 mt-4 lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-9">
+                            <div class="px-6 sm:px-0 mt-4 lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-8">
+                                <dl class="sm:rounded-t-lg grid grid-cols-1 bg-white overflow-hidden border-b border-gray-200 divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x">
+                                    <div class="px-4 py-5 sm:p-6">
+                                        <dt class="text-base font-normal text-gray-900">Available</dt>
+                                        <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                                            <div class="flex items-baseline text-2xl font-semibold text-teal-600">
+                                                89
+                                            </div>
+                                        </dd>
+                                    </div>
 
+                                    <div class="px-4 py-5 sm:p-6">
+                                        <dt class="text-base font-normal text-gray-900">Trending</dt>
+                                        <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                                            <div class="flex items-baseline text-2xl font-semibold text-teal-600">
+                                                6
+                                            </div>
+                                        </dd>
+                                    </div>
+
+                                    <div class="px-4 py-5 sm:p-6">
+                                        <dt class="text-base font-normal text-gray-900">Hidden</dt>
+                                        <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                                            <div class="flex items-baseline text-2xl font-semibold text-teal-600">
+                                                7
+                                            </div>
+                                        </dd>
+                                    </div>
+                                </dl>
                             </div>
-                            <div class="lg:col-span-7 xl:col-span-8" id="events_list">
+                            
+                            <div class="lg:col-span-7 xl:col-span-7" id="events_list">
                                 <ul class="space-y-4 leading-6 text-sm mt-4">
                                     <%! List<News> newsList;%> 
                                     <% newsList = (List<News>) request.getAttribute("list");
 
                                         for (News n : newsList) {
                                             out.print("<li class='relative flex flex-col bg-white sm:rounded-lg shadow p-6'>"
-                                                    + "<div><h1 class='font-bold text-xl text-gray-900 space-x-2'><span>"
+                                                    + "<div>"
+                                                    + "<h1 class='font-bold text-xl text-gray-900 space-x-2'><span>"
                                                     + n.getUploadDate()
                                                     + "</span>");
 
@@ -327,25 +357,30 @@
                                                         + "Normal"
                                                         + "</span>");
                                             }
-
-                                            out.print("<img src ='media/" + n.getImage() + "'>");
-
-                                            out.print("<h1 class='font-semibold text-lg text-gray-900 space-x-2 mb-4'>" + n.getTitle() + "</h1></h1>");
-
-                                            out.print(""
-                                                    + "<div class='flex items-start space-x-3'>"
-                                                    + "<div class='mt-0.5'><span class='sr-only'></span>"
-                                                    + "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='text-gray-400 w-5 h-5'>"
-                                                    + "  <path fill-rule='evenodd' d='M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z' clip-rule='evenodd'></path>"
-                                                    + "</svg></div><div class='font-semibold text-gray-700 space-x-2 mb-2'>Author: </div>"
-                                                    + "<div>" + "ChimOwners" + "</div></div>"
-                                                    + "<div class='mt-0.5'><span class='sr-only'></span>"
-                                                    + "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-info-circle-fill text-gray-400' viewBox='0 0 16 16'>"
-                                                    + "<path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z'/></svg>"
-                                                    + "</div><div class='font-semibold text-gray-700 space-x-2'>Description:   </div></div>"
-                                                    + "<div class='mt-2 space-y-4 space-x-3'>" + n.getNewsContent() + "</div>"
-                                                    + "</li>"
-                                                    + "");
+                                            out.print("<h1 class='font-semibold text-lg text-gray-900 space-x-2'>" + n.getTitle() + "</h1></h1>");
+                                            
+                                            out.print("<div class='grid items-start lg:grid-cols-5 lg:gap-8'>");
+                                            
+                                            out.print("<div class='lg:col-span-3'>");
+                                            
+                                            out.print("<div class='mt-2'><span class='sr-only'></span>"
+                                                    + "</div><div class='font-semibold text-gray-700 mb-2'>Author: </div>"
+                                                    + "<div>" + "ChimOwners" + "</div>"
+                                                    
+                                                    + "<div class='mt-2'><span class='sr-only'></span>"
+                                                    + "</div><div class='font-semibold text-gray-700 space-x-2'>Description:   </div>"
+                                                    + "<div class='mt-0.5 space-y-4 space-x-3'>" + n.getNewsContent() + "</div>"
+                                                            
+                                                    + "<div style='margin-top: 15px' class='flex items-start space-x-3'>"
+                                                    + "<form action='./news'><input type='hidden' name='NID' value = '" + n.getNID() + "'>"
+                                                    + "<input type='hidden' name='action' value='edit'>"
+                                                    + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                    + "type='submit' value='Edit'></form>"
+                                                    + "</div></div>");
+                                            
+                                            out.print("<div class='lg:col-span-2'>");
+                                            out.print("<img style='height: auto; width: auto; display: block; margin-bottom: 25px' src ='" + n.getImage() + "'>");
+                                            out.print("</div></div></div></li>");
                                         }%>   
 
                                 </ul>

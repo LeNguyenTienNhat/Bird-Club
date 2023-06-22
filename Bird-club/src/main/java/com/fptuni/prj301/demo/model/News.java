@@ -25,6 +25,14 @@ public class News {
     public News() {
     }
 
+    public News(String NID, String title, String status, String category, String newsContent) {
+        this.NID = NID;
+        this.title = title;
+        this.category = category;
+        this.newsContent = newsContent;
+        this.status = status;
+    }
+
     public String getTitle() {
         return title;
     }

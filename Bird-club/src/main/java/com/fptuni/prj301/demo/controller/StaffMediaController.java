@@ -3,6 +3,7 @@ package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.EventsMediaManager;
 import com.fptuni.prj301.demo.dbmanager.GalleryManager;
+import com.fptuni.prj301.demo.dbmanager.NewsManager;
 import com.fptuni.prj301.demo.model.Image;
 import com.fptuni.prj301.demo.model.Media;
 import com.oreilly.servlet.MultipartRequest;
@@ -21,6 +22,7 @@ public class StaffMediaController extends HttpServlet {
             
             EventsMediaManager mm = new EventsMediaManager();
             GalleryManager gm = new GalleryManager();
+            NewsManager nm = new NewsManager();
             String root = "D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media";
             MultipartRequest mr = new MultipartRequest(request,root);
             
@@ -37,7 +39,12 @@ public class StaffMediaController extends HttpServlet {
                 gm.insert(image);
                 response.sendRedirect("gallery");
             }
-            //Inserting Tournament/Field Trip/Meeting media
+            //Inserting the image for news
+            else if (ID.contains("NID")) {
+                nm.updateImage("media/"+filename,ID);
+            }
+            
+            //Inserting Tournament media
             else {
                 Media media = new Media(ID,"media/"+filename, description);
                 mm.insert(tableName,media);
