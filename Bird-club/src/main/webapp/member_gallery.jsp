@@ -66,11 +66,11 @@
             <style>
                 #hero-wrapper .hero-text { width: 600px; }
             </style>   
-            <section id="global-cta" aria-label="Call to action" class="global-cta">
+<!--            <section id="global-cta" aria-label="Call to action" class="global-cta">
                 <div class="wp-block-group cta">
                     <h2>Don't miss a thing! Join our email list</h2>
                     <p><script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script> <script>hbspt.forms.create({portalId: "95627", formId: "ee3402b4-bebe-48ff-870f-7e51695b366d"});</script></p>      </div>
-            </section>			
+            </section>			-->
         </main>
 
  <%@ include file="member_footer.jsp" %>

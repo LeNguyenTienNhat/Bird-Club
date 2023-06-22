@@ -189,6 +189,7 @@ public boolean SignUp(UserSession user) {
                 user.setSignUpDate(rs.getDate("signupDate"));
                 user.setMID(rs.getString("MID"));
                 user.setGender(rs.getString("gender"));
+                user.setAvatar(rs.getString("avatar"));
             }
 
             rs.close();
