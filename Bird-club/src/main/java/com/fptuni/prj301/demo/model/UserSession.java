@@ -24,30 +24,13 @@ public class UserSession {
     private Date signUpDate;
     private String MID;
     private String gender;
+    private String avatar;
 
-    public UserSession() {
-    }
-
-    public UserSession(String UID, String userName, String fullName, String phone, String email, String password, String role, Date expriedDate, String Status, Date signupDateDate, String MID, String gender) {
-        this.UID = UID;
-        this.userName = userName;
-        this.fullName = fullName;
-        this.phone = phone;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-        this.expriedDate = expriedDate;
-        this.Status = Status;
-        this.signUpDate = signupDateDate;
-        this.MID = MID;
-        this.gender = gender;
-    }
-
-    public String getUserId() {
+    public String getUID() {
         return UID;
     }
 
-    public void setUserId(String UID) {
+    public void setUID(String UID) {
         this.UID = UID;
     }
 
@@ -119,8 +102,8 @@ public class UserSession {
         return signUpDate;
     }
 
-    public void setSignUpDate(Date signupDateDate) {
-        this.signUpDate = signupDateDate;
+    public void setSignUpDate(Date signUpDate) {
+        this.signUpDate = signUpDate;
     }
 
     public String getMID() {
@@ -139,5 +122,31 @@ public class UserSession {
         this.gender = gender;
     }
 
-    
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public UserSession(String UID, String userName, String fullName, String phone, String email, String password, String role, Date expriedDate, String Status, Date signUpDate, String MID, String gender, String avatar) {
+        this.UID = UID;
+        this.userName = userName;
+        this.fullName = fullName;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.expriedDate = expriedDate;
+        this.Status = Status;
+        this.signUpDate = signUpDate;
+        this.MID = MID;
+        this.gender = gender;
+        this.avatar = avatar;
+    }
+
+    public UserSession() {
+    }
+
 }

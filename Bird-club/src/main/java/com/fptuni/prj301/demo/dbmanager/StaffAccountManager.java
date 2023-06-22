@@ -16,17 +16,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
 /**
  *
  * @author Administrator
  */
 public class StaffAccountManager {
-        public boolean approveUser(String UID, String role) {
+
+    public boolean approveUser(String UID, String role) {
         String sql = "UPDATE [User] SET role = ? WHERE UID = ?";
 
         try (Connection conn = DBUtils.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+                PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, role);
             ps.setString(2, UID);
             int rowsAffected = ps.executeUpdate();
@@ -38,19 +38,19 @@ public class StaffAccountManager {
 
         return false;
     }
-        
-   public List<UserSession> getUsersWithUnactiveStatus() {
+
+    public List<UserSession> getUsersWithUnactiveStatus() {
         List<UserSession> users = new ArrayList<>();
         String sql = "SELECT * FROM [User] WHERE role = ?";
 
         try (Connection conn = DBUtils.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+                PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, "guest");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 UserSession user = new UserSession();
-                user.setUserId(rs.getString("UID"));
+                user.setUID(rs.getString("UID"));
                 user.setUserName(rs.getString("userName"));
                 user.setFullName(rs.getString("fullName"));
                 user.setPhone(rs.getString("phone"));
@@ -62,7 +62,7 @@ public class StaffAccountManager {
                 user.setSignUpDate(rs.getDate("signUpDate"));
                 user.setMID(rs.getString("MID"));
                 user.setGender(rs.getString("gender"));
-
+                user.setAvatar(rs.getString("avatar"));
                 users.add(user);
             }
 
@@ -73,34 +73,35 @@ public class StaffAccountManager {
 
         return users;
     }
-   
- public String getUserEmail(String userId) {
-    String email = null;
-    String sql = "SELECT email FROM [User] WHERE UID = ?";
 
-    try (Connection conn = DBUtils.getConnection();
-         PreparedStatement ps = conn.prepareStatement(sql)) {
-        ps.setString(1, userId);
-        ResultSet rs = ps.executeQuery();
+    public String getUserEmail(String userId) {
+        String email = null;
+        String sql = "SELECT email FROM [User] WHERE UID = ?";
 
-        if (rs.next()) {
-            email = rs.getString("email");
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, userId);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                email = rs.getString("email");
+            }
+
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
-        rs.close();
-    } catch (SQLException e) {
-        e.printStackTrace();
+        return email;
     }
 
-    return email;
-}
-   public static void main(String[] args) {
-    String userId = "u48218"; // Replace with the actual user ID you want to approve
+    public static void main(String[] args) {
+        String userId = "u48218"; // Replace with the actual user ID you want to approve
 
-    StaffAccountManager userDao = new StaffAccountManager();
-    String email = userDao.getUserEmail(userId);
-        System.out.println("Email :"+ email);
+        StaffAccountManager userDao = new StaffAccountManager();
+        String email = userDao.getUserEmail(userId);
+        System.out.println("Email :" + email);
 
-}
-   
+    }
+
 }

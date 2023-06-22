@@ -35,10 +35,11 @@ public class UserAccessManager {
                 Date signupDate = rs.getDate("signupDate");
                 String MID = rs.getString("MID");
                 String gender = rs.getString("gender");
+                String avatar = rs.getString("avatar");
 
                 // Create a UserSession object with the retrieved attributes
                 user = new UserSession();
-                user.setUserId(UID);
+                user.setUID(UID);
                 user.setUserName(userName);
                 user.setFullName(fullName);
                 user.setPhone(phone);
@@ -50,6 +51,7 @@ public class UserAccessManager {
                 user.setSignUpDate(signupDate);
                 user.setMID(MID);
                 user.setGender(gender);
+                user.setAvatar(avatar);
             }
 
             rs.close();
@@ -88,7 +90,7 @@ public boolean SignUp(UserSession user) {
 
     try (Connection conn = DBUtils.getConnection();
          PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-        ps.setString(1, user.getUserId());
+        ps.setString(1, user.getUID());
         ps.setString(2, user.getUserName());
         ps.setString(3, user.getFullName());
         ps.setString(4, user.getPhone());
@@ -107,7 +109,7 @@ public boolean SignUp(UserSession user) {
             ResultSet generatedKeys = ps.getGeneratedKeys();
             if (generatedKeys.next()) {
                 int generatedId = generatedKeys.getInt(1);
-                user.setUserId(String.valueOf(generatedId)); // Set the generated UID
+                user.setUID(String.valueOf(generatedId)); // Set the generated UID
             }
             generatedKeys.close();
             return true;
@@ -175,7 +177,7 @@ public boolean SignUp(UserSession user) {
 
             if (rs.next()) {
                 user = new UserSession();
-                user.setUserId(rs.getString("UID"));
+                user.setUID(rs.getString("UID"));
                 user.setUserName(rs.getString("userName"));
                 user.setFullName(rs.getString("fullName"));
                 user.setPhone(rs.getString("phone"));
@@ -206,7 +208,7 @@ public boolean SignUp(UserSession user) {
 
         if (user != null) {
             System.out.println("User found:");
-            System.out.println("User ID: " + user.getUserId());
+            System.out.println("User ID: " + user.getUID());
             System.out.println("Username: " + user.getUserName());
             System.out.println("Full Name: " + user.getFullName());
             System.out.println("Phone: " + user.getPhone());

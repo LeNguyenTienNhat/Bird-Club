@@ -102,7 +102,7 @@ public class UserAccessController extends HttpServlet {
 
                 // Generate UID
                 String userId = UIDGenerator.generateUID();
-                user.setUserId(userId);
+                user.setUID(userId);
 
                 // Set the signup and expired dates
                 Date signupDate = new Date();
