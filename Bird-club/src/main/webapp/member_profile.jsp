@@ -147,15 +147,40 @@
                                         <h4 class="text-right">Profile Settings</h4>
                                     </div>
                                     <div class="row mt-2">
-                                        <div class="col-md-6"><label class="labels">Full Name</label><input type="text" class="form-control" placeholder="first name" value="${users.getFullName()}"></div>
+                                        <div class="col-md-6">
+                                            <label class="labels">Username</label>
+                                            <input type="text" class="form-control" placeholder="User name" value="${users.getUserName()}">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="labels">Full name</label>
+                                            <input type="text" class="form-control" value="${users.getFullName()}" placeholder="Full name">
+                                        </div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="number" class="form-control" placeholder="enter phone number" value=""></div>
-                                        <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-                                        <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
+                                        <div class="col-md-12">
+                                            <label class="labels">Gender</label>
+                                            <input type="text" class="form-control" placeholder="Gender" value="${users.getGender()}">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="labels">Phone number</label>
+                                            <input type="text" class="form-control" placeholder="Phone number" value="${users.getPhone()}">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="labels">Email address</label>
+                                            <input type="text" class="form-control" placeholder="Email address" value="${users.getEmail()}">
+                                        </div>
                                     </div>
-                                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
-                                    <a href="member_BirdList.jsp" >Bird profile</a>
+                                    <div class="mt-5 text-center">
+                                        <button class="btn btn-primary profile-button" type="button">Save Profile</button>
+                                    </div>
+                                    <style>
+                                        .nav-link {
+                                            display: inline-block;
+                                            margin-right: 85px;
+                                        }
+                                    </style>
+                                    <a href="member_BirdList.jsp" class="nav-link">Bird profile</a>
+                                    <a href="member_membership.jsp" class="nav-link">Membership</a>
                                 </div>
                             </div>
 
@@ -182,12 +207,12 @@
                             </div>
                         </div>
                     </section>
-                 
-        
-                    
+
+
+
                     </article> 
             </main>
-           <%@ include file="member_footer.jsp" %>
+            <%@ include file="member_footer.jsp" %>
         </div>
 
         <div class="reveal" id="search-modal" data-reveal role="dialog" data-animation-in="fade-in fast" aria-label="Search">
