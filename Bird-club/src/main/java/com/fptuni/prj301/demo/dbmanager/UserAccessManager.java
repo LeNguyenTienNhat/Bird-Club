@@ -122,7 +122,7 @@ public boolean SignUp(UserSession user) {
 
 
     
-    public static boolean updatePassword(String username, String newPassword) {
+    public boolean updatePassword(String username, String newPassword) {
         String sql = "UPDATE [User] SET password = ? WHERE userName = ?";
 
         try (Connection conn = DBUtils.getConnection();
@@ -143,7 +143,7 @@ public boolean SignUp(UserSession user) {
         return false; // Password update failed
     }
     
-    public static boolean updatePasswordByEmail(String email, String newPassword) {
+    public  boolean updatePasswordByEmail(String email, String newPassword) {
     String sql = "UPDATE [User] SET password = ? WHERE email = ?";
 
     try (Connection conn = DBUtils.getConnection();

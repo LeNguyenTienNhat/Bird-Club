@@ -75,7 +75,7 @@
                         <input type="password" placeholder="Password" name="password"/>
                         <input type="password" placeholder="Confirm password" name="confirmPassword"/>
                         <p class="text-danger">${signup_msg}</p>
-                        <button type="submit">Sign Up</button>
+                        <button type="submit">Join club</button>
                     </form>
                 </div>
                 <div class="form-container sign-in-container">
@@ -104,7 +104,7 @@
                         <div class="overlay-panel overlay-right">
                             <h1>Hello!</h1>
                             <p>Enter your personal details and start journey with us</p>
-                            <button class="ghost" id="signUp">Sign Up</button>
+                            <button class="ghost" id="signUp">Join Club</button>
                         </div>
                     </div>
                 </div>

@@ -52,29 +52,7 @@ public class BirdManager {
 
         return birds;
     }
-    public static void main(String[] args) {
-    // Assuming you have an instance of the class containing getAllBirdsByUID method
-    BirdManager yourClassInstance = new BirdManager();
 
-    // Provide the UID for which you want to retrieve birds
-    String UID = "UID8";
-
-    // Call the getAllBirdsByUID method to retrieve the list of birds for the given UID
-    List<Bird> birds = yourClassInstance.getBirdsByUID(UID);
-
-    // Display the retrieved birds
-    for (Bird bird : birds) {
-        System.out.println("Bird ID: " + bird.getBID());
-        System.out.println("Name: " + bird.getName());
-        System.out.println("Age: " + bird.getAge());
-        System.out.println("Gender: " + bird.getGender());
-        System.out.println("Description: " + bird.getDescription());
-        System.out.println("Image URL: " + bird.getImageURL());
-        System.out.println("Color: " + bird.getColor());
-        System.out.println("Added Date: " + bird.getAddDate());
-        System.out.println("---------------------------------");
-    }
-}
     
     public String getBirdOwnerUIDByBID(String BID) {
         String sql = "SELECT * FROM [Bird] WHERE BID = ?";

@@ -1,7 +1,7 @@
 ﻿USE [master]
 GO
 /****** Object:  Database [ChimOwner]    Script Date: 6/2/2023 8:22:22 PM ******/
-drop DATABASE [ChimOwner]
+create DATABASE [ChimOwner]
  CONTAINMENT = NONE
  ON  PRIMARY 
 ( NAME = N'ChimOwner', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.NGUYENBAY\MSSQL\DATA\ChimOwner.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )

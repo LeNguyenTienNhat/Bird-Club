@@ -47,6 +47,12 @@ public class UIDGenerator {
         int randomNumber = listSize + 1;
         return "Doc.M" + randomNumber;
     }
+    public static String generateDocMS() {
+        List<String> existingMeIDs = FieldTripParticipantsManager.ExistingDoc("Doc.MS%");
+        int listSize = existingMeIDs.size();
+        int randomNumber = listSize + 1;
+        return "Doc.MS" + randomNumber;
+    }
     public static String generateNewPassword() {
     // Define the characters that can be used in the password
     String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
