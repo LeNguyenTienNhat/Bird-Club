@@ -22,15 +22,30 @@ public class TparticipationManager {
 
     public boolean insert(Tparticipation tparticipation) {
         String sql = "INSERT INTO [Tparticipation] (TID, BID, docNo, achievement) VALUES (?, ?, ?, ?)";
+        String selectSql = "SELECT COUNT(*) FROM [Tparticipation] WHERE TID = ? AND BID = ?";
 
         try (Connection conn = DBUtils.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, tparticipation.getTid());
-            ps.setString(2, tparticipation.getBid());
-            ps.setString(3, tparticipation.getDocNo());
-            ps.setString(4, "non"); // Set the achievement value directly
+                PreparedStatement psSelect = conn.prepareStatement(selectSql);
+                PreparedStatement psInsert = conn.prepareStatement(sql)) {
 
-            int rowsAffected = ps.executeUpdate();
+            psSelect.setString(1, tparticipation.getTid());
+            psSelect.setString(2, tparticipation.getBid());
+
+            ResultSet rs = psSelect.executeQuery();
+            rs.next();
+            int count = rs.getInt(1);
+
+            if (count > 0) {
+                // Record with same Bid and TId already exists
+                return false;
+            }
+
+            psInsert.setString(1, tparticipation.getTid());
+            psInsert.setString(2, tparticipation.getBid());
+            psInsert.setString(3, tparticipation.getDocNo());
+            psInsert.setString(4, "non"); // Set the achievement value directly
+
+            int rowsAffected = psInsert.executeUpdate();
 
             return rowsAffected > 0;
         } catch (SQLException e) {
@@ -152,7 +167,7 @@ public class TparticipationManager {
         }
         return list;
     }
-    
+
     public int getParticipantListSize(String TID) {
         int count = 0;
         String sql = "SELECT * FROM [Tparticipation] WHERE TID = ?";

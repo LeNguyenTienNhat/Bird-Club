@@ -82,17 +82,18 @@
             <h1>Membership Type Selection</h1>
             <c:if test="${not empty records}">
                 <c:forEach var="r" items="${records}">
-                    <form action="index.jsp" method="post">
+                    <form action="${pageContext.request.contextPath}/MemberShipController" method="post">
                         <div class="membership-options">
                             <div class="membership-option" onclick="selectMembershipOption(this)">
                                 <h2 style="text-align: center">${r.getName()}</h2>
                                 <p style="text-align: center" class="membership-fee">Fee: ${r.getValue()}</p>
                                 <p class="membership-description">${r.getDescription()}</p>
-                                <input type="radio" id="individual" name="membershipType" value="Individual">
+                                <input type="hidden" name="action" value="add">
+                                <input type="hidden" name="UID" value="${users.getUserName()}" />
+                                <input type="hidden" name="membership" value="${r.getMID()}" />
+                                <input type="submit" value="Proceed to Payment">
                             </div>
                         </div>
-
-                        <input type="submit" value="Proceed to Payment">
                     </form>
                 </c:forEach>
             </c:if>

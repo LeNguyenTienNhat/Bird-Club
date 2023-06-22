@@ -1,7 +1,7 @@
 ﻿USE [master]
 GO
 /****** Object:  Database [ChimOwner]    Script Date: 6/2/2023 8:22:22 PM ******/
-drop DATABASE [ChimOwner]
+create DATABASE [ChimOwner]
  CONTAINMENT = NONE
  ON  PRIMARY 
 ( NAME = N'ChimOwner', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.NGUYENBAY\MSSQL\DATA\ChimOwner.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
@@ -112,10 +112,13 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Blog](
 	[BID] [nchar](10) NOT NULL,
-	[description] [nvarchar](50) NOT NULL,
-	[category] [nvarchar](50) NOT NULL,
-	[uploadDate] [datetime] NOT NULL,
 	[UID] [nchar](10) NOT NULL,
+	[title] [nvarchar](100) NOT NULL,
+	[category] [nvarchar](50) NOT NULL,
+	[blogsContent] [nvarchar](max) NOT NULL,
+	[uploadDate] [datetime] NOT NULL,
+	[status] [nchar] (20) NOT NULL,
+	[image] [nvarchar](max) NOT NULL,	
 	[vote] [decimal](18, 0) NOT NULL,
  CONSTRAINT [PK_Blog] PRIMARY KEY CLUSTERED 
 (
@@ -312,9 +315,12 @@ GO
 CREATE TABLE [dbo].[News](
 	[NID] [nchar](10) NOT NULL,
 	[UID] [nchar](10) NOT NULL,
-	[description] [nvarchar](50) NOT NULL,
+	[title] [nvarchar](100) NOT NULL,
 	[category] [nvarchar](50) NOT NULL,
+	[newsContent] [nvarchar](max) NOT NULL,
 	[uploadDate] [datetime] NOT NULL,
+	[status] [nchar] (20) NOT NULL,
+	[image] [nvarchar](max) NOT NULL,
  CONSTRAINT [PK_Article] PRIMARY KEY CLUSTERED 
 (
 	[NID] ASC

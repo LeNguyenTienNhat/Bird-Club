@@ -128,6 +128,7 @@
                                     <div class="is-layout-flex wp-block-buttons"></div>
 
                                 </div>
+                                    
 
 
 
@@ -205,7 +206,8 @@
                                                         <!--<a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>-->
                                                     </div>	
                                                 </div> 
-                                                 <a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>
+                                                 
+<!--                                                 <a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>-->
 
                                         </div>
                                         </dl>
@@ -216,7 +218,8 @@
                                                         <form action="${pageContext.request.contextPath}/BirdController" method="POST">
                                                             <input type="hidden" name="action" value="view">
                                                             <input type="hidden" name="UID" value="${users.userId}">
-                                                            <input type="hidden" name="TID" value="${t.getTID()}">
+                                                            <input type="hidden" name="TID" value="${tournament.getTID()}">
+                                                             <c:set var="sessionTID" scope="session" value="${tournament.getTID()}"/>
                                                             <button type="submit" class="wp-block-button__link has-orange-background-color has-background">Join Tournament</button>
                                                         </form>
                                                     </c:when>
@@ -226,6 +229,7 @@
                                                             <button type="submit" class="wp-block-button__link has-blue-background-color has-background">Return</button>
                                                         </form>
                                                     </c:otherwise>
+                                                    
                                                 </c:choose>
                                             </div>
                                         </div>

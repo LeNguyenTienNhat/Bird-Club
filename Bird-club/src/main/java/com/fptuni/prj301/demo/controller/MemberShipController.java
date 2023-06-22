@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -37,11 +38,23 @@ public class MemberShipController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("action");
         MemberShipManager mbs = new MemberShipManager();
+        HttpSession ss = request.getSession(true);
         if (action != null && action.equals("view")) {
 
             List<MemberShip> records = mbs.getAllRecords();
             request.setAttribute("records", records);
             request.getRequestDispatcher("/member_membership.jsp").forward(request, response);
+        } else if (action != null && action.equals("add")) {
+            String userId = request.getParameter("UID");
+            String membership = request.getParameter("membership");
+            boolean updateMembership = mbs.updateMembership(membership, userId);
+            boolean updateExpiredDay = mbs.updateExpiredDay(membership, userId);
+
+            if (updateMembership && updateExpiredDay) {
+                response.sendRedirect(request.getContextPath() + "/index.jsp");
+            } else {
+                response.sendRedirect(request.getContextPath() + "/EventDetails.jsp");
+            }
         }
     }
 

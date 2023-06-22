@@ -107,13 +107,9 @@ public class UserAccessController extends HttpServlet {
                 // Set the signup and expired dates
                 Date signupDate = new Date();
                 user.setSignUpDate(signupDate);
-                // Set the expired date (e.g., 30 days from signup)
-                Calendar calendar = Calendar.getInstance();
-                calendar.setTime(signupDate);
-                calendar.add(Calendar.DAY_OF_MONTH, 30);
-                Date expiredDate = calendar.getTime();
-                user.setExpriedDate(expiredDate);
 
+// Set the expired date (same as signup date)
+                user.setExpriedDate(signupDate);
                 // Call the DAO to add the user to the database
                 boolean success = userDao.SignUp(user);
 
