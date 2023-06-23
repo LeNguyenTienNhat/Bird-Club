@@ -562,11 +562,17 @@
                                                     + "<button class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                                     + "type='submit'>Notify members</button>"
                                                     + "</form>"
+                                                    + "<form>"
+                                                    + "<input type='hidden' name='ID' value = '" + f.getFID() + "'>"
+                                                    + "<input type='hidden' name='action' value='viewparticipants'>"
+                                                    + "<button class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                    + "type='submit'>Participants</button>"
+                                                    + "</form>"
                                                     + "</div>"
                                                     + "</li>"
                                                     + "");
 
-                }%>   
+                                        }%>   
 
 
                                     <%! List<Meeting> mList;%> 
@@ -660,11 +666,17 @@
                                                     + "<button class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                                     + "type='submit'>Notify members</button>"
                                                     + "</form>"
+                                                    + "<form>"
+                                                    + "<input type='hidden' name='ID' value = '" + m.getMeID() + "'>"
+                                                    + "<input type='hidden' name='action' value='viewparticipants'>"
+                                                    + "<button class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                    + "type='submit'>Participants</button>"
+                                                    + "</form>"
                                                     + "</div>"
                                                     + "</li>"
                                                     + "");
 
-                }%> 
+                                        }%> 
 
 
 

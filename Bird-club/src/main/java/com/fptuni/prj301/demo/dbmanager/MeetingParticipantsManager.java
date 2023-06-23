@@ -95,6 +95,26 @@ public static List<String> ExistingDocM(String pattern) {
             System.out.println("Failed to insert MeetingParticipants.");
         }
     }
+     
+         public List<MeetingParticipants> getParticipantList(String MeID) {
+        List<MeetingParticipants> list = new ArrayList();
+        String sql = "SELECT * FROM [MeetingParticipants] WHERE MeID = ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, MeID);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                MeetingParticipants mp = new MeetingParticipants();
+                mp.setMeID(rs.getString("MeID"));
+                mp.setUID(rs.getString("UID"));
+                mp.setDocNo(rs.getString("docNo"));
+                list.add(mp);
+            }
+        } catch (SQLException e) {
+        }
+        return list;
+    }
 }
 
 

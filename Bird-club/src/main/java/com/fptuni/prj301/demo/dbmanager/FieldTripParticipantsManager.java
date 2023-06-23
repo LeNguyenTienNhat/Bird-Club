@@ -129,5 +129,25 @@ public class FieldTripParticipantsManager {
             System.out.println("Failed to insert Fparticipation.");
         }
     }
+    
+    public List<FieldTripParticipants> getParticipantList(String FID) {
+        List<FieldTripParticipants> list = new ArrayList();
+        String sql = "SELECT * FROM [FieldTripParticipants] WHERE FID = ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, FID);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                FieldTripParticipants fp = new FieldTripParticipants();
+                fp.setFid(rs.getString("FID"));
+                fp.setUid(rs.getString("UID"));
+                fp.setDocNo(rs.getString("docNo"));
+                list.add(fp);
+            }
+        } catch (SQLException e) {
+        }
+        return list;
+    }
 
 }
