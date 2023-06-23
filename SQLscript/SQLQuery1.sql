@@ -221,7 +221,7 @@ GO
 CREATE TABLE [dbo].[Location](
 	[LID] [nchar](10) NOT NULL,
 	[name] [nvarchar](50) NOT NULL,
-	[coordination] [nvarchar](50) NOT NULL,
+	[coordination] [nvarchar](max) NOT NULL,
  CONSTRAINT [PK_Location] PRIMARY KEY CLUSTERED 
 (
 	[LID] ASC
