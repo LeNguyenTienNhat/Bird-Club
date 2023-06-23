@@ -64,25 +64,25 @@
         <h2 class="has-text-align-center has-large-font-size">Tournament List</h2>
 
         <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var searchInput = document.getElementById('searchInput');
-        var tournamentItems = document.getElementsByClassName('tournament-item');
+            document.addEventListener('DOMContentLoaded', function () {
+                var searchInput = document.getElementById('searchInput');
+                var tournamentItems = document.getElementsByClassName('tournament-item');
 
-        searchInput.addEventListener('input', function () {
-            var searchValue = searchInput.value.toLowerCase();
+                searchInput.addEventListener('input', function () {
+                    var searchValue = searchInput.value.toLowerCase();
 
-            for (var i = 0; i < tournamentItems.length; i++) {
-                var tournamentName = tournamentItems[i].querySelector('.tribe-events-calendar-list__event-title').textContent.toLowerCase();
-                var tournamentStatus = tournamentItems[i].querySelector('.status-button').textContent.toLowerCase();
-                if (tournamentName.includes(searchValue) || tournamentStatus.includes(searchValue)) {
-                    tournamentItems[i].style.display = 'block';
-                } else {
-                    tournamentItems[i].style.display = 'none';
-                }
-            }
-        });
-    });
-</script>
+                    for (var i = 0; i < tournamentItems.length; i++) {
+                        var tournamentName = tournamentItems[i].querySelector('.tribe-events-calendar-list__event-title').textContent.toLowerCase();
+                        var tournamentStatus = tournamentItems[i].querySelector('.status-button').textContent.toLowerCase();
+                        if (tournamentName.includes(searchValue) || tournamentStatus.includes(searchValue)) {
+                            tournamentItems[i].style.display = 'block';
+                        } else {
+                            tournamentItems[i].style.display = 'none';
+                        }
+                    }
+                });
+            });
+        </script>
 
 
         <main id="main-content" class="page has-hero">
@@ -299,28 +299,30 @@
                                                                 <div class="col-md-4">
                                                                     <dt><strong>Status</strong></dt></dt>
                                                                 </div>
-                                                                <div class="col-md-8">
-                                                                    <dd>
-                                                                        <span class="status-button
-                                                                              <c:choose>
-                                                                                  <c:when test="${t.getStatus().contains('pending')}">
-                                                                                      status-pending
-                                                                                  </c:when>
-                                                                                  <c:when test="${t.getStatus().contains('formClosed')}">
-                                                                                      status-formClosed 
-                                                                                  </c:when>
-                                                                                  <c:when test="${t.getStatus().contains('ongoing')}">
-                                                                                      status-ongoing
-                                                                                  </c:when>
-                                                                                  <c:when test="${t.getStatus().contains('finished')}">
-                                                                                      status-finished
-                                                                                  </c:when>
-                                                                              </c:choose>"
-                                                                              >
-                                                                            ${t.getStatus()}
-                                                                        </span>
-                                                                    </dd>
-                                                                </div>
+                                                                <c:if test="${users.getRole().trim().equals('member')}">
+                                                                    <div class="col-md-8">
+                                                                        <dd>
+                                                                            <span class="status-button
+                                                                                  <c:choose>
+                                                                                      <c:when test="${t.getStatus().contains('pending')}">
+                                                                                          status-pending
+                                                                                      </c:when>
+                                                                                      <c:when test="${t.getStatus().contains('formClosed')}">
+                                                                                          status-formClosed
+                                                                                      </c:when>
+                                                                                      <c:when test="${t.getStatus().contains('ongoing')}">
+                                                                                          status-ongoing
+                                                                                      </c:when>
+                                                                                      <c:when test="${t.getStatus().contains('finished')}">
+                                                                                          status-finished
+                                                                                      </c:when>
+                                                                                  </c:choose>"
+                                                                                  >
+                                                                                ${t.getStatus()}
+                                                                            </span>
+                                                                        </dd>
+                                                                    </div>
+                                                                </c:if>
 
                                                             </div>
                                                         </div>
@@ -353,7 +355,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                                     <div class="row">
+                                                    <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="row">
                                                                 <div class="col-md-4">

@@ -280,28 +280,30 @@
                                                                 <div class="col-md-4">
                                                                     <dt><strong>Status</strong></dt></dt>
                                                                 </div>
-                                                                <div class="col-md-8">
-                                                                    <dd>
-                                                                        <span class="status-button
-                                                                              <c:choose>
-                                                                                  <c:when test="${f.getStatus().contains('pending')}">
-                                                                                      status-pending
-                                                                                  </c:when>
-                                                                                  <c:when test="${f.getStatus().contains('formClosed')}">
-                                                                                      status-formClosed 
-                                                                                  </c:when>
-                                                                                  <c:when test="${f.getStatus().contains('ongoing')}">
-                                                                                      status-ongoing
-                                                                                  </c:when>
-                                                                                  <c:when test="${f.getStatus().contains('finished')}">
-                                                                                      status-finished
-                                                                                  </c:when>
-                                                                              </c:choose>"
-                                                                              >
-                                                                            ${f.getStatus()}
-                                                                        </span>
-                                                                    </dd>
-                                                                </div>
+                                                                <c:if test="${users.getRole().trim().equals('member')}">
+                                                                    <div class="col-md-8">
+                                                                        <dd>
+                                                                            <span class="status-button
+                                                                                  <c:choose>
+                                                                                      <c:when test="${f.getStatus().contains('pending')}">
+                                                                                          status-pending
+                                                                                      </c:when>
+                                                                                      <c:when test="${f.getStatus().contains('formClosed')}">
+                                                                                          status-formClosed
+                                                                                      </c:when>
+                                                                                      <c:when test="${f.getStatus().contains('ongoing')}">
+                                                                                          status-ongoing
+                                                                                      </c:when>
+                                                                                      <c:when test="${f.getStatus().contains('finished')}">
+                                                                                          status-finished
+                                                                                      </c:when>
+                                                                                  </c:choose>"
+                                                                                  >
+                                                                                ${f.getStatus()}
+                                                                            </span>
+                                                                        </dd>
+                                                                    </div>
+                                                                </c:if>
 
                                                             </div>
                                                         </div>

@@ -240,7 +240,7 @@
                             <input type="text" id="searchInput" placeholder="Search">
                         </div>
                         <div class="meeting-container">
-                              <c:if test="${empty meetingsList}">
+                            <c:if test="${empty meetingsList}">
                                 <div>
                                     <p>No meeting found.</p>
                                 </div>
@@ -297,29 +297,30 @@
                                                                 <div class="col-md-4">
                                                                     <dt><strong>Status</strong></dt></dt>
                                                                 </div>
-                                                                <div class="col-md-8">
-                                                                    <dd>
-                                                                        <span class="status-button
-                                                                              <c:choose>
-                                                                                  <c:when test="${m.getStatus().contains('pending')}">
-                                                                                      status-pending
-                                                                                  </c:when>
-                                                                                  <c:when test="${m.getStatus().contains('formClosed')}">
-                                                                                      status-formClosed 
-                                                                                  </c:when>
-                                                                                  <c:when test="${m.getStatus().contains('ongoing')}">
-                                                                                      status-ongoing
-                                                                                  </c:when>
-                                                                                  <c:when test="${m.getStatus().contains('finished')}">
-                                                                                      status-finished
-                                                                                  </c:when>
-                                                                              </c:choose>"
-                                                                              >
-                                                                            ${m.getStatus()}
-                                                                        </span>
-                                                                    </dd>
-                                                                </div>
-
+                                                                <c:if test="${users.getRole().trim().equals('member')}">
+                                                                    <div class="col-md-8">
+                                                                        <dd>
+                                                                            <span class="status-button
+                                                                                  <c:choose>
+                                                                                      <c:when test="${m.getStatus().contains('pending')}">
+                                                                                          status-pending
+                                                                                      </c:when>
+                                                                                      <c:when test="${m.getStatus().contains('formClosed')}">
+                                                                                          status-formClosed
+                                                                                      </c:when>
+                                                                                      <c:when test="${m.getStatus().contains('ongoing')}">
+                                                                                          status-ongoing
+                                                                                      </c:when>
+                                                                                      <c:when test="${m.getStatus().contains('finished')}">
+                                                                                          status-finished
+                                                                                      </c:when>
+                                                                                  </c:choose>"
+                                                                                  >
+                                                                                ${m.getStatus()}
+                                                                            </span>
+                                                                        </dd>
+                                                                    </div>
+                                                                </c:if>
                                                             </div>
                                                         </div>
                                                     </div>

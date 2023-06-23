@@ -70,7 +70,7 @@
                         <button type="submit">Join club</button>
                     </form>
                 </div>
-                        
+
                 <div class="form-container sign-in-container">
                     <c:url var="loginLink" value="${request.contextPath}/UserAccessController/login"/>
                     <form action="${loginLink}" name="" method="POST">
@@ -79,26 +79,26 @@
                         <input type="password" placeholder="Password" name="password"/>
                         <style>
 
- .custom-control {
-  display: flex;
-  align-items: left;
-}
+                            .custom-control {
+                                display: flex;
+                                align-items: left;
+                            }
 
-.custom-control-input {
-  order: -1;
-  margin-right: 180px;
-  width: 30px;
-}
+                            .custom-control-input {
+                                order: -1;
+                                margin-right: 180px;
+                                width: 30px;
+                            }
 
-.custom-control-label {
-  margin: 0;
-}
+                            .custom-control-label {
+                                margin: 0;
+                            }
                         </style>
                         <div class="custom-control custom-checkbox">
-  <input type="checkbox" class="custom-control-input" id="customCheck1">
-  <span class="custom-control-label" for="customCheck1">Remember password</span>
-</div>
-                        <p class="text-danger">${login_msg}</p> 
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <span class="custom-control-label" for="customCheck1">Remember password</span>
+                        </div>
+                        <p style="color: red;">${login_msg}</p> 
                         <button type="submit">Login</button>
                         <a href="${pageContext.request.contextPath}/forgot.jsp">Forgot password?</a>
                     </form> 

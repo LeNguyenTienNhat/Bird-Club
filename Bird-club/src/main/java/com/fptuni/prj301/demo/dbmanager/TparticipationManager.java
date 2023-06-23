@@ -183,5 +183,25 @@ public class TparticipationManager {
         }
         return count;
     }
+    
+    public static void main(String[] args) {
+    // Create a sample Tparticipation object
+    Tparticipation tparticipation = new Tparticipation();
+    tparticipation.setTid("T123");
+    tparticipation.setBid("B456");
+    tparticipation.setDocNo("D789");
+
+    // Create an instance of the class containing the insert method
+     TparticipationManager yourClass = new  TparticipationManager();
+
+    // Call the insert method and check the result
+    boolean isSuccess = yourClass.insert(tparticipation);
+
+    if (isSuccess) {
+        System.out.println("Insertion successful");
+    } else {
+        System.out.println("Insertion failed");
+    }
+}
 
 }

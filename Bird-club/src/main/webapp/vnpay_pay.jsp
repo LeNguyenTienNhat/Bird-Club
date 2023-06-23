@@ -60,24 +60,23 @@
                 <img src="https://i0.wp.com/discvietnam.com/wp-content/uploads/2020/07/C%E1%BB%95ng-thanh-to%C3%A1n-VNPAY-Logo-Th%E1%BA%BB-ATM-T%C3%A0i-kho%E1%BA%A3n-ng%C3%A2n-h%C3%A0ng-Online-Banking-M%C3%A3-QR-QR-Pay-Qu%C3%A9t-QR.png?fit=360%2C140&ssl=1" alt="VNPAY" style="display: block; margin: 20px auto; width: 115px; height: 40px;"> 
             </header>
             <div class="container ">
+                <h3>Tạo mới đơn hàng</h3>
                 <div class="table-responsive">
-                    <div action="/chimowners/vnpayajax" id="frmCreateOrder" method="post">
-
+                     <form action="/chimowners/vnpayajax" id="frmCreateOrder" method="post">  
                         <div class="form-group">
-                            <label for="amount" id="amountLabel">Số tiền</label>
+                            <label for="amount">Số tiền</label>
                             <input class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="number" value="10000" />
-                            <button type="submit" id="luuBtn" class="btn btn-default">Lưu</button>
-                            <button type="submit" id="thanhtoanBtn" class="btn btn-default">Thanh toán</button>
-
-
-                            <div action="${pageContext.request.contextPath}/TransactionController?action=add" method="post">
-                                <input type="hidden" id="amountCopy" name="amount" />
-                                <input type="hidden" name="UID" value="${users.userId}">
-                                <input type="hidden" name="TT" value="${sessionScope.TransactionType}" />
-                                <input type="hidden" name="docT" value="${docT}">
-                            </div>
-                        </div> 
-                    </div>
+                        </div>
+                        <button type="submit" class="btn btn-default" href>Thanh toán</button>
+                    </form>
+                    
+                    <form action="${pageContext.request.contextPath}/TransactionController?action=add" method="post">  
+                        <input type="hidden" id="amountCopy" name="amount" />
+                        <input type="hidden" name="UID" value="${users.getUID()}">
+                        <input type="hidden" name="TT" value="${sessionScope.TransactionType}" />
+                        <input type="hidden" name="docT" value="${docT}">
+                        <button type="submit" class="btn btn-default">Lưu</button>
+                    </form>
                 </div>
             </div>
 

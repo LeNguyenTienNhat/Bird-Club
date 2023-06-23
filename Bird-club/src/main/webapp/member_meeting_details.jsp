@@ -194,7 +194,7 @@
                                                     <c:when test="${meeting.getStatus().trim() eq 'pending'}">
                                                         <form action="${pageContext.request.contextPath}/MeetingParticipantsController?registerSuccess=true" method="POST">
                                                             <input type="hidden" name="action" value="viewmeeting">
-                                                            <input type="hidden" name="UID" value="${users.userId}">
+                                                            <input type="hidden" name="UID" value="${users.getUID()}">
                                                             <input type="hidden" name="MeID" value="${m.getMeID()}">
                                                             <button type="submit" class="wp-block-button__link has-orange-background-color has-background">Join Meeting</button>
                                                         </form>

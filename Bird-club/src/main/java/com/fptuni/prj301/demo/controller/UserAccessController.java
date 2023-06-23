@@ -1,9 +1,9 @@
 package com.fptuni.prj301.demo.controller;
 
+import com.fptuni.prj301.demo.dbmanager.StaffAccountManager;
 import com.fptuni.prj301.demo.dbmanager.UserAccessManager;
 import com.fptuni.prj301.demo.model.UserSession;
 import java.io.IOException;
-import java.util.Calendar;
 import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +35,7 @@ public class UserAccessController extends HttpServlet {
 
                 UserAccessManager userDao = new UserAccessManager();
                 UserSession user = userDao.searchByName(username);
-
+                StaffAccountManager s = new StaffAccountManager();
                 if (user == null || !password.equals(user.getPassword())) {
                     // Invalid username or password
                     response.sendRedirect(request.getContextPath() + "/login.jsp");
@@ -47,16 +47,20 @@ public class UserAccessController extends HttpServlet {
                     if (status.equals("unactivated")) {
                         response.sendRedirect(request.getContextPath() + "/login.jsp");
                         request.setAttribute("login_msg", "Username does not Exists");
-                    } else {
-                        if (role.equals("member")) {
+                    }
+//                    else if (user.getExpriedDate() != null && user.getExpriedDate().before(new Date())) {
+//                        boolean account = s.approveUser(user.getUID(), "guest");
+//                        response.sendRedirect(request.getContextPath() + "/login.jsp");
+//                        request.setAttribute("login_msg", "Membership has expired");
+//                    } 
+                    else {
+                        if (role.equals("member") || role.equals("guest")) {
                             ss.setAttribute("users", user);
                             ss.setAttribute("userID", userDao.searchByName(user.getUserName()));
                             response.sendRedirect(request.getContextPath() + "/member_homepage.jsp");
                         } else if (role.equals("staff")) {
                             response.sendRedirect(request.getContextPath() + "/staff_homepage.jsp");
-                        } else {
-                            response.sendRedirect(request.getContextPath() + "/guest_homepage.jsp");
-                        }
+                        } 
                     }
                 }
             }
