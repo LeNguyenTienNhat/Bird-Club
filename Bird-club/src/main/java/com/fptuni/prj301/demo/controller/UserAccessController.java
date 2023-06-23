@@ -48,11 +48,13 @@ public class UserAccessController extends HttpServlet {
                         response.sendRedirect(request.getContextPath() + "/login.jsp");
                         request.setAttribute("login_msg", "Username does not Exists");
                     }
-//                    else if (user.getExpriedDate() != null && user.getExpriedDate().before(new Date())) {
-//                        boolean account = s.approveUser(user.getUID(), "guest");
-//                        response.sendRedirect(request.getContextPath() + "/login.jsp");
-//                        request.setAttribute("login_msg", "Membership has expired");
-//                    } 
+                    else if (user.getExpriedDate() != null && user.getExpriedDate().before(new Date())) {
+                        ss.setAttribute("users", user);
+                        ss.setAttribute("userID", userDao.searchByName(user.getUserName()));
+                        boolean account = s.approveUser(user.getUID(), "guest");
+                        response.sendRedirect(request.getContextPath() + "/member_homepage.jsp");
+                        request.setAttribute("login_msg", "Membership has expired");
+                    } 
                     else {
                         if (role.equals("member") || role.equals("guest")) {
                             ss.setAttribute("users", user);

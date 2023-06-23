@@ -201,27 +201,17 @@ public boolean SignUp(UserSession user) {
     }
 
     
- public static void main(String[] args) {
-        String username = "duc"; // Replace with the username you want to search
+public static void main(String[] args) {
+        // Create a sample user object
+        UserAccessManager u = new UserAccessManager();
+        UserSession user= u.searchByName("Emily");
+//        user.setExpiredDate(new Date(System.currentTimeMillis() - 86400000)); // Set expired date to yesterday
 
-        UserAccessManager manager = new UserAccessManager();
-        UserSession user = manager.searchByName(username);
-
-        if (user != null) {
-            System.out.println("User found:");
-            System.out.println("User ID: " + user.getUID());
-            System.out.println("Username: " + user.getUserName());
-            System.out.println("Full Name: " + user.getFullName());
-            System.out.println("Phone: " + user.getPhone());
-            System.out.println("Email: " + user.getEmail());
-            System.out.println("Role: " + user.getRole());
-            System.out.println("Expired Date: " + user.getExpriedDate());
-            System.out.println("Status: " + user.getStatus());
-            System.out.println("Signup Date: " + user.getSignUpDate());
-            System.out.println("MID: " + user.getMID());
-            System.out.println("Gender: " + user.getGender());
+        // Perform the condition check
+        if (user.getExpriedDate() != null && user.getExpriedDate().before(new Date())) {
+            System.out.println("User's membership has expired");
         } else {
-            System.out.println("User not found.");
+            System.out.println("User's membership is active");
         }
     }
 

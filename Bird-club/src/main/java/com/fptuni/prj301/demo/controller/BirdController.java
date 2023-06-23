@@ -76,7 +76,7 @@ public class BirdController extends HttpServlet {
                 // Redirect to a success page
                 request.setAttribute("docT", docNo);
                 ss.setAttribute("docT", docNo); 
-                response.sendRedirect(request.getContextPath() + "/vnpay_pay.jsp");
+                response.sendRedirect(request.getContextPath() + "/index.jsp");
             } else {
                 // Redirect to a failure page
                 response.sendRedirect(request.getContextPath() + "/member_TsignUp.jsp");
