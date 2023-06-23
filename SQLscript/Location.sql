@@ -18,4 +18,3 @@ INSERT INTO [Location]
 VALUES ('LID8', 'Q.Ba Dinh', 'Q.Ba Dinh')
 INSERT INTO [Location]
 VALUES ('LID9', 'Q.Tay Ho', 'Q.Tay Ho')
-

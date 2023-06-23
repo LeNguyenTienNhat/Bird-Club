@@ -195,6 +195,7 @@
                                                  </div>
                                                 <div class="row">
                                                     <dt>Location:</dt>
+                                                     <dd>${location}</dd>
                                                     <div  class=" tribe-block tribe-block__venue tribe-block__venue--has-map">
                                                         <div class="tribe-block__venue__meta">
                                                             <div class="tribe-block__venue__name">
