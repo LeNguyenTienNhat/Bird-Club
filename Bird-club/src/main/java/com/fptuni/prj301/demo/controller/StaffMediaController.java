@@ -1,4 +1,3 @@
-
 package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.EventsMediaManager;
@@ -16,44 +15,54 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class StaffMediaController extends HttpServlet {
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             response.setContentType("text/html;charset=UTF-8");
-            
+
             EventsMediaManager mm = new EventsMediaManager();
             GalleryManager gm = new GalleryManager();
             NewsManager nm = new NewsManager();
-            String root = "D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media";
-            MultipartRequest mr = new MultipartRequest(request,root);
-            
+//            String root = "D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media";
+            String root = "\\media";
+            MultipartRequest mr = new MultipartRequest(request, root);
+
             String ID = mr.getParameter("ID");
             String description = mr.getParameter("description");
             String tableName = mr.getParameter("tableName");
-            
+
             Enumeration files = mr.getFileNames();
             String name = (String) files.nextElement();
             String filename = mr.getFilesystemName(name);
             //Inserting the image for club's gallery
             if (ID.equalsIgnoreCase("Gallery")) {
-                Image image = new Image("media/"+filename, description);
+                Image image = new Image("media/" + filename, description);
                 gm.insert(image);
                 response.sendRedirect("gallery");
-            }
-            //Inserting the image for news
+            } //Inserting the image for news
             else if (ID.contains("NID")) {
-                nm.updateImage("media/"+filename,ID);
+                nm.updateImage("media/" + filename, ID);
+                response.sendRedirect("http://localhost:8080/chimowners/news");
+            } //Inserting Tournament media
+            else if (ID.contains("TID")) {
+                Media media = new Media(ID, "media/" + filename, description);
+                mm.insert(tableName, media);
+                response.sendRedirect("http://localhost:8080/chimowners/tournaments?TID=" + ID + "&action=viewtournamentmedia");
+            } //Inserting Field trip media
+            else if (ID.contains("FID")) {
+                Media media = new Media(ID, "media/" + filename, description);
+                mm.insert(tableName, media);
+                response.sendRedirect("http://localhost:8080/chimowners/events");
+            } //Inserting Meeting media
+            else if (ID.contains("MID")) {
+                Media media = new Media(ID, "media/" + filename, description);
+                mm.insert(tableName, media);
+                response.sendRedirect("http://localhost:8080/chimowners/events");
             }
-            
-            //Inserting Tournament media
-            else {
-                Media media = new Media(ID,"media/"+filename, description);
-                mm.insert(tableName,media);
-                response.sendRedirect("http://localhost:8080/chimowners/tournaments?TID="+ID+"&action=viewtournamentmedia");
-            }            
-        } catch (ClassNotFoundException | ParseException ex) {}
-        
+        } catch (ClassNotFoundException | ParseException ex) {
         }
 
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
