@@ -64,7 +64,7 @@ public class FieldTripParticipantsController extends HttpServlet {
                 // Redirect to a success page
                 request.setAttribute("docF", docNo);
                 ss.setAttribute("docF", docNo);
-                response.sendRedirect(request.getContextPath() + "/vnpay_pay.jsp");
+                response.sendRedirect(request.getContextPath() + "/index.jsp");
             } else {
                 // Redirect to a failure page
                 response.sendRedirect(request.getContextPath() + "/failure.jsp");
