@@ -47,8 +47,8 @@ public class FieldTripParticipantsController extends HttpServlet {
         }
 
         if (action != null && action.equals("add")) {
-            String fid = request.getParameter("Fid");
-            String uid = request.getParameter("uid");
+            String fid = request.getParameter("FID");
+            String uid = request.getParameter("UID");
             String docNo = UIDGenerator.generateDocF();
             HttpSession ss = request.getSession(true);
             // Create a new Tparticipation object with the provided parameters
@@ -62,8 +62,8 @@ public class FieldTripParticipantsController extends HttpServlet {
 
             if (success) {
                 // Redirect to a success page
-                request.setAttribute("docT", docNo);
-                ss.setAttribute("docT", docNo);
+                request.setAttribute("docF", docNo);
+                ss.setAttribute("docF", docNo);
                 response.sendRedirect(request.getContextPath() + "/index.jsp");
             } else {
                 // Redirect to a failure page
