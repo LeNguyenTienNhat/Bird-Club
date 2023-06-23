@@ -202,9 +202,10 @@
                                                 <c:choose>
                                                     <c:when test="${fieldtrip.getStatus().trim() eq 'pending'}">
                                                         <form action="${pageContext.request.contextPath}/FieldTripParticipantsController" method="POST">
-                                                            <input type="hidden" name="action" value="view">
+                                                            <input type="hidden" name="action" value="add">
                                                             <input type="hidden" name="UID" value="${users.getUID()}">
-                                                            <input type="hidden" name="FID" value="${f.getFID()}">
+                                                            <input type="hidden" name="FID" value="${fieldtrip.getFID()}">
+                                                            <c:set var="sessionFID" scope="session" value="${fieldtrip.getFID()}"/>
                                                             <button type="submit" class="wp-block-button__link has-orange-background-color has-background">Join Field Trip</button>
                                                         </form>
                                                     </c:when>
