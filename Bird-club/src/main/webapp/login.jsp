@@ -34,8 +34,6 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styleLogin.css">
 
-
-
         <!-- Modernizr JS -->
         <script src="${pageContext.request.contextPath}/js/modernizr-2.6.2.min.js"></script>
         >
@@ -46,12 +44,6 @@
         <div class="gtco-loader"></div>
 
         <div id="page">
-
-
-            <!-- <div class="page-inner"> -->
-
-
-            <!--<h2 class ="gold-color">VNFLIGHT: Sign in/up Form</h2>-->
             <h4 class="gold-color">${signup_msg}</h4>
             <div class="container" id="container">
                 <div class="form-container sign-up-container ">
@@ -60,12 +52,12 @@
                         <h1>Create Account</h1>
                         <input type="text" placeholder="Username" name="username"  />
                         <input type="text" placeholder="FullName" name="fullName"/>
-
                         <select style="background-color: #eee;
                                 border: none;
                                 padding: 10px 10px;
-                                margin: 0px 0;
-                                width: 100%;" name="gender">
+                                margin: 5px 0;
+                                width: 100%;
+                                .option{}" name="gender">
                             <option value="Gender">Gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -74,20 +66,38 @@
                         <input type="number" placeholder="Phone" name="phone" />
                         <input type="password" placeholder="Password" name="password"/>
                         <input type="password" placeholder="Confirm password" name="confirmPassword"/>
-                        <p class="text-danger">${signup_msg}</p>
+<!--                        <p class="text-danger">${signup_msg}</p>-->
                         <button type="submit">Join club</button>
                     </form>
                 </div>
+                        
                 <div class="form-container sign-in-container">
                     <c:url var="loginLink" value="${request.contextPath}/UserAccessController/login"/>
                     <form action="${loginLink}" name="" method="POST">
                         <h1>User Login</h1>
                         <input type=text" placeholder="Username" name="username"/>
                         <input type="password" placeholder="Password" name="password"/>
-<!--                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                            <label class="form-check-label" for="form2Example31"> Remember me </label>
-                        </div>-->
+                        <style>
+
+ .custom-control {
+  display: flex;
+  align-items: left;
+}
+
+.custom-control-input {
+  order: -1;
+  margin-right: 180px;
+  width: 30px;
+}
+
+.custom-control-label {
+  margin: 0;
+}
+                        </style>
+                        <div class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input" id="customCheck1">
+  <span class="custom-control-label" for="customCheck1">Remember password</span>
+</div>
                         <p class="text-danger">${login_msg}</p> 
                         <button type="submit">Login</button>
                         <a href="${pageContext.request.contextPath}/forgot.jsp">Forgot password?</a>
@@ -109,20 +119,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-            <!-- </div> -->
-
         </div>
 
 

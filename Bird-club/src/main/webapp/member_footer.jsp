@@ -103,12 +103,12 @@
                             </ul>
                         </li>
                     </ul>          </nav>
-            </div> .footer-menu 
+            </div> 
 
             <div class="footer-contact grid-x">
                 <div class="cell medium-2 small-6 cu-logo">
                     <img  alt="Cornell University" data-src="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/images/cornell-logo.svg" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img src="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/images/cornell-logo.svg" alt="Cornell University"></noscript>
-                </div> .cu-logo 
+                </div>
 
 
                 <div class="cell medium-auto small-12 flex-child-grow contact">
@@ -121,11 +121,11 @@
                             <li id="menu-item-11355" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11355"><a href="https://privacy.cornell.edu/information-use-cornell">Privacy Policy</a></li>
                             <li id="menu-item-2643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2643"><a href="https://www.birds.cornell.edu/home/terms-of-use/">Terms of use</a></li>
                         </ul></div>
-                    <p class="source-org copyright">&copy; 2023 Cornell University</p>          </div> .contact 
+                    <p class="source-org copyright">&copy; 2023 Cornell University</p>          </div> 
 
-            </div> .footer-contact 
+            </div>  
 
-        </div>  end .grid-container 
+        </div>   
 
     </footer>
     </body>
