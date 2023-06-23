@@ -39,6 +39,7 @@
                                         <li id="nav-menu-item-41129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" class="menu-link main-menu-link">Community</a><button aria-haspopup="true" aria-label="Show submenu for Courses"><span class="fa fa-chevron-down" aria-hidden="true"></span></button>
                                             <ul class="sub-menu hidden menu-odd  menu-depth-1" aria-hidden="true">
                                                 <li id="nav-menu-item-41702" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="member_forum.jsp" class="menu-link sub-menu-link">Forum</a></li>
+                                                <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="${pageContext.request.contextPath}/BlogController?actionviewblog" class="menu-link sub-menu-link">Blogs</a></li>
                                                 <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="member_locations.jsp" class="menu-link sub-menu-link">Locations</a></li></ul>
 
                                         <li id="nav-menu-item-41123" class="cams menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="member_gallery.jsp" class="menu-link main-menu-link">Gallery</a></li>
