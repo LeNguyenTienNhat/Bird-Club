@@ -1,7 +1,7 @@
 USE [master]
 GO
 /****** Object:  Database [ChimOwner]    Script Date: 6/2/2023 8:22:22 PM ******/
-CREATE DATABASE [ChimOwner]
+create DATABASE [ChimOwner]
  CONTAINMENT = NONE
  ON  PRIMARY 
 ( NAME = N'ChimOwner', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.NGUYENBAY\MSSQL\DATA\ChimOwner.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
@@ -112,10 +112,13 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Blog](
 	[BID] [nchar](10) NOT NULL,
-	[description] [nvarchar](50) NOT NULL,
-	[category] [nvarchar](50) NOT NULL,
-	[uploadDate] [datetime] NOT NULL,
 	[UID] [nchar](10) NOT NULL,
+	[title] [nvarchar](100) NOT NULL,
+	[category] [nvarchar](50) NOT NULL,
+	[blogsContent] [nvarchar](max) NOT NULL,
+	[uploadDate] [datetime] NOT NULL,
+	[status] [nchar] (20) NOT NULL,
+	[image] [nvarchar](max) NOT NULL,	
 	[vote] [decimal](18, 0) NOT NULL,
  CONSTRAINT [PK_Blog] PRIMARY KEY CLUSTERED 
 (
@@ -161,7 +164,7 @@ GO
 CREATE TABLE [dbo].[FieldTrip](
 	[FID] [nchar](10) NOT NULL,
 	[name] [nvarchar](50) NOT NULL,
-	[description] [nvarchar](50) NOT NULL,
+	[description] [nvarchar](max) NOT NULL,
 	[registrationDeadline] [datetime] NOT NULL,
 	[startDate] [datetime] NOT NULL,
 	[endDate] [datetime] NOT NULL,
@@ -233,7 +236,7 @@ GO
 CREATE TABLE [dbo].[Magazine](
 	[MaID] [nchar](10) NOT NULL,
 	[description] [nvarchar](max) NOT NULL,
-	[URL] [nvarchar](50) NOT NULL,
+	[URL] [nvarchar](100) NOT NULL,
 	[uploadDate] [date] NOT NULL,
  CONSTRAINT [PK_Magazine] PRIMARY KEY CLUSTERED 
 (
@@ -312,9 +315,12 @@ GO
 CREATE TABLE [dbo].[News](
 	[NID] [nchar](10) NOT NULL,
 	[UID] [nchar](10) NOT NULL,
-	[description] [nvarchar](50) NOT NULL,
+	[title] [nvarchar](100) NOT NULL,
 	[category] [nvarchar](50) NOT NULL,
+	[newsContent] [nvarchar](max) NOT NULL,
 	[uploadDate] [datetime] NOT NULL,
+	[status] [nchar] (20) NOT NULL,
+	[image] [nvarchar](max) NOT NULL,
  CONSTRAINT [PK_Article] PRIMARY KEY CLUSTERED 
 (
 	[NID] ASC
@@ -338,6 +344,10 @@ CREATE TABLE [dbo].[Tournament](
 	[fee] [decimal](18, 0) NOT NULL,
 	[numberOfParticipant] [decimal](18, 0) NOT NULL,
 	[totalPrize] [decimal](18, 0) NOT NULL,
+	[note] [nvarchar](MAX) NULL,
+	[incharge] [nvarchar](50) NULL,
+	[host] [nvarchar](50) NULL,
+	[contact] [nvarchar](50) NULL,
  CONSTRAINT [PK_Tournament] PRIMARY KEY CLUSTERED 
 (
 	[TID] ASC
@@ -351,7 +361,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[TournamentMedia](
 	[TID] [nchar](10) NOT NULL,
-	[URL] [nvarchar](max) NOT NULL
+	[URL] [nvarchar](max) NOT NULL,
+	[description] [nvarchar](max) NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 /****** Object:  Table [dbo].[Tparticipation]    Script Date: 6/2/2023 8:22:23 PM ******/
@@ -396,16 +407,20 @@ GO
 CREATE TABLE [dbo].[User](
 	[UID] [nchar](10) NOT NULL,
 	[userName] [nvarchar](50) NOT NULL,
+	[password] [nvarchar](50) NOT NULL,
 	[fullName] [nvarchar](50) NOT NULL,
+	[gender] [nchar](10) NULL,
 	[phone] [nchar](10) NULL,
 	[email] [nvarchar](50) NULL,
-	[password] [nvarchar](50) NOT NULL,
+	[status] [nchar](20) NOT NULL,
 	[role] [nchar](10) NOT NULL,
-	[expiredDate] [datetime] NOT NULL,
-	[status] [nchar](10) NOT NULL,
 	[signupDate] [datetime] NOT NULL,
+	[expiredDate] [datetime] NOT NULL,
 	[MID] [nchar](10) NULL,
-	[gender] [nchar](10) NULL,
+	[avatar] [nvarchar](50) NULL,
+
+
+
  CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
 (
 	[UID] ASC
