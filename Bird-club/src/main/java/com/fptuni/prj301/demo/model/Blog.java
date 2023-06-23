@@ -15,21 +15,27 @@ import java.util.Date;
 public class Blog {
 
     private String BID;
-    private String description;
-    private String category;
-    private Date uploadDate;
     private String UID;
+    private String title;
+    private String category;
+    private String blogsContent;   
+    private Date uploadDate;
+    private String status;
+    private String image;
     private BigDecimal vote;
 
     public Blog() {
     }
 
-    public Blog(String BID, String description, String category, Date uploadDate, String UID, BigDecimal vote) {
+    public Blog(String BID, String UID, String title, String category, String blogsContent, Date uploadDate, String status, String image, BigDecimal vote) {
         this.BID = BID;
-        this.description = description;
-        this.category = category;
-        this.uploadDate = uploadDate;
         this.UID = UID;
+        this.title = title;
+        this.category = category;
+        this.blogsContent = blogsContent;
+        this.uploadDate = uploadDate;
+        this.status = status;
+        this.image = image;
         this.vote = vote;
     }
 
@@ -41,12 +47,20 @@ public class Blog {
         this.BID = BID;
     }
 
-    public String getDescription() {
-        return description;
+    public String getUID() {
+        return UID;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setUID(String UID) {
+        this.UID = UID;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getCategory() {
@@ -57,6 +71,14 @@ public class Blog {
         this.category = category;
     }
 
+    public String getBlogsContent() {
+        return blogsContent;
+    }
+
+    public void setBlogsContent(String blogsContent) {
+        this.blogsContent = blogsContent;
+    }
+
     public Date getUploadDate() {
         return uploadDate;
     }
@@ -65,12 +87,20 @@ public class Blog {
         this.uploadDate = uploadDate;
     }
 
-    public String getUID() {
-        return UID;
+    public String getStatus() {
+        return status;
     }
 
-    public void setUID(String UID) {
-        this.UID = UID;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public BigDecimal getVote() {
@@ -80,6 +110,7 @@ public class Blog {
     public void setVote(BigDecimal vote) {
         this.vote = vote;
     }
-    
+
+  
 
 }
