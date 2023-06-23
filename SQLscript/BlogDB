@@ -3,7 +3,7 @@ Values ('BID0','UID4','Nature is Feathered Gems','Red-whiskered bulbul','Red-whi
 Insert into [Blog]
 Values ('BID1','UID7','Melody in Motion' ,'Red-whiskered bulbul','Their melodious songs dance through the air, filling our hearts with pure delight.','12-02-2023','Normal','http://3.bp.blogspot.com/-M8utIBUbamk/VMn5vdd59VI/AAAAAAAAOZw/2jTgc3h-DKc/s1600/hqloDbk.jpg','12');
 Insert into [Blog]
-Values ('BID2','UID13','Playful Feathered Acrobats','Red-whiskered bulbul','Watching their acrobatic flights and playful stunts is a source of endless entertainment.','03-15-2023','Normal','http://4.bp.blogspot.com/-isFCkAqO4wY/VMmDh0LY3GI/AAAAAAAAOYw/0P4N2lFZEys/s1600/150660_158525804295210_1382491024_n.jpg','34');
+Values ('BID2','UID13','Playful Feathered Acrobats','Red-whiskered bulbul','Watching their acrobatic flights and playful stunts is a source of endless entertainment.','03-15-2023','Trending','http://4.bp.blogspot.com/-isFCkAqO4wY/VMmDh0LY3GI/AAAAAAAAOYw/0P4N2lFZEys/s1600/150660_158525804295210_1382491024_n.jpg','34');
 Insert into [Blog]
 Values ('BID3','UID24','Whiskers of Happiness','Red-whiskered bulbul','The crimson whiskers that adorn their cheeks are like tiny bursts of joy.','11-30-2022','Normal','http://4.bp.blogspot.com/-isFCkAqO4wY/VMmDh0LY3GI/AAAAAAAAOYw/0P4N2lFZEys/s1600/150660_158525804295210_1382491024_n.jpg','74');
 Insert into [Blog]
@@ -13,7 +13,7 @@ Values ('BID5','UID12','Guardians of Gardens','Red-whiskered bulbul',' These bul
 Insert into [Blog]
 Values ('BID6','UID41','Painted with Passion','Red-whiskered bulbul',' Their vibrant plumage is a testament to the artist brushstrokes of nature palette.','11-02-2023','Normal','http://4.bp.blogspot.com/-isFCkAqO4wY/VMmDh0LY3GI/AAAAAAAAOYw/0P4N2lFZEys/s1600/150660_158525804295210_1382491024_n.jpg','4');
 Insert into [Blog]
-Values ('BID7','UID7','Chirps of Welcome','Red-whiskered bulbul',' The chirps and calls of red-whiskered bulbuls greet each day with a symphony of welcoming notes.','04-22-2023','Normal','http://4.bp.blogspot.com/-isFCkAqO4wY/VMmDh0LY3GI/AAAAAAAAOYw/0P4N2lFZEys/s1600/150660_158525804295210_1382491024_n.jpg','42');
+Values ('BID7','UID7','Chirps of Welcome','Red-whiskered bulbul',' The chirps and calls of red-whiskered bulbuls greet each day with a symphony of welcoming notes.','04-22-2023','Trending','http://4.bp.blogspot.com/-isFCkAqO4wY/VMmDh0LY3GI/AAAAAAAAOYw/0P4N2lFZEys/s1600/150660_158525804295210_1382491024_n.jpg','42');
 Insert into [Blog]
 Values ('BID8','UID54','Parenting Marvels','Red-whiskered bulbul',' Witnessing their nurturing instincts and devoted care for their young is a heartwarming sight.','02-22-2023','Normal','http://4.bp.blogspot.com/-bDLoPHEhV-o/VMn5mV36cpI/AAAAAAAAOZo/oULGBUpGpW8/s1600/bungcanhxoeduoi.jpg','41');
 Insert into [Blog]
@@ -25,7 +25,7 @@ Values ('BID11','UID11','A Serenade for the Senses','Red-whiskered bulbul',' The
 Insert into [Blog]
 Values ('BID12','UID24','Nature Alarm Clock,','Red-whiskered bulbul',' Their early morning melodies gently rouse us from slumber, infusing our day with energy.','02-18-2023','Normal','http://4.bp.blogspot.com/-isFCkAqO4wY/VMmDh0LY3GI/AAAAAAAAOYw/0P4N2lFZEys/s1600/150660_158525804295210_1382491024_n.jpg','64');
 Insert into [Blog]
-Values ('BID13','UID9','Adaptable Adventurers','Red-whiskered bulbul',' Red-whiskered bulbuls thrive in diverse habitats, adapting to both urban and rural environments.','11-01-2023','Normal','http://4.bp.blogspot.com/-isFCkAqO4wY/VMmDh0LY3GI/AAAAAAAAOYw/0P4N2lFZEys/s1600/150660_158525804295210_1382491024_n.jpg','53');
+Values ('BID13','UID9','Adaptable Adventurers','Red-whiskered bulbul',' Red-whiskered bulbuls thrive in diverse habitats, adapting to both urban and rural environments.','11-01-2023','Trending','http://4.bp.blogspot.com/-isFCkAqO4wY/VMmDh0LY3GI/AAAAAAAAOYw/0P4N2lFZEys/s1600/150660_158525804295210_1382491024_n.jpg','53');
 Insert into [Blog]
 Values ('BID14','UID6','Lifelong Companions','Red-whiskered bulbul',' Once they choose your garden as their home, they become faithful companions for years to come.','04-23-2023','Normal','http://4.bp.blogspot.com/-isFCkAqO4wY/VMmDh0LY3GI/AAAAAAAAOYw/0P4N2lFZEys/s1600/150660_158525804295210_1382491024_n.jpg','75');
 Insert into [Blog]
@@ -33,7 +33,7 @@ Values ('BID15','UID3','Whistlers of Happiness','Red-whiskered bulbul',' The che
 Insert into [Blog]
 Values ('BID16','UID6','Fluttering Happiness','Red-whiskered bulbul',' Their presence evokes a feeling of happiness, as if colorful butterflies have taken flight.','06-04-2023','Normal','http://4.bp.blogspot.com/-isFCkAqO4wY/VMmDh0LY3GI/AAAAAAAAOYw/0P4N2lFZEys/s1600/150660_158525804295210_1382491024_n.jpg','52');
 Insert into [Blog]
-Values ('BID17','UID13','Enchanting Garden Ornaments','Red-whiskered bulbul',' Red-whiskered bulbuls transform our gardens into enchanting, lively spaces.','01-03-2023','Normal','http://3.bp.blogspot.com/-M8utIBUbamk/VMn5vdd59VI/AAAAAAAAOZw/2jTgc3h-DKc/s1600/hqloDbk.jpg','2');
+Values ('BID17','UID13','Enchanting Garden Ornaments','Red-whiskered bulbul',' Red-whiskered bulbuls transform our gardens into enchanting, lively spaces.','01-03-2023','Trending','http://3.bp.blogspot.com/-M8utIBUbamk/VMn5vdd59VI/AAAAAAAAOZw/2jTgc3h-DKc/s1600/hqloDbk.jpg','2');
 Insert into [Blog]
 Values ('BID18','UID19','Watchful Guardians','Red-whiskered bulbul',' With their alert eyes and vigilant nature, these bulbuls serve as guardians of the surrounding wildlife.','02-03-2023','Normal','http://4.bp.blogspot.com/-isFCkAqO4wY/VMmDh0LY3GI/AAAAAAAAOYw/0P4N2lFZEys/s1600/150660_158525804295210_1382491024_n.jpg','74');
 Insert into [Blog]
