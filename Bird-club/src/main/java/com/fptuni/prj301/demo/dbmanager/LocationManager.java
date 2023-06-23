@@ -22,7 +22,7 @@ public class LocationManager {
         String query = "SELECT coordination FROM Location WHERE lid=(SELECT LID FROM Tournament WHERE TID = ?)";
 
         try (Connection conn = DBUtils.getConnection();
-             PreparedStatement ps = conn.prepareStatement(query)) {
+                PreparedStatement ps = conn.prepareStatement(query)) {
 
             ps.setString(1, tournamentId);
 
@@ -37,6 +37,26 @@ public class LocationManager {
 
         return coordination;
     }
+
+    public String getName(String LID) {
+        String sql = "SELECT name FROM Location WHERE LID = ?";
+        String name = null;
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, LID);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                name = rs.getString("name");
+            }
+
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return name;
+    }
 }
-
-
