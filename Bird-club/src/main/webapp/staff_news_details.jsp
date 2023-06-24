@@ -367,15 +367,30 @@
 
                                             <div class="mt-1">
                                                 <form enctype="multipart/form-data" action="./media" method="post">
-                                                    <input type="hidden" name="ID"  <% out.print("value='"+n.getNID()+"'"); %> >
-                                                    <input accept="image/jpg,image/jpeg,image/png" color="teal" class="cursor-pointer w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" type="file" name="image" id="image">
-                                                <button type="submit" class="mt-2 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
-                                                Add image</button>
+                                                    <input type="hidden" name="ID"  <% out.print("value='" + n.getNID() + "'"); %> >
+                                                    <input accept="image/jpg,image/jpeg,image/png" color="teal" class="cursor-pointer w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" 
+                                                           type="file" name="image" id="image" onchange="loadFile(event)">
+                                                    <button type="submit" class="mt-2 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                                        Add image</button>
+
+
+
                                                 </form>
                                             </div>
                                         </div>
 
+                                        <script>
+                                            var loadFile = function (event) {
+                                                var output = document.getElementById('output');
+                                                output.src = URL.createObjectURL(event.target.files[0]);
+                                                output.onload = function () {
+                                                    URL.revokeObjectURL(output.src) // free memory
+                                                }
+                                            };
+                                        </script>
+                                        <img style='height: auto; width: 30rem; display: block; margin-bottom: 25px' id="output"/>
                                         <% out.print("<img style='height: auto; width: 30rem; display: block; margin-bottom: 25px' src='" + n.getImage() + "'>");%>        
+
 
                                         <button type="submit" form="edit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
                                             Update</button>

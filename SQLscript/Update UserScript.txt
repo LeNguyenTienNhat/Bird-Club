@@ -1,6 +1,6 @@
 INSERT INTO [User] (UID, userName, password, fullName, gender, phone, email, role, status, signupDate, expiredDate, MID, avatar)
 VALUES
-('UID0', 'Emily', '1', 'Emily Johnson', 'female', '0987654321', 'emily.johnson@gmail.com', 'member', 'activated', CONVERT(DATETIME, '1/1/2023', 103), CONVERT(DATETIME, '1/2/2023', 103), 'MID01', 'https://logodix.com/logo/1070634.png'),
+('UID0', 'Emily', '1', 'Emily Johnson', 'female', '0987654321', 'emily.johnson@gmail.com', 'member', 'activated', CONVERT(DATETIME, '1/1/2023', 103), CONVERT(DATETIME, '10/10/2023', 103), 'MID01', 'https://logodix.com/logo/1070634.png'),
 ('UID1', 'Satoshi', 'satoshitanaka#456', 'Satoshi Tanaka', 'male', '0912345678', 'satoshi.tanaka@gmail.com', 'member', 'activated', CONVERT(DATETIME, '2/1/2023', 103), CONVERT(DATETIME, '2/2/2023', 103), 'MID01', 'https://logodix.com/logo/1070634.png'),
 ('UID2', 'Olivia', 'oliviadavis#789', 'Olivia Davis', 'female', '0976543210', 'olivia.davis@gmail.com', 'member', 'activated', CONVERT(DATETIME, '3/1/2023', 103), CONVERT(DATETIME, '3/2/2023', 103), 'MID01', 'https://logodix.com/logo/1070634.png'),
 ('UID3', 'Haruki', 'harukisuzuki#012', 'Haruki Suzuki', 'female', '0923456789', 'haruki.suzuki@gmail.com', 'guest', 'unactivated', CONVERT(DATETIME, '4/1/2023', 103), CONVERT(DATETIME, '4/2/2023', 103), 'MID01', 'https://logodix.com/logo/1070634.png'),

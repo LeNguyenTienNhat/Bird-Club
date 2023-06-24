@@ -65,7 +65,7 @@
 
     <body class="post-template-default single single-post postid-56828 single-format-standard wp-embed-responsive theme-green nav-column tribe-no-js">
         <div id="main-container">
-<!--Header-->
+            <!--Header-->
             <%@ include file="member_header.jsp" %> 
 
             <main id="main-content">
@@ -73,123 +73,56 @@
                 <div class="content-container archive page-wider">
                     <header class="article-header" aria-label="Title">
                         <h1 id="archive-header" class="page-title">Browse All Articles</h1>
-                        <span class="archive-page">Page 1</span>
+                       
                     </header> 
                     <section aria-labelledby="archive-header">
                         <div class="wp-block-columns">
                             <div class="wp-block-column archive-content">
                                 <div class="article-list list-style archives">
                                     <ul>
+                                        <c:if test="${ empty news}"> not found </c:if>
+                                        
+                                        <c:forEach var="n" items="${news}">
 
-
-                                        <li class="article-item">
-                                            <div class="article-item-container">
-                                                <div class="article-item-media" data-link-to="https://www.allaboutbirds.org/news/the-new-york-times-has-a-summer-birding-project-and-they-want-your-help/">
-                                                    <div class="article-item-media-ratio">
-                                                        <img data-srcset="https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-1280x960.jpg 1280w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-768x576.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose.jpg 1500w" alt="two birdwatchers use binoculars to look out over a pond" loading="lazy" data-src="https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-480x360.jpg" data-sizes="(max-width: 480px) 100vw, 480px" class=" ls-is-cached lazyloaded" src="https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-480x360.jpg" sizes="(max-width: 480px) 100vw, 480px" srcset="https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-1280x960.jpg 1280w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-768x576.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose.jpg 1500w"><noscript><img src='https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-480x360.jpg' srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-1280x960.jpg 1280w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-768x576.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/nyt-ft-1.33-darcy-rose.jpg 1500w' sizes='(max-width: 480px) 100vw, 480px' alt='two birdwatchers use binoculars to look out over a pond' loading="lazy" /></noscript> </div>
+                                            <li class="article-item">
+                                                <div class="article-item-container">
+                                                    <div class="article-item-media" data-link-to="">
+                                                        <div class="article-item-media-ratio">
+                                                            <img data-srcset="${n.getImage()}"  loading="lazy" data-src="${n.getImage()}" data-sizes="(max-width: 480px) 100vw, 480px" class=" ls-is-cached lazyloaded" src="${n.getImage()}" sizes="(max-width: 480px) 100vw, 480px" srcset="${n.getImage()}"><noscript><img src='${n.getImage()}' srcset='${n.getImage()}' sizes='(max-width: 480px) 100vw, 480px'  loading="lazy" /></noscript> </div>
+                                                    </div>
+                                                    <div class="article-item-body">
+                                                        <span class="attribution project">${n.getCategory()}</span>
+                                                        <span class="article-item-header">
+                                                            <a href="${pageContext.request.contextPath}/news?action=details&NID=${n.getNID()}" class="article-item-link" target="_self">
+                                                               ${n.getTitle()}  </a>
+                                                        </span>
+                                                        <span class="attribution topic">${n.getUploadDate()}</span>
+                                                    </div>
                                                 </div>
-                                                <div class="article-item-body">
-                                                    <span class="attribution project">eBird</span>
-                                                    <span class="article-item-header">
-                                                        <a href="https://www.allaboutbirds.org/news/the-new-york-times-has-a-summer-birding-project-and-they-want-your-help/" class="article-item-link" target="_self">
-                                                            The New York Times Has a Summer Birding Project, and They Want Your Help </a>
-                                                    </span>
-                                                    <span class="attribution topic">Bird Watching, Citizen Science, News, News &amp; Features, Try This</span>
-                                                </div>
-                                            </div>
-                                        </li>
+                                            </li>
 
-                                        <li class="article-item">
-                                            <div class="article-item-container">
-                                                <div class="article-item-media" data-link-to="https://www.allaboutbirds.org/news/team-sapsucker-finds-279-species-in-chile-and-california-for-big-day-2023/">
-                                                    <div class="article-item-media-ratio">
-                                                        <img data-srcset="https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Dawn-Sapsuckers3-720x393.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Dawn-Sapsuckers3-768x419.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Dawn-Sapsuckers3-480x262.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Dawn-Sapsuckers3.jpg 986w" alt="Two people birdwatching at dawn on a dirt road in an open gently hilled landscape." loading="lazy" data-src="https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Dawn-Sapsuckers3-480x262.jpg" data-sizes="(max-width: 480px) 100vw, 480px" class=" ls-is-cached lazyloaded" src="https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Dawn-Sapsuckers3-480x262.jpg" sizes="(max-width: 480px) 100vw, 480px" srcset="https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Dawn-Sapsuckers3-720x393.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Dawn-Sapsuckers3-768x419.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Dawn-Sapsuckers3-480x262.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Dawn-Sapsuckers3.jpg 986w"><noscript><img src='https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Dawn-Sapsuckers3-480x262.jpg' srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Dawn-Sapsuckers3-720x393.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Dawn-Sapsuckers3-768x419.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Dawn-Sapsuckers3-480x262.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Dawn-Sapsuckers3.jpg 986w' sizes='(max-width: 480px) 100vw, 480px' alt='Two people birdwatching at dawn on a dirt road in an open gently hilled landscape.' loading="lazy" /></noscript> </div>
-                                                </div>
-                                                <div class="article-item-body">
-                                                    <span class="attribution project">eBird</span>
-                                                    <span class="article-item-header">
-                                                        <a href="https://www.allaboutbirds.org/news/team-sapsucker-finds-279-species-in-chile-and-california-for-big-day-2023/" class="article-item-link" target="_self">
-                                                            Team Sapsucker Finds 279 Species in Chile and California for Big Day 2023 </a>
-                                                    </span>
-                                                    <span class="attribution topic">Bird Watching, News, News &amp; Features</span>
-
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="article-item">
-                                            <div class="article-item-container">
-                                                <div class="article-item-media" data-link-to="https://www.allaboutbirds.org/news/a-bird-keeps-flying-into-my-window-or-car-mirror-on-purpose-what-should-i-do/">
-                                                    <div class="article-item-media-ratio">
-                                                        <img data-srcset="https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-1280x960.jpg 1280w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-768x576.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-1536x1152.jpg 1536w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI.jpg 1600w" alt="A California Towhee attacks its reflection in a car mirror. Photo by hawk person via Birdshare." loading="lazy" data-src="https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-480x360.jpg" data-sizes="(max-width: 480px) 100vw, 480px" class=" lazyloaded" src="https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-480x360.jpg" sizes="(max-width: 480px) 100vw, 480px" srcset="https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-1280x960.jpg 1280w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-768x576.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-1536x1152.jpg 1536w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI.jpg 1600w"><noscript><img src='https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-480x360.jpg' srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-1280x960.jpg 1280w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-768x576.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-1536x1152.jpg 1536w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/06/Bird-carmirror-hawkperson-FI.jpg 1600w' sizes='(max-width: 480px) 100vw, 480px' alt='A California Towhee attacks its reflection in a car mirror. Photo by hawk person via Birdshare.' loading="lazy" /></noscript> </div>
-                                                </div>
-                                                <div class="article-item-body">
-                                                    <span class="article-item-header">
-                                                        <a href="https://www.allaboutbirds.org/news/a-bird-keeps-flying-into-my-window-or-car-mirror-on-purpose-what-should-i-do/" class="article-item-link" target="_self">
-                                                            A bird keeps flying into my window or car mirror, on purpose. What should I do? </a>
-                                                    </span>
-                                                    <span class="attribution topic">Bird Behavior, FAQs &amp; Common Problems, Problems, Windows</span>
-                                                </div>
-                                            </div>
-                                        </li>
-
-
-                                        <li class="article-item">
-                                            <div class="article-item-container">
-                                                <div class="article-item-media" data-link-to="https://www.allaboutbirds.org/news/against-a-backdrop-of-bird-declines-complex-problems-meet-creative-solutions/">
-                                                    <div class="article-item-media-ratio">
-                                                        <img data-srcset="https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI-768x576.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI.jpg 1200w" alt="A red bird with black wings and a long down-turned orangish bill, flies in a forest." loading="lazy" data-src="https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI-480x360.jpg" data-sizes="(max-width: 480px) 100vw, 480px" class=" lazyloaded" src="https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI-480x360.jpg" sizes="(max-width: 480px) 100vw, 480px" srcset="https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI-768x576.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI.jpg 1200w"><noscript><img src='https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI-480x360.jpg' srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI-768x576.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/05/Iiwi-Robert_Hollyer-428720221-FI.jpg 1200w' sizes='(max-width: 480px) 100vw, 480px' alt='A red bird with black wings and a long down-turned orangish bill, flies in a forest.' loading="lazy" /></noscript> </div>
-                                                </div>
-                                                <div class="article-item-body">
-                                                    <span class="article-item-header">
-                                                        <a href="https://www.allaboutbirds.org/news/against-a-backdrop-of-bird-declines-complex-problems-meet-creative-solutions/" class="article-item-link" target="_self">
-                                                            Against a Backdrop of Bird Declines, Complex Problems Meet Creative Solutions </a>
-                                                    </span>
-                                                    <span class="attribution topic">Biology, Conservation, News &amp; Features, Science &amp; Conservation</span>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="article-item">
-                                            <div class="article-item-container">
-                                                <div class="article-item-media" data-link-to="https://www.allaboutbirds.org/news/bird-cams-chat-guidelines/">
-                                                    <div class="article-item-media-ratio">
-                                                        <img data-srcset="https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675-720x405.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675-240x135.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675-768x432.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675-480x270.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675.jpg 1200w" alt="Big Red image by Cornell Lab Bird Cams" loading="lazy" data-src="https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675-480x270.jpg" data-sizes="(max-width: 480px) 100vw, 480px" class=" lazyloaded" src="https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675-480x270.jpg" sizes="(max-width: 480px) 100vw, 480px" srcset="https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675-720x405.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675-240x135.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675-768x432.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675-480x270.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675.jpg 1200w"><noscript><img src='https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675-480x270.jpg' srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675-720x405.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675-240x135.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675-768x432.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675-480x270.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2015/04/BigRed1200x675.jpg 1200w' sizes='(max-width: 480px) 100vw, 480px' alt='Big Red image by Cornell Lab Bird Cams' loading="lazy" /></noscript> </div>
-                                                </div>
-                                                <div class="article-item-body">
-                                                    <span class="attribution project">Bird Cams</span>
-                                                    <span class="article-item-header">
-                                                        <a href="https://www.allaboutbirds.org/news/bird-cams-chat-guidelines/" class="article-item-link" target="_self">
-                                                            Bird Cams Chat Guidelines </a>
-                                                    </span>
-                                                    <span class="attribution topic">Bird Cams, FAQs &amp; Common Problems</span>
-                                                </div>
-                                            </div>
-                                        </li>
-
-
-
+                                        </c:forEach>   
                                     </ul>
                                 </div>
-                                <div class="page-navigation"><ul class="pagination">
-                                        <li><span aria-current="page" class=" current">1</span></li>
-                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/2/">2</a></li>
-                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/3/">3</a></li>
-                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/4/">4</a></li>
-                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/5/">5</a></li>
-                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/6/">6</a></li>
-                                        <li><span class="dots">…</span></li>
-                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/181/">181</a></li>
-                                        <li><a class="next" href="https://www.allaboutbirds.org/news/archives/page/2/">»</a></li>
-                                    </ul>
-                                </div>
+                                <!--                                <div class="page-navigation"><ul class="pagination">
+                                                                        <li><span aria-current="page" class=" current">1</span></li>
+                                                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/2/">2</a></li>
+                                                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/3/">3</a></li>
+                                                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/4/">4</a></li>
+                                                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/5/">5</a></li>
+                                                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/6/">6</a></li>
+                                                                        <li><span class="dots">…</span></li>
+                                                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/181/">181</a></li>
+                                                                        <li><a class="next" href="https://www.allaboutbirds.org/news/archives/page/2/">»</a></li>
+                                                                    </ul>
+                                                                </div>-->
                             </div>
                         </div>
                     </section>
                 </div>
             </main>
-<!--Footer-->
-          <%@ include file="member_footer.jsp" %>
+            <!--Footer-->
+            <%@ include file="member_footer.jsp" %>
         </div>
 
         <div class="reveal" id="search-modal" data-reveal role="dialog" data-animation-in="fade-in fast" aria-label="Search">

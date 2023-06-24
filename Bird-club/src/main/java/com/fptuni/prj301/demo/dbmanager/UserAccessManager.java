@@ -199,6 +199,39 @@ public boolean SignUp(UserSession user) {
 
         return user;
     }
+     public UserSession searchName(String username) {
+        UserSession user = null;
+        String sql = "SELECT * FROM [User] WHERE [UID] = ?";
+
+        try (Connection conn = DBUtils.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                user = new UserSession();
+                user.setUID(rs.getString("UID"));
+                user.setUserName(rs.getString("userName"));
+                user.setFullName(rs.getString("fullName"));
+                user.setPhone(rs.getString("phone"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                user.setRole(rs.getString("role"));
+                user.setExpriedDate(rs.getDate("expiredDate"));
+                user.setStatus(rs.getString("status"));
+                user.setSignUpDate(rs.getDate("signupDate"));
+                user.setMID(rs.getString("MID"));
+                user.setGender(rs.getString("gender"));
+                user.setAvatar(rs.getString("avatar"));
+            }
+
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
 
     
 public static void main(String[] args) {
