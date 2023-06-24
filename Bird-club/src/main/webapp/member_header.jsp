@@ -45,7 +45,7 @@
 
 
                                         <li id="nav-menu-item-41129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
-                                            <a target="_self" href="member_profile.jsp" class="menu-link main-menu-link">
+                                            <a target="_self" href="${pageContext.request.contextPath}/MemberProfileController?action=view" class="menu-link main-menu-link">
                                                 <!--<img src="${users.getAvatar()}" alt="Avatar" class="avatar-image">  Display avatar image -->
                                                 <span class="username">${users.getUserName()}</span> <!-- Display username -->
                                             </a>

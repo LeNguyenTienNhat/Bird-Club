@@ -51,6 +51,10 @@
         <servlet-name>BlogController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.BlogController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MemberProfileController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.MemberProfileController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomepageController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -202,6 +206,10 @@
     <servlet-mapping>
         <servlet-name>BlogController</servlet-name>
         <url-pattern>/BlogController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MemberProfileController</servlet-name>
+        <url-pattern>/MemberProfileController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

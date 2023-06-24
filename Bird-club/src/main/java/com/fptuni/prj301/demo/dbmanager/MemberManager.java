@@ -55,6 +55,32 @@ public class MemberManager {
         }
         return list;
     }
+    
+    public boolean update(Member member) throws ClassNotFoundException {
+        String sql = "UPDATE User SET userName = ?, password = ?, "
+                + "fullName = ?, gender = ?, phone = ?, email = ?, "
+                + "signupDate = CONVERT(DATETIME,'" + member.getSignupDate() + "', 103), "
+                + "expiredDate = CONVERT(DATETIME,'" + member.getExpiredDate() + "', 103), "
+                + "avatar = ? WHERE UID = ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, member.getUserName());
+            ps.setString(2, member.getPassword());
+            ps.setString(3, member.getFullName());
+            ps.setString(4, member.getGender());
+            ps.setString(5, member.getPhone());
+            ps.setString(6, member.getEmail());
+            ps.setString(7, member.getSignupDate());
+            ps.setString(8, member.getExpiredDate());
+            ps.setString(9, member.getAvatar());
+            ps.setString(12, member.getUID());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Failed to update due to internal error :(" + ex.getMessage());
+        }
+        return false;
+    }
 
     public void updateRole(String UID, String role) {
         String sql = "UPDATE [User] SET role = ? WHERE UID = ?";
