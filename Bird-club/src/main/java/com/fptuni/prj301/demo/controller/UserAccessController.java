@@ -61,6 +61,7 @@ public class UserAccessController extends HttpServlet {
                             ss.setAttribute("userID", userDao.searchByName(user.getUserName()));
                             response.sendRedirect(request.getContextPath() + "/member_homepage.jsp");
                         } else if (role.equals("staff")) {
+                            ss.setAttribute("users", user);
                             response.sendRedirect(request.getContextPath() + "/staff_homepage.jsp");
                         } 
                     }

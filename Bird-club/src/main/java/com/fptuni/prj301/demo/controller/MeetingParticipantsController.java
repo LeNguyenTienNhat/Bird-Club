@@ -20,6 +20,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import tool.utils.Tools;
 import tool.utils.UIDGenerator;
 
@@ -44,11 +45,12 @@ public class MeetingParticipantsController extends HttpServlet {
             request.getRequestDispatcher("/member_meeting_details.jsp").forward(request, response);
         }
         
-        if (action != null && action.equals("register")) {
+        if (action != null && action.equals("add")) {
             String meid = request.getParameter("MeID");
-            String uid = request.getParameter("uid");
+            String uid = request.getParameter("UID");
             String docNo = UIDGenerator.generateDocM();
-
+            HttpSession ss = request.getSession(true);
+            
             MeetingParticipants meetingparticipants = new MeetingParticipants();
             meetingparticipants.setMeID(meid);
             meetingparticipants.setUID(uid);
@@ -59,8 +61,10 @@ public class MeetingParticipantsController extends HttpServlet {
 
             if (success) {
                 // Redirect to a success page
+                request.setAttribute("docM", docNo);
+                ss.setAttribute("docM", docNo); 
                 response.sendRedirect(request.getContextPath() + "/member_meeting_details.jsp");
-            } else {
+            } else  {
                 // Redirect to a failure page
                 response.sendRedirect(request.getContextPath() + "/failure.jsp");
             }

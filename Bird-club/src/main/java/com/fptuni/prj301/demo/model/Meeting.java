@@ -80,8 +80,8 @@ public class Meeting {
         return MeID;
     }
 
-    public void setMeID(String FID) {
-        this.MeID = FID;
+    public void setMeID(String MeID) {
+        this.MeID = MeID;
     }
 
     public String getName() {

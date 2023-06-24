@@ -1,11 +1,10 @@
-<%@page import="com.fptuni.prj301.demo.model.BirdParticipation"%>
-<%@page import="java.util.List"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html class="h-full bg-gray-100">
     <head>
-        <title>Events</title>
+        <title>Memberships</title>
         <meta name="csrf-param" content="authenticity_token" />
         <meta name="csrf-token" content="ahyUHbKwmmr7zSFLLkzvePiJVwXBL4woYSFM9G8nKMgn3UlVf_owDxDiNS3QLvjzvqSyEyX4pnBqDc1tkk2xTg" />
 
@@ -173,6 +172,72 @@
                 </div>
 
         </nav>
+
+
+
+
+
+        <div data-controller="modal" data-modal-target="container" data-modal-id-value="modal2" data-modal-persist-value="false" class="hidden fixed z-[2000] inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <div     data-modal-target="overlay"      data-action="click->modal#close"
+                         class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"      aria-hidden="true"
+                         data-transition-enter="transition ease-out duration-300"      data-transition-enter-start="opacity-0"
+                         data-transition-enter-end="opacity-100"      data-transition-leave="transition ease-in duration-200"
+                         data-transition-leave-start="opacity-100"      data-transition-leave-end="opacity-0"      >    </div>
+                <!-- This element is to trick the browser into centering the modal contents. -->
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                <div       data-modal-target="content" 
+                           class="hidden relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full sm:p-6"
+                           data-transition-enter="transition ease-out duration-300"      data-transition-enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                           data-transition-enter-end="opacity-100 translate-y-0 sm:scale-100"      data-transition-leave="transition ease-in duration-200"
+                           data-transition-leave-start="opacity-100 translate-y-0 sm:scale-100"      data-transition-leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"    >
+                    <div class="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
+                        <button data-action="click->modal#close" type="button" class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500">
+                            <span class="sr-only">Close</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class=" w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg></button></div>
+
+                    <div class="sm:flex sm:items-start">
+                        <turbo-frame data-modal-target="test" class="w-full" id="modal" target="_top" reloadable="" src="https://www.bird.club/clubs/birds-in-ohio/events/new?start_date=2023-06-01">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">New tournament</h3>
+                            <turbo-frame id="new_event" target="_top">
+
+                                <form class="space-y-4" accept-charset="UTF-8" method="post" id="tournament">
+                                    <div class="mt-3"><label class="block text-sm font-medium text-gray-700" for="event_title">Tournament's title</label>
+                                        <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" name="name" id="name"></div></div>
+
+                                    <div><label class="block text-sm font-medium text-gray-700" for="event_location">Location</label>
+                                        <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" name="LID" id="LID"></div></div>
+
+                                    <div><label class="block text-sm font-medium text-gray-700" for="event_date">Form will be closed at:</label>
+                                        <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500" type="date" name="registrationDeadline" id="registrationDeadline"></div></div>
+
+                                    <div class="flex flex-row space-x-4"><div><label class="block text-sm font-medium text-gray-700" for="event_start_time">Start date</label>
+                                            <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500" type="date" name="startDate" id="startDate"></div></div>
+                                        <div><label class="block text-sm font-medium text-gray-700" for="event_end_time">End date</label>
+                                            <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500" type="date" name="endDate" id="endDate"></div></div></div>
+
+                                    <div class="flex flex-row space-x-4"><div><label class="block text-sm font-medium text-gray-700" >Max participants</label>
+                                            <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500" type="text" name="numberOfParticipant" id="numberOfParticipant">
+                                            </div></div>
+                                        <div><label class="block text-sm font-medium text-gray-700" >Fee (USD)</label>
+                                            <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500" type="text" name="fee" id="fee"></div></div></div>
+
+                                    <div class="flex flex-row space-x-4"><div><label class="block text-sm font-medium text-gray-700" >Total prize</label>
+                                            <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500" type="text" name="totalPrize" id="totalPrize">
+                                            </div></div></div>   
+
+                                    <div><label class="block text-sm font-medium text-gray-700" for="description">Description</label>
+                                        <div class="mt-1"> <textarea class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="description" id="description"></textarea>
+                                        </div></div>
+
+                                    <div class="text-right sm:col-span-4">
+                                        <input name="action" value="addtournament" type="hidden">
+                                        <button type="submit" form="tournament" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                            Create</button></div></form></turbo-frame></turbo-frame></div></div></div></div>
+
+
     <turbo-frame id="flash"></turbo-frame>
     <div class="bg-white">
         <div>
@@ -221,15 +286,6 @@
     </div>
 
     <main class="pb-8 pt-8">
-
-        <%! List<BirdParticipation> bpList;
-            String TID;
-            String color;
-            int size; %>
-        <% bpList = (List<BirdParticipation>) request.getAttribute("list");
-            TID = (String) request.getAttribute("TID");
-            size = (int) request.getAttribute("size"); %>
-
         <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
 
             <div class="grid grid-cols-1 items-start lg:grid-cols-5 lg:gap-8">
@@ -237,12 +293,19 @@
 
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
                         <div class="sm:flex-auto">
-                            <h1 class="text-xl font-semibold text-gray-900">TOURNAMENT'S PARTICIPANTS</h1>
+                            <h1 class="text-xl font-semibold text-gray-900">MEMBERSHIPS</h1>
                             <p class="mt-2 text-sm text-gray-700">
-                                Available birds participating in Chim Owners' tournament.
+                                Available memberships hosted by Chim Owners.
                             </p>
                         </div>
 
+
+                        <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none" style="margin-left:1rem">
+                            <a class="w-full flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" data-turbo-frame="modal" href="">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="-ml-1 mr-3 w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>Add a membership</a>
+                        </div>
                     </div>
 
                     <div>
@@ -251,212 +314,56 @@
 
                             </div>
                             <div class="lg:col-span-7 xl:col-span-8" id="events_list">
+                                <ul class="space-y-4 leading-6 text-sm mt-4">
 
 
-                                <div data-controller="record-filters">
-                                    <!-- Filters -->
-                                    <section aria-labelledby="filter-heading" class="relative z-10 grid items-center">
-                                        <h2 id="filter-heading" class="sr-only">Filters</h2>
-                                        <div class="relative col-start-1 row-start-1 py-4">
-                                            <div class="max-w-7xl mx-auto flex space-x-6 divide-x divide-gray-200 text-sm px-4">
-                                                <div><button data-record-filters-target="toggle" data-action="record-filters#toggle" type="button" class="group text-gray-700 font-medium flex items-center" aria-controls="disclosure-1" aria-expanded="false">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="flex-none mr-2 text-gray-400 group-hover:text-gray-500 w-5 h-5">
-                                                        <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd"></path>
-                                                        </svg>Filter</button></div></div></div>
 
-                                        <form class="hidden" data-record-filters-target="form" data-turbo-action="advance" accept-charset="UTF-8" method="get">
+                                    <c:forEach var="r" items="${r}">
+                                        <li class='relative flex flex-col bg-white sm:rounded-lg shadow p-6'>
+                                            <div><h1 class='font-bold text-xl text-gray-900 space-x-2'><span>
+                                                        ${r.getName()}
+                                                    </span>
 
-                                            <div class="border-t border-gray-200 py-10" id="disclosure-1">
-                                                <div class="max-w-7xl mx-auto  gap-x-4 px-4 text-sm md:gap-x-6">
-                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 lg:grid-cols-3 md:gap-x-6 w-full">
 
-                                                        <div class="space-y-4">
-                                                            <div>
-                                                                <legend class="block font-medium">Family</legend>
-                                                                <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="family" id="family"><option value="" label=" "></option>
-                                                                        <option value="Ducks, Geese, Swans">Ducks, Geese, Swans</option></select>
-                                                                </div>
-                                                            </div>
-                                                            <div>
-                                                                <legend class="block font-medium">Species</legend>
-                                                                <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="bird_id" id="bird_id"><option value="" label=" "></option>
-                                                                        <option value="49">Tufted Duck</option></select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="space-y-4">
-                                                            <div>
-                                                                <legend class="block font-medium">Location</legend>
-                                                                <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="location_id" id="location_id"><option value="" label=" "></option>
-                                                                        <option value="1254">At Home</option></select>
-                                                                </div>
-                                                            </div>
-                                                            <div>
-                                                                <legend class="block font-medium">Member</legend>
-                                                                <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="member_id" id="member_id"><option value="" label=" "></option>
-                                                                        <option value="808">Kaedehara Yamamoto</option></select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </h1>
                                             </div>
-                                            <input type="hidden" name="action" value="viewtournamentparticipants">
-                                            <input type="hidden" name="TID" <% out.print("value='" + TID + "'"); %> >
-                                        </form>  </section>
-                                </div>
+                                            <div class='mt-2 flex items-start space-x-3'>
+                                                <div class='mt-0.5'><span class='sr-only'></span>
+                                                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' class='text-gray-400 w-5 h-5'>
+                                                    <path fill-rule='evenodd' d='M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z' clip-rule='evenodd'></path>
+                                                    </svg></div><div class='font-semibold text-gray-700 space-x-2 mb-2'>Duration: </div>
+                                                <div> ${r.getDuration()} </div></div>
 
 
-                                <div class="flex flex-col sm:rounded-lg shadow">
-                                    <div>
-                                        <dl class="sm:rounded-t-lg grid grid-cols-1 bg-white overflow-hidden border-b border-gray-200 divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x">
-                                            <div class="px-4 py-5 sm:p-6">
-                                                <dt class="text-base font-normal text-gray-900">Total participants</dt>
-                                                <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
-                                                    <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                        <% out.print(size); %>
-                                                    </div>
-                                                </dd>
-                                            </div>
+                                            <div class='mt-2 flex items-start space-x-3'>
+                                                <div class='mt-0.5'><span class='sr-only'></span>
+                                                    <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-currency-dollar text-gray-400' viewBox='0 0 16 16'>
+                                                    <path d='M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z'/></svg>
+                                                </div><div class='font-semibold text-gray-700 space-x-2'>Value:   </div> <div> ${r.getValue()}  USD</div></div>
+                                            <div class='mt-2 flex items-start space-x-3'>
+                                                <div class='mt-0.5'><span class='sr-only'></span>
+                                                    <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-info-circle-fill text-gray-400' viewBox='0 0 16 16'>
+                                                    <path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z'/></svg>
+                                                </div><div class='font-semibold text-gray-700 space-x-2'>Description:   </div></div>
+                                            <div class='mt-2 space-y-4 space-x-3'> ${r.getDescription()} </div>
 
-                                            <div class="px-4 py-5 sm:p-6">
-                                                <dt class="text-base font-normal text-gray-900">Placeholder</dt>
-                                                <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
-                                                    <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                        1
-                                                    </div>
-                                                </dd>
-                                            </div>
+                                            <div style='margin-top: 15px' class='flex items-start space-x-3'>
 
-                                            <div class="px-4 py-5 sm:p-6">
-                                                <dt class="text-base font-normal text-gray-900">Placeholder</dt>
-                                                <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
-                                                    <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                        1
-                                                    </div>
-                                                </dd>
-                                            </div>
-                                        </dl>
-                                    </div>
-
-                                    <div class="overflow-hidden ring-1 ring-black ring-opacity-5 sm:rounded-b-lg">
-                                        <div class="table min-w-full">
-                                            <div class="bg-gray-50 table-header-group">
-                                                <div class="table-row">
-                                                    <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 pl-4 pr-3 sm:pl-6">
-                                                        Doc No
-                                                    </div>
-                                                    <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 relative">
-                                                        <span class="sr-only"></span>
-                                                    </div>
-                                                    <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3">
-                                                        Bird's name
-                                                    </div>
-                                                    <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden sm:table-cell">
-                                                        Achievement
-                                                    </div>
-                                                    <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden lg:table-cell">
-                                                        Owner
-                                                    </div>
-                                                    <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 relative pl-3 pr-4 sm:pr-6">
-                                                        <span class="sr-only">Edit</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="table-header-group bg-white">
-                                                <turbo-frame id="row_record_9959" class="contents" target="_top">
-
-
-
-                                                    <%
-                                                        if (bpList.size() == 0) {
-                                                            out.print("<div class='border-b border-gray-200 text-sm max-w py-4 pl-4 pr-3 text-gray-900 bg-gray-100'>"
-                                                                    + "Currently there is no participant.</div>");
-                                                        } else {
-
-                                                            for (BirdParticipation bp : bpList) {
-                                                                color = "bg-white";
-                                                                String achievement = bp.getAchievement().trim();
-                                                                if (achievement.equalsIgnoreCase("gold")) {
-                                                                    color = "bg-yellow-100";
-                                                                } else if (achievement.trim().equalsIgnoreCase("silver")) {
-                                                                    color = "bg-gray-200";
-                                                                } else if (achievement.trim().equalsIgnoreCase("bronze")) {
-                                                                    color = "bg-orange-100";
-                                                                }
-
-                                                                out.print("<div class='table-row " + color + "'>"
-                                                                        + "<div class='table-cell border-b border-gray-200 text-sm w-full max-w-0 py-4 pl-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
-                                                                        + bp.getDocNo() + "</div>"
-                                                                        + "<div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
-                                                                        + " <div class='flex flex-row items-center space-x-2'>"
-                                                                        + " <div class='text-teal-600 -mb-1'></div></div></div>"
-                                                                        + " <div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
-                                                                        + "<a class='hover:text-gray-900' href=''>" + bp.getBirdName() + "</a></div>"
-                                                                        + "<div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden lg:table-cell'>"
-                                                                        + " <form class='flex' action='./tournaments' method='post'>"
-                                                                        + "<select class='block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500' name='ach'>"
-                                                                        + "   <option selected='selected' value='non'>Non</option>"
-                                                                        + "   <option value='gold'>Gold</option>"
-                                                                        + "   <option value='silver'>Silver</option>"
-                                                                        + "   <option value='bronze'>Bronze</option>"
-                                                                        + "</select>"
-                                                                        + "  <input type='hidden' name='action' value='updateachievement'>"
-                                                                        + "  <input type='hidden' name='docNo' value='" + bp.getDocNo() + "'>"
-                                                                        + "  <input type='hidden' name='TID' value='" + TID + "'>"
-                                                                        + " <button class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2' type='submit'>Confirm</button>"
-                                                                        + "  </form>"
-                                                                        + " </div>"
-                                                                        + " <div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden sm:table-cell'>"
-                                                                        + " <a class='hover:text-gray-900' href='http://localhost:8080/chimowners/members?action=viewmemberdetails&UID="+ bp.getUID()+"'>" + bp.getFullname() + "</a></div>"
-                                                                        + "<div class='table-cell border-b border-gray-200 text-sm text-gray-500 pl-3 pr-4 text-right sm:pr-6'>"
-                                                                        + " </div> </div>"
-                                                                        + "");
-
-                                                            }
-                                                        }
-                                                    %>
-
-                                                </turbo-frame>
+                                                <form action="${pageContext.request.contextPath}/MemberShipController" method="POST">
+                                                    <input type="hidden" name="action" value="edit">
+                                                    <input type='hidden' name='MID' value = ${r.getMID()}>
+                                                    <button type='submit' class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>
+                                                        edit
+                                                    </button>
+                                                </form>
 
                                             </div>
-                                        </div>
-                                    </div>
+                                        </li>
 
-                                </div>
+                                    </c:forEach>
+                                </ul>
 
-
-
-                                <div class="pt-6 flex items-center justify-between">
-                                    <nav class="pagy-nav pagination" aria-label="pager">
-
-                                        <%! int i;%>
-                                        <% int size = (bpList.size() / 20) + 1;
-                                            for (i = 1; i <= size; i++) {
-                                                out.print("<span class='page'><form>"
-                                                        + "<input type='hidden' name='page' value='" + i + "'>"
-                                                        + "<input type='hidden' name='action' value='viewtournamentparticipants'>"
-                                                        + "<input type='hidden' name='TID' value='" + TID + "'>"
-                                                        + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
-                                                        + "</form></span>");
-                                            }
-                                        %>
-
-                                    </nav>
-                                </div>
-                            </div>
-
-
-
-
-                        </div></div>
-
-
-                </div></div></div>       
+                            </div></div></div></div></div></div>       
     </main>
 
     <footer class="mt-8" aria-labelledby="footer-heading">

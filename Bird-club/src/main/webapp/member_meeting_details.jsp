@@ -193,9 +193,10 @@
                                                 <c:choose>
                                                     <c:when test="${meeting.getStatus().trim() eq 'pending'}">
                                                         <form action="${pageContext.request.contextPath}/MeetingParticipantsController?registerSuccess=true" method="POST">
-                                                            <input type="hidden" name="action" value="viewmeeting">
+                                                            <input type="hidden" name="action" value="add">
                                                             <input type="hidden" name="UID" value="${users.getUID()}">
-                                                            <input type="hidden" name="MeID" value="${m.getMeID()}">
+                                                            <input type="hidden" name="MeID" value="${meeting.getMeID()}">
+                                                            <c:set var="sessionMeID" scope="session" value="${meeting.getMeID()}"/>
                                                             <button type="submit" class="wp-block-button__link has-orange-background-color has-background">Join Meeting</button>
                                                         </form>
                                                     </c:when>
