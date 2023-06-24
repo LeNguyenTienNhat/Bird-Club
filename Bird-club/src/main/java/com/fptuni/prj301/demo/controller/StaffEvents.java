@@ -44,26 +44,68 @@ public class StaffEvents extends HttpServlet {
             List<Meeting> mList = mm.getRecords(0, 0, null, "startDate");
             request.setAttribute("mList", mList);
 
+            int b = fm.getNumberAsStatus("ongoing");
+            int c = mm.getNumberAsStatus("ongoing");
+            int d = fm.getNumberAsStatus("pending") + mm.getNumberAsStatus("pending");
+            int e = fm.getNumberAsStatus("formClosed") + mm.getNumberAsStatus("formClosed");
+            int g = fm.getNumberAsStatus("finished") + mm.getNumberAsStatus("finished");
+
+            request.setAttribute("ongoingFieldTrips", b);
+            request.setAttribute("ongoingMeetings", c);
+            request.setAttribute("pending", d);
+            request.setAttribute("approaching", e);
+            request.setAttribute("ended", g);
+
             RequestDispatcher rd = request.getRequestDispatcher("staff_events.jsp");
             rd.forward(request, response);
         } //Add a field trip            
         else if (action.equals("addfieldtrip")) {
             String FID = tool.generateID("FieldTrip", "FID");
-            String name = request.getParameter("name");
-            String description = request.getParameter("description");
+            String name, description, LID, status = "pending", note, incharge, host, contact, registrationDeadline, startDate, endDate;
+            int fee, numberOfParticipant, totalPrize;
 
-            String registrationDeadline = tool.convertDateFormat(request.getParameter("registrationDeadline"));
-            String startDate = tool.convertDateFormat(request.getParameter("startDate"));
-            String endDate = tool.convertDateFormat(request.getParameter("endDate"));
+            name = request.getParameter("name");
+            description = request.getParameter("description");
+            LID = request.getParameter("LID");
+            if (name.isEmpty()) {
+                name = "Unassigned name";
+            }
+            if (description.isEmpty()) {
+                description = "Currently there is no description";
+            }
+            if (LID.isEmpty()) {
+                LID = "LID1";
+            }
+            incharge = "Currently no one is assigned";
+            note = "Not available";
+            host = "Currently no one is assigned";
+            contact = "Contact address currently is not available";
+            try {
+                registrationDeadline = tool.convertDateFormat(request.getParameter("registrationDeadline"));
+            } catch (Exception e) {
+                registrationDeadline = tool.getCurrentDate();
+            }
+            try {
+                startDate = tool.convertDateFormat(request.getParameter("startDate"));
+            } catch (Exception e) {
+                startDate = tool.getCurrentDate();
+            }
+            try {
+                endDate = tool.convertDateFormat(request.getParameter("endDate"));
+            } catch (Exception e) {
+                endDate = tool.getCurrentDate();
+            }
+            try {
+                fee = Integer.parseInt(request.getParameter("fee"));
+            } catch (NumberFormatException e) {
+                fee = 0;
+            }
+            try {
+                numberOfParticipant = Integer.parseInt(request.getParameter("numberOfParticipant"));
+            } catch (NumberFormatException e) {
+                numberOfParticipant = 0;
+            }
 
-            String LID = request.getParameter("LID");
-            String status = "pending";
-            int fee = Integer.parseInt(request.getParameter("fee"));
-            int numberOfParticipant = Integer.parseInt(request.getParameter("numberOfParticipant"));
-            String note = request.getParameter("note");
-            String incharge = request.getParameter("incharge");
-            String host = request.getParameter("host");
-            String contact = request.getParameter("contact");
             Fieldtrip fieldtrip = new Fieldtrip(FID, name, description, registrationDeadline,
                     startDate, endDate, LID, status, fee, numberOfParticipant, note, incharge, host, contact);
             fm.insert(fieldtrip);
@@ -119,23 +161,49 @@ public class StaffEvents extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("staff_fieldtrip_details.jsp");
             rd.forward(request, response);
         } //Add a meeting            
-        else if (action.equals("addmeeting")) {
-            String FID = tool.generateID("Meeting", "MeID");
-            String name = request.getParameter("name");
-            String description = request.getParameter("description");
+        else if (action.equals("addmeeting")) { 
+            String MeID = tool.generateID("Meeting", "MeID");
+            String name, description, LID, status = "pending", note, incharge, host, contact, registrationDeadline, startDate, endDate;
+            int numberOfParticipant;
 
-            String registrationDeadline = tool.convertDateFormat(request.getParameter("registrationDeadline"));
-            String startDate = tool.convertDateFormat(request.getParameter("startDate"));
-            String endDate = tool.convertDateFormat(request.getParameter("endDate"));
-
-            String LID = request.getParameter("LID");
-            String status = "pending";
-            String note = request.getParameter("note");
-            String incharge = request.getParameter("incharge");
-            String host = request.getParameter("host");
-            String contact = request.getParameter("contact");
-            int numberOfParticipant = Integer.parseInt(request.getParameter("numberOfParticipant"));
-            Meeting meeting = new Meeting(FID, name, description, registrationDeadline,
+            name = request.getParameter("name");
+            description = request.getParameter("description");
+            LID = request.getParameter("LID");
+            if (name.isEmpty()) {
+                name = "Unassigned name";
+            }
+            if (description.isEmpty()) {
+                description = "Currently there is no description";
+            }
+            if (LID.isEmpty()) {
+                LID = "LID1";
+            }
+            incharge = "Currently no one is assigned";
+            note = "Not available";
+            host = "Currently no one is assigned";
+            contact = "Contact address currently is not available";
+            try {
+                registrationDeadline = tool.convertDateFormat(request.getParameter("registrationDeadline"));
+            } catch (Exception e) {
+                registrationDeadline = tool.getCurrentDate();
+            }
+            try {
+                startDate = tool.convertDateFormat(request.getParameter("startDate"));
+            } catch (Exception e) {
+                startDate = tool.getCurrentDate();
+            }
+            try {
+                endDate = tool.convertDateFormat(request.getParameter("endDate"));
+            } catch (Exception e) {
+                endDate = tool.getCurrentDate();
+            }
+            try {
+                numberOfParticipant = Integer.parseInt(request.getParameter("numberOfParticipant"));
+            } catch (NumberFormatException e) {
+                numberOfParticipant = 0;
+            }
+            
+            Meeting meeting = new Meeting(MeID, name, description, registrationDeadline,
                     startDate, endDate, LID, status, numberOfParticipant, note, incharge, host, contact);
             mm.insert(meeting);
 

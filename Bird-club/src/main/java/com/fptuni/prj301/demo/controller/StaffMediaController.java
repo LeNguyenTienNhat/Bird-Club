@@ -23,10 +23,9 @@ public class StaffMediaController extends HttpServlet {
             EventsMediaManager mm = new EventsMediaManager();
             GalleryManager gm = new GalleryManager();
             NewsManager nm = new NewsManager();
-//            String root = "D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media";
-            String root = "\\media";
-            MultipartRequest mr = new MultipartRequest(request, root);
+            String root = "D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media";
 
+            MultipartRequest mr = new MultipartRequest(request, root);
             String ID = mr.getParameter("ID");
             String description = mr.getParameter("description");
             String tableName = mr.getParameter("tableName");
@@ -52,12 +51,12 @@ public class StaffMediaController extends HttpServlet {
             else if (ID.contains("FID")) {
                 Media media = new Media(ID, "media/" + filename, description);
                 mm.insert(tableName, media);
-                response.sendRedirect("http://localhost:8080/chimowners/events");
+                response.sendRedirect("http://localhost:8080/chimowners/events?FID="+ID+"&action=viewfieldtripmedia");
             } //Inserting Meeting media
-            else if (ID.contains("MID")) {
+            else if (ID.contains("MeID")) {
                 Media media = new Media(ID, "media/" + filename, description);
                 mm.insert(tableName, media);
-                response.sendRedirect("http://localhost:8080/chimowners/events");
+                response.sendRedirect("http://localhost:8080/chimowners/events?MeID="+ID+"&action=viewmeetingmedia");
             }
         } catch (ClassNotFoundException | ParseException ex) {
         }

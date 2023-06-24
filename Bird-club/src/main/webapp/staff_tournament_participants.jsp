@@ -372,46 +372,51 @@
 
 
                                                     <%
+                                                        if (bpList.size() == 0) {
+                                                            out.print("<div class='border-b border-gray-200 text-sm max-w py-4 pl-4 pr-3 text-gray-900 bg-gray-100'>"
+                                                                    + "Currently there is no participant.</div>");
+                                                        } else {
 
-                                                        for (BirdParticipation bp : bpList) {
-                                                            color = "bg-white";
-                                                            String achievement = bp.getAchievement().trim();
-                                                            if (achievement.equalsIgnoreCase("gold")) {
-                                                                color = "bg-yellow-100";
-                                                            } else if (achievement.trim().equalsIgnoreCase("silver")) {
-                                                                color = "bg-gray-200";
-                                                            } else if (achievement.trim().equalsIgnoreCase("bronze")) {
-                                                                color = "bg-orange-100";
+                                                            for (BirdParticipation bp : bpList) {
+                                                                color = "bg-white";
+                                                                String achievement = bp.getAchievement().trim();
+                                                                if (achievement.equalsIgnoreCase("gold")) {
+                                                                    color = "bg-yellow-100";
+                                                                } else if (achievement.trim().equalsIgnoreCase("silver")) {
+                                                                    color = "bg-gray-200";
+                                                                } else if (achievement.trim().equalsIgnoreCase("bronze")) {
+                                                                    color = "bg-orange-100";
+                                                                }
+
+                                                                out.print("<div class='table-row " + color + "'>"
+                                                                        + "<div class='table-cell border-b border-gray-200 text-sm w-full max-w-0 py-4 pl-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
+                                                                        + bp.getDocNo() + "</div>"
+                                                                        + "<div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
+                                                                        + " <div class='flex flex-row items-center space-x-2'>"
+                                                                        + " <div class='text-teal-600 -mb-1'></div></div></div>"
+                                                                        + " <div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
+                                                                        + "<a class='hover:text-gray-900' href=''>" + bp.getBirdName() + "</a></div>"
+                                                                        + "<div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden lg:table-cell'>"
+                                                                        + " <form class='flex' action='./tournaments' method='post'>"
+                                                                        + "<select class='block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500' name='ach'>"
+                                                                        + "   <option selected='selected' value='non'>Non</option>"
+                                                                        + "   <option value='gold'>Gold</option>"
+                                                                        + "   <option value='silver'>Silver</option>"
+                                                                        + "   <option value='bronze'>Bronze</option>"
+                                                                        + "</select>"
+                                                                        + "  <input type='hidden' name='action' value='updateachievement'>"
+                                                                        + "  <input type='hidden' name='docNo' value='" + bp.getDocNo() + "'>"
+                                                                        + "  <input type='hidden' name='TID' value='" + TID + "'>"
+                                                                        + " <button class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2' type='submit'>Confirm</button>"
+                                                                        + "  </form>"
+                                                                        + " </div>"
+                                                                        + " <div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden sm:table-cell'>"
+                                                                        + " <a class='hover:text-gray-900' href='http://localhost:8080/chimowners/members?action=viewmemberdetails&UID="+ bp.getUID()+"'>" + bp.getFullname() + "</a></div>"
+                                                                        + "<div class='table-cell border-b border-gray-200 text-sm text-gray-500 pl-3 pr-4 text-right sm:pr-6'>"
+                                                                        + " </div> </div>"
+                                                                        + "");
+
                                                             }
-
-                                                            out.print("<div class='table-row " + color + "'>"
-                                                                    + "<div class='table-cell border-b border-gray-200 text-sm w-full max-w-0 py-4 pl-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
-                                                                    + bp.getDocNo() + "</div>"
-                                                                    + "<div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
-                                                                    + " <div class='flex flex-row items-center space-x-2'>"
-                                                                    + " <div class='text-teal-600 -mb-1'></div></div></div>"
-                                                                    + " <div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
-                                                                    + "<a class='hover:text-gray-900' href=''>" + bp.getBirdName() + "</a></div>"
-                                                                    + "<div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden lg:table-cell'>"
-                                                                    + " <form class='flex' action='./tournaments' method='post'>"
-                                                                    + "<select class='block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500' name='ach'>"
-                                                                    + "   <option selected='selected' value='non'>Non</option>"
-                                                                    + "   <option value='gold'>Gold</option>"
-                                                                    + "   <option value='silver'>Silver</option>"
-                                                                    + "   <option value='bronze'>Bronze</option>"
-                                                                    + "</select>"
-                                                                    + "  <input type='hidden' name='action' value='updateachievement'>"
-                                                                    + "  <input type='hidden' name='docNo' value='" + bp.getDocNo() + "'>"
-                                                                    + "  <input type='hidden' name='TID' value='" + TID + "'>"
-                                                                    + " <button class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2' type='submit'>Confirm</button>"
-                                                                    + "  </form>"
-                                                                    + " </div>"
-                                                                    + " <div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden sm:table-cell'>"
-                                                                    + " <a class='hover:text-gray-900' href=''>" + bp.getFullname() + "</a></div>"
-                                                                    + "<div class='table-cell border-b border-gray-200 text-sm text-gray-500 pl-3 pr-4 text-right sm:pr-6'>"
-                                                                    + " </div> </div>"
-                                                                    + "");
-
                                                         }
                                                     %>
 
