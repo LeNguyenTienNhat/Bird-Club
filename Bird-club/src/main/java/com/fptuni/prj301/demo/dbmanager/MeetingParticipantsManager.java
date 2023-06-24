@@ -19,27 +19,60 @@ import java.util.List;
  * @author Legion
  */
 public class MeetingParticipantsManager {
-     public boolean insert(MeetingParticipants meetingparticipants) {
-    String sql = "INSERT INTO [MeetingParticipants] (MeID, UID, docNo) VALUES (?, ?, ?)";
 
-    try (Connection conn = DBUtils.getConnection();
-         PreparedStatement ps = conn.prepareStatement(sql)) {
-        ps.setString(1, meetingparticipants.getMeID());
-        ps.setString(2, meetingparticipants.getUID());
-        ps.setString(3, meetingparticipants.getDocNo());
-       // Set the achievement value directly
+    public boolean insert(MeetingParticipants meetingparticipants) {
+        String sql = "INSERT INTO [MeetingParticipants] (MeID, UID, docNo) VALUES (?, ?, ?)";
+        String selectSql = "SELECT COUNT(*) FROM [MeetingParticipants] WHERE MeID = ? AND UID = ?";
 
-        int rowsAffected = ps.executeUpdate();
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement psSelect = conn.prepareStatement(selectSql);
+                PreparedStatement psInsert = conn.prepareStatement(sql)) {
 
-        return rowsAffected > 0;
-    } catch (SQLException e) {
-        e.printStackTrace();
+            psSelect.setString(1, meetingparticipants.getMeID());
+            psSelect.setString(2, meetingparticipants.getUID());
+            
+            ResultSet rs = psSelect.executeQuery();
+            rs.next();
+            int count = rs.getInt(1);
+
+            if (count > 0) {
+                // Record with same Fid and UId already exists
+                return false;
+            }
+            
+            psInsert.setString(1, meetingparticipants.getMeID());
+            psInsert.setString(2, meetingparticipants.getUID());
+            psInsert.setString(3, meetingparticipants.getDocNo());
+            
+            int rowsAffected = psInsert.executeUpdate();
+            
+            return rowsAffected > 0;   
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+    
+    public boolean delete(String docNo) {
+        String sql = "DELETE FROM [MeetingParticipants] WHERE docNo = ?";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, docNo);
+
+            int rowsAffected = ps.executeUpdate();
+
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
-    return false;
-}
-  public static List<String> ExistingMeID() {
-        List<String> existingTIDs = new ArrayList<>();
+    public static List<String> ExistingMeID() {
+        List<String> existingMeIDs = new ArrayList<>();
         String sql = "SELECT MeID FROM [MeetingParticipants]";
 
         try (Connection conn = DBUtils.getConnection();
@@ -47,42 +80,43 @@ public class MeetingParticipantsManager {
                 ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
-                String tid = rs.getString("MeID");
-                existingTIDs.add(tid);
+                String meid = rs.getString("MeID");
+                existingMeIDs.add(meid);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return existingTIDs;
+        return existingMeIDs;
     }
-public static List<String> ExistingDocM(String pattern) {
-    List<String> existingDocNos = new ArrayList<>();
-    String sql = "SELECT docNo FROM [MeetingParticipants] WHERE docNo LIKE ?";
 
-    try (Connection conn = DBUtils.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql)) {
-        ps.setString(1, pattern);
+    public static List<String> ExistingDoc(String pattern) {
+        List<String> existingDocNos = new ArrayList<>();
+        String sql = "SELECT docNo FROM [MeetingParticipants] WHERE docNo LIKE ?";
 
-        try (ResultSet rs = ps.executeQuery()) {
-            while (rs.next()) {
-                String docNo = rs.getString("docNo");
-                existingDocNos.add(docNo);
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, pattern);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    String docNo = rs.getString("docNo");
+                    existingDocNos.add(docNo);
+                }
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
+
+        return existingDocNos;
     }
 
-    return existingDocNos;
-}
-     public static void main(String[] args) {
+    public static void main(String[] args) {
         // Create a sample Tparticipation object
         MeetingParticipants meetingparticipants = new MeetingParticipants();
         meetingparticipants.setMeID("MeID1");
         meetingparticipants.setUID("UID0");
-        meetingparticipants.setDocNo("Doc.T01");
-        
+        meetingparticipants.setDocNo("Doc.M01");
 
         // Create an instance of TparticipationManager
         MeetingParticipantsManager meetingparticipantsManager = new MeetingParticipantsManager();
@@ -116,5 +150,3 @@ public static List<String> ExistingDocM(String pattern) {
         return list;
     }
 }
-
-
