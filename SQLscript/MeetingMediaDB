@@ -1,0 +1,60 @@
+INSERT INTO [MeetingMedia] (MeID, URL)
+VALUES ('MeID0','https://i0.wp.com/thatnhucuocsong.com.vn/wp-content/uploads/2022/02/hinh-nen-chim-1.jpg?ssl=1');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID1','https://demoda.vn/wp-content/uploads/2022/03/anh-con-chim.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID2','https://haycafe.vn/wp-content/uploads/2022/01/Hinh-anh-nen-chim.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID3','https://toigingiuvedep.vn/wp-content/uploads/2021/10/hinh-anh-chim-chao-mao-dep-hot-hay-va-thu-hut-nhat.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID4','https://nhadepso.com/wp-content/uploads/2023/02/tong-hop-99-hinh-anh-chim-se-non-long-lay-dep-nhat-the-gioi_1.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID5','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-2.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID6','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-3.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID7','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-4.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID8','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-5.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID9','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-6.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID10','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-7.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID11','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-8.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID12','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-9.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID13','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-10.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID14','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-11.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID15','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-12.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID16','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-13.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID17','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID18','https://khoinguonsangtao.vn/wp-content/uploads/2022/08/hinh-nen-chim-1.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID19','https://thuthuatnhanh.com/wp-content/uploads/2019/04/hinh-anh-nhung-loai-chim-dep-nhat-the-gioi_chim_mong_bien.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID20','https://danviet.mediacdn.vn/2018/8/images/79d20481-loai-chim-dep-3jpg.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID21','https://anh.24h.com.vn/upload/1-2014/images/2014-01-25/1390615862-dong-vat-dep1.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID22','https://bloghomestay.vn/wp-content/uploads/2023/02/hinh-anh-chim-vanh-khuyen_1.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID23','https://i0.wp.com/thatnhucuocsong.com.vn/wp-content/uploads/2022/02/hinh-nen-chim-duoi-dai.jpg?ssl\u003d1');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID24','https://haycafe.vn/wp-content/uploads/2022/01/Hinh-nen-chim-hinh-anh-chim-chao-mao-dau-tren-canh-cay.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID25','https://photo-cms-baonghean.zadn.vn/w1000/Uploaded/2022/nkdkswkqoc/201706/original/images1935965_10_loai_chim_dep_nhat_the_gioi_hinh_anh_2_594f626ddcf63.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID26','https://img2.thuthuatphanmem.vn/uploads/2018/12/25/cach-chon-chim-hoa-mi_011902609.jpeg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID27','https://media-cdn-v2.laodong.vn/storage/newsportal/Uploaded/nguyenthithusvtt/2016_01_10/2FE874FE00000578-3390508-image-a-85_1452264770266_ZIAI.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID28','https://sudospaces.com/gaocung-com/2021/01/chim-vang-anh-an-gi-1.jpg');
+INSERT INTO [MeetingMedia]
+VALUES ('MeID29','https://cdn.baoquocte.vn/stores/news_dataimages/2022/102022/19/11/khoanh-khac-chim-cong-bay-len-troi-lien-tuong-den-hinh-anh-chim-phuong-hoang-trong-truyen-thuyet-20221019110156.jpg?rt\u003d20221019110157');
