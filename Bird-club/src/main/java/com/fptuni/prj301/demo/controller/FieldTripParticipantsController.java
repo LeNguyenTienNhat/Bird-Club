@@ -7,6 +7,7 @@ package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.FieldTripParticipantsManager;
 import com.fptuni.prj301.demo.dbmanager.FieldtripManager;
+import com.fptuni.prj301.demo.dbmanager.LocationManager;
 import com.fptuni.prj301.demo.dbmanager.TransactionManager;
 import com.fptuni.prj301.demo.model.FieldTripParticipants;
 import com.fptuni.prj301.demo.model.Fieldtrip;
@@ -73,12 +74,13 @@ public class FieldTripParticipantsController extends HttpServlet {
             // Retrieve the Tparticipation object from the database based on the provided parameters (e.g., docNo)
             String fid = request.getParameter("FID");
             FieldtripManager fieldtripManager = new FieldtripManager();
+            LocationManager l = new LocationManager();
              Fieldtrip fieldtrip = fieldtripManager.getFieldTripById(fid);
-
+            String location = l.getCoordinationByFieldTripId(fid);
             if (fieldtrip != null) {
                 // Store the Tparticipation object in request scope
                 request.setAttribute("fieldtrip", fieldtrip);
-
+                request.setAttribute("location",location);
                 // Forward the request to the view page
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/member_fieldtrip_details.jsp");
                 dispatcher.forward(request, response);

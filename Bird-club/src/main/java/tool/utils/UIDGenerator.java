@@ -42,7 +42,7 @@ public class UIDGenerator {
         return "Doc.F" + randomNumber;
     }
     public static String generateDocM() {
-        List<String> existingMeIDs = FieldTripParticipantsManager.ExistingDoc("Doc.M%");
+        List<String> existingMeIDs = MeetingParticipantsManager.ExistingDoc("Doc.M%");
         int listSize = existingMeIDs.size();
         int randomNumber = listSize + 1;
         return "Doc.M" + randomNumber;

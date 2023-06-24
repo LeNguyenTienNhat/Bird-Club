@@ -5,6 +5,7 @@
  */
 package com.fptuni.prj301.demo.controller;
 
+import com.fptuni.prj301.demo.dbmanager.LocationManager;
 import com.fptuni.prj301.demo.dbmanager.MeetingManager;
 import com.fptuni.prj301.demo.dbmanager.MeetingParticipantsManager;
 import com.fptuni.prj301.demo.dbmanager.TournamentManager;
@@ -72,12 +73,14 @@ public class MeetingParticipantsController extends HttpServlet {
             // Retrieve the Tparticipation object from the database based on the provided parameters (e.g., docNo)
             String meid = request.getParameter("MeID");
             MeetingManager mparticipationManager = new  MeetingManager();
+            LocationManager l = new LocationManager();
              Meeting meeting = mparticipationManager.getMeetingById(meid);
+             String location = l.getCoordinationByMeetingId(meid);
 
             if (meeting != null) {
                 // Store the Tparticipation object in request scope
                 request.setAttribute("meeting", meeting);
-
+                request.setAttribute("location",location);
                 // Forward the request to the view pagemember_tournament_details
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/member_meeting_details.jsp");
                 dispatcher.forward(request, response);

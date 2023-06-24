@@ -123,7 +123,8 @@
                                     <br>
 
                                     <dt>Focus</dt>${meeting.getDescription()}
-
+                                    <dt>Note</dt>${meeting.getNote()}
+                                    
                                     <div class="is-layout-flex wp-block-buttons"></div>
 
                                 </div>
@@ -147,7 +148,12 @@
                                                         padding: 5px;
 
                                                     }
-                                                </style>                                                
+                                                </style>  
+                                                <div class="row">
+                                                    <dt> Leader </dt>
+                                                    <dd><abbr  class="tribe-events-abbr tribe-events-start-date published dtstart" > ${meeting.getIncharge()}</abbr>
+                                                </div>
+                                                
                                                 </dd>
                                                 <div class="row">
                                                     <dt> Participant </dt>
@@ -170,9 +176,18 @@
                                                 <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
                                                         <div class="tribe-recurring-event-time">${meeting.getRegistrationDeadline()}</div>
                                                 </dd>
-                                                 </div>                                                                                                                    
+                                                 </div>
+                                                <div class="row">
+                                                <dt>Contact</dt>
+                                                <dd>${meeting.getContact()}</dd>
+                                                </div>
+                                                 <div class="row">
+                                                <dt>Organizer</dt>
+                                                <dd>${meeting.getHost()}</dd>
+                                                 </div>
                                                 <div class="row">
                                                     <dt>Location:</dt>
+                                                    <dd>${location}</dd>
                                                     <div  class=" tribe-block tribe-block__venue tribe-block__venue--has-map">
                                                         <div class="tribe-block__venue__meta">
                                                             <div class="tribe-block__venue__name">

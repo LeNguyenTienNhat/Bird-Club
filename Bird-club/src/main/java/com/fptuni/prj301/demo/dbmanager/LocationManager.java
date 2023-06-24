@@ -35,6 +35,46 @@ public class LocationManager {
 
         return coordination;
     }
+    public String getCoordinationByFieldTripId(String fieldtripId) {
+        String coordination = null;
+        String query = "SELECT coordination FROM Location WHERE lid=(SELECT LID FROM FieldTrip WHERE FID = ?)";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, fieldtripId);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    coordination = rs.getString("coordination");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return coordination;
+    }
+        public String getCoordinationByMeetingId(String fieldtripId) {
+        String coordination = null;
+        String query = "SELECT coordination FROM Location WHERE lid=(SELECT LID FROM Meeting WHERE MeID = ?)";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, fieldtripId);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    coordination = rs.getString("coordination");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return coordination;
+    }
 
     public String getName(String LID) {
         String sql = "SELECT name FROM Location WHERE LID = ?";

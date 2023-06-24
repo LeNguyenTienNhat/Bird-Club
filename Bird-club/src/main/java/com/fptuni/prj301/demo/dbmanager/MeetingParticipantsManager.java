@@ -91,7 +91,7 @@ public class MeetingParticipantsManager {
     }
 
     public static List<String> ExistingDoc(String pattern) {
-        List<String> existingDocNos = new ArrayList<>();
+        List<String> existingDocNosM = new ArrayList<>();
         String sql = "SELECT docNo FROM [MeetingParticipants] WHERE docNo LIKE ?";
 
         try (Connection conn = DBUtils.getConnection();
@@ -101,14 +101,14 @@ public class MeetingParticipantsManager {
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     String docNo = rs.getString("docNo");
-                    existingDocNos.add(docNo);
+                    existingDocNosM.add(docNo);
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return existingDocNos;
+        return existingDocNosM;
     }
 
 
