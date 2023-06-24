@@ -131,6 +131,40 @@ public class FieldtripManager {
         return fieldtrips;
     }
 
+    public List<Fieldtrip> getTop10() {
+        List<Fieldtrip> fieldtrips = new ArrayList<>();
+        String sql = "SELECT TOP 10 * FROM FieldTrip ORDER BY startDate DESC";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Fieldtrip fieldtrip = new Fieldtrip();
+                    fieldtrip.setFID(rs.getString("FID"));
+                    fieldtrip.setName(rs.getString("name"));
+                    fieldtrip.setDescription(rs.getString("description"));
+                    fieldtrip.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
+                    fieldtrip.setStartDate(tool.trimDate(rs.getString("startDate")));
+                    fieldtrip.setEndDate(tool.trimDate(rs.getString("endDate")));
+                    fieldtrip.setLID(rs.getString("LID"));
+                    fieldtrip.setStatus(rs.getString("status"));
+                    fieldtrip.setFee(rs.getInt("fee"));
+                    fieldtrip.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                    fieldtrip.setCategory("Fieldtrip");
+                    fieldtrip.setNote(rs.getString("note"));
+                    fieldtrip.setIncharge(rs.getString("incharge"));
+                    fieldtrip.setHost(rs.getString("host"));
+                    fieldtrip.setContact(rs.getString("contact"));
+                    fieldtrips.add(fieldtrip);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return fieldtrips;
+    }
+
     public void insert(Fieldtrip fieldtrip) throws ClassNotFoundException, ParseException {
         String sql = "INSERT INTO FieldTrip"
                 + " VALUES (?, ?, ?, "
@@ -295,22 +329,6 @@ public class FieldtripManager {
         return fieldtrip;
     }
 
-    public static void main(String[] args) {
-        // Test the getTournamentById method
-        FieldtripManager fieldtripDAO = new FieldtripManager();
-        String fid = "FID0"; // Replace with the actual tournament ID
-        Fieldtrip fieldtrip = fieldtripDAO.getFieldTripById(fid);
-
-        if (fieldtrip != null) {
-            System.out.println("Fieldtrip found:");
-            System.out.println("FID: " + fieldtrip.getFID());
-            System.out.println("Name: " + fieldtrip.getName());
-            // Print other tournament details as needed
-        } else {
-            System.out.println("Fieldtrip not found.");
-        }
-    }
-
     public int getNumberAsStatus(String status) {
         int count = 0;
         String sql = "SELECT * FROM Fieldtrip WHERE status = ?";
@@ -326,5 +344,32 @@ public class FieldtripManager {
         } catch (SQLException e) {
         }
         return count;
+    }
+
+    public static void main(String[] args) {
+        // Create an instance of your class
+        FieldtripManager yourClass = new FieldtripManager();
+
+        // Call the getTop10() method
+        List<Fieldtrip> top10Fieldtrips = yourClass.getTop10();
+
+        // Iterate over the field trips and print their details
+        for (Fieldtrip fieldtrip : top10Fieldtrips) {
+            System.out.println("Field Trip ID: " + fieldtrip.getFID());
+            System.out.println("Name: " + fieldtrip.getName());
+            System.out.println("Description: " + fieldtrip.getDescription());
+            System.out.println("Start Date: " + fieldtrip.getStartDate());
+            System.out.println("End Date: " + fieldtrip.getEndDate());
+            System.out.println("LID: " + fieldtrip.getLID());
+            System.out.println("Status: " + fieldtrip.getStatus());
+            System.out.println("Fee: " + fieldtrip.getFee());
+            System.out.println("Number of Participants: " + fieldtrip.getNumberOfParticipant());
+            System.out.println("Category: " + fieldtrip.getCategory());
+            System.out.println("Note: " + fieldtrip.getNote());
+            System.out.println("Incharge: " + fieldtrip.getIncharge());
+            System.out.println("Host: " + fieldtrip.getHost());
+            System.out.println("Contact: " + fieldtrip.getContact());
+            System.out.println("------------------------");
+        }
     }
 }
