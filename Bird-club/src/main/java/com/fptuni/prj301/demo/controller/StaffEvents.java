@@ -3,11 +3,13 @@ package com.fptuni.prj301.demo.controller;
 import com.fptuni.prj301.demo.dbmanager.FieldtripManager;
 import com.fptuni.prj301.demo.dbmanager.EventsMediaManager;
 import com.fptuni.prj301.demo.dbmanager.FieldTripParticipantsManager;
+import com.fptuni.prj301.demo.dbmanager.LocationManager;
 import com.fptuni.prj301.demo.dbmanager.MeetingManager;
 import com.fptuni.prj301.demo.dbmanager.MeetingParticipantsManager;
 import com.fptuni.prj301.demo.dbmanager.MemberManager;
 import com.fptuni.prj301.demo.model.FieldTripParticipants;
 import com.fptuni.prj301.demo.model.Fieldtrip;
+import com.fptuni.prj301.demo.model.Location;
 import com.fptuni.prj301.demo.model.Media;
 import com.fptuni.prj301.demo.model.Meeting;
 import com.fptuni.prj301.demo.model.MeetingParticipants;
@@ -43,6 +45,10 @@ public class StaffEvents extends HttpServlet {
             //display meetings
             List<Meeting> mList = mm.getRecords(0, 0, null, "startDate");
             request.setAttribute("mList", mList);
+
+            LocationManager lm = new LocationManager();
+            List<Location> locationsList = lm.getList();
+            request.setAttribute("locationsList", locationsList);
 
             int b = fm.getNumberAsStatus("ongoing");
             int c = mm.getNumberAsStatus("ongoing");
@@ -157,11 +163,17 @@ public class StaffEvents extends HttpServlet {
             Fieldtrip fieldtrip = fm.load(FID);
             fieldtrip.setCategory("Field trip");
 
+            LocationManager lm = new LocationManager();
+            Location l = lm.load(fieldtrip.getLID());
+            List<Location> locationsList = lm.getList();
+
+            request.setAttribute("location", l);
+            request.setAttribute("locationsList", locationsList);
             request.setAttribute("fieldtrip", fieldtrip);
             RequestDispatcher rd = request.getRequestDispatcher("staff_fieldtrip_details.jsp");
             rd.forward(request, response);
         } //Add a meeting            
-        else if (action.equals("addmeeting")) { 
+        else if (action.equals("addmeeting")) {
             String MeID = tool.generateID("Meeting", "MeID");
             String name, description, LID, status = "pending", note, incharge, host, contact, registrationDeadline, startDate, endDate;
             int numberOfParticipant;
@@ -202,7 +214,7 @@ public class StaffEvents extends HttpServlet {
             } catch (NumberFormatException e) {
                 numberOfParticipant = 0;
             }
-            
+
             Meeting meeting = new Meeting(MeID, name, description, registrationDeadline,
                     startDate, endDate, LID, status, numberOfParticipant, note, incharge, host, contact);
             mm.insert(meeting);
@@ -254,8 +266,14 @@ public class StaffEvents extends HttpServlet {
         else if (action.equals("editmeeting")) {
             String MeID = request.getParameter("MeID");
             Meeting meeting = mm.load(MeID);
+            
             meeting.setCategory("Meeting");
+            LocationManager lm = new LocationManager();
+            Location l = lm.load(meeting.getLID());
+            List<Location> locationsList = lm.getList();
 
+            request.setAttribute("location", l);
+            request.setAttribute("locationsList", locationsList);
             request.setAttribute("meeting", meeting);
             RequestDispatcher rd = request.getRequestDispatcher("staff_meeting_details.jsp");
             rd.forward(request, response);

@@ -136,7 +136,6 @@ public class TournamentManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return tournaments;
     }
 

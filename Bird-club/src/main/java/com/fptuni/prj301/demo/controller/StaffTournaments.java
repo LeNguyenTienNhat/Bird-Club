@@ -2,11 +2,13 @@ package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.BirdManager;
 import com.fptuni.prj301.demo.dbmanager.EventsMediaManager;
+import com.fptuni.prj301.demo.dbmanager.LocationManager;
 import com.fptuni.prj301.demo.dbmanager.MemberManager;
 import com.fptuni.prj301.demo.dbmanager.TournamentManager;
 import com.fptuni.prj301.demo.dbmanager.TparticipationManager;
 import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.BirdParticipation;
+import com.fptuni.prj301.demo.model.Location;
 import com.fptuni.prj301.demo.model.Media;
 import com.fptuni.prj301.demo.model.Member;
 import com.fptuni.prj301.demo.model.Tournament;
@@ -34,10 +36,12 @@ public class StaffTournaments extends HttpServlet {
 
         //View all tournaments
         if (action == null || action.equals("viewtournaments")) {
-            //display tournament
+            //display tournaments
             List<Tournament> tournamentsList = tournamentManager.getRecords(0, 0, null, "startDate");
+            LocationManager lm = new LocationManager();
+            List<Location> locationsList = lm.getList();
             request.setAttribute("tournamentsList", tournamentsList);
-
+            request.setAttribute("locationsList", locationsList);
             RequestDispatcher rd = request.getRequestDispatcher("staff_tournaments.jsp");
             rd.forward(request, response);
         } //Add a tournament      
@@ -59,7 +63,6 @@ public class StaffTournaments extends HttpServlet {
             if (LID.isEmpty()) {
                 LID = "LID1";
             }
-
             incharge = "Currently no one is assigned";
             note = "Not available";
             host = "Currently no one is assigned";
@@ -152,8 +155,13 @@ public class StaffTournaments extends HttpServlet {
         else if (action.equals("edittournament")) {
             String TID = request.getParameter("TID");
             Tournament tournament = tournamentManager.load(TID);
-
+            LocationManager lm = new LocationManager();
+            Location l = lm.load(tournament.getLID());
+            List<Location> locationsList = lm.getList();
+            
             request.setAttribute("tournament", tournament);
+            request.setAttribute("location", l);
+            request.setAttribute("locationsList", locationsList);
             RequestDispatcher rd = request.getRequestDispatcher("staff_tournament_details.jsp");
             rd.forward(request, response);
         } //View a tournament's media

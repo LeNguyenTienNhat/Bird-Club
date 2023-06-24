@@ -1,3 +1,4 @@
+<%@page import="com.fptuni.prj301.demo.model.Location"%>
 <%@page import="com.fptuni.prj301.demo.model.Meeting"%>
 <%@page import="com.fptuni.prj301.demo.model.Fieldtrip"%>
 <%@page import="java.util.List"%>
@@ -226,10 +227,20 @@
                                             <input class="block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" name="name" id="name">
                                         </div></div>
 
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700" for="event_location">Location</label>
+                                    <div><label class="block text-sm font-medium text-gray-700" for="event_location">Location: </label>
                                         <div class="mt-1">
-                                            <input class="block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" name="LID" id="LID">
+
+                                            <%! List<Location> locationsList;  %>
+                                            <% locationsList = (List<Location>) request.getAttribute("locationsList"); %>
+
+                                            <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="LID" id="LID">
+                                                <%
+                                                    for (Location l : locationsList) {
+                                                        out.print("<option value='" + l.getLid() + "'>" + l.getName() + "</option>");
+                                                    }
+                                                %>
+                                            </select>
+
                                         </div></div>
 
                                     <div>
@@ -333,7 +344,16 @@
                                         <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" name="name" id="name"></div></div>
 
                                     <div><label class="block text-sm font-medium text-gray-700" for="event_location">Location</label>
-                                        <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" name="LID" id="LID"></div></div>
+                                        <div class="mt-1">
+                                            <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="LID" id="LID">
+                                                <%
+                                                    for (Location l : locationsList) {
+                                                        out.print("<option value='" + l.getLid() + "'>" + l.getName() + "</option>");
+                                                    }
+                                                %>
+                                            </select>
+
+                                        </div></div>
 
                                     <div><label class="block text-sm font-medium text-gray-700" for="event_date">Form will be closed at:</label>
                                         <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500" type="date" name="registrationDeadline" id="registrationDeadline"></div></div>
@@ -563,16 +583,10 @@
                                                             + "Finished"
                                                             + "</span>");
                                                 }
-                                                
-                                                if (f.getCategory().equalsIgnoreCase("Meeting")) {
-                                                    out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-gray-100 text-gray-800 text-xs rounded-full'>"
-                                                            + "Meeting"
-                                                            + "</span>");
-                                                } else {
-                                                    out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-gray-100 text-gray-800 text-xs rounded-full'>"
-                                                            + "Field trip"
-                                                            + "</span>");
-                                                }
+
+                                                out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-gray-100 text-gray-800 text-xs rounded-full'>"
+                                                        + "Field trip"
+                                                        + "</span>");
 
                                                 out.print("<h1 class='font-semibold text-lg text-gray-900 space-x-2 mb-4'>" + f.getStartDate() + "</h1>");
 
@@ -683,16 +697,9 @@
                                                         + "Finished"
                                                         + "</span>");
                                             }
-                                            
-                                            if (m.getCategory().equalsIgnoreCase("Meeting")) {
-                                                    out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-gray-100 text-gray-800 text-xs rounded-full'>"
-                                                            + "Meeting"
-                                                            + "</span>");
-                                                } else {
-                                                    out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-gray-100 text-gray-800 text-xs rounded-full'>"
-                                                            + "Field trip"
-                                                            + "</span>");
-                                                }
+                                            out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-gray-100 text-gray-800 text-xs rounded-full'>"
+                                                    + "Meeting"
+                                                    + "</span>");
 
                                             out.print("<h1 class='font-semibold text-lg text-gray-900 space-x-2 mb-4'>" + m.getStartDate() + "</h1>");
 
@@ -769,39 +776,6 @@
                                                     + "");
 
                                         }%> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 </ul>
 
                             </div></div></div></div></div></div>       
