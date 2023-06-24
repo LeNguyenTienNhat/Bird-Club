@@ -197,8 +197,8 @@
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staffhome">Home</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="members">Members</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="blogs">Blogs</a>
-                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="events">Events</a>
-                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-teal-600 border-teal-600 focus:outline-none" href="tournaments">Tournaments</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-teal-600 border-teal-600 focus:outline-none" href="events">Events</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="tournaments">Tournaments</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="news">Articles</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="gallery">Gallery</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="memberships">Membership</a>
@@ -310,28 +310,27 @@
 
 
                                                     <%
+                                                        if (list.size() == 0) {
+                                                            out.print("<div class='border-b border-gray-200 text-sm max-w py-4 pl-4 pr-3 text-gray-900 bg-gray-100'>"
+                                                                    + "Currently there is no participant.</div>");
+                                                        } else {
 
-                                                        for (Member m : list) {
+                                                            for (Member m : list) {
 
-                                                            out.print("<div class='table-row bg-white'>"
-                                                                    + "<div class='table-cell border-b border-gray-200 text-sm w-full max-w-0 py-2 pl-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
-                                                                    + "<img style='height: 50px; width: auto' src='media/user.png'></div>"
-                                                                    
-                                                                    + "<div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"+ m.getUserName() + "</div>"
-                                                                            
-                                                                    + " <div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
-                                                                    + "<a class='hover:text-gray-900' href='http://localhost:8080/chimowners/members?action=viewmemberdetails&UID="+ m.getUID()+"'>" + m.getFullName() + "</a></div>"
-                                                                    
-                                                                    + "<div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden lg:table-cell'>"
-                                                                    + " </div>"
-                                                                            
-                                                                    + " <div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden sm:table-cell'>"
-                                                                    + " <a class='hover:text-gray-900' href=''>" + m.getEmail() + "</a></div>"
-                                                                            
-                                                                    + "<div class='table-cell border-b border-gray-200 text-sm text-gray-500 pl-3 pr-4 text-right sm:pr-6'></div> "
-                                                                            
-                                                                    + "</div>");
+                                                                out.print("<div class='table-row bg-white'>"
+                                                                        + "<div class='table-cell border-b border-gray-200 text-sm w-full max-w-0 py-2 pl-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
+                                                                        + "<img style='height: 50px; width: auto' src='media/user.png'></div>"
+                                                                        + "<div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>" + m.getUserName() + "</div>"
+                                                                        + " <div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
+                                                                        + "<a class='hover:text-gray-900' href='http://localhost:8080/chimowners/members?action=viewmemberdetails&UID=" + m.getUID() + "'>" + m.getFullName() + "</a></div>"
+                                                                        + "<div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden lg:table-cell'>"
+                                                                        + " </div>"
+                                                                        + " <div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden sm:table-cell'>"
+                                                                        + " <a class='hover:text-gray-900' href=''>" + m.getEmail() + "</a></div>"
+                                                                        + "<div class='table-cell border-b border-gray-200 text-sm text-gray-500 pl-3 pr-4 text-right sm:pr-6'></div> "
+                                                                        + "</div>");
 
+                                                            }
                                                         }
                                                     %>
 
