@@ -30,7 +30,7 @@ public class MeetingParticipantsManager {
 
             psSelect.setString(1, meetingparticipants.getMeID());
             psSelect.setString(2, meetingparticipants.getUID());
-            
+
             ResultSet rs = psSelect.executeQuery();
             rs.next();
             int count = rs.getInt(1);
@@ -39,21 +39,21 @@ public class MeetingParticipantsManager {
                 // Record with same Fid and UId already exists
                 return false;
             }
-            
+
             psInsert.setString(1, meetingparticipants.getMeID());
             psInsert.setString(2, meetingparticipants.getUID());
             psInsert.setString(3, meetingparticipants.getDocNo());
-            
+
             int rowsAffected = psInsert.executeUpdate();
-            
-            return rowsAffected > 0;   
+
+            return rowsAffected > 0;
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return false;
     }
-    
+
     public boolean delete(String docNo) {
         String sql = "DELETE FROM [MeetingParticipants] WHERE docNo = ?";
 
@@ -111,26 +111,8 @@ public class MeetingParticipantsManager {
         return existingDocNos;
     }
 
-    public static void main(String[] args) {
-        // Create a sample Tparticipation object
-        MeetingParticipants meetingparticipants = new MeetingParticipants();
-        meetingparticipants.setMeID("MeID1");
-        meetingparticipants.setUID("UID0");
-        meetingparticipants.setDocNo("Doc.M01");
 
-        // Create an instance of TparticipationManager
-        MeetingParticipantsManager meetingparticipantsManager = new MeetingParticipantsManager();
-
-        // Call the insert method and check the result
-        boolean success = meetingparticipantsManager.insert(meetingparticipants);
-        if (success) {
-            System.out.println("MeetingParticipants inserted successfully!");
-        } else {
-            System.out.println("Failed to insert MeetingParticipants.");
-        }
-    }
-     
-         public List<MeetingParticipants> getParticipantList(String MeID) {
+    public List<MeetingParticipants> getParticipantList(String MeID) {
         List<MeetingParticipants> list = new ArrayList();
         String sql = "SELECT * FROM [MeetingParticipants] WHERE MeID = ?";
         try {

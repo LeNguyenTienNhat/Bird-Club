@@ -64,7 +64,7 @@ public class MeetingParticipantsController extends HttpServlet {
                 request.setAttribute("docM", docNo);
                 ss.setAttribute("docM", docNo); 
                 response.sendRedirect(request.getContextPath() + "/member_meeting_details.jsp");
-            } else {
+            } else  {
                 // Redirect to a failure page
                 response.sendRedirect(request.getContextPath() + "/failure.jsp");
             }

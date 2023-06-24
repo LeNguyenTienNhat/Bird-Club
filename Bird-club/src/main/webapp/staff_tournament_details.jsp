@@ -1,4 +1,5 @@
 <%@page import="com.fptuni.prj301.demo.model.Tournament"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="h-full bg-gray-100"><head><style type="text/css" data-tag-name="trix-editor">trix-editor {

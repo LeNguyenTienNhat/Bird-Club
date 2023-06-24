@@ -1,4 +1,4 @@
-<%@page import="com.fptuni.prj301.demo.model.News"%>
+<%@page import="com.fptuni.prj301.demo.model.Tournament"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -279,112 +279,71 @@
 
                             </p>
                         </div>
-                    </div>                   
+                    </div>
 
                     <section aria-labelledby="profile-overview-title">
                         <div class="bg-white shadow sm:rounded-lg">
                             <div class="bg-white sm:rounded-b-lg sm:rounded-t-lg">
 
-                                <%! News n;%>
-                                <% n = (News) request.getAttribute("news"); %>
+
 
                                 <div class="p-6">
                                     <div class="space-y-8 divide-y divide-gray-200">
-                                        <form class="edit_member" id="edit" action="./news" method="post">
+                                        <form class="edit_member" id="edit" action="./tournaments" method="post">
                                             <turbo-frame id="flash"></turbo-frame>
                                             <div>
                                                 <div>
                                                     <h3 class="text-lg leading-6 font-medium text-gray-900">Edit</h3>
-                                                    <p class="mt-1 text-sm text-gray-500">You are supposed to edit your stuff here, what did you expected?</p>
+                                                    <p class="mt-1 text-sm text-gray-500">View and edit the field trip's details</p>
                                                 </div>
                                                 <div class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-y-6 gap-x-4 sm:grid-cols-8">
                                                     <div class="col-span-1 sm:col-span-4 md:col-span-3 grid grid-cols-4 gap-4">
 
                                                         <div class="col-span-3">
-                                                            <label class="block text-sm font-medium text-gray-700" for="title">Title</label>
+                                                            <label class="block text-sm font-medium text-gray-700" >Name</label>
                                                             <div class="mt-1">
-                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="title" <% out.print("value= '" + n.getTitle() + "'"); %> name="title" id="title">
+                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" id="name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-span-3">
+                                                            <label class="block text-sm font-medium text-gray-700">value</label>
+                                                            <div class="mt-1">
+                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text"> 
                                                             </div>
                                                         </div>
 
-                                                        <div class="sm:col-span-6">
-                                                            <label class="block text-sm font-medium text-gray-700" for="status">Status: <% out.print("  " + n.getStatus()); %></label>
+                                                        <div class="col-span-3">
+                                                            <label class="block text-sm font-medium text-gray-700" >Duration</label>
                                                             <div class="mt-1">
-
-                                                                <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="status" id="status">
-                                                                    <option selected="selected" value="normal">Normal</option>
-                                                                    <option value="trending">Trending</option>
-                                                                    <option value="hidden">Hidden</option>
-                                                                </select>
-
+                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" >
                                                             </div>
-                                                            <p class="mt-2 text-sm text-gray-500">
-                                                                Normal: A normal article. It locates somewhere on the user's News screen. <br>
-                                                                Trending: Hot one. Put this on the news feed/headline. Our fellows must see this.<br>
-                                                                Hidden: In case you don't want to overwhelm your fellows with enormous amount of content. Or you accidently wrote a stupid article and wanted to prevent the members from seeing this (which is more likely). Eliminate completely "Tin chuan chua anh?".<br></p>
-                                                        </div>
-
-                                                        <div class="sm:col-span-6">
-                                                            <label class="block text-sm font-medium text-gray-700" for="category">Category: <% out.print("  " + n.getCategory()); %></label>
-                                                            <div class="mt-1">
-
-                                                                <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="category" id="category">
-                                                                    <option selected="selected" value="news">News</option>
-                                                                    <option value="announcement">Announcement</option>
-                                                                    <option value="article">Article</option>
-                                                                </select>
-
-                                                            </div>
-                                                            <p class="mt-2 text-sm text-gray-500">
-                                                                News: Just news. Like a new events is coming, or overall notices.  <br>
-                                                                Announcement: You want to inform people about a tournament's result.<br>
-                                                                Article: In case you want to write an academic article. Or you want to flex your academic.<br></p>
-                                                        </div>
-
-                                                        <div class="sm:col-span-4 md:col-span-2">
-                                                            <label class="block text-sm font-medium text-gray-700" for="content">Content</label>
-                                                            <div class="mt-1">
-                                                                <textarea rows="15" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="content"  id="content"><% out.print(n.getNewsContent()); %></textarea>
-                                                            </div>
-                                                            <p class="mt-2 text-sm text-gray-500">Not a brief content, as you have to write more to help prevent any confusion. Unless the readers are a bunch of TikTok retards who can't barely read any text that's longer than 100 characters.</p>
                                                         </div>
 
                                                     </div>
 
+
                                                 </div>
 
-                                                <div class="pt-5">
-                                                    <div class="flex justify-end">
-                                                        <input type="hidden" name="action" value="update">
-                                                        <input type="hidden" name="NID" value=<% out.print("'" + n.getNID() + "'");%>>
+                                                <div class="sm:col-span-4 md:col-span-2">
+                                                    <label class="block text-sm font-medium text-gray-700" >Description</label>
+                                                    <div class="mt-1">
+                                                        <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="description"  id="description">${r.getDescription()}</textarea>
                                                     </div>
+
                                                 </div>
 
+
+
+
                                             </div>
-                                        </form>  
-
-                                        <div class="mt-3">
-
-                                            <div class="mt-1">
-                                                <form enctype="multipart/form-data" action="./media" method="post">
-                                                    <input type="hidden" name="ID"  <% out.print("value='"+n.getNID()+"'"); %> >
-                                                    <input accept="image/jpg,image/jpeg,image/png" color="teal" class="cursor-pointer w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" type="file" name="image" id="image">
-                                                <button type="submit" class="mt-2 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
-                                                Add image</button>
-                                                </form>
-                                            </div>
-                                        </div>
-
-                                        <% out.print("<img style='height: auto; width: 30rem; display: block; margin-bottom: 25px' src='" + n.getImage() + "'>");%>        
-
-                                        <button type="submit" form="edit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
-                                            Update</button>
-
-                                    </div></div></div></div></section>
+                                        </form>            
 
 
+                                    </div>
 
-
+                                </div>
+                            </div>
+                        </div></section>
                 </div>
 
             </div>

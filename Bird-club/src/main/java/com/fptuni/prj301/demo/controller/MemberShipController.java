@@ -10,6 +10,7 @@ import com.fptuni.prj301.demo.model.MemberShip;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -54,6 +55,21 @@ public class MemberShipController extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/index.jsp");
             } else {
                 response.sendRedirect(request.getContextPath() + "/EventDetails.jsp");
+            }
+        } else if (action != null && action.equals("list")) {
+
+            List<MemberShip> r = mbs.getAllRecords();
+            if (r != null) {
+                request.setAttribute("r", r);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/staff_memberships.jsp");
+                dispatcher.forward(request, response);
+            }
+        } else if (action != null && action.equals("edit")) {
+            String MID = request.getParameter("MID");
+            MemberShip r = mbs.getMembershipById(MID);
+            if (r != null) {
+                request.setAttribute("r", r);
+                response.sendRedirect(request.getContextPath() + "/staff_memberships_details.jsp");
             }
         }
     }
