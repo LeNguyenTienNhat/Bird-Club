@@ -6,3 +6,6 @@ VALUES('MID02','Family',200000,'3','The family membership package for bird-lovin
 
 INSERT INTO [Membership]
 VALUES('MID03','Family Extend',400000,'6','The extended family membership package for bird-loving families. You and your family will have access to all activities of the bird club for 6 months.');
+
+INSERT INTO [Membership]
+VALUES('MID00','Staff',100000,'12','This package is for staff.');
