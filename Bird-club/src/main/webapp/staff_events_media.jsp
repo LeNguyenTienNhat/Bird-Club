@@ -292,9 +292,9 @@
 
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
                         <div class="sm:flex-auto">
-                            <h1 class="text-xl font-semibold text-gray-900">Events</h1>
+                            <h1 class="text-xl font-semibold text-gray-900">MEDIA</h1>
                             <p class="mt-2 text-sm text-gray-700">
-                                Available events hosted by Chim Owners.
+                                Available images uploaded by Chim Owners.
                             </p>
                         </div>
 

@@ -28,6 +28,7 @@ public class StaffMediaController extends HttpServlet {
             MultipartRequest mr = new MultipartRequest(request, root);
             String ID = mr.getParameter("ID");
             String description = mr.getParameter("description");
+            if (description.isEmpty()) description="No available description";
             String tableName = mr.getParameter("tableName");
 
             Enumeration files = mr.getFileNames();

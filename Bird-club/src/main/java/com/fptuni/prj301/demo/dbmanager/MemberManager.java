@@ -55,7 +55,7 @@ public class MemberManager {
         }
         return list;
     }
-    
+
     public boolean update(Member member) throws ClassNotFoundException {
         String sql = "UPDATE User SET userName = ?, password = ?, "
                 + "fullName = ?, gender = ?, phone = ?, email = ?, "
@@ -141,5 +141,41 @@ public class MemberManager {
             System.out.println("Query error!" + ex.getMessage());
         }
         return count;
+    }
+
+    public String getUserEmail(String UID) throws ClassNotFoundException {
+        String sql = "select * from [User] where UID = ?";
+        String email = "unavailable";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, UID);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                email = rs.getString("email");                
+            }
+            return email;
+        } catch (SQLException ex) {
+            System.out.println("Failed to load the member's details due to internal error :(" + ex.getMessage());
+        }
+        return email;
+    }
+    
+        public List<String> getAllUserEmail() throws ClassNotFoundException {
+        String sql = "select * from [User]";
+        List<String> emailList = new ArrayList();
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String emailAddress = rs.getString("email");
+                emailList.add(emailAddress);
+            }
+            return emailList;
+        } catch (SQLException ex) {
+            System.out.println("Failed to load the member's details due to internal error :(" + ex.getMessage());
+        }
+        return emailList;
     }
 }

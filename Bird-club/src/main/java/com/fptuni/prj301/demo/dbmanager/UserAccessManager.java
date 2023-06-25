@@ -85,24 +85,24 @@ public class UserAccessManager {
 
 
 public boolean SignUp(UserSession user) {
-    String sql = "INSERT INTO [User] (UID, userName, fullName, phone, email, password, role, expiredDate, status, signupDate, MID, Gender) " +
+    String sql = "INSERT INTO [User] " +
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     try (Connection conn = DBUtils.getConnection();
          PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
         ps.setString(1, user.getUID());
         ps.setString(2, user.getUserName());
-        ps.setString(3, user.getFullName());
-        ps.setString(4, user.getPhone());
-        ps.setString(5, user.getEmail());
-        ps.setString(6, user.getPassword());
-        ps.setString(7, "guest"); 
-        ps.setDate(8, new java.sql.Date(user.getExpriedDate().getTime()));
+        ps.setString(3, user.getPassword());
+        ps.setString(4, user.getFullName());
+        ps.setString(5, user.getGender());    
+        ps.setString(6, user.getPhone());
+        ps.setString(7, user.getEmail());      
+        ps.setString(8, user.getRole()); 
         ps.setString(9, user.getStatus());
         ps.setDate(10, new java.sql.Date(user.getSignUpDate().getTime()));
-        ps.setString(11,null);
-        ps.setString(12, user.getGender());
-
+        ps.setDate(11, new java.sql.Date(user.getExpriedDate().getTime()));
+        ps.setString(12,user.getMID());
+        ps.setString(13,user.getAvatar());
         int rowsAffected = ps.executeUpdate();
 
         if (rowsAffected > 0) {
