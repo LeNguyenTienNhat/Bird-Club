@@ -5,6 +5,7 @@
  */
 package com.fptuni.prj301.demo.controller;
 
+import com.fptuni.prj301.demo.dbmanager.EventsMediaManager;
 import com.fptuni.prj301.demo.dbmanager.FieldTripParticipantsManager;
 import com.fptuni.prj301.demo.dbmanager.FieldtripManager;
 import com.fptuni.prj301.demo.dbmanager.LocationManager;
@@ -77,10 +78,13 @@ public class FieldTripParticipantsController extends HttpServlet {
             LocationManager l = new LocationManager();
              Fieldtrip fieldtrip = fieldtripManager.getFieldTripById(fid);
             String location = l.getCoordinationByFieldTripId(fid);
+            EventsMediaManager media = new EventsMediaManager();
+             String a = media.getURLByID("FieldTripMedia", fid);
             if (fieldtrip != null) {
                 // Store the Tparticipation object in request scope
                 request.setAttribute("fieldtrip", fieldtrip);
                 request.setAttribute("location",location);
+                request.setAttribute("img",a);
                 // Forward the request to the view page
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/member_fieldtrip_details.jsp");
                 dispatcher.forward(request, response);

@@ -215,13 +215,19 @@ public class MeetingManager {
 
         return meetings;
     }
-    public List<Meeting> getTop10() {
-    List<Meeting> meetings = new ArrayList<>();
-    String sql = "SELECT TOP 10 * FROM Meeting ORDER BY startDate DESC";
 
-    try (Connection conn = DBUtils.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql)) {
-        try (ResultSet rs = ps.executeQuery()) {
+    public List<Meeting> getTop10() {
+        List<Meeting> meetings = new ArrayList<>();
+        String sql = "SELECT TOP 10 M.*, MM.URL FROM Meeting AS M "
+                + "LEFT JOIN "
+                + "(SELECT DISTINCT MeID, URL FROM MeetingMedia) AS MM "
+                + "ON M.MeID = MM.MeID "
+                + "ORDER BY M.startDate DESC";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
+
             while (rs.next()) {
                 Meeting meeting = new Meeting();
                 meeting.setMeID(rs.getString("MeID"));
@@ -237,15 +243,16 @@ public class MeetingManager {
                 meeting.setIncharge(rs.getString("incharge"));
                 meeting.setHost(rs.getString("host"));
                 meeting.setContact(rs.getString("contact"));
+                meeting.setPictureURL(rs.getString("URL")); // Set the picture URL from MeetingMedia
                 meetings.add(meeting);
             }
-        }
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
 
-    return meetings;
-}
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return meetings;
+    }
 
     public Meeting getMeetingById(String meid) {
         Meeting meeting = null;

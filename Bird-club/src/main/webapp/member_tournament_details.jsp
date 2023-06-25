@@ -118,7 +118,7 @@
                             <div class="is-layout-flex wp-container-4 wp-block-columns">
                                 <div class="is-layout-flow wp-block-column" style="flex-basis:66.66%">
                                     <figure class="">
-                                        <img src="https://cdn.shopify.com/s/files/1/0020/1926/2510/products/red-whiskered-bulbul-2_1200x1200.jpg?v=1551037285">
+                                        <img src=${img}>
                                     </figure>
                                     <br>
 

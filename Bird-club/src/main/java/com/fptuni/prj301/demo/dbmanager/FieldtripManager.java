@@ -133,31 +133,37 @@ public class FieldtripManager {
 
     public List<Fieldtrip> getTop10() {
         List<Fieldtrip> fieldtrips = new ArrayList<>();
-        String sql = "SELECT TOP 10 * FROM FieldTrip ORDER BY startDate DESC";
+        String sql = "SELECT TOP 10 F.*, FM.URL FROM FieldTrip AS F "
+                + "LEFT JOIN "
+                + "(SELECT DISTINCT FID, URL FROM FieldTripMedia) AS FM "
+                + "ON F.FID = FM.FID "
+                + "ORDER BY F.startDate DESC";
 
         try (Connection conn = DBUtils.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql)) {
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    Fieldtrip fieldtrip = new Fieldtrip();
-                    fieldtrip.setFID(rs.getString("FID"));
-                    fieldtrip.setName(rs.getString("name"));
-                    fieldtrip.setDescription(rs.getString("description"));
-                    fieldtrip.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
-                    fieldtrip.setStartDate(tool.trimDate(rs.getString("startDate")));
-                    fieldtrip.setEndDate(tool.trimDate(rs.getString("endDate")));
-                    fieldtrip.setLID(rs.getString("LID"));
-                    fieldtrip.setStatus(rs.getString("status"));
-                    fieldtrip.setFee(rs.getInt("fee"));
-                    fieldtrip.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
-                    fieldtrip.setCategory("Fieldtrip");
-                    fieldtrip.setNote(rs.getString("note"));
-                    fieldtrip.setIncharge(rs.getString("incharge"));
-                    fieldtrip.setHost(rs.getString("host"));
-                    fieldtrip.setContact(rs.getString("contact"));
-                    fieldtrips.add(fieldtrip);
-                }
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                Fieldtrip fieldtrip = new Fieldtrip();
+                fieldtrip.setFID(rs.getString("FID"));
+                fieldtrip.setName(rs.getString("name"));
+                fieldtrip.setDescription(rs.getString("description"));
+                fieldtrip.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
+                fieldtrip.setStartDate(tool.trimDate(rs.getString("startDate")));
+                fieldtrip.setEndDate(tool.trimDate(rs.getString("endDate")));
+                fieldtrip.setLID(rs.getString("LID"));
+                fieldtrip.setStatus(rs.getString("status"));
+                fieldtrip.setFee(rs.getInt("fee"));
+                fieldtrip.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                fieldtrip.setCategory("Fieldtrip");
+                fieldtrip.setNote(rs.getString("note"));
+                fieldtrip.setIncharge(rs.getString("incharge"));
+                fieldtrip.setHost(rs.getString("host"));
+                fieldtrip.setContact(rs.getString("contact"));
+                fieldtrip.setPictureURL(rs.getString("URL")); // Set the picture URL from FieldTripMedia
+                fieldtrips.add(fieldtrip);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

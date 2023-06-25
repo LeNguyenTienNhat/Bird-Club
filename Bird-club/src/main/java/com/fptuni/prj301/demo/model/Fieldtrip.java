@@ -17,7 +17,18 @@ public class Fieldtrip {
     private String incharge;
     private String host;
     private String contact;
+    private String pictureURL; // New field for picture URL
 
+    // Constructors, getters, and setters for existing fields
+
+    public String getPictureURL() {
+        return pictureURL;
+    }
+
+    public void setPictureURL(String pictureURL) {
+        this.pictureURL = pictureURL;
+    }
+    
     public Fieldtrip(String FID, String name, String description, String registrationDeadline, String startDate, String endDate, String LID, String status, int fee, int numberOfParticipant, String note, String incharge, String host, String contact) {
         this.FID = FID;
         this.name = name;

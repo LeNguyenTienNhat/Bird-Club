@@ -18,6 +18,17 @@ public class Tournament {
     private String incharge;
     private String host;
     private String contact;
+    private String pictureURL; // New field for picture URL
+
+    // Constructors, getters, and setters for existing fields
+
+    public String getPictureURL() {
+        return pictureURL;
+    }
+
+    public void setPictureURL(String pictureURL) {
+        this.pictureURL = pictureURL;
+    }
 
     public Tournament(String TID, String name, String description, String registrationDeadline, String startDate, String endDate, String LID, String status, int fee, int numberOfParticipant, int totalPrize, String note, String incharge, String host, String contact) {
         this.TID = TID;

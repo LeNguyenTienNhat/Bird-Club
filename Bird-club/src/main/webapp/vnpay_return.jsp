@@ -97,7 +97,7 @@
                             }
                         %></label>
                 </div> 
-                 <a href="${pageContext.request.contextPath}/member_homepage.jsp">home</a>
+                 <a href="${pageContext.request.contextPath}/guest_homepage.jsp">home</a>
             </div>
             <p>
                 &nbsp;

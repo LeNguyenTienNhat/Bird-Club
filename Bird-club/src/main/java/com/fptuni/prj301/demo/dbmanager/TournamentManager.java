@@ -140,35 +140,42 @@ public class TournamentManager {
     }
 public List<Tournament> getTop10() {
     List<Tournament> tournaments = new ArrayList<>();
-    String sql = "SELECT TOP 10 * FROM Tournament ORDER BY startDate DESC";
+    String sql = "SELECT TOP 10 T.*, TM.URL FROM Tournament AS T " +
+                 "LEFT JOIN " +
+                 "(SELECT DISTINCT TID, URL FROM TournamentMedia) AS TM " +
+                 "ON T.TID = TM.TID " +
+                 "ORDER BY T.startDate DESC";
 
     try (Connection conn = DBUtils.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql)) {
-        try (ResultSet rs = ps.executeQuery()) {
-            while (rs.next()) {
-                Tournament tournament = new Tournament();
-                tournament.setTID(rs.getString("TID"));
-                tournament.setName(rs.getString("name"));
-                tournament.setDescription(rs.getString("description"));
-                tournament.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
-                tournament.setStartDate(tool.trimDate(rs.getString("startDate")));
-                tournament.setEndDate(tool.trimDate(rs.getString("endDate")));
-                tournament.setLID(rs.getString("LID"));
-                tournament.setStatus(rs.getString("status"));
-                tournament.setFee(rs.getInt("fee"));
-                tournament.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
-                tournament.setTotalPrize(rs.getInt("totalPrize"));
-                tournament.setCategory("Tournament");
-                tournament.setNote(rs.getString("note"));
-                tournament.setIncharge(rs.getString("incharge"));
-                tournament.setHost(rs.getString("host"));
-                tournament.setContact(rs.getString("contact"));
-                tournaments.add(tournament);
-            }
+         PreparedStatement ps = conn.prepareStatement(sql);
+         ResultSet rs = ps.executeQuery()) {
+
+        while (rs.next()) {
+            Tournament tournament = new Tournament();
+            tournament.setTID(rs.getString("TID"));
+            tournament.setName(rs.getString("name"));
+            tournament.setDescription(rs.getString("description"));
+            tournament.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
+            tournament.setStartDate(tool.trimDate(rs.getString("startDate")));
+            tournament.setEndDate(tool.trimDate(rs.getString("endDate")));
+            tournament.setLID(rs.getString("LID"));
+            tournament.setStatus(rs.getString("status"));
+            tournament.setFee(rs.getInt("fee"));
+            tournament.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+            tournament.setTotalPrize(rs.getInt("totalPrize"));
+            tournament.setCategory("Tournament");
+            tournament.setNote(rs.getString("note"));
+            tournament.setIncharge(rs.getString("incharge"));
+            tournament.setHost(rs.getString("host"));
+            tournament.setContact(rs.getString("contact"));
+            tournament.setPictureURL(rs.getString("URL")); // Set the picture URL from the TournamentMedia table
+            tournaments.add(tournament);
         }
+
     } catch (SQLException e) {
         e.printStackTrace();
     }
+
     return tournaments;
 }
 
@@ -345,16 +352,16 @@ public List<Tournament> getTop10() {
         // Test the getTournamentById method
         TournamentManager tournamentDAO = new TournamentManager();
         String tid = "TID0"; // Replace with the actual tournament ID
-        Tournament tournament = tournamentDAO.getTournamentById(tid);
+       List<Tournament> top10Tournaments = tournamentDAO.getTop10();
 
-        if (tournament != null) {
-            System.out.println("Tournament found:");
-            System.out.println("TID: " + tournament.getTID());
-            System.out.println("Name: " + tournament.getName());
-            // Print other tournament details as needed
-        } else {
-            System.out.println("Tournament not found.");
-        }
+    // Print the details of the top 10 tournaments
+    for (Tournament tournament : top10Tournaments) {
+        System.out.println("Tournament ID: " + tournament.getTID());
+        System.out.println("Name: " + tournament.getName());
+        System.out.println("Description: " + tournament.getDescription());
+        // Print other details as needed
+        System.out.println("-------------------------------------");
+    }
     }
   
 }

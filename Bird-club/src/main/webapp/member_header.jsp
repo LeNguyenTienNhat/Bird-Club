@@ -31,7 +31,7 @@
                             <nav class="grid-x website-nav hide-for-print" aria-label="Primary">
                                 <div id="primary-nav-container">   
                                     <ul id="primary-nav" class="dropdown menu">
-                                        <li id="nav-menu-item-41114" class="birds guide-active menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="${pageContext.request.contextPath}/member_homepage.jsp" class="menu-link main-menu-link">Home</a></li>
+                                        <li id="nav-menu-item-41114" class="birds guide-active menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="${pageContext.request.contextPath}/home?action=view" class="menu-link main-menu-link">Home</a></li>
                                         <li id="nav-menu-item-41123" class="cams menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="${pageContext.request.contextPath}/StaffAccountController?actionviewlist"  class="menu-link main-menu-link">Tournament</a></li>
                                         <li id="nav-menu-item-41123" class="cams menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="${pageContext.request.contextPath}/StaffAccountFTController?actionviewfieldtrip" class="menu-link main-menu-link">Field trip</a></li>
                                         <li id="nav-menu-item-41123" class="cams menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="${pageContext.request.contextPath}/StaffAccountMTController?actionviewmeeting" class="menu-link main-menu-link">Meeting</a></li>
@@ -60,7 +60,7 @@
                                                     <a target="_self" href="${pageContext.request.contextPath}/MemberShipController?action=view" class="menu-link sub-menu-link">Membership</a>
                                                 </li>
                                                 <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom">
-                                                    <a target="_self" href="member_Feedback.jsp" class="menu-link sub-menu-link">Feedback</a>
+                                                    <a target="_self" href="member_FeedBack.jsp" class="menu-link sub-menu-link">Feedback</a>
                                                 </li>
                                                 <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom">
                                                     <a target="_self" href="vnpay_pay.jsp" class="menu-link sub-menu-link">Donation</a>
