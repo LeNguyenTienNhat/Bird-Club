@@ -267,7 +267,7 @@
 </main>
 
 
-<%@ include file="member_footer.jsp" %>
+
 
 
 <!-- BEGIN Search modal -->
@@ -506,5 +506,6 @@
 
     @media only screen and (max-width: 400px){ .hustle-ui.hustle_module_id_13[data-id="13"] h2 span{font-size: 12px;} }</style>		
 </body>
+
 
 </html>

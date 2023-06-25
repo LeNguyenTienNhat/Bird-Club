@@ -51,6 +51,7 @@
         <style>
             /* CSS styles */
 
+
             .container {
                 display: flex;
                 flex-wrap: wrap;
@@ -59,88 +60,97 @@
                 height: 50vh; /* Adjust the height as desired */
                 background-color: #f5f5f5;
                 margin-top: 50px;
-            }
 
-            .membership-options {
-                max-width: 100%;
-                width: 400px;
-                position: relative;
-                flex: 1;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                padding: 20px;
-                margin: 10px;
-                margin-bottom:0px;
-                text-align: center;
-                background-color: #ffffff;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease;
-            }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+            height: 50vh; /* Adjust the height as desired */
+            background-color: #f5f5f5;
+            margin-top: 50px;
+        }
 
-            .membership-options:hover {
-                background-color: #eaeaea;
-                transform: scale(1.05);
-            }
+        .membership-options {
+            max-width: 100%;
+            width: 400px;
+            position: relative;
+            flex: 1;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 10px;
+            margin-bottom:0px;
+            text-align: center;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-            .membership-options h2 {
-                margin-bottom: 0;
-                color: #333333;
-            }
+        .membership-options:hover {
+            background-color: #eaeaea;
+            transform: scale(1.05);
+        }
 
-            .membership-options p {
-                margin-top: 10px;
-                color: #777777;
-            }
+        .membership-options h2 {
+            margin-bottom: 0;
+            color: #333333;
+        }
 
-            .membership-description {
-                position: absolute;
-                bottom: -70%;
-                left: 0;
-                width: 100%;
-                background-color: #ffffff;
-                padding: 10px;
-                border-radius: 5px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
+        .membership-options p {
+            margin-top: 10px;
+            color: #777777;
+        }
 
-            .membership-options:hover .membership-description {
-                bottom: -70%;
-                opacity: 1;
-            }
+        .membership-description {
+            position: absolute;
+            bottom: -70%;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
-            /* Additional Customization */
-            .membership-options input[type="submit"] {
-                background-color: #4caf50;
-                color: #ffffff;
-                border: none;
-                padding: 10px 20px;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
+        .membership-options:hover .membership-description {
+            bottom: -70%;
+            opacity: 1;
+        }
 
-            .membership-options input[type="submit"]:hover {
-                background-color: #45a049;
-            }
+        /* Additional Customization */
+        .membership-options input[type="submit"] {
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-            .footer {
-                background-color: #f5f5f5;
-                padding: 20px;
-                text-align: center;
-            }
-        </style>
-        <h2 class="has-text-align-center has-large-font-size">Membership Type Selection</h2>
-        <div class="container">
-            <c:if test="${not empty records}">
-                <c:forEach var="r" items="${records}">
-                    <c:if test="${r.getMID().trim() ne 'MID00'}"> <!-- Check if MID is not equal to 'MID00' -->
+        .membership-options input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+    <h2 class="has-text-align-center has-large-font-size">Membership Type Selection</h2>
+  <div class="container">
+    <c:if test="${not empty records}">
+        <c:forEach var="r" items="${records}">
+            <c:if test="${not r.getName().contains('Staff')}">    
                         <form action="${pageContext.request.contextPath}/MemberShipController" method="post">
                             <div class="membership-options">
                                 <div class="membership-option" onclick="selectMembershipOption(this)">
                                     <h2>${r.getName()}</h2>
-                                    <p class="membership-fee">Fee: ${r.getValue()}</p>
+                                    <p class="membership-fee">Fee: ${r.getValue()}$</p>
                                     <div class="membership-description">${r.getDescription()}</div>
                                     <input type="hidden" name="action" value="add">
                                     <input type="hidden" name="UID" value="${users.getUserName()}" />
@@ -149,13 +159,12 @@
                                 </div>
                             </div>
                         </form>
-                    </c:if>
-                </c:forEach>
             </c:if>
-        </div>
-        <div class="footer">
-            <%@ include file="member_footer.jsp" %>
-        </div>
+        </c:forEach>
+    </c:if>
+</div>
+   
+
         <script>
             function selectMembershipOption(option) {
                 var membershipOptions = document.getElementsByClassName('membership-option');
@@ -170,6 +179,11 @@
     </body>
 
 
+<div class="footer">
+    <%@ include file="member_footer.jsp" %>
+</div>
 
 
+   
 </html>
+

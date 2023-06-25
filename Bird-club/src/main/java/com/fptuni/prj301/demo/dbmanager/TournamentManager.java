@@ -140,9 +140,13 @@ public class TournamentManager {
     }
 public List<Tournament> getTop10() {
     List<Tournament> tournaments = new ArrayList<>();
-    String sql = "SELECT TOP 10 T.*, TM.URL FROM Tournament AS T " +
+    String sql = "SELECT TOP 10 T.*, TM.URL " +
+                 "FROM Tournament AS T " +
                  "LEFT JOIN " +
-                 "(SELECT DISTINCT TID, URL FROM TournamentMedia) AS TM " +
+                 "(SELECT TID, URL " +
+                 " FROM (SELECT TID, URL, ROW_NUMBER() OVER (PARTITION BY TID ORDER BY URL DESC) AS RowNum " +
+                 "       FROM TournamentMedia) AS TMSub " +
+                 " WHERE RowNum = 1) AS TM " +
                  "ON T.TID = TM.TID " +
                  "ORDER BY T.startDate DESC";
 

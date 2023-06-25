@@ -11,7 +11,7 @@
 }
 body {
   background: #080531;
-  display: p;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
