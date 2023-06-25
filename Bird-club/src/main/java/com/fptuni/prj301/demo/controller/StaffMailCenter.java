@@ -119,8 +119,7 @@ public class StaffMailCenter extends HttpServlet {
 
             EmailSender e = new EmailSender();
             for (String email : emailList) {
-                 e.sendEmail(email, subject, content, link);
-                
+                 e.sendEmail(email, subject, content, link);                
             }
             request.setAttribute("action", "viewmailform");
             RequestDispatcher rd = request.getRequestDispatcher("StaffMailCenter");
@@ -131,7 +130,11 @@ public class StaffMailCenter extends HttpServlet {
         
         else if (action.equalsIgnoreCase("sendapprovalmessage")) {
             String UID = request.getParameter("UID");
-
+            MemberManager mm = new MemberManager();
+            String email = mm.getUserEmail(UID);
+            EmailSender e = new EmailSender();
+            e.sendEmail(email, "Approval notification", ""
+                    + "Congratulation on becoming one of ChimOwners' members", "http://localhost:8080/chimowners/");
             RequestDispatcher rd = request.getRequestDispatcher("StaffMember");
             rd.forward(request, response);
         }
