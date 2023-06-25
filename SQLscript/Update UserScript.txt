@@ -60,9 +60,9 @@ VALUES
 ('UID57', 'Hiroki', 'hirokiyamamoto#234', 'Hiroki Yamamoto', 'male', '0434567890', 'hiroki.yamamoto@gmail.com', 'member', 'activated', CONVERT(DATETIME, '28/6/2023', 103), CONVERT(DATETIME, '28/12/2023', 103), 'MID03', 'https://logodix.com/logo/1070634.png'),
 ('UID58', 'Olivia', 'oliviaroberts#567', 'Olivia Roberts', 'female', '0443210987', 'olivia.roberts@gmail.com', 'member', 'activated', CONVERT(DATETIME, '29/6/2023', 103), CONVERT(DATETIME, '29/12/2023', 103), 'MID03', 'https://logodix.com/logo/1070634.png'),
 ('UID59', 'Ren2', 'renwatanabe2#890', 'Ren Watanabe', 'female', '0401234567', 'ren.watanabe2@gmail.com', 'guest', 'unactivated', CONVERT(DATETIME, '30/6/2023', 103), CONVERT(DATETIME, '30/12/2023', 103), 'MID03', 'https://logodix.com/logo/1070634.png'),
-('UID60', 'Duc', 'DucStaff123', 'Le Duc', 'male', '0831750296', 'dr@gmail.com', 'staff', 'activated', '2020-02-03 00:00:00.000', '2030-02-03 00:00:00.000', NULL, 'https://logodix.com/logo/1070634.png'),
-('UID61', 'Nhat', 'NhatStaff123', 'Le Nhat', 'male', '0376543210', 'nr@gmail.com', 'staff', 'activated', '2020-02-03 00:00:00.000', '2030-02-03 00:00:00.000', NULL, 'https://logodix.com/logo/1070634.png'),
-('UID62', 'Tue', 'TueStaff123', 'Minh Tue', 'male', '0312345678', 'tr@gmail.com', 'staff', 'activated', '2020-02-03 00:00:00.000', '2030-02-03 00:00:00.000', NULL, 'https://logodix.com/logo/1070634.png'),
-('UID63', 'Viet', 'VietStaff123', 'Dai Viet', 'male', '0387654321', 'vr@gmail.com', 'staff', 'activated', '2020-02-03 00:00:00.000', '2030-02-03 00:00:00.000', NULL, 'https://logodix.com/logo/1070634.png'),
-('UID64', 'Cuong', 'CuongStaff123', 'Truong Cuong', 'male', '0354321098', 'cr@gmail.com', 'staff', 'activated', '2020-02-03 00:00:00.000', '2030-02-03 00:00:00.000', NULL, 'https://logodix.com/logo/1070634.png');
+('UID60', 'Duc', 'DucStaff123', 'Le Duc', 'male', '0831750296', 'dr@gmail.com', 'staff', 'activated', '2020-02-03 00:00:00.000', '2030-02-03 00:00:00.000', MID00, 'https://logodix.com/logo/1070634.png'),
+('UID61', 'Nhat', 'NhatStaff123', 'Le Nhat', 'male', '0376543210', 'nr@gmail.com', 'staff', 'activated', '2020-02-03 00:00:00.000', '2030-02-03 00:00:00.000', MID00, 'https://logodix.com/logo/1070634.png'),
+('UID62', 'Tue', 'TueStaff123', 'Minh Tue', 'male', '0312345678', 'tr@gmail.com', 'staff', 'activated', '2020-02-03 00:00:00.000', '2030-02-03 00:00:00.000', MID00, 'https://logodix.com/logo/1070634.png'),
+('UID63', 'Viet', 'VietStaff123', 'Dai Viet', 'male', '0387654321', 'vr@gmail.com', 'staff', 'activated', '2020-02-03 00:00:00.000', '2030-02-03 00:00:00.000', MID00, 'https://logodix.com/logo/1070634.png'),
+('UID64', 'Cuong', 'CuongStaff123', 'Truong Cuong', 'male', '0354321098', 'cr@gmail.com', 'staff', 'activated', '2020-02-03 00:00:00.000', '2030-02-03 00:00:00.000', MID00, 'https://logodix.com/logo/1070634.png');
 
