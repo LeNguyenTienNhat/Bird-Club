@@ -76,11 +76,11 @@ public class MemberShipManager {
     }
 
     public boolean updateMembership(String membership, String UID) {
-        String sql = "UPDATE [Membership] SET MID = ? WHERE MID = ?";
+        String sql = "UPDATE [User] SET MID = ? WHERE userName = ?";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(2, membership);
+            ps.setString(1, membership);
             ps.setString(2, UID);
 
             int rowsUpdated = ps.executeUpdate();
