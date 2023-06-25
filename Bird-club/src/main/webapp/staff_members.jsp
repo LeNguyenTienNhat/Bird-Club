@@ -403,7 +403,7 @@
                                                         for (Member m : membersList) {
                                                             out.print("<div class='table-row bg-white'>"
                                                                     + "<div class='table-cell border-b border-gray-500 text-sm w-full max-w-0 py-4 pl-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
-                                                                    + "<a class='hover:text-teal-600' href=''>" + m.getFullName() + "</a></div>"
+                                                                    + "<a class='hover:text-teal-600' href='http://localhost:8080/chimowners/members?action=viewmemberdetails&UID="+ m.getUID()+"'>" + m.getFullName() + "</a></div>"
                                                                     + "<div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
                                                                     + " <div class='flex flex-row items-center space-x-2'>"
                                                                     + " <div class='text-teal-600 -mb-1'></div></div></div>"

@@ -106,6 +106,8 @@ public class UserAccessController extends HttpServlet {
                 user.setEmail(email);
                 user.setGender(gender);
                 user.setStatus("activated");
+                user.setAvatar("media/user.png");
+                user.setMID("MID00");
 
                 // Generate UID
                 String userId = UIDGenerator.generateUID();

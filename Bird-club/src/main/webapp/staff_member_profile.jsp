@@ -240,14 +240,14 @@
                             <a class="w-full flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" data-turbo-frame="modal" href="">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="-ml-1 mr-3 w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                </svg>Add a tournament</a>
+                                </svg>Placeholder option</a>
                         </div>
                     </div>
 
                     <div>
                         <div class="lg:grid lg:grid-cols-12 lg:gap-x-16">
                             <div class="px-6 sm:px-0 lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-9">
-                                <img src="media/5.jpg">
+                                <img src="media/user.png">
 
                             </div>
                             <div class="lg:col-span-7 xl:col-span-8">
