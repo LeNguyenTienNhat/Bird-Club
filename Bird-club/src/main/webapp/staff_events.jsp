@@ -457,9 +457,11 @@
 
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
                         <div class="sm:flex-auto">
-                            <h1 class="text-xl font-semibold text-gray-900">Events</h1>
+                            <%! String cate;  %>
+                            <% cate = (String) request.getAttribute("cate"); %>
+                            <h1 class="text-xl font-semibold text-gray-900"><% out.print(cate); %></h1>
                             <p class="mt-2 text-sm text-gray-700">
-                                Available events hosted by Chim Owners.
+                                Available <% out.print(cate+"(s)"); %> hosted by Chim Owners.
                             </p>
                         </div>
 
@@ -484,13 +486,60 @@
                         mList = (List<Meeting>) request.getAttribute("mList"); %>
 
                     <%
-                        int a = fList.size() + mList.size();
+                        int a = (Integer) request.getAttribute("total");
                         int b = (Integer) request.getAttribute("ongoingFieldTrips");
                         int c = (Integer) request.getAttribute("ongoingMeetings");
                         int d = (Integer) request.getAttribute("pending");
                         int e = (Integer) request.getAttribute("approaching");
                         int g = (Integer) request.getAttribute("ended");
                     %>
+
+
+
+
+                    <div data-controller="record-filters">
+                        <!-- Filters -->
+                        <section aria-labelledby="filter-heading" class="relative z-10 grid items-center">
+                            <h2 id="filter-heading" class="sr-only">Filters</h2>
+                            <div class="relative col-start-1 row-start-1 py-4">
+                                <div class="max-w-7xl mx-auto flex space-x-6 divide-x divide-gray-200 text-sm px-4">
+                                    <div><button data-record-filters-target="toggle" data-action="record-filters#toggle" type="button" class="group text-gray-700 font-medium flex items-center" aria-controls="disclosure-1" aria-expanded="false">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="flex-none mr-2 text-gray-400 group-hover:text-gray-500 w-5 h-5">
+                                            <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd"></path>
+                                            </svg>Filter</button></div></div></div>
+
+                            <form class="hidden" data-record-filters-target="form" data-turbo-action="advance" accept-charset="UTF-8" method="get">
+                                <div class="border-t border-gray-200 py-10" id="disclosure-1">
+                                    <div class="max-w-7xl mx-auto  gap-x-4 px-4 text-sm md:gap-x-6">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 lg:grid-cols-3 md:gap-x-6 w-full">
+                                            <div class="space-y-4">
+                                                <div>
+                                                    <legend class="block font-medium">Status</legend>
+                                                    <div class="mt-1">
+                                                        <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="status" id="status">
+                                                            <option value="pending">Pending</option>
+                                                            <option value="formClosed">Registration ended</option>
+                                                            <option value="ongoing">On going</option>
+                                                            <option value="finished">Terminated</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <legend class="block font-medium">Category</legend>
+                                                    <div class="mt-1">
+                                                        <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="category" id="category">
+                                                            <option value="Field trip">Field Trip</option>
+                                                            <option value="Meeting">Meeting</option></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="action" value="viewevents">
+                            </form>  </section>
+                    </div>
+
                     <div>
                         <div class="lg:grid lg:grid-cols-12 lg:gap-x-16">
                             <div class="px-6 sm:px-0 mt-4 lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-9">
@@ -778,7 +827,29 @@
                                         }%> 
                                 </ul>
 
-                            </div></div></div></div></div></div>       
+                            </div></div></div></div></div>
+
+            <div class="pt-6 flex items-center justify-between">
+                <div class="hidden sm:block">
+                    <span class="pagy-info">Displaying <b><% out.print(fList.size() + mList.size()); %></b> event(s)</span>
+                </div>
+
+                <%! int i;%>
+                <% int total = (Integer) request.getAttribute("total");
+                    total = (total / 20) + 1;
+                    for (i = 1; i <= total; i++) {
+                        out.print("<span class='page'><form>"
+                                + "<input type='hidden' name='page' value='" + i + "'>"
+                                + "<input type='hidden' name='action' value='viewevents'>"
+                                + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
+                                + "</form></span>");
+                    }
+                %>
+            </div>
+
+
+
+        </div>       
     </main>
 
     <footer class="mt-8" aria-labelledby="footer-heading">

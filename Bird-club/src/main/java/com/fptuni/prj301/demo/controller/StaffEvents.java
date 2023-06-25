@@ -39,23 +39,44 @@ public class StaffEvents extends HttpServlet {
 
         //View all events
         if (action == null || action.equals("viewevents")) {
-            //display fieldtrips
-            List<Fieldtrip> fList = fm.getRecords(0, 0, null, "startDate");
-            request.setAttribute("fList", fList);
-            //display meetings
-            List<Meeting> mList = mm.getRecords(0, 0, null, "startDate");
-            request.setAttribute("mList", mList);
-
+            int page, skip;
+            String status = request.getParameter("status");
+            if (status == null) {
+                status = "pending";
+            }
+            try {
+                page = Integer.parseInt(request.getParameter("page"));
+                skip = (page - 1) * 10;
+            } catch (NumberFormatException e) {
+                skip = 0;
+            }
+            String category = request.getParameter("category");
+            
+            List<Fieldtrip> fList = new ArrayList();
+            List<Meeting> mList = new ArrayList();
+            if (category==null || category.equalsIgnoreCase("Field trip")) {
+                //display fieldtrips
+                fList = fm.getRecords(skip, 5, status, "startDate");              
+                request.setAttribute("cate", "Field trip");
+            } else {
+                //display meetings
+                mList = mm.getRecords(skip, 5, status, "startDate");                
+                request.setAttribute("cate", "Meeting");
+            } 
             LocationManager lm = new LocationManager();
             List<Location> locationsList = lm.getList();
             request.setAttribute("locationsList", locationsList);
 
+            int a = fm.getTotalNumber() + mm.getTotalNumber();
             int b = fm.getNumberAsStatus("ongoing");
             int c = mm.getNumberAsStatus("ongoing");
             int d = fm.getNumberAsStatus("pending") + mm.getNumberAsStatus("pending");
             int e = fm.getNumberAsStatus("formClosed") + mm.getNumberAsStatus("formClosed");
             int g = fm.getNumberAsStatus("finished") + mm.getNumberAsStatus("finished");
-
+            
+            request.setAttribute("fList", fList);
+            request.setAttribute("mList", mList);
+            request.setAttribute("total", a);
             request.setAttribute("ongoingFieldTrips", b);
             request.setAttribute("ongoingMeetings", c);
             request.setAttribute("pending", d);
@@ -266,7 +287,7 @@ public class StaffEvents extends HttpServlet {
         else if (action.equals("editmeeting")) {
             String MeID = request.getParameter("MeID");
             Meeting meeting = mm.load(MeID);
-            
+
             meeting.setCategory("Meeting");
             LocationManager lm = new LocationManager();
             Location l = lm.load(meeting.getLID());

@@ -21,10 +21,9 @@ public class FieldtripManager {
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps;
-            if (numOfRow == 10 && !status.isEmpty()) {
-                sql = sql + "WHERE status=? "
-                        + " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY"
-                        + "ORDER BY " + sortCategory + "DESC";
+            if (numOfRow == 5 && !status.isEmpty()) {
+                sql = sql + "WHERE status = ? ORDER BY " + sortCategory + " DESC"
+                        + " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
                 ps = conn.prepareStatement(sql);
                 ps.setString(1, status);
                 ps.setInt(2, skip);
@@ -342,6 +341,22 @@ public class FieldtripManager {
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, status);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    count++;
+                }
+            }
+        } catch (SQLException e) {
+        }
+        return count;
+    }
+
+    public int getTotalNumber() {
+        int count = 0;
+        String sql = "SELECT * FROM Fieldtrip";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     count++;
