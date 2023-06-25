@@ -63,6 +63,39 @@ public class NewsManager {
         }
         return list;
     }
+    public List<News> getTop10() {
+    List<News> list = new ArrayList<>();
+    String sql = "SELECT TOP 10 * FROM [News] ORDER BY uploadDate DESC";
+
+    try {
+        Connection conn = DBUtils.getConnection();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            News n = new News();
+            n.setNID(rs.getString("NID"));
+            n.setUID(rs.getString("UID"));
+            n.setTitle(rs.getString("title"));
+            n.setCategory(rs.getString("category"));
+            n.setNewsContent(rs.getString("newsContent"));
+
+            String formattedDate = tool.trimDate(rs.getString("uploadDate"));
+            formattedDate = tool.convertDisplayDate(formattedDate);
+            n.setUploadDate(formattedDate);
+
+            n.setStatus(rs.getString("status"));
+            n.setImage(rs.getString("image"));
+            list.add(n);
+        }
+
+        rs.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return list;
+}
 
     public News load(String NID) {
         News n = new News();

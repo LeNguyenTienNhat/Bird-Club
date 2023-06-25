@@ -138,6 +138,39 @@ public class TournamentManager {
         }
         return tournaments;
     }
+public List<Tournament> getTop10() {
+    List<Tournament> tournaments = new ArrayList<>();
+    String sql = "SELECT TOP 10 * FROM Tournament ORDER BY startDate DESC";
+
+    try (Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql)) {
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Tournament tournament = new Tournament();
+                tournament.setTID(rs.getString("TID"));
+                tournament.setName(rs.getString("name"));
+                tournament.setDescription(rs.getString("description"));
+                tournament.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
+                tournament.setStartDate(tool.trimDate(rs.getString("startDate")));
+                tournament.setEndDate(tool.trimDate(rs.getString("endDate")));
+                tournament.setLID(rs.getString("LID"));
+                tournament.setStatus(rs.getString("status"));
+                tournament.setFee(rs.getInt("fee"));
+                tournament.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                tournament.setTotalPrize(rs.getInt("totalPrize"));
+                tournament.setCategory("Tournament");
+                tournament.setNote(rs.getString("note"));
+                tournament.setIncharge(rs.getString("incharge"));
+                tournament.setHost(rs.getString("host"));
+                tournament.setContact(rs.getString("contact"));
+                tournaments.add(tournament);
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return tournaments;
+}
 
     public void insert(Tournament tournament) throws ClassNotFoundException, ParseException {
         String sql = "INSERT INTO Tournament"

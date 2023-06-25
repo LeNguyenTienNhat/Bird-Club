@@ -1,0 +1,60 @@
+Insert into [FieldTripMedia]
+Values ('FID0','http://nejohnston.org/birds/2014/11/Images/IMG_0908.jpg');
+Insert into [FieldTripMedia]
+Values ('FID1','http://nejohnston.org/birds/2014/11/Images/IMG_0941.jpg');
+Insert into [FieldTripMedia]
+Values ('FID2','http://nejohnston.org/birds/2015/12/Images/IMG_7766.jpg');
+Insert into [FieldTripMedia]
+Values ('FID3','http://nejohnston.org/birds/2015/12/Images/IMG_7770.jpg');
+Insert into [FieldTripMedia]
+Values ('FID4','http://nejohnston.org/birds/2014/11/Images/IMG_0913.jpg');
+Insert into [FieldTripMedia]
+Values ('FID5','http://nejohnston.org/birds/2015/12/Images/IMG_7901.jpg');
+Insert into [FieldTripMedia]
+Values ('FID6','http://nejohnston.org/birds/2008/01/Images/IMG_3864.jpg');
+Insert into [FieldTripMedia]
+Values ('FID7','https://i.imgur.com/qt3AdcQ.jpg');
+Insert into [FieldTripMedia]
+Values ('FID8','https://blog.hankchristensen.com/wp-content/uploads/2015/11/red-whiskered-bulbul-112474-Edit-1024x682.jpg');
+Insert into [FieldTripMedia]
+Values ('FID9','https://blog.hankchristensen.com/wp-content/uploads/2015/11/red-whiskered-bulbul-112491-Edit-1024x682.jpg');
+Insert into [FieldTripMedia]
+Values ('FID10','https://blog.hankchristensen.com/wp-content/uploads/2015/11/red-whiskered-bulbul-112431-1024x682.jpg');
+Insert into [FieldTripMedia]
+Values ('FID11','https://www.publicdomainpictures.net/pictures/30000/velka/rotohrbulbul.jpg');
+Insert into [FieldTripMedia]
+Values ('FID12','https://as2.ftcdn.net/v2/jpg/00/50/88/53/1000_F_50885387_xqO4sNnBLwvFudxT1uFRsslGyjkxswRf.jpg');
+Insert into [FieldTripMedia]
+Values ('FID13', 'https://as1.ftcdn.net/v2/jpg/03/08/89/36/1000_F_308893654_O5IYkqAYkPq23CU07JLD9Mi7zAqVLj7a.jpg');
+Insert into [FieldTripMedia]
+Values ('FID14', 'https://as2.ftcdn.net/v2/jpg/02/38/94/95/1000_F_238949576_YJNb6uvgSnHipSIXF3H6tQn88x7Yhxs5.jpg');
+Insert into [FieldTripMedia]
+Values ('FID15','https://as1.ftcdn.net/v2/jpg/01/86/41/90/1000_F_186419037_T2r8VOpoEUDDaTBiYT1I5lU0G5g7xqiH.jpg');
+Insert into [FieldTripMedia]
+Values ('FID16','https://as2.ftcdn.net/v2/jpg/01/84/06/47/1000_F_184064713_6JCnhEMyMMMX2auN0qHVREHUtwk6FvsB.jpg');
+Insert into [FieldTripMedia]
+Values ('FID17','https://as2.ftcdn.net/v2/jpg/02/94/87/15/1000_F_294871523_KrTHmTbKHL4KlzNP90V3UGjsNjc2Suid.jpg');
+Insert into [FieldTripMedia]
+Values ('FID18','https://as1.ftcdn.net/v2/jpg/01/25/23/46/1000_F_125234670_h9hanBPD83BibI9OWUX45uA9NCbrckxA.jpg');
+Insert into [FieldTripMedia]
+Values ('FID19','https://www.susanfleck.com/Birds/Birds_images_08/Bulbul_Red-whiskered_4762191.jpg');
+Insert into [FieldTripMedia]
+Values ('FID20', 'https://www.susanfleck.com/Birds/Birds_images_08/Bulbul_Red-whiskered_4762193.jpg');
+Insert into [FieldTripMedia]
+Values ('FID21','https://www.susanfleck.com/Birds/Birds_images_08/Bulbul_Red-whiskered_4762163.jpg');
+Insert into [FieldTripMedia]
+Values ('FID22', 'https://www.susanfleck.com/Birds/Birds_images_08/Bulbul_Red-whiskered_4762160.jpg');
+Insert into [FieldTripMedia]
+Values ('FID23','https://www.dlifejourney.com/wp-content/uploads/2020/10/portrait-of-a-red-whiskered-bulbul.jpg');
+Insert into [FieldTripMedia]
+Values ('FID24','https://3.bp.blogspot.com/-hUpofm3-txo/WXHY2k8G3hI/AAAAAAABApc/gt4fIQjx6Tcl3qU6LkZYWbau-Eu0DnH5ACLcBGAs/s1600/OIS-Bulbul-D500C-8405.jpg');
+Insert into [FieldTripMedia]
+Values ('FID25','https://static.uglyhedgehog.com/upload/2012/8/26/thumb-1346001448930-rw_bulbul__01.jpg');
+Insert into [FieldTripMedia]
+Values ('FID26','https://i.pinimg.com/736x/e2/11/58/e21158e95a8d33d521bd2689174cc69f--bangladesh-amazing-nature.jpg');
+Insert into [FieldTripMedia]
+Values ('FID27','http://1.bp.blogspot.com/-sdRmDAAU9GI/UMceh0P8k_I/AAAAAAAAGOI/DbIdNc7iIZQ/s1600/red_whiskered_bulbul_nepal.jpg');
+Insert into [FieldTripMedia]
+Values ('FID28','https://farm5.static.flickr.com/4048/4444216707_de44e43f6c_m.jpg');
+Insert into [FieldTripMedia]
+Values ('FID29','https://i.ytimg.com/vi/L99HW-XiMjw/maxresdefault.jpg');

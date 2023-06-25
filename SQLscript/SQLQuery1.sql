@@ -172,6 +172,10 @@ CREATE TABLE [dbo].[FieldTrip](
 	[status] [nchar](10) NOT NULL,
 	[fee] [decimal](18, 0) NOT NULL,
 	[numberOfParticipant] [decimal](18, 0) NOT NULL,
+	[note] [nvarchar](MAX) NULL,
+	[incharge] [nvarchar](50) NULL,
+	[host] [nvarchar](50) NULL,
+	[contact] [nvarchar](50) NULL,
  CONSTRAINT [PK_FieldTrip] PRIMARY KEY CLUSTERED 
 (
 	[FID] ASC
@@ -259,6 +263,10 @@ CREATE TABLE [dbo].[Meeting](
 	[startDate] [datetime] NOT NULL,
 	[endDate] [datetime] NOT NULL,
 	[numberOfParticipant] [decimal](18, 0) NOT NULL,
+	[note] [nvarchar](MAX) NULL,
+	[incharge] [nvarchar](50) NULL,
+	[host] [nvarchar](50) NULL,
+	[contact] [nvarchar](50) NULL,
  CONSTRAINT [PK_Meeting] PRIMARY KEY CLUSTERED 
 (
 	[MeID] ASC

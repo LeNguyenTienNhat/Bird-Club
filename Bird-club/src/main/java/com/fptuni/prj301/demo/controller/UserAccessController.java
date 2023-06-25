@@ -59,7 +59,7 @@ public class UserAccessController extends HttpServlet {
                         if (role.equals("member") || role.equals("guest")) {
                             ss.setAttribute("users", user);
                             ss.setAttribute("userID", userDao.searchByName(user.getUserName()));
-                            response.sendRedirect(request.getContextPath() + "/member_homepage.jsp");
+                            response.sendRedirect(request.getContextPath() + "/home?action=view");
                         } else if (role.equals("staff")) {
                             ss.setAttribute("users", user);
                             response.sendRedirect(request.getContextPath() + "/staff_homepage.jsp");

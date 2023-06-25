@@ -170,9 +170,16 @@
                                             <input type="text" class="form-control" placeholder="Email address" value="${users.getEmail()}">
                                         </div>
                                     </div>
+                                    <script>
+                                        function saveProfile() {
+                                        window.location.href = "MemberProfileController?action=updateprofile";
+                                        }
+                                    </script>
                                     <div class="mt-5 text-center">
-                                        <button class="btn btn-primary profile-button" type="button">Save Profile</button>
+                                        <!--<button class="btn btn-primary profile-button" type="button">Save Profile</button>-->
+                                        <button class="btn btn-primary profile-button" type="button" onclick="saveProfile()">Save Profile</button>
                                     </div>
+
                                     <style>
                                         .nav-link {
                                             display: inline-block;
