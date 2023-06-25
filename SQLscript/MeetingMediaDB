@@ -1,60 +1,60 @@
-INSERT INTO [MeetingMedia] (MeID, URL)
-VALUES ('MeID0','https://i0.wp.com/thatnhucuocsong.com.vn/wp-content/uploads/2022/02/hinh-nen-chim-1.jpg?ssl=1');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID1','https://demoda.vn/wp-content/uploads/2022/03/anh-con-chim.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID2','https://haycafe.vn/wp-content/uploads/2022/01/Hinh-anh-nen-chim.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID3','https://toigingiuvedep.vn/wp-content/uploads/2021/10/hinh-anh-chim-chao-mao-dep-hot-hay-va-thu-hut-nhat.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID4','https://nhadepso.com/wp-content/uploads/2023/02/tong-hop-99-hinh-anh-chim-se-non-long-lay-dep-nhat-the-gioi_1.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID5','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-2.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID6','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-3.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID7','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-4.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID8','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-5.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID9','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-6.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID10','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-7.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID11','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-8.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID12','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-9.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID13','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-10.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID14','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-11.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID15','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-12.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID16','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim-Hinh-13.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID17','https://images.kienthuc.net.vn/zoomh/800/uploaded/ctvkhoahoc/2015_01_13/A/thu-vi-bo-anh-tinh-yeu-cua-cac-loai-chim.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID18','https://khoinguonsangtao.vn/wp-content/uploads/2022/08/hinh-nen-chim-1.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID19','https://thuthuatnhanh.com/wp-content/uploads/2019/04/hinh-anh-nhung-loai-chim-dep-nhat-the-gioi_chim_mong_bien.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID20','https://danviet.mediacdn.vn/2018/8/images/79d20481-loai-chim-dep-3jpg.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID21','https://anh.24h.com.vn/upload/1-2014/images/2014-01-25/1390615862-dong-vat-dep1.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID22','https://bloghomestay.vn/wp-content/uploads/2023/02/hinh-anh-chim-vanh-khuyen_1.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID23','https://i0.wp.com/thatnhucuocsong.com.vn/wp-content/uploads/2022/02/hinh-nen-chim-duoi-dai.jpg?ssl\u003d1');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID24','https://haycafe.vn/wp-content/uploads/2022/01/Hinh-nen-chim-hinh-anh-chim-chao-mao-dau-tren-canh-cay.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID25','https://photo-cms-baonghean.zadn.vn/w1000/Uploaded/2022/nkdkswkqoc/201706/original/images1935965_10_loai_chim_dep_nhat_the_gioi_hinh_anh_2_594f626ddcf63.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID26','https://img2.thuthuatphanmem.vn/uploads/2018/12/25/cach-chon-chim-hoa-mi_011902609.jpeg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID27','https://media-cdn-v2.laodong.vn/storage/newsportal/Uploaded/nguyenthithusvtt/2016_01_10/2FE874FE00000578-3390508-image-a-85_1452264770266_ZIAI.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID28','https://sudospaces.com/gaocung-com/2021/01/chim-vang-anh-an-gi-1.jpg');
-INSERT INTO [MeetingMedia]
-VALUES ('MeID29','https://cdn.baoquocte.vn/stores/news_dataimages/2022/102022/19/11/khoanh-khac-chim-cong-bay-len-troi-lien-tuong-den-hinh-anh-chim-phuong-hoang-trong-truyen-thuyet-20221019110156.jpg?rt\u003d20221019110157');
+Insert into [MeetingMedia]
+Values ('MeID0','https://i.pinimg.com/originals/c1/78/8e/c1788e1521acf2421dd210f01a1cd419.jpg');
+Insert into [MeetingMedia]
+Values ('MeID1','https://avise-birds.bio.uci.edu/passeriformes/pycnonotidae/pycnonotus_jocosus/images/7rwbu_copy.jpg');
+Insert into [MeetingMedia]
+Values ('MeID2','https://i.pinimg.com/originals/69/9b/2b/699b2bd1dae1e04a94c8bd5f3d8e478c.jpg');
+Insert into [MeetingMedia]
+Values ('MeID3','https://i.pinimg.com/originals/08/f3/4d/08f34de0700ba8846f8914c27d7890a4.jpg');
+Insert into [MeetingMedia]
+Values ('MeID4','https://indiabiodiversity.org/files-api/api/get/raw/img/Pycnonotus%20jocosus/609.jpg');
+Insert into [MeetingMedia]
+Values ('MeID5','https://www.team-bhp.com/forum/attachments/travelogues/2175309d1625507504t-bird-photography-hide-a20i6402web.jpg');
+Insert into [MeetingMedia]
+Values ('MeID6','https://indiabiodiversity.org/files-api/api/get/raw/img/Pycnonotus%20jocosus/609.jpg');
+Insert into [MeetingMedia]
+Values ('MeID7','https://cdn.virily.com/wp-content/uploads/2020/02/bullbull2-1-313x277.jpg');
+Insert into [MeetingMedia]
+Values ('MeID8','https://www.birdsofmurrieta.com/uploads/7/5/8/4/75844173/red-whiskered-bulbul-pycnonotus-jocosus-apr07-010.jpg');
+Insert into [MeetingMedia]
+Values ('MeID9','https://c1.staticflickr.com/9/8110/8657698193_afe75de4aa_b.jpg');
+Insert into [MeetingMedia]
+Values ('MeID10','https://i.pinimg.com/originals/58/40/58/58405834c4e7495ea141fc2e7976031c.jpg');
+Insert into [MeetingMedia]
+Values ('MeID11','https://live.staticflickr.com/7474/15764653026_fc44122fbd.jpg');
+Insert into [MeetingMedia]
+Values ('MeID12','https://live.staticflickr.com/3537/3668457899_247d7cd25a_n.jpg');
+Insert into [MeetingMedia]
+Values ('MeID13','https://i.pinimg.com/originals/78/0f/87/780f87180fdf9bdfde0c1e29808cee81.jpg');
+Insert into [MeetingMedia]
+Values ('MeID14','https://www.team-bhp.com/forum/attachments/travelogues/998587d1349866102-reflections-driving-addictions-valparai-33a.jpg');
+Insert into [MeetingMedia]
+Values ('MeID15','https://1.bp.blogspot.com/-LlVKCRmJ4pc/TdTPVCEb_0I/AAAAAAAAELk/GxTo92wZ-us/s1600/1+DSC02268.JPG');
+Insert into [MeetingMedia]
+Values ('MeID16','https://a4.pbase.com/g2/46/683346/2/147765243.UY1PIUOk.jpg');
+Insert into [MeetingMedia]
+Values ('MeID17','https://i.pinimg.com/originals/a5/f6/05/a5f60500b3cbf6963a9bd7c2febdaeff.jpg');
+Insert into [MeetingMedia]
+Values ('MeID18','https://i.ytimg.com/vi/qUj2Hi0IlJg/maxresdefault.jpg');
+Insert into [MeetingMedia]
+Values ('MeID19','https://live.staticflickr.com/3594/3316000950_cb5aafda59.jpg');
+Insert into [MeetingMedia]
+Values ('MeID20','https://live.staticflickr.com/7456/9142518415_da8a55b104_n.jpg');
+Insert into [MeetingMedia]
+Values ('MeID21','https://a4.pbase.com/o2/90/590590/1/124420308.ixGAcUIt.IMG_2896.jpg');
+Insert into [MeetingMedia]
+Values ('MeID22','https://farm6.staticflickr.com/5475/10338505034_c138446e0e_z.jpg');
+Insert into [MeetingMedia]
+Values ('MeID23','https://content.eol.org/data/media/42/c3/7a/18.https___www_inaturalist_org_photos_5533452.jpg');
+Insert into [MeetingMedia]
+Values ('MeID24','https://live.staticflickr.com/7474/15764653026_fc44122fbd_b.jpg');
+Insert into [MeetingMedia]
+Values ('MeID25','https://alchetron.com/cdn/so-tom-fiscal-07d8afbf-5a8d-4ca8-8ef4-63117a23e98-resize-750.jpeg');
+Insert into [MeetingMedia]
+Values ('MeID26','https://kennyhphotography.weebly.com/uploads/6/7/5/2/6752529/6882701_orig.jpg');
+Insert into [MeetingMedia]
+Values ('MeID27','https://www.birdquest-tours.com/wp-content/uploads/2020/11/Pacific-Royal-Flycatcher-Ecuador-Southern-Chris-Venetz.jpg');
+Insert into [MeetingMedia]
+Values ('MeID28','https://live.staticflickr.com/8394/8812098636_1c464046cb_n.jpg');
+Insert into [MeetingMedia]
+Values ('MeID29','https://2.bp.blogspot.com/-Q4MQfmHDHkE/T0YBJkCk96I/AAAAAAAAADE/N-nam9dk-Vc/s1600/Black-and-yellow+Broadbill.JPG');
