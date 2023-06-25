@@ -66,7 +66,7 @@
                         <input type="number" placeholder="Phone" name="phone" />
                         <input type="password" placeholder="Password" name="password"/>
                         <input type="password" placeholder="Confirm password" name="confirmPassword"/>
-<!--                        <p class="text-danger">${signup_msg}</p>-->
+                        <p class="text-danger">${signup_msg}</p>
                         <button type="submit">Join club</button>
                     </form>
                 </div>
@@ -76,28 +76,7 @@
                     <form action="${loginLink}" name="" method="POST">
                         <h1>User Login</h1>
                         <input type=text" placeholder="Username" name="username"/>
-                        <input type="password" placeholder="Password" name="password"/>
-                        <style>
-
-                            .custom-control {
-                                display: flex;
-                                align-items: left;
-                            }
-
-                            .custom-control-input {
-                                order: -1;
-                                margin-right: 180px;
-                                width: 30px;
-                            }
-
-                            .custom-control-label {
-                                margin: 0;
-                            }
-                        </style>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                            <span class="custom-control-label" for="customCheck1">Remember password</span>
-                        </div>
+                        <input type="password" placeholder="Password" name="password"/>                 
                         <p style="color: red;">${login_msg}</p> 
                         <button type="submit">Login</button>
                         <a href="${pageContext.request.contextPath}/forgot.jsp">Forgot password?</a>

@@ -53,6 +53,7 @@
 
         .container {
             display: flex;
+            flex-wrap: wrap;
             align-items: flex-start;
             justify-content: center;
             height: 50vh; /* Adjust the height as desired */

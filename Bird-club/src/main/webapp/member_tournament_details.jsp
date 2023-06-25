@@ -18,7 +18,7 @@
         <link rel="icon" href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/favicon.png">
         <link href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/images/apple-icon-touch.png" rel="apple-touch-icon" />	
 
-        <title>Events - Field trips</title>
+        <title>Events - Tournaments</title>
         <meta name='robots' content='max-image-preview:large' />
         <link rel='dns-prefetch' href='//www.birds.cornell.edu' />
         <link rel='dns-prefetch' href='//code.jquery.com' />
@@ -122,9 +122,12 @@
                                     </figure>
                                     <br>
 
-                                    <dt>Focus</dt>${tournament.getDescription()}
-                                    <dt>Note</dt>${tournament.getNote()}
-
+                                    <dt><strong>Focus</strong>
+                                    <dd>${tournament.getDescription()}<dd>
+                                    </dt>
+                                    <dt><strong>Note</strong>
+                                    <dd>${tournament.getNote()}<dd>
+                                    </dt>
                                     <div class="is-layout-flex wp-block-buttons"></div>
 
                                 </div>
@@ -179,7 +182,7 @@
                                                  </div>
                                                 <div class="row">
                                                     <dt>Prize</dt>
-                                                    <dd>${tournament.getTotalPrize()}</dd>
+                                                    <dd>${tournament.getTotalPrize()}$</dd>
                                                 </div>
                                                 <div class="row">
                                                     <dt>Fee</dt>

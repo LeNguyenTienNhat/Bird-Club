@@ -18,7 +18,7 @@
         <link rel="icon" href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/favicon.png">
         <link href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/images/apple-icon-touch.png" rel="apple-touch-icon" />	
 
-        <title>Events - Field trips</title>
+        <title>Events - Meetings</title>
         <meta name='robots' content='max-image-preview:large' />
         <link rel='dns-prefetch' href='//www.birds.cornell.edu' />
         <link rel='dns-prefetch' href='//code.jquery.com' />
@@ -121,13 +121,14 @@
                                         <img src="https://cdn.shopify.com/s/files/1/0020/1926/2510/products/red-whiskered-bulbul-2_1200x1200.jpg?v=1551037285">
                                     </figure>
                                     <br>
-
-                                    <dt>Focus</dt>${meeting.getDescription()}
-                                    <dt>Note</dt>${meeting.getNote()}
-                                    
-                                    <div class="is-layout-flex wp-block-buttons"></div>
-
+                                    <dt><strong>Focus</strong>
+                                    <dd>${meeting.getDescription()}<dd></dt>
+                                    <dt><strong>Note</strong>
+                                    <dd>${meeting.getNote()}<dd>
+                                    </dt>                                  
+                                        <div class="is-layout-flex wp-block-buttons"></div>
                                 </div>
+
 
 
 
@@ -153,38 +154,38 @@
                                                     <dt> Leader </dt>
                                                     <dd><abbr  class="tribe-events-abbr tribe-events-start-date published dtstart" > ${meeting.getIncharge()}</abbr>
                                                 </div>
-                                                
+
                                                 </dd>
                                                 <div class="row">
                                                     <dt> Participant </dt>
                                                     <dd ><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" > ${meeting.getNumberOfParticipant()}</abbr>
                                                     </dd>
                                                 </div>
-                                                    <div class="row">
-                                                <dt> Start </dt>
-                                                <dd><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" title="2023-05-27"> ${meeting.getStartDate()}</abbr>
-                                                </dd>
-                                                    </div>
                                                 <div class="row">
-                                                <dt> End </dt>
-                                                <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
-                                                        <div class="tribe-recurring-event-time">${meeting.getEndDate()}</div>
-                                                </dd>
+                                                    <dt> Start </dt>
+                                                    <dd><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" title="2023-05-27"> ${meeting.getStartDate()}</abbr>
+                                                    </dd>
                                                 </div>
-                                                 <div class="row">
-                                                <dt > Registration Deadline </dt>
-                                                <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
-                                                        <div class="tribe-recurring-event-time">${meeting.getRegistrationDeadline()}</div>
-                                                </dd>
-                                                 </div>
                                                 <div class="row">
-                                                <dt>Contact</dt>
-                                                <dd>${meeting.getContact()}</dd>
+                                                    <dt> End </dt>
+                                                    <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
+                                                            <div class="tribe-recurring-event-time">${meeting.getEndDate()}</div>
+                                                    </dd>
                                                 </div>
-                                                 <div class="row">
-                                                <dt>Organizer</dt>
-                                                <dd>${meeting.getHost()}</dd>
-                                                 </div>
+                                                <div class="row">
+                                                    <dt > Registration Deadline </dt>
+                                                    <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
+                                                            <div class="tribe-recurring-event-time">${meeting.getRegistrationDeadline()}</div>
+                                                    </dd>
+                                                </div>
+                                                <div class="row">
+                                                    <dt>Contact</dt>
+                                                    <dd>${meeting.getContact()}</dd>
+                                                </div>
+                                                <div class="row">
+                                                    <dt>Organizer</dt>
+                                                    <dd>${meeting.getHost()}</dd>
+                                                </div>
                                                 <div class="row">
                                                     <dt>Location:</dt>
                                                     <dd>${location}</dd>
@@ -199,7 +200,7 @@
                                                         <!--<a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>-->
                                                     </div>	
                                                 </div> 
-                                                 <a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>
+                                                <a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>
 
                                         </div>
                                         </dl>
