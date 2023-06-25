@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import tool.utils.EmailSender;
 
 public class StaffMember extends HttpServlet {
 
@@ -77,7 +78,12 @@ public class StaffMember extends HttpServlet {
         else if (action.equals("approvemember")) {
             String UID = request.getParameter("UID");
             manager.updateRole(UID, "member");
-
+            
+            MemberManager mm = new MemberManager();
+            String email = mm.getUserEmail(UID);
+            EmailSender e = new EmailSender();
+            e.sendEmail(email, "Approval notification", ""
+                    + "Congratulation on becoming one of ChimOwners' members", "http://localhost:8080/chimowners/");
             RequestDispatcher rd = request.getRequestDispatcher("StaffMember");
             rd.forward(request, response);
         } //view a member's details
