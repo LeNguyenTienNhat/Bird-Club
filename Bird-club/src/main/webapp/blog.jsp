@@ -300,30 +300,16 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        
-                                                            <div class="row">                                                               
-                                                                <div class="col-md-8">
-                                                                    <dd>
-                                                                        <img src="${b.getImage()}" alt="Description of the image" style="display: block;
-                                                                        margin: auto; width: 200px; height: 150px; ">
-                                                                    </dd>
-                                                                </div>
-                                                            </div>
-                                                         
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <dd>
-                                                                        <div class="tribe-recurring-event-time">${b.getBlogsContent()}</div>
-                                                                    </dd>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                   <div class="row">
+    <div class="col-md-8">
+        <dd>
+            <img src="${b.getImage()}" alt="Description of the image" style="display: block; margin: auto; width: 200px; height: 150px;">
+        </dd>
+    </div>
+    <div class="col-md-4">
+        <div class="tribe-recurring-event-time">${b.getBlogsContent()}</div>
+    </div>
+</div>
                                                 <h4 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium" style="display: flex; justify-content: center;">
                                                     <div class="col-md-4">
                                                                     <dt><strong>Comment</strong></dt></dt>

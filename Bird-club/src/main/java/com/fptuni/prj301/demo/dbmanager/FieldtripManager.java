@@ -133,9 +133,13 @@ public class FieldtripManager {
 
     public List<Fieldtrip> getTop10() {
         List<Fieldtrip> fieldtrips = new ArrayList<>();
-        String sql = "SELECT TOP 10 F.*, FM.URL FROM FieldTrip AS F "
+        String sql = "SELECT TOP 10 F.*, FM.URL "
+                + "FROM FieldTrip AS F "
                 + "LEFT JOIN "
-                + "(SELECT DISTINCT FID, URL FROM FieldTripMedia) AS FM "
+                + "(SELECT FID, URL "
+                + " FROM (SELECT FID, URL, ROW_NUMBER() OVER (PARTITION BY FID ORDER BY URL DESC) AS RowNum "
+                + "       FROM FieldTripMedia) AS FMSub "
+                + " WHERE RowNum = 1) AS FM "
                 + "ON F.FID = FM.FID "
                 + "ORDER BY F.startDate DESC";
 

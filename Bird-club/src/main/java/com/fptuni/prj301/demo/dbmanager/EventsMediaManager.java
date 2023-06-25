@@ -55,45 +55,53 @@ public class EventsMediaManager {
         return list;
     }
 
-    public String getURLByID(String tableName, String ID) {
-        String IDtype;
-        if (tableName.equalsIgnoreCase("TournamentMedia")) {
-            IDtype = "TID";
-        } else if (tableName.equalsIgnoreCase("FieldTripMedia")) {
-            IDtype = "FID";
-        } else {
-            IDtype = "MeID";
-        }
+public String getURLByID(String tableName, String ID) {
+    String IDtype;
 
-        String sql = "SELECT URL FROM [" + tableName + "] WHERE " + IDtype + " = ?";
-        try (Connection conn = DBUtils.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, ID);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    return rs.getString("URL");
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return null; // Return null if the URL is not found
+    if (tableName.equalsIgnoreCase("TournamentMedia")) {
+        IDtype = "TID";
+    } else if (tableName.equalsIgnoreCase("FieldTripMedia")) {
+        IDtype = "FID";
+    } else {
+        IDtype = "MeID";
     }
-    public static void main(String[] args) {
-    // Create an instance of the class containing the getList() and getURLByID() methods
-    EventsMediaManager yourClass = new EventsMediaManager();
 
-    // Test getList() method
-    String tableName = "FieldTripMedia";
-    String ID = "FID1";
+    String sql = "SELECT URL FROM (SELECT URL, ROW_NUMBER() OVER (ORDER BY URL DESC) AS RowNum " +
+                 "FROM [" + tableName + "] WHERE " + IDtype + " = ?) AS T " +
+                 "WHERE RowNum = 1";
 
-    // Print the details of the media objects
+    try (Connection conn = DBUtils.getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
 
+        ps.setString(1, ID);
 
-    // Test getURLByID() method
-    String mediaURL = yourClass.getURLByID(tableName, ID);
-    System.out.println("URL: " + mediaURL);
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                String url = rs.getString("URL");
+                // Process the URL as needed
+                return url;
+            }
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return null; // Return null if the URL is not found or an exception occurs
 }
+
+    public static void main(String[] args) {
+        // Create an instance of the class containing the getList() and getURLByID() methods
+        EventsMediaManager yourClass = new EventsMediaManager();
+
+        // Test getList() method
+        String tableName = "TournamentMedia";
+        String ID = "TID1";
+
+        // Print the details of the media objects
+        // Test getURLByID() method
+        String mediaURL = yourClass.getURLByID(tableName, ID);
+        System.out.println("URL: " + mediaURL);
+    }
 
 }
