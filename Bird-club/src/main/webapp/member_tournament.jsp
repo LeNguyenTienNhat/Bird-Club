@@ -63,28 +63,27 @@
 
         <h2 class="has-text-align-center has-large-font-size">Tournament List</h2>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var searchInput = document.getElementById('searchInput');
-                var tournamentItems = document.getElementsByClassName('tournament-item');
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var searchInput = document.getElementById('searchInput');
+        var tournamentItems = document.getElementsByClassName('tournament-item');
 
-                searchInput.addEventListener('input', function () {
-                    var searchValue = searchInput.value.toLowerCase();
+        searchInput.addEventListener('input', function () {
+            var searchValue = searchInput.value.toLowerCase();
 
-                    for (var i = 0; i < tournamentItems.length; i++) {
-                        var tournamentName = tournamentItems[i].querySelector('.tribe-events-calendar-list__event-title').textContent.toLowerCase();
-                        var tournamentStatus = tournamentItems[i].querySelector('.status-button').textContent.toLowerCase();
-                        if (tournamentName.includes(searchValue) || tournamentStatus.includes(searchValue)) {
-                            tournamentItems[i].style.display = 'block';
-                        } else {
-                            tournamentItems[i].style.display = 'none';
-                        }
-                    }
-                });
-            });
-        </script>
+            for (var i = 0; i < tournamentItems.length; i++) {
+                var tournamentName = tournamentItems[i].querySelector('.tribe-events-calendar-list__event-title-link').textContent.toLowerCase();
+                var tournamentStatus = tournamentItems[i].querySelector('.status-button').textContent.toLowerCase();
 
-
+                if (tournamentName.includes(searchValue) || tournamentStatus.includes(searchValue)) {
+                    tournamentItems[i].style.display = 'block';
+                } else {
+                    tournamentItems[i].style.display = 'none';
+                }
+            }
+        });
+    });
+</script>
         <main id="main-content" class="page has-hero">
             <article id="article" class="post-1229 page type-page status-publish has-post-thumbnail hentry">
 

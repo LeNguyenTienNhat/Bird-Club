@@ -6,9 +6,11 @@
 package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.BirdManager;
+import com.fptuni.prj301.demo.dbmanager.TournamentManager;
 import com.fptuni.prj301.demo.dbmanager.TparticipationManager;
 import com.fptuni.prj301.demo.dbmanager.TransactionManager;
 import com.fptuni.prj301.demo.model.Bird;
+import com.fptuni.prj301.demo.model.Tournament;
 import com.fptuni.prj301.demo.model.Tparticipation;
 import com.fptuni.prj301.demo.model.Transaction;
 import java.io.IOException;
@@ -50,8 +52,12 @@ public class BirdController extends HttpServlet {
         if (action != null && action.equals("view")) {
             // Process the view action
             BirdManager birdController = new BirdManager();
+             String tid = request.getParameter("TID");
             String UID = request.getParameter("UID");
             List<Bird> birds = birdController.getBirdsByUID(UID);
+            TournamentManager t = new TournamentManager();
+            Tournament tournament = t.getTournamentById(tid);
+            request.setAttribute("tournament", tournament);
 
             request.setAttribute("birdList", birds);
             request.getRequestDispatcher("/member_TsignUp.jsp").forward(request, response);
@@ -61,6 +67,7 @@ public class BirdController extends HttpServlet {
             String bid = request.getParameter("BID");
             String docNo = UIDGenerator.generateDocT();
             HttpSession ss = request.getSession(true);
+
             // Create a new Tparticipation object with the provided parameters
             Tparticipation tparticipation = new Tparticipation();
             tparticipation.setTid(tid);
@@ -75,7 +82,8 @@ public class BirdController extends HttpServlet {
             if (success) {
                 // Redirect to a success page
                 request.setAttribute("docT", docNo);
-                ss.setAttribute("docT", docNo); 
+                ss.setAttribute("docT", docNo);
+
                 response.sendRedirect(request.getContextPath() + "/index.jsp");
             } else {
                 // Redirect to a failure page
@@ -83,7 +91,7 @@ public class BirdController extends HttpServlet {
             }
         }
         if (action != null && action.equals("delete")) {
-             String docNoToDelete = request.getParameter("docT");
+            String docNoToDelete = request.getParameter("docT");
 
             if (docNoToDelete != null) {
                 TparticipationManager tparticipationManager = new TparticipationManager();
@@ -101,7 +109,7 @@ public class BirdController extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/failure.jsp");
             }
         }
-         if (action != null && action.equals("save")) {
+        if (action != null && action.equals("save")) {
             String PID = UIDGenerator.generatePID();
             BigDecimal amount1 = new BigDecimal(request.getParameter("amount")).multiply(BigDecimal.valueOf(100));
             String uid = request.getParameter("UID");
@@ -124,7 +132,6 @@ public class BirdController extends HttpServlet {
                 return;
             }
         }
-
 
     }
 

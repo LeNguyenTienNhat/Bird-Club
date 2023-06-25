@@ -122,8 +122,12 @@
                                     </figure>
                                     <br>
 
-                                    <dt>Focus</dt>${fieldtrip.getDescription()}
-                                    <dt>Note</dt>${fieldtrip.getNote()}
+                                    <dt><strong>Focus</strong>
+                                    <dd>${fieldtrip.getDescription()}</dd>
+                                    </dt>
+                                    <dt><strong>Note</strong>
+                                    <dd>${fieldtrip.getNote()}</dd>
+                                    </dt>
 
                                     <div class="is-layout-flex wp-block-buttons"></div>
 
@@ -160,40 +164,40 @@
                                                     <dd ><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" > ${fieldtrip.getNumberOfParticipant()}</abbr>
                                                     </dd>
                                                 </div>
-                                                    <div class="row">
-                                                <dt> Start </dt>
-                                                <dd><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" title="2023-05-27"> ${fieldtrip.getStartDate()}</abbr>
-                                                </dd>
-                                                    </div>
                                                 <div class="row">
-                                                <dt> End </dt>
-                                                <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
-                                                        <div class="tribe-recurring-event-time">${fieldtrip.getEndDate()}</div>
-                                                </dd>
+                                                    <dt> Start </dt>
+                                                    <dd><abbr class="tribe-events-abbr tribe-events-start-date published dtstart" title="2023-05-27"> ${fieldtrip.getStartDate()}</abbr>
+                                                    </dd>
                                                 </div>
-                                                 <div class="row">
-                                                <dt > Registration Deadline </dt>
-                                                <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
-                                                        <div class="tribe-recurring-event-time">${fieldtrip.getRegistrationDeadline()}</div>
-                                                </dd>
-                                                 </div>
-                                                
+                                                <div class="row">
+                                                    <dt> End </dt>
+                                                    <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
+                                                            <div class="tribe-recurring-event-time">${fieldtrip.getEndDate()}</div>
+                                                    </dd>
+                                                </div>
+                                                <div class="row">
+                                                    <dt > Registration Deadline </dt>
+                                                    <dd><div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
+                                                            <div class="tribe-recurring-event-time">${fieldtrip.getRegistrationDeadline()}</div>
+                                                    </dd>
+                                                </div>
+
                                                 <div class="row">
                                                     <dt>Fee</dt>
                                                     <dd >${fieldtrip.getFee()}$</dd>
                                                 </div>
                                                 <div class="row">
-                                                <dt>Contact</dt>
-                                                <dd>${fieldtrip.getContact()}</dd>
+                                                    <dt>Contact</dt>
+                                                    <dd>${fieldtrip.getContact()}</dd>
                                                 </div>
-                                                 <div class="row">
-                                                <dt>Organizer</dt>
-                                                <dd>${fieldtrip.getHost()}</dd>
-                                                 </div>
-                                                 
+                                                <div class="row">
+                                                    <dt>Organizer</dt>
+                                                    <dd>${fieldtrip.getHost()}</dd>
+                                                </div>
+
                                                 <div class="row">
                                                     <dt>Location:</dt>
-                                                     <dd>${location}</dd>
+                                                    <dd>${location}</dd>
                                                     <div  class=" tribe-block tribe-block__venue tribe-block__venue--has-map">
                                                         <div class="tribe-block__venue__meta">
                                                             <div class="tribe-block__venue__name">
@@ -205,7 +209,7 @@
                                                         <!--<a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>-->
                                                     </div>	
                                                 </div> 
-                                                 <a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>
+                                                <a class="tribe-events-gmap" href="https://www.google.com/maps/place/FPT+University+HCMC/@15.874983,100.8691978,6z/data=!4m10!1m2!2m1!1sfpt+university+ho+chi+minh!3m6!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8411276!4d106.809883!15sChpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaFocIhpmcHQgdW5pdmVyc2l0eSBobyBjaGkgbWluaJIBB2NvbGxlZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkNiSEY1Y2paUlJSQULgAQA!16s%2Fg%2F11j2zx_fz_?hl=en&entry=ttu" title="Click to view a Google Map" target="_blank" rel="noreferrer noopener">View Map</a></address>
 
                                         </div>
                                         </dl>
