@@ -14,7 +14,7 @@
         <meta class="foundation-mq">
         <link rel="icon" href="https://www.allaboutbirds.org/news/wp-content/themes/birdpress2/favicon.png">
         <link href="https://www.allaboutbirds.org/news/wp-content/themes/birdpress2/images/apple-icon-touch.png" rel="apple-touch-icon" />
-        <title>Vietnam's Epic Red-Whiskered Bulbul Competition 5th</title>
+        <title>My Profile</title>
         <meta name='robots' content='max-image-preview:large' />
         <link rel='dns-prefetch' href='//www.allaboutbirds.org' />
         <link rel='dns-prefetch' href='//code.jquery.com' />

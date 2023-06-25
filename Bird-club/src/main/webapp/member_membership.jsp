@@ -132,28 +132,28 @@
         }
     </style>
     <h2 class="has-text-align-center has-large-font-size">Membership Type Selection</h2>
-    <div class="container">
-        <c:if test="${not empty records}">
-            <c:forEach var="r" items="${records}">
-                <form action="${pageContext.request.contextPath}/MemberShipController" method="post">
-                    <div class="membership-options">
-                        <div class="membership-option" onclick="selectMembershipOption(this)">
-                            <h2>${r.getName()}</h2>
-                            <p class="membership-fee">Fee: ${r.getValue()}</p>
-                            <div class="membership-description">${r.getDescription()}</div>
-                            <input type="hidden" name="action" value="add">
-                            <input type="hidden" name="UID" value="${users.getUserName()}" />
-                            <input type="hidden" name="membership" value="${r.getMID()}" />
-                            <input type="submit" value="Proceed to Payment">
-                        </div>
-                    </div>
-                </form>
-            </c:forEach>
-        </c:if>
-    </div>
-    <div class="footer">
-        <%@ include file="member_footer.jsp" %>
-    </div>
+  <div class="container">
+    <c:if test="${not empty records}">
+        <c:forEach var="r" items="${records}">
+            <c:if test="${not r.getName().contains('Staff')}">    
+                        <form action="${pageContext.request.contextPath}/MemberShipController" method="post">
+                            <div class="membership-options">
+                                <div class="membership-option" onclick="selectMembershipOption(this)">
+                                    <h2>${r.getName()}</h2>
+                                    <p class="membership-fee">Fee: ${r.getValue()}$</p>
+                                    <div class="membership-description">${r.getDescription()}</div>
+                                    <input type="hidden" name="action" value="add">
+                                    <input type="hidden" name="UID" value="${users.getUserName()}" />
+                                    <input type="hidden" name="membership" value="${r.getMID()}" />
+                                    <input type="submit" value="Proceed to Payment">
+                                </div>
+                            </div>
+                        </form>
+            </c:if>
+        </c:forEach>
+    </c:if>
+</div>
+   
     <script>
         function selectMembershipOption(option) {
             var membershipOptions = document.getElementsByClassName('membership-option');
@@ -167,7 +167,9 @@
     </script>
 </body>
 
-
+<div class="footer">
+    <%@ include file="member_footer.jsp" %>
+</div>
 
    
 </html>
