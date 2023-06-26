@@ -139,45 +139,52 @@
                         <div class="row">
                             <div class="col-md-3 border-right">
                                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                    <img class="rounded-circle mt-5" width="150px" src="https://logodix.com/logo/1070634.png"><span class="font-weight-bold">${users.getUserName()}</span><span class="text-black-50">${users.getEmail()}</span><span> </span></div>
+                                    <img class="rounded-circle mt-5" width="150px" src="https://logodix.com/logo/1070634.png">
+                                    <span class="font-weight-bold">${users.getUserName()}</span>
+                                    <span class="text-black-50">${users.getEmail()}</span><span> </span></div>
                             </div>
                             <div class="col-md-5 border-right">
                                 <div class="p-3 py-5">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <h4 class="text-right">Profile Settings</h4>
                                     </div>
-                                    <div class="row mt-2">
-                                        <div class="col-md-6">
-                                            <label class="labels">Username</label>
-                                            <input type="text" class="form-control" placeholder="User name" value="${users.getUserName()}">
+                                    <form id="SaveProfileForm" action="MemberProfileController" method="post">
+                                        <div class="row mt-2">
+                                            <div class="col-md-6">
+                                                <label class="labels">Username</label>
+                                                <input type="text" class="form-control" name="userName" placeholder="User name" value="${users.getUserName()}">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="labels">Full name</label>
+                                                <input type="text" class="form-control" name="fullName" value="${users.getFullName()}" placeholder="Full name">
+                                            </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <label class="labels">Full name</label>
-                                            <input type="text" class="form-control" value="${users.getFullName()}" placeholder="Full name">
+                                        <div class="row mt-3">
+                                            <div class="col-md-12">
+                                                <label class="labels">Gender</label>
+                                                <input type="text" class="form-control" name="gender" placeholder="Gender" value="${users.getGender()}">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="labels">Phone number</label>
+                                                <input type="text" class="form-control" name="phone" placeholder="Phone number" value="${users.getPhone()}">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="labels">Email address</label>
+                                                <input type="text" class="form-control" name="email" placeholder="Email address" value="${users.getEmail()}">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-md-12">
-                                            <label class="labels">Gender</label>
-                                            <input type="text" class="form-control" placeholder="Gender" value="${users.getGender()}">
+
+                                        <div class="pt-5">
+                                            <div class="flex justify-end">
+                                                <input type="hidden" name="action" value="updateprofile">
+                                                <input type="hidden" name="UID" value="${users.getUID()}">
+                                            </div>
                                         </div>
-                                        <div class="col-md-12">
-                                            <label class="labels">Phone number</label>
-                                            <input type="text" class="form-control" placeholder="Phone number" value="${users.getPhone()}">
-                                        </div>
-                                        <div class="col-md-12">
-                                            <label class="labels">Email address</label>
-                                            <input type="text" class="form-control" placeholder="Email address" value="${users.getEmail()}">
-                                        </div>
-                                    </div>
-                                    <script>
-                                        function saveProfile() {
-                                        window.location.href = "MemberProfileController?action=updateprofile";
-                                        }
-                                    </script>
+                                            
+                                    </form>
+                                    
                                     <div class="mt-5 text-center">
-                                        <!--<button class="btn btn-primary profile-button" type="button">Save Profile</button>-->
-                                        <button class="btn btn-primary profile-button" type="button" onclick="saveProfile()">Save Profile</button>
+                                        <button class="btn btn-primary profile-button" form="SaveProfileForm" type="submit">Save Profile</button>
                                     </div>
 
                                     <style>
@@ -187,9 +194,9 @@
                                         }
                                     </style>
                                     <form action="${pageContext.request.contextPath}/BirdController" method="POST">
-                                            <input type="hidden" name="action" value="viewbirdprofile">
-                                            <input type="hidden" name="UID" value="${users.getUID()}">                                                                                                                      
-                                            <button type="submit" class="wp-block-button__link has-blush-light-purple-gradient-background has-background">My Bird</button>
+                                        <input type="hidden" name="action" value="viewbirdprofile">
+                                        <input type="hidden" name="UID" value="${users.getUID()}">                                                                                                                      
+                                        <button type="submit" class="wp-block-button__link has-blush-light-purple-gradient-background has-background">My Bird</button>
                                     </form>
                                     <a href="member_membership.jsp" class="nav-link">Membership</a>
                                 </div>
