@@ -457,11 +457,16 @@
 
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
                         <div class="sm:flex-auto">
-                            <%! String cate;  %>
-                            <% cate = (String) request.getAttribute("cate"); %>
-                            <h1 class="text-xl font-semibold text-gray-900"><% out.print(cate); %></h1>
+                            
+                            <%
+                                int pageNum = (Integer) request.getAttribute("page");
+                                String category = (String) request.getAttribute("category");
+                                String status = (String) request.getAttribute("status");
+                            %>
+                            <h1 class="text-xl font-semibold text-gray-900"><% out.print(status.toUpperCase()+" "); %>
+                                <% out.print(category+" "); %><% out.print("- Page "+pageNum); %></h1>
                             <p class="mt-2 text-sm text-gray-700">
-                                Available <% out.print(cate+"(s)"); %> hosted by Chim Owners.
+                                Available <% out.print(category + "(s)"); %> hosted by Chim Owners.
                             </p>
                         </div>
 
@@ -486,7 +491,8 @@
                         mList = (List<Meeting>) request.getAttribute("mList"); %>
 
                     <%
-                        int a = (Integer) request.getAttribute("total");
+                        int a = (Integer) request.getAttribute("a");
+                        int total = (Integer) request.getAttribute("total");
                         int b = (Integer) request.getAttribute("ongoingFieldTrips");
                         int c = (Integer) request.getAttribute("ongoingMeetings");
                         int d = (Integer) request.getAttribute("pending");
@@ -516,7 +522,7 @@
                                                 <div>
                                                     <legend class="block font-medium">Status</legend>
                                                     <div class="mt-1">
-                                                        <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="status" id="status">
+                                                        <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="status" id="status">
                                                             <option value="pending">Pending</option>
                                                             <option value="formClosed">Registration ended</option>
                                                             <option value="ongoing">On going</option>
@@ -527,16 +533,26 @@
                                                 <div>
                                                     <legend class="block font-medium">Category</legend>
                                                     <div class="mt-1">
-                                                        <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="category" id="category">
+                                                        <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="category" id="category">
                                                             <option value="Field trip">Field Trip</option>
                                                             <option value="Meeting">Meeting</option></select>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="space-y-4">
+                                                <legend class="block font-medium">Confirm sort</legend>
+                                                <div class="mt-1">                                               
+                                                    <button type="submit" class="flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="flex-none mr-2 w-5 h-5">
+                                                        <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd"></path>
+                                                        </svg>Sort</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <input type="hidden" name="action" value="viewevents">
+
                             </form>  </section>
                     </div>
 
@@ -548,7 +564,7 @@
                                         <dt class="text-base font-normal text-gray-900">All events:</dt>
                                         <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                             <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                <% out.print(a); %>
+                                                <% out.print(total); %>
                                             </div>
                                         </dd>
                                     </div>
@@ -572,7 +588,7 @@
                                     </div>
 
                                     <div class="px-4 py-5 sm:p-6">
-                                        <dt class="text-base font-normal text-gray-900">Pending</dt>
+                                        <dt class="text-base font-normal text-gray-900">Pending events</dt>
                                         <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                             <div class="flex items-baseline text-2xl font-semibold text-teal-600">
                                                 <% out.print(d); %>
@@ -581,7 +597,7 @@
                                     </div>
 
                                     <div class="px-4 py-5 sm:p-6">
-                                        <dt class="text-base font-normal text-gray-900">Coming</dt>
+                                        <dt class="text-base font-normal text-gray-900">Coming events</dt>
                                         <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                             <div class="flex items-baseline text-2xl font-semibold text-teal-600">
                                                 <% out.print(e); %>
@@ -590,7 +606,7 @@
                                     </div>
 
                                     <div class="px-4 py-5 sm:p-6">
-                                        <dt class="text-base font-normal text-gray-900">Ended</dt>
+                                        <dt class="text-base font-normal text-gray-900">Ended events</dt>
                                         <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                             <div class="flex items-baseline text-2xl font-semibold text-teal-600">
                                                 <% out.print(g); %>
@@ -833,22 +849,32 @@
                 <div class="hidden sm:block">
                     <span class="pagy-info">Displaying <b><% out.print(fList.size() + mList.size()); %></b> event(s)</span>
                 </div>
-
-                <%! int i;%>
-                <% int total = (Integer) request.getAttribute("total");
-                    total = (total / 20) + 1;
-                    for (i = 1; i <= total; i++) {
-                        out.print("<span class='page'><form>"
-                                + "<input type='hidden' name='page' value='" + i + "'>"
-                                + "<input type='hidden' name='action' value='viewevents'>"
-                                + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
-                                + "</form></span>");
-                    }
-                %>
+                <nav class="pagy-nav pagination">
+                    <%! int i;%>
+                    <% int totalNum = (Integer) request.getAttribute("a");
+                        totalNum = (totalNum / 10) + 1;
+                        for (i = 1; i <= totalNum; i++) {
+                            if (pageNum == i) {
+                                out.print("<span class='page'><form>"
+                                        + "<input type='hidden' name='page' value='" + i + "'>"
+                                        + "<input type='hidden' name='action' value='viewevents'>"
+                                        + "<input type='hidden' name='category' value='" + category + "'>"
+                                        + "<input type='hidden' name='category' value='" + status + "'>"
+                                        + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
+                                        + "</form></span>");
+                            } else {
+                                out.print("<span class='page'><form>"
+                                        + "<input type='hidden' name='page' value='" + i + "'>"
+                                        + "<input type='hidden' name='action' value='viewevents'>"
+                                        + "<input type='hidden' name='category' value='" + category + "'>"
+                                        + "<input type='hidden' name='category' value='" + status + "'>"
+                                        + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
+                                        + "</form></span>");
+                            }
+                        }
+                    %>
+                </nav>
             </div>
-
-
-
         </div>       
     </main>
 

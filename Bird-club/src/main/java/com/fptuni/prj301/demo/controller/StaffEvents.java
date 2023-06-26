@@ -49,39 +49,55 @@ public class StaffEvents extends HttpServlet {
                 skip = (page - 1) * 10;
             } catch (NumberFormatException e) {
                 skip = 0;
+                page = 1;
             }
             String category = request.getParameter("category");
-            
+
             List<Fieldtrip> fList = new ArrayList();
             List<Meeting> mList = new ArrayList();
-            if (category==null || category.equalsIgnoreCase("Field trip")) {
+            int a;
+            if (category == null || category.equalsIgnoreCase("Field trip")) {
                 //display fieldtrips
-                fList = fm.getRecords(skip, 5, status, "startDate");              
-                request.setAttribute("cate", "Field trip");
+                fList = fm.getRecords(skip, 5, status, "startDate");
+                for (Fieldtrip fp : fList) {
+                    if (fp.getDescription().length() > 201) {
+                        fp.setDescription(fp.getDescription().substring(0, 200) + "...");
+                    }
+                }
+                a = fm.getTotalNumber();
+                category = "Field trip";
             } else {
                 //display meetings
-                mList = mm.getRecords(skip, 5, status, "startDate");                
-                request.setAttribute("cate", "Meeting");
-            } 
+                mList = mm.getRecords(skip, 5, status, "startDate");
+                for (Meeting mg : mList) {
+                    if (mg.getDescription().length() > 201) {
+                        mg.setDescription(mg.getDescription().substring(0, 200) + "...");
+                    }
+                }
+                a = mm.getTotalNumber();
+            }
             LocationManager lm = new LocationManager();
             List<Location> locationsList = lm.getList();
             request.setAttribute("locationsList", locationsList);
 
-            int a = fm.getTotalNumber() + mm.getTotalNumber();
             int b = fm.getNumberAsStatus("ongoing");
             int c = mm.getNumberAsStatus("ongoing");
             int d = fm.getNumberAsStatus("pending") + mm.getNumberAsStatus("pending");
             int e = fm.getNumberAsStatus("formClosed") + mm.getNumberAsStatus("formClosed");
             int g = fm.getNumberAsStatus("finished") + mm.getNumberAsStatus("finished");
-            
+
+            request.setAttribute("a", a);
             request.setAttribute("fList", fList);
             request.setAttribute("mList", mList);
-            request.setAttribute("total", a);
+            request.setAttribute("total", fm.getTotalNumber()+mm.getTotalNumber());
             request.setAttribute("ongoingFieldTrips", b);
             request.setAttribute("ongoingMeetings", c);
             request.setAttribute("pending", d);
             request.setAttribute("approaching", e);
             request.setAttribute("ended", g);
+            request.setAttribute("page", page);
+            request.setAttribute("category", category);
+            request.setAttribute("status", status);
 
             RequestDispatcher rd = request.getRequestDispatcher("staff_events.jsp");
             rd.forward(request, response);
@@ -89,7 +105,7 @@ public class StaffEvents extends HttpServlet {
         else if (action.equals("addfieldtrip")) {
             String FID = tool.generateID("FieldTrip", "FID");
             String name, description, LID, status = "pending", note, incharge, host, contact, registrationDeadline, startDate, endDate;
-            int fee, numberOfParticipant, totalPrize;
+            int fee, numberOfParticipant;
 
             name = request.getParameter("name");
             description = request.getParameter("description");
