@@ -133,6 +133,25 @@ public class BirdController extends HttpServlet {
             }
         }
 
+
+
+        if (action != null && action.equals("viewbirdprofile")) {
+            // Process the view action
+            BirdManager birdController = new BirdManager();
+            String UID = request.getParameter("UID");
+            List<Bird> birds = birdController.getBirdsByUID(UID);           
+            request.setAttribute("birdList", birds);
+            request.getRequestDispatcher("/member_BirdList.jsp").forward(request, response);
+        }
+        if (action != null && action.equals("viewbirddetail")) {
+            // Process the view action
+            BirdManager birdController = new BirdManager();
+            String UID = request.getParameter("UID");
+            List<Bird> birds = birdController.getBirdsByUID(UID);           
+            request.setAttribute("birdList", birds);
+            request.getRequestDispatcher("/member_BirdDetail.jsp").forward(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -102,68 +102,47 @@
                                         } body{background:#eee}.ratings i{font-size: 16px;color: red}.strike-text{color: red;text-decoration: line-through}.product-image{width: 100%}.dot{height: 7px;width: 7px;margin-left: 6px;margin-right: 6px;margin-top: 3px;background-color: blue;border-radius: 50%;display: inline-block}.spec-1{color: #938787;font-size: 15px}h5{font-weight: 400}.para{font-size: 16px}</style>
                                     </head>
                                     <body className='snippet-body'>
-                                        <div class="container mt-5 mb-5">
-                                            <div class="d-flex justify-content-center row">
-                                                <div class="col-md-10">
-                                                    <div class="row p-2 bg-white border rounded">
-                                                        <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://www.google.com.vn/imgres?imgurl=https%3A%2F%2Fagridoctor.vn%2Fsites%2Fdefault%2Ffiles%2Fgiong-chim-chao-mao-2.jpg&tbnid=QoffjvbHAJ9qUM&vet=12ahUKEwiav8Hv1ZX_AhWMdHAKHel8AnQQMygDegUIARDIAQ..i&imgrefurl=https%3A%2F%2Fwww.agridoctor.vn%2Fvi%2Fgiong-chim-chao-mao-tim-hieu-nguon-goc-dac-diem-tap-tinh-cua-chim-0&docid=d99d2jMUzvXW5M&w=900&h=600&q=chim%20ch%C3%A0o%20m%C3%A0o&ved=2ahUKEwiav8Hv1ZX_AhWMdHAKHel8AnQQMygDegUIARDIAQ"></div>
-                                                        <div class="col-md-6 mt-1">
-                                                            <h5>Bird Name</h5>
+                                        <table>
+                                        <style>
+                                            .table-heading {
+                                                text-align: center;
+                                                text-size: 100px;
+                                            }
+                                        </style>                                        
+                                        <tr >
 
-                                                            <p class="text-justify text-truncate para mb-0">description<br><br></p>
-                                                        </div>
-                                                        <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                                                            <div class="d-flex flex-column mt-4"><a href="member_BirdDetail.jsp" >Details</a><div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
+                                            <td style="text-align: center;">Bird Name</td>
+                                            <td style="text-align: center;">Image</td>
+                                            <td style="text-align: center;"></td>
+                                            <c:if test="${empty birdList}">
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div>
+                                                        <p>No bird found.</p>
                                                     </div>
-                                                    <div class="row p-2 bg-white border rounded">
-                                                        <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://www.google.com.vn/imgres?imgurl=https%3A%2F%2Fagridoctor.vn%2Fsites%2Fdefault%2Ffiles%2Fgiong-chim-chao-mao-2.jpg&tbnid=QoffjvbHAJ9qUM&vet=12ahUKEwiav8Hv1ZX_AhWMdHAKHel8AnQQMygDegUIARDIAQ..i&imgrefurl=https%3A%2F%2Fwww.agridoctor.vn%2Fvi%2Fgiong-chim-chao-mao-tim-hieu-nguon-goc-dac-diem-tap-tinh-cua-chim-0&docid=d99d2jMUzvXW5M&w=900&h=600&q=chim%20ch%C3%A0o%20m%C3%A0o&ved=2ahUKEwiav8Hv1ZX_AhWMdHAKHel8AnQQMygDegUIARDIAQ"></div>
-                                                        <div class="col-md-6 mt-1">
-                                                            <h5>brid Name</h5>
+                                                </td>
+                                            </tr>
+                                        </c:if>
 
-                                                            <p class="text-justify text-truncate para mb-0">description<br><br></p>
-                                                        </div>
-                                                        <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                                                            <div class="d-flex flex-column mt-4"><a href="member_BirdDetail.jsp" >Details</a><div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="row p-2 bg-white border rounded">
-                                                        <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://www.google.com.vn/imgres?imgurl=https%3A%2F%2Fagridoctor.vn%2Fsites%2Fdefault%2Ffiles%2Fgiong-chim-chao-mao-2.jpg&tbnid=QoffjvbHAJ9qUM&vet=12ahUKEwiav8Hv1ZX_AhWMdHAKHel8AnQQMygDegUIARDIAQ..i&imgrefurl=https%3A%2F%2Fwww.agridoctor.vn%2Fvi%2Fgiong-chim-chao-mao-tim-hieu-nguon-goc-dac-diem-tap-tinh-cua-chim-0&docid=d99d2jMUzvXW5M&w=900&h=600&q=chim%20ch%C3%A0o%20m%C3%A0o&ved=2ahUKEwiav8Hv1ZX_AhWMdHAKHel8AnQQMygDegUIARDIAQ"></div>
-                                                        <div class="col-md-6 mt-1">
-                                                            <h5>brid Name</h5>
-
-                                                            <p class="text-justify text-truncate para mb-0">description<br><br></p>
-                                                        </div>
-                                                        <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                                                            <div class="d-flex flex-column mt-4"><a href="member_BirdDetail.jsp" >Details</a><div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="row p-2 bg-white border rounded">
-                                                        <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://www.google.com.vn/imgres?imgurl=https%3A%2F%2Fagridoctor.vn%2Fsites%2Fdefault%2Ffiles%2Fgiong-chim-chao-mao-2.jpg&tbnid=QoffjvbHAJ9qUM&vet=12ahUKEwiav8Hv1ZX_AhWMdHAKHel8AnQQMygDegUIARDIAQ..i&imgrefurl=https%3A%2F%2Fwww.agridoctor.vn%2Fvi%2Fgiong-chim-chao-mao-tim-hieu-nguon-goc-dac-diem-tap-tinh-cua-chim-0&docid=d99d2jMUzvXW5M&w=900&h=600&q=chim%20ch%C3%A0o%20m%C3%A0o&ved=2ahUKEwiav8Hv1ZX_AhWMdHAKHel8AnQQMygDegUIARDIAQ"></div>
-                                                        <div class="col-md-6 mt-1">
-                                                            <h5>brid Name</h5>
-
-                                                            <p class="text-justify text-truncate para mb-0">description<br><br></p>
-                                                        </div>
-                                                        <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                                                            <div class="d-flex flex-column mt-4"><a href="member_BirdDetail.jsp" >Details</a><div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <c:if test="${not empty birdList}">
+                                            <c:forEach var="bird" items="${birdList}">
+                                                <tr>
+                                                    <td style="text-align: center;">${bird.getName()}</td>
+                                                    <td >
+                                                        <img src="${bird.getImageURL()}" alt="Description of the image" style="display: block;
+                                                             margin: auto; width: 200px; height: 150px; ">
+                                                    </td>
+                                                    <td  text-align: center;">
+                                                         <form action="${pageContext.request.contextPath}/BirdController" method="POST">
+                                                            <input type="hidden" name="action" value="viewbirddetail">
+                                                            <input type="hidden" name="BID" value="${bird.getBID()}" />                                                                                                                      
+                                                            <button type="submit" class="wp-block-button__link wp-element-button">Detail</button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </c:if>
+                                    </table>
                                         <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'></script>
                                         <script type='text/javascript' src='#'></script>
                                         <script type='text/javascript' src='#'></script>

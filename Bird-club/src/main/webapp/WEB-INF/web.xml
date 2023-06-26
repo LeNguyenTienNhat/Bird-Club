@@ -59,6 +59,10 @@
         <servlet-name>MemberProfileController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.MemberProfileController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BirdProfileController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.BirdProfileController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomepageController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -218,6 +222,10 @@
     <servlet-mapping>
         <servlet-name>MemberProfileController</servlet-name>
         <url-pattern>/MemberProfileController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BirdProfileController</servlet-name>
+        <url-pattern>/BirdProfileController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

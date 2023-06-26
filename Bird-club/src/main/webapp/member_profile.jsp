@@ -139,7 +139,7 @@
                         <div class="row">
                             <div class="col-md-3 border-right">
                                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                    <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">${users.getUserName()}</span><span class="text-black-50">${users.getEmail()}</span><span> </span></div>
+                                    <img class="rounded-circle mt-5" width="150px" src="https://logodix.com/logo/1070634.png"><span class="font-weight-bold">${users.getUserName()}</span><span class="text-black-50">${users.getEmail()}</span><span> </span></div>
                             </div>
                             <div class="col-md-5 border-right">
                                 <div class="p-3 py-5">
@@ -186,7 +186,11 @@
                                             margin-right: 85px;
                                         }
                                     </style>
-                                    <a href="member_BirdList.jsp" class="nav-link">Bird profile</a>
+                                    <form action="${pageContext.request.contextPath}/BirdController" method="POST">
+                                            <input type="hidden" name="action" value="viewbirdprofile">
+                                            <input type="hidden" name="UID" value="${users.getUID()}">                                                                                                                      
+                                            <button type="submit" class="wp-block-button__link has-blush-light-purple-gradient-background has-background">My Bird</button>
+                                    </form>
                                     <a href="member_membership.jsp" class="nav-link">Membership</a>
                                 </div>
                             </div>

@@ -227,104 +227,64 @@
                                 <div>
                                     <p>No blogs found.</p>
                                 </div>
-                            </c:if>                            
+                            </c:if>
                             <c:if test="${not empty blogList}">
                                 <c:forEach var="b" items="${blogList}" varStatus="loop">
                                     <div class="blog-item">
-                                        <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
-                                            <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
-
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <img src="${b.getImage()}" alt="Description of the image" style="display: block; margin: auto; width: 100%; height: 100%; padding: 20px;">
+                                            </div>
+                                            <div class="col-md-6">
                                                 <h4 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium" style="display: flex; justify-content: center;">
-
-                                                    <a href="${pageContext.request.contextPath}/BlogController?action=view&BID=${f.getBID()}"
-                                                       title="${b.getTitle()}"
-                                                       style="display: flex; align-items: center;"
-                                                       class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
+                                                    <a href="${pageContext.request.contextPath}/BlogController?action=view&BID=${f.getBID()}" title="${b.getTitle()}" style="display: flex; align-items: center;" class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
                                                         ${b.getTitle()}
                                                     </a>
                                                 </h4>
                                                 <div class="container">
                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <dt><strong>Up load day:</strong></dt></dt>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <dd>
-                                                                        <abbr class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2" title="2023-05-27">${b.getUploadDate()}</abbr>
-                                                                    </dd>
-                                                                </div>
-                                                            </div>
+                                                        <div class="col-md-12">
+                                                            <dt><strong>Upload day: </strong>${b.getUploadDate()}</dt>                              
                                                         </div>
                                                     </div>
-<!--                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <dt><strong>Date End</strong></dt></dt>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <dd>
-                                                                        <div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
-                                                                            <div class="tribe-recurring-event-time">${f.getEndDate()}</div>
-                                                                        </div>
-                                                                    </dd>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>-->
                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <dt><strong>Status</strong></dt></dt>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <dd>
-                                                                        <span class="status-button
-                                                                              <c:choose>
-                                                                                  <c:when test="${b.getStatus().contains('Normal')}">
-                                                                                      status-Normal
-                                                                                  </c:when>
-                                                                                  <c:when test="${b.getStatus().contains('Trending')}">
-                                                                                      status-Trending 
-                                                                                  </c:when>                                                           
-                                                                              </c:choose>"
-                                                                              >
-                                                                            ${b.getStatus()}
-                                                                        </span>
-                                                                    </dd>
-                                                                </div>
+                                                        <div class="col-md-12">
+                                                            <dt><strong>Status:</strong> 
 
-                                                            </div>
+                                                                <span class="status-button
+                                                                      <c:choose>
+                                                                          <c:when test="${b.getStatus().contains('Normal')}">
+                                                                              status-Normal
+                                                                          </c:when>
+                                                                          <c:when test="${b.getStatus().contains('Trending')}">
+                                                                              status-Trending 
+                                                                          </c:when>                                                           
+                                                                      </c:choose>">
+                                                                    ${b.getStatus()}
+                                                                </span>
+                                                            </dt>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row" style="width:100%;">
+                                                        
+                                                            <dt style="width:500px;"> ${b.getBlogsContent()}</dt>
+                                                        
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            
+                                                            <dd>
+                                                                <a href="${pageContext.request.contextPath}/CommentController?action=view&BID=${b.getBID()}" title="${b.getTitle()}" style="display: flex; align-items: center;" class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
+                                                                    ${b.getVote()} Commented
+                                                                </a>
+                                                            </dd>
                                                         </div>
                                                     </div>
-                                                   <div class="row">
-    <div class="col-md-8">
-        <dd>
-            <img src="${b.getImage()}" alt="Description of the image" style="display: block; margin: auto; width: 200px; height: 150px;">
-        </dd>
-    </div>
-    <div class="col-md-4">
-        <div class="tribe-recurring-event-time">${b.getBlogsContent()}</div>
-    </div>
-</div>
-                                                <h4 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium" style="display: flex; justify-content: center;">
-                                                    <div class="col-md-4">
-                                                                    <dt><strong>Comment</strong></dt></dt>
-                                                                </div>
-                                                    <a href="${pageContext.request.contextPath}/CommentController?action=view&BID=${b.getBID()}"
-                                                       title="${b.getTitle()}"
-                                                       style="display: flex; align-items: center;"
-                                                       class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
-                                                        ${b.getVote()} Commented
-                                                    </a>
-                                                </h4>                                                                      
                                                 </div>
-
                                             </div>
                                         </div>
+
                                     </div>
                                 </c:forEach>
                             </c:if>
@@ -332,7 +292,7 @@
                         <style>
                             .blog-container {
                                 display: grid;
-                                grid-template-columns: repeat(2, 1fr);
+                                grid-template-columns: 1fr; /* Change the grid template to have one column */
                                 gap: 20px;
                             }
 
