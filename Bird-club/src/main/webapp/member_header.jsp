@@ -15,7 +15,7 @@
     </head>
     <body>
         <header id="main-nav-header">
-           <div id="header-wrapper" style=" padding: 20px; justify-content: flex-end; display: flex; width: 100%">
+           <div id="header-wrapper" style=" padding: 10px; justify-content: flex-end; display: flex; width: 100%">
         <a href="member_homepage.jsp">
   <img src="https://www.bird.club/assets/logo/logo-312ed022e9e8abb1fcfcdfd5eaa3fd93fb11e7d70d4eef74149a7ba17c311e71.png" alt="BirdClub logo" width="150" height="49">
 </a>
