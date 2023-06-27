@@ -41,7 +41,7 @@
     </head>
 
     <style>
-      
+
     </style>
     <body class="page-template-default page page-id-1229 page-parent wp-embed-responsive theme-green nav-column tribe-no-js ">
         <%@ include file="member_header.jsp" %> 
@@ -54,139 +54,146 @@
                         <div class="tribe-common-l-container tribe-events-l-container">
                             <main class="pb-8 pt-8">                                                                          
                                 <div class="grid grid-cols-1 gap-4 lg:col-span-5">             
+
+                                    <!--                                    <table>
+                                                                            <style>
+                                                                                .table-heading {
+                                                                                    text-align: center;
+                                                                                    text-size: 100px;
+                                                                                }
+                                                                            </style>
+                                                                            <td class="table-heading has-text-align-center has-large-font-size" colspan="3">Bird List</td>
+                                                                            <tr >
                                     
-<!--                                    <table>
-                                        <style>
-                                            .table-heading {
-                                                text-align: center;
-                                                text-size: 100px;
-                                            }
-                                        </style>
-                                        <td class="table-heading has-text-align-center has-large-font-size" colspan="3">Bird List</td>
-                                        <tr >
+                                                                                <td style="text-align: center;">Bird Name</td>
+                                                                                <td style="text-align: center;">Image</td>
+                                                                                <td style="text-align: center;"></td>
+                                    <c:if test="${empty birdList}">
+                                    <tr>
+                                        <td colspan="2">
+                                            <div>
+                                                <p>No bird found.</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </c:if>
 
-                                            <td style="text-align: center;">Bird Name</td>
-                                            <td style="text-align: center;">Image</td>
-                                            <td style="text-align: center;"></td>
-                                            <c:if test="${empty birdList}">
+                                    <c:if test="${not empty birdList}">
+                                        <c:forEach var="bird" items="${birdList}">
                                             <tr>
-                                                <td colspan="2">
-                                                    <div>
-                                                        <p>No bird found.</p>
-                                                    </div>
+                                                <td style="text-align: center;">${bird.getName()}</td>
+                                                <td >
+                                                    <img src="${bird.getImageURL()}" alt="Description of the image" style="display: block;
+                                                         margin: auto; width: 200px; height: 150px; ">
                                                 </td>
-                                            </tr>
-                                        </c:if>
+                                                <td  text-align: center;">
+                                                     <form action="${pageContext.request.contextPath}/BirdController" method="POST">
+                                                        <input type="hidden" name="action" value="add">
+                                                        <input type="hidden" name="BID" value="${bird.getBID()}" />
+                                                        <input type="hidden" name="TID" value="${sessionScope.sessionTID}"/>
+                                            <c:set var="TransactionType" scope="session" value="fee" /> 
+                                            <button type="submit" class="wp-block-button__link wp-element-button">Sign up</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                        </c:forEach>
+                                    </c:if>
+                                </table>-->
+                                    <style>
+                                        .bird-list {
+                                            display: flex;
+                                            background-color: #FFC321;
+                                            padding: 20px;
+                                            border-radius: 5px;
+                                            position: relative;
+                                        }
 
-                                        <c:if test="${not empty birdList}">
-                                            <c:forEach var="bird" items="${birdList}">
-                                                <tr>
-                                                    <td style="text-align: center;">${bird.getName()}</td>
-                                                    <td >
-                                                        <img src="${bird.getImageURL()}" alt="Description of the image" style="display: block;
-                                                             margin: auto; width: 200px; height: 150px; ">
-                                                    </td>
-                                                    <td  text-align: center;">
-                                                         <form action="${pageContext.request.contextPath}/BirdController" method="POST">
-                                                            <input type="hidden" name="action" value="add">
-                                                            <input type="hidden" name="BID" value="${bird.getBID()}" />
-                                                            <input type="hidden" name="TID" value="${sessionScope.sessionTID}"/>
-                                                            <c:set var="TransactionType" scope="session" value="fee" /> 
-                                                            <button type="submit" class="wp-block-button__link wp-element-button">Sign up</button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
-                                        </c:if>
-                                    </table>-->
-<style>
-    .bird-list {
-        display: flex;
-        background-color: #FFC321;
-        padding: 20px;
-        border-radius: 5px;
-        position: relative;
-    }
+                                        .tournament-info {
+                                            flex: 1;
+                                            margin-right: 20px;
+                                            color: white;
+                                        }
 
-    .tournament-info {
-        flex: 1;
-        margin-right: 20px;
-        color: white;
-    }
+                                        .bird-selection {
+                                            flex: 1;
+                                            color: white;
+                                            position: relative;
+                                        }
 
-    .bird-selection {
-        flex: 1;
-        color: white;
-        position: relative;
-    }
+                                        .bird-card {
+                                            display: flex;
+                                            align-items: center;
+                                            margin-bottom: 10px;
+                                        }
 
-    .bird-card {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-    }
+                                        .bird-image {
+                                            width: 200px;
+                                            height: 150px;
+                                            margin-right: 10px;
+                                        }
 
-    .bird-image {
-        width: 200px;
-        height: 150px;
-        margin-right: 10px;
-    }
+                                        /* Style for the vertical line */
+                                        .bird-list::after {
+                                            content: '';
+                                            position: absolute;
+                                            top: 0;
+                                            bottom: 0;
+                                            width: 1px;
+                                            background-color: white;
+                                            left: 50%;
+                                            transform: translateX(-50%);
+                                        }
+                                    </style>
 
-    /* Style for the vertical line */
-    .bird-list::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 1px;
-        background-color: white;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-</style>
+                                    <div class="bird-list">
+                                        <div class="tournament-info">
+                                            <h3 style="text-align: center;">Tournament Information</h3>
+                                            <label style="color: white" for="tournament-name">Name:</label>
+                                            <input style="color:gray;" type="text" id="tournament-name" name="tournament-name" class="readonly-field" value="${tournament.getName()}" readonly>
 
-<div class="bird-list">
-   <div class="tournament-info">
-    <h3 style="text-align: center;">Tournament Information</h3>
-    <label style="color: white" for="tournament-name">Name:</label>
-    <input style="color:gray;" type="text" id="tournament-name" name="tournament-name" class="readonly-field" value="${tournament.getName()}" readonly>
+                                            <label style="color: white" for="tournament-status">Status:</label>
+                                            <input style="color:gray;" type="text" id="tournament-status" name="tournament-status" class="readonly-field" value="${tournament.getStatus()}" readonly>
 
-    <label style="color: white" for="tournament-status">Status:</label>
-    <input style="color:gray;" type="text" id="tournament-status" name="tournament-status" class="readonly-field" value="${tournament.getStatus()}" readonly>
+                                            <label style="color: white" for="tournament-fee">Tournament Fee</label>
+                                            <input style="color:gray;  width: 200px;" type="text" id="tournament-fee" name="tournament-fee" class="readonly-field" value="${tournament.getFee()}$" readonly>
+                                        </div>
 
-    <label style="color: white" for="tournament-fee">Tournament Fee</label>
-    <input style="color:gray;  width: 200px;" type="text" id="tournament-fee" name="tournament-fee" class="readonly-field" value="${tournament.getFee()}$" readonly>
-</div>
+                                        <div class="bird-selection">
+                                            <h3 style="text-align: center;">Bird List</h3>
 
-    <div class="bird-selection">
-        <h3 style="text-align: center;">Bird List</h3>
+                                            <c:if test="${empty birdList}">
+                                                <p>No bird found.</p>
+                                            </c:if>
 
-        <c:if test="${empty birdList}">
-            <p>No bird found.</p>
-        </c:if>
+                                            <c:if test="${not empty birdList}">
+                                                <c:forEach var="bird" items="${birdList}">
+                                                    <div class="bird-card">
+                                                        <div class="left-content" style="padding-left:20px;">
+                                                            <img src="${bird.getImageURL()}" alt="Description of the image" class="bird-image">
+                                                        </div>
 
-        <c:if test="${not empty birdList}">
-            <c:forEach var="bird" items="${birdList}">
-                <div class="bird-card">
-    <div class="left-content" style="padding-left:20px;">
-        <img src="${bird.getImageURL()}" alt="Description of the image" class="bird-image">
-    </div>
- 
-    <div class="right-content" style="text-align: center;padding-left:40px;" >
-        <h4 class="bird-name">${bird.getName()}</h4>
-        <form action="${pageContext.request.contextPath}/BirdController" method="POST" class="bird-form">
-            <input type="hidden" name="action" value="add">
-            <input type="hidden" name="BID" value="${bird.getBID()}">
-            <input type="hidden" name="TID" value="${sessionScope.sessionTID}">
-            <c:set var="TransactionType" scope="session" value="fee" />
-            <button type="submit" class="wp-block-button__link wp-element-button">Sign up</button>
-        </form>
-    </div>
-</div>
-            </c:forEach>
-        </c:if>
-    </div>
-</div>
+                                                        <div class="right-content" style="text-align: center;padding-left:40px;" >
+                                                            <h4 class="bird-name">${bird.getName()}</h4>
+                                                            <c:choose>
+                                                                <c:when test="${join eq bird.getBID()}">
+                                                                    <p class="wp-block-button__link wp-element-button">Joined</p>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <form action="${pageContext.request.contextPath}/BirdController" method="POST" class="bird-form">
+                                                                        <input type="hidden" name="action" value="add">
+                                                                        <input type="hidden" name="BID" value="${bird.getBID()}">
+                                                                        <input type="hidden" name="TID" value="${sessionScope.sessionTID}">
+                                                                        <c:set var="TransactionType" scope="session" value="fee" />
+                                                                        <button type="submit" class="wp-block-button__link wp-element-button">Sign up</button>
+                                                                    </form>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </div>
+                                                    </div>
+                                                </c:forEach>
+                                            </c:if>
+                                        </div>
+                                    </div>
 
 
 

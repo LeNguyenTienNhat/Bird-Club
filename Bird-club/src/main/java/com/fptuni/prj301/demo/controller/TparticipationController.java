@@ -5,14 +5,18 @@
  */
 package com.fptuni.prj301.demo.controller;
 
+import com.fptuni.prj301.demo.dbmanager.BirdManager;
 import com.fptuni.prj301.demo.dbmanager.EventsMediaManager;
 import com.fptuni.prj301.demo.dbmanager.LocationManager;
 import com.fptuni.prj301.demo.dbmanager.TournamentManager;
 import com.fptuni.prj301.demo.dbmanager.TparticipationManager;
+import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.Tournament;
 import com.fptuni.prj301.demo.model.Tparticipation;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -68,18 +72,36 @@ public class TparticipationController extends HttpServlet {
         } else if (action.equals("view")) {
             // Retrieve the Tparticipation object from the database based on the provided parameters (e.g., docNo)
             String tid = request.getParameter("TID");
-            TournamentManager tparticipationManager = new  TournamentManager();
+            String UID = request.getParameter("UID");
+            TournamentManager tparticipationManager = new TournamentManager();
             LocationManager l = new LocationManager();
-             Tournament tournament = tparticipationManager.getTournamentById(tid);
-             String location = l.getCoordinationByTournamentId(tid);
-             EventsMediaManager media = new EventsMediaManager();
-             String a = media.getURLByID("TournamentMedia", tid);
+            Tournament tournament = tparticipationManager.getTournamentById(tid);
+            String location = l.getCoordinationByTournamentId(tid);
+            EventsMediaManager media = new EventsMediaManager();
+            String a = media.getURLByID("TournamentMedia", tid);
+            TparticipationManager p = new TparticipationManager();
+
+            BirdManager b = new BirdManager();
+            List<Bird> birds = b.getBirdsByUID(UID);
+            boolean participantFound = false;
+            Tparticipation participant = null;
+            for (Bird bird : birds) {
+                // Check if a participant exists for the current bird
+               participant = p.getParticipant(tid, bird.getBID());
+
+                if (participant != null) {
+                    participantFound = true;
+                    break; // Exit the loop if a participant is found
+                }
+            }
+
             if (tournament != null) {
                 // Store the Tparticipation object in request scope
                 request.setAttribute("tournament", tournament);
-                request.setAttribute("location",location);
-                 request.setAttribute("img",a);
-                
+                request.setAttribute("location", location);
+                request.setAttribute("img", a);
+                request.setAttribute("join", participant.getBid());
+
                 // Forward the request to the view page
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/member_tournament_details.jsp");
                 dispatcher.forward(request, response);
