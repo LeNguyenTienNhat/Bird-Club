@@ -5,6 +5,7 @@
  */
 package com.fptuni.prj301.demo.dbmanager;
 
+import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.Tparticipation;
 import com.fptuni.prj301.demo.utils.DBUtils;
 import java.sql.Connection;
@@ -133,6 +134,28 @@ public class TparticipationManager {
         return list;
     }
 
+    public Tparticipation getParticipant(String TID, String bid) {
+        Tparticipation t = null;
+        String sql = "SELECT * FROM [Tparticipation] WHERE TID = ? AND bid = ? ";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, TID);
+            ps.setString(2, bid);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                t = new Tparticipation();
+                t.setTid(rs.getString("TID"));
+                t.setBid(rs.getString("BID"));
+                t.setDocNo(rs.getString("docNo"));
+                t.setAchievement(rs.getString("achievement"));
+            }
+        } catch (SQLException e) {
+            // Handle the exception appropriately
+        }
+        return t;
+    }
+
     public void updateAchievement(String docNo, String achievement) {
         String sql = "UPDATE [Tparticipation] SET achievement = ? WHERE docNo = ?";
         try {
@@ -183,25 +206,32 @@ public class TparticipationManager {
         }
         return count;
     }
-    
+
     public static void main(String[] args) {
-    // Create a sample Tparticipation object
-    Tparticipation tparticipation = new Tparticipation();
-    tparticipation.setTid("T123");
-    tparticipation.setBid("B456");
-    tparticipation.setDocNo("D789");
+        // Assuming you have initialized the required objects and variables
 
-    // Create an instance of the class containing the insert method
-     TparticipationManager yourClass = new  TparticipationManager();
+        String UID = "UID0";
+        String tid = "TID11";
+        TparticipationManager p = new TparticipationManager();
+        BirdManager b = new BirdManager();
+        List<Bird> birds = b.getBirdsByUID(UID);
+        boolean participantFound = false;
+        Tparticipation participant = null;
+        for (Bird bird : birds) {
+            // Check if a participant exists for the current bird
+            participant = p.getParticipant(tid, bird.getBID());
 
-    // Call the insert method and check the result
-    boolean isSuccess = yourClass.insert(tparticipation);
+            if (participant != null) {
+                participantFound = true;
+                break; // Exit the loop if a participant is found
+            }
+        }
 
-    if (isSuccess) {
-        System.out.println("Insertion successful");
-    } else {
-        System.out.println("Insertion failed");
+        if (participantFound) {
+            System.out.println("Participant found for at least one bird: " + participant.getBid());
+        } else {
+            System.out.println("No participant found for any bird.");
+        }
     }
-}
 
 }

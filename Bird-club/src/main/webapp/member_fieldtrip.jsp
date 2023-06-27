@@ -236,7 +236,7 @@
 
                                                 <h4 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium" style="display: flex; justify-content: center;">
 
-                                                    <a href="${pageContext.request.contextPath}/FieldTripParticipantsController?action=view&FID=${f.getFID()}"
+                                                    <a href="${pageContext.request.contextPath}/FieldTripParticipantsController?action=view&FID=${f.getFID()}&UID=${users.getUID()}"
                                                        title="${f.getName()}"
                                                        style="display: flex; align-items: center;"
                                                        class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">

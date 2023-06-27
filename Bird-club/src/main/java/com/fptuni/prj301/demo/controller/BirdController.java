@@ -52,14 +52,16 @@ public class BirdController extends HttpServlet {
         if (action != null && action.equals("view")) {
             // Process the view action
             BirdManager birdController = new BirdManager();
-             String tid = request.getParameter("TID");
+            String tid = request.getParameter("TID");
             String UID = request.getParameter("UID");
+            String BID = request.getParameter("join");
             List<Bird> birds = birdController.getBirdsByUID(UID);
             TournamentManager t = new TournamentManager();
             Tournament tournament = t.getTournamentById(tid);
             request.setAttribute("tournament", tournament);
-
+            request.setAttribute("join", BID);
             request.setAttribute("birdList", birds);
+            
             request.getRequestDispatcher("/member_TsignUp.jsp").forward(request, response);
         }
         if (action != null && action.equals("add")) {
@@ -133,13 +135,11 @@ public class BirdController extends HttpServlet {
             }
         }
 
-
-
         if (action != null && action.equals("viewbirdprofile")) {
             // Process the view action
             BirdManager birdController = new BirdManager();
             String UID = request.getParameter("UID");
-            List<Bird> birds = birdController.getBirdsByUID(UID);           
+            List<Bird> birds = birdController.getBirdsByUID(UID);
             request.setAttribute("birdList", birds);
             request.getRequestDispatcher("/member_BirdList.jsp").forward(request, response);
         }
@@ -147,7 +147,7 @@ public class BirdController extends HttpServlet {
             // Process the view action
             BirdManager birdController = new BirdManager();
             String UID = request.getParameter("UID");
-            List<Bird> birds = birdController.getBirdsByUID(UID);           
+            List<Bird> birds = birdController.getBirdsByUID(UID);
             request.setAttribute("birdList", birds);
             request.getRequestDispatcher("/member_BirdDetail.jsp").forward(request, response);
         }
