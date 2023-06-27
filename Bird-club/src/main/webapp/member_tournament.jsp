@@ -260,6 +260,7 @@
                                                        class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
                                                         ${t.getName()}
                                                     </a>
+                                                    
                                                 </h4>
                                                 <div class="container">
                                                     <div class="row">
@@ -296,7 +297,7 @@
                                                         <div class="col-md-6">
                                                             <div class="row">
                                                                 <div class="col-md-4">
-                                                                    <dt><strong>Status</strong></dt></dt>
+                                                                    <dt><strong></strong></dt></dt>
                                                                 </div>
                                                                 <c:if test="${users.getRole().trim().equals('member')}">
                                                                     <div class="col-md-8">

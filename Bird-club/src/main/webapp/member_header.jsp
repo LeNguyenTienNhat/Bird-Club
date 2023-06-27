@@ -15,7 +15,7 @@
     </head>
     <body>
         <header id="main-nav-header">
-            <div id="header-wrapper" style=" padding: 20px; justify-content: flex-end; display: flex; width: 100%">
+            <div id="header-wrapper" style=" padding: 10px; justify-content: flex-end; display: flex; width: 100%">
                 <a href="member_homepage.jsp">
                     <img src="https://www.bird.club/assets/logo/logo-312ed022e9e8abb1fcfcdfd5eaa3fd93fb11e7d70d4eef74149a7ba17c311e71.png" alt="BirdClub logo" width="150" height="49">
                 </a>
@@ -23,6 +23,7 @@
                     <div class=" grid-x align-middle logos">
                     </div>
                 </div>   
+
                 <div class="website-header-container grid-container ">                      
                     <div class="grid-x header-content persistent-nav main-nav align-bottom nav-column">
                         <div class=" website-nav-container small-12">                  
@@ -43,7 +44,7 @@
 
 
                                         <li id="nav-menu-item-41129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
-                                      
+
 
 
 
@@ -77,22 +78,22 @@
                                                     <a target="_self" href="${pageContext.request.contextPath}/UserAccessController/logout" class="menu-link sub-menu-link">Log out</a>
                                                 </li>
                                             </ul>
-                                        
 
 
 
-                                        <!--                                        <li id="nav-menu-item-41129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="member_profile.jsp" class="menu-link main-menu-link">Profile</a><button aria-haspopup="true" aria-label="Show submenu for Courses"><span class="fa fa-chevron-down" aria-hidden="true"></span></button>
-                                                                                    <ul class="sub-menu hidden menu-odd  menu-depth-1" aria-hidden="true">
-                                                                                        <li id="nav-menu-item-41702" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="member_BirdList.jsp" class="menu-link sub-menu-link">My bird</a></li>
-                                                                                        <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="${pageContext.request.contextPath}/MemberShipController?action=view"class="menu-link sub-menu-link">Membership</a></li>
-                                                                                        <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="member_Feedback.jsp" class="menu-link sub-menu-link">Feedback</a></li>
-                                                                                        <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="vnpay_pay.jsp" class="menu-link sub-menu-link">Donation</a></li>
-                                                                                        <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="${pageContext.request.contextPath}/UserAccessController/logout" class="menu-link sub-menu-link">Log out</a></li></ul>
-                                                                                </li> -->
+
+                                            <!--                                        <li id="nav-menu-item-41129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="member_profile.jsp" class="menu-link main-menu-link">Profile</a><button aria-haspopup="true" aria-label="Show submenu for Courses"><span class="fa fa-chevron-down" aria-hidden="true"></span></button>
+                                                                                        <ul class="sub-menu hidden menu-odd  menu-depth-1" aria-hidden="true">
+                                                                                            <li id="nav-menu-item-41702" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="member_BirdList.jsp" class="menu-link sub-menu-link">My bird</a></li>
+                                                                                            <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="${pageContext.request.contextPath}/MemberShipController?action=view"class="menu-link sub-menu-link">Membership</a></li>
+                                                                                            <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="member_Feedback.jsp" class="menu-link sub-menu-link">Feedback</a></li>
+                                                                                            <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="vnpay_pay.jsp" class="menu-link sub-menu-link">Donation</a></li>
+                                                                                            <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="${pageContext.request.contextPath}/UserAccessController/logout" class="menu-link sub-menu-link">Log out</a></li></ul>
+                                                                                    </li> -->
 
 
                                         </li>
-                                      
+
                                     </ul>
                                 </div>
                             </nav>
