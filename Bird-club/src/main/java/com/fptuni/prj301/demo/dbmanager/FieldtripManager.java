@@ -260,31 +260,19 @@ public class FieldtripManager {
         return false;
     }
 
-    public void terminate(String FID) {
+    public void updateStatus(String FID, String status) {
         String sql = "UPDATE FieldTrip SET status = ? WHERE FID = ?";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, status);
             ps.setString(2, FID);
-            ps.setString(1, "finished");
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Failed to ternimate due to internal error :(" + ex.getMessage());
         }
     }
 
-    public void closeForm(String FID) {
-        String sql = "UPDATE FieldTrip SET status = ? WHERE FID = ?";
-        try {
-            Connection conn = DBUtils.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(2, FID);
-            ps.setString(1, "formClosed");
-            ps.executeUpdate();
-        } catch (SQLException ex) {
-            System.out.println("Failed to close form due to internal error :(" + ex.getMessage());
-        }
-    }
 
     public void remove(String FID) {
         String sql = "DELETE FROM FieldTrip WHERE FID = ?";

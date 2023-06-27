@@ -632,7 +632,7 @@
                                                         + "</span>");
 
                                                 if (f.getStatus().trim().equalsIgnoreCase("pending")) {
-                                                    out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-green-100 text-green-800 text-xs rounded-full'>"
+                                                    out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-gray-100 text-gray-800 text-xs rounded-full'>"
                                                             + "Pending"
                                                             + "</span>");
                                                 } else if (f.getStatus().trim().equalsIgnoreCase("formClosed")) {
@@ -640,11 +640,11 @@
                                                             + "Form is closed"
                                                             + "</span>");
                                                 } else if (f.getStatus().trim().equalsIgnoreCase("ongoing")) {
-                                                    out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-red-100 text-red-800 text-xs rounded-full'>"
+                                                    out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-lime-100 text-lime-800 text-xs rounded-full'>"
                                                             + "On going"
                                                             + "</span>");
                                                 } else if (f.getStatus().trim().equalsIgnoreCase("finished")) {
-                                                    out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-gray-100 text-gray-800 text-xs rounded-full'>"
+                                                    out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-red-100 text-red-800 text-xs rounded-full'>"
                                                             + "Finished"
                                                             + "</span>");
                                                 }
@@ -694,47 +694,83 @@
                                                         + "<path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z'/></svg>"
                                                         + "</div><div class='font-semibold text-gray-700 space-x-2'>Note:   </div></div>"
                                                         + "<div class='mt-2 space-y-4 space-x-3'>" + f.getNote() + "</div>"
-                                                        + "<div style='margin-top: 15px' class='flex items-start space-x-3'>"
-                                                                
-                                                        + "<form method='post'><input type='hidden' name='FID' value = '" + f.getFID() + "'>"
-                                                        + "<input type='hidden' name='action' value='terminatefieldtrip'>"
-                                                        + "<input type='hidden' name='category' value='" + category + "'>"
-                                                        + "<input type='hidden' name='status' value='" + status + "'>"
-                                                        + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 hover:bg-red-700 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                                        + "type='submit' value='Terminate'></form>"
-                                                                
-                                                        + "<form>"
+                                                        + "<div style='margin-top: 15px' class='flex items-start space-x-3'>");
+
+                                                if (f.getStatus().trim().equalsIgnoreCase("pending")) {
+                                                    out.print("<form>"
+                                                            + "<input type='hidden' name='FID' value = '" + f.getFID() + "'>"
+                                                            + "<input type='hidden' name='action' value='closeformfieldtrip'>"
+                                                            + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-yellow-100 hover:text-gray-500 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                            + "type='submit'><svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-ui-checks mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5' viewBox='0 0 16 16'>"
+                                                            + "<path d='M7 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zM2 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm0 8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H2zm.854-3.646a.5.5 0 0 1-.708 0l-1-1a.5.5 0 1 1 .708-.708l.646.647 1.646-1.647a.5.5 0 1 1 .708.708l-2 2zm0 8a.5.5 0 0 1-.708 0l-1-1a.5.5 0 0 1 .708-.708l.646.647 1.646-1.647a.5.5 0 0 1 .708.708l-2 2zM7 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zm0-5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z'/>"
+                                                            + "</svg>Close registration</button>"
+                                                            + "</form>");
+                                                }
+
+                                                if (f.getStatus().trim().equalsIgnoreCase("formClosed")) {
+                                                    out.print("<form>"
+                                                            + "<input type='hidden' name='FID' value = '" + f.getFID() + "'>"
+                                                            + "<input type='hidden' name='action' value='startfieldtrip'>"
+                                                            + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-lime-200 hover:text-gray-500 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                            + "type='submit'>"
+                                                            + "<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-check-circle-fill mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5' viewBox='0 0 16 16'>"
+                                                            + "<path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/>"
+                                                            + "</svg>Start</button>"
+                                                            + "</form>");
+                                                }
+
+                                                if (f.getStatus().trim().equalsIgnoreCase("ongoing")) {
+                                                    out.print("<form><input type='hidden' name='FID' value = '" + f.getFID() + "'>"
+                                                            + "<input type='hidden' name='action' value='terminatefieldtrip'>"
+                                                            + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-red-200 hover:text-gray-500 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                            + "type='submit'>"
+                                                            + "<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-x-circle-fill mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5' viewBox='0 0 16 16'>"
+                                                            + "<path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z'/>"
+                                                            + "</svg>Terminate</button></form>");
+                                                }
+
+                                                out.print("<form>"
                                                         + "<input type='hidden' name='FID' value = '" + f.getFID() + "'>"
                                                         + "<input type='hidden' name='action' value='editfieldtrip'>"
-                                                        + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                                        + "type='submit' value='Edit'>"
-                                                        + "</form>"
-                                                        + "<form method='post'>"
-                                                        + "<input type='hidden' name='FID' value = '" + f.getFID() + "'>"
-                                                        + "<input type='hidden' name='action' value='closeformfieldtrip'>"
-                                                        + "<input type='hidden' name='category' value='" + category + "'>"
-                                                        + "<input type='hidden' name='status' value='" + status + "'>"
-                                                        + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                                        + "type='submit' value='Close registration'>"
-                                                        + "</form>"
-                                                        + "<form>"
+                                                        + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-gray-700 hover:text-white focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                        + "type='submit'>"
+                                                        + "<svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' class='mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5'>"
+                                                        + "<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z'></path>"
+                                                        + "</svg>Edit</button>"
+                                                        + "</form>");
+
+                                                out.print("<form>"
                                                         + "<input type='hidden' name='FID' value = '" + f.getFID() + "'>"
                                                         + "<input type='hidden' name='action' value='viewfieldtripmedia'>"
-                                                        + "<button class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                                        + "type='submit'>Media</button>"
-                                                        + "</form>"
+                                                        + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-gray-700 hover:text-white focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                        + "type='submit'>"
+                                                        + "<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-images mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5' viewBox='0 0 16 16'>"
+                                                        + "<path d='M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z'/>"
+                                                        + "<path d='M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z'/>"
+                                                        + "</svg>"
+                                                        + "Media</button>");
+
+                                                out.print("</form>"
                                                         + "<form action='./mail'>"
                                                         + "<input type='hidden' name='ID' value = '" + f.getFID() + "'>"
-                                                        + "<button class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                                        + "type='submit'>Notify members</button>"
-                                                        + "</form>"
-                                                        + "<form>"
-                                                        + "<input type='hidden' name='ID' value = '" + f.getFID() + "'>"
+                                                        + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-gray-700 hover:text-white focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                        + "type='submit'>"
+                                                        + "<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-bell-fill mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5' viewBox='0 0 16 16'>"
+                                                        + "<path d='M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z'/>"
+                                                        + "</svg>Notify members</button>"
+                                                        + "</form>");
+
+                                                out.print("<form>"
+                                                        + "<input type='hidden' name='FID' value = '" + f.getFID() + "'>"
                                                         + "<input type='hidden' name='action' value='viewparticipants'>"
-                                                        + "<button class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                                        + "type='submit'>Participants</button>"
-                                                        + "</form>"
-                                                        + "</div>"
+                                                        + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-gray-700 hover:text-white focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                        + "type='submit'>"
+                                                        + "<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-people-fill mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5' viewBox='0 0 16 16'>"
+                                                        + "<path d='M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z'/>"
+                                                        + "</svg>Participants</button>"
+                                                        + "</form>");
+
+                                                out.print("</div>"
                                                         + "</li>"
                                                         + "");
 
@@ -807,49 +843,85 @@
                                                     + "<div class='mt-0.5'><span class='sr-only'></span>" + "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-exclamation-circle-fill  text-gray-400' viewBox='0 0 16 16'>"
                                                     + "<path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z'/></svg>"
                                                     + "</div><div class='font-semibold text-gray-700 space-x-2'>Note:   </div></div>"
-                                                    + "<div class='mt-2 space-y-4 space-x-3'>" + m.getNote() + "</div>"
-                                                    + "<div style='margin-top: 15px' class='flex items-start space-x-3'>"
-                                                    + "<form method='post'><input type='hidden' name='MeID' value = '" + m.getMeID() + "'>"
-                                                    + "<input type='hidden' name='action' value='terminatemeeting'>"
-                                                    + "<input type='hidden' name='category' value='" + category + "'>"
-                                                    + "<input type='hidden' name='status' value='" + status + "'>"
-                                                    + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 hover:bg-red-700 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                                    + "type='submit' value='Terminate'></form>"
-                                                    + "<form>"
+                                                    + "<div class='mt-2 space-y-4 space-x-3'>" + m.getNote() + "</div>");
+
+                                            if (m.getStatus().trim().equalsIgnoreCase("pending")) {
+                                                out.print("<form>"
+                                                        + "<input type='hidden' name='MeID' value = '" + m.getMeID() + "'>"
+                                                        + "<input type='hidden' name='action' value='closeformmeeting'>"
+                                                        + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-yellow-100 hover:text-gray-500 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                        + "type='submit'><svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-ui-checks mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5' viewBox='0 0 16 16'>"
+                                                        + "<path d='M7 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zM2 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm0 8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H2zm.854-3.646a.5.5 0 0 1-.708 0l-1-1a.5.5 0 1 1 .708-.708l.646.647 1.646-1.647a.5.5 0 1 1 .708.708l-2 2zm0 8a.5.5 0 0 1-.708 0l-1-1a.5.5 0 0 1 .708-.708l.646.647 1.646-1.647a.5.5 0 0 1 .708.708l-2 2zM7 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zm0-5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z'/>"
+                                                        + "</svg>Close registration</button>"
+                                                        + "</form>");
+                                            }
+
+                                            if (m.getStatus().trim().equalsIgnoreCase("formClosed")) {
+                                                out.print("<form>"
+                                                        + "<input type='hidden' name='MeID' value = '" + m.getMeID() + "'>"
+                                                        + "<input type='hidden' name='action' value='startmeeting'>"
+                                                        + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-lime-200 hover:text-gray-500 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                        + "type='submit'>"
+                                                        + "<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-check-circle-fill mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5' viewBox='0 0 16 16'>"
+                                                        + "<path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/>"
+                                                        + "</svg>Start</button>"
+                                                        + "</form>");
+                                            }
+
+                                            if (m.getStatus().trim().equalsIgnoreCase("ongoing")) {
+                                                out.print("<form><input type='hidden' name='MeID' value = '" + m.getMeID() + "'>"
+                                                        + "<input type='hidden' name='action' value='terminatemeeting'>"
+                                                        + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-red-200 hover:text-gray-500 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                        + "type='submit'>"
+                                                        + "<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-x-circle-fill mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5' viewBox='0 0 16 16'>"
+                                                        + "<path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z'/>"
+                                                        + "</svg>Terminate</button></form>");
+                                            }
+
+                                            out.print("<form>"
                                                     + "<input type='hidden' name='MeID' value = '" + m.getMeID() + "'>"
                                                     + "<input type='hidden' name='action' value='editmeeting'>"
-                                                    + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                                    + "type='submit' value='Edit'>"
-                                                    + "</form>"
-                                                    + "<form method='post'>"
-                                                    + "<input type='hidden' name='MeID' value = '" + m.getMeID() + "'>"
-                                                    + "<input type='hidden' name='action' value='closeformmeeting'>"
-                                                    + "<input type='hidden' name='category' value='" + category + "'>"
-                                                    + "<input type='hidden' name='status' value='" + status + "'>"
-                                                    + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                                    + "type='submit' value='Close registration'>"
-                                                    + "</form>"
-                                                    + "<form>"
+                                                    + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-gray-700 hover:text-white focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                    + "type='submit'>"
+                                                    + "<svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' class='mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5'>"
+                                                    + "<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z'></path>"
+                                                    + "</svg>Edit</button>"
+                                                    + "</form>");
+
+                                            out.print("<form>"
                                                     + "<input type='hidden' name='MeID' value = '" + m.getMeID() + "'>"
                                                     + "<input type='hidden' name='action' value='viewmeetingmedia'>"
-                                                    + "<button class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                                    + "type='submit'>Media</button>"
-                                                    + "</form>"
+                                                    + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-gray-700 hover:text-white focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                    + "type='submit'>"
+                                                    + "<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-images mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5' viewBox='0 0 16 16'>"
+                                                    + "<path d='M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z'/>"
+                                                    + "<path d='M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z'/>"
+                                                    + "</svg>"
+                                                    + "Media</button>");
+
+                                            out.print("</form>"
                                                     + "<form action='./mail'>"
                                                     + "<input type='hidden' name='ID' value = '" + m.getMeID() + "'>"
-                                                    + "<button class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                                    + "type='submit'>Notify members</button>"
-                                                    + "</form>"
-                                                    + "<form>"
+                                                    + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-gray-700 hover:text-white focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                    + "type='submit'>"
+                                                    + "<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-bell-fill mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5' viewBox='0 0 16 16'>"
+                                                    + "<path d='M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z'/>"
+                                                    + "</svg>Notify members</button>"
+                                                    + "</form>");
+
+                                            out.print("<form>"
                                                     + "<input type='hidden' name='ID' value = '" + m.getMeID() + "'>"
                                                     + "<input type='hidden' name='action' value='viewparticipants'>"
-                                                    + "<button class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                                    + "type='submit'>Participants</button>"
-                                                    + "</form>"
-                                                    + "</div>"
+                                                    + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-gray-700 hover:text-white focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                    + "type='submit'>"
+                                                    + "<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-people-fill mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5' viewBox='0 0 16 16'>"
+                                                    + "<path d='M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z'/>"
+                                                    + "</svg>Participants</button>"
+                                                    + "</form>");
+
+                                            out.print("</div>"
                                                     + "</li>"
                                                     + "");
-
                                         }%> 
                                 </ul>
 
@@ -869,7 +941,7 @@
                                         + "<input type='hidden' name='page' value='" + i + "'>"
                                         + "<input type='hidden' name='action' value='viewevents'>"
                                         + "<input type='hidden' name='category' value='" + category + "'>"
-                                        + "<input type='hidden' name='category' value='" + status + "'>"
+                                        + "<input type='hidden' name='status' value='" + status + "'>"
                                         + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
                                         + "</form></span>");
                             } else {
@@ -877,7 +949,7 @@
                                         + "<input type='hidden' name='page' value='" + i + "'>"
                                         + "<input type='hidden' name='action' value='viewevents'>"
                                         + "<input type='hidden' name='category' value='" + category + "'>"
-                                        + "<input type='hidden' name='category' value='" + status + "'>"
+                                        + "<input type='hidden' name='status' value='" + status + "'>"
                                         + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
                                         + "</form></span>");
                             }

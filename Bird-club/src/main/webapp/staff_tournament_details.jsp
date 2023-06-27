@@ -276,7 +276,7 @@
 
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
                         <div class="sm:flex-auto">
-                            <h1 class="text-xl font-semibold text-gray-900">Field trip name</h1>
+                            <h1 class="text-xl font-semibold text-gray-900">TOURNAMENT</h1>
                             <p class="mt-2 text-sm text-gray-700">
 
                             </p>
@@ -329,22 +329,30 @@
                                                                 <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'" + tournament.getContact() + "'"); %> name="contact" id="contact">
                                                             </div>
                                                         </div>
-                                                            
-                                                        <%! List<Location> locationsList; Location loc;%>
+
+                                                        <%! List<Location> locationsList; String select; String tournamentLocID;
+                                                            Location loc;%>
                                                         <% locationsList = (List<Location>) request.getAttribute("locationsList");
                                                             loc = (Location) request.getAttribute("location");
+                                                            tournamentLocID = tournament.getLID().trim();
                                                         %>
-                                                        <div><label class="block text-sm font-medium text-gray-700" for="event_location">Current location: <% out.print(loc.getName()); %><br> Details: <% out.print(loc.getCoordination()); %></label>
+                                                        <div><label class="block text-sm font-medium text-gray-700" for="event_location">Location:</label>
                                                             <div class="mt-1">
 
                                                                 <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="LID" id="LID">
                                                                     <%
                                                                         for (Location l : locationsList) {
-                                                                            out.print("<option value='" + l.getLid() + "'>" + l.getName() + "</option>");
+                                                                            select="";
+                                                                            if (tournamentLocID.equalsIgnoreCase(l.getLid().trim())) {
+                                                                                 select="selected='selected'";
+                                                                            }
+                                                                            out.print("<option "+select+" value='" + l.getLid() + "'>" + l.getName() + "</option>");
                                                                         }
                                                                     %>
                                                                 </select>
-                                                            </div></div>
+                                                            </div>
+                                                                <p class="block text-sm font-medium text-gray-700">Details: <% out.print(loc.getCoordination()); %></p>                                                        
+                                                        </div>
 
                                                         <div class="col-span-1">
                                                             <label class="block text-sm font-medium text-gray-700" for="startDate">Start date</label>
@@ -384,14 +392,26 @@
                                                         </div>
 
                                                         <div class="sm:col-span-6">
-                                                            <label class="block text-sm font-medium text-gray-700" for="status">Status: <% out.print("  " + tournament.getStatus()); %></label>
+                                                            <label class="block text-sm font-medium text-gray-700" for="status">Status: </label>
                                                             <div class="mt-1">
+                                                                <%! String select1, select2, select3, select4;%>
+                                                                <% select1 = select2 = select3 = select4 = ""; %>
+                                                                <%
+                                                                    if (tournament.getStatus().trim().equalsIgnoreCase("pending")) {
+                                                                        select1 = "selected='selected'";
+                                                                    } else if (tournament.getStatus().trim().equalsIgnoreCase("formClosed")) {
+                                                                        select2 = "selected='selected'";
+                                                                    } else if (tournament.getStatus().trim().equalsIgnoreCase("ongoing")) {
+                                                                        select3 = "selected='selected'";
+                                                                    } else select4 = "selected='selected'";
+                                                                %>
+
 
                                                                 <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="status" id="status">
-                                                                    <option selected="selected" value="pending">Pending</option>
-                                                                    <option value="formClosed">Form closed</option>
-                                                                    <option value="ongoing">On going</option>
-                                                                    <option value="finished">Terminated</option>
+                                                                    <option <% out.print(select1); %> value="pending">Pending</option>
+                                                                    <option <% out.print(select2); %> value="formClosed">Form closed</option>
+                                                                    <option <% out.print(select3); %> value="ongoing">On going</option>
+                                                                    <option <% out.print(select4); %> value="finished">Terminated</option>
                                                                 </select>
 
                                                             </div>
