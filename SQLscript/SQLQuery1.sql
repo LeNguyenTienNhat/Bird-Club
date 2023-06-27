@@ -189,7 +189,9 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[FieldTripMedia](
 	[FID] [nchar](10) NOT NULL,
-	[URL] [nvarchar](max) NOT NULL
+	[URL] [nvarchar](max) NOT NULL,
+	[field] [nvarchar](max) NOT NULL,
+	[category][nvarchar](20) NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 /****** Object:  Table [dbo].[FieldTripParticipants]    Script Date: 6/2/2023 8:22:23 PM ******/
@@ -280,7 +282,9 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[MeetingMedia](
 	[MeID] [nchar](10) NOT NULL,
-	[URL] [nvarchar](max) NOT NULL
+	[URL] [nvarchar](max) NOT NULL,
+	[field] [nvarchar](max) NOT NULL,
+	[category][nvarchar](20) NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 /****** Object:  Table [dbo].[MeetingParticipants]    Script Date: 6/2/2023 8:22:23 PM ******/
@@ -370,7 +374,9 @@ GO
 CREATE TABLE [dbo].[TournamentMedia](
 	[TID] [nchar](10) NOT NULL,
 	[URL] [nvarchar](max) NOT NULL,
-	[description] [nvarchar](max) NOT NULL
+	[description] [nvarchar](max) NOT NULL,
+	[field] [nvarchar](max) NOT NULL,
+	[category][nvarchar](20) NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 /****** Object:  Table [dbo].[Tparticipation]    Script Date: 6/2/2023 8:22:23 PM ******/
@@ -383,6 +389,7 @@ CREATE TABLE [dbo].[Tparticipation](
 	[BID] [nchar](10) NOT NULL,
 	[docNo] [nvarchar](50) NOT NULL,
 	[achievement] [nvarchar](50) NULL,
+	[field] [decimal](18, 0) NOT NULL,
  CONSTRAINT [PK_Tparticipation] PRIMARY KEY CLUSTERED 
 (
 	[docNo] ASC
