@@ -457,14 +457,14 @@
 
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
                         <div class="sm:flex-auto">
-                            
+
                             <%
                                 int pageNum = (Integer) request.getAttribute("page");
                                 String category = (String) request.getAttribute("category");
                                 String status = (String) request.getAttribute("status");
                             %>
-                            <h1 class="text-xl font-semibold text-gray-900"><% out.print(status.toUpperCase()+" "); %>
-                                <% out.print(category+" "); %><% out.print("- Page "+pageNum); %></h1>
+                            <h1 class="text-xl font-semibold text-gray-900"><% out.print(status.toUpperCase() + " "); %>
+                                <% out.print(category + " "); %><% out.print("- Page " + pageNum); %></h1>
                             <p class="mt-2 text-sm text-gray-700">
                                 Available <% out.print(category + "(s)"); %> hosted by Chim Owners.
                             </p>
@@ -695,10 +695,14 @@
                                                         + "</div><div class='font-semibold text-gray-700 space-x-2'>Note:   </div></div>"
                                                         + "<div class='mt-2 space-y-4 space-x-3'>" + f.getNote() + "</div>"
                                                         + "<div style='margin-top: 15px' class='flex items-start space-x-3'>"
+                                                                
                                                         + "<form method='post'><input type='hidden' name='FID' value = '" + f.getFID() + "'>"
                                                         + "<input type='hidden' name='action' value='terminatefieldtrip'>"
+                                                        + "<input type='hidden' name='category' value='" + category + "'>"
+                                                        + "<input type='hidden' name='status' value='" + status + "'>"
                                                         + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 hover:bg-red-700 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                                         + "type='submit' value='Terminate'></form>"
+                                                                
                                                         + "<form>"
                                                         + "<input type='hidden' name='FID' value = '" + f.getFID() + "'>"
                                                         + "<input type='hidden' name='action' value='editfieldtrip'>"
@@ -708,6 +712,8 @@
                                                         + "<form method='post'>"
                                                         + "<input type='hidden' name='FID' value = '" + f.getFID() + "'>"
                                                         + "<input type='hidden' name='action' value='closeformfieldtrip'>"
+                                                        + "<input type='hidden' name='category' value='" + category + "'>"
+                                                        + "<input type='hidden' name='status' value='" + status + "'>"
                                                         + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                                         + "type='submit' value='Close registration'>"
                                                         + "</form>"
@@ -805,6 +811,8 @@
                                                     + "<div style='margin-top: 15px' class='flex items-start space-x-3'>"
                                                     + "<form method='post'><input type='hidden' name='MeID' value = '" + m.getMeID() + "'>"
                                                     + "<input type='hidden' name='action' value='terminatemeeting'>"
+                                                    + "<input type='hidden' name='category' value='" + category + "'>"
+                                                    + "<input type='hidden' name='status' value='" + status + "'>"
                                                     + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 hover:bg-red-700 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                                     + "type='submit' value='Terminate'></form>"
                                                     + "<form>"
@@ -816,6 +824,8 @@
                                                     + "<form method='post'>"
                                                     + "<input type='hidden' name='MeID' value = '" + m.getMeID() + "'>"
                                                     + "<input type='hidden' name='action' value='closeformmeeting'>"
+                                                    + "<input type='hidden' name='category' value='" + category + "'>"
+                                                    + "<input type='hidden' name='status' value='" + status + "'>"
                                                     + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                                     + "type='submit' value='Close registration'>"
                                                     + "</form>"

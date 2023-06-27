@@ -138,7 +138,7 @@ public class StaffTournaments extends HttpServlet {
         } //Terminate a tournament
         else if (action.equals("terminatetournament")) {
             String TID = request.getParameter("TID");
-            tournamentManager.terminate(TID);
+            tournamentManager.updateStatus(TID, "finished");
 
             request.setAttribute("action", "viewtournaments");
             RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
@@ -146,7 +146,15 @@ public class StaffTournaments extends HttpServlet {
         } //Close registration form of a tournament
         else if (action.equals("closeform")) {
             String TID = request.getParameter("TID");
-            tournamentManager.closeForm(TID);
+            tournamentManager.updateStatus(TID, "formClosed");
+
+            request.setAttribute("action", "viewtournaments");
+            RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
+            rd.forward(request, response);
+        } //Start a tournament
+        else if (action.equals("start")) {
+            String TID = request.getParameter("TID");
+            tournamentManager.updateStatus(TID, "ongoing");
 
             request.setAttribute("action", "viewtournaments");
             RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
@@ -158,7 +166,7 @@ public class StaffTournaments extends HttpServlet {
             LocationManager lm = new LocationManager();
             Location l = lm.load(tournament.getLID());
             List<Location> locationsList = lm.getList();
-            
+
             request.setAttribute("tournament", tournament);
             request.setAttribute("location", l);
             request.setAttribute("locationsList", locationsList);
