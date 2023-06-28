@@ -81,7 +81,7 @@ public class UIDGenerator {
     return "PID" + randomNumber;
 }
     public static void main(String[] args) {
-    String docNoT = generateDocM();
+    String docNoT = generateDocMS();
     System.out.println("Generated DocNo: " + docNoT);
 }
 

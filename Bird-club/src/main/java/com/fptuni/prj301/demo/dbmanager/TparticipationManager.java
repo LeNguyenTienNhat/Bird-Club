@@ -94,7 +94,7 @@ public class TparticipationManager {
 
     public static List<String> ExistingDoc(String pattern) {
         List<String> existingDocNos = new ArrayList<>();
-        String sql = "SELECT docNo FROM [Tparticipation] WHERE docNo LIKE ?";
+        String sql = "SELECT docNo FROM [Transactions] WHERE docNo LIKE ?";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {

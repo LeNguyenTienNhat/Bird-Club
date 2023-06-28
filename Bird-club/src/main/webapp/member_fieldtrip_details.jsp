@@ -325,7 +325,8 @@
                                                             <input type="hidden" name="action" value="add">
                                                             <input type="hidden" name="UID" value="${users.getUID()}">
                                                             <input type="hidden" name="FID" value="${fieldtrip.getFID()}">
-                                                            <c:set var="sessionFID" scope="session" value="${fieldtrip.getFID()}"/>
+                                                            <c:set var="TransactionType" scope="session" value="fee" />
+                                                           
                                                             <c:choose>
                                                                 <c:when test="${join}">
                                                                     <p  class="wp-block-button__link has-green-background-color has-background">Register Success</p>
