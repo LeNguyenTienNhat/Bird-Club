@@ -106,7 +106,7 @@
         <input type="hidden" name="UID" value="${users.getUID()}">
         <input type="hidden" name="TT" value="${sessionScope.TransactionType}" />
         <input type="hidden" name="docT" value="${docT}">
-        <button style="margin-right:5px;" type="submit" class="btn btn-default">Lưu</button> 
+       
         <button  type="submit" class="btn btn-default" href>Thanh toán</button>
       </form>
     </div>

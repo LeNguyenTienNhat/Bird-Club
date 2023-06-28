@@ -5,41 +5,37 @@
  */
 package com.fptuni.prj301.demo.model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author Administrator
  */
 public class Tparticipation {
 
-    private String tid;
-    private String bid;
+    private String TID;
+    private String BID;
     private String docNo;
     private String achievement;
+    private BigDecimal score;
 
     public Tparticipation() {
     }
 
-    public Tparticipation(String tid, String bid, String docNo, String achievement) {
-        this.tid = tid;
-        this.bid = bid;
-        this.docNo = docNo;
-        this.achievement = achievement;
+    public String getTID() {
+        return TID;
     }
 
-    public String getTid() {
-        return tid;
+    public void setTID(String TID) {
+        this.TID = TID;
     }
 
-    public void setTid(String tid) {
-        this.tid = tid;
+    public String getBID() {
+        return BID;
     }
 
-    public String getBid() {
-        return bid;
-    }
-
-    public void setBid(String bid) {
-        this.bid = bid;
+    public void setBID(String BID) {
+        this.BID = BID;
     }
 
     public String getDocNo() {
@@ -57,5 +53,22 @@ public class Tparticipation {
     public void setAchievement(String achievement) {
         this.achievement = achievement;
     }
+
+    public BigDecimal getScore() {
+        return score;
+    }
+
+    public void setScore(BigDecimal score) {
+        this.score = score;
+    }
+
+    public Tparticipation(String TID, String BID, String docNo, String achievement, BigDecimal score) {
+        this.TID = TID;
+        this.BID = BID;
+        this.docNo = docNo;
+        this.achievement = achievement;
+        this.score = score;
+    }
+
 
 }

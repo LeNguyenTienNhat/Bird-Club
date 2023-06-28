@@ -93,7 +93,7 @@ public class StaffMailCenter extends HttpServlet {
                 TparticipationManager tm = new TparticipationManager();
                 List<Tparticipation> tlist = tm.getParticipantList(ID);
                 for (Tparticipation t : tlist) {
-                    String UID = bm.getBirdOwnerUIDByBID(t.getBid());
+                    String UID = bm.getBirdOwnerUIDByBID(t.getBID());
                     String emailAddress = mm.getUserEmail(UID);
                     emailList.add(emailAddress);
                 }

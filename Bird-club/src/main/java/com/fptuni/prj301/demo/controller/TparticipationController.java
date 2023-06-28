@@ -15,7 +15,6 @@ import com.fptuni.prj301.demo.model.Tournament;
 import com.fptuni.prj301.demo.model.Tparticipation;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -53,8 +52,8 @@ public class TparticipationController extends HttpServlet {
 
             // Create a new Tparticipation object with the provided parameters
             Tparticipation tparticipation = new Tparticipation();
-            tparticipation.setTid(tid);
-            tparticipation.setBid(bid);
+            tparticipation.setTID(tid);
+            tparticipation.setBID(bid);
             tparticipation.setDocNo(docNo);
             tparticipation.setAchievement(null);
 
@@ -95,7 +94,7 @@ public class TparticipationController extends HttpServlet {
                 }
             }
             if (participantFound) {
-                request.setAttribute("bird", participant.getBid());
+                request.setAttribute("bird", participant.getBID());
             }
 
             if (tournament != null) {
