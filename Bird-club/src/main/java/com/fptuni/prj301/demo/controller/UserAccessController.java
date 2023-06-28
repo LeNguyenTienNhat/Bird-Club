@@ -52,7 +52,7 @@ public class UserAccessController extends HttpServlet {
                         ss.setAttribute("users", user);
                         ss.setAttribute("userID", userDao.searchByName(user.getUserName()));
                         boolean account = s.approveUser(user.getUID(), "guest");
-                        response.sendRedirect(request.getContextPath() + "/member_homepage.jsp");
+                        response.sendRedirect(request.getContextPath() + "/home?action=view");
                         request.setAttribute("login_msg", "Membership has expired");
                     } 
                     else {

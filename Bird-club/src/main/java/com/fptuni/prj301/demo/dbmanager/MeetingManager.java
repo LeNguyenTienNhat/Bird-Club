@@ -151,7 +151,7 @@ public class MeetingManager {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, status);
-            ps.setString(2, MeID);            
+            ps.setString(2, MeID);
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Failed to ternimate due to internal error :(" + ex.getMessage());
@@ -172,29 +172,39 @@ public class MeetingManager {
 
     public List<Meeting> getList() {
         List<Meeting> meetings = new ArrayList<>();
-        String sql = "SELECT * FROM Meeting ";
+        String sql = "SELECT M.*, MM.URL "
+                + "FROM Meeting AS M "
+                + "LEFT JOIN "
+                + "(SELECT MeID, URL "
+                + " FROM (SELECT MeID, URL, ROW_NUMBER() OVER (PARTITION BY MeID ORDER BY URL DESC) AS RowNum "
+                + "       FROM MeetingMedia WHERE category = 'thumbnail') AS MMSub "
+                + " WHERE RowNum = 1) AS MM "
+                + "ON M.MeID = MM.MeID "
+                + "ORDER BY M.registrationDeadline DESC";
 
         try (Connection conn = DBUtils.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql)) {
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    Meeting meeting = new Meeting();
-                    meeting.setMeID(rs.getString("MeID"));
-                    meeting.setName(rs.getString("name"));
-                    meeting.setDescription(rs.getString("description"));
-                    meeting.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
-                    meeting.setStatus(rs.getString("status"));
-                    meeting.setLID(rs.getString("LID"));
-                    meeting.setStartDate(tool.trimDate(rs.getString("startDate")));
-                    meeting.setEndDate(tool.trimDate(rs.getString("endDate")));
-                    meeting.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
-                    meeting.setNote(rs.getString("note"));
-                    meeting.setIncharge(rs.getString("incharge"));
-                    meeting.setHost(rs.getString("host"));
-                    meeting.setContact(rs.getString("contact"));
-                    meetings.add(meeting);
-                }
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                Meeting meeting = new Meeting();
+                meeting.setMeID(rs.getString("MeID"));
+                meeting.setName(rs.getString("name"));
+                meeting.setDescription(rs.getString("description"));
+                meeting.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
+                meeting.setStatus(rs.getString("status"));
+                meeting.setLID(rs.getString("LID"));
+                meeting.setStartDate(tool.trimDate(rs.getString("startDate")));
+                meeting.setEndDate(tool.trimDate(rs.getString("endDate")));
+                meeting.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                meeting.setNote(rs.getString("note"));
+                meeting.setIncharge(rs.getString("incharge"));
+                meeting.setHost(rs.getString("host"));
+                meeting.setContact(rs.getString("contact"));
+                meeting.setPictureURL(rs.getString("URL")); // Set the picture URL from MeetingMedia
+                meetings.add(meeting);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -202,47 +212,47 @@ public class MeetingManager {
         return meetings;
     }
 
- public List<Meeting> getTop10() {
-    List<Meeting> meetings = new ArrayList<>();
-    String sql = "SELECT TOP 10 M.*, MM.URL " +
-                 "FROM Meeting AS M " +
-                 "LEFT JOIN " +
-                 "(SELECT MeID, URL " +
-                 " FROM (SELECT MeID, URL, ROW_NUMBER() OVER (PARTITION BY MeID ORDER BY URL DESC) AS RowNum " +
-                 "       FROM MeetingMedia) AS MMSub " +
-                 " WHERE RowNum = 1) AS MM " +
-                 "ON M.MeID = MM.MeID " +
-                 "ORDER BY M.startDate DESC";
+    public List<Meeting> getTop10() {
+        List<Meeting> meetings = new ArrayList<>();
+        String sql = "SELECT TOP 10 M.*, MM.URL "
+                + "FROM Meeting AS M "
+                + "LEFT JOIN "
+                + "(SELECT MeID, URL "
+                + " FROM (SELECT MeID, URL, ROW_NUMBER() OVER (PARTITION BY MeID ORDER BY URL DESC) AS RowNum "
+                + "       FROM MeetingMedia WHERE category = 'thumbnail') AS MMSub "
+                + " WHERE RowNum = 1) AS MM "
+                + "ON M.MeID = MM.MeID "
+                + "ORDER BY M.startDate DESC";
 
-    try (Connection conn = DBUtils.getConnection();
-         PreparedStatement ps = conn.prepareStatement(sql);
-         ResultSet rs = ps.executeQuery()) {
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
 
-        while (rs.next()) {
-            Meeting meeting = new Meeting();
-            meeting.setMeID(rs.getString("MeID"));
-            meeting.setName(rs.getString("name"));
-            meeting.setDescription(rs.getString("description"));
-            meeting.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
-            meeting.setStatus(rs.getString("status"));
-            meeting.setLID(rs.getString("LID"));
-            meeting.setStartDate(tool.trimDate(rs.getString("startDate")));
-            meeting.setEndDate(tool.trimDate(rs.getString("endDate")));
-            meeting.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
-            meeting.setNote(rs.getString("note"));
-            meeting.setIncharge(rs.getString("incharge"));
-            meeting.setHost(rs.getString("host"));
-            meeting.setContact(rs.getString("contact"));
-            meeting.setPictureURL(rs.getString("URL")); // Set the picture URL from MeetingMedia
-            meetings.add(meeting);
+            while (rs.next()) {
+                Meeting meeting = new Meeting();
+                meeting.setMeID(rs.getString("MeID"));
+                meeting.setName(rs.getString("name"));
+                meeting.setDescription(rs.getString("description"));
+                meeting.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
+                meeting.setStatus(rs.getString("status"));
+                meeting.setLID(rs.getString("LID"));
+                meeting.setStartDate(tool.trimDate(rs.getString("startDate")));
+                meeting.setEndDate(tool.trimDate(rs.getString("endDate")));
+                meeting.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                meeting.setNote(rs.getString("note"));
+                meeting.setIncharge(rs.getString("incharge"));
+                meeting.setHost(rs.getString("host"));
+                meeting.setContact(rs.getString("contact"));
+                meeting.setPictureURL(rs.getString("URL")); // Set the picture URL from MeetingMedia
+                meetings.add(meeting);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
-    } catch (SQLException e) {
-        e.printStackTrace();
+        return meetings;
     }
-
-    return meetings;
-}
 
     public Meeting getMeetingById(String meid) {
         Meeting meeting = null;
@@ -283,8 +293,8 @@ public class MeetingManager {
 
         return meeting;
     }
-    
-        public int getTotalNumber() {
+
+    public int getTotalNumber() {
         int count = 0;
         String sql = "SELECT * FROM Meeting";
 

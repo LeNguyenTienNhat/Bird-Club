@@ -55,40 +55,39 @@ public class EventsMediaManager {
         return list;
     }
 
-public String getURLByID(String tableName, String ID) {
-    String IDtype;
-
-    if (tableName.equalsIgnoreCase("TournamentMedia")) {
-        IDtype = "TID";
-    } else if (tableName.equalsIgnoreCase("FieldTripMedia")) {
-        IDtype = "FID";
-    } else {
-        IDtype = "MeID";
-    }
-
-    String sql = "SELECT URL FROM (SELECT URL, ROW_NUMBER() OVER (ORDER BY URL DESC) AS RowNum " +
-                 "FROM [" + tableName + "] WHERE " + IDtype + " = ?) AS T " +
-                 "WHERE RowNum = 1";
-
-    try (Connection conn = DBUtils.getConnection();
-         PreparedStatement ps = conn.prepareStatement(sql)) {
-
-        ps.setString(1, ID);
-
-        try (ResultSet rs = ps.executeQuery()) {
-            if (rs.next()) {
-                String url = rs.getString("URL");
-                // Process the URL as needed
-                return url;
-            }
+    public String getURLByID(String tableName, String ID) {
+        String IDtype;
+        if (tableName.equalsIgnoreCase("TournamentMedia")) {
+            IDtype = "TID";
+        } else if (tableName.equalsIgnoreCase("FieldTripMedia")) {
+            IDtype = "FID";
+        } else {
+            IDtype = "MeID";
         }
 
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
+        String sql = "SELECT URL FROM (SELECT URL, ROW_NUMBER() OVER (ORDER BY URL DESC) AS RowNum "
+                + "FROM [" + tableName + "] WHERE " + IDtype + " = ? AND category = 'thumbnail') AS T "
+                + "WHERE RowNum = 1";
 
-    return null; // Return null if the URL is not found or an exception occurs
-}
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, ID);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    String url = rs.getString("URL");
+                    // Process the URL as needed
+                    return url;
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null; // Return null if the URL is not found or an exception occurs
+    }
 
     public static void main(String[] args) {
         // Create an instance of the class containing the getList() and getURLByID() methods
