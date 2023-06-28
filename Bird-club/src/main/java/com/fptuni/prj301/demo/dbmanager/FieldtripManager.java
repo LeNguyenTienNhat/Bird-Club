@@ -137,7 +137,7 @@ public class FieldtripManager {
                 + "LEFT JOIN "
                 + "(SELECT FID, URL "
                 + " FROM (SELECT FID, URL, ROW_NUMBER() OVER (PARTITION BY FID ORDER BY URL DESC) AS RowNum "
-                + "       FROM FieldTripMedia) AS FMSub "
+                + "       FROM FieldTripMedia WHERE category = 'thumbnail') AS FMSub "
                 + " WHERE RowNum = 1) AS FM "
                 + "ON F.FID = FM.FID "
                 + "ORDER BY F.startDate DESC";

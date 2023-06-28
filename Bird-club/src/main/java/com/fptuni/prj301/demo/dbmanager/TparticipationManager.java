@@ -5,7 +5,6 @@
  */
 package com.fptuni.prj301.demo.dbmanager;
 
-import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.Tparticipation;
 import com.fptuni.prj301.demo.utils.DBUtils;
 import java.sql.Connection;
@@ -22,29 +21,30 @@ import java.util.List;
 public class TparticipationManager {
 
     public boolean insert(Tparticipation tparticipation) {
-        String sql = "INSERT INTO [Tparticipation] (TID, BID, docNo, achievement) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO [Tparticipation] (TID, BID, docNo, achievement, score) VALUES (?, ?, ?, ?, ?)";
         String selectSql = "SELECT COUNT(*) FROM [Tparticipation] WHERE TID = ? AND BID = ?";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement psSelect = conn.prepareStatement(selectSql);
                 PreparedStatement psInsert = conn.prepareStatement(sql)) {
 
-            psSelect.setString(1, tparticipation.getTid());
-            psSelect.setString(2, tparticipation.getBid());
+            psSelect.setString(1, tparticipation.getTID());
+            psSelect.setString(2, tparticipation.getBID());
 
             ResultSet rs = psSelect.executeQuery();
             rs.next();
             int count = rs.getInt(1);
 
             if (count > 0) {
-                // Record with same Bid and TId already exists
+                // Record with same BID and TID already exists
                 return false;
             }
 
-            psInsert.setString(1, tparticipation.getTid());
-            psInsert.setString(2, tparticipation.getBid());
+            psInsert.setString(1, tparticipation.getTID());
+            psInsert.setString(2, tparticipation.getBID());
             psInsert.setString(3, tparticipation.getDocNo());
-            psInsert.setString(4, "non"); // Set the achievement value directly
+            psInsert.setString(4, tparticipation.getAchievement());
+            psInsert.setBigDecimal(5, tparticipation.getScore()); // Set the score value
 
             int rowsAffected = psInsert.executeUpdate();
 
@@ -94,7 +94,7 @@ public class TparticipationManager {
 
     public static List<String> ExistingDoc(String pattern) {
         List<String> existingDocNos = new ArrayList<>();
-        String sql = "SELECT docNo FROM [Tparticipation] WHERE docNo LIKE ?";
+        String sql = "SELECT docNo FROM [Transactions] WHERE docNo LIKE ?";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -123,8 +123,8 @@ public class TparticipationManager {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Tparticipation t = new Tparticipation();
-                t.setTid(rs.getString("TID"));
-                t.setBid(rs.getString("BID"));
+                t.setTID(rs.getString("TID"));
+                t.setBID(rs.getString("BID"));
                 t.setDocNo(rs.getString("docNo"));
                 t.setAchievement(rs.getString("achievement"));
                 list.add(t);
@@ -145,8 +145,8 @@ public class TparticipationManager {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 t = new Tparticipation();
-                t.setTid(rs.getString("TID"));
-                t.setBid(rs.getString("BID"));
+                t.setTID(rs.getString("TID"));
+                t.setBID(rs.getString("BID"));
                 t.setDocNo(rs.getString("docNo"));
                 t.setAchievement(rs.getString("achievement"));
             }
@@ -180,8 +180,8 @@ public class TparticipationManager {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Tparticipation t = new Tparticipation();
-                t.setTid(rs.getString("TID"));
-                t.setBid(rs.getString("BID"));
+                t.setTID(rs.getString("TID"));
+                t.setBID(rs.getString("BID"));
                 t.setDocNo(rs.getString("docNo"));
                 t.setAchievement(rs.getString("achievement"));
                 list.add(t);

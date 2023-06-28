@@ -155,6 +155,7 @@
                                     <input type="hidden" name="action" value="add">
                                     <input type="hidden" name="UID" value="${users.getUserName()}" />
                                     <input type="hidden" name="membership" value="${r.getMID()}" />
+                                     <c:set var="TransactionType" scope="session" value="membership" />
                                     <input type="submit" value="Proceed to Payment">
                                 </div>
                             </div>

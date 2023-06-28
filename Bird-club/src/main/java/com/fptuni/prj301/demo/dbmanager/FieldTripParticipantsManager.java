@@ -92,7 +92,7 @@ public class FieldTripParticipantsManager {
 
     public static List<String> ExistingDoc(String pattern) {
         List<String> existingDocNosF = new ArrayList<>();
-        String sql = "SELECT docNo FROM [FieldTripParticipants] WHERE docNo LIKE ?";
+        String sql = "SELECT docNo FROM [Transactions] WHERE docNo LIKE ?";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {

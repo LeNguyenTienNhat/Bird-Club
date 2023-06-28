@@ -200,11 +200,11 @@ public class StaffTournaments extends HttpServlet {
             int size = tm.getParticipantListSize(TID);
             List<BirdParticipation> bl = new ArrayList();
             for (Tparticipation tp : list) {
-                Bird bird = bm.load(tp.getBid());
+                Bird bird = bm.load(tp.getBID());
                 Member member = mm.load(bird.getUID());
                 BirdParticipation bp = new BirdParticipation();
                 bp.setDocNo(tp.getDocNo());
-                bp.setBID(tp.getBid());
+                bp.setBID(tp.getBID());
                 bp.setBirdName(bird.getName());
                 bp.setUID(bird.getUID());
                 bp.setFullname(member.getFullName());

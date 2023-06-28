@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import tool.utils.Tools;
+import tool.utils.UIDGenerator;
 
 /**
  *
@@ -57,6 +58,9 @@ public class MemberShipController extends HttpServlet {
             boolean updateExpiredDay = mbs.updateExpiredDay(membership, userId);
 
             if (updateMembership && updateExpiredDay) {
+                String docNo = UIDGenerator.generateDocMS();
+                request.setAttribute("docT", docNo);
+                ss.setAttribute("docT", docNo);
                 response.sendRedirect(request.getContextPath() + "/index.jsp");
             } else {
                 response.sendRedirect(request.getContextPath() + "/EventDetails.jsp");

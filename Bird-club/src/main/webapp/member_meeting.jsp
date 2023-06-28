@@ -324,7 +324,7 @@
                                         <div class="row">
                                             <div class="tribe-events-event-image" style="width:300px; height: 300px;">
                                                 <a href="http://brooklynbirdclub.org/event/members-photo-art-night/" tabindex="-1">
-                                                    <img width="300" height="300" src="http://new.brooklynbirdclub.org/2017/wp-content/uploads/2022/02/JZ8_5712a-1-300x300.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="http://new.brooklynbirdclub.org/2017/wp-content/uploads/2022/02/JZ8_5712a-1-300x300.jpg 300w, http://new.brooklynbirdclub.org/2017/wp-content/uploads/2022/02/JZ8_5712a-1-150x150.jpg 150w, http://new.brooklynbirdclub.org/2017/wp-content/uploads/2022/02/JZ8_5712a-1-600x600.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
+                                                    <img width="300" height="300" src="${m.getPictureURL()}" class="attachment-medium size-medium wp-post-image" alt="${m.getPictureURL()}" srcset="${m.getPictureURL()} 300w,${m.getPictureURL()}  150w,${m.getPictureURL()}  600w" sizes="(max-width: 300px) 100vw, 300px">
                                                 </a>
                                             </div>
                                             <div class="tribe-events-list-event-description col-md-6 tribe-events-content description entry-summary">

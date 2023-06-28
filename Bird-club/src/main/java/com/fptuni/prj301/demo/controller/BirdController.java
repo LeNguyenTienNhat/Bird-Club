@@ -72,10 +72,11 @@ public class BirdController extends HttpServlet {
 
             // Create a new Tparticipation object with the provided parameters
             Tparticipation tparticipation = new Tparticipation();
-            tparticipation.setTid(tid);
-            tparticipation.setBid(bid);
+            tparticipation.setTID(tid);
+            tparticipation.setBID(bid);
             tparticipation.setDocNo(docNo);
             tparticipation.setAchievement("non");
+            tparticipation.setScore(BigDecimal.ZERO);
 
             // Insert the Tparticipation object into the database
             TparticipationManager tparticipationManager = new TparticipationManager();
