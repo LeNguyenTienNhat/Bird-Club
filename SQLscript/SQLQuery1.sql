@@ -311,6 +311,7 @@ CREATE TABLE [dbo].[Membership](
 	[value] [decimal](18, 0) NOT NULL,
 	[duration] [nvarchar](50) NOT NULL,
 	[description] [nvarchar](max) NULL,
+	[status] [nchar](10) NULL,
  CONSTRAINT [PK_Membership] PRIMARY KEY CLUSTERED 
 (
 	[MID] ASC
