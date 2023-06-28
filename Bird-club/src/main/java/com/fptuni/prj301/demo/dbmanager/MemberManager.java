@@ -199,20 +199,12 @@ public class MemberManager {
         return count;
     }
     
-    public int[] getTotalNumberAsYear(int year) {
-        int Jan = getTotalNumberAsDuration(year, 1);
-        int Feb = getTotalNumberAsDuration(year, 2);
-        int Mar = getTotalNumberAsDuration(year, 3);
-        int Apr = getTotalNumberAsDuration(year, 4);
-        int May = getTotalNumberAsDuration(year, 5);
-        int Jun = getTotalNumberAsDuration(year, 6);
-        int Jul = getTotalNumberAsDuration(year, 7);
-        int Aug = getTotalNumberAsDuration(year, 8);
-        int Sep = getTotalNumberAsDuration(year, 9);
-        int Oct = getTotalNumberAsDuration(year, 10);
-        int Nov = getTotalNumberAsDuration(year, 11);
-        int Dec = getTotalNumberAsDuration(year, 12);
-        int[] list  = {Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec};
+    public List<Integer> getTotalNumberAsYear(int year) {
+        List<Integer> list = new ArrayList();
+        for (int i=1; i<=12; i++) {
+            int num = getTotalNumberAsDuration(year,i);
+            list.add(num);
+        }
         return list;
     }
 }

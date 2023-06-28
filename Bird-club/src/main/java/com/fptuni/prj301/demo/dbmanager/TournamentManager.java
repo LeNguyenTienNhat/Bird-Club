@@ -354,5 +354,25 @@ public List<Tournament> getTop10() {
         System.out.println("-------------------------------------");
     }
     }
+    
+    public List<Tournament> getTop10Participation() throws SQLException {
+        List<Tournament> list = new ArrayList();
+        String sql = "select TOP 10 TID, COUNT(BID) AS 'num' from Tparticipation GROUP BY TID ORDER BY num DESC";
+        try {
+        Connection conn = DBUtils.getConnection();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            Tournament t = new Tournament();
+            t.setTID(rs.getString("TID"));
+            t.setNumberOfParticipant(rs.getInt("num"));
+            list.add(t);
+        }
+        return list;
+        } catch (SQLException e) {
+            
+        }
+        return list;
+    }
   
 }

@@ -1,4 +1,5 @@
 
+<%@page import="com.fptuni.prj301.demo.model.Tournament"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -324,8 +325,8 @@
 
 
     <main class="pb-8 pt-8">
-        <%! int[] list;%>
-        <% list = (int[]) request.getAttribute("list"); %>
+        <%! List<Integer> list;%>
+        <% list = (List<Integer>) request.getAttribute("list"); %>
         <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
 
             <div class="lg:grid lg:grid-cols-1 gap-4">
@@ -373,13 +374,20 @@
             <div class="lg:grid lg:grid-cols-2 gap-4">
 
                 <div class="bg-white shadow sm:rounded-lg p-6">
+                    <h3 class="font-bold text-gray-700 truncate">New members in 2023</h3>
                     <canvas id="NumOfSignup"></canvas>
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                     <script>
                         var NumOfSignup = document.getElementById("NumOfSignup");
                         var data = {
-                            label: "New signups 2023",
-                        <% out.print("data: [" + list[0] + ", " + list[1] + ", " + list[2] + ", " + list[3] + ", " + list[4] + ", " + list[5] + ", " + list[6] + ", " + list[7] + ", " + list[8] + ", " + list[9] + ", " + list[10] + ", " + list[11] + "],");%>
+                            label: "Members",
+                        <% out.print("data: [");
+                            for (int i = 0; i < list.size() - 1; i++) {
+                                out.print("'" + list.get(i) + "',");
+                            }
+                            out.print("'"+list.get(list.size() - 1) +"'" + "],");
+                        %>
+
                             lineTension: 0,
                             fill: false,
                             borderColor: '#febc2c'};
@@ -394,18 +402,32 @@
                 </div>
 
                 <div class="bg-white shadow sm:rounded-lg p-6">
+                    <h3 class="font-bold text-gray-700 truncate">Top 10 tournaments</h3>
                     <canvas id="myChart"></canvas>
+                        <%! List<Tournament> topTournament;%>
+                        <% topTournament = (List<Tournament>) request.getAttribute("topTournament");                        %>
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                     <script>
                         const ctx = document.getElementById('myChart');
-
                         new Chart(ctx, {
                             type: 'bar',
                             data: {
-                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                labels: [
+                        <%
+                            for (int i = 0; i < topTournament.size() - 1; i++) {
+                                out.print("'" + topTournament.get(i).getTID() + "',");
+                            }
+                            out.print("'" +topTournament.get(topTournament.size() - 1).getTID()+"'" );
+                        %>],
                                 datasets: [{
-                                        label: '# of Votes',
-                                        data: [12, 19, 3, 5, 2, 3],
+                                        label: '# of participants',
+                                        data: [
+                        <%
+                            for (int i = 0; i < topTournament.size() - 1; i++) {
+                                out.print("'" + topTournament.get(i).getNumberOfParticipant() + "',");
+                            }
+                            out.print("'" +topTournament.get(topTournament.size() - 1).getNumberOfParticipant()+"'" );
+                        %>],
                                         borderWidth: 1
                                     }]
                             },
