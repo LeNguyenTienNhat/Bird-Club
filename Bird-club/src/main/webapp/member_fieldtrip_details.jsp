@@ -206,11 +206,12 @@
 
                                                         </div>
                                                     </div>
+                                                </div>
 
                                                     <style>
                                                         #map {
-                                                            height: 200px;
-                                                            width: 100%;
+                                                            height: 300px;
+                                                        width: 100%;
                                                         }
                                                     </style>
                                                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB522yNJkfdTTRnsqsB0GXmfF2iRFfvdDw"></script>
