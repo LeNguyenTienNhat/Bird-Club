@@ -1,4 +1,6 @@
 
+<%@page import="com.fptuni.prj301.demo.model.Meeting"%>
+<%@page import="com.fptuni.prj301.demo.model.Fieldtrip"%>
 <%@page import="com.fptuni.prj301.demo.model.Tournament"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -385,7 +387,7 @@
                             for (int i = 0; i < list.size() - 1; i++) {
                                 out.print("'" + list.get(i) + "',");
                             }
-                            out.print("'"+list.get(list.size() - 1) +"'" + "],");
+                            out.print("'" + list.get(list.size() - 1) + "'" + "],");
                         %>
 
                             lineTension: 0,
@@ -417,7 +419,7 @@
                             for (int i = 0; i < topTournament.size() - 1; i++) {
                                 out.print("'" + topTournament.get(i).getTID() + "',");
                             }
-                            out.print("'" +topTournament.get(topTournament.size() - 1).getTID()+"'" );
+                            out.print("'" + topTournament.get(topTournament.size() - 1).getTID() + "'");
                         %>],
                                 datasets: [{
                                         label: '# of participants',
@@ -426,7 +428,7 @@
                             for (int i = 0; i < topTournament.size() - 1; i++) {
                                 out.print("'" + topTournament.get(i).getNumberOfParticipant() + "',");
                             }
-                            out.print("'" +topTournament.get(topTournament.size() - 1).getNumberOfParticipant()+"'" );
+                            out.print("'" + topTournament.get(topTournament.size() - 1).getNumberOfParticipant() + "'");
                         %>],
                                         borderWidth: 1
                                     }]
@@ -444,7 +446,91 @@
 
             </div>
 
+            <div class="lg:grid lg:grid-cols-2 gap-4 mt-4">
 
+                <div class="bg-white shadow sm:rounded-lg p-6">
+                    <h3 class="font-bold text-gray-700 truncate">Top 10 field trips</h3>
+                    <canvas id="myChart2"></canvas>
+                        <%! List<Fieldtrip> topFieldtrip;%>
+                        <% topFieldtrip = (List<Fieldtrip>) request.getAttribute("topFieldtrip");                        %>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        const ctx2 = document.getElementById('myChart2');
+                        new Chart(ctx2, {
+                            type: 'bar',
+                            data: {
+                                labels: [
+                        <%
+                            for (int i = 0; i < topFieldtrip.size() - 1; i++) {
+                                out.print("'" + topFieldtrip.get(i).getFID() + "',");
+                            }
+                            out.print("'" + topFieldtrip.get(topFieldtrip.size() - 1).getFID() + "'");
+                        %>],
+                                datasets: [{
+                                        label: '# of participants',
+                                        data: [
+                        <%
+                            for (int i = 0; i < topFieldtrip.size() - 1; i++) {
+                                out.print("'" + topFieldtrip.get(i).getNumberOfParticipant() + "',");
+                            }
+                            out.print("'" + topFieldtrip.get(topFieldtrip.size() - 1).getNumberOfParticipant() + "'");
+                        %>],
+                                        borderWidth: 1
+                                    }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+
+                <div class="bg-white shadow sm:rounded-lg p-6">
+                    <h3 class="font-bold text-gray-700 truncate">Top 10 meetings</h3>
+                    <canvas id="myChart3"></canvas>
+                        <%! List<Meeting> topMeeting;%>
+                        <% topMeeting = (List<Meeting>) request.getAttribute("topMeeting");                        %>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        const ctx3 = document.getElementById('myChart3');
+                        new Chart(ctx3, {
+                            type: 'bar',
+                            data: {
+                                labels: [
+                        <%
+                            for (int i = 0; i < topMeeting.size() - 1; i++) {
+                                out.print("'" + topMeeting.get(i).getMeID() + "',");
+                            }
+                            out.print("'" + topMeeting.get(topMeeting.size() - 1).getMeID() + "'");
+                        %>],
+                                datasets: [{
+                                        label: '# of participants',
+                                        data: [
+                        <%
+                            for (int i = 0; i < topMeeting.size() - 1; i++) {
+                                out.print("'" + topMeeting.get(i).getNumberOfParticipant() + "',");
+                            }
+                            out.print("'" + topMeeting.get(topMeeting.size() - 1).getNumberOfParticipant() + "'");
+                        %>],
+                                        borderWidth: 1
+                                    }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+
+            </div>
 
             <div class="lg:grid lg:grid-cols-4 gap-4 mt-4">
                 <div class="bg-white shadow sm:rounded-lg p-6"></div>

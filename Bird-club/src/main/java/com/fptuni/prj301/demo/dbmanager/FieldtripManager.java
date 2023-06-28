@@ -273,7 +273,6 @@ public class FieldtripManager {
         }
     }
 
-
     public void remove(String FID) {
         String sql = "DELETE FROM FieldTrip WHERE FID = ?";
         try {
@@ -384,5 +383,25 @@ public class FieldtripManager {
             System.out.println("Contact: " + fieldtrip.getContact());
             System.out.println("------------------------");
         }
+    }
+
+    public List<Fieldtrip> getTop10Participation() {
+        List<Fieldtrip> list = new ArrayList();
+        String sql = "select TOP 10 FID, COUNT(UID) AS 'num' from FieldTripParticipants GROUP BY FID ORDER BY num DESC";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Fieldtrip f = new Fieldtrip();
+                f.setFID(rs.getString("FID"));
+                f.setNumberOfParticipant(rs.getInt("num"));
+                list.add(f);
+            }
+            return list;
+        } catch (SQLException e) {
+
+        }
+        return list;
     }
 }
