@@ -87,12 +87,15 @@ public class TparticipationController extends HttpServlet {
             Tparticipation participant = null;
             for (Bird bird : birds) {
                 // Check if a participant exists for the current bird
-               participant = p.getParticipant(tid, bird.getBID());
+                participant = p.getParticipant(tid, bird.getBID());
 
                 if (participant != null) {
                     participantFound = true;
                     break; // Exit the loop if a participant is found
                 }
+            }
+            if (participantFound) {
+                request.setAttribute("bird", participant.getBid());
             }
 
             if (tournament != null) {
@@ -100,7 +103,7 @@ public class TparticipationController extends HttpServlet {
                 request.setAttribute("tournament", tournament);
                 request.setAttribute("location", location);
                 request.setAttribute("img", a);
-                request.setAttribute("join", participant.getBid());
+                request.setAttribute("join", participantFound);
 
                 // Forward the request to the view page
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/member_tournament_details.jsp");

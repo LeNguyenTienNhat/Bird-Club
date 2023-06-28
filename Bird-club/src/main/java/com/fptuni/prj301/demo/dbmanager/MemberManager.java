@@ -1,6 +1,7 @@
 package com.fptuni.prj301.demo.dbmanager;
 
 import com.fptuni.prj301.demo.model.Member;
+import com.fptuni.prj301.demo.model.MemberProfile;
 import com.fptuni.prj301.demo.utils.DBUtils;
 import tool.utils.Tools;
 import java.sql.Connection;
@@ -75,6 +76,27 @@ public class MemberManager {
             ps.setString(8, member.getExpiredDate());
             ps.setString(9, member.getAvatar());
             ps.setString(12, member.getUID());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Failed to update due to internal error :(" + ex.getMessage());
+        }
+        return false;
+    }
+    
+    public boolean update(MemberProfile member) throws ClassNotFoundException {
+        String sql = "UPDATE [User] SET userName = ?, "
+                + "fullName = ?, gender = ?, phone = ?, email = ?, "
+                + "avatar = ? WHERE UID = ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, member.getUserName());
+            ps.setString(2, member.getFullName());
+            ps.setString(3, member.getGender());
+            ps.setString(4, member.getPhone());
+            ps.setString(5, member.getEmail());
+            ps.setString(6, member.getAvatar());
+            ps.setString(7, member.getUID());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Failed to update due to internal error :(" + ex.getMessage());

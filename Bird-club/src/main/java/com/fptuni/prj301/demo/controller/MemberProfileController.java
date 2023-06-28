@@ -7,6 +7,7 @@ package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.MemberManager;
 import com.fptuni.prj301.demo.model.Member;
+import com.fptuni.prj301.demo.model.MemberProfile;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -17,6 +18,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import tool.utils.Tools;
 
 /**
@@ -52,33 +54,29 @@ public class MemberProfileController extends HttpServlet {
         }
         //update member profile
         if (action != null && action.equals("updateprofile")) {
+            HttpSession ss = request.getSession(true);
             String UID = request.getParameter("UID");
             String userName = request.getParameter("userName");
-            String password = request.getParameter("password");
+            //String password = request.getParameter("password");
             String fullName = request.getParameter("fullName");
             String gender = request.getParameter("gender");
             String phone = request.getParameter("phone");
             String email = request.getParameter("email");
-            String status = request.getParameter("status").trim();
-            if (status != null) {
-                status = status.trim();
-            }
-            String role = request.getParameter("role").trim();
-            if (role != null) {
-                role = role.trim();
-            }
+            //String status = request.getParameter("status").trim();
+            //String role = request.getParameter("role").trim();
 
-            String signupDate = tool.convertDateFormat(request.getParameter("signupDate"));
-            String expiredDate = tool.convertDateFormat(request.getParameter("expiredDate"));
-
-            String MID = request.getParameter("MID");
+            //String signupDate  = tool.convertDateFormat(request.getParameter("signupDate"));
+            //String expiredDate  = tool.convertDateFormat(request.getParameter("expiredDate"));
+            //String MID = request.getParameter("MID");
             String avatar = request.getParameter("avatar");
-            Member member = new Member(UID, userName, password, fullName, gender, phone, email, status, role, signupDate, expiredDate, MID, avatar);
+            MemberProfile users = new MemberProfile(UID, userName, fullName, gender, phone, email, avatar);
 
-            memberManager.update(member);
+            memberManager.update(users);
+            ss.setAttribute("users", users);
             request.setAttribute("action", "view");
-            RequestDispatcher rd = request.getRequestDispatcher("MemberProfileController");
+            RequestDispatcher rd = request.getRequestDispatcher("/member_profile.jsp");
             rd.forward(request, response);
+            return;
         }
     }
 

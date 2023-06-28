@@ -54,7 +54,7 @@ public class BirdController extends HttpServlet {
             BirdManager birdController = new BirdManager();
             String tid = request.getParameter("TID");
             String UID = request.getParameter("UID");
-            String BID = request.getParameter("join");
+            String BID = request.getParameter("bird");
             List<Bird> birds = birdController.getBirdsByUID(UID);
             TournamentManager t = new TournamentManager();
             Tournament tournament = t.getTournamentById(tid);
