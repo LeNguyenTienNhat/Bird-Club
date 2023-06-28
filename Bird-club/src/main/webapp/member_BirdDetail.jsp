@@ -139,33 +139,44 @@
                         <div class="row">
                             <div class="col-md-3 border-right">
                                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                    <img class="rounded-circle mt-2" width="300px" src="https://th.bing.com/th/id/R.ad89a3b2edb304e617c8d31cacec9410?rik=ssCYAK%2bbpjBxSg&riu=http%3a%2f%2fwww.wallpapermaiden.com%2fimage%2f2016%2f09%2f27%2fanime-girl-profile-view-white-hair-bird-anime-6574-resized.jpg&ehk=mkP1Kkuek6SoF7RbExLk%2blk%2bozGszpEyfh5a7sTYPFI%3d&risl=&pid=ImgRaw&r=0"><span class="font-weight-bold">${birds.getName()}</span><span class="text-black-50">${birds.getAge()}</span><span> </span></div>
+                                    <img class="rounded-circle mt-2" width="300px" src="https://th.bing.com/th/id/R.ad89a3b2edb304e617c8d31cacec9410?rik=ssCYAK%2bbpjBxSg&riu=http%3a%2f%2fwww.wallpapermaiden.com%2fimage%2f2016%2f09%2f27%2fanime-girl-profile-view-white-hair-bird-anime-6574-resized.jpg&ehk=mkP1Kkuek6SoF7RbExLk%2blk%2bozGszpEyfh5a7sTYPFI%3d&risl=&pid=ImgRaw&r=0"><span class="font-weight-bold">${birds.getName()}</span><span class="text-black-50">${birds.getDescription()}</span><span> </span></div>
                             </div>
                             <div class="col-md-5 border-right">
                                 <div class="p-3 py-5">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <h4 class="text-right">Profile Settings</h4>
                                     </div>
+                                    <form id="SaveProfileForm" action="BirdProfileEditController" method="post">
                                     <div class="row mt-2">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label class="labels">Name</label>
                                             <input type="text" class="form-control" placeholder="Bird name" value="${birds.getName()}">
                                         </div>                                       
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-md-12">
+                                        <div class="col-md-2">
                                             <label class="labels">Age</label>
                                             <input type="text" class="form-control" placeholder="Age" value="${birds.getAge()}">
-                                        </div>
-                                        <div class="col-md-12">
+                                    </div>
+                                    <div class="col-md-4">
                                             <label class="labels">Gender</label>
                                             <input type="text" class="form-control" placeholder="Gender" value="${birds.getGender()}">
-                                        </div>
-                                        <div class="col-md-12">
-                                            <label class="labels">Color</label>
-                                            <input type="text" class="form-control" placeholder="Description" value="${birds.getDescription()}">
-                                        </div>
                                     </div>
+                                    <div class="col-md-12">
+                                            <label class="labels">Description</label>
+                                            <input type="text" class="form-control" placeholder="Description" value="${birds.getDescription()}">
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-12">
+                                            <label class="labels">Image</label>
+                                            <input type="text" class="form-control" placeholder="URL" value="${birds.getImageURL()}">
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-4">
+                                            <label class="labels">Color</label>
+                                            <input type="text" class="form-control" placeholder="color" value="${birds.getColor()}">
+                                    </div>
+                                    </form>
                                     <script>
                                         function saveProfile() {
                                         window.location.href = "MemberProfileController?action=updateprofile";

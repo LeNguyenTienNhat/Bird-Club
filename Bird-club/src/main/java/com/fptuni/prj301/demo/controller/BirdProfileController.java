@@ -6,13 +6,21 @@
 package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.BirdManager;
+import com.fptuni.prj301.demo.dbmanager.FieldtripManager;
 import com.fptuni.prj301.demo.dbmanager.MemberManager;
+import com.fptuni.prj301.demo.model.Bird;
+import com.fptuni.prj301.demo.model.BirdProfile;
+import com.fptuni.prj301.demo.model.Fieldtrip;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import tool.utils.Tools;
 
 /**
@@ -33,20 +41,40 @@ public class BirdProfileController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       String action = request.getParameter("action");
-        Tools tool = new Tools();
-        BirdManager birdManager = new BirdManager();
+       PrintWriter out = response.getWriter();
+        String action = request.getParameter("action");
 
-        if (action != null && action.equals("view")) {
+
+        if (action != null && action.equals("viewbirdprofile")) {
             // Process the view action
-            birdManager = new BirdManager();
-            String birds = request.getParameter("BID");
-
-            request.setAttribute("birds", birds);
-            request.getRequestDispatcher("/member_BirdDetail.jsp").forward(request, response);
+            BirdManager birdController = new BirdManager();
+            String UID = request.getParameter("UID");
+            List<Bird> birds = birdController.getBirdsByUID(UID);
+            request.setAttribute("birdList", birds);
+            request.getRequestDispatcher("/member_BirdList.jsp").forward(request, response);
         }
-    }
-
+       else if (action.equals("view")) {
+            // Retrieve the Tparticipation object from the database based on the provided parameters (e.g., docNo)
+            String bid = request.getParameter("BID");
+            String UID = request.getParameter("UID");
+            BirdManager birdManager = new BirdManager();
+            Bird birds = birdManager.getBirdByBID(bid);
+                                   
+           
+            if (birds != null) {
+                // Store the Tparticipation object in request scope
+                request.setAttribute("birds", birds);
+                // Forward the request to the view page
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/member_BirdDetail.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                // Redirect to a failure page
+                response.sendRedirect(request.getContextPath() + "/fail.jsp");
+            }
+        }//update bird profile
+        
+        
+ }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -85,5 +113,5 @@ public class BirdProfileController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+   
 }

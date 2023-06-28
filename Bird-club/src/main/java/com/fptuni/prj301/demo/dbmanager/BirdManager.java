@@ -6,7 +6,8 @@
 package com.fptuni.prj301.demo.dbmanager;
 
 import com.fptuni.prj301.demo.model.Bird;
-import com.fptuni.prj301.demo.model.Member;
+import com.fptuni.prj301.demo.model.BirdProfile;
+
 import com.fptuni.prj301.demo.utils.DBUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -69,7 +70,55 @@ public class BirdManager {
         }
         return UID;
     }
+    public Bird getBirdByBID(String bid) {
+        Bird bird = null;
+        String query = "SELECT * FROM Bird WHERE BID = ?";
 
+     try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(query)) {
+        ps.setString(1, bid);
+
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                bird = new Bird();
+                    bird.setBID(rs.getString("BID"));
+                    bird.setUID(rs.getString("UID"));
+                     bird.setName(rs.getString("name"));
+                    bird.setAge(rs.getInt("age"));
+                    bird.setGender(rs.getString("gender"));
+                    bird.setDescription(rs.getString("description"));
+                    bird.setImageURL(rs.getString("imageURL"));
+                    bird.setColor(rs.getString("color"));
+                    bird.setAddDate(rs.getDate("addDate"));
+                
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return bird;
+}
+     public boolean update(BirdProfile bird) throws ClassNotFoundException {
+        String sql = "UPDATE Bird SET name = ?, age = ?, "
+                + "gender = ?, description = ?, imageURL = ?, color = ?, "               
+                + " WHERE BID = ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, bird.getName());
+            ps.setString(2, bird.getAge());
+            ps.setString(3, bird.getGender());
+            ps.setString(4, bird.getDescription());
+            ps.setString(5, bird.getImageURL());
+            ps.setString(6, bird.getColor());
+            ps.setString(12, bird.getUID());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Failed to update due to internal error :(" + ex.getMessage());
+        }
+        return false;
+    }
     public Bird load(String BID) {
         String sql = "SELECT * FROM [Bird] WHERE BID = ?";
         Bird bird = new Bird();
@@ -148,5 +197,27 @@ public class BirdManager {
         }
         return count;
     }
-    
+ public static void main(String[] args) {
+        // Create an instance of your class
+       BirdManager birdDAO = new BirdManager();
+        String BID = "BID16"; // Replace with the actual tournament ID
+        Bird bird = birdDAO.getBirdByBID(BID);
+
+        if (bird != null) {
+            System.out.println("BID: " + bird.getBID());
+            System.out.println("UID: " + bird.getUID());
+            System.out.println("Description: " + bird.getName());
+            System.out.println("Age: " + bird.getAge());
+            System.out.println("Gender: " + bird.getGender());
+            System.out.println("Descrip: " + bird.getDescription());
+            System.out.println("Image: " + bird.getImageURL());
+            System.out.println("Color: " + bird.getColor());
+            System.out.println("Date: " + bird.getAddDate());
+
+            System.out.println("------------------------");
+        }else {
+            System.out.println("Bird not found.");
+        }
+    }
 }
+

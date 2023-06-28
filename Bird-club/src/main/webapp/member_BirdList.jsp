@@ -102,6 +102,13 @@
                                         } body{background:#eee}.ratings i{font-size: 16px;color: red}.strike-text{color: red;text-decoration: line-through}.product-image{width: 100%}.dot{height: 7px;width: 7px;margin-left: 6px;margin-right: 6px;margin-top: 3px;background-color: blue;border-radius: 50%;display: inline-block}.spec-1{color: #938787;font-size: 15px}h5{font-weight: 400}.para{font-size: 16px}</style>
                                     </head>
                                     <body className='snippet-body'>
+                                         <td  text-align: center;">
+                                                         <form action="${pageContext.request.contextPath}//BirdProfileController?action=add&UID=${users.getUID()}" method="POST">
+                                                            <input type="hidden" name="action" value="addbird">
+                                                            <input type="hidden" name="BID" value="${bird.getBID()}" />                                                                                                                      
+                                                            <button type="submit" class="wp-block-button__link wp-element-button">Add Bird</button>
+                                                        </form>
+                                         </td>
                                         <table>
                                         <style>
                                             .table-heading {
@@ -133,7 +140,7 @@
                                                              margin: auto; width: 200px; height: 150px; ">
                                                     </td>
                                                     <td  text-align: center;">
-                                                         <form action="${pageContext.request.contextPath}/BirdController" method="POST">
+                                                         <form action="${pageContext.request.contextPath}//BirdProfileController?action=view&BID=${bird.getBID()}" method="POST">
                                                             <input type="hidden" name="action" value="viewbirddetail">
                                                             <input type="hidden" name="BID" value="${bird.getBID()}" />                                                                                                                      
                                                             <button type="submit" class="wp-block-button__link wp-element-button">Detail</button>
