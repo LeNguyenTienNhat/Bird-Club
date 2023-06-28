@@ -331,7 +331,7 @@
         <% list = (List<Integer>) request.getAttribute("list"); %>
         <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
 
-            <div class="lg:grid lg:grid-cols-1 gap-4">
+            <div class="lg:grid lg:grid-cols-1 gap-2">
                 <div class="bg-white shadow sm:rounded-lg p-6 mb-4">
                     <dl class="sm:rounded-t-lg grid grid-cols-4 bg-white overflow-hidden border-gray-200 divide-y divide-gray-200 md:divide-y-0 md:divide-x">
                         <div class="px-4 py-5 sm:p-6">
@@ -373,36 +373,7 @@
                 </div>
             </div>
 
-            <div class="lg:grid lg:grid-cols-2 gap-4">
-
-                <div class="bg-white shadow sm:rounded-lg p-6">
-                    <h3 class="font-bold text-gray-700 truncate">New members in 2023</h3>
-                    <canvas id="NumOfSignup"></canvas>
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                    <script>
-                        var NumOfSignup = document.getElementById("NumOfSignup");
-                        var data = {
-                            label: "Members",
-                        <% out.print("data: [");
-                            for (int i = 0; i < list.size() - 1; i++) {
-                                out.print("'" + list.get(i) + "',");
-                            }
-                            out.print("'" + list.get(list.size() - 1) + "'" + "],");
-                        %>
-
-                            lineTension: 0,
-                            fill: false,
-                            borderColor: '#febc2c'};
-                        var numberData = {
-                            labels: ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                            datasets: [data]};
-                        var chartOptions = {
-                            legend: {display: true, position: 'top',
-                                labels: {boxWidth: 80, fontColor: 'white'}}};
-                        var lineChart = new Chart(NumOfSignup, {type: 'line', data: numberData, options: chartOptions});
-                    </script>
-                </div>
-
+            <div class="lg:grid lg:grid-cols-3 gap-4">
                 <div class="bg-white shadow sm:rounded-lg p-6">
                     <h3 class="font-bold text-gray-700 truncate">Top 10 tournaments</h3>
                     <canvas id="myChart"></canvas>
@@ -444,10 +415,6 @@
                     </script>
                 </div>
 
-            </div>
-
-            <div class="lg:grid lg:grid-cols-2 gap-4 mt-4">
-
                 <div class="bg-white shadow sm:rounded-lg p-6">
                     <h3 class="font-bold text-gray-700 truncate">Top 10 field trips</h3>
                     <canvas id="myChart2"></canvas>
@@ -487,10 +454,10 @@
                             }
                         });
                     </script>
-                </div>
+                </div>             
 
                 <div class="bg-white shadow sm:rounded-lg p-6">
-                    <h3 class="font-bold text-gray-700 truncate">Top 10 meetings</h3>
+                    <h3 class="font-bold text-gray-700 truncate mt-4">Top 10 meetings</h3>
                     <canvas id="myChart3"></canvas>
                         <%! List<Meeting> topMeeting;%>
                         <% topMeeting = (List<Meeting>) request.getAttribute("topMeeting");                        %>
@@ -528,6 +495,59 @@
                             }
                         });
                     </script>
+                </div>
+
+                <div class="bg-white shadow sm:rounded-lg p-6">
+                    <h3 class="font-bold text-gray-700 truncate">New members in 2023</h3>
+                    <canvas id="NumOfSignup"></canvas>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        var NumOfSignup = document.getElementById("NumOfSignup");
+                        var data = {
+                            label: "Members",
+                        <% out.print("data: [");
+                            for (int i = 0; i < list.size() - 1; i++) {
+                                out.print("'" + list.get(i) + "',");
+                            }
+                            out.print("'" + list.get(list.size() - 1) + "'" + "],");
+                        %>
+
+                            lineTension: 0,
+                            fill: false,
+                            borderColor: '#febc2c'};
+                        var numberData = {
+                            labels: ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                            datasets: [data]};
+                        var chartOptions = {legend: {display: true, position: 'top', labels: {boxWidth: 80, fontColor: 'white'}}};
+                        var lineChart = new Chart(NumOfSignup, {type: 'line', data: numberData, options: chartOptions});
+                    </script>                   
+                </div>                  
+
+
+                <div class="bg-white shadow sm:rounded-lg p-6">                                                                   
+                    <h3 class="font-bold text-gray-700 truncate">Top 10</h3>
+                    <canvas id="pieChart" class="p-6"></canvas>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        const pieChart = document.getElementById('pieChart');
+                        var pieChartData = {labels: ['Red', 'Blue', 'Yellow'],
+                            datasets: [{label: 'My First Dataset', data: [300, 50, 100],
+                                    backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
+                                    hoverOffset: 4}]};
+                        var firstPieChart = new Chart(pieChart, {type: 'pie', data: pieChartData});
+                    </script>                                                
+                </div>                       
+
+            </div>
+
+            <div class="lg:grid lg:grid-cols-2 gap-4 mt-4">
+
+                <div class="bg-white shadow sm:rounded-lg p-6">
+
+                </div>
+
+                <div class="bg-white shadow sm:rounded-lg p-6">
+
                 </div>
 
             </div>
