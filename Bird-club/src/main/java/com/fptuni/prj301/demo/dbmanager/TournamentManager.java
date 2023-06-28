@@ -273,29 +273,16 @@ public List<Tournament> getTop10() {
         return false;
     }
 
-    public void terminate(String TID) {
+    public void updateStatus(String TID, String status) {
         String sql = "UPDATE Tournament SET status = ? WHERE TID = ?";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, status);
             ps.setString(2, TID);
-            ps.setString(1, "finished");
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Failed to ternimate due to internal error :(" + ex.getMessage());
-        }
-    }
-
-    public void closeForm(String TID) {
-        String sql = "UPDATE Tournament SET status = ? WHERE TID = ?";
-        try {
-            Connection conn = DBUtils.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(2, TID);
-            ps.setString(1, "formClosed");
-            ps.executeUpdate();
-        } catch (SQLException ex) {
-            System.out.println("Failed to close form due to internal error :(" + ex.getMessage());
         }
     }
 
@@ -366,6 +353,26 @@ public List<Tournament> getTop10() {
         // Print other details as needed
         System.out.println("-------------------------------------");
     }
+    }
+    
+    public List<Tournament> getTop10Participation() throws SQLException {
+        List<Tournament> list = new ArrayList();
+        String sql = "select TOP 10 TID, COUNT(BID) AS 'num' from Tparticipation GROUP BY TID ORDER BY num DESC";
+        try {
+        Connection conn = DBUtils.getConnection();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            Tournament t = new Tournament();
+            t.setTID(rs.getString("TID"));
+            t.setNumberOfParticipant(rs.getInt("num"));
+            list.add(t);
+        }
+        return list;
+        } catch (SQLException e) {
+            
+        }
+        return list;
     }
   
 }

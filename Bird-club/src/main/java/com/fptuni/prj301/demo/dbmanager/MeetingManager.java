@@ -145,29 +145,16 @@ public class MeetingManager {
         return false;
     }
 
-    public void terminate(String MeID) {
+    public void updateStatus(String MeID, String status) {
         String sql = "UPDATE Meeting SET status = ? WHERE MeID = ?";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(2, MeID);
-            ps.setString(1, "finished");
+            ps.setString(1, status);
+            ps.setString(2, MeID);            
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Failed to ternimate due to internal error :(" + ex.getMessage());
-        }
-    }
-
-    public void closeForm(String MeID) {
-        String sql = "UPDATE Meeting SET status = ? WHERE MeID = ?";
-        try {
-            Connection conn = DBUtils.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(2, MeID);
-            ps.setString(1, "formClosed");
-            ps.executeUpdate();
-        } catch (SQLException ex) {
-            System.out.println("Failed to close form due to internal error :(" + ex.getMessage());
         }
     }
 

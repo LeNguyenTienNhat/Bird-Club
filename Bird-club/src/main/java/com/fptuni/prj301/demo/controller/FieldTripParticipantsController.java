@@ -33,7 +33,6 @@ import tool.utils.UIDGenerator;
  */
 public class FieldTripParticipantsController extends HttpServlet {
 
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -71,30 +70,44 @@ public class FieldTripParticipantsController extends HttpServlet {
                 // Redirect to a failure page
                 response.sendRedirect(request.getContextPath() + "/failure.jsp");
             }
-        }else if (action.equals("view")) {
+        } else if (action.equals("view")) {
             // Retrieve the Tparticipation object from the database based on the provided parameters (e.g., docNo)
             String fid = request.getParameter("FID");
+            String UID = request.getParameter("UID");
             FieldtripManager fieldtripManager = new FieldtripManager();
+            FieldTripParticipantsManager f = new FieldTripParticipantsManager();
+            List< FieldTripParticipants> field = f.getParticipantList(fid);
             LocationManager l = new LocationManager();
-             Fieldtrip fieldtrip = fieldtripManager.getFieldTripById(fid);
+            Fieldtrip fieldtrip = fieldtripManager.getFieldTripById(fid);
             String location = l.getCoordinationByFieldTripId(fid);
             EventsMediaManager media = new EventsMediaManager();
-             String a = media.getURLByID("FieldTripMedia", fid);
+            String a = media.getURLByID("FieldTripMedia", fid);
+
+            boolean participantExists = false;
+            for (FieldTripParticipants participant : field) {
+                if (participant.getUid().trim().equals(UID)) {
+                    participantExists = true;
+                    break;
+                }
+            }
+
+            
             if (fieldtrip != null) {
                 // Store the Tparticipation object in request scope
                 request.setAttribute("fieldtrip", fieldtrip);
-                request.setAttribute("location",location);
-                request.setAttribute("img",a);
+                request.setAttribute("location", location);
+                request.setAttribute("img", a);
+                request.setAttribute("join", participantExists);
                 // Forward the request to the view page
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/member_fieldtrip_details.jsp");
                 dispatcher.forward(request, response);
             } else {
                 // Redirect to a failure page
-                response.sendRedirect(request.getContextPath() + "/vnpay_pay.jsp");
+                response.sendRedirect(request.getContextPath() + "/fail.jsp");
             }
         }
         if (action != null && action.equals("delete")) {
-             String docNoToDelete = request.getParameter("docF");
+            String docNoToDelete = request.getParameter("docF");
 
             if (docNoToDelete != null) {
                 FieldTripParticipantsManager eventsManager = new FieldTripParticipantsManager();
@@ -112,7 +125,7 @@ public class FieldTripParticipantsController extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/failure.jsp");
             }
         }
-         if (action != null && action.equals("save")) {
+        if (action != null && action.equals("save")) {
             String PID = UIDGenerator.generatePID();
             BigDecimal amount1 = new BigDecimal(request.getParameter("amount")).multiply(BigDecimal.valueOf(100));
             String uid = request.getParameter("UID");

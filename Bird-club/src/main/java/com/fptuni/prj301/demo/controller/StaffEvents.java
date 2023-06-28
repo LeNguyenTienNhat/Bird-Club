@@ -14,6 +14,7 @@ import com.fptuni.prj301.demo.model.Media;
 import com.fptuni.prj301.demo.model.Meeting;
 import com.fptuni.prj301.demo.model.MeetingParticipants;
 import com.fptuni.prj301.demo.model.Member;
+import com.fptuni.prj301.demo.model.UserSession;
 import tool.utils.Tools;
 import java.io.IOException;
 import java.text.ParseException;
@@ -26,6 +27,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class StaffEvents extends HttpServlet {
 
@@ -89,7 +91,7 @@ public class StaffEvents extends HttpServlet {
             request.setAttribute("a", a);
             request.setAttribute("fList", fList);
             request.setAttribute("mList", mList);
-            request.setAttribute("total", fm.getTotalNumber()+mm.getTotalNumber());
+            request.setAttribute("total", fm.getTotalNumber() + mm.getTotalNumber());
             request.setAttribute("ongoingFieldTrips", b);
             request.setAttribute("ongoingMeetings", c);
             request.setAttribute("pending", d);
@@ -182,7 +184,7 @@ public class StaffEvents extends HttpServlet {
         } //Terminate a field trip
         else if (action.equals("terminatefieldtrip")) {
             String FID = request.getParameter("FID");
-            fm.terminate(FID);
+            fm.updateStatus(FID, "finished");
 
             request.setAttribute("action", "viewevents");
             RequestDispatcher rd = request.getRequestDispatcher("StaffEvents");
@@ -190,9 +192,17 @@ public class StaffEvents extends HttpServlet {
         } //Close registration form of a field trip
         else if (action.equals("closeformfieldtrip")) {
             String FID = request.getParameter("FID");
-            fm.closeForm(FID);
+            fm.updateStatus(FID, "formClosed");
 
             RequestDispatcher rd = request.getRequestDispatcher("StaffEvents");
+            rd.forward(request, response);
+        } //Start a field trip
+        else if (action.equals("startfieldtrip")) {
+            String FID = request.getParameter("FID");
+            fm.updateStatus(FID, "ongoing");
+
+            request.setAttribute("action", "viewtournaments");
+            RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
             rd.forward(request, response);
         } //View a field trip's details
         else if (action.equals("editfieldtrip")) {
@@ -286,7 +296,7 @@ public class StaffEvents extends HttpServlet {
         } //Terminate a meeting
         else if (action.equals("terminatemeeting")) {
             String MeID = request.getParameter("MeID");
-            mm.terminate(MeID);
+            mm.updateStatus(MeID, "finished");
 
             request.setAttribute("action", "viewevents");
             RequestDispatcher rd = request.getRequestDispatcher("StaffEvents");
@@ -294,7 +304,7 @@ public class StaffEvents extends HttpServlet {
         } //Close registration form of a meeting
         else if (action.equals("closeformmeeting")) {
             String MeID = request.getParameter("MeID");
-            mm.closeForm(MeID);
+            mm.updateStatus(MeID, "formClosed");
 
             request.setAttribute("action", "viewevents");
             RequestDispatcher rd = request.getRequestDispatcher("StaffEvents");
@@ -313,6 +323,14 @@ public class StaffEvents extends HttpServlet {
             request.setAttribute("locationsList", locationsList);
             request.setAttribute("meeting", meeting);
             RequestDispatcher rd = request.getRequestDispatcher("staff_meeting_details.jsp");
+            rd.forward(request, response);
+        } //Start a field trip
+        else if (action.equals("startmeeing")) {
+            String MeID = request.getParameter("MeID");
+            mm.updateStatus(MeID, "ongoing");
+
+            request.setAttribute("action", "viewtournaments");
+            RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
             rd.forward(request, response);
         } //View a field trip's media
         else if (action.equals("viewfieldtripmedia")) {

@@ -330,9 +330,13 @@
                                                             </div>
                                                         </div>
 
-                                                        <%! List<Location> locationsList; Location loc;%>
+                                                        <%! List<Location> locationsList;
+                                                            Location loc;
+                                                            String select;
+                                                            String locID;%>
                                                         <% locationsList = (List<Location>) request.getAttribute("locationsList");
                                                             loc = (Location) request.getAttribute("location");
+                                                            locID = f.getLID().trim();
                                                         %>
                                                         <div><label class="block text-sm font-medium text-gray-700" for="event_location">Current location: <% out.print(loc.getName()); %><br> Details: <% out.print(loc.getCoordination()); %></label>
                                                             <div class="mt-1">
@@ -340,7 +344,11 @@
                                                                 <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="LID" id="LID">
                                                                     <%
                                                                         for (Location l : locationsList) {
-                                                                            out.print("<option value='" + l.getLid() + "'>" + l.getName() + "</option>");
+                                                                            select = "";
+                                                                            if (locID.equalsIgnoreCase(l.getLid().trim())) {
+                                                                                select = "selected='selected'";
+                                                                            }
+                                                                            out.print("<option " + select + " value='" + l.getLid() + "'>" + l.getName() + "</option>");
                                                                         }
                                                                     %>
                                                                 </select>
@@ -378,19 +386,27 @@
                                                         </div>
 
                                                         <div class="sm:col-span-6">
-                                                            <label class="block text-sm font-medium text-gray-700" for="status">Status: <% out.print("  " + f.getStatus()); %></label>
+                                                            <label class="block text-sm font-medium text-gray-700" for="status">Status: </label>
                                                             <div class="mt-1">
-
+                                                                <%! String select1, select2, select3, select4;%>
+                                                                <% select1 = select2 = select3 = select4 = ""; %>
+                                                                <%
+                                                                    if (f.getStatus().trim().equalsIgnoreCase("pending")) {
+                                                                        select1 = "selected='selected'";
+                                                                    } else if (f.getStatus().trim().equalsIgnoreCase("formClosed")) {
+                                                                        select2 = "selected='selected'";
+                                                                    } else if (f.getStatus().trim().equalsIgnoreCase("ongoing")) {
+                                                                        select3 = "selected='selected'";
+                                                                    } else {
+                                                                        select4 = "selected='selected'";
+                                                                    }%>
                                                                 <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="status" id="status">
-                                                                    <option selected="selected" value="pending">Pending</option>
-                                                                    <option value="formClosed">Form closed</option>
-                                                                    <option value="ongoing">On going</option>
-                                                                    <option value="finished">Terminated</option>
+                                                                    <option <% out.print(select1); %> value="pending">Pending</option>
+                                                                    <option <% out.print(select2); %> value="formClosed">Form closed</option>
+                                                                    <option <% out.print(select3); %> value="ongoing">On going</option>
+                                                                    <option <% out.print(select4); %> value="finished">Terminated</option>
                                                                 </select>
-
                                                             </div>
-                                                            <p class="mt-2 text-sm text-gray-500">Public clubs will allow non-members to learn about your club and apply to join. <br>
-                                                                Private clubs are invite-only and visible only to members. <br></p>
                                                         </div>
 
                                                         <div class="col-span-1">

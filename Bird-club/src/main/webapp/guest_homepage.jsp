@@ -13,19 +13,25 @@
     </head>
 <body>
  <header id="main-nav-header">
-                <div id="header-wrapper">
-                    <div class="tiny-bar">
+                <div id="header-wrapper" style=" padding: 10px; justify-content: flex-end; display: flex; width: 100%">
+        <a href="member_homepage.jsp">
+  <img src="https://www.bird.club/assets/logo/logo-312ed022e9e8abb1fcfcdfd5eaa3fd93fb11e7d70d4eef74149a7ba17c311e71.png" alt="BirdClub logo" width="150" height="49">
+</a>
                         <div class="grid-container top-bar">
                             <div class="top-bar-left grid-x align-middle small-auto logos">
                                 <div class="cell logo lab">
                                
-                                </div></div></div></div>
+                                </div>
+                                    
+                            </div>
+                                
+                        </div>
+                            
+                    
                     <div class="website-header-container grid-container">
                         <div class="grid-x header-content persistent-nav main-nav align-bottom nav-column">
                             <div class="cell flex-child-grow website-nav-container medium-auto small-12">
-                                                            <img alt="BirdClub logo" srcset="https://www.bird.club/assets/logo/logo@2x-956290beed33ed2841b61b3f880995d6c6951252a264e6615c7338a75336109e.png 2x, https://www.bird.club/assets/logo/logo@4x-fd2728b28bda915145a696aa1dd9344b6b1211bce8a3d93ece4a28683fbe4d88.png 4x" src="https://www.bird.club/assets/logo/logo-312ed022e9e8abb1fcfcdfd5eaa3fd93fb11e7d70d4eef74149a7ba17c311e71.png" width="150" height="49">
-
-                                <nav class="grid-x website-nav hide-for-print" aria-label="Primary">
+                                                                  <nav class="grid-x website-nav hide-for-print" aria-label="Primary">
                                     <div id="primary-nav-container">   
                                         <ul id="primary-nav" class="dropdown menu">
                                             <li id="nav-menu-item-41114" class="birds guide-active menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="member_homepage.jsp" class="menu-link main-menu-link">Home</a></li>

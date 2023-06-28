@@ -1,4 +1,4 @@
-<%@page import="com.fptuni.prj301.demo.model.Member"%>
+<%@page import="com.fptuni.prj301.demo.model.Bird"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -235,249 +235,148 @@
     <main class="pb-8 pt-8">
         <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
 
-            <div class="grid grid-cols-1 items-start lg:grid-cols-5 lg:gap-8">
+            <div class="">
                 <div class="grid grid-cols-1 gap-4 lg:col-span-5">
 
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
-                        <div class="sm:flex-auto">
-                            <% int memberNum = (int) request.getAttribute("memberNum");
-                                int guestNum = (int) request.getAttribute("guestNum");
-                                int ignoredNum = (int) request.getAttribute("ignoredNum");
-                            %>
-                            <h1 class="text-xl font-semibold text-gray-900">
-                                Our club currently has <% out.print(memberNum); %> members
-                            </h1>
-                            <p class="mt-2 text-sm text-gray-700">
-                                A full list of current members and approval requests of CHIM OWNERS.
-                            </p>
-                            <p></p>
-                        </div>
-
-                        <div class="mt-4 sm:mt-0 sm:ml-16 flex flex-row items-center space-x-6">
-                            <form id="viewguests">
-                                <input type="hidden" name="action" value="viewguests">
-                            </form>
-                            <button class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" form="viewguests" type="submit">
-                                <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-bell-fill -ml-1 mr-3 w-5 h-5" viewBox="0 0 16 16">
-                                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
-                                </svg>
-                                Check registration requests
-                            </button>
-                        </div>
-                        <div class="mt-4 sm:mt-0 sm:ml-16 flex flex-row items-center space-x-6">
-                            <form id="viewbirds">
-                                <input type="hidden" name="action" value="viewbirds">
-                            </form>
-                            <button class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" form="viewbirds" type="submit">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-twitter -ml-1 mr-3 w-5 h-5" viewBox="0 0 16 16">
-                                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
-                                </svg>
-                                View birds
-                            </button>
-                        </div>
+                        <p></p>
                     </div>
 
-                    <%! List<Member> membersList;%>
-                    <% membersList = (List<Member>) request.getAttribute("membersList"); %>  
+                    <div class="mt-4 mb-4">
+                        <form id="viewmembers">
+                            <input type="hidden" name="action" value="viewmembers">
+                        </form>
+                        <button class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" form="viewmembers" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-people-fill -ml-1 mr-3 w-5 h-5" viewBox="0 0 16 16">
+                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+                            </svg>
+                            View members
+                        </button>
+                    </div>
+                </div>
+
+                <%! List<Bird> birdsList;%>
+                <% birdsList = (List<Bird>) request.getAttribute("birdsList"); %>  
 
 
-                    <div>
-                        <div class="">
-                            <div class="lg:col-span-7 xl:col-span-8" id="events_list">
-                                <div data-controller="record-filters">
-                                    <!-- Filters -->
-                                    <section aria-labelledby="filter-heading" class="relative z-10 grid items-center">
-                                        <h2 id="filter-heading" class="sr-only">Filters</h2>
-                                        <div class="relative col-start-1 row-start-1 py-4">
-                                            <div class="max-w-7xl mx-auto flex space-x-6 divide-x divide-gray-200 text-sm px-4">
-                                                <div><button data-record-filters-target="toggle" data-action="record-filters#toggle" type="button" class="group text-gray-700 font-medium flex items-center" aria-controls="disclosure-1" aria-expanded="false">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="flex-none mr-2 text-gray-400 group-hover:text-gray-500 w-5 h-5">
-                                                        <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd"></path>
-                                                        </svg>Filter</button></div></div></div>
-
-                                        <form class="hidden" data-record-filters-target="form" data-turbo-action="advance" accept-charset="UTF-8" method="get">
-                                            <div class="border-t border-gray-200 py-10" id="disclosure-1">
-                                                <div class="max-w-7xl mx-auto  gap-x-4 px-4 text-sm md:gap-x-6">
-                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 lg:grid-cols-3 md:gap-x-6 w-full">
-
-                                                        <div class="space-y-4">
-
-                                                            <div>
-                                                                <legend class="block font-medium">Family</legend>
-                                                                <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="family" id="family"><option value="" label=" "></option>
-                                                                        <option value="Ducks, Geese, Swans">Ducks, Geese, Swans</option></select>
-                                                                </div>
-                                                            </div>
-
-                                                            <div>
-                                                                <legend class="block font-medium">Species</legend>
-                                                                <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="bird_id" id="bird_id"><option value="" label=" "></option>
-                                                                        <option value="49">Tufted Duck</option></select>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-
-                                                        <div class="space-y-4">
-
-                                                            <div>
-                                                                <legend class="block font-medium">Location</legend>
-                                                                <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="location_id" id="location_id"><option value="" label=" "></option>
-                                                                        <option value="1254">At Home</option></select>
-                                                                </div>
-                                                            </div>
-
-                                                            <div>
-                                                                <legend class="block font-medium">Member</legend>
-                                                                <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="member_id" id="member_id"><option value="" label=" "></option>
-                                                                        <option value="808">Kaedehara Yamamoto</option></select>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-
-                                                    </div>
+                <div>
+                    <div class="">
+                        <div class="lg:col-span-7 xl:col-span-8" id="events_list">
+                            <div class="flex flex-col sm:rounded-lg shadow">
+                                <div class="overflow-hidden ring-1 ring-black ring-opacity-5 sm:rounded-b-lg">
+                                    <div class="table min-w-full">
+                                        <div class="bg-gray-50 table-header-group">
+                                            <div class="table-row">
+                                                <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 pl-4 pr-3 sm:pl-6">
+                                                    Owner 
                                                 </div>
-                                            </div>
-                                            <input type="hidden" name="action" value="viewmembers">
-                                        </form>  </section>
-                                </div>
-
-                                <!--                                Brief data-->
-                                <div class="flex flex-col sm:rounded-lg shadow">
-                                    <div>
-                                        <dl class="sm:rounded-t-lg grid grid-cols-1 bg-white overflow-hidden border-b border-gray-200 divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x">
-                                            <div class="px-4 py-5 sm:p-6">
-                                                <dt class="text-base font-normal text-gray-900">Total participants</dt>
-                                                <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
-                                                    <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                        <% out.print(memberNum); %>
-                                                    </div>
-                                                </dd>
-                                            </div>
-
-                                            <div class="px-4 py-5 sm:p-6">
-                                                <dt class="text-base font-normal text-gray-900">Waiting for approval</dt>
-                                                <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
-                                                    <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                        <% out.print(guestNum); %>
-                                                    </div>
-                                                </dd>
-                                            </div>
-
-                                            <div class="px-4 py-5 sm:p-6">
-                                                <dt class="text-base font-normal text-gray-900">Ignored</dt>
-                                                <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
-                                                    <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                        <% out.print(ignoredNum); %>
-                                                    </div>
-                                                </dd>
-                                            </div>
-                                        </dl>
-                                    </div>
-
-                                    <div class="overflow-hidden ring-1 ring-black ring-opacity-5 sm:rounded-b-lg">
-                                        <div class="table min-w-full">
-                                            <div class="bg-gray-50 table-header-group">
-                                                <div class="table-row">
-                                                    <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 pl-4 pr-3 sm:pl-6">
-                                                        Full Name
-                                                    </div>
-                                                    <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 relative">
-                                                        <span class="sr-only"></span>
-                                                    </div>
-                                                    <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3">
-                                                        Membership
-                                                    </div>
-                                                    <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden sm:table-cell">
-                                                        Phone number
-                                                    </div>
-                                                    <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden lg:table-cell">
-                                                        Email
-                                                    </div>
-                                                    <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 relative pl-3 pr-4 sm:pr-6">
-                                                        <span class="sr-only">Edit</span>
-                                                    </div>
+                                                <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 relative">
+                                                    Bird ID
                                                 </div>
-                                            </div>
-                                            <div class="table-header-group bg-white">
-                                                <turbo-frame id="row_record_9959" class="contents" target="_top">
-
-                                                    <!--List-->
-
-                                                    <%
-
-                                                        for (Member m : membersList) {
-                                                            out.print("<div class='table-row bg-white'>"
-                                                                    + "<div class='table-cell border-b border-gray-500 text-sm w-full max-w-0 py-4 pl-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
-                                                                    + "<a class='hover:text-teal-600' href='http://localhost:8080/chimowners/members?action=viewmemberdetails&UID=" + m.getUID() + "'>" + m.getFullName() + "</a></div>"
-                                                                    + "<div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
-                                                                    + " <div class='flex flex-row items-center space-x-2'>"
-                                                                    + " <div class='text-teal-600 -mb-1'></div></div></div>"
-                                                                    + " <div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
-                                                                    + m.getMID() + "</div>"
-                                                                    + "<div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden lg:table-cell'>"
-                                                                    + m.getPhone() + "</div>"
-                                                                    + " <div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden sm:table-cell'>"
-                                                                    + " <a class='hover:text-gray-900' href=''>" + m.getEmail() + "</a></div>"
-                                                                    + "<div class='table-cell border-b border-gray-200 text-sm text-gray-500 pl-3 pr-4 text-right sm:pr-6'>"
-                                                                    + " </div> </div>"
-                                                                    + "");
-
-                                                        }
-                                                    %>
-
-                                                </turbo-frame>
-
+                                                <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3">
+                                                    Bird's name
+                                                </div>
+                                                <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden sm:table-cell">
+                                                    Age
+                                                </div>
+                                                <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden lg:table-cell">
+                                                    Gender
+                                                </div>
+                                                <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 relative pl-3 pr-4 sm:pr-6">
+                                                    Color
+                                                </div>
+                                                <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 relative pl-3 pr-4 sm:pr-6">
+                                                    
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
+                                        <div class="table-header-group bg-white">
+                                            <turbo-frame id="row_record_9959" class="contents" target="_top">
+
+                                                <!--List-->
+
+                                                <%
+
+                                                    for (Bird b : birdsList) {
+                                                        out.print("<div class='table-row bg-white'>"
+                                                                + "<div class='table-cell border-b border-gray-500 text-sm w-full max-w-0 py-4 pl-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
+                                                                + "<a class='hover:text-teal-600' href='http://localhost:8080/chimowners/members?action=viewmemberdetails&UID=" + b.getUID() + "'>" + b.getUID() + "</a></div>"
+                                                                
+                                                                + "<div class='table-cell border-b border-gray-500 text-sm w-full max-w-0 py-4 pl-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
+                                                                + "<a class='hover:text-teal-600' href='BID=" + b.getBID() + "'>" + b.getBID() + "</a></div>"
+                                                                        
+                                                                + "<div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
+                                                                + b.getName() + "</div>"
+                                                                        
+                                                                + " <div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
+                                                                + b.getAge() + "</div>"
+                                                                + "<div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden lg:table-cell'>"
+                                                                + b.getGender() + "</div>"
+                                                                + " <div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden sm:table-cell'>"
+                                                                + " <a class='hover:text-gray-900' href=''>" + b.getColor() + "</a></div>"
+                                                                + "<div class='table-cell border-b border-gray-200 text-sm text-gray-500 pl-3 pr-4 text-right sm:pr-6'>"
+                                                                + " </div> </div>"
+                                                                + "");
+
+                                                    }
+                                                %>
+
+                                            </turbo-frame>
+
+                                        </div>
+                                    </div>
                                 </div>
 
-                            </div></div></div>
+                            </div>
+
+                        </div></div></div>
 
 
 
 
-                    <div class="pt-6 flex items-center">
-                        <div class="hidden sm:block">
-                            <span class="pagy-info">Displaying <b><% out.print(membersList.size()); %></b> member(s)</span>
-                        </div>
-                            <%! int i;%>
-                            <% memberNum = (memberNum / 20) + 1;
-                                for (i = 1; i <= memberNum; i++) {
-                                    out.print("<span class='page'><form>"
-                                            + "<input type='hidden' name='page' value='" + i + "'>"
-                                            + "<input type='hidden' name='action' value='viewmembers'>"
-                                            + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
-                                            + "</form></span>");
-                                }
-                            %>
+                <div class="pt-6 flex items-center">
+                    <%! int i; int pageNum;
+                        int birdNum;%>
+                    <% birdNum = (Integer) request.getAttribute("birdNum"); 
+                    pageNum = (Integer) request.getAttribute("page");
+                    %>
+                    <div class="hidden sm:block">
+                        <span class="pagy-info">Displaying <b><% out.print(birdsList.size()); %></b> bird(s)</span>
                     </div>
 
+                    <%
+                        birdNum = (birdNum / 20) + 1;
+                        for (i = 1; i <= birdNum; i++) {
+                            String theme = "ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2";
+                            if (i==pageNum) theme = "ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2";
+                            out.print("<span class='page'><form>"
+                                    + "<input type='hidden' name='page' value='" + i + "'>"
+                                    + "<input type='hidden' name='action' value='viewbirds'>"
+                                    + "<button type='submit' class='"+theme+"'>" + i + "</button>"
+                                    + "</form></span>");
+                        }
+                    %>
                 </div>
-            </div>
 
-        </div>
-    </main>
-
-
-    <footer class="mt-8" aria-labelledby="footer-heading">
-        <h2 id="footer-heading" class="sr-only">Footer</h2>
-        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:py-12 lg:px-8">
-            <div class="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
-                <div class="flex space-x-6 md:order-2">
-                    <a href="mailto:hello@bird.club" class="text-gray-400 hover:text-gray-900">Contact us</a>
-                </div>
-                <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">&copy; 2023 BirdClub. All rights reserved.</p>
             </div>
         </div>
-    </footer>
+
+    </div>
+</main>
+
+
+<footer class="mt-8" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="sr-only">Footer</h2>
+    <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:py-12 lg:px-8">
+        <div class="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
+            <div class="flex space-x-6 md:order-2">
+                <a href="mailto:hello@bird.club" class="text-gray-400 hover:text-gray-900">Contact us</a>
+            </div>
+            <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">&copy; 2023 BirdClub. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>

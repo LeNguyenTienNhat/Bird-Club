@@ -1,60 +1,94 @@
 Insert into [MeetingMedia]
-Values ('MeID0','https://i.pinimg.com/originals/c1/78/8e/c1788e1521acf2421dd210f01a1cd419.jpg');
+Values ('MeID0','https://i.pinimg.com/originals/c1/78/8e/c1788e1521acf2421dd210f01a1cd419.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID1','https://avise-birds.bio.uci.edu/passeriformes/pycnonotidae/pycnonotus_jocosus/images/7rwbu_copy.jpg');
+Values ('MeID1','https://avise-birds.bio.uci.edu/passeriformes/pycnonotidae/pycnonotus_jocosus/images/7rwbu_copy.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID2','https://i.pinimg.com/originals/69/9b/2b/699b2bd1dae1e04a94c8bd5f3d8e478c.jpg');
+Values ('MeID2','https://i.pinimg.com/originals/69/9b/2b/699b2bd1dae1e04a94c8bd5f3d8e478c.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID3','https://i.pinimg.com/originals/08/f3/4d/08f34de0700ba8846f8914c27d7890a4.jpg');
+Values ('MeID3','https://i.pinimg.com/originals/08/f3/4d/08f34de0700ba8846f8914c27d7890a4.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID4','https://indiabiodiversity.org/files-api/api/get/raw/img/Pycnonotus%20jocosus/609.jpg');
+Values ('MeID4','https://indiabiodiversity.org/files-api/api/get/raw/img/Pycnonotus%20jocosus/609.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID5','https://www.team-bhp.com/forum/attachments/travelogues/2175309d1625507504t-bird-photography-hide-a20i6402web.jpg');
+Values ('MeID5','https://www.team-bhp.com/forum/attachments/travelogues/2175309d1625507504t-bird-photography-hide-a20i6402web.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID6','https://indiabiodiversity.org/files-api/api/get/raw/img/Pycnonotus%20jocosus/609.jpg');
+Values ('MeID6','https://indiabiodiversity.org/files-api/api/get/raw/img/Pycnonotus%20jocosus/609.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID7','https://cdn.virily.com/wp-content/uploads/2020/02/bullbull2-1-313x277.jpg');
+Values ('MeID7','https://cdn.virily.com/wp-content/uploads/2020/02/bullbull2-1-313x277.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID8','https://www.birdsofmurrieta.com/uploads/7/5/8/4/75844173/red-whiskered-bulbul-pycnonotus-jocosus-apr07-010.jpg');
+Values ('MeID8','https://www.birdsofmurrieta.com/uploads/7/5/8/4/75844173/red-whiskered-bulbul-pycnonotus-jocosus-apr07-010.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID9','https://c1.staticflickr.com/9/8110/8657698193_afe75de4aa_b.jpg');
+Values ('MeID9','https://c1.staticflickr.com/9/8110/8657698193_afe75de4aa_b.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID10','https://i.pinimg.com/originals/58/40/58/58405834c4e7495ea141fc2e7976031c.jpg');
+Values ('MeID10','https://i.pinimg.com/originals/58/40/58/58405834c4e7495ea141fc2e7976031c.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID11','https://live.staticflickr.com/7474/15764653026_fc44122fbd.jpg');
+Values ('MeID11','https://live.staticflickr.com/7474/15764653026_fc44122fbd.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID12','https://live.staticflickr.com/3537/3668457899_247d7cd25a_n.jpg');
+Values ('MeID12','https://live.staticflickr.com/3537/3668457899_247d7cd25a_n.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID13','https://i.pinimg.com/originals/78/0f/87/780f87180fdf9bdfde0c1e29808cee81.jpg');
+Values ('MeID13','https://i.pinimg.com/originals/78/0f/87/780f87180fdf9bdfde0c1e29808cee81.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID14','https://www.team-bhp.com/forum/attachments/travelogues/998587d1349866102-reflections-driving-addictions-valparai-33a.jpg');
+Values ('MeID14','https://www.team-bhp.com/forum/attachments/travelogues/998587d1349866102-reflections-driving-addictions-valparai-33a.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID15','https://1.bp.blogspot.com/-LlVKCRmJ4pc/TdTPVCEb_0I/AAAAAAAAELk/GxTo92wZ-us/s1600/1+DSC02268.JPG');
+Values ('MeID15','https://1.bp.blogspot.com/-LlVKCRmJ4pc/TdTPVCEb_0I/AAAAAAAAELk/GxTo92wZ-us/s1600/1+DSC02268.JPG','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID16','https://a4.pbase.com/g2/46/683346/2/147765243.UY1PIUOk.jpg');
+Values ('MeID16','https://a4.pbase.com/g2/46/683346/2/147765243.UY1PIUOk.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID17','https://i.pinimg.com/originals/a5/f6/05/a5f60500b3cbf6963a9bd7c2febdaeff.jpg');
+Values ('MeID17','https://i.pinimg.com/originals/a5/f6/05/a5f60500b3cbf6963a9bd7c2febdaeff.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID18','https://i.ytimg.com/vi/qUj2Hi0IlJg/maxresdefault.jpg');
+Values ('MeID18','https://i.ytimg.com/vi/qUj2Hi0IlJg/maxresdefault.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID19','https://live.staticflickr.com/3594/3316000950_cb5aafda59.jpg');
+Values ('MeID19','https://live.staticflickr.com/3594/3316000950_cb5aafda59.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID20','https://live.staticflickr.com/7456/9142518415_da8a55b104_n.jpg');
+Values ('MeID20','https://live.staticflickr.com/7456/9142518415_da8a55b104_n.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID21','https://a4.pbase.com/o2/90/590590/1/124420308.ixGAcUIt.IMG_2896.jpg');
+Values ('MeID21','https://a4.pbase.com/o2/90/590590/1/124420308.ixGAcUIt.IMG_2896.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID22','https://farm6.staticflickr.com/5475/10338505034_c138446e0e_z.jpg');
+Values ('MeID22','https://farm6.staticflickr.com/5475/10338505034_c138446e0e_z.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID23','https://content.eol.org/data/media/42/c3/7a/18.https___www_inaturalist_org_photos_5533452.jpg');
+Values ('MeID23','https://content.eol.org/data/media/42/c3/7a/18.https___www_inaturalist_org_photos_5533452.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID24','https://live.staticflickr.com/7474/15764653026_fc44122fbd_b.jpg');
+Values ('MeID24','https://live.staticflickr.com/7474/15764653026_fc44122fbd_b.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID25','https://alchetron.com/cdn/so-tom-fiscal-07d8afbf-5a8d-4ca8-8ef4-63117a23e98-resize-750.jpeg');
+Values ('MeID25','https://alchetron.com/cdn/so-tom-fiscal-07d8afbf-5a8d-4ca8-8ef4-63117a23e98-resize-750.jpeg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID26','https://kennyhphotography.weebly.com/uploads/6/7/5/2/6752529/6882701_orig.jpg');
+Values ('MeID26','https://kennyhphotography.weebly.com/uploads/6/7/5/2/6752529/6882701_orig.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID27','https://www.birdquest-tours.com/wp-content/uploads/2020/11/Pacific-Royal-Flycatcher-Ecuador-Southern-Chris-Venetz.jpg');
+Values ('MeID27','https://www.birdquest-tours.com/wp-content/uploads/2020/11/Pacific-Royal-Flycatcher-Ecuador-Southern-Chris-Venetz.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID28','https://live.staticflickr.com/8394/8812098636_1c464046cb_n.jpg');
+Values ('MeID28','https://live.staticflickr.com/8394/8812098636_1c464046cb_n.jpg','thumbnail');
 Insert into [MeetingMedia]
-Values ('MeID29','https://2.bp.blogspot.com/-Q4MQfmHDHkE/T0YBJkCk96I/AAAAAAAAADE/N-nam9dk-Vc/s1600/Black-and-yellow+Broadbill.JPG');
+Values ('MeID29','https://2.bp.blogspot.com/-Q4MQfmHDHkE/T0YBJkCk96I/AAAAAAAAADE/N-nam9dk-Vc/s1600/Black-and-yellow+Broadbill.JPG','thumbnail');
+Insert into [MeetingMedia]
+Values ('MeID11','https://www.buckettripper.com/wp-content/uploads/2012/10/Talking-about-saving-birds.jpg','gallery');
+Insert into [MeetingMedia]
+Values ('MeID12','https://th.bing.com/th/id/OIP.WuwW2rJm7eV653s9GSJ4fgHaFj?pid=ImgDet&w=640&h=480&rs=1','gallery');
+Insert into [MeetingMedia]
+Values ('MeID13','https://koa.com/content/campgrounds/mercer/photos/38103photo5a5b5542-ccfb-43a0-994d-4898aedcd937.JPG.axd?preset=campgroundphoto','gallery');
+Insert into [MeetingMedia]
+Values ('MeID15','https://patch.com/img/cdn/users/29647/2012/06/raw/d0f8edde1a780f4975ec5342b4306d1.jpg','gallery');
+Insert into [MeetingMedia]
+Values ('MeID16','https://live.staticflickr.com/2925/14423622074_8b1037044e_n.jpg','gallery');
+Insert into [MeetingMedia]
+Values ('MeID20','https://static.wixstatic.com/media/d63852_6268a5dd616f40549d61b6281f431499~mv2.jpg/v1/fill/w_768,h_432,fp_0.50_0.50,lg_1,q_90/d63852_6268a5dd616f40549d61b6281f431499~mv2.jpg','gallery');
+Insert into [MeetingMedia]
+Values ('MeID21','https://th.bing.com/th/id/OIP.UVNsgibA9JSxzN89cuRS0QHaEK?pid=ImgDet&rs=1','gallery');
+Insert into [MeetingMedia]
+Values ('MeID22','https://i.ytimg.com/vi/FMbIFftI3rc/maxresdefault.jpg','gallery');
+Insert into [MeetingMedia]
+Values ('MeID24','https://th.bing.com/th/id/R.c043aa65276827aa460f4bb9d604ced0?rik=JNLmYshS0xKdlw&riu=http%3a%2f%2fwww.stamm-kreuz-ritter.de%2fArchiv%2fArchivBilder%2f2018%2f2018-08+SoLaWeb%2f01%2falbum%2fslides%2fk-010.JPG&ehk=m%2bq4uzTQMRJoMnmuwurSWaigePNJRQFF5tyPvCNSw6M%3d&risl=&pid=ImgRaw&r=0','gallery');
+Insert into [MeetingMedia]
+Values ('MeID25','https://live.staticflickr.com/7659/16564645113_2018f61d65.jpg','gallery');
+Insert into [MeetingMedia]
+Values ('MeID29','https://live.staticflickr.com/65535/50276743898_2430e6bdf9.jpg','gallery');
+Insert into [MeetingMedia]
+Values ('MeID4','https://th.bing.com/th/id/OIP.aDJmdKtqFxatR_8-JoUEeQHaEK?pid=ImgDet&w=1280&h=720&rs=1','gallery');
+Insert into [MeetingMedia]
+Values ('MeID5','https://i.ytimg.com/vi/16ECB9x8DZs/hqdefault.jpg','gallery');
+Insert into [MeetingMedia]
+Values ('MeID7','https://th.bing.com/th/id/OIP.FTPlfeeiWToE9ZXy0lL0QgHaEK?pid=ImgDet&w=1280&h=720&rs=1','gallery');
+Insert into [MeetingMedia]
+Values ('MeID8','https://www.natomasbuzz.com/wp-content/uploads/2013/10/np3senior8.jpeg','gallery');
+Insert into [MeetingMedia]
+Values ('MeID10','https://th.bing.com/th/id/OIP.SlIPMvzN681S3MqVM37t-gAAAA?pid=ImgDet&w=381&h=253&rs=1','gallery');
+Insert into [MeetingMedia]
+Values ('MeID0','https://athensoracle.com/wp-content/uploads/2019/05/IMG_4076-900x600.jpg','gallery');

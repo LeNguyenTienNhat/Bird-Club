@@ -370,24 +370,27 @@
                                             <div class="table-header-group bg-white">
                                                 <turbo-frame id="row_record_9959" class="contents" target="_top">
 
-
+                                                    <%! String select1,select2,select3,select4;%>
 
                                                     <%
                                                         if (bpList.size() == 0) {
                                                             out.print("<div class='border-b border-gray-200 text-sm max-w py-4 pl-4 pr-3 text-gray-900 bg-gray-100'>"
                                                                     + "Currently there is no participant.</div>");
                                                         } else {
-
+                                                            select1=""; select2=""; select3=""; select4="";                                                             
                                                             for (BirdParticipation bp : bpList) {
                                                                 color = "bg-white";
                                                                 String achievement = bp.getAchievement().trim();
                                                                 if (achievement.equalsIgnoreCase("gold")) {
                                                                     color = "bg-yellow-100";
+                                                                    select2 = "selected='selected'";
                                                                 } else if (achievement.trim().equalsIgnoreCase("silver")) {
                                                                     color = "bg-gray-200";
+                                                                    select3 = "selected='selected'";
                                                                 } else if (achievement.trim().equalsIgnoreCase("bronze")) {
                                                                     color = "bg-orange-100";
-                                                                }
+                                                                    select4 = "selected='selected'";
+                                                                } else select1 = "selected='selected'";
 
                                                                 out.print("<div class='table-row " + color + "'>"
                                                                         + "<div class='table-cell border-b border-gray-200 text-sm w-full max-w-0 py-4 pl-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
@@ -400,10 +403,10 @@
                                                                         + "<div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden lg:table-cell'>"
                                                                         + " <form class='flex' action='./tournaments' method='post'>"
                                                                         + "<select class='block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500' name='ach'>"
-                                                                        + "   <option selected='selected' value='non'>Non</option>"
-                                                                        + "   <option value='gold'>Gold</option>"
-                                                                        + "   <option value='silver'>Silver</option>"
-                                                                        + "   <option value='bronze'>Bronze</option>"
+                                                                        + "   <option "+select1+" value='non'>Non</option>"
+                                                                        + "   <option "+select2+" value='gold'>Gold</option>"
+                                                                        + "   <option "+select3+" value='silver'>Silver</option>"
+                                                                        + "   <option "+select4+" value='bronze'>Bronze</option>"
                                                                         + "</select>"
                                                                         + "  <input type='hidden' name='action' value='updateachievement'>"
                                                                         + "  <input type='hidden' name='docNo' value='" + bp.getDocNo() + "'>"

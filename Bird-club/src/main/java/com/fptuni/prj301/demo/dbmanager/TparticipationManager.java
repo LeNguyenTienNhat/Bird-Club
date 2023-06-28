@@ -5,6 +5,7 @@
  */
 package com.fptuni.prj301.demo.dbmanager;
 
+import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.Tparticipation;
 import com.fptuni.prj301.demo.utils.DBUtils;
 import java.sql.Connection;
@@ -133,6 +134,28 @@ public class TparticipationManager {
         return list;
     }
 
+    public Tparticipation getParticipant(String TID, String bid) {
+        Tparticipation t = null;
+        String sql = "SELECT * FROM [Tparticipation] WHERE TID = ? AND bid = ? ";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, TID);
+            ps.setString(2, bid);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                t = new Tparticipation();
+                t.setTid(rs.getString("TID"));
+                t.setBid(rs.getString("BID"));
+                t.setDocNo(rs.getString("docNo"));
+                t.setAchievement(rs.getString("achievement"));
+            }
+        } catch (SQLException e) {
+            // Handle the exception appropriately
+        }
+        return t;
+    }
+
     public void updateAchievement(String docNo, String achievement) {
         String sql = "UPDATE [Tparticipation] SET achievement = ? WHERE docNo = ?";
         try {
@@ -170,38 +193,18 @@ public class TparticipationManager {
 
     public int getParticipantListSize(String TID) {
         int count = 0;
-        String sql = "SELECT * FROM [Tparticipation] WHERE TID = ?";
+        String sql = "SELECT COUNT(BID) FROM [Tparticipation] WHERE TID = ?";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, TID);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                count++;
+            if (rs.next()) {
+                count = rs.getInt("");
             }
         } catch (SQLException e) {
         }
         return count;
     }
-    
-    public static void main(String[] args) {
-    // Create a sample Tparticipation object
-    Tparticipation tparticipation = new Tparticipation();
-    tparticipation.setTid("T123");
-    tparticipation.setBid("B456");
-    tparticipation.setDocNo("D789");
-
-    // Create an instance of the class containing the insert method
-     TparticipationManager yourClass = new  TparticipationManager();
-
-    // Call the insert method and check the result
-    boolean isSuccess = yourClass.insert(tparticipation);
-
-    if (isSuccess) {
-        System.out.println("Insertion successful");
-    } else {
-        System.out.println("Insertion failed");
-    }
-}
 
 }

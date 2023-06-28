@@ -174,7 +174,7 @@ public class MemberManager {
             ps.setString(1, UID);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                email = rs.getString("email");                
+                email = rs.getString("email");
             }
             return email;
         } catch (SQLException ex) {
@@ -182,8 +182,8 @@ public class MemberManager {
         }
         return email;
     }
-    
-        public List<String> getAllUserEmail() throws ClassNotFoundException {
+
+    public List<String> getAllUserEmail() throws ClassNotFoundException {
         String sql = "select * from [User]";
         List<String> emailList = new ArrayList();
         try {
@@ -199,5 +199,34 @@ public class MemberManager {
             System.out.println("Failed to load the member's details due to internal error :(" + ex.getMessage());
         }
         return emailList;
+    }
+
+    public int getTotalNumberAsDuration(int year, int month) {
+        int count = 0;
+        String sql = "SELECT * FROM [User] WHERE (DATEPART(yy, signupDate) = ? "
+                + " AND DATEPART(mm, signupDate) = ?)";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, year);
+            ps.setInt(2, month);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                count++;
+            }
+            return count;
+        } catch (SQLException ex) {
+            System.out.println("Query error!" + ex.getMessage());
+        }
+        return count;
+    }
+    
+    public List<Integer> getTotalNumberAsYear(int year) {
+        List<Integer> list = new ArrayList();
+        for (int i=1; i<=12; i++) {
+            int num = getTotalNumberAsDuration(year,i);
+            list.add(num);
+        }
+        return list;
     }
 }

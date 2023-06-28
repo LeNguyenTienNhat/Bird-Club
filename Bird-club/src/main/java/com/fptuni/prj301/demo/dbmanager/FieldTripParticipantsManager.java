@@ -111,24 +111,6 @@ public class FieldTripParticipantsManager {
         return existingDocNosF;
     }
 
-    public static void main(String[] args) {
-        // Create a sample Tparticipation object
-        FieldTripParticipants Fparticipation = new FieldTripParticipants();
-        Fparticipation.setFid("FID1");
-        Fparticipation.setUid("UID0");
-        Fparticipation.setDocNo("Doc.F01");
-
-        // Create an instance of TparticipationManager
-        FieldTripParticipantsManager fieldTripParticipantsManager = new FieldTripParticipantsManager();
-
-        // Call the insert method and check the result
-        boolean success = fieldTripParticipantsManager.insert(Fparticipation);
-        if (success) {
-            System.out.println("Fparticipation inserted successfully!");
-        } else {
-            System.out.println("Failed to insert Fparticipation.");
-        }
-    }
     
     public List<FieldTripParticipants> getParticipantList(String FID) {
         List<FieldTripParticipants> list = new ArrayList();
@@ -149,5 +131,24 @@ public class FieldTripParticipantsManager {
         }
         return list;
     }
+    
+public static void main(String[] args) {
+    String UID = "UID0";
+    FieldTripParticipantsManager f = new FieldTripParticipantsManager();
+    List<FieldTripParticipants> field = f.getParticipantList("FID11");
 
+    boolean participantExists = false;
+    for (FieldTripParticipants participant : field) {
+        if (participant.getUid().trim().equals(UID)) {
+            participantExists = true;
+            break;
+        }
+    }
+
+    if (participantExists) {
+        System.out.println("Participant exists for UID: " + UID);
+    } else {
+        System.out.println("Participant does not exist for UID: " + UID);
+    }
+}
 }

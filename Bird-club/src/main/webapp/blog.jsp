@@ -53,8 +53,7 @@
 
                     for (var i = 0; i < blogItems.length; i++) {
                         var blogName = blogItems[i].querySelector('.tribe-events-calendar-list__event-title').textContent.toLowerCase();
-                        var fieldtripStatus = blogItems[i].querySelector('.status-button').textContent.toLowerCase();
-                        if (blogName.includes(searchValue) || fieldtripStatus.includes(searchValue)) {
+                        if (blogName.includes(searchValue)) {
                             blogItems[i].style.display = 'block';
                         } else {
                             blogItems[i].style.display = 'none';
@@ -63,6 +62,7 @@
                 });
             });
         </script>
+
 
         <main id="main-content" class="page has-hero">
             <article id="article" class="post-1229 page type-page status-publish has-post-thumbnail hentry">
@@ -215,12 +215,194 @@
                                 background-color: darkgray;
                                 color: #1f2937;
                             }
+                            .add-container {
+                                margin-left: auto; /* Pushes the add container to the end of the row */
+                            }
+                           .button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-button {
+    margin-left: auto;
+}
+                            .button {
+                                display: flex;
+                                justify-content: flex-end;
+                            }
+                            .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    z-index: 999;
+    display: none;
+}
+
+.popup {
+    margin-top: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    z-index: 1000;
+    display: none;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    margin-top: 10px;
+    
+}
+
+                            .button-container {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                margin-top: 20px;
+                                text-align: center;
+                            }
+
+                            .button-container h2 {
+                                margin-bottom: 10px;
+                            }
+
+                            .button-container .add-button {
+                                background-color: #4caf50;
+                                color: #fff;
+                                border: none;
+                                padding: 10px 20px;
+                                border-radius: 4px;
+                                cursor: pointer;
+                                margin-top: 10px;
+                            }
+
+                            .button-container .add-button:hover {
+                                background-color: #45a049;
+                            }
+
+                            .button-container .add-button:focus {
+                                outline: none;
+                            }
+
+                            .button-container button {
+                                background-color: transparent;
+                                color: #000;
+                                border: none;
+                                padding: 0;
+                                cursor: pointer;
+                                margin-top: 10px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+
+                            .button-container button:hover {
+                                color: #999;
+                            }
+
+                            .button-container button:focus {
+                                outline: none;
+                            }
+
+                            .button-container .close-button {
+                                order: -1;
+                                margin-right: 10px;
+                            }
+                           
 
                         </style>
-                        <div class="search-container">
-                            <i class="fas fa-search search-icon"></i>
-                            <input type="text" id="searchInput" placeholder="Search">
+                        <div class="row">
+                            <div class="search-container">
+                                <i class="fas fa-search search-icon"></i>
+                                <input type="text" id="searchInput" placeholder="Search">
+                            </div>
+                            <div class="add-container">
+    <button class="add-button" onclick="showPopup()"><i class="fas fa-plus"></i>Add Blog</button>
+</div>
+
+<div class="popup" id="popupContainer">
+    <!-- Popup content goes here -->
+    <div class="button-container">
+        <h2 style="text-align: center;">Add a new blog</h2>
+        
+        <form id="blogForm">
+            <div class="form-group">
+                <label for="imageInput">Image:</label>
+                <input type="file" id="imageInput" accept="image/*" />
+            </div>
+            
+            <div class="form-group">
+                <label for="nameInput">Name of Blog:</label>
+                <input type="text" id="nameInput" />
+            </div>
+            
+            <div class="form-group">
+                <label for="descriptionInput">Description:</label>
+                <textarea id="descriptionInput"></textarea>
+            </div>
+            
+            <button class="add-button" onclick="performAction()">Add</button>
+        </form>
+        
+        <button class="close-button" onclick="hidePopup()"><i class="fas fa-times"></i></button>
+    </div>
+</div>
+
+<div class="backdrop" id="backdrop"></div>
+                            <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+
+                            <script>
+                                     function showPopup() {
+    document.getElementById('popupContainer').style.display = 'block';
+    document.getElementById('backdrop').style.display = 'block';
+}
+
+function hidePopup() {
+    document.getElementById('popupContainer').style.display = 'none';
+    document.getElementById('backdrop').style.display = 'none';
+}
+
+function performAction() {
+    // Perform the desired action when the "Add" button is clicked
+    // You can access the form values using JavaScript and perform further processing or submission
+    var imageInput = document.getElementById('imageInput').value;
+    var nameInput = document.getElementById('nameInput').value;
+    var descriptionInput = document.getElementById('descriptionInput').value;
+    
+    // Perform your desired actions with the form inputs here
+    // For example, you can log them to the console
+    console.log('Image: ', imageInput);
+    console.log('Name of Blog: ', nameInput);
+    console.log('Description: ', descriptionInput);
+    
+    // Reset the form inputs if needed
+    document.getElementById('blogForm').reset();
+}
+                            </script>
                         </div>
+
 
                         <div class="blog-container">
                             <c:if test="${empty blogList}">
@@ -247,33 +429,15 @@
                                                             <dt><strong>Upload day: </strong>${b.getUploadDate()}</dt>                              
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <dt><strong>Status:</strong> 
 
-                                                                <span class="status-button
-                                                                      <c:choose>
-                                                                          <c:when test="${b.getStatus().contains('Normal')}">
-                                                                              status-Normal
-                                                                          </c:when>
-                                                                          <c:when test="${b.getStatus().contains('Trending')}">
-                                                                              status-Trending 
-                                                                          </c:when>                                                           
-                                                                      </c:choose>">
-                                                                    ${b.getStatus()}
-                                                                </span>
-                                                            </dt>
-                                                        </div>
-
-                                                    </div>
                                                     <div class="row" style="width:100%;">
-                                                        
-                                                            <dt style="width:500px;"> ${b.getBlogsContent()}</dt>
-                                                        
+
+                                                        <dt style="width:500px;"> ${b.getBlogsContent()}</dt>
+
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            
+
                                                             <dd>
                                                                 <a href="${pageContext.request.contextPath}/CommentController?action=view&BID=${b.getBID()}" title="${b.getTitle()}" style="display: flex; align-items: center;" class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
                                                                     ${b.getVote()} Commented
