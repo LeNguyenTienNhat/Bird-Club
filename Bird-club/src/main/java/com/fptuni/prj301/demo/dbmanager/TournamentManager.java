@@ -145,7 +145,7 @@ public List<Tournament> getTop10() {
                  "LEFT JOIN " +
                  "(SELECT TID, URL " +
                  " FROM (SELECT TID, URL, ROW_NUMBER() OVER (PARTITION BY TID ORDER BY URL DESC) AS RowNum " +
-                 "       FROM TournamentMedia) AS TMSub " +
+                 "       FROM TournamentMedia WHERE category = 'thumbnail') AS TMSub " +
                  " WHERE RowNum = 1) AS TM " +
                  "ON T.TID = TM.TID " +
                  "ORDER BY T.startDate DESC";
