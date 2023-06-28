@@ -383,8 +383,8 @@
                     <script>
                         const ctx = document.getElementById('myChart');
                         new Chart(ctx, {
-                            type: 'bar',
-                            data: {
+                        type: 'bar',
+                                data: {
                                 labels: [
                         <%
                             for (int i = 0; i < topTournament.size() - 1; i++) {
@@ -392,25 +392,25 @@
                             }
                             out.print("'" + topTournament.get(topTournament.size() - 1).getTID() + "'");
                         %>],
-                                datasets: [{
+                                        datasets: [{
                                         label: '# of participants',
-                                        data: [
+                                                data: [
                         <%
                             for (int i = 0; i < topTournament.size() - 1; i++) {
                                 out.print("'" + topTournament.get(i).getNumberOfParticipant() + "',");
                             }
                             out.print("'" + topTournament.get(topTournament.size() - 1).getNumberOfParticipant() + "'");
                         %>],
-                                        borderWidth: 1
-                                    }]
-                            },
-                            options: {
+                                                borderWidth: 1
+                                        }]
+                                },
+                                options: {
                                 scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
+                                y: {
+                                beginAtZero: true
                                 }
-                            }
+                                }
+                                }
                         });
                     </script>
                 </div>
@@ -424,8 +424,8 @@
                     <script>
                         const ctx2 = document.getElementById('myChart2');
                         new Chart(ctx2, {
-                            type: 'bar',
-                            data: {
+                        type: 'bar',
+                                data: {
                                 labels: [
                         <%
                             for (int i = 0; i < topFieldtrip.size() - 1; i++) {
@@ -433,31 +433,31 @@
                             }
                             out.print("'" + topFieldtrip.get(topFieldtrip.size() - 1).getFID() + "'");
                         %>],
-                                datasets: [{
+                                        datasets: [{
                                         label: '# of participants',
-                                        data: [
+                                                data: [
                         <%
                             for (int i = 0; i < topFieldtrip.size() - 1; i++) {
                                 out.print("'" + topFieldtrip.get(i).getNumberOfParticipant() + "',");
                             }
                             out.print("'" + topFieldtrip.get(topFieldtrip.size() - 1).getNumberOfParticipant() + "'");
                         %>],
-                                        borderWidth: 1
-                                    }]
-                            },
-                            options: {
+                                                borderWidth: 1
+                                        }]
+                                },
+                                options: {
                                 scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
+                                y: {
+                                beginAtZero: true
                                 }
-                            }
+                                }
+                                }
                         });
                     </script>
                 </div>             
 
                 <div class="bg-white shadow sm:rounded-lg p-6">
-                    <h3 class="font-bold text-gray-700 truncate mt-4">Top 10 meetings</h3>
+                    <h3 class="font-bold text-gray-700 truncate">Top 10 meetings</h3>
                     <canvas id="myChart3"></canvas>
                         <%! List<Meeting> topMeeting;%>
                         <% topMeeting = (List<Meeting>) request.getAttribute("topMeeting");                        %>
@@ -465,8 +465,8 @@
                     <script>
                         const ctx3 = document.getElementById('myChart3');
                         new Chart(ctx3, {
-                            type: 'bar',
-                            data: {
+                        type: 'bar',
+                                data: {
                                 labels: [
                         <%
                             for (int i = 0; i < topMeeting.size() - 1; i++) {
@@ -474,37 +474,37 @@
                             }
                             out.print("'" + topMeeting.get(topMeeting.size() - 1).getMeID() + "'");
                         %>],
-                                datasets: [{
+                                        datasets: [{
                                         label: '# of participants',
-                                        data: [
+                                                data: [
                         <%
                             for (int i = 0; i < topMeeting.size() - 1; i++) {
                                 out.print("'" + topMeeting.get(i).getNumberOfParticipant() + "',");
                             }
                             out.print("'" + topMeeting.get(topMeeting.size() - 1).getNumberOfParticipant() + "'");
                         %>],
-                                        borderWidth: 1
-                                    }]
-                            },
-                            options: {
+                                                borderWidth: 1
+                                        }]
+                                },
+                                options: {
                                 scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
+                                y: {
+                                beginAtZero: true
                                 }
-                            }
+                                }
+                                }
                         });
                     </script>
                 </div>
 
                 <div class="bg-white shadow sm:rounded-lg p-6">
-                    <h3 class="font-bold text-gray-700 truncate">New members in 2023</h3>
+                    <h3 class="font-bold text-gray-700 truncate">New registrations in 2023</h3>
                     <canvas id="NumOfSignup"></canvas>
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                     <script>
                         var NumOfSignup = document.getElementById("NumOfSignup");
                         var data = {
-                            label: "Members",
+                        label: "Members",
                         <% out.print("data: [");
                             for (int i = 0; i < list.size() - 1; i++) {
                                 out.print("'" + list.get(i) + "',");
@@ -512,16 +512,45 @@
                             out.print("'" + list.get(list.size() - 1) + "'" + "],");
                         %>
 
-                            lineTension: 0,
-                            fill: false,
-                            borderColor: '#febc2c'};
+                        lineTension: 0,
+                                fill: false,
+                                borderColor: '#febc2c'};
                         var numberData = {
-                            labels: ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                            datasets: [data]};
+                        labels: ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                                datasets: [data]};
                         var chartOptions = {legend: {display: true, position: 'top', labels: {boxWidth: 80, fontColor: 'white'}}};
                         var lineChart = new Chart(NumOfSignup, {type: 'line', data: numberData, options: chartOptions});
                     </script>                   
-                </div>                  
+                </div>
+
+
+                <div class="bg-white shadow sm:rounded-lg p-6">
+                    <h3 class="font-bold text-gray-700 truncate">Member increases in 2023</h3>
+                    <canvas id="NumOfMembers"></canvas>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <%! List<Integer> bList;%>
+                    <% bList = (List<Integer>) request.getAttribute("bList"); %>
+                    <script>
+                        var NumOfMembers = document.getElementById("NumOfMembers");
+                        var data = {
+                        label: "Members",
+                        <% out.print("data: [");
+                            for (int i = 0; i < bList.size() - 1; i++) {
+                                out.print("'" + bList.get(i) + "',");
+                            }
+                            out.print("'" + bList.get(bList.size() - 1) + "'" + "],");
+                        %>
+
+                        lineTension: 0,
+                                fill: false,
+                                borderColor: '#febc2c'};
+                        var numberData = {
+                        labels: ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                                datasets: [data]};
+                        var chartOptions = {legend: {display: true, position: 'top', labels: {boxWidth: 80, fontColor: 'white'}}};
+                        var lineChart2= new Chart(NumOfMembers, {type: 'line', data: numberData, options: chartOptions});
+                    </script>                   
+                </div>
 
 
                 <div class="bg-white shadow sm:rounded-lg p-6">                                                                   
@@ -531,9 +560,9 @@
                     <script>
                         const pieChart = document.getElementById('pieChart');
                         var pieChartData = {labels: ['Red', 'Blue', 'Yellow'],
-                            datasets: [{label: 'My First Dataset', data: [300, 50, 100],
-                                    backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
-                                    hoverOffset: 4}]};
+                                datasets: [{label: 'My First Dataset', data: [300, 50, 100],
+                                        backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
+                                        hoverOffset: 4}]};
                         var firstPieChart = new Chart(pieChart, {type: 'pie', data: pieChartData});
                     </script>                                                
                 </div>                       

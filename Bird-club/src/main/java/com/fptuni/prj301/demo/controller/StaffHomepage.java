@@ -11,6 +11,7 @@ import com.fptuni.prj301.demo.model.Tournament;
 import com.fptuni.prj301.demo.model.UserSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,7 +29,7 @@ public class StaffHomepage extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action == null || action.equals("staffhome")) {
-            //Data for member chart
+            //Data for members' sign-ups chart
             MemberManager mem = new MemberManager();
             int a = mem.getTotalNumberAsDuration(2023, 6);
             List<Integer> list = mem.getTotalNumberAsYear(2023);
@@ -45,13 +46,18 @@ public class StaffHomepage extends HttpServlet {
             MeetingManager mm = new MeetingManager();
             List<Meeting> topMeeting = mm.getTop10Participation();
             
-            
-            
-            
+            //Data for members' increase chart
+            List<Integer> memberList = mem.getTotalNumberAsYear(2023);
+            List<Integer> bList = new ArrayList();
+            bList.add(memberList.get(0));
+            for (int i=1; i<memberList.size(); i++) {
+                bList.add(bList.get(i-1)+memberList.get(i));
+            }
             
             //Send data
             request.setAttribute("a", a);
             request.setAttribute("list", list);
+            request.setAttribute("bList", bList);
             request.setAttribute("topTournament", topTournament);
             request.setAttribute("topFieldtrip", topFieldtrip);
             request.setAttribute("topMeeting", topMeeting);           
