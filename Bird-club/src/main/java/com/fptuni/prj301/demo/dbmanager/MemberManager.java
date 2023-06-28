@@ -152,7 +152,7 @@ public class MemberManager {
             ps.setString(1, UID);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                email = rs.getString("email");                
+                email = rs.getString("email");
             }
             return email;
         } catch (SQLException ex) {
@@ -160,8 +160,8 @@ public class MemberManager {
         }
         return email;
     }
-    
-        public List<String> getAllUserEmail() throws ClassNotFoundException {
+
+    public List<String> getAllUserEmail() throws ClassNotFoundException {
         String sql = "select * from [User]";
         List<String> emailList = new ArrayList();
         try {
@@ -177,5 +177,42 @@ public class MemberManager {
             System.out.println("Failed to load the member's details due to internal error :(" + ex.getMessage());
         }
         return emailList;
+    }
+
+    public int getTotalNumberAsDuration(int year, int month) {
+        int count = 0;
+        String sql = "SELECT * FROM [User] WHERE (DATEPART(yy, signupDate) = ? "
+                + " AND DATEPART(mm, signupDate) = ?)";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, year);
+            ps.setInt(2, month);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                count++;
+            }
+            return count;
+        } catch (SQLException ex) {
+            System.out.println("Query error!" + ex.getMessage());
+        }
+        return count;
+    }
+    
+    public int[] getTotalNumberAsYear(int year) {
+        int Jan = getTotalNumberAsDuration(year, 1);
+        int Feb = getTotalNumberAsDuration(year, 2);
+        int Mar = getTotalNumberAsDuration(year, 3);
+        int Apr = getTotalNumberAsDuration(year, 4);
+        int May = getTotalNumberAsDuration(year, 5);
+        int Jun = getTotalNumberAsDuration(year, 6);
+        int Jul = getTotalNumberAsDuration(year, 7);
+        int Aug = getTotalNumberAsDuration(year, 8);
+        int Sep = getTotalNumberAsDuration(year, 9);
+        int Oct = getTotalNumberAsDuration(year, 10);
+        int Nov = getTotalNumberAsDuration(year, 11);
+        int Dec = getTotalNumberAsDuration(year, 12);
+        int[] list  = {Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec};
+        return list;
     }
 }

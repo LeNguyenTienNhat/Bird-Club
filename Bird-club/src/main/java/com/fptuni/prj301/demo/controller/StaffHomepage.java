@@ -1,7 +1,9 @@
 package com.fptuni.prj301.demo.controller;
 
+import com.fptuni.prj301.demo.dbmanager.MemberManager;
 import com.fptuni.prj301.demo.model.UserSession;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +18,12 @@ public class StaffHomepage extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action == null || action.equals("staffhome")) {
+            MemberManager mm = new MemberManager();
+            int a = mm.getTotalNumberAsDuration(2023, 6);
+            int[] list = mm.getTotalNumberAsYear(2023);
+            
+            request.setAttribute("a", a);
+            request.setAttribute("list", list);
             RequestDispatcher rd = request.getRequestDispatcher("staff_homepage.jsp");
             rd.forward(request, response);
         } 
