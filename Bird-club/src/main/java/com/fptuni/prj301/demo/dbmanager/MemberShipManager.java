@@ -23,7 +23,7 @@ public class MemberShipManager {
 
     public List<MemberShip> getAllRecords() {
         List<MemberShip> records = new ArrayList<>();
-        String sql = "SELECT MID, name, value, duration, description FROM Membership";
+        String sql = "SELECT * FROM Membership";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql);
@@ -35,8 +35,9 @@ public class MemberShipManager {
                 BigDecimal value = rs.getBigDecimal("value");
                 String duration = rs.getString("duration");
                 String description = rs.getString("description");
+                String status = rs.getString("status");
 
-                MemberShip record = new MemberShip(MID, name, value, duration, description);
+                MemberShip record = new MemberShip(MID, name, value, duration, description, status);
                 records.add(record);
             }
         } catch (SQLException e) {
@@ -48,14 +49,11 @@ public class MemberShipManager {
     }
 
     public MemberShip getMembershipById(String MID) {
-        String sql = "SELECT MID, name, value, duration, description FROM Membership WHERE MID = ?";
-        MemberShip membership = null;
-
+        String sql = "SELECT * FROM Membership WHERE MID = ?";
+        MemberShip membership = new MemberShip();
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
-
             ps.setString(1, MID);
-
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     String membershipID = rs.getString("MID");
@@ -63,8 +61,9 @@ public class MemberShipManager {
                     BigDecimal value = rs.getBigDecimal("value");
                     String duration = rs.getString("duration");
                     String description = rs.getString("description");
+                    String status = rs.getString("status");
 
-                    membership = new MemberShip(membershipID, name, value, duration, description);
+                    membership = new MemberShip(membershipID, name, value, duration, description, status);
                 }
             }
         } catch (SQLException e) {
@@ -150,6 +149,41 @@ public class MemberShipManager {
             System.out.println("Expiration date updated successfully.");
         } else {
             System.out.println("Failed to update expiration date.");
+        }
+    }
+
+    public void insert(MemberShip m) {
+        String sql = "INSERT INTO Membership VALUES (?, ?, ?, ?, ?, ?)";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, m.getMID());
+            ps.setString(2, m.getName());
+            ps.setBigDecimal(3, m.getValue());
+            ps.setString(4, m.getDuration());
+            ps.setString(5, m.getDescription());
+            ps.setString(6, m.getStatus());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Insertion failed due to internal error :(" + ex.getMessage());
+        }
+    }
+    
+    public void update(MemberShip m) {
+        String sql = "UPDATE Membership SET name = ?, value = ?, duration = ?, description = ?,"
+                + "status = ? WHERE MID = ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);       
+            ps.setString(1, m.getName());
+            ps.setBigDecimal(2, m.getValue());
+            ps.setString(3, m.getDuration());
+            ps.setString(4, m.getDescription());
+            ps.setString(5, m.getStatus());
+            ps.setString(6, m.getMID());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Insertion failed due to internal error :(" + ex.getMessage());
         }
     }
 }

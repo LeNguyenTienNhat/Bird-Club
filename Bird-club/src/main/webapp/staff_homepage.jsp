@@ -1,4 +1,6 @@
 
+<%@page import="com.fptuni.prj301.demo.model.Meeting"%>
+<%@page import="com.fptuni.prj301.demo.model.Fieldtrip"%>
 <%@page import="com.fptuni.prj301.demo.model.Tournament"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -329,7 +331,7 @@
         <% list = (List<Integer>) request.getAttribute("list"); %>
         <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
 
-            <div class="lg:grid lg:grid-cols-1 gap-4">
+            <div class="lg:grid lg:grid-cols-1 gap-2">
                 <div class="bg-white shadow sm:rounded-lg p-6 mb-4">
                     <dl class="sm:rounded-t-lg grid grid-cols-4 bg-white overflow-hidden border-gray-200 divide-y divide-gray-200 md:divide-y-0 md:divide-x">
                         <div class="px-4 py-5 sm:p-6">
@@ -371,36 +373,7 @@
                 </div>
             </div>
 
-            <div class="lg:grid lg:grid-cols-2 gap-4">
-
-                <div class="bg-white shadow sm:rounded-lg p-6">
-                    <h3 class="font-bold text-gray-700 truncate">New members in 2023</h3>
-                    <canvas id="NumOfSignup"></canvas>
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                    <script>
-                        var NumOfSignup = document.getElementById("NumOfSignup");
-                        var data = {
-                            label: "Members",
-                        <% out.print("data: [");
-                            for (int i = 0; i < list.size() - 1; i++) {
-                                out.print("'" + list.get(i) + "',");
-                            }
-                            out.print("'"+list.get(list.size() - 1) +"'" + "],");
-                        %>
-
-                            lineTension: 0,
-                            fill: false,
-                            borderColor: '#febc2c'};
-                        var numberData = {
-                            labels: ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                            datasets: [data]};
-                        var chartOptions = {
-                            legend: {display: true, position: 'top',
-                                labels: {boxWidth: 80, fontColor: 'white'}}};
-                        var lineChart = new Chart(NumOfSignup, {type: 'line', data: numberData, options: chartOptions});
-                    </script>
-                </div>
-
+            <div class="lg:grid lg:grid-cols-3 gap-4">
                 <div class="bg-white shadow sm:rounded-lg p-6">
                     <h3 class="font-bold text-gray-700 truncate">Top 10 tournaments</h3>
                     <canvas id="myChart"></canvas>
@@ -410,41 +383,203 @@
                     <script>
                         const ctx = document.getElementById('myChart');
                         new Chart(ctx, {
-                            type: 'bar',
-                            data: {
+                        type: 'bar',
+                                data: {
                                 labels: [
                         <%
                             for (int i = 0; i < topTournament.size() - 1; i++) {
                                 out.print("'" + topTournament.get(i).getTID() + "',");
                             }
-                            out.print("'" +topTournament.get(topTournament.size() - 1).getTID()+"'" );
+                            out.print("'" + topTournament.get(topTournament.size() - 1).getTID() + "'");
                         %>],
-                                datasets: [{
+                                        datasets: [{
                                         label: '# of participants',
-                                        data: [
+                                                data: [
                         <%
                             for (int i = 0; i < topTournament.size() - 1; i++) {
                                 out.print("'" + topTournament.get(i).getNumberOfParticipant() + "',");
                             }
-                            out.print("'" +topTournament.get(topTournament.size() - 1).getNumberOfParticipant()+"'" );
+                            out.print("'" + topTournament.get(topTournament.size() - 1).getNumberOfParticipant() + "'");
                         %>],
-                                        borderWidth: 1
-                                    }]
-                            },
-                            options: {
+                                                borderWidth: 1
+                                        }]
+                                },
+                                options: {
                                 scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
+                                y: {
+                                beginAtZero: true
                                 }
-                            }
+                                }
+                                }
                         });
                     </script>
                 </div>
 
+                <div class="bg-white shadow sm:rounded-lg p-6">
+                    <h3 class="font-bold text-gray-700 truncate">Top 10 field trips</h3>
+                    <canvas id="myChart2"></canvas>
+                        <%! List<Fieldtrip> topFieldtrip;%>
+                        <% topFieldtrip = (List<Fieldtrip>) request.getAttribute("topFieldtrip");                        %>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        const ctx2 = document.getElementById('myChart2');
+                        new Chart(ctx2, {
+                        type: 'bar',
+                                data: {
+                                labels: [
+                        <%
+                            for (int i = 0; i < topFieldtrip.size() - 1; i++) {
+                                out.print("'" + topFieldtrip.get(i).getFID() + "',");
+                            }
+                            out.print("'" + topFieldtrip.get(topFieldtrip.size() - 1).getFID() + "'");
+                        %>],
+                                        datasets: [{
+                                        label: '# of participants',
+                                                data: [
+                        <%
+                            for (int i = 0; i < topFieldtrip.size() - 1; i++) {
+                                out.print("'" + topFieldtrip.get(i).getNumberOfParticipant() + "',");
+                            }
+                            out.print("'" + topFieldtrip.get(topFieldtrip.size() - 1).getNumberOfParticipant() + "'");
+                        %>],
+                                                borderWidth: 1
+                                        }]
+                                },
+                                options: {
+                                scales: {
+                                y: {
+                                beginAtZero: true
+                                }
+                                }
+                                }
+                        });
+                    </script>
+                </div>             
+
+                <div class="bg-white shadow sm:rounded-lg p-6">
+                    <h3 class="font-bold text-gray-700 truncate">Top 10 meetings</h3>
+                    <canvas id="myChart3"></canvas>
+                        <%! List<Meeting> topMeeting;%>
+                        <% topMeeting = (List<Meeting>) request.getAttribute("topMeeting");                        %>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        const ctx3 = document.getElementById('myChart3');
+                        new Chart(ctx3, {
+                        type: 'bar',
+                                data: {
+                                labels: [
+                        <%
+                            for (int i = 0; i < topMeeting.size() - 1; i++) {
+                                out.print("'" + topMeeting.get(i).getMeID() + "',");
+                            }
+                            out.print("'" + topMeeting.get(topMeeting.size() - 1).getMeID() + "'");
+                        %>],
+                                        datasets: [{
+                                        label: '# of participants',
+                                                data: [
+                        <%
+                            for (int i = 0; i < topMeeting.size() - 1; i++) {
+                                out.print("'" + topMeeting.get(i).getNumberOfParticipant() + "',");
+                            }
+                            out.print("'" + topMeeting.get(topMeeting.size() - 1).getNumberOfParticipant() + "'");
+                        %>],
+                                                borderWidth: 1
+                                        }]
+                                },
+                                options: {
+                                scales: {
+                                y: {
+                                beginAtZero: true
+                                }
+                                }
+                                }
+                        });
+                    </script>
+                </div>
+
+                <div class="bg-white shadow sm:rounded-lg p-6">
+                    <h3 class="font-bold text-gray-700 truncate">New registrations in 2023</h3>
+                    <canvas id="NumOfSignup"></canvas>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        var NumOfSignup = document.getElementById("NumOfSignup");
+                        var data = {
+                        label: "Members",
+                        <% out.print("data: [");
+                            for (int i = 0; i < list.size() - 1; i++) {
+                                out.print("'" + list.get(i) + "',");
+                            }
+                            out.print("'" + list.get(list.size() - 1) + "'" + "],");
+                        %>
+
+                        lineTension: 0,
+                                fill: false,
+                                borderColor: '#febc2c'};
+                        var numberData = {
+                        labels: ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                                datasets: [data]};
+                        var chartOptions = {legend: {display: true, position: 'top', labels: {boxWidth: 80, fontColor: 'white'}}};
+                        var lineChart = new Chart(NumOfSignup, {type: 'line', data: numberData, options: chartOptions});
+                    </script>                   
+                </div>
+
+
+                <div class="bg-white shadow sm:rounded-lg p-6">
+                    <h3 class="font-bold text-gray-700 truncate">Member increases in 2023</h3>
+                    <canvas id="NumOfMembers"></canvas>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <%! List<Integer> bList;%>
+                    <% bList = (List<Integer>) request.getAttribute("bList"); %>
+                    <script>
+                        var NumOfMembers = document.getElementById("NumOfMembers");
+                        var data = {
+                        label: "Members",
+                        <% out.print("data: [");
+                            for (int i = 0; i < bList.size() - 1; i++) {
+                                out.print("'" + bList.get(i) + "',");
+                            }
+                            out.print("'" + bList.get(bList.size() - 1) + "'" + "],");
+                        %>
+
+                        lineTension: 0,
+                                fill: false,
+                                borderColor: '#febc2c'};
+                        var numberData = {
+                        labels: ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                                datasets: [data]};
+                        var chartOptions = {legend: {display: true, position: 'top', labels: {boxWidth: 80, fontColor: 'white'}}};
+                        var lineChart2= new Chart(NumOfMembers, {type: 'line', data: numberData, options: chartOptions});
+                    </script>                   
+                </div>
+
+
+                <div class="bg-white shadow sm:rounded-lg p-6">                                                                   
+                    <h3 class="font-bold text-gray-700 truncate">Top 10</h3>
+                    <canvas id="pieChart" class="p-6"></canvas>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        const pieChart = document.getElementById('pieChart');
+                        var pieChartData = {labels: ['Red', 'Blue', 'Yellow'],
+                                datasets: [{label: 'My First Dataset', data: [300, 50, 100],
+                                        backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
+                                        hoverOffset: 4}]};
+                        var firstPieChart = new Chart(pieChart, {type: 'pie', data: pieChartData});
+                    </script>                                                
+                </div>                       
+
             </div>
 
+            <div class="lg:grid lg:grid-cols-2 gap-4 mt-4">
 
+                <div class="bg-white shadow sm:rounded-lg p-6">
+
+                </div>
+
+                <div class="bg-white shadow sm:rounded-lg p-6">
+
+                </div>
+
+            </div>
 
             <div class="lg:grid lg:grid-cols-4 gap-4 mt-4">
                 <div class="bg-white shadow sm:rounded-lg p-6"></div>

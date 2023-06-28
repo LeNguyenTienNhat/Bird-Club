@@ -1,3 +1,4 @@
+<%@page import="com.fptuni.prj301.demo.model.MemberShip"%>
 <%@page import="com.fptuni.prj301.demo.model.Tournament"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -289,12 +290,14 @@
 
                                 <div class="p-6">
                                     <div class="space-y-8 divide-y divide-gray-200">
-                                        <form class="edit_member" id="edit" action="./tournaments" method="post">
+                                        <%! MemberShip m;%>
+                                        <% m = (MemberShip) request.getAttribute("membership"); %>
+                                        <form class="edit_member" id="edit" action="./MemberShipController" method="post">
                                             <turbo-frame id="flash"></turbo-frame>
                                             <div>
                                                 <div>
                                                     <h3 class="text-lg leading-6 font-medium text-gray-900">Edit</h3>
-                                                    <p class="mt-1 text-sm text-gray-500">View and edit the field trip's details</p>
+                                                    <p class="mt-1 text-sm text-gray-500">View and edit the membership's details</p>
                                                 </div>
                                                 <div class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-y-6 gap-x-4 sm:grid-cols-8">
                                                     <div class="col-span-1 sm:col-span-4 md:col-span-3 grid grid-cols-4 gap-4">
@@ -302,20 +305,53 @@
                                                         <div class="col-span-3">
                                                             <label class="block text-sm font-medium text-gray-700" >Name</label>
                                                             <div class="mt-1">
-                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" id="name">
+                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" 
+                                                                       <% out.print("value='" + m.getName() + "'"); %>
+                                                                       type="text" id="name" name="name">
                                                             </div>
                                                         </div>
                                                         <div class="col-span-3">
-                                                            <label class="block text-sm font-medium text-gray-700">value</label>
+                                                            <label class="block text-sm font-medium text-gray-700">Value</label>
                                                             <div class="mt-1">
-                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text"> 
+                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" 
+                                                                       <% out.print("value='" + m.getValue() + "'"); %>
+                                                                       type="text" name="value" id="value"> 
                                                             </div>
                                                         </div>
 
                                                         <div class="col-span-3">
                                                             <label class="block text-sm font-medium text-gray-700" >Duration</label>
                                                             <div class="mt-1">
-                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" >
+                                                                <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="duration" id="duration">
+                                                                    <%
+                                                                        String selected = "";
+                                                                        for (int i = 1; i <= 12; i++) {
+                                                                            String du = Integer.toString(i);
+                                                                            if (m.getDuration().trim().equals(du)) {
+                                                                                selected = "selected='selected'";
+                                                                            }
+                                                                            out.print("<option " + selected + " value='" + i + "'>" + i + "</option>");
+                                                                            selected = "";
+                                                                        }
+                                                                    %>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-span-3">
+                                                            <label class="block text-sm font-medium text-gray-700" >Status</label>
+                                                            <div class="mt-1">
+                                                                <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="status" id="status">
+                                                                    <% String select1, select2; %>
+                                                                    <%
+                                                                        select1 = "";
+                                                                        select2 = "";
+                                                                        if (m.getStatus().trim().equals("available")) select1 = "selected='selected'";
+                                                                        else select2 = "selected='selected'";
+                                                                        out.print("<option " + select1 + " value='available'>Available</option>");
+                                                                        out.print("<option " + select2 + " value='disabled'>Disabled</option>");
+                                                                    %>
+                                                                </select>
                                                             </div>
                                                         </div>
 
@@ -331,8 +367,9 @@
                                                     </div>
 
                                                 </div>
-
-
+                                                        <input type="hidden" name="MID" <% out.print("value='"+m.getMID()+"'"); %>   >
+                                                        <input type="hidden" name="action" value="update">
+                                                        <button type="submit" class="w-full flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">Update</button>
 
 
                                             </div>

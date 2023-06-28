@@ -342,4 +342,24 @@ public class MeetingManager {
         }
         return count;
     }
+
+    public List<Meeting> getTop10Participation() {
+        List<Meeting> list = new ArrayList();
+        String sql = "select TOP 10 MeID, COUNT(UID) AS 'num' from MeetingParticipants GROUP BY MeID ORDER BY num DESC";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Meeting m = new Meeting();
+                m.setMeID(rs.getString("MeID"));
+                m.setNumberOfParticipant(rs.getInt("num"));
+                list.add(m);
+            }
+            return list;
+        } catch (SQLException e) {
+
+        }
+        return list;
+    }
 }

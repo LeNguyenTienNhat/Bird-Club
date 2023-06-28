@@ -200,41 +200,36 @@
 
                     <div class="sm:flex sm:items-start">
                         <turbo-frame data-modal-target="test" class="w-full" id="modal" target="_top" reloadable="" src="https://www.bird.club/clubs/birds-in-ohio/events/new?start_date=2023-06-01">
-                            <h3 class="text-lg leading-6 font-medium text-gray-900">New tournament</h3>
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">New membership</h3>
                             <turbo-frame id="new_event" target="_top">
 
-                                <form class="space-y-4" accept-charset="UTF-8" method="post" id="tournament">
-                                    <div class="mt-3"><label class="block text-sm font-medium text-gray-700" for="event_title">Tournament's title</label>
+                                <form class="space-y-4" action="./MemberShipController" accept-charset="UTF-8" method="post" id="membership">
+                                    <div class="mt-3"><label class="block text-sm font-medium text-gray-700" for="name">Membership's name</label>
                                         <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" name="name" id="name"></div></div>
 
-                                    <div><label class="block text-sm font-medium text-gray-700" for="event_location">Location</label>
-                                        <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" name="LID" id="LID"></div></div>
+                                    <div class="mt-3"><label class="block text-sm font-medium text-gray-700" for="value">Value (VND)</label>
+                                        <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" name="value" id="value"></div></div>
 
-                                    <div><label class="block text-sm font-medium text-gray-700" for="event_date">Form will be closed at:</label>
-                                        <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500" type="date" name="registrationDeadline" id="registrationDeadline"></div></div>
+                                    <div><label class="block text-sm font-medium text-gray-700" for="duration">Duration (unit: month)</label>
+                                        <div class="mt-1">
+                                            <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="duration" id="duration">
+                                                <%
+                                                    for (int i = 1; i <= 12; i++) {
+                                                        out.print("<option  value='" + i + "'>" + i + "</option>");
+                                                    }
+                                                %>
+                                            </select>
 
-                                    <div class="flex flex-row space-x-4"><div><label class="block text-sm font-medium text-gray-700" for="event_start_time">Start date</label>
-                                            <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500" type="date" name="startDate" id="startDate"></div></div>
-                                        <div><label class="block text-sm font-medium text-gray-700" for="event_end_time">End date</label>
-                                            <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500" type="date" name="endDate" id="endDate"></div></div></div>
 
-                                    <div class="flex flex-row space-x-4"><div><label class="block text-sm font-medium text-gray-700" >Max participants</label>
-                                            <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500" type="text" name="numberOfParticipant" id="numberOfParticipant">
-                                            </div></div>
-                                        <div><label class="block text-sm font-medium text-gray-700" >Fee (USD)</label>
-                                            <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500" type="text" name="fee" id="fee"></div></div></div>
-
-                                    <div class="flex flex-row space-x-4"><div><label class="block text-sm font-medium text-gray-700" >Total prize</label>
-                                            <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500" type="text" name="totalPrize" id="totalPrize">
-                                            </div></div></div>   
+                                        </div></div>
 
                                     <div><label class="block text-sm font-medium text-gray-700" for="description">Description</label>
-                                        <div class="mt-1"> <textarea class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="description" id="description"></textarea>
+                                        <div class="mt-1"> <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="description" id="description"></textarea>
                                         </div></div>
 
                                     <div class="text-right sm:col-span-4">
-                                        <input name="action" value="addtournament" type="hidden">
-                                        <button type="submit" form="tournament" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                        <input name="action" value="addmembership" type="hidden">
+                                        <button type="submit" form="membership" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
                                             Create</button></div></form></turbo-frame></turbo-frame></div></div></div></div>
 
 
@@ -302,9 +297,13 @@
 
                         <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none" style="margin-left:1rem">
                             <a class="w-full flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" data-turbo-frame="modal" href="">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="-ml-1 mr-3 w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                </svg>Add a membership</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-file-earmark-plus -ml-1 mr-3 w-5 h-5" viewBox="0 0 16 16">
+                                <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
+                                <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+                                </svg>
+
+
+                                Add a membership</a>
                         </div>
                     </div>
 
@@ -339,7 +338,7 @@
                                                 <div class='mt-0.5'><span class='sr-only'></span>
                                                     <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-currency-dollar text-gray-400' viewBox='0 0 16 16'>
                                                     <path d='M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z'/></svg>
-                                                </div><div class='font-semibold text-gray-700 space-x-2'>Value:   </div> <div> ${r.getValue()}  USD</div></div>
+                                                </div><div class='font-semibold text-gray-700 space-x-2'>Value:   </div> <div> ${r.getValue()}  VND</div></div>
                                             <div class='mt-2 flex items-start space-x-3'>
                                                 <div class='mt-0.5'><span class='sr-only'></span>
                                                     <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-info-circle-fill text-gray-400' viewBox='0 0 16 16'>
@@ -349,7 +348,7 @@
 
                                             <div style='margin-top: 15px' class='flex items-start space-x-3'>
 
-                                                <form action="${pageContext.request.contextPath}/MemberShipController" method="POST">
+                                                <form action="${pageContext.request.contextPath}/MemberShipController">
                                                     <input type="hidden" name="action" value="edit">
                                                     <input type='hidden' name='MID' value = ${r.getMID()}>
                                                     <button type='submit' class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>

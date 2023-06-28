@@ -18,6 +18,24 @@ public class MemberShip {
     private BigDecimal value;
     private String duration;
     private String description;
+    private String status;
+
+    public MemberShip(String MID, String name, BigDecimal value, String duration, String description, String status) {
+        this.MID = MID;
+        this.name = name;
+        this.value = value;
+        this.duration = duration;
+        this.description = description;
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getMID() {
         return MID;
@@ -58,15 +76,7 @@ public class MemberShip {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public MemberShip(String MID, String name, BigDecimal value, String duration, String description) {
-        this.MID = MID;
-        this.name = name;
-        this.value = value;
-        this.duration = duration;
-        this.description = description;
-    }
-
+    
     public MemberShip() {
     }
 }
