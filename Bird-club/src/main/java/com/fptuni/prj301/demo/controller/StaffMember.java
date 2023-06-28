@@ -1,6 +1,8 @@
 package com.fptuni.prj301.demo.controller;
 
+import com.fptuni.prj301.demo.dbmanager.BirdManager;
 import com.fptuni.prj301.demo.dbmanager.MemberManager;
+import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.Member;
 import tool.utils.Tools;
 import java.io.IOException;
@@ -41,6 +43,27 @@ public class StaffMember extends HttpServlet {
             request.setAttribute("guestNum", guestNum);
             request.setAttribute("ignoredNum", ignoredNum);
             RequestDispatcher rd = request.getRequestDispatcher("staff_members.jsp");
+            rd.forward(request, response);
+        } 
+        
+        //display a list of birds
+        else if (action.equals("viewbirds")) {
+            int page, skip;
+            try {
+                page = Integer.parseInt(request.getParameter("page"));
+                skip = (page - 1) * 20;
+            } catch (NumberFormatException e) {
+                skip = 0;
+                page = 1;
+            }
+            BirdManager bm = new BirdManager();
+            List<Bird> birdsList = bm.getRecords(skip, 20);
+            int totalNum = bm.getTotal();
+            
+            request.setAttribute("birdsList", birdsList);
+            request.setAttribute("birdNum", totalNum);
+            request.setAttribute("page", page);
+            RequestDispatcher rd = request.getRequestDispatcher("staff_members_birds.jsp");
             rd.forward(request, response);
         } 
         

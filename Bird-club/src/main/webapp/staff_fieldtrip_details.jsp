@@ -406,10 +406,7 @@
                                                                     <option <% out.print(select3); %> value="ongoing">On going</option>
                                                                     <option <% out.print(select4); %> value="finished">Terminated</option>
                                                                 </select>
-
                                                             </div>
-                                                            <p class="mt-2 text-sm text-gray-500">Public clubs will allow non-members to learn about your club and apply to join. <br>
-                                                                Private clubs are invite-only and visible only to members. <br></p>
                                                         </div>
 
                                                         <div class="col-span-1">

@@ -193,45 +193,18 @@ public class TparticipationManager {
 
     public int getParticipantListSize(String TID) {
         int count = 0;
-        String sql = "SELECT * FROM [Tparticipation] WHERE TID = ?";
+        String sql = "SELECT COUNT(BID) FROM [Tparticipation] WHERE TID = ?";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, TID);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                count++;
+            if (rs.next()) {
+                count = rs.getInt("");
             }
         } catch (SQLException e) {
         }
         return count;
-    }
-
-    public static void main(String[] args) {
-        // Assuming you have initialized the required objects and variables
-
-        String UID = "UID0";
-        String tid = "TID11";
-        TparticipationManager p = new TparticipationManager();
-        BirdManager b = new BirdManager();
-        List<Bird> birds = b.getBirdsByUID(UID);
-        boolean participantFound = false;
-        Tparticipation participant = null;
-        for (Bird bird : birds) {
-            // Check if a participant exists for the current bird
-            participant = p.getParticipant(tid, bird.getBID());
-
-            if (participant != null) {
-                participantFound = true;
-                break; // Exit the loop if a participant is found
-            }
-        }
-
-        if (participantFound) {
-            System.out.println("Participant found for at least one bird: " + participant.getBid());
-        } else {
-            System.out.println("No participant found for any bird.");
-        }
     }
 
 }

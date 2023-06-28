@@ -1,0 +1,68 @@
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID0','TID6BID0','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID1','TID6BID1','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID2','TID6BID2','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID3','TID6BID3','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID4','TID6BID4','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID5','TID6BID5','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID6','TID6BID6','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID7','TID6BID7','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID8','TID6BID8','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID9','TID6BID9','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID10','TID6BID10','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID11','TID6BID11','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID12','TID6BID12','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID13','TID6BID13','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID14','TID6BID14','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID15','TID6BID15','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID16','TID6BID16','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID17','TID6BID17','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID18','TID6BID18','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID19','TID6BID19','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID20','TID6BID20','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID21','TID6BID21','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID22','TID6BID22','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID23','TID6BID23','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID24','TID6BID24','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID25','TID6BID25','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID26','TID6BID26','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID27','TID6BID27','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID28','TID6BID28','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID29','TID6BID29','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID30','TID6BID30','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID31','TID6BID31','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID32','TID6BID32','non');
+INSERT INTO [Tparticipation]
+VALUES('TID6','BID33','TID6BID33','non');

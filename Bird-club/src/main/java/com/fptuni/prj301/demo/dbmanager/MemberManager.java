@@ -1,6 +1,7 @@
 package com.fptuni.prj301.demo.dbmanager;
 
 import com.fptuni.prj301.demo.model.Member;
+import com.fptuni.prj301.demo.model.MemberProfile;
 import com.fptuni.prj301.demo.utils.DBUtils;
 import tool.utils.Tools;
 import java.sql.Connection;
@@ -81,6 +82,27 @@ public class MemberManager {
         }
         return false;
     }
+    
+    public boolean update(MemberProfile member) throws ClassNotFoundException {
+        String sql = "UPDATE [User] SET userName = ?, "
+                + "fullName = ?, gender = ?, phone = ?, email = ?, "
+                + "avatar = ? WHERE UID = ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, member.getUserName());
+            ps.setString(2, member.getFullName());
+            ps.setString(3, member.getGender());
+            ps.setString(4, member.getPhone());
+            ps.setString(5, member.getEmail());
+            ps.setString(6, member.getAvatar());
+            ps.setString(7, member.getUID());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Failed to update due to internal error :(" + ex.getMessage());
+        }
+        return false;
+    }
 
     public void updateRole(String UID, String role) {
         String sql = "UPDATE [User] SET role = ? WHERE UID = ?";
@@ -152,7 +174,7 @@ public class MemberManager {
             ps.setString(1, UID);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                email = rs.getString("email");                
+                email = rs.getString("email");
             }
             return email;
         } catch (SQLException ex) {
@@ -160,8 +182,8 @@ public class MemberManager {
         }
         return email;
     }
-    
-        public List<String> getAllUserEmail() throws ClassNotFoundException {
+
+    public List<String> getAllUserEmail() throws ClassNotFoundException {
         String sql = "select * from [User]";
         List<String> emailList = new ArrayList();
         try {
@@ -177,5 +199,34 @@ public class MemberManager {
             System.out.println("Failed to load the member's details due to internal error :(" + ex.getMessage());
         }
         return emailList;
+    }
+
+    public int getTotalNumberAsDuration(int year, int month) {
+        int count = 0;
+        String sql = "SELECT * FROM [User] WHERE (DATEPART(yy, signupDate) = ? "
+                + " AND DATEPART(mm, signupDate) = ?)";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, year);
+            ps.setInt(2, month);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                count++;
+            }
+            return count;
+        } catch (SQLException ex) {
+            System.out.println("Query error!" + ex.getMessage());
+        }
+        return count;
+    }
+    
+    public List<Integer> getTotalNumberAsYear(int year) {
+        List<Integer> list = new ArrayList();
+        for (int i=1; i<=12; i++) {
+            int num = getTotalNumberAsDuration(year,i);
+            list.add(num);
+        }
+        return list;
     }
 }
