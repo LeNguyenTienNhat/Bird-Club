@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -39,11 +41,10 @@ public class BirdProfileController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
-       PrintWriter out = response.getWriter();
+        PrintWriter out = response.getWriter();
         String action = request.getParameter("action");
-
 
         if (action != null && action.equals("viewbirdprofile")) {
             // Process the view action
@@ -52,15 +53,13 @@ public class BirdProfileController extends HttpServlet {
             List<Bird> birds = birdController.getBirdsByUID(UID);
             request.setAttribute("birdList", birds);
             request.getRequestDispatcher("/member_BirdList.jsp").forward(request, response);
-        }
-       else if (action.equals("view")) {
+        } else if (action.equals("view")) {
             // Retrieve the Tparticipation object from the database based on the provided parameters (e.g., docNo)
             String bid = request.getParameter("BID");
             String UID = request.getParameter("UID");
             BirdManager birdManager = new BirdManager();
             Bird birds = birdManager.getBirdByBID(bid);
-                                   
-           
+
             if (birds != null) {
                 // Store the Tparticipation object in request scope
                 request.setAttribute("birds", birds);
@@ -72,9 +71,27 @@ public class BirdProfileController extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/fail.jsp");
             }
         }//update bird profile
-        
-        
- }
+        if (action != null && action.equals("updatebirdprofile")) {
+            HttpSession ss = request.getSession(true);
+            String UID = request.getParameter("UID");
+            String BID = request.getParameter("BID");
+            String name = request.getParameter("name");
+            int age = Integer.parseInt(request.getParameter("age"));
+            String gender = request.getParameter("gender");
+            String description = request.getParameter("description");
+            String imageURL = request.getParameter("imageURL");
+            String color = request.getParameter("color");
+
+            BirdProfile birds = new BirdProfile(BID, UID, name, age, gender, description, imageURL, color);
+            BirdManager birdManager = new BirdManager();
+            birdManager.update(birds);
+            ss.setAttribute("birds", birds);
+            request.setAttribute("action", "view");
+            request.getRequestDispatcher("/member_BirdDetail.jsp").forward(request, response);
+        }
+
+    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -87,7 +104,11 @@ public class BirdProfileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(BirdProfileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -101,7 +122,11 @@ public class BirdProfileController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(BirdProfileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -113,5 +138,5 @@ public class BirdProfileController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-   
+
 }

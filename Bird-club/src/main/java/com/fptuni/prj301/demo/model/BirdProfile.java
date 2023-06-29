@@ -16,17 +16,16 @@ public class BirdProfile {
     private String BID;
     private String UID;
     private String name;
-    private String age;
+    private int age;
     private String gender;
     private String description;
     private String imageURL;
     private String color;
 
-
     public BirdProfile() {
     }
 
-    public BirdProfile(String BID, String UID, String name, String age, String gender, String description, String imageURL, String color) {
+    public BirdProfile(String BID, String UID, String name, int age, String gender, String description, String imageURL, String color) {
         this.BID = BID;
         this.UID = UID;
         this.name = name;
@@ -35,73 +34,118 @@ public class BirdProfile {
         this.description = description;
         this.imageURL = imageURL;
         this.color = color;
-        
     }
 
+    /**
+     * @return the BID
+     */
     public String getBID() {
         return BID;
     }
 
+    /**
+     * @param BID the BID to set
+     */
     public void setBID(String BID) {
         this.BID = BID;
     }
 
+    /**
+     * @return the UID
+     */
     public String getUID() {
         return UID;
     }
 
+    /**
+     * @param UID the UID to set
+     */
     public void setUID(String UID) {
         this.UID = UID;
     }
 
+    /**
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name the name to set
+     */
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getAge() {
+    /**
+     * @return the age
+     */
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    /**
+     * @param age the age to set
+     */
+    public void setAge(int age) {
         this.age = age;
     }
 
+    /**
+     * @return the gender
+     */
     public String getGender() {
         return gender;
     }
 
+    /**
+     * @param gender the gender to set
+     */
     public void setGender(String gender) {
         this.gender = gender;
     }
 
+    /**
+     * @return the description
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * @param description the description to set
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * @return the imageURL
+     */
     public String getImageURL() {
         return imageURL;
     }
 
+    /**
+     * @param imageURL the imageURL to set
+     */
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
 
+    /**
+     * @return the color
+     */
     public String getColor() {
         return color;
     }
 
+    /**
+     * @param color the color to set
+     */
     public void setColor(String color) {
         this.color = color;
     }
 
-    
-    
 }

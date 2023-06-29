@@ -100,19 +100,20 @@ public class BirdManager {
     return bird;
 }
      public boolean update(BirdProfile bird) throws ClassNotFoundException {
-        String sql = "UPDATE Bird SET name = ?, age = ?, "
-                + "gender = ?, description = ?, imageURL = ?, color = ?, "               
+        String sql = "UPDATE [Bird] SET name = ?, "
+                + "age = ?, "
+                + "gender = ?, description = ?, imageURL = ?, color = ? "               
                 + " WHERE BID = ?";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, bird.getName());
-            ps.setString(2, bird.getAge());
+            ps.setInt(2, bird.getAge());
             ps.setString(3, bird.getGender());
             ps.setString(4, bird.getDescription());
             ps.setString(5, bird.getImageURL());
             ps.setString(6, bird.getColor());
-            ps.setString(12, bird.getUID());
+            ps.setString(7, bird.getBID());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Failed to update due to internal error :(" + ex.getMessage());
@@ -200,7 +201,7 @@ public class BirdManager {
  public static void main(String[] args) {
         // Create an instance of your class
        BirdManager birdDAO = new BirdManager();
-        String BID = "BID16"; // Replace with the actual tournament ID
+        String BID = "BID133"; // Replace with the actual tournament ID
         Bird bird = birdDAO.getBirdByBID(BID);
 
         if (bird != null) {

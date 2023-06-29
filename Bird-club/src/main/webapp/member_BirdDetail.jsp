@@ -65,7 +65,7 @@
     <body class="post-template-default single single-post postid-56828 single-format-standard wp-embed-responsive theme-green nav-column tribe-no-js">
         <div id="main-container">
 
-           <%@ include file="member_header.jsp" %> 
+            <%@ include file="member_header.jsp" %> 
 
             <main id="main-content" class="single has-social">
                 <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -146,57 +146,51 @@
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <h4 class="text-right">Profile Settings</h4>
                                     </div>
-                                    <form id="SaveProfileForm" action="BirdProfileEditController" method="post">
-                                    <div class="row mt-2">
-                                        <div class="col-md-4">
-                                            <label class="labels">Name</label>
-                                            <input type="text" class="form-control" placeholder="Bird name" value="${birds.getName()}">
-                                        </div>                                       
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-md-2">
-                                            <label class="labels">Age</label>
-                                            <input type="text" class="form-control" placeholder="Age" value="${birds.getAge()}">
-                                    </div>
-                                    <div class="col-md-4">
-                                            <label class="labels">Gender</label>
-                                            <input type="text" class="form-control" placeholder="Gender" value="${birds.getGender()}">
-                                    </div>
-                                    <div class="col-md-12">
-                                            <label class="labels">Description</label>
-                                            <input type="text" class="form-control" placeholder="Description" value="${birds.getDescription()}">
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-md-12">
-                                            <label class="labels">Image</label>
-                                            <input type="text" class="form-control" placeholder="URL" value="${birds.getImageURL()}">
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-md-4">
-                                            <label class="labels">Color</label>
-                                            <input type="text" class="form-control" placeholder="color" value="${birds.getColor()}">
-                                    </div>
-                                    </form>
-                                    <script>
-                                        function saveProfile() {
-                                        window.location.href = "MemberProfileController?action=updateprofile";
-                                        }
-                                    </script>
-                                    <div class="mt-5 text-center">
-                                        <!--<button class="btn btn-primary profile-button" type="button">Save Profile</button>-->
-                                        <button class="btn btn-primary profile-button" type="button" onclick="saveProfile()">Save Profile</button>
-                                    </div>
+                                    <form id="SaveProfileForm" action="BirdProfileController" method="post">
+                                        <div class="row mt-2">
+                                            <div class="col-md-8">
+                                                <label class="labels">Name</label>
+                                                <input type="text" class="form-control" name="name" placeholder="Bird name" value="${birds.getName()}">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="labels">Age</label>
+                                                <input type="number" class="form-control" name="age" placeholder="Age" value="${birds.getAge()}">
+                                            </div>                    
+                                        </div>
+                                        <div class="row mt-2">  
+                                            <div class="col-md-6">
+                                                <label class="labels">Gender</label>
+                                                <input type="text" class="form-control" name="gender" placeholder="Gender" value="${birds.getGender()}">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="labels">Color</label>
+                                                <input type="text" class="form-control" name="color" placeholder="color" value="${birds.getColor()}">
+                                            </div>
+                                        </div>     
+                                        <div class="row mt-3">
+                                            <div class="col-md-12">
+                                                <label class="labels">Description</label>
+                                                <input type="text" class="form-control" name="description" placeholder="Description" value="${birds.getDescription()}">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="labels">Image</label>
+                                                <input type="text" class="form-control" name="imageURL" placeholder="URL" value="${birds.getImageURL()}">
+                                            </div> 
+                                        </div>
 
-                                    <style>
-                                        .nav-link {
-                                            display: inline-block;
-                                            margin-right: 85px;
-                                        }
-                                    </style>
-                                   
+                                        <div class="pt-5">
+                                            <div class="flex justify-end">
+                                                <input type="hidden" name="action" value="updatebirdprofile">
+                                                <input type="hidden" name="BID" value="${birds.getBID()}">
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <div class="mt-5 text-center">
+                                        <button class="btn btn-primary profile-button" form="SaveProfileForm" type="submit">Save Profile</button>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     </div>
@@ -211,92 +205,99 @@
                                 e.preventDefault();
                             });</script>
                     </div>
+                    <section id="global-cta" aria-label="Call to action" class="global-cta">
+                        <div class="wp-block-group cta">
+                            <h2 class="has-text-align-center">All About Birds is a free resource</h2>
+                            <p class="has-text-align-center">Available for everyone,<br>funded by donors like you</p>
+                            <div class="is-content-justification-center is-layout-flex wp-container-7 wp-block-buttons">
+                                <div class="wp-block-button"><a class="wp-block-button__link has-orange-background-color has-background" href="https://give.birds.cornell.edu/page/39428/donate/1?ea.tracking.id=AAB">Donate</a></div>
+                            </div>
+                        </div>
+                    </section>
 
-                    <div id="disqus_thread"></div>
-                    </div>
                     </article> 
             </main>
             <%@ include file="member_footer.jsp" %>
-       
 
-        <div class="reveal" id="search-modal" data-reveal role="dialog" data-animation-in="fade-in fast" aria-label="Search">
-            <button class="close-button" data-close aria-label="Close" type="button"><span class="text">Cancel</span> <span class="symbol" aria-hidden="true">&times;</span></button>
-            <div class="search-container">
-                <div class="search-area row">
-                    <form role="search" method="get" class="search-form" action="/news/search/">
-                        <span class="fa fa-search" aria-hidden="true"></span>
-                        <label for="modal-search" class="sr-only">Search for species name or keywords</label>
-                        <input id="modal-search" type="search" class="search-field" placeholder="Enter species name or keyword" value="" name="q" title="Search for:" />
-                        <input type="submit" class="search-submit button" value="Search" />
-                    </form>
+
+            <div class="reveal" id="search-modal" data-reveal role="dialog" data-animation-in="fade-in fast" aria-label="Search">
+                <button class="close-button" data-close aria-label="Close" type="button"><span class="text">Cancel</span> <span class="symbol" aria-hidden="true">&times;</span></button>
+                <div class="search-container">
+                    <div class="search-area row">
+                        <form role="search" method="get" class="search-form" action="/news/search/">
+                            <span class="fa fa-search" aria-hidden="true"></span>
+                            <label for="modal-search" class="sr-only">Search for species name or keywords</label>
+                            <input id="modal-search" type="search" class="search-field" placeholder="Enter species name or keyword" value="" name="q" title="Search for:" />
+                            <input type="submit" class="search-submit button" value="Search" />
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="content-container page-wider">
-                <p>Or Browse Bird Guide by <a href="/guide/browse/taxonomy" target="_self">Family</a> or <a href="/guide/browse" target="_self">Shape</a></p>
-            </div>
-            <section class="gray-bar-promotion" aria-label="Try Merlin">
-                <div class="merlin-cta">
-                    <p>Need Bird ID Help?
-                        <a role="button" class="button" tabindex="0" href="javascript:void(0);" data-open="merlin-id">Try Merlin</a></p>
+                <div class="content-container page-wider">
+                    <p>Or Browse Bird Guide by <a href="/guide/browse/taxonomy" target="_self">Family</a> or <a href="/guide/browse" target="_self">Shape</a></p>
                 </div>
-            </section>
-        </div>
+                <section class="gray-bar-promotion" aria-label="Try Merlin">
+                    <div class="merlin-cta">
+                        <p>Need Bird ID Help?
+                            <a role="button" class="button" tabindex="0" href="javascript:void(0);" data-open="merlin-id">Try Merlin</a></p>
+                    </div>
+                </section>
+            </div>
 
 
-        <div class="reveal" id="newsletter-modal" data-reveal role="dialog" data-animation-in="fade-in fast" data-v-offset="0" aria-label="Newsletter Sign Up">
-            <button class="close-button" data-close aria-label="Close" type="button"><span class="text">Cancel</span> <span class="symbol" aria-hidden="true">&times;</span></button>
-            <div class="content">
-                <h2 class="has-text-align-center">Don't miss a thing! Join our email list</h2>
-                <p class="has-text-align-center">The Cornell Lab will send you updates about birds, <br>birding, and opportunities to help bird conservation.</p>
-                <p><div class="hubspot-news">
-                    <script type="text/javascript" charset="utf-8" src="//js.hsforms.net/forms/current.js"></script>
-                    <script type="text/javascript">
+            <div class="reveal" id="newsletter-modal" data-reveal role="dialog" data-animation-in="fade-in fast" data-v-offset="0" aria-label="Newsletter Sign Up">
+                <button class="close-button" data-close aria-label="Close" type="button"><span class="text">Cancel</span> <span class="symbol" aria-hidden="true">&times;</span></button>
+                <div class="content">
+                    <h2 class="has-text-align-center">Don't miss a thing! Join our email list</h2>
+                    <p class="has-text-align-center">The Cornell Lab will send you updates about birds, <br>birding, and opportunities to help bird conservation.</p>
+                    <p><div class="hubspot-news">
+                        <script type="text/javascript" charset="utf-8" src="//js.hsforms.net/forms/current.js"></script>
+                        <script type="text/javascript">
                             hbspt.forms.create({
                                 portalId: '95627',
                                 formId: 'de085739-e692-431e-b987-0736c9c7e87a',
                                 target: '.hubspot-news'
                             });
-                    </script>
-                </div></p>
-                <div class="hubspot-news"></div> </div>
-        </div>
-
-
-
-        <section class="reveal merlin-web-interact" id="merlin-id" data-reveal role="dialog" data-animation-in="slide-in-right fast" data-animation-out="slide-out-right fast" data-v-offset="0" aria-label="Merlin Web">
-            <div class="close-bar">
-                <button class="close-button" data-close aria-label="Close Merlin bird ID" type="button"><span class="symbol" aria-hidden="true">&times;</span> Close Merlin</button>
+                        </script>
+                    </div></p>
+                    <div class="hubspot-news"></div> </div>
             </div>
-        </section>
 
-        <noscript><iframe 
-            height="0" width="0" style="display:none;visibility:hidden" data-src="//www.googletagmanager.com/ns.html?id=GTM-P7854M" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></iframe></noscript>
-        <link rel="stylesheet" href=https://lightbox.allaboutbirds.org/wp-content/plugins/clo-lightbox/clo-lightbox.min.css>
-        <script type="text/javascript" src="https://lightbox.allaboutbirds.org/wp-content/plugins/clo-lightbox/clo-lightbox.js"></script>
-        <script type="text/javascript">
+
+
+            <section class="reveal merlin-web-interact" id="merlin-id" data-reveal role="dialog" data-animation-in="slide-in-right fast" data-animation-out="slide-out-right fast" data-v-offset="0" aria-label="Merlin Web">
+                <div class="close-bar">
+                    <button class="close-button" data-close aria-label="Close Merlin bird ID" type="button"><span class="symbol" aria-hidden="true">&times;</span> Close Merlin</button>
+                </div>
+            </section>
+
+            <noscript><iframe 
+                height="0" width="0" style="display:none;visibility:hidden" data-src="//www.googletagmanager.com/ns.html?id=GTM-P7854M" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></iframe></noscript>
+            <link rel="stylesheet" href=https://lightbox.allaboutbirds.org/wp-content/plugins/clo-lightbox/clo-lightbox.min.css>
+            <script type="text/javascript" src="https://lightbox.allaboutbirds.org/wp-content/plugins/clo-lightbox/clo-lightbox.js"></script>
+            <script type="text/javascript">
                             var clo_lightbox = new CLO_Lightbox();
                             clo_lightbox.create('aab', 'aabnews', window.location.pathname, 'live');
-        </script> <script>
-            (function (body) {
-                'use strict';
-                body.className = body.className.replace(/\btribe-no-js\b/, 'tribe-js');
-            })(document.body);
-        </script>
-        <script> /* <![CDATA[ */var tribe_l10n_datatables = {"aria": {"sort_ascending": ": activate to sort column ascending", "sort_descending": ": activate to sort column descending"}, "length_menu": "Show _MENU_ entries", "empty_table": "No data available in table", "info": "Showing _START_ to _END_ of _TOTAL_ entries", "info_empty": "Showing 0 to 0 of 0 entries", "info_filtered": "(filtered from _MAX_ total entries)", "zero_records": "No matching records found", "search": "Search:", "all_selected_text": "All items on this page were selected. ", "select_all_link": "Select all pages", "clear_selection": "Clear Selection.", "pagination": {"all": "All", "next": "Next", "previous": "Previous"}, "select": {"rows": {"0": "", "_": ": Selected %d rows", "1": ": Selected 1 row"}}, "datepicker": {"dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"], "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesShort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesMin": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "nextText": "Next", "prevText": "Prev", "currentText": "Today", "closeText": "Done", "today": "Today", "clear": "Clear"}};/* ]]> */</script><style>.wp-block-gallery.wp-block-gallery-1{ --wp--style--unstable-gallery-gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) ); gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) )}</style>
-        <style>.wp-block-gallery.wp-block-gallery-3{ --wp--style--unstable-gallery-gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) ); gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) )}</style>
-        <style>.wp-block-gallery.wp-block-gallery-5{ --wp--style--unstable-gallery-gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) ); gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) )}</style>
-        <style id='core-block-supports-inline-css' type='text/css'>
-            .wp-block-buttons.wp-container-7{justify-content:center;}
-        </style>
+            </script> <script>
+                (function (body) {
+                    'use strict';
+                    body.className = body.className.replace(/\btribe-no-js\b/, 'tribe-js');
+                })(document.body);
+            </script>
+            <script> /* <![CDATA[ */var tribe_l10n_datatables = {"aria": {"sort_ascending": ": activate to sort column ascending", "sort_descending": ": activate to sort column descending"}, "length_menu": "Show _MENU_ entries", "empty_table": "No data available in table", "info": "Showing _START_ to _END_ of _TOTAL_ entries", "info_empty": "Showing 0 to 0 of 0 entries", "info_filtered": "(filtered from _MAX_ total entries)", "zero_records": "No matching records found", "search": "Search:", "all_selected_text": "All items on this page were selected. ", "select_all_link": "Select all pages", "clear_selection": "Clear Selection.", "pagination": {"all": "All", "next": "Next", "previous": "Previous"}, "select": {"rows": {"0": "", "_": ": Selected %d rows", "1": ": Selected 1 row"}}, "datepicker": {"dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"], "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesShort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesMin": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "nextText": "Next", "prevText": "Prev", "currentText": "Today", "closeText": "Done", "today": "Today", "clear": "Clear"}};/* ]]> */</script><style>.wp-block-gallery.wp-block-gallery-1{ --wp--style--unstable-gallery-gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) ); gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) )}</style>
+            <style>.wp-block-gallery.wp-block-gallery-3{ --wp--style--unstable-gallery-gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) ); gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) )}</style>
+            <style>.wp-block-gallery.wp-block-gallery-5{ --wp--style--unstable-gallery-gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) ); gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) )}</style>
+            <style id='core-block-supports-inline-css' type='text/css'>
+                .wp-block-buttons.wp-container-7{justify-content:center;}
+            </style>
 
-        <script type='text/javascript' src='https://www.allaboutbirds.org/news/wp-content/plugins/disqus-comment-system/public/js/comment_embed.js?ver=3.0.22' id='disqus_embed-js'></script>
-        <script type='text/javascript' src='https://www.allaboutbirds.org/news/wp-content/plugins/wp-smush-pro/app/assets/js/smush-lazy-load.min.js?ver=3.12.3' id='smush-lazy-load-js'></script>
-        <script type='text/javascript' src='https://www.allaboutbirds.org/news/wp-content/themes/birdpress2/scripts/foundation.min.js?ver=6.1.1' id='foundation-js-js'></script>
-        <script type='text/javascript' src='https://www.allaboutbirds.org/news/wp-content/themes/birdpress2/scripts/slick.min.js?ver=6.1.1' id='slick-js-js'></script>
-        <script type='text/javascript' src='https://www.allaboutbirds.org/news/wp-content/themes/birdpress2/scripts/scripts.js?ver=1684242136' id='bp-site-js-js'></script>
-        <script type='text/javascript' src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js' id='jquery-ui-js'></script>
-        <script type='text/javascript' src='https://www.allaboutbirds.org/news/wp-content/themes/birdpress2-aab/scripts/scripts.js?ver=1684847008' id='bp-aab-site-js-js'></script>
-        <script type='text/javascript' src='https://js.hscta.net/cta/current.js' id='hubspot-cta-js'></script>
+            <script type='text/javascript' src='https://www.allaboutbirds.org/news/wp-content/plugins/disqus-comment-system/public/js/comment_embed.js?ver=3.0.22' id='disqus_embed-js'></script>
+            <script type='text/javascript' src='https://www.allaboutbirds.org/news/wp-content/plugins/wp-smush-pro/app/assets/js/smush-lazy-load.min.js?ver=3.12.3' id='smush-lazy-load-js'></script>
+            <script type='text/javascript' src='https://www.allaboutbirds.org/news/wp-content/themes/birdpress2/scripts/foundation.min.js?ver=6.1.1' id='foundation-js-js'></script>
+            <script type='text/javascript' src='https://www.allaboutbirds.org/news/wp-content/themes/birdpress2/scripts/slick.min.js?ver=6.1.1' id='slick-js-js'></script>
+            <script type='text/javascript' src='https://www.allaboutbirds.org/news/wp-content/themes/birdpress2/scripts/scripts.js?ver=1684242136' id='bp-site-js-js'></script>
+            <script type='text/javascript' src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js' id='jquery-ui-js'></script>
+            <script type='text/javascript' src='https://www.allaboutbirds.org/news/wp-content/themes/birdpress2-aab/scripts/scripts.js?ver=1684847008' id='bp-aab-site-js-js'></script>
+            <script type='text/javascript' src='https://js.hscta.net/cta/current.js' id='hubspot-cta-js'></script>
     </body>
 </html>
 
