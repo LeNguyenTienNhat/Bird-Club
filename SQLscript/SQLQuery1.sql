@@ -120,7 +120,7 @@ CREATE TABLE [dbo].[Blog](
 	[picture] [image] NOT NULL,
  CONSTRAINT [PK_Blog] PRIMARY KEY CLUSTERED 
 (
-	[BID] ASC
+	[BLID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -147,7 +147,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Comment](
 	[CID] [nchar](10) NOT NULL,
-	[BID] [nchar](10) NOT NULL,
+	[BLID] [nchar](10) NOT NULL,
 	[vote] [decimal](18, 0) NOT NULL,
 	[description] [nvarchar](max) NOT NULL,
 	[date] [datetime] NOT NULL,
@@ -452,8 +452,8 @@ REFERENCES [dbo].[Location] ([LID])
 GO
 ALTER TABLE [dbo].[ClubLocation] CHECK CONSTRAINT [FK_Club_Location]
 GO
-ALTER TABLE [dbo].[Comment]  WITH CHECK ADD  CONSTRAINT [FK_Comment_Blog] FOREIGN KEY([BID])
-REFERENCES [dbo].[Blog] ([BID])
+ALTER TABLE [dbo].[Comment]  WITH CHECK ADD  CONSTRAINT [FK_Comment_Blog] FOREIGN KEY([BLID])
+REFERENCES [dbo].[Blog] ([BLID])
 GO
 ALTER TABLE [dbo].[Comment] CHECK CONSTRAINT [FK_Comment_Blog]
 GO
