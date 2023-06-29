@@ -21,7 +21,7 @@ public class StaffMediaController extends HttpServlet {
         try {
             String ID = request.getParameter("ID");
             String description = request.getParameter("description");
-            Part filePart = request.getPart("picture");
+            Part filePart = request.getPart("image");
             InputStream ism = filePart.getInputStream();
             ByteArrayOutputStream osm = new ByteArrayOutputStream();
             byte[] buffer = new byte[1024];

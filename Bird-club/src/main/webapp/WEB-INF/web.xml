@@ -22,6 +22,10 @@
     <servlet>
         <servlet-name>StaffMediaController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.StaffMediaController</servlet-class>
+        <multipart-config>
+            <max-file-size>5242880</max-file-size>
+            <max-request-size>10485760</max-request-size>
+        </multipart-config>
     </servlet>
     <servlet>
         <servlet-name>StaffAccountFTController</servlet-name>

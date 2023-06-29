@@ -1,3 +1,4 @@
+<%@page import="java.util.Base64"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.fptuni.prj301.demo.model.Media"%>
 <%@page import="com.fptuni.prj301.demo.model.Tournament"%>
@@ -214,12 +215,17 @@
                                     <div class="mt-3">
                                         <label class="block text-sm font-medium text-gray-700" for="image">Media</label>
                                         <div class="mt-1">
-                                            <input accept="image/jpg,image/jpeg,image/png" color="teal" 
+                                            <input accept="image/*" color="teal" 
                                                    class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" 
                                                    type="file" name="image" id="image"></div></div>
                                     <input type="hidden" name="ID"  <%  out.print("value='" + t.getTID() + "'");  %>      >
                                     <input type='hidden' name="tableName" value="TournamentMedia">
-                                    <input type="text" name='description' placeholder="A brief description of the image">
+                                    <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="description" id="description">
+                                        <option value="thumbnail">Thumbnail</option>
+                                        <option value="gallery">Gallery</option>                                   
+                                    </select>
+
+
                                     <div class="text-right sm:col-span-4">
                                         <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
                                             Add image</button>
@@ -315,7 +321,7 @@
                                         for (Media m : list) {
                                             out.print("<li class='relative hover:opacity-75'>"
                                                     + "<a data-turbo-frame='photo_modal'></a><a data-turbo-frame='photo_modal' class='hover:opacity-75'>"
-                                                    + "<img src='" + m.getURL() + "'>"
+                                                    + "<img src='data:image/jpeg;base64," + Base64.getEncoder().encodeToString(m.getImage()) + "'>"
                                                     + "</a></li>");
                                         }
                                     %>

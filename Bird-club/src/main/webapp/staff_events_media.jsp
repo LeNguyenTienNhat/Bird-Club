@@ -1,3 +1,4 @@
+<%@page import="java.util.Base64"%>
 <%@page import="com.fptuni.prj301.demo.model.Meeting"%>
 <%@page import="com.fptuni.prj301.demo.model.Fieldtrip"%>
 <%@page import="java.util.ArrayList"%>
@@ -228,7 +229,10 @@
                                                    type="file" name="image" id="image"></div></div>
                                     <input type="hidden" name="ID"  <%  out.print("value='" + ID + "'");  %>      >
                                     <input type='hidden' name="tableName" <%  out.print("value='" + tableName + "'");  %> >
-                                    <input type="text" name='description' placeholder="A brief description of the image">
+                                    <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="description" id="description">
+                                        <option value="thumbnail">Thumbnail</option>
+                                        <option value="gallery">Gallery</option>                                   
+                                    </select>
                                     <div class="text-right sm:col-span-4">
                                         <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
                                             Add image</button>
@@ -324,7 +328,7 @@
                                         for (Media m : list) {
                                             out.print("<li class='relative hover:opacity-75'>"
                                                     + "<a data-turbo-frame='photo_modal'></a><a data-turbo-frame='photo_modal' class='hover:opacity-75'>"
-                                                    + "<img src='" + m.getURL() + "'>"
+                                                    + "<img src='data:image/jpeg;base64,"  +Base64.getEncoder().encodeToString(m.getImage()) + "'>"
                                                     + "</a></li>");
                                         }
                                     %>
