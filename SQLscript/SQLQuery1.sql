@@ -427,7 +427,7 @@ CREATE TABLE [dbo].[User](
 	[signupDate] [datetime] NOT NULL,
 	[expiredDate] [datetime] NOT NULL,
 	[MID] [nchar](10) NOT NULL,
-	[profilePicture] [nvarchar](50) NOT NULL,
+	[profilePicture] [image] NOT NULL,
 
 
 
