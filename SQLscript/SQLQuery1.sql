@@ -96,9 +96,9 @@ CREATE TABLE [dbo].[Bird](
 	[age] [decimal](18, 0) NOT NULL,
 	[gender] [nchar](10) NOT NULL,
 	[description] [nvarchar](max) NULL,
-	[imageURL] [nvarchar](max) NULL,
 	[color] [nchar](10) NOT NULL,
 	[addDate] [datetime] NOT NULL,
+	[profilePic] [image] NOT NULL,
  CONSTRAINT [PK_Bird] PRIMARY KEY CLUSTERED 
 (
 	[BID] ASC
@@ -111,15 +111,13 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Blog](
-	[BID] [nchar](10) NOT NULL,
-	[UID] [nchar](10) NOT NULL,
-	[title] [nvarchar](100) NOT NULL,
+	[BLID] [nchar](10) NOT NULL,
+	[description] [nvarchar](50) NOT NULL,
 	[category] [nvarchar](50) NOT NULL,
-	[blogsContent] [nvarchar](max) NOT NULL,
 	[uploadDate] [datetime] NOT NULL,
-	[status] [nchar] (20) NOT NULL,
-	[image] [nvarchar](max) NOT NULL,	
+	[UID] [nchar] (10) NOT NULL,
 	[vote] [decimal](18, 0) NOT NULL,
+	[picture] [image] NOT NULL,
  CONSTRAINT [PK_Blog] PRIMARY KEY CLUSTERED 
 (
 	[BID] ASC
@@ -189,8 +187,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[FieldTripMedia](
 	[FID] [nchar](10) NOT NULL,
-	[URL] [nvarchar](max) NOT NULL,
-	[category][nvarchar](20) NOT NULL
+	[description] [nvarchar](max) NOT NULL,
+	[image] [image] NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 /****** Object:  Table [dbo].[FieldTripParticipants]    Script Date: 6/2/2023 8:22:23 PM ******/
@@ -214,8 +212,8 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[GalleryImage](
-	[URL] [nvarchar](max) NOT NULL,
-	[description] [nvarchar](max) NULL
+	[description] [nvarchar](max) NOT NULL,
+	[image] [image] NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 /****** Object:  Table [dbo].[Location]    Script Date: 6/2/2023 8:22:23 PM ******/
@@ -281,8 +279,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[MeetingMedia](
 	[MeID] [nchar](10) NOT NULL,
-	[URL] [nvarchar](max) NOT NULL,
-	[category][nvarchar](20) NOT NULL
+	[description] [nvarchar](max) NOT NULL,
+	[image] [image] NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 /****** Object:  Table [dbo].[MeetingParticipants]    Script Date: 6/2/2023 8:22:23 PM ******/
@@ -331,7 +329,7 @@ CREATE TABLE [dbo].[News](
 	[newsContent] [nvarchar](max) NOT NULL,
 	[uploadDate] [datetime] NOT NULL,
 	[status] [nchar] (20) NOT NULL,
-	[image] [nvarchar](max) NOT NULL,
+	[picture] [image] NOT NULL,
  CONSTRAINT [PK_Article] PRIMARY KEY CLUSTERED 
 (
 	[NID] ASC
@@ -372,9 +370,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[TournamentMedia](
 	[TID] [nchar](10) NOT NULL,
-	[URL] [nvarchar](max) NOT NULL,
 	[description] [nvarchar](max) NOT NULL,
-	[category][nvarchar](20) NOT NULL
+	[image] [image] NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 /****** Object:  Table [dbo].[Tparticipation]    Script Date: 6/2/2023 8:22:23 PM ******/
@@ -425,12 +422,12 @@ CREATE TABLE [dbo].[User](
 	[gender] [nchar](10) NULL,
 	[phone] [nchar](10) NULL,
 	[email] [nvarchar](50) NULL,
-	[status] [nchar](20) NOT NULL,
 	[role] [nchar](10) NOT NULL,
+	[status] [nvarchar](50) NOT NULL,
 	[signupDate] [datetime] NOT NULL,
 	[expiredDate] [datetime] NOT NULL,
-	[MID] [nchar](10) NULL,
-	[avatar] [nvarchar](50) NULL,
+	[MID] [nchar](10) NOT NULL,
+	[profilePicture] [nvarchar](50) NOT NULL,
 
 
 
