@@ -323,7 +323,8 @@
 
                                         <div class="row">
                                             <div class="tribe-events-event-image" style="width:300px; height: 300px;">
-                                                <a href="http://brooklynbirdclub.org/event/members-photo-art-night/" tabindex="-1">
+                                                
+                                                <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}" tabindex="-1">
                                                     <img width="300" height="300" src="${m.getPictureURL()}" class="attachment-medium size-medium wp-post-image" alt="${m.getPictureURL()}" srcset="${m.getPictureURL()} 300w,${m.getPictureURL()}  150w,${m.getPictureURL()}  600w" sizes="(max-width: 300px) 100vw, 300px">
                                                 </a>
                                             </div>

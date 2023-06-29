@@ -44,25 +44,33 @@
 
         <h2 class="has-text-align-center has-large-font-size">Field Trip List</h2>
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var searchInput = document.getElementById('searchInput');
-                var fieltripItems = document.getElementsByClassName('fieldtrip-item');
+    document.addEventListener('DOMContentLoaded', function () {
+        var searchInput = document.getElementById('searchInput');
+        var fieldtripItems = document.getElementsByClassName('type-tribe_events');
 
-                searchInput.addEventListener('input', function () {
-                    var searchValue = searchInput.value.toLowerCase();
+        searchInput.addEventListener('input', function () {
+            performSearch();
+        });
 
-                    for (var i = 0; i < fieltripItems.length; i++) {
-                        var fieltripName = fieltripItems[i].querySelector('.tribe-events-calendar-list__event-title').textContent.toLowerCase();
-                        var fieldtripStatus = fieltripItems[i].querySelector('.status-button').textContent.toLowerCase();
-                        if (fieltripName.includes(searchValue) || fieldtripStatus.includes(searchValue)) {
-                            fieltripItems[i].style.display = 'block';
-                        } else {
-                            fieltripItems[i].style.display = 'none';
-                        }
-                    }
-                });
-            });
-        </script>
+        function performSearch() {
+            var searchValue = searchInput.value.toLowerCase();
+
+            for (var i = 0; i < fieldtripItems.length; i++) {
+                var fieldtripName = fieldtripItems[i].querySelector('.tribe-events-calendar-list__event-title-link').textContent.toLowerCase();
+                var fieltripStatus = fieldtripItems[i].querySelector('.status-button').textContent.toLowerCase();
+
+                if (fieldtripName.includes(searchValue) || fieltripStatus.includes(searchValue)) {
+                    fieldtripItems[i].style.display = 'block';
+                } else {
+                    fieldtripItems[i].style.display = 'none';
+                }
+            }
+        }
+
+        // Initial search
+        performSearch();
+    });
+</script>
 
         <main id="main-content" class="page has-hero">
             <article id="article" class="post-1229 page type-page status-publish has-post-thumbnail hentry">
@@ -222,7 +230,7 @@
                             <input type="text" id="searchInput" placeholder="Search">
                         </div>
 
-                        <div class="fieldtrip-container">
+<!--                        <div class="fieldtrip-container">
                             <c:if test="${empty eventsList}">
                                 <div>
                                     <p>No fieldtrip found.</p>
@@ -345,20 +353,100 @@
                                     </div>
                                 </c:forEach>
                             </c:if>
-                        </div>
-                        <style>
-                            .fieldtrip-container {
-                                display: grid;
-                                grid-template-columns: repeat(2, 1fr);
-                                gap: 20px;
+                        </div>-->
+                         <style>
+                            .row {
+                                display: flex;
                             }
 
-                            .fieldtrip-item {
-                                border: 1px solid #ccc;
-                                padding: 20px;
-                                background-color: #f2f2f2; /* Add your desired background color here */
+                            .tribe-events-event-image {
+                                margin-right: 30px; 
+                            }
+
+                            .tribe-events-list-event-description {
+                                flex: 1;
+                            }
+                            .author .location .tribe-event-schedule-details span {
+                                font-weight: bold; /* Make the text bold */
+                                font-style: italic; /* Make the text italic */
+                            }
+                            .tribe-events-list-event-title {
+                                display: flex;
+                                align-items: center;
+                            }
+
+                            .status-button {
+                                margin-left: 10px; /* Adjust the margin as needed */
+                                font-size: 12px; /* Adjust the font size for a smaller button */
+                                padding: 4px 8px; /* Adjust the padding for a smaller button */
                             }
                         </style>
+                        <c:if test="${empty eventsList}">
+                            <div>
+                                <p>No meeting found.</p>
+                            </div>
+                        </c:if>
+                        <c:if test="${not empty eventsList}">
+                            <c:forEach var="f" items="${eventsList}" varStatus="loop">
+                                <div class="fieldtrip-item">
+                                    <div id="post-3946" class="type-tribe_events post-3946 tribe-clearfix tribe-events-category-meetings tribe-events-organizer-873" style="margin-top: 20px; margin-bottom: 20px;">
+                                         <h3 class="tribe-events-list-event-title">
+                                        <a href="${pageContext.request.contextPath}/FieldTripParticipantsController?action=view&FID=${f.getFID()}&UID=${users.getUID()}"
+                                                       title="${f.getName()}"
+                                                       style="display: flex; align-items: center;"
+                                                       class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
+                                                        ${f.getName()}
+                                                    </a>
+                                         
+                                            <c:if test="${users.getRole().trim().equals('member')}">
+                                                <span class="status-button
+                                                      <c:choose>
+                                                          <c:when test="${f.getStatus().contains('pending')}">
+                                                              status-pending
+                                                          </c:when>
+                                                          <c:when test="${f.getStatus().contains('formClosed')}">
+                                                              status-formClosed
+                                                          </c:when>
+                                                          <c:when test="${f.getStatus().contains('ongoing')}">
+                                                              status-ongoing
+                                                          </c:when>
+                                                          <c:when test="${f.getStatus().contains('finished')}">
+                                                              status-finished
+                                                          </c:when>
+                                                      </c:choose>"
+                                                      >
+                                                    ${f.getStatus()}
+                                                </span>
+                                            </c:if>
+                                         </h3>
+                                        
+                                        <div class="tribe-events-event-meta" style="margin-bottom:10px;">
+                                            <div class="author location">
+                                                <div class="tribe-event-schedule-details">
+                                                    <span class="tribe-event-date-start"><em><strong>${f.getStartDate()}</strong></em></span> <em>to</em> <span class="tribe-event-time"><em><strong>${f.getEndDate()}</strong></em></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="tribe-events-event-image" style="width:300px; height: 300px;">
+                                                <a href="${pageContext.request.contextPath}/FieldTripParticipantsController?action=view&FID=${f.getFID()}&UID=${users.getUID()}" tabindex="-1">
+                                                    <img width="300" height="300" src="${f.getPictureURL()}" class="attachment-medium size-medium wp-post-image" alt="${f.getPictureURL()}" srcset="${f.getPictureURL()} 300w,${f.getPictureURL()}  150w,${f.getPictureURL()}  600w" sizes="(max-width: 300px) 100vw, 300px">
+                                                </a>
+                                            </div>
+                                            <div class="tribe-events-list-event-description col-md-6 tribe-events-content description entry-summary">
+                                                <p><strong>Leader: </strong> ${f.getIncharge()}</p> <p><strong>Fee: </strong>${f.getFee()}$</p>  
+                                                <p><strong>Participant limit: </strong>${f.getNumberOfParticipant()}</p>
+                                                <p><strong>Focus: </strong>${f.getDescription()}</p>
+                                                <p><strong>Note: </strong> ${f.getNote()}</p>
+                                                <a href="${pageContext.request.contextPath}/FieldTripParticipantsController?action=view&FID=${f.getFID()}&UID=${users.getUID()}" class="tribe-events-read-more" rel="bookmark">Find out more »</a>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </c:if>
 
 
 
