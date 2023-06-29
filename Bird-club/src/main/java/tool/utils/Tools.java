@@ -1,17 +1,11 @@
 package tool.utils;
 
 import com.fptuni.prj301.demo.utils.DBUtils;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import javax.imageio.ImageIO;
 
 public class Tools {
 
@@ -142,18 +136,8 @@ public class Tools {
         return sb.toString();
     }
 
-    public byte[] ImageToByteArray() throws IOException {
-        BufferedImage bImage = ImageIO.read(new File("D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\user.png"));
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ImageIO.write(bImage, "png", bos);
-        byte[] data = bos.toByteArray();
-        return data;
+    public int getRandomNumber(int min, int max) {
+        return (int) (Math.random() * (max - min + 1) + min);
     }
-    
-    public static void main(String args[]) throws IOException {
-        Tools t = new Tools();
-        byte[] data = t.ImageToByteArray();
-        System.out.print(Arrays.toString(data));
-    }
-    
+
 }

@@ -106,7 +106,6 @@ public class UserAccessController extends HttpServlet {
                 user.setEmail(email);
                 user.setGender(gender);
                 user.setStatus("unactivated");
-                user.setAvatar("media/user.png");
                 user.setMID("MID00");
                 user.setRole("guest");
 

@@ -31,7 +31,6 @@ public class StaffHomepage extends HttpServlet {
         if (action == null || action.equals("staffhome")) {
             //Data for members' sign-ups chart
             MemberManager mem = new MemberManager();
-            int a = mem.getTotalNumberAsDuration(2023, 6);
             List<Integer> list = mem.getTotalNumberAsYear(2023);
                         
             //Data for tournament chart
@@ -55,7 +54,6 @@ public class StaffHomepage extends HttpServlet {
             }
             
             //Send data
-            request.setAttribute("a", a);
             request.setAttribute("list", list);
             request.setAttribute("bList", bList);
             request.setAttribute("topTournament", topTournament);

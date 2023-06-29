@@ -62,7 +62,6 @@ public class StaffAccountManager {
                 user.setSignUpDate(rs.getDate("signUpDate"));
                 user.setMID(rs.getString("MID"));
                 user.setGender(rs.getString("gender"));
-                user.setAvatar(rs.getString("avatar"));
                 users.add(user);
             }
 

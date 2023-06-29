@@ -35,7 +35,6 @@ public class UserAccessManager {
                 Date signupDate = rs.getDate("signupDate");
                 String MID = rs.getString("MID");
                 String gender = rs.getString("gender");
-                String avatar = rs.getString("avatar");
 
                 // Create a UserSession object with the retrieved attributes
                 user = new UserSession();
@@ -51,7 +50,6 @@ public class UserAccessManager {
                 user.setSignUpDate(signupDate);
                 user.setMID(MID);
                 user.setGender(gender);
-                user.setAvatar(avatar);
             }
 
             rs.close();
@@ -86,7 +84,7 @@ public class UserAccessManager {
 
 public boolean SignUp(UserSession user) {
     String sql = "INSERT INTO [User] " +
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     try (Connection conn = DBUtils.getConnection();
          PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -102,7 +100,6 @@ public boolean SignUp(UserSession user) {
         ps.setDate(10, new java.sql.Date(user.getSignUpDate().getTime()));
         ps.setDate(11, new java.sql.Date(user.getExpriedDate().getTime()));
         ps.setString(12,user.getMID());
-        ps.setString(13,user.getAvatar());
         int rowsAffected = ps.executeUpdate();
 
         if (rowsAffected > 0) {
@@ -189,7 +186,6 @@ public boolean SignUp(UserSession user) {
                 user.setSignUpDate(rs.getDate("signupDate"));
                 user.setMID(rs.getString("MID"));
                 user.setGender(rs.getString("gender"));
-                user.setAvatar(rs.getString("avatar"));
             }
 
             rs.close();
@@ -222,7 +218,6 @@ public boolean SignUp(UserSession user) {
                 user.setSignUpDate(rs.getDate("signupDate"));
                 user.setMID(rs.getString("MID"));
                 user.setGender(rs.getString("gender"));
-                user.setAvatar(rs.getString("avatar"));
             }
 
             rs.close();

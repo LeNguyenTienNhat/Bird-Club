@@ -80,7 +80,7 @@ public class MemberManager {
         }
         return false;
     }
-    
+
     public boolean update(MemberProfile member) throws ClassNotFoundException {
         String sql = "UPDATE [User] SET userName = ?, "
                 + "fullName = ?, gender = ?, phone = ?, email = ?, "
@@ -218,13 +218,38 @@ public class MemberManager {
         }
         return count;
     }
-    
+
     public List<Integer> getTotalNumberAsYear(int year) {
         List<Integer> list = new ArrayList();
-        for (int i=1; i<=12; i++) {
-            int num = getTotalNumberAsDuration(year,i);
+        for (int i = 1; i <= 12; i++) {
+            int num = getTotalNumberAsDuration(year, i);
             list.add(num);
         }
         return list;
+    }
+
+    public void insert(Member user) {
+        String sql = "INSERT INTO [User] "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, "
+                + "CONVERT(DATETIME,'" + user.getSignupDate() + "', 103), "
+                + "CONVERT(DATETIME,'" + user.getExpiredDate() + "', 103), "
+                + "?, ?)";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, user.getUID());
+            ps.setString(2, user.getUserName());
+            ps.setString(3, user.getPassword());
+            ps.setString(4, user.getFullName());
+            ps.setString(5, user.getGender());
+            ps.setString(6, user.getPhone());
+            ps.setString(7, user.getEmail());
+            ps.setString(8, user.getRole());
+            ps.setString(9, user.getStatus());
+            ps.setString(10, user.getMID());
+            ps.setBytes(11, user.getProfilePicture());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+        }
     }
 }

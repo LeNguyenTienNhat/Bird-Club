@@ -24,7 +24,6 @@ public class UserSession {
     private Date signUpDate;
     private String MID;
     private String gender;
-    private String avatar;
 
     public String getUID() {
         return UID;
@@ -122,15 +121,8 @@ public class UserSession {
         this.gender = gender;
     }
 
-    public String getAvatar() {
-        return avatar;
-    }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public UserSession(String UID, String userName, String fullName, String phone, String email, String password, String role, Date expriedDate, String Status, Date signUpDate, String MID, String gender, String avatar) {
+    public UserSession(String UID, String userName, String fullName, String phone, String email, String password, String role, Date expriedDate, String Status, Date signUpDate, String MID, String gender) {
         this.UID = UID;
         this.userName = userName;
         this.fullName = fullName;
@@ -143,7 +135,6 @@ public class UserSession {
         this.signUpDate = signUpDate;
         this.MID = MID;
         this.gender = gender;
-        this.avatar = avatar;
     }
 
     public UserSession() {
