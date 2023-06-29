@@ -39,11 +39,11 @@ public class BirdManager {
                     int age = rs.getInt("age");
                     String gender = rs.getString("gender");
                     String description = rs.getString("description");
-                    String imageURL = rs.getString("imageURL");
                     String color = rs.getString("color");
                     Date addDate = rs.getTimestamp("addDate");
+                    byte[] profilePic = rs.getBytes("profilePic");
 
-                    Bird bird = new Bird(BID, UID, name, age, gender, description, imageURL, color, addDate);
+                    Bird bird = new Bird(BID, UID, name, age, gender, description, color, addDate, profilePic);
                     birds.add(bird);
                 }
             }
@@ -70,39 +70,41 @@ public class BirdManager {
         }
         return UID;
     }
+
     public Bird getBirdByBID(String bid) {
         Bird bird = null;
         String query = "SELECT * FROM Bird WHERE BID = ?";
 
-     try (Connection conn = DBUtils.getConnection();
+        try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(query)) {
-        ps.setString(1, bid);
+            ps.setString(1, bid);
 
-        try (ResultSet rs = ps.executeQuery()) {
-            if (rs.next()) {
-                bird = new Bird();
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    bird = new Bird();
                     bird.setBID(rs.getString("BID"));
                     bird.setUID(rs.getString("UID"));
-                     bird.setName(rs.getString("name"));
+                    bird.setName(rs.getString("name"));
                     bird.setAge(rs.getInt("age"));
                     bird.setGender(rs.getString("gender"));
                     bird.setDescription(rs.getString("description"));
-                    bird.setImageURL(rs.getString("imageURL"));
+                    bird.setProfilePic(rs.getBytes("profilePic"));
                     bird.setColor(rs.getString("color"));
                     bird.setAddDate(rs.getDate("addDate"));
-                
+
+                }
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
+
+        return bird;
     }
 
-    return bird;
-}
-     public boolean update(BirdProfile bird) throws ClassNotFoundException {
+    public boolean update(BirdProfile bird) throws ClassNotFoundException {
         String sql = "UPDATE [Bird] SET name = ?, "
                 + "age = ?, "
-                + "gender = ?, description = ?, imageURL = ?, color = ? "               
+                + "gender = ?, description = ?, imageURL = ?, color = ? "
                 + " WHERE BID = ?";
         try {
             Connection conn = DBUtils.getConnection();
@@ -120,6 +122,7 @@ public class BirdManager {
         }
         return false;
     }
+
     public Bird load(String BID) {
         String sql = "SELECT * FROM [Bird] WHERE BID = ?";
         Bird bird = new Bird();
@@ -137,8 +140,8 @@ public class BirdManager {
                 String imageURL = rs.getString("imageURL");
                 String color = rs.getString("color");
                 Date addDate = rs.getTimestamp("addDate");
-
-                bird = new Bird(BID, UID, name, age, gender, description, imageURL, color, addDate);
+                byte[] profilePic = rs.getBytes("profilePic");
+                bird = new Bird(BID, UID, name, age, gender, description, color, addDate, profilePic);
             }
             return bird;
         } catch (SQLException e) {
@@ -169,10 +172,10 @@ public class BirdManager {
                 int age = rs.getInt("age");
                 String gender = rs.getString("gender");
                 String description = rs.getString("description");
-                String imageURL = rs.getString("imageURL");
                 String color = rs.getString("color");
                 Date addDate = rs.getTimestamp("addDate");
-                Bird b = new Bird(BID, UID, name, age, gender, description, imageURL, color, addDate);
+                byte[] profilePic = rs.getBytes("profilePic");
+                Bird b = new Bird(BID, UID, name, age, gender, description, color, addDate, profilePic);
                 list.add(b);
             }
             return list;
@@ -181,13 +184,13 @@ public class BirdManager {
         }
         return list;
     }
-    
+
     public int getTotal() throws ClassNotFoundException {
-        int count=0;
+        int count = 0;
         String sql = "SELECT * FROM [Bird] ";
         try {
             Connection conn = DBUtils.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);         
+            PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 count++;
@@ -198,27 +201,4 @@ public class BirdManager {
         }
         return count;
     }
- public static void main(String[] args) {
-        // Create an instance of your class
-       BirdManager birdDAO = new BirdManager();
-        String BID = "BID133"; // Replace with the actual tournament ID
-        Bird bird = birdDAO.getBirdByBID(BID);
-
-        if (bird != null) {
-            System.out.println("BID: " + bird.getBID());
-            System.out.println("UID: " + bird.getUID());
-            System.out.println("Description: " + bird.getName());
-            System.out.println("Age: " + bird.getAge());
-            System.out.println("Gender: " + bird.getGender());
-            System.out.println("Descrip: " + bird.getDescription());
-            System.out.println("Image: " + bird.getImageURL());
-            System.out.println("Color: " + bird.getColor());
-            System.out.println("Date: " + bird.getAddDate());
-
-            System.out.println("------------------------");
-        }else {
-            System.out.println("Bird not found.");
-        }
-    }
 }
-

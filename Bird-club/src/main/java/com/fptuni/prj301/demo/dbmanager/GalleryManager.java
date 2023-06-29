@@ -17,8 +17,8 @@ public class GalleryManager {
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql); 
-            ps.setString(1, i.getUrl());
-            ps.setString(2, i.getDescription());
+            ps.setString(1, i.getDescription());
+            ps.setBytes(2, i.getImage());
             ps.executeUpdate();
         }
         catch (SQLException ex) {
@@ -36,7 +36,7 @@ public class GalleryManager {
             while (rs.next()) {
                 Image i = new Image();
                 i.setDescription(rs.getString("description"));
-                i.setUrl(rs.getString("URL"));
+                i.setImage(rs.getBytes("URL"));
                 list.add(i);
             } rs.close();
         } catch (SQLException e) {

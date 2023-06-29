@@ -18,8 +18,9 @@ public class EventsMediaManager {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, media.getID());
-            ps.setString(2, media.getURL());
-            ps.setString(3, media.getDescription());
+            ps.setString(2, media.getDescription());
+            ps.setBytes(3, media.getImage());
+            
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Insertion failed due to internal error :(" + ex.getMessage());
@@ -46,7 +47,7 @@ public class EventsMediaManager {
                 Media i = new Media();
                 i.setID(rs.getString(IDtype));
                 i.setDescription(rs.getString("description"));
-                i.setURL(rs.getString("URL"));
+                i.setImage(rs.getBytes("image"));
                 list.add(i);
             }
             rs.close();
@@ -55,6 +56,7 @@ public class EventsMediaManager {
         return list;
     }
 
+    //need to fix
     public String getURLByID(String tableName, String ID) {
         String IDtype;
         if (tableName.equalsIgnoreCase("TournamentMedia")) {

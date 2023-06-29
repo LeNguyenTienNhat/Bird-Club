@@ -38,7 +38,7 @@ Tools tool = new Tools();
                     blog.setBlogsContent(rs.getString("blogsContent"));                   
                     blog.setUploadDate(rs.getDate("uploadDate"));
                     blog.setStatus(rs.getString("status"));
-                    blog.setImage(rs.getString("image"));
+                    blog.setPicture(rs.getBytes("image"));
                     blog.setVote(rs.getBigDecimal("vote"));
                     blogs.add(blog);
                 }
@@ -67,7 +67,7 @@ Tools tool = new Tools();
                     blog.setBlogsContent(rs.getString("blogsContent"));
                     blog.setUploadDate(rs.getDate("uploadDate"));
                     blog.setStatus(rs.getString("status"));
-                    blog.setImage(rs.getString("image"));
+                    blog.setPicture(rs.getBytes("image"));
                     blog.setVote(rs.getBigDecimal("vote"));
                 
             }
@@ -91,7 +91,7 @@ Tools tool = new Tools();
             System.out.println("Title: " + blog.getTitle());
             System.out.println("Category: " + blog.getCategory());
             System.out.println("Description: " + blog.getBlogsContent());            
-            System.out.println("Up Load Date: " + blog.getUploadDate());
+            System.out.println("Upload Date: " + blog.getUploadDate());
             System.out.println("Comment: " + blog.getVote());
             // Print other fieldtrip details as needed
         } else {

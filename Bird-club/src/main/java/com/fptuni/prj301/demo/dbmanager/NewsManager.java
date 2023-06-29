@@ -27,7 +27,7 @@ public class NewsManager {
             ps.setString(4, n.getCategory());
             ps.setString(5, n.getNewsContent());
             ps.setString(6, n.getStatus());
-            ps.setString(7, n.getImage());
+            ps.setBytes(7, n.getPicture());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Insertion failed due to internal error :(" + ex.getMessage());
@@ -55,7 +55,7 @@ public class NewsManager {
                 n.setUploadDate(formattedDate);
 
                 n.setStatus(rs.getString("status"));
-                n.setImage(rs.getString("image"));
+                n.setPicture(rs.getBytes("image"));
                 list.add(n);
             }
             rs.close();
@@ -85,7 +85,7 @@ public class NewsManager {
             n.setUploadDate(formattedDate);
 
             n.setStatus(rs.getString("status"));
-            n.setImage(rs.getString("image"));
+            n.setPicture(rs.getBytes("image"));
             list.add(n);
         }
 
@@ -116,7 +116,7 @@ public class NewsManager {
                 formattedDate = tool.convertDisplayDate(formattedDate);
                 n.setUploadDate(formattedDate);
                 n.setStatus(rs.getString("status"));
-                n.setImage(rs.getString("image"));
+                n.setPicture(rs.getBytes("image"));
             }
             rs.close();
             return n;

@@ -47,7 +47,7 @@ public class MemberManager {
                 member.setSignupDate(tool.trimDate(rs.getString("signupDate")));
                 member.setExpiredDate(tool.trimDate(rs.getString("expiredDate")));
                 member.setMID(rs.getString("MID"));
-                member.setAvatar(rs.getString("avatar"));
+                member.setProfilePicture(rs.getBytes("profilePicture"));
                 list.add(member);
             }
             return list;
@@ -62,7 +62,7 @@ public class MemberManager {
                 + "fullName = ?, gender = ?, phone = ?, email = ?, "
                 + "signupDate = CONVERT(DATETIME,'" + member.getSignupDate() + "', 103), "
                 + "expiredDate = CONVERT(DATETIME,'" + member.getExpiredDate() + "', 103), "
-                + "avatar = ? WHERE UID = ?";
+                + "profilePicture = ? WHERE UID = ?";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -72,10 +72,8 @@ public class MemberManager {
             ps.setString(4, member.getGender());
             ps.setString(5, member.getPhone());
             ps.setString(6, member.getEmail());
-            ps.setString(7, member.getSignupDate());
-            ps.setString(8, member.getExpiredDate());
-            ps.setString(9, member.getAvatar());
-            ps.setString(12, member.getUID());
+            ps.setBytes(7, member.getProfilePicture());
+            ps.setString(8, member.getUID());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Failed to update due to internal error :(" + ex.getMessage());
@@ -138,7 +136,7 @@ public class MemberManager {
                 member.setSignupDate(tool.trimDate(rs.getString("signupDate")));
                 member.setExpiredDate(tool.trimDate(rs.getString("expiredDate")));
                 member.setMID(rs.getString("MID"));
-                member.setAvatar(rs.getString("avatar"));
+                member.setProfilePicture(rs.getBytes("profilePicture"));
                 return member;
             }
         } catch (SQLException ex) {
