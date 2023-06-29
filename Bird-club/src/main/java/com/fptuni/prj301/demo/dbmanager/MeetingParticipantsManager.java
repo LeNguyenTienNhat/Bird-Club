@@ -92,7 +92,7 @@ public class MeetingParticipantsManager {
 
     public static List<String> ExistingDoc(String pattern) {
         List<String> existingDocNosM = new ArrayList<>();
-        String sql = "SELECT docNo FROM [Transactions] WHERE docNo LIKE ?";
+        String sql = "SELECT docNo FROM [MeetingParticipants] WHERE docNo LIKE ?";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -131,4 +131,24 @@ public class MeetingParticipantsManager {
         }
         return list;
     }
+    
+    public static void main(String[] args) {
+    String UID = "UID0";
+    MeetingParticipantsManager meetingParticipantsManager = new MeetingParticipantsManager();
+    List<MeetingParticipants> meetingParticipants = meetingParticipantsManager.getParticipantList("MeID1");
+
+    boolean participantExists = false;
+    for (MeetingParticipants participant : meetingParticipants) {
+        if (participant.getUID().trim().equals(UID)) {
+            participantExists = true;
+            break;
+        }
+    }
+
+    if (participantExists) {
+        System.out.println("Participant exists for UID: " + UID);
+    } else {
+        System.out.println("Participant does not exist for UID: " + UID);
+    }
+}
 }

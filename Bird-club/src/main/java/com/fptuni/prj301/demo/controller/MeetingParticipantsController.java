@@ -37,7 +37,7 @@ public class MeetingParticipantsController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String action = request.getParameter("action");
-        
+
         if (action != null && action.equals("viewmeeting")) {
             // Process the view action
             MeetingManager meetingManager = new MeetingManager();
@@ -46,13 +46,13 @@ public class MeetingParticipantsController extends HttpServlet {
             request.setAttribute("meetingsList", meetingsList);
             request.getRequestDispatcher("/member_meeting_details.jsp").forward(request, response);
         }
-        
+
         if (action != null && action.equals("add")) {
             String meid = request.getParameter("MeID");
             String uid = request.getParameter("UID");
             String docNo = UIDGenerator.generateDocM();
             HttpSession ss = request.getSession(true);
-            
+
             MeetingParticipants meetingparticipants = new MeetingParticipants();
             meetingparticipants.setMeID(meid);
             meetingparticipants.setUID(uid);
@@ -64,28 +64,41 @@ public class MeetingParticipantsController extends HttpServlet {
             if (success) {
                 // Redirect to a success page
                 request.setAttribute("docM", docNo);
-                ss.setAttribute("docM", docNo); 
-                response.sendRedirect(request.getContextPath() + "/member_meeting_details.jsp");
-            } else  {
+                ss.setAttribute("docM", docNo);
+                response.sendRedirect(request.getContextPath() + "/StaffAccountMTController?action=viewmeeting");
+            } else {
                 // Redirect to a failure page
                 response.sendRedirect(request.getContextPath() + "/failure.jsp");
             }
-        }else if (action.equals("view")) {
+        } else if (action.equals("view")) {
             // Retrieve the Tparticipation object from the database based on the provided parameters (e.g., docNo)
             String meid = request.getParameter("MeID");
-            MeetingManager mparticipationManager = new  MeetingManager();
+            String UID = request.getParameter("UID");
+            MeetingManager meetingManager = new MeetingManager();
+            MeetingParticipantsManager meetingParticipantsManager = new MeetingParticipantsManager();
+            List<MeetingParticipants> meetingParticipants = meetingParticipantsManager.getParticipantList(meid);
             LocationManager l = new LocationManager();
-             Meeting meeting = mparticipationManager.getMeetingById(meid);
-             String location = l.getCoordinationByMeetingId(meid);
-              EventsMediaManager media = new EventsMediaManager();
-             String a = media.getURLByID("MeetingMedia", meid);
+            Meeting meeting = meetingManager.getMeetingById(meid);
+            String location = l.getCoordinationByMeetingId(meid);
+            EventsMediaManager media = new EventsMediaManager();
+            String a = media.getURLByID("MeetingMedia", meid);
 
+            boolean participantExists = false;
+            for (MeetingParticipants participant : meetingParticipants) {
+                if (participant.getUID().trim().equals(UID)) {
+                    participantExists = true;
+                    break;
+                }
+            }
+            
+            
             if (meeting != null) {
                 // Store the Tparticipation object in request scope
                 request.setAttribute("meeting", meeting);
-                request.setAttribute("location",location);
-                request.setAttribute("img",a);
-                // Forward the request to the view pagemember_tournament_details
+                request.setAttribute("location", location);
+                request.setAttribute("img", a);
+                request.setAttribute("join", participantExists);
+                // Forward the request to the view page member_tournament_details
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/member_meeting_details.jsp");
                 dispatcher.forward(request, response);
             } else {
@@ -94,6 +107,7 @@ public class MeetingParticipantsController extends HttpServlet {
             }
         }
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

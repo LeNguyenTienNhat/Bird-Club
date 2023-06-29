@@ -311,12 +311,19 @@
                                             <div class="wp-block-button">
                                                 <c:choose>
                                                     <c:when test="${meeting.getStatus().trim() eq 'pending'}">
-                                                        <form action="${pageContext.request.contextPath}/MeetingParticipantsController?registerSuccess=true" method="POST">
+                                                        <form action="${pageContext.request.contextPath}/MeetingParticipantsController" method="POST">
                                                             <input type="hidden" name="action" value="add">
                                                             <input type="hidden" name="UID" value="${users.getUID()}">
                                                             <input type="hidden" name="MeID" value="${meeting.getMeID()}">
-                                                            <c:set var="sessionMeID" scope="session" value="${meeting.getMeID()}"/>
-                                                            <button type="submit" class="wp-block-button__link has-orange-background-color has-background">Join Meeting</button>
+                                                            <c:set var="sessionMeID" scope="session" value="${meeting.getMeID()}"/>                                                           
+                                                            <c:choose>
+                                                                <c:when test="${join}">
+                                                                    <p  class="wp-block-button__link has-green-background-color has-background">Register Success</p>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <button type="submit" class="wp-block-button__link has-orange-background-color has-background">Join Meeting</button>
+                                                                </c:otherwise>
+                                                            </c:choose>
                                                         </form>
                                                     </c:when>
                                                     <c:otherwise>
@@ -335,10 +342,10 @@
 
                                             // Kiểm tra nếu có tham số "registerSuccess" và giá trị là "true"
                                             if (registerSuccess === 'true') {
-                                                // Thay thế nút "Join field trip" bằng dòng chữ "Register success"
-                                                const joinFieldTripButton = document.querySelector('.wp-block-button__link');
-                                                joinFieldTripButton.textContent = 'Register success';
-                                                joinFieldTripButton.removeAttribute('href');
+                                                // Thay thế nút "Join meeting" bằng dòng chữ "Register success"
+                                                const joinMeetingButton = document.querySelector('.wp-block-button__link');
+                                                joinMeetingButton.textContent = 'Register success';
+                                                joinMeetingButton.removeAttribute('href');
                                             }
                                         </script>
                                     </div>

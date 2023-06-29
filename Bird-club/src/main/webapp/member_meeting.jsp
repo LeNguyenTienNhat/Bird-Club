@@ -25,24 +25,6 @@
             .wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
             :where(.wp-block-columns.is-layout-flex){gap: 2em;}
             .wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
-            .event-wrapper {
-                display: flex;
-                align-items: center;
-            }
-
-            .tribe-events-calendar-list__event-details {
-                flex: 1;
-                /* Existing styles for the event details div */
-            }
-
-            .image-container {
-                margin-left: 20px; /* Adjust this value to set the desired spacing between the div and the image */
-            }
-
-            .image-container img {
-                max-width: 100%; /* Ensure the image does not exceed its container's width */
-                height: 300px; /* Maintain the image's aspect ratio */
-            }
         </style>
         <link rel='stylesheet' id='contact-form-7-css' href='https://www.birds.cornell.edu/home/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.7.2' type='text/css' media='all' />
         <link rel='stylesheet' id='bp-site-css-css' href='https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/styles/style.css?ver=1678365708' type='text/css' media='all' />
@@ -61,6 +43,26 @@
     <body class="page-template-default page page-id-1229 page-parent wp-embed-responsive theme-green nav-column tribe-no-js">
 
         <h2 class="has-text-align-center has-large-font-size">Meeting List</h2>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var searchInput = document.getElementById('searchInput');
+                var meetingItems = document.getElementsByClassName('fieldtrip-item');
+
+                searchInput.addEventListener('input', function () {
+                    var searchValue = searchInput.value.toLowerCase();
+
+                    for (var i = 0; i < meetingItems.length; i++) {
+                        var meetingName = meetingItems[i].querySelector('.tribe-events-calendar-list__event-title').textContent.toLowerCase();
+                        var meetingStatus = meetingItems[i].querySelector('.status-button').textContent.toLowerCase();
+                        if (meetingName.includes(searchValue) || meetingStatus.includes(searchValue)) {
+                            meetingItems[i].style.display = 'block';
+                        } else {
+                            meetingItems[i].style.display = 'none';
+                        }
+                    }
+                });
+            });
+        </script>
 
         <main id="main-content" class="page has-hero">
             <article id="article" class="post-1229 page type-page status-publish has-post-thumbnail hentry">
@@ -218,133 +220,130 @@
                             <i class="fas fa-search search-icon"></i>
                             <input type="text" id="searchInput" placeholder="Search">
                         </div>
-                       <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var searchInput = document.getElementById('searchInput');
-        var meetingItems = document.getElementsByClassName('type-tribe_events');
 
-        searchInput.addEventListener('input', function () {
-            performSearch();
-        });
+                        <div class="meeting-container">
+                            <c:if test="${empty meetingsList}">
+                                <div>
+                                    <p>No meeting found.</p>
+                                </div>
+                            </c:if>
+                            <c:if test="${not empty meetingsList}">
+                                <c:forEach var="m" items="${meetingsList}" varStatus="loop">
+                                    <div class="meeting-item">
+                                        <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
+                                            <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
+                                                <h4 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium" style="display: flex; justify-content: center;">
+                                                    <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}&UID=${users.getUID()}"
+                                                       title="${m.getName()}"
+                                                       class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
+                                                        ${m.getName()}
+                                                    </a>
+                                                </h4>
 
-        function performSearch() {
-            var searchValue = searchInput.value.toLowerCase();
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <dt><strong>Date Start</strong></dt></dt>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <dd>
+                                                                        <abbr class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2" title="2023-05-27">${m.getStartDate()}</abbr>
+                                                                    </dd>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <dt><strong>Date End</strong></dt></dt>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <dd>
+                                                                        <div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
+                                                                            <div class="tribe-recurring-event-time">${m.getEndDate()}</div>
+                                                                        </div>
+                                                                    </dd>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <dt><strong>Status</strong></dt></dt>
+                                                                </div>
+                                                                <c:if test="${users.getRole().trim().equals('member')}">
+                                                                    <div class="col-md-8">
+                                                                        <dd>
+                                                                            <span class="status-button
+                                                                                  <c:choose>
+                                                                                      <c:when test="${m.getStatus().contains('pending')}">
+                                                                                          status-pending
+                                                                                      </c:when>
+                                                                                      <c:when test="${m.getStatus().contains('formClosed')}">
+                                                                                          status-formClosed
+                                                                                      </c:when>
+                                                                                      <c:when test="${m.getStatus().contains('ongoing')}">
+                                                                                          status-ongoing
+                                                                                      </c:when>
+                                                                                      <c:when test="${m.getStatus().contains('finished')}">
+                                                                                          status-finished
+                                                                                      </c:when>
+                                                                                  </c:choose>"
+                                                                                  >
+                                                                                ${m.getStatus()}
+                                                                            </span>
+                                                                        </dd>
+                                                                    </div>
+                                                                </c:if>
 
-            for (var i = 0; i < meetingItems.length; i++) {
-                var meetingName = meetingItems[i].querySelector('.tribe-events-calendar-list__event-title-link').textContent.toLowerCase();
-                var meetingStatus = meetingItems[i].querySelector('.status-button').textContent.toLowerCase();
+                                                            </div>
+                                                        </div>
+                                                    </div>         
 
-                if (meetingName.includes(searchValue) || meetingStatus.includes(searchValue)) {
-                    meetingItems[i].style.display = 'block';
-                } else {
-                    meetingItems[i].style.display = 'none';
-                }
-            }
-        }
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <dt><strong>Participants</strong></dt></dt>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <dd>
+                                                                        <div class="tribe-recurring-event-time">${m.getNumberOfParticipant()}</div>
+                                                                    </dd>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-        // Initial search
-        performSearch();
-    });
-</script>
+                                                </div>
 
-
-
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </c:if>
+                        </div>
                         <style>
-                            .row {
-                                display: flex;
+                            .meeting-container {
+                                display: grid;
+                                grid-template-columns: repeat(2, 1fr);
+                                gap: 20px;
                             }
 
-                            .tribe-events-event-image {
-                                margin-right: 30px; 
-                            }
-
-                            .tribe-events-list-event-description {
-                                flex: 1;
-                            }
-                            .author .location .tribe-event-schedule-details span {
-                                font-weight: bold; /* Make the text bold */
-                                font-style: italic; /* Make the text italic */
-                            }
-                            .tribe-events-list-event-title {
-                                display: flex;
-                                align-items: center;
-                            }
-
-                            .status-button {
-                                margin-left: 10px; /* Adjust the margin as needed */
-                                font-size: 12px; /* Adjust the font size for a smaller button */
-                                padding: 4px 8px; /* Adjust the padding for a smaller button */
+                            .meeting-item {
+                                border: 1px solid #ccc;
+                                padding: 20px;
+                                background-color: #f2f2f2; /* Add your desired background color here */
                             }
                         </style>
-                        <c:if test="${empty meetingsList}">
-                            <div>
-                                <p>No meeting found.</p>
-                            </div>
-                        </c:if>
-                        <c:if test="${not empty meetingsList}">
-                            <c:forEach var="m" items="${meetingsList}" varStatus="loop">
-                                <div class="meeting-item">
-                                    <div id="post-3946" class="type-tribe_events post-3946 tribe-clearfix tribe-events-category-meetings tribe-events-organizer-873" style="margin-top: 20px; margin-bottom: 20px;">
-                                        <h3 class="tribe-events-list-event-title">
-                                            <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}"
-                                               title="${m.getName()}"
-                                               class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
-                                                ${m.getName()}
-                                            </a>
-
-                                            <c:if test="${users.getRole().trim().equals('member')}">
-                                                <span class="status-button
-                                                      <c:choose>
-                                                          <c:when test="${m.getStatus().contains('pending')}">
-                                                              status-pending
-                                                          </c:when>
-                                                          <c:when test="${m.getStatus().contains('formClosed')}">
-                                                              status-formClosed
-                                                          </c:when>
-                                                          <c:when test="${m.getStatus().contains('ongoing')}">
-                                                              status-ongoing
-                                                          </c:when>
-                                                          <c:when test="${m.getStatus().contains('finished')}">
-                                                              status-finished
-                                                          </c:when>
-                                                      </c:choose>"
-                                                      >
-                                                    ${m.getStatus()}
-                                                </span>
-                                            </c:if>
-                                        </h3>
-                                        <div class="tribe-events-event-meta" style="margin-bottom:10px;">
-                                            <div class="author location">
-                                                <div class="tribe-event-schedule-details">
-                                                    <span class="tribe-event-date-start"><em><strong>${m.getStartDate()}</strong></em></span> <em>to</em> <span class="tribe-event-time"><em><strong>${m.getEndDate()}</strong></em></span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="tribe-events-event-image" style="width:300px; height: 300px;">
-                                                
-                                                <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}" tabindex="-1">
-                                                    <img width="300" height="300" src="${m.getPictureURL()}" class="attachment-medium size-medium wp-post-image" alt="${m.getPictureURL()}" srcset="${m.getPictureURL()} 300w,${m.getPictureURL()}  150w,${m.getPictureURL()}  600w" sizes="(max-width: 300px) 100vw, 300px">
-                                                </a>
-                                            </div>
-                                            <div class="tribe-events-list-event-description col-md-6 tribe-events-content description entry-summary">
-                                                <p><strong>Leader: </strong> ${m.getIncharge()}</p>   
-                                                <p><strong>Participant limit: </strong>${m.getNumberOfParticipant()}</p>
-                                                <p><strong>Focus: </strong>${m.getDescription()}</p>
-                                                <p><strong>Note: </strong> ${m.getNote()}</p>
-                                                <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}" class="tribe-events-read-more" rel="bookmark">Find out more »</a>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                    </div>
-                                </div>
-                            </c:forEach>
-                        </c:if>
 
                 </div>
-
-
 
                 <script class="tribe-events-breakpoints">
                     (function () {
@@ -384,17 +383,17 @@
 
                             window.tribe.events.views.breakpoints.setup(container);
                             completed = true;
-// This was fired already and completed no need to attach to the event listener.
+                            // This was fired already and completed no need to attach to the event listener.
                             document.removeEventListener('DOMContentLoaded', initBreakpoints);
                         }
 
-// Try to init the breakpoints right away.
+                        // Try to init the breakpoints right away.
                         initBreakpoints();
                         document.addEventListener('DOMContentLoaded', initBreakpoints);
                     })();
                 </script>
 
-                </div>
+
 
                 </section> <!-- end Main content -->
 
