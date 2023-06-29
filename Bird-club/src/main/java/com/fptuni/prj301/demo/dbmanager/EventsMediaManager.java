@@ -104,5 +104,37 @@ public class EventsMediaManager {
         String mediaURL = yourClass.getURLByID(tableName, ID);
         System.out.println("URL: " + mediaURL);
     }
+    
+    public List<Media> getImagesData(String ID) {
+        List<Media> list = new ArrayList<>();
+        String tableName, IDtype;
+        if (ID.contains("TID")) {
+            tableName = "TournamentMedia";
+            IDtype = "TID";
+        } else if (ID.contains("FID")) {
+            tableName = "FieldTripMedia";
+            IDtype = "FID";
+        } else {
+            tableName = "MeetingMedia";
+            IDtype = "MeID";
+        }
+        String sql = "SELECT * FROM [" + tableName + "] WHERE " + IDtype + "= ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, ID);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Media i = new Media();
+                i.setID(rs.getString(IDtype));
+                i.setDescription(rs.getString("description"));
+                i.setImage(rs.getBytes("image"));
+                list.add(i);
+            }
+            rs.close();
+        } catch (SQLException e) {
+        }
+        return list;
+    }
 
 }

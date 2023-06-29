@@ -59,7 +59,7 @@ public class StaffNews extends HttpServlet {
             String uploadDate = tool.getCurrentDate();
 
             String status = request.getParameter("status");
-            String image = "placeholder.png";
+            byte[] image = new byte[0];
             News n = new News(NID, UID, title, category, newsContent, uploadDate, status, image);
             nm.insert(n);
 

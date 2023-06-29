@@ -142,12 +142,12 @@ public class NewsManager {
         }
     }
     
-     public void updateImage(String image, String NID) throws ClassNotFoundException {
+     public void updateImage(byte[] image, String NID) throws ClassNotFoundException {
         String sql = "UPDATE News SET image = ? WHERE NID = ?";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, image);
+            ps.setBytes(1, image);
             ps.setString(2, NID);
             ps.executeUpdate();
         } catch (SQLException ex) {

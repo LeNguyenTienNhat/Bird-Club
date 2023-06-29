@@ -22,6 +22,16 @@ public class News {
         this.picture = picture;
     }
 
+    public News(String NID, String UID, String title, String category, String newsContent, String uploadDate, String status) {
+        this.NID = NID;
+        this.UID = UID;
+        this.title = title;
+        this.category = category;
+        this.newsContent = newsContent;
+        this.uploadDate = uploadDate;
+        this.status = status;
+    }
+
     public byte[] getPicture() {
         return picture;
     }
@@ -29,8 +39,6 @@ public class News {
     public void setPicture(byte[] picture) {
         this.picture = picture;
     }
-
-    
 
     public News() {
     }

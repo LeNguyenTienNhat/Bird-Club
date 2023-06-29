@@ -1,11 +1,17 @@
 package tool.utils;
 
 import com.fptuni.prj301.demo.utils.DBUtils;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import javax.imageio.ImageIO;
 
 public class Tools {
 
@@ -109,7 +115,7 @@ public class Tools {
         sb.append(arrOfStr[2]).append("/");
         sb.append(arrOfStr[1]).append("/");
         sb.append(arrOfStr[0]);
-        
+
         return sb.toString(); //target: dd/MM/yyyy
     }
 
@@ -119,8 +125,8 @@ public class Tools {
 
         return content;
     }
-    
-        public String getPlainText(String content) {
+
+    public String getPlainText(String content) {
         content = content.replace("<p>", "");
         content = content.replace("</p>", "\n");
         return content;
@@ -135,4 +141,19 @@ public class Tools {
         }
         return sb.toString();
     }
+
+    public byte[] ImageToByteArray() throws IOException {
+        BufferedImage bImage = ImageIO.read(new File("D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\user.png"));
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ImageIO.write(bImage, "png", bos);
+        byte[] data = bos.toByteArray();
+        return data;
+    }
+    
+    public static void main(String args[]) throws IOException {
+        Tools t = new Tools();
+        byte[] data = t.ImageToByteArray();
+        System.out.print(Arrays.toString(data));
+    }
+    
 }
