@@ -21,23 +21,13 @@ public class Blog {
     private String blogsContent;   
     private Date uploadDate;
     private String status;
-    private String image;
     private BigDecimal vote;
+    private byte[] picture;
 
     public Blog() {
     }
 
-    public Blog(String BID, String UID, String title, String category, String blogsContent, Date uploadDate, String status, String image, BigDecimal vote) {
-        this.BID = BID;
-        this.UID = UID;
-        this.title = title;
-        this.category = category;
-        this.blogsContent = blogsContent;
-        this.uploadDate = uploadDate;
-        this.status = status;
-        this.image = image;
-        this.vote = vote;
-    }
+
 
     public String getBID() {
         return BID;
@@ -95,12 +85,12 @@ public class Blog {
         this.status = status;
     }
 
-    public String getImage() {
-        return image;
+    public byte[] getPicture() {
+        return picture;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
     }
 
     public BigDecimal getVote() {

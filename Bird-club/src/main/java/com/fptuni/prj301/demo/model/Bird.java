@@ -19,23 +19,11 @@ public class Bird {
     private int age;
     private String gender;
     private String description;
-    private String imageURL;
     private String color;
     private Date addDate;
+    private byte[] profilePic;
 
     public Bird() {
-    }
-
-    public Bird(String BID, String UID, String name, int age, String gender, String description, String imageURL, String color, Date addDate) {
-        this.BID = BID;
-        this.UID = UID;
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-        this.description = description;
-        this.imageURL = imageURL;
-        this.color = color;
-        this.addDate = addDate;
     }
 
     public String getBID() {
@@ -86,14 +74,6 @@ public class Bird {
         this.description = description;
     }
 
-    public String getImageURL() {
-        return imageURL;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
-
     public String getColor() {
         return color;
     }
@@ -108,6 +88,26 @@ public class Bird {
 
     public void setAddDate(Date addDate) {
         this.addDate = addDate;
+    }
+
+    public byte[] getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(byte[] profilePic) {
+        this.profilePic = profilePic;
+    }
+
+    public Bird(String BID, String UID, String name, int age, String gender, String description, String color, Date addDate, byte[] profilePic) {
+        this.BID = BID;
+        this.UID = UID;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.description = description;
+        this.color = color;
+        this.addDate = addDate;
+        this.profilePic = profilePic;
     }
     
 }

@@ -1,7 +1,7 @@
-
 package com.fptuni.prj301.demo.model;
 
 public class Member {
+
     private String UID;
     private String userName;
     private String password;
@@ -14,25 +14,9 @@ public class Member {
     private String signupDate;
     private String expiredDate;
     private String MID;
-    private String avatar;
+    private byte[] profilePicture;
 
     public Member() {
-    }
-
-    public Member(String UID, String userName, String password, String fullName, String gender, String phone, String email, String status, String role, String signupDate, String expiredDate, String MID, String avatar) {
-        this.UID = UID;
-        this.userName = userName;
-        this.password = password;
-        this.fullName = fullName;
-        this.gender = gender;
-        this.phone = phone;
-        this.email = email;
-        this.status = status;
-        this.role = role;
-        this.signupDate = signupDate;
-        this.expiredDate = expiredDate;
-        this.MID = MID;
-        this.avatar = avatar;
     }
 
     /**
@@ -203,21 +187,28 @@ public class Member {
         this.MID = MID;
     }
 
-    /**
-     * @return the avatar
-     */
-    public String getAvatar() {
-        return avatar;
+    public Member(String UID, String userName, String password, String fullName, String gender, String phone, String email, String status, String role, String signupDate, String expiredDate, String MID, byte[] profilePicture) {
+        this.UID = UID;
+        this.userName = userName;
+        this.password = password;
+        this.fullName = fullName;
+        this.gender = gender;
+        this.phone = phone;
+        this.email = email;
+        this.status = status;
+        this.role = role;
+        this.signupDate = signupDate;
+        this.expiredDate = expiredDate;
+        this.MID = MID;
+        this.profilePicture = profilePicture;
     }
 
-    /**
-     * @param avatar the avatar to set
-     */
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public byte[] getProfilePicture() {
+        return profilePicture;
     }
 
-    
-    
-    
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
 }

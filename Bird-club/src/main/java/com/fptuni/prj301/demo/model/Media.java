@@ -4,15 +4,22 @@ package com.fptuni.prj301.demo.model;
 
 public class Media {
     private String ID;
-    private String URL;
     private String description;
+    private byte[] image;
 
-    public Media(String ID, String URL, String description) {
+    public Media(String ID, String description, byte[] image) {
         this.ID = ID;
-        this.URL = URL;
         this.description = description;
+        this.image = image;
+    }
+    
+    public byte[] getImage() {
+        return image;
     }
 
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
     public Media() {
     }
 
@@ -22,14 +29,6 @@ public class Media {
 
     public void setID(String ID) {
         this.ID = ID;
-    }
-
-    public String getURL() {
-        return URL;
-    }
-
-    public void setURL(String URL) {
-        this.URL = URL;
     }
 
     public String getDescription() {

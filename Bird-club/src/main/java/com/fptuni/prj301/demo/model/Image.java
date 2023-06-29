@@ -1,28 +1,27 @@
 
 package com.fptuni.prj301.demo.model;
 
-public class Image {
-    String url;
-    String description;
+public class Image {   
+    private String description;
+    private byte[] image;
 
-    public Image(String url, String description) {
-        this.url = url;
+    public Image(String description, byte[] image) {
         this.description = description;
+        this.image = image;
     }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
 
     public Image() {
     }
-
     
-    
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     public String getDescription() {
         return description;
     }

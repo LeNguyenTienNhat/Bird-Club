@@ -9,9 +9,9 @@ public class News {
     private String newsContent;
     private String uploadDate;
     private String status;
-    private String image;
+    private byte[] picture;
 
-    public News(String NID, String UID, String title, String category, String newsContent, String uploadDate, String status, String image) {
+    public News(String NID, String UID, String title, String category, String newsContent, String uploadDate, String status, byte[] picture) {
         this.NID = NID;
         this.UID = UID;
         this.title = title;
@@ -19,8 +19,18 @@ public class News {
         this.newsContent = newsContent;
         this.uploadDate = uploadDate;
         this.status = status;
-        this.image = image;
+        this.picture = picture;
     }
+
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
+    
 
     public News() {
     }
@@ -39,14 +49,6 @@ public class News {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     public String getStatus() {
