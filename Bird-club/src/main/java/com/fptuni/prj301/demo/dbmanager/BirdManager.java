@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import tool.utils.Tools;
 
 /**
  *
@@ -200,5 +201,29 @@ public class BirdManager {
             System.out.println("Query error!" + ex.getMessage());
         }
         return count;
+    }
+
+    public void insert(Bird b) {
+        Tools tool = new Tools();
+        String sql = "INSERT INTO [Bird]"
+                + " VALUES (?, ?, ?, ?, ?, ?, ?, "
+                + "CONVERT(DATETIME,'" + tool.getCurrentDate() + "', 103), "
+                + "?)";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, b.getBID());
+            ps.setString(2, b.getUID());
+            ps.setString(3, b.getName());
+            ps.setInt(4, b.getAge());
+            ps.setString(5, b.getGender());
+            ps.setString(6, b.getDescription());
+            ps.setString(7, b.getColor());
+            ps.setBytes(8, b.getProfilePic());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Insertion failed due to internal error :(" + ex.getMessage());
+        }
+
     }
 }

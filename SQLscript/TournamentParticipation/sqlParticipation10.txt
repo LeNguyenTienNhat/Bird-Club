@@ -68,25 +68,4 @@ INSERT INTO [Tparticipation]
 VALUES('TID10','BID33','TID10BID33','non');
 INSERT INTO [Tparticipation]
 VALUES('TID10','BID34','TID10BID34','non');
-INSERT INTO [Tparticipation]
-VALUES('TID10','BID35','TID10BID35','non');
-INSERT INTO [Tparticipation]
-VALUES('TID10','BID36','TID10BID36','non');
-INSERT INTO [Tparticipation]
-VALUES('TID10','BID37','TID10BID37','non');
-INSERT INTO [Tparticipation]
-VALUES('TID10','BID38','TID10BID38','non');
-INSERT INTO [Tparticipation]
-VALUES('TID10','BID39','TID10BID39','non');
-INSERT INTO [Tparticipation]
-VALUES('TID10','BID40','TID10BID40','non');
-INSERT INTO [Tparticipation]
-VALUES('TID10','BID41','TID10BID41','non');
-INSERT INTO [Tparticipation]
-VALUES('TID10','BID42','TID10BID42','non');
-INSERT INTO [Tparticipation]
-VALUES('TID10','BID43','TID10BID43','non');
-INSERT INTO [Tparticipation]
-VALUES('TID10','BID44','TID10BID44','non');
-INSERT INTO [Tparticipation]
-VALUES('TID10','BID45','TID10BID45','non');
+

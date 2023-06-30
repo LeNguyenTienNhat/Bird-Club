@@ -104,7 +104,7 @@
                                         <div>
                                             <button type="button" class="max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                                 <div class="w-8 h-8 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden  flex-shrink-0">
-                                                    <img src="https://drive.google.com/file/d/11b8c4a-9wrfw_nqBXh0IYQh6FwF22e1t/view" />
+                                                    <img src="" />
                                                 </div>
 
                                                 <span class="hidden ml-3 text-gray-700 text-sm font-medium lg:block"><span class="sr-only">Open user menu for </span>Nguoi choi chim</span>
@@ -362,7 +362,6 @@
             </div>
         </div>
 
-    </div>
 </main>
 
 

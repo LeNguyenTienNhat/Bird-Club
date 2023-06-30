@@ -1,3 +1,4 @@
+<%@page import="java.util.Base64"%>
 <%@page import="com.fptuni.prj301.demo.model.Member"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -283,7 +284,7 @@
                                         + "</svg>Placeholder option</a></div></div></div></div></div>"
                                         + "<div class='flex-1 flex flex-col p-8'>"
                                         + "<div class='w-40 h-40 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden mx-auto flex-shrink-0'>"
-                                        + "<img src='media/" + member.getAvatar() + "'></div> <h3 class='mt-6 text-gray-900 text-sm font-medium'>" + member.getFullName() + "</h3>"
+                                        + "<img src='data:image/png;base64," + Base64.getEncoder().encodeToString(member.getProfilePicture()) + "'></div> <h3 class='mt-6 text-gray-900 text-sm font-medium'>" + member.getFullName() + "</h3>"
                                         + "<dl class='mt-1 flex-grow flex flex-col justify-between'>"
                                         + "<dt class='sr-only'>Title</dt>"
                                         + "<dd class='text-gray-500 text-sm'>Joined <span class='font-bold'>" + member.getSignupDate() + "</span></dd>"
@@ -361,7 +362,7 @@
                                         + "</svg>Placeholder option</a></div></div></div></div></div>"
                                         + "<div class='flex-1 flex flex-col p-8'>"
                                         + "<div class='w-40 h-40 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden mx-auto flex-shrink-0'>"
-                                        + "<img src='media/" + ignoredGuest.getAvatar() + "'></div> <h3 class='mt-6 text-gray-900 text-sm font-medium'>" + ignoredGuest.getFullName() + "</h3>"
+                                        + "<img src='data:image/png;base64," + Base64.getEncoder().encodeToString(ignoredGuest.getProfilePicture()) + "'></div> <h3 class='mt-6 text-gray-900 text-sm font-medium'>" + ignoredGuest.getFullName() + "</h3>"
                                         + "<dl class='mt-1 flex-grow flex flex-col justify-between'>"
                                         + "<dt class='sr-only'>Title</dt>"
                                         + "<dd class='text-gray-500 text-sm'>Sign Up <span class='font-bold'>" + ignoredGuest.getSignupDate() + "</span></dd>"

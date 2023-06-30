@@ -1,3 +1,4 @@
+<%@page import="java.util.Base64"%>
 <%@page import="com.fptuni.prj301.demo.model.Member"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -247,8 +248,7 @@
                     <div>
                         <div class="lg:grid lg:grid-cols-12 lg:gap-x-16">
                             <div class="px-6 sm:px-0 lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-9">
-                                <img src="media/user.png">
-
+                                <% out.print("<img style='height: auto; width: auto; display: block; margin-bottom: 25px' src='data:image/png;base64," + Base64.getEncoder().encodeToString(m.getProfilePicture()) + "'>"); %>                               
                             </div>
                             <div class="lg:col-span-7 xl:col-span-8">
                                 <div class='relative flex flex-col bg-white sm:rounded-lg shadow p-6'>
