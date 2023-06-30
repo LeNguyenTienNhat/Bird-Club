@@ -1,0 +1,40 @@
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID0','MeID9UID0');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID1','MeID9UID1');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID2','MeID9UID2');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID3','MeID9UID3');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID4','MeID9UID4');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID5','MeID9UID5');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID6','MeID9UID6');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID7','MeID9UID7');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID8','MeID9UID8');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID9','MeID9UID9');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID10','MeID9UID10');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID11','MeID9UID11');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID12','MeID9UID12');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID13','MeID9UID13');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID14','MeID9UID14');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID15','MeID9UID15');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID16','MeID9UID16');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID17','MeID9UID17');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID18','MeID9UID18');
+INSERT INTO [MeetingParticipants]
+VALUES('MeID9','UID19','MeID9UID19');

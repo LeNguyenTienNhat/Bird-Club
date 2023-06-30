@@ -1,0 +1,76 @@
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID0','FID6UID0');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID1','FID6UID1');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID2','FID6UID2');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID3','FID6UID3');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID4','FID6UID4');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID5','FID6UID5');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID6','FID6UID6');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID7','FID6UID7');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID8','FID6UID8');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID9','FID6UID9');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID10','FID6UID10');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID11','FID6UID11');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID12','FID6UID12');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID13','FID6UID13');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID14','FID6UID14');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID15','FID6UID15');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID16','FID6UID16');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID17','FID6UID17');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID18','FID6UID18');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID19','FID6UID19');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID20','FID6UID20');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID21','FID6UID21');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID22','FID6UID22');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID23','FID6UID23');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID24','FID6UID24');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID25','FID6UID25');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID26','FID6UID26');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID27','FID6UID27');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID28','FID6UID28');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID29','FID6UID29');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID30','FID6UID30');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID31','FID6UID31');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID32','FID6UID32');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID33','FID6UID33');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID34','FID6UID34');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID35','FID6UID35');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID36','FID6UID36');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID6','UID37','FID6UID37');

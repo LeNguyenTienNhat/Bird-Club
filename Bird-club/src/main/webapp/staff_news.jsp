@@ -1,3 +1,4 @@
+<%@page import="java.util.Base64"%>
 <%@page import="com.fptuni.prj301.demo.model.News"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -301,9 +302,9 @@
                                 </svg>Upload</a>
                         </div>
                     </div>
-                    
 
-                    
+
+
                     <div>
                         <div class="lg:grid lg:grid-cols-12 lg:gap-x-16">
                             <div class="px-6 sm:px-0 mt-4 lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-8">
@@ -336,7 +337,7 @@
                                     </div>
                                 </dl>
                             </div>
-                            
+
                             <div class="lg:col-span-7 xl:col-span-7" id="events_list">
                                 <ul class="space-y-4 leading-6 text-sm mt-4">
                                     <%! List<News> newsList;%> 
@@ -359,28 +360,27 @@
                                                         + "</span>");
                                             }
                                             out.print("<h1 class='font-semibold text-lg text-gray-900 space-x-2'>" + n.getTitle() + "</h1></h1>");
-                                            
+
                                             out.print("<div class='grid items-start lg:grid-cols-5 lg:gap-8'>");
-                                            
+
                                             out.print("<div class='lg:col-span-3'>");
-                                            
+
                                             out.print("<div class='mt-2'><span class='sr-only'></span>"
                                                     + "</div><div class='font-semibold text-gray-700 mb-2'>Author: </div>"
                                                     + "<div>" + "ChimOwners" + "</div>"
-                                                    
                                                     + "<div class='mt-2'><span class='sr-only'></span>"
                                                     + "</div><div class='font-semibold text-gray-700 space-x-2'>Description:   </div>"
                                                     + "<div class='mt-0.5 space-y-4 space-x-3'>" + n.getNewsContent() + "</div>"
-                                                            
                                                     + "<div style='margin-top: 15px' class='flex items-start space-x-3'>"
                                                     + "<form action='./news'><input type='hidden' name='NID' value = '" + n.getNID() + "'>"
                                                     + "<input type='hidden' name='action' value='edit'>"
                                                     + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                                     + "type='submit' value='Edit'></form>"
                                                     + "</div></div>");
-                                            
+
                                             out.print("<div class='lg:col-span-2'>");
-                                            out.print("<img style='height: auto; width: auto; display: block; margin-bottom: 25px' src ='" + n.getImage() + "'>");
+                                            out.print("<img style='height: auto; width: auto; display: block; margin-bottom: 25px' src='data:image/png;base64," + Base64.getEncoder().encodeToString(n.getPicture()) + "'>");
+
                                             out.print("</div></div></div></li>");
                                         }%>   
 

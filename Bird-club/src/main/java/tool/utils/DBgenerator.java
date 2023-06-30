@@ -118,8 +118,4 @@ public class DBgenerator {
 
     }
     
-    public static void main(String[] args) throws IOException {
-        DBgenerator db = new DBgenerator();
-        db.generateUser();
-    }
 }

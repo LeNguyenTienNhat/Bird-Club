@@ -1,0 +1,56 @@
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID0','FID4UID0');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID1','FID4UID1');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID2','FID4UID2');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID3','FID4UID3');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID4','FID4UID4');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID5','FID4UID5');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID6','FID4UID6');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID7','FID4UID7');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID8','FID4UID8');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID9','FID4UID9');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID10','FID4UID10');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID11','FID4UID11');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID12','FID4UID12');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID13','FID4UID13');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID14','FID4UID14');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID15','FID4UID15');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID16','FID4UID16');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID17','FID4UID17');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID18','FID4UID18');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID19','FID4UID19');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID20','FID4UID20');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID21','FID4UID21');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID22','FID4UID22');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID23','FID4UID23');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID24','FID4UID24');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID25','FID4UID25');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID26','FID4UID26');
+INSERT INTO [FieldTripParticipants]
+VALUES('FID4','UID27','FID4UID27');

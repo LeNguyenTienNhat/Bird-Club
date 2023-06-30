@@ -55,7 +55,7 @@ public class NewsManager {
                 n.setUploadDate(formattedDate);
 
                 n.setStatus(rs.getString("status"));
-                n.setPicture(rs.getBytes("image"));
+                n.setPicture(rs.getBytes("picture"));
                 list.add(n);
             }
             rs.close();
