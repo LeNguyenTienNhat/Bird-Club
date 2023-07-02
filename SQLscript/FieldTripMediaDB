@@ -1,84 +1,84 @@
 Insert into [FieldTripMedia]
-Values ('FID0','description','https://i0.wp.com/cdn.c.photoshelter.com/img-get/I0000KRkgZCIzXts/s/500/I0000KRkgZCIzXts.jpg');
+Values ('FID0','Majestic Bald Eagle in Flight','https://i0.wp.com/cdn.c.photoshelter.com/img-get/I0000KRkgZCIzXts/s/500/I0000KRkgZCIzXts.jpg');
 Insert into [FieldTripMedia]
-Values ('FID1','description','https://th.bing.com/th/id/OIP.q6L30aH_Wsvi2P_NCFHiFQHaFS?pid=ImgDet&rs=1');
+Values ('FID1','Vibrant Scarlet Macaw perched on a branch','https://th.bing.com/th/id/OIP.q6L30aH_Wsvi2P_NCFHiFQHaFS?pid=ImgDet&rs=1');
 Insert into [FieldTripMedia]
-Values ('FID2','description','http://nejohnston.org/birds/2015/12/Images/IMG_7766.jpg');
+Values ('FID2','Close-up of a Hummingbird feeding on nectar','http://nejohnston.org/birds/2015/12/Images/IMG_7766.jpg');
 Insert into [FieldTripMedia]
-Values ('FID3','description','https://i.pinimg.com/originals/e2/05/a8/e205a8af4698af0154e43dd06cc8ccca.png');
+Values ('FID3','Kingfisher poised on a tree branch overlooking water','https://i.pinimg.com/originals/e2/05/a8/e205a8af4698af0154e43dd06cc8ccca.png');
 Insert into [FieldTripMedia]
-Values ('FID4','description','http://nejohnston.org/birds/2014/11/Images/IMG_0913.jpg');
+Values ('FID4','Great Blue Heron in a graceful stance by the lakeshore','http://nejohnston.org/birds/2014/11/Images/IMG_0913.jpg');
 Insert into [FieldTripMedia]
-Values ('FID5','description','https://th.bing.com/th/id/OIP.WOLPgo8n-HYK9WFy1-22SwHaE8?pid=ImgDet&rs=1');
+Values ('FID5','Group of Pelicans diving into the water for fish','https://th.bing.com/th/id/OIP.WOLPgo8n-HYK9WFy1-22SwHaE8?pid=ImgDet&rs=1');
 Insert into [FieldTripMedia]
-Values ('FID6','description','http://nejohnston.org/birds/2008/01/Images/IMG_3864.jpg');
+Values ('FID6','Osprey carrying a freshly caught fish in its talons','http://nejohnston.org/birds/2008/01/Images/IMG_3864.jpg');
 Insert into [FieldTripMedia]
-Values ('FID7','description','https://th.bing.com/th/id/R.1b7b6f8cd8a3ac4e0c8f0c23d34ec7f4?rik=tVs6sVLTqpM7bg&riu=http%3a%2f%2fparkadvisor.com%2fimages%2f1001159%2fpicaf.jpg&ehk=V8syOCmkL5RwkQqttZjYNGbfLqUf7bKTwzMQD5ys%2bg8%3d&risl=&pid=ImgRaw&r=0');
+Values ('FID7', 'Colorful Toucan perched on a tree trunk','https://th.bing.com/th/id/R.1b7b6f8cd8a3ac4e0c8f0c23d34ec7f4?rik=tVs6sVLTqpM7bg&riu=http%3a%2f%2fparkadvisor.com%2fimages%2f1001159%2fpicaf.jpg&ehk=V8syOCmkL5RwkQqttZjYNGbfLqUf7bKTwzMQD5ys%2bg8%3d&risl=&pid=ImgRaw&r=0');
 Insert into [FieldTripMedia]
-Values ('FID8','description','https://blog.hankchristensen.com/wp-content/uploads/2015/11/red-whiskered-bulbul-112474-Edit-1024x682.jpg');
+Values ('FID8','Pair of Lovebirds sharing an affectionate moment','https://blog.hankchristensen.com/wp-content/uploads/2015/11/red-whiskered-bulbul-112474-Edit-1024x682.jpg');
 Insert into [FieldTripMedia]
-Values ('FID9','description','https://blog.hankchristensen.com/wp-content/uploads/2015/11/red-whiskered-bulbul-112491-Edit-1024x682.jpg');
+Values ('FID9','Flock of Sandhill Cranes taking flight in unison','https://blog.hankchristensen.com/wp-content/uploads/2015/11/red-whiskered-bulbul-112491-Edit-1024x682.jpg');
 Insert into [FieldTripMedia]
-Values ('FID10','description','https://blog.hankchristensen.com/wp-content/uploads/2015/11/red-whiskered-bulbul-112431-1024x682.jpg');
+Values ('FID10','Golden Eagle soaring against a clear blue sky','https://blog.hankchristensen.com/wp-content/uploads/2015/11/red-whiskered-bulbul-112431-1024x682.jpg');
 Insert into [FieldTripMedia]
-Values ('FID11','description','https://www.publicdomainpictures.net/pictures/30000/velka/rotohrbulbul.jpg');
+Values ('FID11','Elegant Flamingos wading in shallow waters','https://www.publicdomainpictures.net/pictures/30000/velka/rotohrbulbul.jpg');
 Insert into [FieldTripMedia]
-Values ('FID12','description','https://as2.ftcdn.net/v2/jpg/00/50/88/53/1000_F_50885387_xqO4sNnBLwvFudxT1uFRsslGyjkxswRf.jpg');
+Values ('FID12','Songbird singing its melodious tune on a branch','https://as2.ftcdn.net/v2/jpg/00/50/88/53/1000_F_50885387_xqO4sNnBLwvFudxT1uFRsslGyjkxswRf.jpg');
 Insert into [FieldTripMedia]
-Values ('FID13', 'description','https://th.bing.com/th/id/R.9fb3cf398e082f3d5e501d7e1f698441?rik=fPxgX0A%2fqUN5oA&riu=http%3a%2f%2fwww.capecentralhigh.com%2fwp-content%2fuploads%2f2012%2f05%2fDutchtown-cemetery-04-04-2010_4018-400x272.jpg&ehk=lnGxg2f5EM2osf5KAP6jJAVpvKyTiWW0N6tvgLmlVjw%3d&risl=&pid=ImgRaw&r=0');
+Values ('FID13', 'Owl perched on a tree, blending seamlessly with its surroundings','https://th.bing.com/th/id/R.9fb3cf398e082f3d5e501d7e1f698441?rik=fPxgX0A%2fqUN5oA&riu=http%3a%2f%2fwww.capecentralhigh.com%2fwp-content%2fuploads%2f2012%2f05%2fDutchtown-cemetery-04-04-2010_4018-400x272.jpg&ehk=lnGxg2f5EM2osf5KAP6jJAVpvKyTiWW0N6tvgLmlVjw%3d&risl=&pid=ImgRaw&r=0');
 Insert into [FieldTripMedia]
-Values ('FID14', 'description','https://as2.ftcdn.net/v2/jpg/02/38/94/95/1000_F_238949576_YJNb6uvgSnHipSIXF3H6tQn88x7Yhxs5.jpg');
+Values ('FID14', 'Woodpecker drumming on a tree trunk','https://as2.ftcdn.net/v2/jpg/02/38/94/95/1000_F_238949576_YJNb6uvgSnHipSIXF3H6tQn88x7Yhxs5.jpg');
 Insert into [FieldTripMedia]
-Values ('FID15','description','https://as1.ftcdn.net/v2/jpg/01/86/41/90/1000_F_186419037_T2r8VOpoEUDDaTBiYT1I5lU0G5g7xqiH.jpg');
+Values ('FID15','Seagulls soaring above crashing ocean waves','https://as1.ftcdn.net/v2/jpg/01/86/41/90/1000_F_186419037_T2r8VOpoEUDDaTBiYT1I5lU0G5g7xqiH.jpg');
 Insert into [FieldTripMedia]
-Values ('FID16','description','https://th.bing.com/th/id/OIP.qGJTdQ9FYV4T1wsMuyVXMgAAAA?pid=ImgDet&w=300&h=300&rs=1');
+Values ('FID16','Puffin with its distinctive colorful beak','https://th.bing.com/th/id/OIP.qGJTdQ9FYV4T1wsMuyVXMgAAAA?pid=ImgDet&w=300&h=300&rs=1');
 Insert into [FieldTripMedia]
-Values ('FID17','description','https://as2.ftcdn.net/v2/jpg/02/94/87/15/1000_F_294871523_KrTHmTbKHL4KlzNP90V3UGjsNjc2Suid.jpg');
+Values ('FID17','Stork gracefully gliding through the air','https://as2.ftcdn.net/v2/jpg/02/94/87/15/1000_F_294871523_KrTHmTbKHL4KlzNP90V3UGjsNjc2Suid.jpg');
 Insert into [FieldTripMedia]
-Values ('FID18','description','https://as1.ftcdn.net/v2/jpg/01/25/23/46/1000_F_125234670_h9hanBPD83BibI9OWUX45uA9NCbrckxA.jpg');
+Values ('FID18','Quetzal displaying its iridescent feathers','https://as1.ftcdn.net/v2/jpg/01/25/23/46/1000_F_125234670_h9hanBPD83BibI9OWUX45uA9NCbrckxA.jpg');
 Insert into [FieldTripMedia]
-Values ('FID19','description','https://www.susanfleck.com/Birds/Birds_images_08/Bulbul_Red-whiskered_4762191.jpg');
+Values ('FID19','Cormorants sunning themselves on a rocky outcrop','https://www.susanfleck.com/Birds/Birds_images_08/Bulbul_Red-whiskered_4762191.jpg');
 Insert into [FieldTripMedia]
-Values ('FID20','description','https://eacfd802756c9c1eb360-7ee9fe671662d04ed75180f80bd440fb.ssl.cf5.rackcdn.com/wolf-laurel-top-5240.jpg');
+Values ('FID20','Ostrich sprinting across the grasslands','https://eacfd802756c9c1eb360-7ee9fe671662d04ed75180f80bd440fb.ssl.cf5.rackcdn.com/wolf-laurel-top-5240.jpg');
 Insert into [FieldTripMedia]
-Values ('FID21','description','https://www.susanfleck.com/Birds/Birds_images_08/Bulbul_Red-whiskered_4762163.jpg');
+Values ('FID21','Falcon swooping down to catch its prey','https://www.susanfleck.com/Birds/Birds_images_08/Bulbul_Red-whiskered_4762163.jpg');
 Insert into [FieldTripMedia]
-Values ('FID22','description','https://www.susanfleck.com/Birds/Birds_images_08/Bulbul_Red-whiskered_4762160.jpg');
+Values ('FID22','Group of Penguins waddling along the shore','https://www.susanfleck.com/Birds/Birds_images_08/Bulbul_Red-whiskered_4762160.jpg');
 Insert into [FieldTripMedia]
-Values ('FID23','description','https://www.dlifejourney.com/wp-content/uploads/2020/10/portrait-of-a-red-whiskered-bulbul.jpg');
+Values ('FID23','Egret standing tall amidst a serene wetland','https://www.dlifejourney.com/wp-content/uploads/2020/10/portrait-of-a-red-whiskered-bulbul.jpg');
 Insert into [FieldTripMedia]
-Values ('FID24','description','https://3.bp.blogspot.com/-hUpofm3-txo/WXHY2k8G3hI/AAAAAAABApc/gt4fIQjx6Tcl3qU6LkZYWbau-Eu0DnH5ACLcBGAs/s1600/OIS-Bulbul-D500C-8405.jpg');
+Values ('FID24','Swan gracefully swimming on a tranquil lake','https://3.bp.blogspot.com/-hUpofm3-txo/WXHY2k8G3hI/AAAAAAABApc/gt4fIQjx6Tcl3qU6LkZYWbau-Eu0DnH5ACLcBGAs/s1600/OIS-Bulbul-D500C-8405.jpg');
 Insert into [FieldTripMedia]
-Values ('FID25','description','https://th.bing.com/th/id/OIP.f9hM66fDy7LqZBmATDIhNwHaFk?pid=ImgDet&w=644&h=484&rs=1');
+Values ('FID25','Peacock displaying its vibrant plumage in full bloom','https://th.bing.com/th/id/OIP.f9hM66fDy7LqZBmATDIhNwHaFk?pid=ImgDet&w=644&h=484&rs=1');
 Insert into [FieldTripMedia]
-Values ('FID26','description','https://i.pinimg.com/736x/e2/11/58/e21158e95a8d33d521bd2689174cc69f--bangladesh-amazing-nature.jpg');
+Values ('FID26','Sparrowhawk perched on a fence, keenly observing its surroundings','https://i.pinimg.com/736x/e2/11/58/e21158e95a8d33d521bd2689174cc69f--bangladesh-amazing-nature.jpg');
 Insert into [FieldTripMedia]
-Values ('FID27','description','http://1.bp.blogspot.com/-sdRmDAAU9GI/UMceh0P8k_I/AAAAAAAAGOI/DbIdNc7iIZQ/s1600/red_whiskered_bulbul_nepal.jpg');
+Values ('FID27','Kestrel hovering in mid-air, scanning for prey','http://1.bp.blogspot.com/-sdRmDAAU9GI/UMceh0P8k_I/AAAAAAAAGOI/DbIdNc7iIZQ/s1600/red_whiskered_bulbul_nepal.jpg');
 Insert into [FieldTripMedia]
-Values ('FID28','description','https://farm5.static.flickr.com/4048/4444216707_de44e43f6c_m.jpg');
+Values ('FID28','Vulture soaring high, keeping a watchful eye on the landscape','https://farm5.static.flickr.com/4048/4444216707_de44e43f6c_m.jpg');
 Insert into [FieldTripMedia]
-Values ('FID29','description','https://i.ytimg.com/vi/L99HW-XiMjw/maxresdefault.jpg');
+Values ('FID29','Dainty Warbler hopping between branches, foraging for insects','https://i.ytimg.com/vi/L99HW-XiMjw/maxresdefault.jpg');
 Insert into [FieldTripMedia]
-Values ('FID0','description','https://media.defense.gov/2009/May/20/2000569009/-1/-1/0/090516-F-0847C-001.JPG');
+Values ('FID0','Serene White Doves perched on a rooftop','https://media.defense.gov/2009/May/20/2000569009/-1/-1/0/090516-F-0847C-001.JPG');
 Insert into [FieldTripMedia]
-Values ('FID1','description','https://th.bing.com/th/id/R.78df62e128ad0142b4942122f2944dff?rik=F8kek2r76xynjg&pid=ImgRaw&r=0');
+Values ('FID1','Sparrows gathering at a bird feeder, enjoying a meal','https://th.bing.com/th/id/R.78df62e128ad0142b4942122f2944dff?rik=F8kek2r76xynjg&pid=ImgRaw&r=0');
 Insert into [FieldTripMedia]
-Values ('FID17','description','https://th.bing.com/th/id/OIP.LC11pYiaLzaUCZd6yFs80QHaE8?pid=ImgDet&rs=1');
+Values ('FID17','Owl camouflaged against the bark of a tree','https://th.bing.com/th/id/OIP.LC11pYiaLzaUCZd6yFs80QHaE8?pid=ImgDet&rs=1');
 Insert into [FieldTripMedia]
-Values ('FID26','description','https://th.bing.com/th/id/R.1b0487dbcf4ca8d0ffcb574b17190ea7?rik=KWAQXsQyC70Mew&pid=ImgRaw&r=0');
+Values ('FID26','Chickadee flitting among blossoming flowers','https://th.bing.com/th/id/R.1b0487dbcf4ca8d0ffcb574b17190ea7?rik=KWAQXsQyC70Mew&pid=ImgRaw&r=0');
 Insert into [FieldTripMedia]
-Values ('FID28','description','https://th.bing.com/th/id/R.1b0487dbcf4ca8d0ffcb574b17190ea7?rik=KWAQXsQyC70Mew&pid=ImgRaw&r=0');
+Values ('FID28','Parakeet showing off its acrobatic skills on a swing','https://th.bing.com/th/id/R.1b0487dbcf4ca8d0ffcb574b17190ea7?rik=KWAQXsQyC70Mew&pid=ImgRaw&r=0');
 Insert into [FieldTripMedia]
-Values ('FID3','description','https://th.bing.com/th/id/OIP.czF0zCCft55OmPhSvk-ZggHaE8?pid=ImgDet&rs=1');
+Values ('FID3','Seagull gracefully landing on a pier','https://th.bing.com/th/id/OIP.czF0zCCft55OmPhSvk-ZggHaE8?pid=ImgDet&rs=1');
 Insert into [FieldTripMedia]
-Values ('FID5','description','https://th.bing.com/th/id/R.8776a4ced4969252b8481fadd66ada56?rik=bfBZcb3oIdv2dg&riu=http%3a%2f%2f2.bp.blogspot.com%2f-mxRjg8j5zlc%2fUyjVqpRviTI%2fAAAAAAAAm-g%2fkEuUqh0EsNw%2fs1600%2fIMG_2158.JPG&ehk=kUKARVdZMxeIqT016MEdWajtFtQaqNhfCa004E3uFZo%3d&risl=&pid=ImgRaw&r=0');
+Values ('FID5','Woodpecker hammering away on a hollow tree trunk','https://th.bing.com/th/id/R.8776a4ced4969252b8481fadd66ada56?rik=bfBZcb3oIdv2dg&riu=http%3a%2f%2f2.bp.blogspot.com%2f-mxRjg8j5zlc%2fUyjVqpRviTI%2fAAAAAAAAm-g%2fkEuUqh0EsNw%2fs1600%2fIMG_2158.JPG&ehk=kUKARVdZMxeIqT016MEdWajtFtQaqNhfCa004E3uFZo%3d&risl=&pid=ImgRaw&r=0');
 Insert into [FieldTripMedia]
-Values ('FID6','description','https://glenprovidencepark.org/wp-content/uploads/2012/02/Winter-Bird-Walk-2-5-2012-4617656_218x218.jpg');
+Values ('FID6','Crane gracefully dancing in a wetland habitat','https://glenprovidencepark.org/wp-content/uploads/2012/02/Winter-Bird-Walk-2-5-2012-4617656_218x218.jpg');
 Insert into [FieldTripMedia]
-Values ('FID0','description','https://th.bing.com/th/id/OIP.nooFQP4DE-wT6eJsSLE2zwHaE8?pid=ImgDet&rs=1');
+Values ('FID0','Hawk in mid-flight, its sharp gaze fixed on its prey below','https://th.bing.com/th/id/OIP.nooFQP4DE-wT6eJsSLE2zwHaE8?pid=ImgDet&rs=1');
 Insert into [FieldTripMedia]
-Values ('FID1','description','https://th.bing.com/th/id/OIP.ypLJvtW1OlAHEB2wGpGoZQAAAA?pid=ImgDet&rs=1');
+Values ('FID1','Swallow building its intricate nest under the eaves of a house','https://th.bing.com/th/id/OIP.ypLJvtW1OlAHEB2wGpGoZQAAAA?pid=ImgDet&rs=1');
 Insert into [FieldTripMedia]
-Values ('FID17','description','https://th.bing.com/th/id/R.779c3201b53da32aa92fc96d5d503c96?rik=uYmz0kq9ERdn2A&pid=ImgRaw&r=0');
+Values ('FID17','Nightingale perched on a branch, filling the air with its enchanting song','https://th.bing.com/th/id/R.779c3201b53da32aa92fc96d5d503c96?rik=uYmz0kq9ERdn2A&pid=ImgRaw&r=0');
 Insert into [FieldTripMedia]
-Values ('FID26','description','https://th.bing.com/th/id/OIP.SU67mY06ENdjZ7auGMbsMgHaFj?pid=ImgDet&w=500&h=375&rs=1');
+Values ('FID26','Sparrow taking a refreshing bath in a birdbath','https://th.bing.com/th/id/OIP.SU67mY06ENdjZ7auGMbsMgHaFj?pid=ImgDet&w=500&h=375&rs=1');
