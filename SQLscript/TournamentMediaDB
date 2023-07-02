@@ -1,114 +1,114 @@
 Insert into [TournamentMedia]
-Values ('TID0','description','https://c8.alamy.com/comp/C45M51/bird-singing-contest-at-a-field-in-rural-thailand-C45M51.jpg');
+Values ('TID0','thumbnail','https://c8.alamy.com/comp/C45M51/bird-singing-contest-at-a-field-in-rural-thailand-C45M51.jpg');
 Insert into [TournamentMedia]
-Values ('TID1','description','https://th.bing.com/th/id/R.c8c7e6e43457f872c0dbb516e3c31f3d?rik=C7hSM4%2bgOwcfdQ&pid=ImgRaw&r=0');
+Values ('TID1','thumbnail','https://th.bing.com/th/id/R.c8c7e6e43457f872c0dbb516e3c31f3d?rik=C7hSM4%2bgOwcfdQ&pid=ImgRaw&r=0');
 Insert into [TournamentMedia]
-Values ('TID2','description','https://3.bp.blogspot.com/_iTGXYFIkfkA/S7A9WqAqCUI/AAAAAAAAYJ4/rhia1-XWrGE/s1600/Singing-birds-008.jpg');
+Values ('TID2','thumbnail','https://3.bp.blogspot.com/_iTGXYFIkfkA/S7A9WqAqCUI/AAAAAAAAYJ4/rhia1-XWrGE/s1600/Singing-birds-008.jpg');
 Insert into [TournamentMedia]
-Values ('TID3','description','https://i.pinimg.com/originals/f1/ce/45/f1ce4587fa0612cba469509791c50867.jpg');
+Values ('TID3','thumbnail','https://i.pinimg.com/originals/f1/ce/45/f1ce4587fa0612cba469509791c50867.jpg');
 Insert into [TournamentMedia]
-Values ('TID4','description','https://asianitinerary.com/wp-content/uploads/2021/12/Feathered-competitors-sit-in-their-cages-during-a-bird-singing-competition-in-Thailands-southern-province-of-Narathiwat-1-770x514.jpg');
+Values ('TID4','thumbnail','https://asianitinerary.com/wp-content/uploads/2021/12/Feathered-competitors-sit-in-their-cages-during-a-bird-singing-competition-in-Thailands-southern-province-of-Narathiwat-1-770x514.jpg');
 Insert into [TournamentMedia]
-Values ('TID5','description','https://kerala.birds.watch/photos/0001/001/00010035001.jpg');
+Values ('TID5','thumbnail','https://kerala.birds.watch/photos/0001/001/00010035001.jpg');
 Insert into [TournamentMedia]
-Values ('TID6','description','https://www.birdsofgujarat.in/site-content/uploads/red-whiskered-bulbul-768x512.jpg');
+Values ('TID6','thumbnail','https://www.birdsofgujarat.in/site-content/uploads/red-whiskered-bulbul-768x512.jpg');
 Insert into [TournamentMedia]
-Values ('TID7','description','https://th.bing.com/th/id/OIP.j7YGYbX_Ptf61sVJfz7mZAHaE2?pid=ImgDet&rs=1');
+Values ('TID7','thumbnail','https://th.bing.com/th/id/OIP.j7YGYbX_Ptf61sVJfz7mZAHaE2?pid=ImgDet&rs=1');
 Insert into [TournamentMedia]
-Values ('TID8','description','https://th.bing.com/th/id/OIP.E0ayXfiyCT4n9AwHkdUJugHaEK?pid=ImgDet&rs=1');
+Values ('TID8','thumbnail','https://th.bing.com/th/id/OIP.E0ayXfiyCT4n9AwHkdUJugHaEK?pid=ImgDet&rs=1');
 Insert into [TournamentMedia]
-Values ('TID9','description','https://i.pinimg.com/236x/d6/df/9b/d6df9b0c59e0c249b3df6903ed6821db--bird-watching-image.jpg');
+Values ('TID9','thumbnail','https://i.pinimg.com/236x/d6/df/9b/d6df9b0c59e0c249b3df6903ed6821db--bird-watching-image.jpg');
 Insert into [TournamentMedia]
-Values ('TID10','description','https://image.shutterstock.com/image-photo/redwhiskered-bulbul-pycnonotus-jocosustall-crested-260nw-1046276362.jpg');
+Values ('TID10','thumbnail','https://image.shutterstock.com/image-photo/redwhiskered-bulbul-pycnonotus-jocosustall-crested-260nw-1046276362.jpg');
 Insert into [TournamentMedia]
-Values ('TID11','description','https://th.bing.com/th/id/OIP.YLqKA43ChOhBINtnqE_PmQHaE7?pid=ImgDet&rs=1');
+Values ('TID11','thumbnail','https://th.bing.com/th/id/OIP.YLqKA43ChOhBINtnqE_PmQHaE7?pid=ImgDet&rs=1');
 Insert into [TournamentMedia]
-Values ('TID12','description','https://th.bing.com/th/id/OIP.mkB5bihmn8Wkec9W6SQpOQHaE6?pid=ImgDet&w=629&h=418&rs=1');
+Values ('TID12','thumbnail','https://th.bing.com/th/id/OIP.mkB5bihmn8Wkec9W6SQpOQHaE6?pid=ImgDet&w=629&h=418&rs=1');
 Insert into [TournamentMedia]
-Values ('TID13','description','https://img.piri.net/mnresize/629/-/resim/upload/2019/06/24/04/00/3884f18335138349.jpg');
+Values ('TID13','thumbnail','https://img.piri.net/mnresize/629/-/resim/upload/2019/06/24/04/00/3884f18335138349.jpg');
 Insert into [TournamentMedia]
-Values ('TID14','description','https://th.bing.com/th/id/R.96b4f8c10fe9fc8ff94a582d25b11225?rik=O807XhJlj6MPRQ&riu=http%3a%2f%2fmedia.indiatimes.in%2fmedia%2fphotogallery%2f2014%2fMar%2f1788170_1419779484.jpg&ehk=nAQ4%2fXbFcYdhLWhB3HDhZrXDaqfGrogwTDrfNaULvVE%3d&risl=&pid=ImgRaw&r=0');
+Values ('TID14','thumbnail','https://th.bing.com/th/id/R.96b4f8c10fe9fc8ff94a582d25b11225?rik=O807XhJlj6MPRQ&riu=http%3a%2f%2fmedia.indiatimes.in%2fmedia%2fphotogallery%2f2014%2fMar%2f1788170_1419779484.jpg&ehk=nAQ4%2fXbFcYdhLWhB3HDhZrXDaqfGrogwTDrfNaULvVE%3d&risl=&pid=ImgRaw&r=0');
 Insert into [TournamentMedia]
-Values ('TID15','description','https://th.bing.com/th/id/R.e3ebd178a4654b08534c5574d805df92?rik=Ha4%2fAx77uHojPQ&riu=http%3a%2f%2f2.bp.blogspot.com%2f-QxkpLC9Tg-s%2fUkLucDoWDeI%2fAAAAAAAABI0%2fy9zlRbxF2R8%2fw1200-h630-p-k-no-nu%2fBird-singing%2bcontest%2bin%2bThailand%252527s%2bsouthern.jpg&ehk=zr%2frr9%2bYAPNn3gqHisoXZT7Cu7TsBaolE9dDebdq8Pw%3d&risl=&pid=ImgRaw&r=0');
+Values ('TID15','thumbnail','https://th.bing.com/th/id/R.e3ebd178a4654b08534c5574d805df92?rik=Ha4%2fAx77uHojPQ&riu=http%3a%2f%2f2.bp.blogspot.com%2f-QxkpLC9Tg-s%2fUkLucDoWDeI%2fAAAAAAAABI0%2fy9zlRbxF2R8%2fw1200-h630-p-k-no-nu%2fBird-singing%2bcontest%2bin%2bThailand%252527s%2bsouthern.jpg&ehk=zr%2frr9%2bYAPNn3gqHisoXZT7Cu7TsBaolE9dDebdq8Pw%3d&risl=&pid=ImgRaw&r=0');
 Insert into [TournamentMedia]
-Values ('TID16','description','https://i.pinimg.com/736x/ec/ee/9e/ecee9ef90028b5865583fc2528b5175c.jpg');
+Values ('TID16','thumbnail','https://i.pinimg.com/736x/ec/ee/9e/ecee9ef90028b5865583fc2528b5175c.jpg');
 Insert into [TournamentMedia]
-Values ('TID17','description','https://2.bp.blogspot.com/-mxHQ_jlo8nE/VAqYuq-DTXI/AAAAAAAABW8/yZBkzqIIK7s/s1600/Red-Whiskered-Wallpaper.jpg');
+Values ('TID17','thumbnail','https://2.bp.blogspot.com/-mxHQ_jlo8nE/VAqYuq-DTXI/AAAAAAAABW8/yZBkzqIIK7s/s1600/Red-Whiskered-Wallpaper.jpg');
 Insert into [TournamentMedia]
-Values ('TID18','description','https://th.bing.com/th/id/OIP.U44tq-ib6mQEzccIy39IEQHaFF?pid=ImgDet&w=1600&h=1100&rs=1');
+Values ('TID18','thumbnail','https://th.bing.com/th/id/OIP.U44tq-ib6mQEzccIy39IEQHaFF?pid=ImgDet&w=1600&h=1100&rs=1');
 Insert into [TournamentMedia]
-Values ('TID19','description','https://res-3.cloudinary.com/ebirdr/image/upload/s--eJlN_eG6--/f_auto,q_auto,t_full/2654-red-whiskered-bulbul.jpg');
+Values ('TID19','thumbnail','https://res-3.cloudinary.com/ebirdr/image/upload/s--eJlN_eG6--/f_auto,q_auto,t_full/2654-red-whiskered-bulbul.jpg');
 Insert into [TournamentMedia]
-Values ('TID20','description','https://www.susanfleck.com/Birds/Birds_images_08small/Bulbul_Red-whiskered_4762191_small.jpg');
+Values ('TID20','thumbnail','https://www.susanfleck.com/Birds/Birds_images_08small/Bulbul_Red-whiskered_4762191_small.jpg');
 Insert into [TournamentMedia]
-Values ('TID21','description','https://4.bp.blogspot.com/-kqnIx3oqMpI/VAqYtpDZrTI/AAAAAAAABWw/1VHS0NyxRxg/s1600/Red-Whiskered-Standing-Tall.jpeg');
+Values ('TID21','thumbnail','https://4.bp.blogspot.com/-kqnIx3oqMpI/VAqYtpDZrTI/AAAAAAAABWw/1VHS0NyxRxg/s1600/Red-Whiskered-Standing-Tall.jpeg');
 Insert into [TournamentMedia]
-Values ('TID22','description','https://th.bing.com/th/id/R.81bdaecf403441bc29391d3a46979157?rik=0w58NWGE5TUgqQ&riu=http%3a%2f%2fi.stack.imgur.com%2fJC4CQ.jpg&ehk=80aGmveYea9CzG97EcuiS4pZiLiu8j1BZF32FWISdH0%3d&risl=&pid=ImgRaw&r=0');
+Values ('TID22','thumbnail','https://th.bing.com/th/id/R.81bdaecf403441bc29391d3a46979157?rik=0w58NWGE5TUgqQ&riu=http%3a%2f%2fi.stack.imgur.com%2fJC4CQ.jpg&ehk=80aGmveYea9CzG97EcuiS4pZiLiu8j1BZF32FWISdH0%3d&risl=&pid=ImgRaw&r=0');
 Insert into [TournamentMedia]
-Values ('TID23','description','https://goingplaces.malaysiaairlines.com/wp-content/uploads/2020/10/DSCF9895.jpg');
+Values ('TID23','thumbnail','https://goingplaces.malaysiaairlines.com/wp-content/uploads/2020/10/DSCF9895.jpg');
 Insert into [TournamentMedia]
-Values ('TID24','description','https://th.bing.com/th/id/OIP.KYKDged9lTzBodgz455aTAHaHa?pid=ImgDet&rs=1');
+Values ('TID24','thumbnail','https://th.bing.com/th/id/OIP.KYKDged9lTzBodgz455aTAHaHa?pid=ImgDet&rs=1');
 Insert into [TournamentMedia]
-Values ('TID25','description','https://c2.staticflickr.com/8/7788/18039432128_419c3decb4_b.jpg');
+Values ('TID25','thumbnail','https://c2.staticflickr.com/8/7788/18039432128_419c3decb4_b.jpg');
 Insert into [TournamentMedia]
-Values ('TID26','description','https://live.staticflickr.com/65535/52980594937_f5056a6d17_b.jpg');
+Values ('TID26','thumbnail','https://live.staticflickr.com/65535/52980594937_f5056a6d17_b.jpg');
 Insert into [TournamentMedia]
-Values ('TID27','description','https://goingplaces.malaysiaairlines.com/wp-content/uploads/2020/10/DSCF9895.jpg');
+Values ('TID27','thumbnail','https://goingplaces.malaysiaairlines.com/wp-content/uploads/2020/10/DSCF9895.jpg');
 Insert into [TournamentMedia]
-Values ('TID28','description','https://www.publicdomainpictures.net/pictures/30000/velka/rotohrbulbul.jpg');
+Values ('TID28','thumbnail','https://www.publicdomainpictures.net/pictures/30000/velka/rotohrbulbul.jpg');
 Insert into [TournamentMedia]
-Values ('TID29','description','https://www.birdforum.net/gallery/red-whiskered-bulbul.640451/full');
+Values ('TID29','thumbnail','https://www.birdforum.net/gallery/red-whiskered-bulbul.640451/full');
 Insert into [TournamentMedia]
-Values ('TID0','description','https://th.bing.com/th/id/OIP.mkB5bihmn8Wkec9W6SQpOQHaE6?pid=ImgDet&w=629&h=418&rs=1');
+Values ('TID0','gallery','https://th.bing.com/th/id/OIP.mkB5bihmn8Wkec9W6SQpOQHaE6?pid=ImgDet&w=629&h=418&rs=1');
 Insert into [TournamentMedia]
-Values ('TID1','description','https://th.bing.com/th/id/OIP.E0ayXfiyCT4n9AwHkdUJugHaEK?pid=ImgDet&rs=1');
+Values ('TID1','gallery','https://th.bing.com/th/id/OIP.E0ayXfiyCT4n9AwHkdUJugHaEK?pid=ImgDet&rs=1');
 Insert into [TournamentMedia]
-Values ('TID10','description','https://goingplaces.malaysiaairlines.com/wp-content/uploads/2020/10/DSCF9895.jpg');
+Values ('TID10','gallery','https://goingplaces.malaysiaairlines.com/wp-content/uploads/2020/10/DSCF9895.jpg');
 Insert into [TournamentMedia]
-Values ('TID13','description','https://th.bing.com/th/id/OIP.KYKDged9lTzBodgz455aTAHaHa?pid=ImgDet&rs=1');
+Values ('TID13','gallery' artistic skills in illustrating accurate bird anatomy.','https://th.bing.com/th/id/OIP.KYKDged9lTzBodgz455aTAHaHa?pid=ImgDet&rs=1');
 Insert into [TournamentMedia]
-Values ('TID14','description','https://th.bing.com/th/id/OIP.U44tq-ib6mQEzccIy39IEQHaFF?pid=ImgDet&w=1600&h=1100&rs=1');
+Values ('TID14','gallery','https://th.bing.com/th/id/OIP.U44tq-ib6mQEzccIy39IEQHaFF?pid=ImgDet&w=1600&h=1100&rs=1');
 Insert into [TournamentMedia]
-Values ('TID15','description','https://th.bing.com/th/id/OIP.8HzUCUArfqF8Fo3eFnroxgHaEK?pid=ImgDet&rs=1');
+Values ('TID15','gallery','https://th.bing.com/th/id/OIP.8HzUCUArfqF8Fo3eFnroxgHaEK?pid=ImgDet&rs=1');
 Insert into [TournamentMedia]
-Values ('TID16','description','https://img.piri.net/mnresize/629/-/resim/upload/2019/06/24/04/00/3884f18335138349.jpg');
+Values ('TID16','gallery','https://img.piri.net/mnresize/629/-/resim/upload/2019/06/24/04/00/3884f18335138349.jpg');
 Insert into [TournamentMedia]
-Values ('TID18','description','https://th.bing.com/th/id/OIP.8HzUCUArfqF8Fo3eFnroxgHaEK?pid=ImgDet&rs=1');
+Values ('TID18','gallery','https://th.bing.com/th/id/OIP.8HzUCUArfqF8Fo3eFnroxgHaEK?pid=ImgDet&rs=1');
 Insert into [TournamentMedia]
-Values ('TID7','description','https://th.bing.com/th/id/OIP.YLqKA43ChOhBINtnqE_PmQHaE7?pid=ImgDet&rs=1');
+Values ('TID7','gallery','https://th.bing.com/th/id/OIP.YLqKA43ChOhBINtnqE_PmQHaE7?pid=ImgDet&rs=1');
 Insert into [TournamentMedia]
-Values ('TID2','description','https://th.bing.com/th/id/OIP.rMTKiOFEdmfdJzVcxYrd5wHaEr?pid=ImgDet&w=806&h=510&rs=1');
+Values ('TID2','gallery','https://th.bing.com/th/id/OIP.rMTKiOFEdmfdJzVcxYrd5wHaEr?pid=ImgDet&w=806&h=510&rs=1');
 Insert into [TournamentMedia]
-Values ('TID20','description','https://th.bing.com/th/id/R.e3ebd178a4654b08534c5574d805df92?rik=Ha4%2fAx77uHojPQ&riu=http%3a%2f%2f2.bp.blogspot.com%2f-QxkpLC9Tg-s%2fUkLucDoWDeI%2fAAAAAAAABI0%2fy9zlRbxF2R8%2fw1200-h630-p-k-no-nu%2fBird-singing%2bcontest%2bin%2bThailand%252527s%2bsouthern.jpg&ehk=zr%2frr9%2bYAPNn3gqHisoXZT7Cu7TsBaolE9dDebdq8Pw%3d&risl=&pid=ImgRaw&r=0');
+Values ('TID20','gallery','https://th.bing.com/th/id/R.e3ebd178a4654b08534c5574d805df92?rik=Ha4%2fAx77uHojPQ&riu=http%3a%2f%2f2.bp.blogspot.com%2f-QxkpLC9Tg-s%2fUkLucDoWDeI%2fAAAAAAAABI0%2fy9zlRbxF2R8%2fw1200-h630-p-k-no-nu%2fBird-singing%2bcontest%2bin%2bThailand%252527s%2bsouthern.jpg&ehk=zr%2frr9%2bYAPNn3gqHisoXZT7Cu7TsBaolE9dDebdq8Pw%3d&risl=&pid=ImgRaw&r=0');
 Insert into [TournamentMedia]
-Values ('TID22','description','https://live.staticflickr.com/679/21368325882_f63548e5f8.jpg');
+Values ('TID22','gallery','https://live.staticflickr.com/679/21368325882_f63548e5f8.jpg');
 Insert into [TournamentMedia]
-Values ('TID23','description','https://img.piri.net/mnresize/629/-/resim/upload/2019/06/24/04/00/3884f18335138349.jpg');
+Values ('TID23','gallery','https://img.piri.net/mnresize/629/-/resim/upload/2019/06/24/04/00/3884f18335138349.jpg');
 Insert into [TournamentMedia]
-Values ('TID24','description','https://th.bing.com/th/id/R.96b4f8c10fe9fc8ff94a582d25b11225?rik=O807XhJlj6MPRQ&riu=http%3a%2f%2fmedia.indiatimes.in%2fmedia%2fphotogallery%2f2014%2fMar%2f1788170_1419779484.jpg&ehk=nAQ4%2fXbFcYdhLWhB3HDhZrXDaqfGrogwTDrfNaULvVE%3d&risl=&pid=ImgRaw&r=0');
+Values ('TID24','gallery','https://th.bing.com/th/id/R.96b4f8c10fe9fc8ff94a582d25b11225?rik=O807XhJlj6MPRQ&riu=http%3a%2f%2fmedia.indiatimes.in%2fmedia%2fphotogallery%2f2014%2fMar%2f1788170_1419779484.jpg&ehk=nAQ4%2fXbFcYdhLWhB3HDhZrXDaqfGrogwTDrfNaULvVE%3d&risl=&pid=ImgRaw&r=0');
 Insert into [TournamentMedia]
-Values ('TID26','description','https://th.bing.com/th/id/R.81bdaecf403441bc29391d3a46979157?rik=0w58NWGE5TUgqQ&riu=http%3a%2f%2fi.stack.imgur.com%2fJC4CQ.jpg&ehk=80aGmveYea9CzG97EcuiS4pZiLiu8j1BZF32FWISdH0%3d&risl=&pid=ImgRaw&r=0');
+Values ('TID26','gallery','https://th.bing.com/th/id/R.81bdaecf403441bc29391d3a46979157?rik=0w58NWGE5TUgqQ&riu=http%3a%2f%2fi.stack.imgur.com%2fJC4CQ.jpg&ehk=80aGmveYea9CzG97EcuiS4pZiLiu8j1BZF32FWISdH0%3d&risl=&pid=ImgRaw&r=0');
 Insert into [TournamentMedia]
-Values ('TID27','description','https://2.bp.blogspot.com/-usGDz1uXul0/WWyzejw0eZI/AAAAAAAAm9o/7i2gvCdgpnwD0jDJPv7KFC71XIXG3EQPACLcBGAs/s1600/IMG_0163%2B%2528Copy%2529.jpg');
+Values ('TID27','gallery','https://2.bp.blogspot.com/-usGDz1uXul0/WWyzejw0eZI/AAAAAAAAm9o/7i2gvCdgpnwD0jDJPv7KFC71XIXG3EQPACLcBGAs/s1600/IMG_0163%2B%2528Copy%2529.jpg');
 Insert into [TournamentMedia]
-Values ('TID28','description','https://th.bing.com/th/id/OIP.j7YGYbX_Ptf61sVJfz7mZAHaE2?pid=ImgDet&rs=1');
+Values ('TID28','gallery','https://th.bing.com/th/id/OIP.j7YGYbX_Ptf61sVJfz7mZAHaE2?pid=ImgDet&rs=1');
 Insert into [TournamentMedia]
-Values ('TID5','description','https://th.bing.com/th/id/OIP.mkB5bihmn8Wkec9W6SQpOQHaE6?pid=ImgDet&w=629&h=418&rs=1');
+Values ('TID5','gallery','https://th.bing.com/th/id/OIP.mkB5bihmn8Wkec9W6SQpOQHaE6?pid=ImgDet&w=629&h=418&rs=1');
 Insert into [TournamentMedia]
-Values ('TID6','description','https://th.bing.com/th/id/OIP.KYKDged9lTzBodgz455aTAHaHa?pid=ImgDet&rs=1');
+Values ('TID6','gallery','https://th.bing.com/th/id/OIP.KYKDged9lTzBodgz455aTAHaHa?pid=ImgDet&rs=1');
 Insert into [TournamentMedia]
-Values ('TID18','description','https://2.bp.blogspot.com/-mxHQ_jlo8nE/VAqYuq-DTXI/AAAAAAAABW8/yZBkzqIIK7s/s1600/Red-Whiskered-Wallpaper.jpg');
+Values ('TID18','gallery','https://2.bp.blogspot.com/-mxHQ_jlo8nE/VAqYuq-DTXI/AAAAAAAABW8/yZBkzqIIK7s/s1600/Red-Whiskered-Wallpaper.jpg');
 Insert into [TournamentMedia]
-Values ('TID2','description','https://live.staticflickr.com/4028/4632014578_2faf18612b_z.jpg');
+Values ('TID2','gallery','https://live.staticflickr.com/4028/4632014578_2faf18612b_z.jpg');
 Insert into [TournamentMedia]
-Values ('TID22','description','https://live.staticflickr.com/7110/7420772414_5078b6e11e.jpg');
+Values ('TID22','gallery','https://live.staticflickr.com/7110/7420772414_5078b6e11e.jpg');
 Insert into [TournamentMedia]
-Values ('TID23','description','https://blog.openspacefoundation.in/content/images/size/w1000/2020/11/Red-Vented-Bul-Bul-1.jpg');
+Values ('TID23','gallery','https://blog.openspacefoundation.in/content/images/size/w1000/2020/11/Red-Vented-Bul-Bul-1.jpg');
 Insert into [TournamentMedia]
-Values ('TID23','description','https://live.staticflickr.com/8493/8322803178_47b86a068b.jpg');
+Values ('TID23','gallery','https://live.staticflickr.com/8493/8322803178_47b86a068b.jpg');
 Insert into [TournamentMedia]
-Values ('TID27','description','https://www.birdsofmurrieta.com/uploads/7/5/8/4/75844173/red-whiskered-bulbul-pycnonotus-jocosus-apr07-010.jpg');
+Values ('TID27','gallery','https://www.birdsofmurrieta.com/uploads/7/5/8/4/75844173/red-whiskered-bulbul-pycnonotus-jocosus-apr07-010.jpg');
 Insert into [TournamentMedia]
-Values ('TID28','description','https://1.bp.blogspot.com/_PrZJGhT0amE/TC85b_QASEI/AAAAAAAABEY/CUPAWv3cGHM/s400/broadbill_silverbreasted2.jpg');
+Values ('TID28','gallery','https://1.bp.blogspot.com/_PrZJGhT0amE/TC85b_QASEI/AAAAAAAABEY/CUPAWv3cGHM/s400/broadbill_silverbreasted2.jpg');
 Insert into [TournamentMedia]
-Values ('TID7','description','https://www.baldhiker.com/wp-content/uploads/27.-Red-whiskered-babul.jpg');
+Values ('TID7','gallery','https://www.baldhiker.com/wp-content/uploads/27.-Red-whiskered-babul.jpg');
