@@ -1,94 +1,94 @@
 Insert into [MeetingMedia]
-Values ('MeID0','Bird club members engaged in a lively discussion about upcoming conservation projects.','https://i.pinimg.com/originals/c1/78/8e/c1788e1521acf2421dd210f01a1cd419.jpg');
+Values ('MeID0','thumbnail','https://i.pinimg.com/originals/c1/78/8e/c1788e1521acf2421dd210f01a1cd419.jpg');
 Insert into [MeetingMedia]
-Values ('MeID1','Presentation on bird identification techniques, showcasing various species.','https://avise-birds.bio.uci.edu/passeriformes/pycnonotidae/pycnonotus_jocosus/images/7rwbu_copy.jpg');
+Values ('MeID1','thumbnail','https://avise-birds.bio.uci.edu/passeriformes/pycnonotidae/pycnonotus_jocosus/images/7rwbu_copy.jpg');
 Insert into [MeetingMedia]
-Values ('MeID2','Guest speaker sharing insights on avian behavior and migration patterns.','https://i.pinimg.com/originals/69/9b/2b/699b2bd1dae1e04a94c8bd5f3d8e478c.jpg');
+Values ('MeID2','thumbnail','https://i.pinimg.com/originals/69/9b/2b/699b2bd1dae1e04a94c8bd5f3d8e478c.jpg');
 Insert into [MeetingMedia]
-Values ('MeID3','Hands-on workshop on birdhouse construction and installation.','https://i.pinimg.com/originals/08/f3/4d/08f34de0700ba8846f8914c27d7890a4.jpg');
+Values ('MeID3','thumbnail','https://i.pinimg.com/originals/08/f3/4d/08f34de0700ba8846f8914c27d7890a4.jpg');
 Insert into [MeetingMedia]
-Values ('MeID4','Group photo of enthusiastic bird club members, united by their love for birds.','https://indiabiodiversity.org/files-api/api/get/raw/img/Pycnonotus%20jocosus/609.jpg');
+Values ('MeID4','thumbnail','https://indiabiodiversity.org/files-api/api/get/raw/img/Pycnonotus%20jocosus/609.jpg');
 Insert into [MeetingMedia]
-Values ('MeID5','Bird-themed artwork displayed during an art exhibition at the meeting.','https://www.team-bhp.com/forum/attachments/travelogues/2175309d1625507504t-bird-photography-hide-a20i6402web.jpg');
+Values ('MeID5','thumbnail','https://www.team-bhp.com/forum/attachments/travelogues/2175309d1625507504t-bird-photography-hide-a20i6402web.jpg');
 Insert into [MeetingMedia]
-Values ('MeID6','Birdwatching equipment demonstration, highlighting binoculars and field guides.','https://indiabiodiversity.org/files-api/api/get/raw/img/Pycnonotus%20jocosus/609.jpg');
+Values ('MeID6','thumbnail','https://indiabiodiversity.org/files-api/api/get/raw/img/Pycnonotus%20jocosus/609.jpg');
 Insert into [MeetingMedia]
-Values ('MeID7','Bird club president addressing the members, providing updates on recent activities.','https://cdn.virily.com/wp-content/uploads/2020/02/bullbull2-1-313x277.jpg');
+Values ('MeID7','thumbnail','https://cdn.virily.com/wp-content/uploads/2020/02/bullbull2-1-313x277.jpg');
 Insert into [MeetingMedia]
-Values ('MeID8','Workshop on bird photography techniques, capturing the beauty of avian subjects.','https://www.birdsofmurrieta.com/uploads/7/5/8/4/75844173/red-whiskered-bulbul-pycnonotus-jocosus-apr07-010.jpg');
+Values ('MeID8','thumbnail','https://www.birdsofmurrieta.com/uploads/7/5/8/4/75844173/red-whiskered-bulbul-pycnonotus-jocosus-apr07-010.jpg');
 Insert into [MeetingMedia]
-Values ('MeID9','Member sharing personal experiences and stories about bird encounters.','https://c1.staticflickr.com/9/8110/8657698193_afe75de4aa_b.jpg');
+Values ('MeID9','thumbnail','https://c1.staticflickr.com/9/8110/8657698193_afe75de4aa_b.jpg');
 Insert into [MeetingMedia]
-Values ('MeID10','Bird club members collaborating on a research project, analyzing data together.','https://i.pinimg.com/originals/58/40/58/58405834c4e7495ea141fc2e7976031c.jpg');
+Values ('MeID10','thumbnail','https://i.pinimg.com/originals/58/40/58/58405834c4e7495ea141fc2e7976031c.jpg');
 Insert into [MeetingMedia]
-Values ('MeID11','Interactive session on bird vocalizations, learning to identify different calls.','https://live.staticflickr.com/7474/15764653026_fc44122fbd.jpg');
+Values ('MeID11','thumbnail','https://live.staticflickr.com/7474/15764653026_fc44122fbd.jpg');
 Insert into [MeetingMedia]
-Values ('MeID12','Introduction to citizen science programs and opportunities for involvement.','https://live.staticflickr.com/3537/3668457899_247d7cd25a_n.jpg');
+Values ('MeID12','thumbnail','https://live.staticflickr.com/3537/3668457899_247d7cd25a_n.jpg');
 Insert into [MeetingMedia]
-Values ('MeID13','Member-led presentation on local bird habitats and their importance.','https://i.pinimg.com/originals/78/0f/87/780f87180fdf9bdfde0c1e29808cee81.jpg');
+Values ('MeID13','thumbnail','https://i.pinimg.com/originals/78/0f/87/780f87180fdf9bdfde0c1e29808cee81.jpg');
 Insert into [MeetingMedia]
-Values ('MeID14','Discussion on bird feeding practices and the impact on bird populations.','https://www.team-bhp.com/forum/attachments/travelogues/998587d1349866102-reflections-driving-addictions-valparai-33a.jpg');
+Values ('MeID14','thumbnail','https://www.team-bhp.com/forum/attachments/travelogues/998587d1349866102-reflections-driving-addictions-valparai-33a.jpg');
 Insert into [MeetingMedia]
-Values ('MeID15','Bird club members participating in a bird quiz, testing their knowledge.','https://1.bp.blogspot.com/-LlVKCRmJ4pc/TdTPVCEb_0I/AAAAAAAAELk/GxTo92wZ-us/s1600/1+DSC02268.JPG');
+Values ('MeID15','thumbnail','https://1.bp.blogspot.com/-LlVKCRmJ4pc/TdTPVCEb_0I/AAAAAAAAELk/GxTo92wZ-us/s1600/1+DSC02268.JPG');
 Insert into [MeetingMedia]
-Values ('MeID16','Educational session on bird conservation challenges and solutions.','https://a4.pbase.com/g2/46/683346/2/147765243.UY1PIUOk.jpg');
+Values ('MeID16','thumbnail','https://a4.pbase.com/g2/46/683346/2/147765243.UY1PIUOk.jpg');
 Insert into [MeetingMedia]
-Values ('MeID17','Workshop on creating bird-friendly gardens and attracting avian visitors.','https://i.pinimg.com/originals/a5/f6/05/a5f60500b3cbf6963a9bd7c2febdaeff.jpg');
+Values ('MeID17','thumbnail','https://i.pinimg.com/originals/a5/f6/05/a5f60500b3cbf6963a9bd7c2febdaeff.jpg');
 Insert into [MeetingMedia]
-Values ('MeID18','Bird banding demonstration, showcasing the process of tracking individual birds.','https://i.ytimg.com/vi/qUj2Hi0IlJg/maxresdefault.jpg');
+Values ('MeID18','thumbnail','https://i.ytimg.com/vi/qUj2Hi0IlJg/maxresdefault.jpg');
 Insert into [MeetingMedia]
-Values ('MeID19','Member sharing tips for responsible birdwatching and minimizing disturbances.','https://live.staticflickr.com/3594/3316000950_cb5aafda59.jpg');
+Values ('MeID19','thumbnail','https://live.staticflickr.com/3594/3316000950_cb5aafda59.jpg');
 Insert into [MeetingMedia]
-Values ('MeID20','Discussion on the impacts of climate change on bird populations.','https://live.staticflickr.com/7456/9142518415_da8a55b104_n.jpg');
+Values ('MeID20','thumbnail','https://live.staticflickr.com/7456/9142518415_da8a55b104_n.jpg');
 Insert into [MeetingMedia]
-Values ('MeID21','Bird club members preparing bird feeders and nesting boxes for installation.','https://a4.pbase.com/o2/90/590590/1/124420308.ixGAcUIt.IMG_2896.jpg');
+Values ('MeID21','thumbnail','https://a4.pbase.com/o2/90/590590/1/124420308.ixGAcUIt.IMG_2896.jpg');
 Insert into [MeetingMedia]
-Values ('MeID22','Workshop on bird migration routes and the importance of stopover sites.','https://farm6.staticflickr.com/5475/10338505034_c138446e0e_z.jpg');
+Values ('MeID22','thumbnail','https://farm6.staticflickr.com/5475/10338505034_c138446e0e_z.jpg');
 Insert into [MeetingMedia]
-Values ('MeID23','Bird club members volunteering for a local bird count event.','https://content.eol.org/data/media/42/c3/7a/18.https___www_inaturalist_org_photos_5533452.jpg');
+Values ('MeID23','thumbnail','https://content.eol.org/data/media/42/c3/7a/18.https___www_inaturalist_org_photos_5533452.jpg');
 Insert into [MeetingMedia]
-Values ('MeID24','Presentation on endangered bird species and conservation efforts.','https://live.staticflickr.com/7474/15764653026_fc44122fbd_b.jpg');
+Values ('MeID24','thumbnail','https://live.staticflickr.com/7474/15764653026_fc44122fbd_b.jpg');
 Insert into [MeetingMedia]
-Values ('MeID25','Bird-themed crafts and activities for younger members of the club.','https://alchetron.com/cdn/so-tom-fiscal-07d8afbf-5a8d-4ca8-8ef4-63117a23e98-resize-750.jpeg');
+Values ('MeID25','thumbnail','https://alchetron.com/cdn/so-tom-fiscal-07d8afbf-5a8d-4ca8-8ef4-63117a23e98-resize-750.jpeg');
 Insert into [MeetingMedia]
-Values ('MeID26','Bird club members organizing a field trip to a local bird sanctuary.','https://kennyhphotography.weebly.com/uploads/6/7/5/2/6752529/6882701_orig.jpg');
+Values ('MeID26','thumbnail','https://kennyhphotography.weebly.com/uploads/6/7/5/2/6752529/6882701_orig.jpg');
 Insert into [MeetingMedia]
-Values ('MeID27','Introduction to eBird and other online platforms for bird sighting reporting.','https://www.birdquest-tours.com/wp-content/uploads/2020/11/Pacific-Royal-Flycatcher-Ecuador-Southern-Chris-Venetz.jpg');
+Values ('MeID27','thumbnail','https://www.birdquest-tours.com/wp-content/uploads/2020/11/Pacific-Royal-Flycatcher-Ecuador-Southern-Chris-Venetz.jpg');
 Insert into [MeetingMedia]
-Values ('MeID28','Discussion on ethical considerations when photographing birds in the wild.','https://live.staticflickr.com/8394/8812098636_1c464046cb_n.jpg');
+Values ('MeID28','thumbnail','https://live.staticflickr.com/8394/8812098636_1c464046cb_n.jpg');
 Insert into [MeetingMedia]
-Values ('MeID29','Member-led presentation on bird anatomy and adaptations for flight.','https://2.bp.blogspot.com/-Q4MQfmHDHkE/T0YBJkCk96I/AAAAAAAAADE/N-nam9dk-Vc/s1600/Black-and-yellow+Broadbill.JPG');
+Values ('MeID29','thumbnail','https://2.bp.blogspot.com/-Q4MQfmHDHkE/T0YBJkCk96I/AAAAAAAAADE/N-nam9dk-Vc/s1600/Black-and-yellow+Broadbill.JPG');
 Insert into [MeetingMedia]
-Values ('MeID11','Workshop on birdwatching etiquette and respecting bird habitats.','https://www.buckettripper.com/wp-content/uploads/2012/10/Talking-about-saving-birds.jpg');
+Values ('MeID11','gallery','https://www.buckettripper.com/wp-content/uploads/2012/10/Talking-about-saving-birds.jpg');
 Insert into [MeetingMedia]
-Values ('MeID12','Bird club members collaborating on a community outreach program.','https://th.bing.com/th/id/OIP.WuwW2rJm7eV653s9GSJ4fgHaFj?pid=ImgDet&w=640&h=480&rs=1');
+Values ('MeID12','gallery','https://th.bing.com/th/id/OIP.WuwW2rJm7eV653s9GSJ4fgHaFj?pid=ImgDet&w=640&h=480&rs=1');
 Insert into [MeetingMedia]
-Values ('MeID13','Panel discussion on birdwatching hotspots and travel recommendations.','https://koa.com/content/campgrounds/mercer/photos/38103photo5a5b5542-ccfb-43a0-994d-4898aedcd937.JPG.axd?preset=campgroundphoto');
+Values ('MeID13','gallery','https://koa.com/content/campgrounds/mercer/photos/38103photo5a5b5542-ccfb-43a0-994d-4898aedcd937.JPG.axd?preset=campgroundphoto');
 Insert into [MeetingMedia]
-Values ('MeID15','Educational session on bird migration strategies and survival challenges.','https://patch.com/img/cdn/users/29647/2012/06/raw/d0f8edde1a780f4975ec5342b4306d1.jpg');
+Values ('MeID15','gallery','https://patch.com/img/cdn/users/29647/2012/06/raw/d0f8edde1a780f4975ec5342b4306d1.jpg');
 Insert into [MeetingMedia]
-Values ('MeID16','Bird club members discussing recent bird sightings and notable observations.','https://live.staticflickr.com/2925/14423622074_8b1037044e_n.jpg');
+Values ('MeID16','gallery','https://live.staticflickr.com/2925/14423622074_8b1037044e_n.jpg');
 Insert into [MeetingMedia]
-Values ('MeID20','Workshop on bird behavior and interpreting avian body language.','https://static.wixstatic.com/media/d63852_6268a5dd616f40549d61b6281f431499~mv2.jpg/v1/fill/w_768,h_432,fp_0.50_0.50,lg_1,q_90/d63852_6268a5dd616f40549d61b6281f431499~mv2.jpg');
+Values ('MeID20','gallery','https://static.wixstatic.com/media/d63852_6268a5dd616f40549d61b6281f431499~mv2.jpg/v1/fill/w_768,h_432,fp_0.50_0.50,lg_1,q_90/d63852_6268a5dd616f40549d61b6281f431499~mv2.jpg');
 Insert into [MeetingMedia]
-Values ('MeID21','Presentation on the importance of wetlands as critical bird habitats.','https://th.bing.com/th/id/OIP.UVNsgibA9JSxzN89cuRS0QHaEK?pid=ImgDet&rs=1');
+Values ('MeID21','gallery','https://th.bing.com/th/id/OIP.UVNsgibA9JSxzN89cuRS0QHaEK?pid=ImgDet&rs=1');
 Insert into [MeetingMedia]
-Values ('MeID22','Member-led workshop on building bird-friendly structures in urban areas.','https://i.ytimg.com/vi/FMbIFftI3rc/maxresdefault.jpg');
+Values ('MeID22','gallery','https://i.ytimg.com/vi/FMbIFftI3rc/maxresdefault.jpg');
 Insert into [MeetingMedia]
-Values ('MeID24','Bird club members sharing tips for attracting specific bird species to their yards.','https://th.bing.com/th/id/R.c043aa65276827aa460f4bb9d604ced0?rik=JNLmYshS0xKdlw&riu=http%3a%2f%2fwww.stamm-kreuz-ritter.de%2fArchiv%2fArchivBilder%2f2018%2f2018-08+SoLaWeb%2f01%2falbum%2fslides%2fk-010.JPG&ehk=m%2bq4uzTQMRJoMnmuwurSWaigePNJRQFF5tyPvCNSw6M%3d&risl=&pid=ImgRaw&r=0');
+Values ('MeID24','gallery','https://th.bing.com/th/id/R.c043aa65276827aa460f4bb9d604ced0?rik=JNLmYshS0xKdlw&riu=http%3a%2f%2fwww.stamm-kreuz-ritter.de%2fArchiv%2fArchivBilder%2f2018%2f2018-08+SoLaWeb%2f01%2falbum%2fslides%2fk-010.JPG&ehk=m%2bq4uzTQMRJoMnmuwurSWaigePNJRQFF5tyPvCNSw6M%3d&risl=&pid=ImgRaw&r=0');
 Insert into [MeetingMedia]
-Values ('MeID25','Discussion on the impact of habitat loss on local bird populations.','https://live.staticflickr.com/7659/16564645113_2018f61d65.jpg');
+Values ('MeID25','gallery','https://live.staticflickr.com/7659/16564645113_2018f61d65.jpg');
 Insert into [MeetingMedia]
-Values ('MeID29','Workshop on bird conservation initiatives and advocacy opportunities.','https://live.staticflickr.com/65535/50276743898_2430e6bdf9.jpg');
+Values ('MeID29','gallery','https://live.staticflickr.com/65535/50276743898_2430e6bdf9.jpg');
 Insert into [MeetingMedia]
-Values ('MeID4','Member-led presentation on bird symbolism and cultural significance.','https://th.bing.com/th/id/OIP.aDJmdKtqFxatR_8-JoUEeQHaEK?pid=ImgDet&w=1280&h=720&rs=1');
+Values ('MeID4','gallery','https://th.bing.com/th/id/OIP.aDJmdKtqFxatR_8-JoUEeQHaEK?pid=ImgDet&w=1280&h=720&rs=1');
 Insert into [MeetingMedia]
-Values ('MeID5','Bird club members showcasing their bird photography portfolios.','https://i.ytimg.com/vi/16ECB9x8DZs/hqdefault.jpg');
+Values ('MeID5','gallery','https://i.ytimg.com/vi/16ECB9x8DZs/hqdefault.jpg');
 Insert into [MeetingMedia]
-Values ('MeID7','Introduction to bird rehabilitation and rescue efforts.','https://th.bing.com/th/id/OIP.FTPlfeeiWToE9ZXy0lL0QgHaEK?pid=ImgDet&w=1280&h=720&rs=1');
+Values ('MeID7','gallery','https://th.bing.com/th/id/OIP.FTPlfeeiWToE9ZXy0lL0QgHaEK?pid=ImgDet&w=1280&h=720&rs=1');
 Insert into [MeetingMedia]
-Values ('MeID8','Member-led discussion on birdwatching ethics and responsible birding practices.','https://www.natomasbuzz.com/wp-content/uploads/2013/10/np3senior8.jpeg');
+Values ('MeID8','gallery','https://www.natomasbuzz.com/wp-content/uploads/2013/10/np3senior8.jpeg');
 Insert into [MeetingMedia]
-Values ('MeID10','Workshop on creating bird-friendly urban landscapes, emphasizing the importance of providing food, water, and shelter for urban bird populations.','https://th.bing.com/th/id/OIP.SlIPMvzN681S3MqVM37t-gAAAA?pid=ImgDet&w=381&h=253&rs=1');
+Values ('MeID10','gallery','https://th.bing.com/th/id/OIP.SlIPMvzN681S3MqVM37t-gAAAA?pid=ImgDet&w=381&h=253&rs=1');
 Insert into [MeetingMedia]
-Values ('MeID0','Member-led presentation on the history of ornithology, exploring the contributions of influential bird scientists and researchers throughout the years.','https://athensoracle.com/wp-content/uploads/2019/05/IMG_4076-900x600.jpg');
+Values ('MeID0','gallery','https://athensoracle.com/wp-content/uploads/2019/05/IMG_4076-900x600.jpg');
