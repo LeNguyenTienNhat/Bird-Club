@@ -63,39 +63,40 @@ public class NewsManager {
         }
         return list;
     }
+
     public List<News> getTop10() {
-    List<News> list = new ArrayList<>();
-    String sql = "SELECT TOP 10 * FROM [News] ORDER BY uploadDate DESC";
+        List<News> list = new ArrayList<>();
+        String sql = "SELECT TOP 10 * FROM [News] ORDER BY uploadDate DESC";
 
-    try {
-        Connection conn = DBUtils.getConnection();
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
 
-        while (rs.next()) {
-            News n = new News();
-            n.setNID(rs.getString("NID"));
-            n.setUID(rs.getString("UID"));
-            n.setTitle(rs.getString("title"));
-            n.setCategory(rs.getString("category"));
-            n.setNewsContent(rs.getString("newsContent"));
+            while (rs.next()) {
+                News n = new News();
+                n.setNID(rs.getString("NID"));
+                n.setUID(rs.getString("UID"));
+                n.setTitle(rs.getString("title"));
+                n.setCategory(rs.getString("category"));
+                n.setNewsContent(rs.getString("newsContent"));
 
-            String formattedDate = tool.trimDate(rs.getString("uploadDate"));
-            formattedDate = tool.convertDisplayDate(formattedDate);
-            n.setUploadDate(formattedDate);
+                String formattedDate = tool.trimDate(rs.getString("uploadDate"));
+                formattedDate = tool.convertDisplayDate(formattedDate);
+                n.setUploadDate(formattedDate);
 
-            n.setStatus(rs.getString("status"));
-            n.setPicture(rs.getBytes("image"));
-            list.add(n);
+                n.setStatus(rs.getString("status"));
+                n.setPicture(rs.getBytes("image"));
+                list.add(n);
+            }
+
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
-        rs.close();
-    } catch (SQLException e) {
-        e.printStackTrace();
+        return list;
     }
-
-    return list;
-}
 
     public News load(String NID) {
         News n = new News();
@@ -141,8 +142,8 @@ public class NewsManager {
             System.out.println("Failed to update due to internal error :(" + ex.getMessage());
         }
     }
-    
-     public void updateImage(byte[] image, String NID) throws ClassNotFoundException {
+
+    public void updateImage(byte[] image, String NID) throws ClassNotFoundException {
         String sql = "UPDATE News SET image = ? WHERE NID = ?";
         try {
             Connection conn = DBUtils.getConnection();

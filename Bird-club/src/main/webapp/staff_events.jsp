@@ -748,9 +748,9 @@
                                                         + "<path d='M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z'/>"
                                                         + "<path d='M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z'/>"
                                                         + "</svg>"
-                                                        + "Media</button>");
+                                                        + "Media</button></form>");
 
-                                                out.print("</form>"
+                                                out.print(""
                                                         + "<form action='./mail'>"
                                                         + "<input type='hidden' name='ID' value = '" + f.getFID() + "'>"
                                                         + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-gray-700 hover:text-white focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
@@ -780,7 +780,6 @@
 
 
                                     <%
-
                                         for (Meeting m : mList) {
                                             out.print("<li class='relative flex flex-col bg-white sm:rounded-lg shadow p-6'>"
                                                     + "<div><h1 class='font-bold text-xl text-gray-900 space-x-2'><span>"
@@ -788,7 +787,7 @@
                                                     + "</span>");
 
                                             if (m.getStatus().trim().equalsIgnoreCase("pending")) {
-                                                out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-green-100 text-green-800 text-xs rounded-full'>"
+                                                out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-gray-100 text-gray-800 text-xs rounded-full'>"
                                                         + "Pending"
                                                         + "</span>");
                                             } else if (m.getStatus().trim().equalsIgnoreCase("formClosed")) {
@@ -796,16 +795,17 @@
                                                         + "Form is closed"
                                                         + "</span>");
                                             } else if (m.getStatus().trim().equalsIgnoreCase("ongoing")) {
-                                                out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-red-100 text-red-800 text-xs rounded-full'>"
+                                                out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-lime-100 text-lime-800 text-xs rounded-full'>"
                                                         + "On going"
                                                         + "</span>");
                                             } else if (m.getStatus().trim().equalsIgnoreCase("finished")) {
-                                                out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-gray-100 text-gray-800 text-xs rounded-full'>"
+                                                out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-red-100 text-red-800 text-xs rounded-full'>"
                                                         + "Finished"
                                                         + "</span>");
                                             }
+
                                             out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-gray-100 text-gray-800 text-xs rounded-full'>"
-                                                    + "Meeting"
+                                                    + "Field trip"
                                                     + "</span>");
 
                                             out.print("<h1 class='font-semibold text-lg text-gray-900 space-x-2 mb-4'>" + m.getStartDate() + "</h1>");
@@ -833,6 +833,7 @@
                                                     + "<path d='M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z'/>"
                                                     + "<path d='M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1.5a.5.5 0 0 0 1 0V11a.5.5 0 0 0-.5-.5Zm0 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z'/>"
                                                     + "</div><div class='font-semibold text-gray-700 space-x-2'>Participant limit:   </div> <div>" + m.getNumberOfParticipant() + " members</div></div>"
+                                                    
                                                     + "<div class='mt-2 flex items-start space-x-3'>"
                                                     + "<div class='mt-0.5'><span class='sr-only'></span>"
                                                     + "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-info-circle-fill text-gray-400' viewBox='0 0 16 16'>"
@@ -843,7 +844,8 @@
                                                     + "<div class='mt-0.5'><span class='sr-only'></span>" + "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-exclamation-circle-fill  text-gray-400' viewBox='0 0 16 16'>"
                                                     + "<path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z'/></svg>"
                                                     + "</div><div class='font-semibold text-gray-700 space-x-2'>Note:   </div></div>"
-                                                    + "<div class='mt-2 space-y-4 space-x-3'>" + m.getNote() + "</div>");
+                                                    + "<div class='mt-2 space-y-4 space-x-3'>" + m.getNote() + "</div>"
+                                                    + "<div style='margin-top: 15px' class='flex items-start space-x-3'>");
 
                                             if (m.getStatus().trim().equalsIgnoreCase("pending")) {
                                                 out.print("<form>"
@@ -897,9 +899,9 @@
                                                     + "<path d='M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z'/>"
                                                     + "<path d='M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z'/>"
                                                     + "</svg>"
-                                                    + "Media</button>");
+                                                    + "Media</button></form>");
 
-                                            out.print("</form>"
+                                            out.print(""
                                                     + "<form action='./mail'>"
                                                     + "<input type='hidden' name='ID' value = '" + m.getMeID() + "'>"
                                                     + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-gray-700 hover:text-white focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
@@ -910,7 +912,7 @@
                                                     + "</form>");
 
                                             out.print("<form>"
-                                                    + "<input type='hidden' name='ID' value = '" + m.getMeID() + "'>"
+                                                    + "<input type='hidden' name='MeID' value = '" + m.getMeID() + "'>"
                                                     + "<input type='hidden' name='action' value='viewparticipants'>"
                                                     + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-gray-700 hover:text-white focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                                     + "type='submit'>"
@@ -922,20 +924,26 @@
                                             out.print("</div>"
                                                     + "</li>"
                                                     + "");
-                                        }%> 
+
+                                        }%>   
+
+
+
                                 </ul>
 
                             </div></div></div></div></div>
 
             <div class="pt-6 flex items-center justify-between">
                 <div class="hidden sm:block">
-                    <span class="pagy-info">Displaying <b><% out.print(fList.size() + mList.size()); %></b> event(s)</span>
+                            <span class="pagy-info">Displaying <b><% out.print(fList.size() + mList.size()); %></b> event(s)</span>
                 </div>
                 <nav class="pagy-nav pagination">
                     <%! int i;%>
                     <% int totalNum = (Integer) request.getAttribute("a");
                         totalNum = (totalNum / 10) + 1;
-                        for (i = 1; i <= totalNum; i++) {
+                        for (i = 1;
+                                i <= totalNum;
+                                i++) {
                             if (pageNum == i) {
                                 out.print("<span class='page'><form>"
                                         + "<input type='hidden' name='page' value='" + i + "'>"
