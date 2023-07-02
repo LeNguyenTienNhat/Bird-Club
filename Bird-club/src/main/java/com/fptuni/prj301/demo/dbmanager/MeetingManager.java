@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 
 public class MeetingManager {
@@ -201,7 +203,9 @@ public class MeetingManager {
                 meeting.setIncharge(rs.getString("incharge"));
                 meeting.setHost(rs.getString("host"));
                 meeting.setContact(rs.getString("contact"));
-                meeting.setPictureURL(rs.getString("URL")); // Set the picture URL from MeetingMedia
+
+                byte[] imageBytes = rs.getBytes("image");
+                meeting.setImage(imageBytes); // Set the image directly as byte[]
                 meetings.add(meeting);
             }
 
@@ -214,14 +218,10 @@ public class MeetingManager {
 
     public List<Meeting> getTop10() {
         List<Meeting> meetings = new ArrayList<>();
-        String sql = "SELECT TOP 10 M.*, MM.URL "
+        String sql = "SELECT TOP 10 M.*, MM.image "
                 + "FROM Meeting AS M "
-                + "LEFT JOIN "
-                + "(SELECT MeID, URL "
-                + " FROM (SELECT MeID, URL, ROW_NUMBER() OVER (PARTITION BY MeID ORDER BY URL DESC) AS RowNum "
-                + "       FROM MeetingMedia WHERE category = 'thumbnail') AS MMSub "
-                + " WHERE RowNum = 1) AS MM "
-                + "ON M.MeID = MM.MeID "
+                + "LEFT JOIN MeetingMedia AS MM ON M.MeID = MM.MeID "
+                + "WHERE MM.description = 'thumbnail' "
                 + "ORDER BY M.startDate DESC";
 
         try (Connection conn = DBUtils.getConnection();
@@ -243,7 +243,53 @@ public class MeetingManager {
                 meeting.setIncharge(rs.getString("incharge"));
                 meeting.setHost(rs.getString("host"));
                 meeting.setContact(rs.getString("contact"));
-                meeting.setPictureURL(rs.getString("URL")); // Set the picture URL from MeetingMedia
+
+                byte[] imageBytes = rs.getBytes("image");
+                meeting.setImage(imageBytes); // Set the image directly as byte[]
+
+                meetings.add(meeting);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return meetings;
+    }
+
+    public List<Meeting> getUpdate() {
+        List<Meeting> meetings = new ArrayList<>();
+        String sql = "SELECT M.*, MM.URL "
+                + "FROM Meeting AS M "
+                + "LEFT JOIN "
+                + "(SELECT MeID, URL "
+                + " FROM MeetingMedia "
+                + " WHERE category = 'gallery') AS MM "
+                + "ON M.MeID = MM.MeID "
+                + "ORDER BY M.registrationDeadline DESC";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                Meeting meeting = new Meeting();
+                meeting.setMeID(rs.getString("MeID"));
+                meeting.setName(rs.getString("name"));
+                meeting.setDescription(rs.getString("description"));
+                meeting.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
+                meeting.setStatus(rs.getString("status"));
+                meeting.setLID(rs.getString("LID"));
+                meeting.setStartDate(tool.trimDate(rs.getString("startDate")));
+                meeting.setEndDate(tool.trimDate(rs.getString("endDate")));
+                meeting.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                meeting.setNote(rs.getString("note"));
+                meeting.setIncharge(rs.getString("incharge"));
+                meeting.setHost(rs.getString("host"));
+                meeting.setContact(rs.getString("contact"));
+
+                byte[] imageBytes = rs.getBytes("image");
+                meeting.setImage(imageBytes); // Set the image directly as byte[]
                 meetings.add(meeting);
             }
 
@@ -310,22 +356,6 @@ public class MeetingManager {
         return count;
     }
 
-    public static void main(String[] args) {
-        // Test the getTournamentById method
-        MeetingManager meetingDAO = new MeetingManager();
-        String meid = "MeID0"; // Replace with the actual tournament ID
-        Meeting meeting = meetingDAO.getMeetingById(meid);
-
-        if (meeting != null) {
-            System.out.println("Meeting found:");
-            System.out.println("MeID: " + meeting.getMeID());
-            System.out.println("Name: " + meeting.getName());
-            // Print other tournament details as needed
-        } else {
-            System.out.println("Meeting not found.");
-        }
-    }
-
     public int getNumberAsStatus(String status) {
         int count = 0;
         String sql = "SELECT * FROM Meeting WHERE status = ?";
@@ -361,5 +391,29 @@ public class MeetingManager {
 
         }
         return list;
+    }
+
+    public static void main(String[] args) {
+        MeetingManager m = new MeetingManager();
+
+        List<Meeting> top10Meetings = m.getTop10();
+        for (Meeting meeting : top10Meetings) {
+            System.out.println("Meeting ID: " + meeting.getMeID());
+            System.out.println("Name: " + meeting.getName());
+            System.out.println("Description: " + meeting.getDescription());
+            System.out.println("Registration Deadline: " + meeting.getRegistrationDeadline());
+            System.out.println("Start Date: " + meeting.getStartDate());
+            System.out.println("End Date: " + meeting.getEndDate());
+            System.out.println("LID: " + meeting.getLID());
+            System.out.println("Status: " + meeting.getStatus());
+            System.out.println("Number of Participants: " + meeting.getNumberOfParticipant());
+            System.out.println("Category: " + meeting.getCategory());
+            System.out.println("Note: " + meeting.getNote());
+            System.out.println("Incharge: " + meeting.getIncharge());
+            System.out.println("Host: " + meeting.getHost());
+            System.out.println("Contact: " + meeting.getContact());
+            System.out.println("Image: " + Arrays.toString(meeting.getImage()));
+            System.out.println("----------------------");
+        }
     }
 }

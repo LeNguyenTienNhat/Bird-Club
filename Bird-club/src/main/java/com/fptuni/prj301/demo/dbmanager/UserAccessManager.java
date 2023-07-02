@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import java.util.Date;
 
 public class UserAccessManager {
@@ -163,38 +164,40 @@ public boolean SignUp(UserSession user) {
     return false; // Password update failed
 }
 
-    public UserSession searchByName(String username) {
-        UserSession user = null;
-        String sql = "SELECT * FROM [User] WHERE username = ?";
+public UserSession searchByName(String username) {
+    UserSession user = null;
+    String sql = "SELECT *, profilePicture FROM [User] WHERE username = ?";
 
-        try (Connection conn = DBUtils.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, username);
-            ResultSet rs = ps.executeQuery();
+    try (Connection conn = DBUtils.getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        ps.setString(1, username);
+        ResultSet rs = ps.executeQuery();
 
-            if (rs.next()) {
-                user = new UserSession();
-                user.setUID(rs.getString("UID"));
-                user.setUserName(rs.getString("userName"));
-                user.setFullName(rs.getString("fullName"));
-                user.setPhone(rs.getString("phone"));
-                user.setEmail(rs.getString("email"));
-                user.setPassword(rs.getString("password"));
-                user.setRole(rs.getString("role"));
-                user.setExpriedDate(rs.getDate("expiredDate"));
-                user.setStatus(rs.getString("status"));
-                user.setSignUpDate(rs.getDate("signupDate"));
-                user.setMID(rs.getString("MID"));
-                user.setGender(rs.getString("gender"));
-            }
-
-            rs.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if (rs.next()) {
+            user = new UserSession();
+            user.setUID(rs.getString("UID"));
+            user.setUserName(rs.getString("userName"));
+            user.setFullName(rs.getString("fullName"));
+            user.setPhone(rs.getString("phone"));
+            user.setEmail(rs.getString("email"));
+            user.setPassword(rs.getString("password"));
+            user.setRole(rs.getString("role"));
+            user.setExpriedDate(rs.getDate("expiredDate"));
+            user.setStatus(rs.getString("status"));
+            user.setSignUpDate(rs.getDate("signupDate"));
+            user.setMID(rs.getString("MID"));
+            user.setGender(rs.getString("gender"));
+            // Update to set profile picture from the image field
+            user.setImage(rs.getBytes("profilePicture"));
         }
 
-        return user;
+        rs.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+
+    return user;
+}
      public UserSession searchName(String username) {
         UserSession user = null;
         String sql = "SELECT * FROM [User] WHERE [UID] = ?";
@@ -230,18 +233,17 @@ public boolean SignUp(UserSession user) {
 
     
 public static void main(String[] args) {
-        // Create a sample user object
-        UserAccessManager u = new UserAccessManager();
-        UserSession user= u.searchByName("Emily");
-//        user.setExpiredDate(new Date(System.currentTimeMillis() - 86400000)); // Set expired date to yesterday
-
-        // Perform the condition check
-        if (user.getExpriedDate() != null && user.getExpriedDate().before(new Date())) {
-            System.out.println("User's membership has expired");
-        } else {
-            System.out.println("User's membership is active");
-        }
+    String username = "huy";
+    UserAccessManager u = new UserAccessManager();
+    UserSession user = u.searchByName(username);
+    if (user != null) {
+        // Access the profile picture as a byte array
+        byte[] profilePicture = user.getImage();
+        System.out.println(Arrays.toString(profilePicture));
+        // Perform further actions with the profile picture data
+        // ...
     }
+}
 
 }
 

@@ -16,15 +16,14 @@ public class Meeting {
     private String incharge;
     private String host;
     private String contact;
-    private String pictureURL; // New field for picture URL
+    private byte[] image;
 
-    // Constructors, getters, and setters for existing fields
-    public String getPictureURL() {
-        return pictureURL;
+    public byte[] getImage() {
+        return image;
     }
 
-    public void setPictureURL(String pictureURL) {
-        this.pictureURL = pictureURL;
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     public Meeting(String MeID, String name, String description, String registrationDeadline, String startDate, String endDate, String LID, String status, int numberOfParticipant, String note, String incharge, String host, String contact) {

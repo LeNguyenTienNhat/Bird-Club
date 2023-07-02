@@ -1,7 +1,7 @@
-
 package com.fptuni.prj301.demo.model;
 
 public class Tournament {
+
     private String TID;
     private String name;
     private String description;
@@ -18,16 +18,14 @@ public class Tournament {
     private String incharge;
     private String host;
     private String contact;
-    private String pictureURL; // New field for picture URL
+    private byte[] image;
 
-    // Constructors, getters, and setters for existing fields
-
-    public String getPictureURL() {
-        return pictureURL;
+    public byte[] getImage() {
+        return image;
     }
 
-    public void setPictureURL(String pictureURL) {
-        this.pictureURL = pictureURL;
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     public Tournament(String TID, String name, String description, String registrationDeadline, String startDate, String endDate, String LID, String status, int fee, int numberOfParticipant, int totalPrize, String note, String incharge, String host, String contact) {
@@ -80,8 +78,6 @@ public class Tournament {
     public void setContact(String contact) {
         this.contact = contact;
     }
-    
-
 
     public int getTotalPrize() {
         return totalPrize;
@@ -90,7 +86,7 @@ public class Tournament {
     public void setTotalPrize(int totalPrize) {
         this.totalPrize = totalPrize;
     }
-    
+
     public int getFee() {
         return fee;
     }
@@ -109,7 +105,7 @@ public class Tournament {
     public void setCategory(String category) {
         this.category = category;
     }
-    
+
     public String getTID() {
         return TID;
     }
@@ -181,6 +177,5 @@ public class Tournament {
     public void setNumberOfParticipant(int numberOfParticipant) {
         this.numberOfParticipant = numberOfParticipant;
     }
-    
-    
+
 }

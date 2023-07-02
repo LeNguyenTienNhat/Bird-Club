@@ -2,6 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.Base64" %>
 <!--Header-->
 
 
@@ -74,16 +75,16 @@
                     </div>
 
 
-                    <div class="is-layout-flow wp-block-group alignfull page-section macaulay">
-                        <h2 class="has-text-align-center has-large-font-size" id="macaulay-library-photowall">Chim Owners' Library</h2>
-                        <p>Epic pictures taken by experts from Chim Owners. For real.</p>
-
-                        <div id="my_nanogallery2"></div>
-
-                        <div class="is-horizontal is-content-justification-center is-layout-flex wp-container-33 wp-block-buttons">
-                            <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="member_gallery.jsp">Browse More Photos</a></div>
-                        </div>
-                    </div>
+                    <!--                    <div class="is-layout-flow wp-block-group alignfull page-section macaulay">
+                                            <h2 class="has-text-align-center has-large-font-size" id="macaulay-library-photowall">Chim Owners' Library</h2>
+                                            <p>Epic pictures taken by experts from Chim Owners. For real.</p>
+                    
+                                            <div id="my_nanogallery2"></div>
+                    
+                                            <div class="is-horizontal is-content-justification-center is-layout-flex wp-container-33 wp-block-buttons">
+                                                <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="member_gallery.jsp">Browse More Photos</a></div>
+                                            </div>
+                                        </div>-->
                     <style>
                         #hero-wrapper .hero-text { width: 600px; }
                     </style>
@@ -97,33 +98,32 @@
                                 <div class="article-list card-display carousel card-three ">
                                     <ul>
                                         <c:forEach var="n" items="${news}" varStatus="loop">
-                                        <li class="article-item">
-                                            <div class="article-item-container">
-                                                <div class="article-item-media content-article" data-link-to="http://www.seychellesnewsagency.com/articles/2332/Eradication+success++Seychelles+wins+war+against+invasive+red-whiskered+bulbul">
-                                                    <div class="article-item-media-ratio">
-                                                        <img  data-srcset='${n.getImage()} 720w, ${n.getImage()} 768w,${n.getImage()} 1280w, ${n.getImage()} 480w, ${n.getImage()} 1872w'   loading="lazy" data-src="${n.getImage()}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" src="${n.getImage()}" />
-                                                        <noscript><img src='${n.getImage()}' srcset='${n.getImage()} 720w, ${n.getImage()} 768w,${n.getImage()} 1280w, ${n.getImage()} 480w, ${n.getImage()} 1872w' sizes='(max-width: 480px) 100vw, 480px'  loading="lazy" />
-                                                        </noscript>
+                                            <li class="article-item">
+                                                <div class="article-item-container">
+                                                    <div class="article-item-media content-article" data-link-to="http://www.seychellesnewsagency.com/articles/2332/Eradication+success++Seychelles+wins+war+against+invasive+red-whiskered+bulbul">
+                                                        <div class="article-item-media-ratio">
+                                                            <c:set var="base64Image" value="${Base64.getEncoder().encodeToString(n.getImage())}" />
+                                                            <img data-srcset="data:image/png;base64,${base64Image} 720w, data:image/png;base64,${base64Image} 768w, data:image/png;base64,${base64Image} 1280w, data:image/png;base64,${base64Image} 480w, data:image/png;base64,${base64Image} 1872w" loading="lazy" data-src="data:image/png;base64,${base64Image}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
+                                                            <noscript>
+                                                            <img src="data:image/png;base64,${base64Image}" srcset="data:image/png;base64,${base64Image} 720w, data:image/png;base64,${base64Image} 768w, data:image/png;base64,${base64Image} 1280w, data:image/png;base64,${base64Image} 480w, data:image/png;base64,${base64Image} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
+                                                            </noscript>
+                                                        </div>
+                                                    </div>
+                                                    <div class="article-item-body">
+                                                        <span class="attribution"></span>
+                                                        <a class="article-item-link" href="${pageContext.request.contextPath}/news?action=details&NID=${n.getNID()}">
+                                                            <span class="article-item-header">${n.getTitle()}</span>
+                                                        </a>
                                                     </div>
                                                 </div>
-                                                        <div class="article-item-body">
-                                                            <span class="attribution">
-                                                    
-                                                    </span>
-                                                            <a class="article-item-link" href="${pageContext.request.contextPath}/news?action=details&NID=${n.getNID()}">
-                                                                <span class="article-item-header">${n.getTitle()}</span>
-                                                            </a>
-                                                        </div>
-                                            </div>
-                                        </li>
-
-                                   </c:forEach>
-                                        </ul></div>
+                                            </li>
+                                        </c:forEach>
+                                    </ul></div>
                             </div>
 
                         </div>
                     </div>
-<!-- Field trip-->
+                    <!-- Field trip-->
                     <div class="is-layout-flow wp-block-group alignfull page-section what-you-can-do">
                         <!--                        <h2 class="has-text-align-right has-orange-color has-text-color has-small-font-size" id="what-you-can-do">Where you can do</h2>-->
                         <h3 class="has-text-align-right has-orange-color has-text-color has-large-font-size">Field trip </h3>
@@ -133,100 +133,107 @@
                                 <div class="article-list card-display carousel card-three ">
                                     <ul>
                                         <c:forEach var="e" items="${eventsList}" varStatus="loop">
-                                        <li class="article-item">
-                                            <div class="article-item-container">
-                                                <div class="article-item-media content-article" data-link-to="member_fieldtrip_details.jsp">
-                                                    <div class="article-item-media-ratio">
-                                                        <img  data-srcset='${e.getPictureURL()}, ${e.getPictureURL()} 768w, ${e.getPictureURL()} 1280w, ${e.getPictureURL()} 480w, ${e.getPictureURL()} 1872w'   loading="lazy" data-src="${e.getPictureURL()}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" src="${e.getPictureURL()}" />
-                                                        <noscript><img src='${e.getPictureURL()}' srcset='${e.getPictureURL()} 720w, ${e.getPictureURL()} 768w, ${e.getPictureURL()} 1280w, ${e.getPictureURL()} 480w, ${e.getPictureURL()} 1872w' sizes='(max-width: 480px) 100vw, 480px'  loading="lazy" />home?action=view""
-                                                        </noscript>
+                                            <li class="article-item">
+                                                <div class="article-item-container">
+                                                    <div class="article-item-media content-article" data-link-to="member_fieldtrip_details.jsp">
+                                                        <c:set var="base64ImageF" value="${Base64.getEncoder().encodeToString(e.getImage())}" />
+                                                        <c:if test="${not empty base64ImageF}">
+                                                            <div class="article-item-media-ratio">
+                                                                <img data-srcset="data:image/png;base64,${base64ImageF} 720w, data:image/png;base64,${base64ImageF} 768w, data:image/png;base64,${base64ImageF} 1280w, data:image/png;base64,${base64ImageF} 480w, data:image/png;base64,${base64ImageF} 1872w" loading="lazy" data-src="data:image/png;base64,${base64ImageF}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
+                                                                <noscript>
+                                                                <img src="data:image/png;base64,${base64ImageF}" srcset="data:image/png;base64,${base64ImageF} 720w, data:image/png;base64,${base64ImageF} 768w, data:image/png;base64,${base64ImageF} 1280w, data:image/png;base64,${base64ImageF} 480w, data:image/png;base64,${base64ImageF} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
+                                                                </noscript>
+                                                            </div>
+                                                        </c:if>
+                                                    </div>
+                                                    <div class="article-item-body">
+                                                        <span class="attribution">${e.getStartDate()} – ${e.getEndDate()}</span>
+                                                        <a class="article-item-link" href="${pageContext.request.contextPath}/FieldTripParticipantsController?action=view&FID=${e.getFID()}">
+                                                            <span class="article-item-header">${e.getName()}</span>
+                                                        </a>
                                                     </div>
                                                 </div>
-                                                <div class="article-item-body">
-                                                   
-                                                    <span class="attribution">${e.getStartDate()} –${e.getEndDate()}</span>
-                                                    <a class="article-item-link" href="${pageContext.request.contextPath}/FieldTripParticipantsController?action=view&FID=${e.getFID()}">
-                                                        <span class="article-item-header">${e.getName()}</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
+                                            </li>
+                                        </c:forEach>
+                                    </ul></div>
+                            </div>
 
-                                </c:forEach>
+                        </div>
+                        <!--Meeting-->
+                        <div class="is-layout-flow wp-block-group alignfull page-section what-you-can-do">
+                            <!--                        <h2 class="has-text-align-center has-orange-color has-text-color has-small-font-size" id="what-you-can-do">What you can do</h2>-->
+                            <h3 class="has-text-align-right has-orange-color has-text-color has-large-font-size">Meeting</h3>
+                            <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
+                            <div class="is-layout-flex wp-container-15 wp-block-columns">
+                                <div class="is-layout-flow wp-block-column">
+                                    <div class="article-list card-display carousel card-three ">
+                                        <ul>
+                                            <c:forEach var="m" items="${meetingsList}" varStatus="loop">
+                                                <li class="article-item">
+                                                    <div class="article-item-container">
+                                                        <div class="article-item-media content-article" data-link-to="member_tournament.jsp">
+                                                            <c:set var="base64ImageM" value="${Base64.getEncoder().encodeToString(m.getImage())}" />
+                                                            <c:if test="${not empty base64ImageM}">
+                                                                <div class="article-item-media-ratio">
+                                                                    <img data-srcset="data:image/png;base64,${base64ImageM} 720w, data:image/png;base64,${base64ImageM} 768w, data:image/png;base64,${base64ImageM} 1280w, data:image/png;base64,${base64ImageM} 480w, data:image/png;base64,${base64ImageM} 1872w" loading="lazy" data-src="data:image/png;base64,${base64ImageM}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
+                                                                    <noscript>
+                                                                    <img src="data:image/png;base64,${base64ImageM}" srcset="data:image/png;base64,${base64ImageM} 720w, data:image/png;base64,${base64ImageM} 768w, data:image/png;base64,${base64ImageM} 1280w, data:image/png;base64,${base64ImageM} 480w, data:image/png;base64,${base64ImageM} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
+                                                                    </noscript>
+                                                                </div>
+                                                            </c:if>
+                                                        </div>
+                                                        <div class="article-item-body">
+                                                            <span class="attribution">${m.getStartDate()} – ${m.getEndDate()}</span>
+                                                            <a class="article-item-link" href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}">
+                                                                <span class="article-item-header">${m.getName()}</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </c:forEach>
                                         </ul></div>
-                            </div>
+                                </div>
 
+                            </div>
                         </div>
-<!--Meeting-->
-    <div class="is-layout-flow wp-block-group alignfull page-section what-you-can-do">
-                        <!--                        <h2 class="has-text-align-center has-orange-color has-text-color has-small-font-size" id="what-you-can-do">What you can do</h2>-->
-                        <h3 class="has-text-align-right has-orange-color has-text-color has-large-font-size">Meeting</h3>
-                        <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
-                        <div class="is-layout-flex wp-container-15 wp-block-columns">
-                            <div class="is-layout-flow wp-block-column">
-                                <div class="article-list card-display carousel card-three ">
-                                    <ul>
-                                           <c:forEach var="m" items="${meetingsList}" varStatus="loop">
-                                        <li class="article-item">
-                                                <div class="article-item-container">
-                                                    <div class="article-item-media content-article" data-link-to="member_tournament.jsp">
-                                                        
-                                                        <div class="article-item-media-ratio">
-                                                            <img  data-srcset='${m.getPictureURL()}, ${m.getPictureURL()} 768w, ${m.getPictureURL()}1280w, ${m.getPictureURL()} 480w, ${m.getPictureURL()} 1872w'   loading="lazy" data-src="${m.getPictureURL()}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" src="${m.getPictureURL()}" />
-                                                            <noscript><img src='${m.getPictureURL()}' srcset='${m.getPictureURL()} 720w, ${m.getPictureURL()} 768w, ${m.getPictureURL()} 1280w, ${m.getPictureURL()} 480w, ${m.getPictureURL()} 1872w' sizes='(max-width: 480px) 100vw, 480px'  loading="lazy" />
-                                                            </noscript>
+
+                        <!--Tournament-->
+                        <div class="is-layout-flow wp-block-group alignfull page-section what-you-can-do">
+                            <!--                        <h2 class="has-text-align-center has-orange-color has-text-color has-small-font-size" id="what-you-can-do">What you can do</h2>-->
+                            <h3 class="has-text-align-right has-orange-color has-text-color has-large-font-size">Tournaments</h3>
+                            <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
+                            <div class="is-layout-flex wp-container-15 wp-block-columns">
+                                <div class="is-layout-flow wp-block-column">
+                                    <div class="article-list card-display carousel card-three ">
+                                        <ul>
+                                            Copy code
+                                            <c:forEach var="t" items="${tList}" varStatus="loop">
+                                                <li class="article-item">
+                                                    <div class="article-item-container">
+                                                        <div class="article-item-media content-article" data-link-to="member_tournament.jsp">
+                                                            <c:set var="base64ImageT" value="${Base64.getEncoder().encodeToString(t.getImage())}" />
+                                                            <c:if test="${not empty base64ImageT}">
+                                                                <div class="article-item-media-ratio">
+                                                                    <img data-srcset="data:image/png;base64,${base64ImageT} 720w, data:image/png;base64,${base64ImageT} 768w, data:image/png;base64,${base64ImageT} 1280w, data:image/png;base64,${base64ImageT} 480w, data:image/png;base64,${base64ImageT} 1872w" loading="lazy" data-src="data:image/png;base64,${base64ImageT}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
+                                                                    <noscript>
+                                                                    <img src="data:image/png;base64,${base64ImageT}" srcset="data:image/png;base64,${base64ImageT} 720w, data:image/png;base64,${base64ImageT} 768w, data:image/png;base64,${base64ImageT} 1280w, data:image/png;base64,${base64ImageT} 480w, data:image/png;base64,${base64ImageT} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
+                                                                    </noscript>
+                                                                </div>
+                                                            </c:if>                                                        </div>
+                                                        <div class="article-item-body">
+                                                            <span class="attribution">${t.getStartDate()} – ${t.getEndDate()}</span>
+                                                            <a class="article-item-link" href="${pageContext.request.contextPath}/TparticipationController?action=view&TID=${t.getTID()}">
+                                                                <span class="article-item-header">${t.getName()}</span>
+                                                            </a>
                                                         </div>
                                                     </div>
-                                                    <div class="article-item-body">
-                                                        <span class="attribution">${m.getStartDate()} –${m.getEndDate()}</span>
-                                                        <a class="article-item-link" href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}">
-                                                            <span class="article-item-header">${m.getName()}</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                                </li>
+                                            </c:forEach>
+                                        </ul></div>
+                                </div>
 
-                                 </c:forEach>
-                                    </ul></div>
                             </div>
-
                         </div>
-                    </div>
-
-<!--Tournament-->
-    <div class="is-layout-flow wp-block-group alignfull page-section what-you-can-do">
-                        <!--                        <h2 class="has-text-align-center has-orange-color has-text-color has-small-font-size" id="what-you-can-do">What you can do</h2>-->
-                        <h3 class="has-text-align-right has-orange-color has-text-color has-large-font-size">Tournaments</h3>
-                        <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
-                        <div class="is-layout-flex wp-container-15 wp-block-columns">
-                            <div class="is-layout-flow wp-block-column">
-                                <div class="article-list card-display carousel card-three ">
-                                    <ul>
-                                           <c:forEach var="t" items="${tList}" varStatus="loop">
-                                        <li class="article-item">
-                                                <div class="article-item-container">
-                                                    <div class="article-item-media content-article" data-link-to="member_tournament.jsp">
-                                                        <div class="article-item-media-ratio">
-                                                            <img  data-srcset='${t.getPictureURL()}, ${t.getPictureURL()} 768w, ${t.getPictureURL()} 1280w, ${t.getPictureURL()} 480w, ${t.getPictureURL()} 1872w'   loading="lazy" data-src="${t.getPictureURL()}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" src="${t.getPictureURL()}" />
-                                                            <noscript><img src='${t.getPictureURL()}' srcset='${t.getPictureURL()} 720w, ${t.getPictureURL()} 768w, ${t.getPictureURL()} 1280w, ${t.getPictureURL()} 480w, ${t.getPictureURL()} 1872w' sizes='(max-width: 480px) 100vw, 480px'  loading="lazy" />
-                                                            </noscript>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                    <div class="article-item-body">
-                                                        <span class="attribution">${t.getStartDate()} –${t.getEndDate()}</span>
-                                                        <a class="article-item-link" href="${pageContext.request.contextPath}/TparticipationController?action=view&TID=${t.getTID()}">
-                                                            <span class="article-item-header">${t.getName()}</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                   </c:forEach>
-                                    </ul></div>
-                            </div>
-
-                        </div>
-                    </div>
 
                         <style>
                             #hero-wrapper .hero-text { width: 600px; }
@@ -241,7 +248,7 @@
     </main>
 
     <!--Footer-->
-   <%@ include file="member_footer.jsp" %>
+    <%@ include file="member_footer.jsp" %>
 
 
     <!-- BEGIN Search modal -->

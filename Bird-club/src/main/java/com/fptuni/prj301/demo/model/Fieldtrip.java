@@ -1,7 +1,7 @@
-
 package com.fptuni.prj301.demo.model;
 
 public class Fieldtrip {
+
     private String FID;
     private String name;
     private String description;
@@ -17,18 +17,16 @@ public class Fieldtrip {
     private String incharge;
     private String host;
     private String contact;
-    private String pictureURL; // New field for picture URL
+    private byte[] image;
 
-    // Constructors, getters, and setters for existing fields
-
-    public String getPictureURL() {
-        return pictureURL;
+    public byte[] getImage() {
+        return image;
     }
 
-    public void setPictureURL(String pictureURL) {
-        this.pictureURL = pictureURL;
+    public void setImage(byte[] image) {
+        this.image = image;
     }
-    
+
     public Fieldtrip(String FID, String name, String description, String registrationDeadline, String startDate, String endDate, String LID, String status, int fee, int numberOfParticipant, String note, String incharge, String host, String contact) {
         this.FID = FID;
         this.name = name;
@@ -79,8 +77,6 @@ public class Fieldtrip {
         this.contact = contact;
     }
 
-    
-
     public Fieldtrip() {
     }
 
@@ -91,7 +87,7 @@ public class Fieldtrip {
     public void setCategory(String category) {
         this.category = category;
     }
-    
+
     public String getFID() {
         return FID;
     }
@@ -171,6 +167,5 @@ public class Fieldtrip {
     public void setNumberOfParticipant(int numberOfParticipant) {
         this.numberOfParticipant = numberOfParticipant;
     }
-    
-    
+
 }

@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 public class FieldtripManager {
@@ -132,14 +133,10 @@ public class FieldtripManager {
 
     public List<Fieldtrip> getTop10() {
         List<Fieldtrip> fieldtrips = new ArrayList<>();
-        String sql = "SELECT TOP 10 F.*, FM.URL "
+        String sql = "SELECT TOP 10 F.*, FM.image "
                 + "FROM FieldTrip AS F "
-                + "LEFT JOIN "
-                + "(SELECT FID, URL "
-                + " FROM (SELECT FID, URL, ROW_NUMBER() OVER (PARTITION BY FID ORDER BY URL DESC) AS RowNum "
-                + "       FROM FieldTripMedia WHERE category = 'thumbnail') AS FMSub "
-                + " WHERE RowNum = 1) AS FM "
-                + "ON F.FID = FM.FID "
+                + "LEFT JOIN FieldTripMedia AS FM ON F.FID = FM.FID "
+                + "WHERE FM.description = 'thumbnail' "
                 + "ORDER BY F.startDate DESC";
 
         try (Connection conn = DBUtils.getConnection();
@@ -163,7 +160,10 @@ public class FieldtripManager {
                 fieldtrip.setIncharge(rs.getString("incharge"));
                 fieldtrip.setHost(rs.getString("host"));
                 fieldtrip.setContact(rs.getString("contact"));
-                fieldtrip.setPictureURL(rs.getString("URL")); // Set the picture URL from FieldTripMedia
+
+               byte[] imageBytes = rs.getBytes("image");
+               fieldtrip.setImage(imageBytes); // Set the image directly as byte[]
+
                 fieldtrips.add(fieldtrip);
             }
 
@@ -358,32 +358,7 @@ public class FieldtripManager {
         return count;
     }
 
-    public static void main(String[] args) {
-        // Create an instance of your class
-        FieldtripManager yourClass = new FieldtripManager();
 
-        // Call the getTop10() method
-        List<Fieldtrip> top10Fieldtrips = yourClass.getTop10();
-
-        // Iterate over the field trips and print their details
-        for (Fieldtrip fieldtrip : top10Fieldtrips) {
-            System.out.println("Field Trip ID: " + fieldtrip.getFID());
-            System.out.println("Name: " + fieldtrip.getName());
-            System.out.println("Description: " + fieldtrip.getDescription());
-            System.out.println("Start Date: " + fieldtrip.getStartDate());
-            System.out.println("End Date: " + fieldtrip.getEndDate());
-            System.out.println("LID: " + fieldtrip.getLID());
-            System.out.println("Status: " + fieldtrip.getStatus());
-            System.out.println("Fee: " + fieldtrip.getFee());
-            System.out.println("Number of Participants: " + fieldtrip.getNumberOfParticipant());
-            System.out.println("Category: " + fieldtrip.getCategory());
-            System.out.println("Note: " + fieldtrip.getNote());
-            System.out.println("Incharge: " + fieldtrip.getIncharge());
-            System.out.println("Host: " + fieldtrip.getHost());
-            System.out.println("Contact: " + fieldtrip.getContact());
-            System.out.println("------------------------");
-        }
-    }
 
     public List<Fieldtrip> getTop10Participation() {
         List<Fieldtrip> list = new ArrayList();
