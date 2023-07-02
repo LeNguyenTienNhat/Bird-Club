@@ -15,6 +15,7 @@ import com.fptuni.prj301.demo.model.Tournament;
 import com.fptuni.prj301.demo.model.Tparticipation;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -55,7 +56,8 @@ public class TparticipationController extends HttpServlet {
             tparticipation.setTID(tid);
             tparticipation.setBID(bid);
             tparticipation.setDocNo(docNo);
-            tparticipation.setAchievement(null);
+            tparticipation.setAchievement("non");
+            tparticipation.setScore(BigDecimal.ZERO);
 
             // Insert the Tparticipation object into the database
             TparticipationManager tparticipationManager = new TparticipationManager();

@@ -24,6 +24,16 @@ public class UserSession {
     private Date signUpDate;
     private String MID;
     private String gender;
+     private byte[] image;
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
 
     public String getUID() {
         return UID;
@@ -121,8 +131,10 @@ public class UserSession {
         this.gender = gender;
     }
 
+    public UserSession() {
+    }
 
-    public UserSession(String UID, String userName, String fullName, String phone, String email, String password, String role, Date expriedDate, String Status, Date signUpDate, String MID, String gender) {
+    public UserSession(String UID, String userName, String fullName, String phone, String email, String password, String role, Date expriedDate, String Status, Date signUpDate, String MID, String gender, byte[] image) {
         this.UID = UID;
         this.userName = userName;
         this.fullName = fullName;
@@ -135,9 +147,9 @@ public class UserSession {
         this.signUpDate = signUpDate;
         this.MID = MID;
         this.gender = gender;
+        this.image = image;
     }
 
-    public UserSession() {
-    }
+
 
 }

@@ -114,11 +114,10 @@ public class TparticipationManager {
     }
 
     public List<Tparticipation> getParticipantList(String TID) {
-        List<Tparticipation> list = new ArrayList();
-        String sql = "SELECT * FROM [Tparticipation] WHERE TID = ?";
-        try {
-            Connection conn = DBUtils.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        List<Tparticipation> list = new ArrayList<>();
+        String sql = "SELECT * FROM [Tparticipation] WHERE TID = ? ORDER BY score DESC";
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, TID);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -127,9 +126,11 @@ public class TparticipationManager {
                 t.setBID(rs.getString("BID"));
                 t.setDocNo(rs.getString("docNo"));
                 t.setAchievement(rs.getString("achievement"));
+                t.setScore(rs.getBigDecimal("score"));
                 list.add(t);
             }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
         return list;
     }

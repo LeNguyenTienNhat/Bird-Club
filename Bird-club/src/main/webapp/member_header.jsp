@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.Base64" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -49,7 +50,7 @@
 
 
                                             <a target="_self" href="${pageContext.request.contextPath}/MemberProfileController?action=view" class="menu-link main-menu-link">
-                                                <img src="${users.getAvatar()}" alt="Avatar" class="avatar-image">
+                                                <img src="data:image/png;base64,${Base64.getEncoder().encodeToString(users.getImage())}" alt="Avatar" class="avatar-image">
                                                 <span class="username">${users.getUserName()}</span> 
                                             </a>
                                             <button aria-haspopup="true" aria-label="Show submenu for Courses">

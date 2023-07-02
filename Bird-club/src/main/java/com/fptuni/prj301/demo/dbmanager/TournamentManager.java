@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 public class TournamentManager {
@@ -39,12 +40,12 @@ public class TournamentManager {
                 tournament.setTID(rs.getString("TID"));
                 tournament.setName(rs.getString("name"));
                 tournament.setDescription(rs.getString("description"));
-                String registrationDeadline  = tool.trimDate(rs.getString("registrationDeadline"));
-                String startDate  = tool.trimDate(rs.getString("startDate"));
-                String endDate  = tool.trimDate(rs.getString("endDate"));
-                registrationDeadline  = tool.convertDisplayDate(registrationDeadline);
-                startDate  = tool.convertDisplayDate(startDate);
-                endDate  = tool.convertDisplayDate(endDate);
+                String registrationDeadline = tool.trimDate(rs.getString("registrationDeadline"));
+                String startDate = tool.trimDate(rs.getString("startDate"));
+                String endDate = tool.trimDate(rs.getString("endDate"));
+                registrationDeadline = tool.convertDisplayDate(registrationDeadline);
+                startDate = tool.convertDisplayDate(startDate);
+                endDate = tool.convertDisplayDate(endDate);
                 tournament.setRegistrationDeadline(registrationDeadline);
                 tournament.setStartDate(startDate);
                 tournament.setEndDate(endDate);
@@ -58,8 +59,7 @@ public class TournamentManager {
                 tournament.setIncharge(rs.getString("incharge"));
                 tournament.setHost(rs.getString("host"));
                 tournament.setContact(rs.getString("contact"));
-                
-                
+
                 list.add(tournament);
             }
             return list;
@@ -105,7 +105,8 @@ public class TournamentManager {
 
         return tournaments;
     }
-      public List<Tournament> getList() {
+
+    public List<Tournament> getList() {
         List<Tournament> tournaments = new ArrayList<>();
         String sql = "SELECT * FROM Tournament ";
 
@@ -138,21 +139,17 @@ public class TournamentManager {
         }
         return tournaments;
     }
+
 public List<Tournament> getTop10() {
     List<Tournament> tournaments = new ArrayList<>();
-    String sql = "SELECT TOP 10 T.*, TM.URL " +
-                 "FROM Tournament AS T " +
-                 "LEFT JOIN " +
-                 "(SELECT TID, URL " +
-                 " FROM (SELECT TID, URL, ROW_NUMBER() OVER (PARTITION BY TID ORDER BY URL DESC) AS RowNum " +
-                 "       FROM TournamentMedia WHERE category = 'thumbnail') AS TMSub " +
-                 " WHERE RowNum = 1) AS TM " +
-                 "ON T.TID = TM.TID " +
-                 "ORDER BY T.startDate DESC";
-
+    String sql = "SELECT TOP 10 T.*, TM.image "
+            + "FROM Tournament AS T "
+            + "LEFT JOIN TournamentMedia AS TM ON T.TID = TM.TID "
+             + "WHERE TM.description = 'thumbnail' "
+            + "ORDER BY T.startDate DESC";
     try (Connection conn = DBUtils.getConnection();
-         PreparedStatement ps = conn.prepareStatement(sql);
-         ResultSet rs = ps.executeQuery()) {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery()) {
 
         while (rs.next()) {
             Tournament tournament = new Tournament();
@@ -172,7 +169,9 @@ public List<Tournament> getTop10() {
             tournament.setIncharge(rs.getString("incharge"));
             tournament.setHost(rs.getString("host"));
             tournament.setContact(rs.getString("contact"));
-            tournament.setPictureURL(rs.getString("URL")); // Set the picture URL from the TournamentMedia table
+
+            tournament.setImage(rs.getBytes("image")); 
+
             tournaments.add(tournament);
         }
 
@@ -182,6 +181,7 @@ public List<Tournament> getTop10() {
 
     return tournaments;
 }
+
 
     public void insert(Tournament tournament) throws ClassNotFoundException, ParseException {
         String sql = "INSERT INTO Tournament"
@@ -297,82 +297,69 @@ public List<Tournament> getTop10() {
             System.out.println("Failed to ternimate due to internal error :(" + ex.getMessage());
         }
     }
+
     public Tournament getTournamentById(String tid) {
-    Tournament tournament = null;
-    String query = "SELECT * FROM Tournament WHERE TID = ?";
+        Tournament tournament = null;
+        String query = "SELECT * FROM Tournament WHERE TID = ?";
 
-     try (Connection conn = DBUtils.getConnection();
+        try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(query)) {
-        ps.setString(1, tid);
+            ps.setString(1, tid);
 
-        try (ResultSet rs = ps.executeQuery()) {
-            if (rs.next()) {
-                tournament = new Tournament();
-                tournament.setTID(rs.getString("TID"));
-                tournament.setName(rs.getString("name"));
-                tournament.setDescription(rs.getString("description"));
-                String registrationDeadline = rs.getString("registrationDeadline");
-                String startDate = rs.getString("startDate");
-                String endDate = rs.getString("endDate");
-                registrationDeadline = tool.trimDate(registrationDeadline);
-                startDate = tool.trimDate(startDate);
-                endDate = tool.trimDate(endDate);
-                tournament.setRegistrationDeadline(tool.convertDisplayDate(registrationDeadline));
-                tournament.setStartDate(tool.convertDisplayDate(startDate));
-                tournament.setEndDate(tool.convertDisplayDate(endDate));
-                tournament.setLID(rs.getString("LID"));
-                tournament.setStatus(rs.getString("status"));
-                tournament.setFee(rs.getInt("fee"));
-                tournament.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
-                tournament.setTotalPrize(rs.getInt("totalPrize"));
-                tournament.setCategory("Tournament");
-                tournament.setNote(rs.getString("note"));
-                tournament.setIncharge(rs.getString("incharge"));
-                tournament.setHost(rs.getString("host"));
-                tournament.setContact(rs.getString("contact"));
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    tournament = new Tournament();
+                    tournament.setTID(rs.getString("TID"));
+                    tournament.setName(rs.getString("name"));
+                    tournament.setDescription(rs.getString("description"));
+                    String registrationDeadline = rs.getString("registrationDeadline");
+                    String startDate = rs.getString("startDate");
+                    String endDate = rs.getString("endDate");
+                    registrationDeadline = tool.trimDate(registrationDeadline);
+                    startDate = tool.trimDate(startDate);
+                    endDate = tool.trimDate(endDate);
+                    tournament.setRegistrationDeadline(tool.convertDisplayDate(registrationDeadline));
+                    tournament.setStartDate(tool.convertDisplayDate(startDate));
+                    tournament.setEndDate(tool.convertDisplayDate(endDate));
+                    tournament.setLID(rs.getString("LID"));
+                    tournament.setStatus(rs.getString("status"));
+                    tournament.setFee(rs.getInt("fee"));
+                    tournament.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                    tournament.setTotalPrize(rs.getInt("totalPrize"));
+                    tournament.setCategory("Tournament");
+                    tournament.setNote(rs.getString("note"));
+                    tournament.setIncharge(rs.getString("incharge"));
+                    tournament.setHost(rs.getString("host"));
+                    tournament.setContact(rs.getString("contact"));
+                }
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
+
+        return tournament;
     }
 
-    return tournament;
-}
-    
-    public static void main(String[] args) {
-        // Test the getTournamentById method
-        TournamentManager tournamentDAO = new TournamentManager();
-        String tid = "TID0"; // Replace with the actual tournament ID
-       List<Tournament> top10Tournaments = tournamentDAO.getTop10();
 
-    // Print the details of the top 10 tournaments
-    for (Tournament tournament : top10Tournaments) {
-        System.out.println("Tournament ID: " + tournament.getTID());
-        System.out.println("Name: " + tournament.getName());
-        System.out.println("Description: " + tournament.getDescription());
-        // Print other details as needed
-        System.out.println("-------------------------------------");
-    }
-    }
-    
+
     public List<Tournament> getTop10Participation() throws SQLException {
         List<Tournament> list = new ArrayList();
         String sql = "select TOP 10 TID, COUNT(BID) AS 'num' from Tparticipation GROUP BY TID ORDER BY num DESC";
         try {
-        Connection conn = DBUtils.getConnection();
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            Tournament t = new Tournament();
-            t.setTID(rs.getString("TID"));
-            t.setNumberOfParticipant(rs.getInt("num"));
-            list.add(t);
-        }
-        return list;
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Tournament t = new Tournament();
+                t.setTID(rs.getString("TID"));
+                t.setNumberOfParticipant(rs.getInt("num"));
+                list.add(t);
+            }
+            return list;
         } catch (SQLException e) {
-            
+
         }
         return list;
     }
-  
+
 }
