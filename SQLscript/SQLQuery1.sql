@@ -118,6 +118,7 @@ CREATE TABLE [dbo].[Blog](
 	[UID] [nchar] (10) NOT NULL,
 	[vote] [decimal](18, 0) NOT NULL,
 	[picture] [image] NOT NULL,
+	[status] [nvarchar] (20) NOT NULL,
  CONSTRAINT [PK_Blog] PRIMARY KEY CLUSTERED 
 (
 	[BLID] ASC

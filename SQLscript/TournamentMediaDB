@@ -65,7 +65,7 @@ Values ('TID1','gallery','https://th.bing.com/th/id/OIP.E0ayXfiyCT4n9AwHkdUJugHa
 Insert into [TournamentMedia]
 Values ('TID10','gallery','https://goingplaces.malaysiaairlines.com/wp-content/uploads/2020/10/DSCF9895.jpg');
 Insert into [TournamentMedia]
-Values ('TID13','gallery' artistic skills in illustrating accurate bird anatomy.','https://th.bing.com/th/id/OIP.KYKDged9lTzBodgz455aTAHaHa?pid=ImgDet&rs=1');
+Values ('TID13','gallery','https://th.bing.com/th/id/OIP.KYKDged9lTzBodgz455aTAHaHa?pid=ImgDet&rs=1');
 Insert into [TournamentMedia]
 Values ('TID14','gallery','https://th.bing.com/th/id/OIP.U44tq-ib6mQEzccIy39IEQHaFF?pid=ImgDet&w=1600&h=1100&rs=1');
 Insert into [TournamentMedia]
