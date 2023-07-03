@@ -1,6 +1,5 @@
 <%@page import="com.fptuni.prj301.demo.model.Blog"%>
 <%@page import="java.util.Base64"%>
-<%@page import="com.fptuni.prj301.demo.model.News"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -305,34 +304,85 @@
                     </div>
 
 
+                    <div data-controller="record-filters">
+                        <!-- Filters -->
+                        <section aria-labelledby="filter-heading" class="relative z-10 grid items-center">
+                            <h2 id="filter-heading" class="sr-only">Filters</h2>
+                            <div class="relative col-start-1 row-start-1 py-4">
+                                <div class="max-w-7xl mx-auto flex space-x-6 divide-x divide-gray-200 text-sm px-4">
+                                    <div><button data-record-filters-target="toggle" data-action="record-filters#toggle" type="button" class="group text-gray-700 font-medium flex items-center" aria-controls="disclosure-1" aria-expanded="false">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="flex-none mr-2 text-gray-400 group-hover:text-gray-500 w-5 h-5">
+                                            <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd"></path>
+                                            </svg>Filter</button></div></div></div>
+
+                            <form class="hidden" data-record-filters-target="form" data-turbo-action="advance" accept-charset="UTF-8" method="get">
+                                <div class="border-t border-gray-200 py-10" id="disclosure-1">
+                                    <div class="max-w-7xl mx-auto  gap-x-4 px-4 text-sm md:gap-x-6">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 lg:grid-cols-3 md:gap-x-6 w-full">
+                                            <div class="space-y-4">
+                                                <div>
+                                                    <legend class="block font-medium">Status</legend>
+                                                    <div class="mt-1">
+                                                        <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="status" id="status">
+                                                            <option value="idle">Waiting for approval</option>
+                                                            <option value="approved">Approved</option>
+                                                            <option value="denied">Denied</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="space-y-4">
+                                                <legend class="block font-medium">Confirm sort</legend>
+                                                <div class="mt-1">                                               
+                                                    <button type="submit" class="flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="flex-none mr-2 w-5 h-5">
+                                                        <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd"></path>
+                                                        </svg>Sort</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="action" value="viewblogs">
+
+                            </form>  </section>
+                    </div>
+
 
                     <div>
                         <div class="lg:grid lg:grid-cols-12 lg:gap-x-16">
                             <div class="px-6 sm:px-0 mt-4 lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-8">
                                 <dl class="sm:rounded-t-lg grid grid-cols-1 bg-white overflow-hidden border-b border-gray-200 divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x">
                                     <div class="px-4 py-5 sm:p-6">
-                                        <dt class="text-base font-normal text-gray-900">Available</dt>
+                                        <dt class="text-base font-normal text-gray-900">Waiting for approval</dt>
                                         <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                             <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                89
+                                                <% int idleNum = (Integer) request.getAttribute("idleNum");
+                                                    out.print(idleNum);
+                                                %>
                                             </div>
                                         </dd>
                                     </div>
 
                                     <div class="px-4 py-5 sm:p-6">
-                                        <dt class="text-base font-normal text-gray-900">Trending</dt>
+                                        <dt class="text-base font-normal text-gray-900">Approved</dt>
                                         <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                             <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                6
+                                                <% int appovedNum = (Integer) request.getAttribute("appovedNum");
+                                                    out.print(appovedNum);
+                                                %>
                                             </div>
                                         </dd>
                                     </div>
 
                                     <div class="px-4 py-5 sm:p-6">
-                                        <dt class="text-base font-normal text-gray-900">Hidden</dt>
+                                        <dt class="text-base font-normal text-gray-900">Denied</dt>
                                         <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                             <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                7
+                                                <% int deniedNum = (Integer) request.getAttribute("deniedNum");
+                                                    out.print(deniedNum);
+                                                %>
                                             </div>
                                         </dd>
                                     </div>
@@ -341,56 +391,147 @@
 
                             <div class="lg:col-span-7 xl:col-span-7" id="events_list">
                                 <ul class="space-y-4 leading-6 text-sm mt-4">
-                                    <%! List<Blog> blogsList;%> 
+                                    <%! List<Blog> blogsList;
+                                        int listSize;%> 
                                     <% blogsList = (List<Blog>) request.getAttribute("list");
+                                        listSize = (Integer) request.getAttribute("listSize");
 
-                                        for (Blog b : blogsList) {
-                                            out.print("<li class='relative flex flex-col bg-white sm:rounded-lg shadow p-6'>"
-                                                    + "<div>"
-                                                    + "<h1 class='font-bold text-xl text-gray-900 space-x-2'><span>"
-                                                    + b.getUploadDate()
-                                                    + "</span>");
+                                        if (listSize == 0) {
+                                            out.print("No blog available as selected status.");
+                                        } else {
+                                            for (Blog b : blogsList) {
+                                                out.print("<li class='relative flex flex-col bg-white sm:rounded-lg shadow p-6'>"
+                                                        + "<div>"
+                                                        + "<h1 class='font-bold text-xl text-gray-900 space-x-2'><span>"
+                                                        +"Blog "+ b.getBID() + " - " +b.getVote() + " vote(s)"
+                                                        + "</span>");
 
-                                            if (b.getStatus().trim().equalsIgnoreCase("approved")) {
-                                                out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-green-100 text-green-800 text-xs rounded-full'>"
-                                                        + "Approved"
-                                                        + "</span>");
-                                            } else {
-                                                out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-red-100 text-red-800 text-xs rounded-full'>"
-                                                        + "Waiting for approval"
-                                                        + "</span>");
+                                                if (b.getStatus().trim().equalsIgnoreCase("approved")) {
+                                                    out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-green-100 text-green-800 text-xs rounded-full'>"
+                                                            + "Approved"
+                                                            + "</span>");
+                                                } else if (b.getStatus().trim().equalsIgnoreCase("denied")) {
+                                                    out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-red-100 text-red-800 text-xs rounded-full'>"
+                                                            + "Waiting for approval"
+                                                            + "</span>");
+                                                } else {
+                                                    out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-gray-100 text-gray-800 text-xs rounded-full'>"
+                                                            + "Waiting for approval"
+                                                            + "</span></h1>");
+                                                }
+                                                out.print("<div class='grid items-start lg:grid-cols-5 lg:gap-8'>");
+
+                                                out.print("<div class='lg:col-span-3'>");
+
+                                                out.print("<div class='mt-2'><span class='sr-only'></span>"
+                                                        + "</div><div class='font-semibold text-gray-700 mb-2'>Author: </div>"
+                                                        + "<div>" + b.getUID() + "</div>"
+                                                        + "<div class='mt-2'><span class='sr-only'></span>"
+                                                        + "</div><div class='font-semibold text-gray-700 space-x-2'>Description:   </div>"
+                                                        + "<div class='mt-0.5 space-y-4 space-x-3'>" + b.getBlogsContent() + "</div>"
+                                                        + "<div style='margin-top: 15px' class='flex items-start space-x-3'>"
+                                                        + "</div>");
+
+                                                out.print("<div style='margin-top: 20px' class='flex items-start space-x-3'>");
+
+                                                if (b.getStatus().trim().equalsIgnoreCase("idle")) {
+                                                    out.print("<form>"
+                                                            + "<input type='hidden' name='BLID' value = '" + b.getBID() + "'>"
+                                                            + "<input type='hidden' name='action' value='approve'>"
+                                                            + "<button class='flex justify-center py-2 px-4 text-base text-lime-500 border-transparent text-xs bg-white hover:bg-gray-100 hover:text-lime-500 focus:ring-lime-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                            + "type='submit'>"
+                                                            + "<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-check-circle mr-3 text-gray-400 group-hover:text-gray-900 w-5 h-5' viewBox='0 0 16 16'>"
+                                                            + "<path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/>"
+                                                            + "<path d='M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z'/>"
+                                                            + "</svg>"
+                                                            + "Approve</button>"
+                                                            + "</form>");
+                                                }
+
+                                                if (b.getStatus().trim().equalsIgnoreCase("idle")) {
+                                                    out.print("<form>"
+                                                            + "<input type='hidden' name='BLID' value = '" + b.getBID() + "'>"
+                                                            + "<input type='hidden' name='action' value='denie'>"
+                                                            + "<button class='flex justify-center py-2 px-4 text-base text-red-500 border-transparent text-xs bg-white hover:bg-gray-100 hover:text-red-500 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                            + "type='submit'>"
+                                                            + "<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-x-circle mr-3 text-gray-400 group-hover:text-red-500 w-5 h-5' viewBox='0 0 16 16'>"
+                                                            + "<path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/>"
+                                                            + "<path d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/>"
+                                                            + "</svg>"
+                                                            + "Denie</button>"
+                                                            + "</form>");
+                                                }
+
+                                                if (b.getStatus().trim().equalsIgnoreCase("approved")) {
+                                                    out.print("<form>"
+                                                            + "<input type='hidden' name='BLID' value = '" + b.getBID() + "'>"
+                                                            + "<input type='hidden' name='action' value='denie'>"
+                                                            + "<button class='flex justify-center py-2 px-4 text-base text-red-500 border-transparent text-xs bg-white hover:bg-gray-100 hover:text-red-500 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                            + "type='submit'>"
+                                                            + "<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-x-circle mr-3 text-gray-400 group-hover:text-red-500 w-5 h-5' viewBox='0 0 16 16'>"
+                                                            + "<path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/>"
+                                                            + "<path d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/>"
+                                                            + "</svg>"
+                                                            + "Denie</button>"
+                                                            + "</form>");
+                                                }
+
+                                                if (b.getStatus().trim().equalsIgnoreCase("denied")) {
+                                                    out.print("<form>"
+                                                            + "<input type='hidden' name='BLID' value = '" + b.getBID() + "'>"
+                                                            + "<input type='hidden' name='action' value='approve'>"
+                                                            + "<button class='flex justify-center py-2 px-4 text-base text-lime-500 border-transparent text-xs bg-white hover:bg-gray-100 hover:text-lime-500 focus:ring-lime-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
+                                                            + "type='submit'>"
+                                                            + "<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-check-circle mr-3 text-gray-400 group-hover:text-gray-900 w-5 h-5' viewBox='0 0 16 16'>"
+                                                            + "<path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/>"
+                                                            + "<path d='M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z'/>"
+                                                            + "</svg>"
+                                                            + "Approve</button>"
+                                                            + "</form>");
+                                                }
+
+                                                out.print("</div></div>");
+                                                out.print("<div class='lg:col-span-2'>");
+                                                out.print("<img style='height: auto; width: auto; display: block; margin-bottom: 25px' src='data:image/png;base64," + Base64.getEncoder().encodeToString(b.getPicture()) + "'>");
+
+                                                out.print("</div></div></div></li>");
                                             }
-                                            out.print("<h1 class='font-semibold text-lg text-gray-900 space-x-2'>" + b.getTitle() + "</h1></h1>");
-
-                                            out.print("<div class='grid items-start lg:grid-cols-5 lg:gap-8'>");
-
-                                            out.print("<div class='lg:col-span-3'>");
-
-                                            out.print("<div class='mt-2'><span class='sr-only'></span>"
-                                                    + "</div><div class='font-semibold text-gray-700 mb-2'>Author: </div>"
-                                                    + "<div>" + "ChimOwners" + "</div>"
-                                                    + "<div class='mt-2'><span class='sr-only'></span>"
-                                                    + "</div><div class='font-semibold text-gray-700 space-x-2'>Description:   </div>"
-                                                    + "<div class='mt-0.5 space-y-4 space-x-3'>" + b.getBlogsContent() + "</div>"
-                                                    + "<div style='margin-top: 15px' class='flex items-start space-x-3'>"
-                                                    + "<form action='./news'><input type='hidden' name='NID' value = '" + b.getBID() + "'>"
-                                                    + "<input type='hidden' name='action' value='edit'>"
-                                                    + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                                    + "type='submit' value='Edit'></form>"
-                                                    + "</div></div>");
-
-                                            out.print("<div class='lg:col-span-2'>");
-                                            out.print("<img style='height: auto; width: auto; display: block; margin-bottom: 25px' src='data:image/png;base64," + Base64.getEncoder().encodeToString(b.getPicture()) + "'>");
-
-                                            out.print("</div></div></div></li>");
                                         }%>   
 
                                 </ul>
-
                             </div>
-                        
-                                        
-                        
+
+                            <div class="pt-6 flex items-center justify-between">
+                                <nav class="pagy-nav pagination">
+                                    <%! int i;%>
+                                    <% int totalNum = (Integer) request.getAttribute("totalNum");
+                                        int pageNum = (Integer) request.getAttribute("pageNum");
+                                        String status = (String) request.getAttribute("status");
+                                        totalNum = (totalNum / 10) + 1;
+                                        for (i = 1;
+                                                i <= totalNum;
+                                                i++) {
+                                            if (pageNum == i) {
+                                                out.print("<span class='page'><form>"
+                                                        + "<input type='hidden' name='page' value='" + i + "'>"
+                                                        + "<input type='hidden' name='action' value='viewblogs'>"
+                                                        + "<input type='hidden' name='status' value='" + status + "'>"
+                                                        + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
+                                                        + "</form></span>");
+                                            } else {
+                                                out.print("<span class='page'><form>"
+                                                        + "<input type='hidden' name='page' value='" + i + "'>"
+                                                        + "<input type='hidden' name='action' value='viewblogs'>"
+                                                        + "<input type='hidden' name='status' value='" + status + "'>"
+                                                        + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
+                                                        + "</form></span>");
+                                            }
+                                        }
+                                    %>
+                                </nav>
+                            </div>
+
+
                         </div></div></div></div></div>       
     </main>
 

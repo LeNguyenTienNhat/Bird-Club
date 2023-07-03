@@ -1,7 +1,7 @@
 package com.fptuni.prj301.demo.controller;
 
-import com.fptuni.prj301.demo.dbmanager.NewsManager;
-import com.fptuni.prj301.demo.model.News;
+import com.fptuni.prj301.demo.dbmanager.BlogManager;
+import com.fptuni.prj301.demo.model.Blog;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
@@ -20,42 +20,54 @@ public class StaffBlogs extends HttpServlet {
             throws ServletException, IOException, ClassNotFoundException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("action");
-        NewsManager nm = new NewsManager();
+        BlogManager bm = new BlogManager();
         Tools tool = new Tools();
 
         //View all news
         if (action == null || action.equals("viewblogs")) {
-            List<News> list = nm.getList();
-            for (News n : list) {
-                String shortDescription;
-                try {
-                    shortDescription = tool.getShortDescription(n.getNewsContent());
-                } catch (Exception e) {
-                    shortDescription = n.getNewsContent();
-                }
-                n.setNewsContent(shortDescription + "...");
+            int page, skip;
+            String status = request.getParameter("status");
+            if (status == null) {
+                status = "idle";
             }
-            int numOfNews = list.size();
+            try {
+                page = Integer.parseInt(request.getParameter("page"));
+                skip = (page - 1) * 10;
+            } catch (NumberFormatException e) {
+                skip = 0;
+                page = 1;
+            }
+            List<Blog> list = bm.getRecords(skip, 10, status, "uploadDate");
+            int listSize = list.size();
+            int totalNum = bm.getTotalNum("all");
+            int idleNum = bm.getTotalNum("idle");
+            int appovedNum = bm.getTotalNum("approved");
+            int deniedNum = bm.getTotalNum("denied");
 
+            request.setAttribute("status", status);
+            request.setAttribute("pageNum", page);
+            request.setAttribute("totalNum", totalNum);
+            request.setAttribute("idleNum", idleNum);
+            request.setAttribute("appovedNum", appovedNum);
+            request.setAttribute("deniedNum", deniedNum);
             request.setAttribute("list", list);
-            request.setAttribute("numOfNews", numOfNews);
-            RequestDispatcher rd = request.getRequestDispatcher("staff_news.jsp");
+            request.setAttribute("listSize", listSize);
+            RequestDispatcher rd = request.getRequestDispatcher("staff_blogs.jsp");
             rd.forward(request, response);
-        } //Edit
-        else if (action.equals("edit")) {
-            String NID = request.getParameter("NID");
-            News n = nm.load(NID);
-            String plainContent = tool.getPlainText(n.getNewsContent());
-            n.setNewsContent(plainContent);
-            request.setAttribute("news", n);
-            RequestDispatcher rd = request.getRequestDispatcher("staff_news_details.jsp");
+        } //Approve
+        else if (action.equals("approve")) {
+            String BLID = request.getParameter("BLID");
+            bm.updateStatus(BLID, "approved");
+            RequestDispatcher rd = request.getRequestDispatcher("StaffBlogs");
+            rd.forward(request, response);
+        } //Denie
+        else if (action.equals("denie")) {
+            String BLID = request.getParameter("BLID");
+            bm.updateStatus(BLID, "denied");
+            RequestDispatcher rd = request.getRequestDispatcher("StaffBlogs");
             rd.forward(request, response);
         }
-        
-        
-        
     }
-
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods.">
     /**

@@ -16,7 +16,6 @@ public class Blog {
 
     private String BID;
     private String UID;
-    private String title;
     private String category;
     private String blogsContent;   
     private Date uploadDate;
@@ -43,14 +42,6 @@ public class Blog {
 
     public void setUID(String UID) {
         this.UID = UID;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getCategory() {
