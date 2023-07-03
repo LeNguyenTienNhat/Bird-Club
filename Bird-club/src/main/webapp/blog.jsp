@@ -405,53 +405,34 @@ function performAction() {
 
 
                         <div class="blog-container">
-                            <c:if test="${empty blogList}">
-                                <div>
-                                    <p>No blogs found.</p>
-                                </div>
-                            </c:if>
-                            <c:if test="${not empty blogList}">
-                                <c:forEach var="b" items="${blogList}" varStatus="loop">
-                                    <div class="blog-item">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <img src="${b.getImage()}" alt="Description of the image" style="display: block; margin: auto; width: 100%; height: 100%; padding: 20px;">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <h4 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium" style="display: flex; justify-content: center;">
-                                                    <a href="${pageContext.request.contextPath}/BlogController?action=view&BID=${f.getBID()}" title="${b.getTitle()}" style="display: flex; align-items: center;" class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
-                                                        ${b.getTitle()}
-                                                    </a>
-                                                </h4>
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <dt><strong>Upload day: </strong>${b.getUploadDate()}</dt>                              
+                            <ul>
+                                        <c:if test="${ empty blogList}"> not found </c:if>
+
+                                        <c:forEach var="b" items="${blogList}">
+
+                                            <li class="article-item">
+                                                <div class="article-item-container">
+                                                    <div class="article-item-media" data-link-to="">
+                                                        <div class="article-item-media-ratio">
+                                                            <c:if test="${empty b.getPicture()}">
+                                                                <div>No image available</div>
+                                                            </c:if>
+                                                            
                                                         </div>
                                                     </div>
-
-                                                    <div class="row" style="width:100%;">
-
-                                                        <dt style="width:500px;"> ${b.getBlogsContent()}</dt>
-
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-
-                                                            <dd>
-                                                                <a href="${pageContext.request.contextPath}/CommentController?action=view&BID=${b.getBID()}" title="${b.getTitle()}" style="display: flex; align-items: center;" class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
-                                                                    ${b.getVote()} Commented
-                                                                </a>
-                                                            </dd>
-                                                        </div>
+                                                    <div class="article-item-body">
+                                                        <span class="attribution project">${b.getCategory()}</span>
+                                                        <span class="article-item-header">
+                                                            <a href="${pageContext.request.contextPath}/BlogController?action=view&BLID=${f.getBLID()}" class="article-item-link" target="_self">
+                                                                ${b.getDescription()}  </a>
+                                                        </span>
+                                                        <span class="attribution topic">${b.getUploadDate()}</span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
+                                            </li>
 
-                                    </div>
-                                </c:forEach>
-                            </c:if>
+                                        </c:forEach>   
+                                    </ul>
                         </div>
                         <style>
                             .blog-container {

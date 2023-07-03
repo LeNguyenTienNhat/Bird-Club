@@ -15,12 +15,12 @@ import javax.imageio.ImageIO;
 public class DBgenerator {
 
     //Absolute path of user.png in media folder
-    String USER_PROFILE_PICTURE_PATH = "D:\\gt\\Bird-club\\src\\main\\webapp\\media\\user.png";
+    String USER_PROFILE_PICTURE_PATH = "D:\\GitHub\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\user.jpg";
     //Absolute path of bird.jpg in media folder
-    String BIRD_PROFILE_PICTURE_PATH = "D:\\gt\\Bird-club\\src\\main\\webapp\\media\\bird.jpg";
-    String FULLNAME_PATH = "D:\\gt\\Bird-Club\\fullName.txt";
-    String USERNAME_PATH = "D:\\gt\\Bird-Club\\username.txt";
-    String BIRDNAME_PATH = "D:\\gt\\Bird-Club\\petName.txt";
+    String BIRD_PROFILE_PICTURE_PATH = "D:\\GitHub\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\bird.jpg";
+    String FULLNAME_PATH = "D:\\GitHub\\Bird-Club\\Bird-club\\fullName.txt";
+    String USERNAME_PATH = "D:\\GitHub\\Bird-Club\\Bird-club\\username.txt";
+    String BIRDNAME_PATH = "D:\\GitHub\\Bird-Club\\Bird-club\\petName.txt";
 
     public byte[] ImageToByteArray(String path) throws IOException {
         BufferedImage bImage = ImageIO.read(new File(path));

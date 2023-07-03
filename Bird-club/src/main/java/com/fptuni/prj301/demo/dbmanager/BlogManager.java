@@ -33,14 +33,14 @@ public class BlogManager {
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     Blog blog = new Blog();
-                    blog.setBID(rs.getString("BID"));
-                    blog.setUID(rs.getString("UID"));
-                    blog.setCategory("Blog");
-                    blog.setBlogsContent(rs.getString("blogsContent"));
+                    blog.setBLID(rs.getString("BLID"));
+                    blog.setDescription(rs.getString("description"));
+                    blog.setCategory(rs.getString("category"));                    
                     blog.setUploadDate(rs.getDate("uploadDate"));
-                    blog.setStatus(rs.getString("status"));
-                    blog.setPicture(rs.getBytes("image"));
+                    blog.setUID(rs.getString("UID"));
                     blog.setVote(rs.getBigDecimal("vote"));
+                    blog.setPicture(rs.getBytes("picture"));
+                    blog.setStatus(rs.getString("status"));
                     blogs.add(blog);
                 }
             }
@@ -51,26 +51,25 @@ public class BlogManager {
         return blogs;
     }
 
-    public Blog getBlogByBID(String bid) {
+    public Blog getBlogByBLID(String blid) {
         Blog blog = null;
-        String query = "SELECT * FROM Blog WHERE BID = ?";
+        String query = "SELECT * FROM Blog WHERE BLID = ?";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(query)) {
-            ps.setString(1, bid);
+            ps.setString(1, blid);
 
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     blog = new Blog();
-                    blog.setBID(rs.getString("BID"));
-                    blog.setUID(rs.getString("UID"));
-                    blog.setCategory("Blog");
-                    blog.setBlogsContent(rs.getString("blogsContent"));
+                    blog.setBLID(rs.getString("BLID"));
+                    blog.setDescription(rs.getString("description"));
+                    blog.setCategory(rs.getString("category"));                    
                     blog.setUploadDate(rs.getDate("uploadDate"));
-                    blog.setStatus(rs.getString("status"));
-                    blog.setPicture(rs.getBytes("image"));
+                    blog.setUID(rs.getString("UID"));
                     blog.setVote(rs.getBigDecimal("vote"));
-
+                    blog.setPicture(rs.getBytes("picture"));
+                    blog.setStatus(rs.getString("status"));
                 }
             }
         } catch (SQLException e) {
@@ -83,15 +82,15 @@ public class BlogManager {
     public static void main(String[] args) {
         // Test the getFieldTripById method
         BlogManager blogDAO = new BlogManager();
-        String bid = "BID16"; // Replace with the actual tournament ID
-        Blog blog = blogDAO.getBlogByBID(bid);
+        String blid = "BLID1"; // Replace with the actual tournament ID
+        Blog blog = blogDAO.getBlogByBLID(blid);
 
         if (blog != null) {
             System.out.println("Blog found:");
-            System.out.println("BID: " + blog.getBID());
+            System.out.println("BLID: " + blog.getBLID());
             System.out.println("UID: " + blog.getUID());
             System.out.println("Category: " + blog.getCategory());
-            System.out.println("Description: " + blog.getBlogsContent());
+            System.out.println("Description: " + blog.getDescription());
             System.out.println("Upload Date: " + blog.getUploadDate());
             System.out.println("Comment: " + blog.getVote());
             // Print other fieldtrip details as needed
@@ -120,16 +119,17 @@ public class BlogManager {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Blog b = new Blog();
-                b.setBID(rs.getString("BLID"));
-                b.setUID(rs.getString("UID"));
+                b.setBLID(rs.getString("BLID"));
+                b.setDescription(rs.getString("description"));
                 b.setCategory(rs.getString("category"));
-                b.setBlogsContent(rs.getString("description"));
                 b.setUploadDate(rs.getDate("uploadDate"));
-                b.setStatus(rs.getString("status"));
+                b.setUID(rs.getString("UID"));
                 b.setVote(rs.getBigDecimal("vote"));
                 b.setPicture(rs.getBytes("picture"));
+                b.setStatus(rs.getString("status"));
                 list.add(b);
             }
+
             return list;
         } catch (SQLException ex) {
             System.out.println("Query error!" + ex.getMessage());

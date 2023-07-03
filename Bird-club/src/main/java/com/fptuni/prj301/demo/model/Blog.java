@@ -14,34 +14,43 @@ import java.util.Date;
  */
 public class Blog {
 
-    private String BID;
-    private String UID;
-    private String category;
-    private String blogsContent;   
+    private String BLID;
+    private String description;
+    private String category;  
     private Date uploadDate;
-    private String status;
+    private String UID;
     private BigDecimal vote;
     private byte[] picture;
+    private String status;
 
     public Blog() {
     }
 
-
-
-    public String getBID() {
-        return BID;
-    }
-
-    public void setBID(String BID) {
-        this.BID = BID;
-    }
-
-    public String getUID() {
-        return UID;
-    }
-
-    public void setUID(String UID) {
+    public Blog(String BLID, String description, String category, Date uploadDate, String UID, BigDecimal vote, byte[] picture, String status) {
+        this.BLID = BLID;
+        this.description = description;
+        this.category = category;
+        this.uploadDate = uploadDate;
         this.UID = UID;
+        this.vote = vote;
+        this.picture = picture;
+        this.status = status;
+    }
+
+    public String getBLID() {
+        return BLID;
+    }
+
+    public void setBLID(String BLID) {
+        this.BLID = BLID;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getCategory() {
@@ -52,14 +61,6 @@ public class Blog {
         this.category = category;
     }
 
-    public String getBlogsContent() {
-        return blogsContent;
-    }
-
-    public void setBlogsContent(String blogsContent) {
-        this.blogsContent = blogsContent;
-    }
-
     public Date getUploadDate() {
         return uploadDate;
     }
@@ -68,20 +69,12 @@ public class Blog {
         this.uploadDate = uploadDate;
     }
 
-    public String getStatus() {
-        return status;
+    public String getUID() {
+        return UID;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public byte[] getPicture() {
-        return picture;
-    }
-
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
+    public void setUID(String UID) {
+        this.UID = UID;
     }
 
     public BigDecimal getVote() {
@@ -92,6 +85,22 @@ public class Blog {
         this.vote = vote;
     }
 
-  
+    public byte[] getPicture() {
+        return picture;
+    }
 
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
+    
+    
 }
