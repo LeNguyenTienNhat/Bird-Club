@@ -19,7 +19,7 @@ public class StaffMediaController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
-            String ID = request.getParameter("ID");
+            String ID = request.getParameter("ID").trim();
             String description = request.getParameter("description");
             Part filePart = request.getPart("image");
             InputStream ism = filePart.getInputStream();
@@ -49,7 +49,7 @@ public class StaffMediaController extends HttpServlet {
             } //Inserting the image for news
             else if (ID.contains("NID")) {
                 nm.updateImage(pictureData, ID);
-                response.sendRedirect("http://localhost:8080/chimowners/news");
+                response.sendRedirect("http://localhost:8080/chimowners/news?NID="+ ID +"&action=edit");
             } //Inserting Tournament media
             else if (ID.contains("TID")) {
                 Media media = new Media(ID, description, pictureData);

@@ -146,7 +146,7 @@ public class NewsManager {
     }
 
     public void updateImage(byte[] image, String NID) throws ClassNotFoundException {
-        String sql = "UPDATE News SET image = ? WHERE NID = ?";
+        String sql = "UPDATE News SET picture = ? WHERE NID = ?";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);

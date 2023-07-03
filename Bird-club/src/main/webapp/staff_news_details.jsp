@@ -1,3 +1,4 @@
+<%@page import="java.util.Base64"%>
 <%@page import="com.fptuni.prj301.demo.model.News"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -368,13 +369,11 @@
                                             <div class="mt-1">
                                                 <form enctype="multipart/form-data" action="./media" method="post">
                                                     <input type="hidden" name="ID"  <% out.print("value='" + n.getNID() + "'"); %> >
+                                                    <input type="hidden" name="description"  value="" >
                                                     <input accept="image/jpg,image/jpeg,image/png" color="teal" class="cursor-pointer w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" 
                                                            type="file" name="image" id="image" onchange="loadFile(event)">
                                                     <button type="submit" class="mt-2 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
                                                         Add image</button>
-
-
-
                                                 </form>
                                             </div>
                                         </div>
@@ -388,9 +387,8 @@
                                                 }
                                             };
                                         </script>
-                                        <img style='height: auto; width: 30rem; display: block; margin-bottom: 25px' id="output"/>
-                                        <% out.print("<img style='height: auto; width: 30rem; display: block; margin-bottom: 25px' src='" + n.getImage() + "'>");%>        
-
+                                        <img style='height: auto; width: 30rem; display: block; margin-bottom: 25px' id="output"/>                                       
+                                        <% out.print("<img src='data:image/png;base64," + Base64.getEncoder().encodeToString(n.getPicture()) + "'>" + "");%>        
 
                                         <button type="submit" form="edit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
                                             Update</button>

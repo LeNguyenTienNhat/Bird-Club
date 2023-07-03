@@ -379,7 +379,7 @@
                                                     + "</div></div>");
 
                                             out.print("<div class='lg:col-span-2'>");
-                                            out.print("<img style='height: auto; width: auto; display: block; margin-bottom: 25px' src='data:image/png;base64," + Base64.getEncoder().encodeToString(n.getPicture()) + "'>");
+                                            out.print("<img src='data:image/png;base64," + Base64.getEncoder().encodeToString(n.getPicture()) + "'>");
 
                                             out.print("</div></div></div></li>");
                                         }%>   
