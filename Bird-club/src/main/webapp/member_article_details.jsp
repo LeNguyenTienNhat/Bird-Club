@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.Base64" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
@@ -64,7 +65,7 @@
 
     <body class="post-template-default single single-post postid-56828 single-format-standard wp-embed-responsive theme-green nav-column tribe-no-js">
         <div id="main-container">
-<!--Header-->
+            <!--Header-->
             <%@ include file="member_header.jsp" %> 
             <main id="main-content" class="single has-social">
 
@@ -73,11 +74,17 @@
                         <header class="article-header" aria-label="Title">
                             <h1 class="page-title">${news.getTitle()}</h1>
                             <p class="excerpt">${news.getNewsContent()}</p>
-                            <p class="byline">${u.getFullName()}</p> <span class="article-date">${n.getUploadDate()}</span>
+                            <p class="byline">${u.getFullName()}</p> <span class="article-date">${news.getUploadDate()}</span>
                         </header> 
 
                         <section id="content" class="content" aria-label="Main content">
-                            <figure class="wp-block-image size-large"><img decoding="async" width="1280" height="743"  data-srcset="${news.getImage()} 1280w, ${news.getImage()} 720w, ${news.getImage()} 768w, ${news.getImage()} 1536w, ${news.getImage()} 480w, ${news.getImage()} 1600w" data-src="${news.getImage()}" data-sizes="(max-width: 1280px) 100vw, 1280px" class="wp-image-57119 lazyload" src="${news.getImage()}" /><noscript><img decoding="async" width="1280" height="743" src="${news.getImage()}"  class="wp-image-57119" srcset="${news.getImage()} 1280w, ${news.getImage()} 720w, ${news.getImage()} 768w, ${news.getImage()} 1536w, ${news.getImage()} 480w, ${news.getImage()} 1600w" sizes="(max-width: 1280px) 100vw, 1280px" /></noscript><figcaption class="wp-element-caption">Northern Cardinal is the state bird for seven states running from Illinois to North Carolina. <em>Photo by <a href="https://macaulaylibrary.org/asset/391691941">Brian Stahls/Macaulay Library</a>.</em></figcaption></figure>
+                            <figure class="wp-block-image size-large">
+                                <img decoding="async" width="1280" height="743" data-srcset="data:image/jsp;base64,${Base64.getEncoder().encodeToString(news.getPicture())} 1280w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(news.getPicture())} 720w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(news.getPicture())} 768w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(news.getPicture())} 1536w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(news.getPicture())} 480w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(news.getPicture())} 1600w" data-src="data:image/jsp;base64,${Base64.getEncoder().encodeToString(news.getPicture())}" data-sizes="(max-width: 1280px) 100vw, 1280px" class="wp-image-57119 lazyload" src="data:image/jsp;base64,${Base64.getEncoder().encodeToString(news.getPicture())}" />
+                                <noscript>
+                                <img decoding="async" width="1280" height="743" src="data:image/jsp;base64,${Base64.getEncoder().encodeToString(news.getPicture())}" class="wp-image-57119" srcset="data:image/jsp;base64,${Base64.getEncoder().encodeToString(news.getPicture())} 1280w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(news.getPicture())} 720w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(news.getPicture())} 768w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(news.getPicture())} 1536w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(news.getPicture())} 480w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(news.getPicture())} 1600w" sizes="(max-width: 1280px) 100vw, 1280px" />
+                                </noscript>
+                                <figcaption class="wp-element-caption">Northern Cardinal is the state bird for seven states running from Illinois to North Carolina. <em>Photo by <a href="https://macaulaylibrary.org/asset/391691941">Brian Stahls/Macaulay Library</a>.</em></figcaption>
+                            </figure>
                             <p>${news.getNewsContent()}</p>
                             <div style="height:19px" aria-hidden="true" class="wp-block-spacer"></div>
 
@@ -86,18 +93,18 @@
                             </style>
                         </section> 
 
-<!--                        <footer class="article-footer" class="hide-for-print" aria-label="Article Navigation">
-                            <ul class="post-nav"><li class="next-post"><a href="https://www.allaboutbirds.org/news/can-ebird-help-choose-better-state-birds-part-2-robins-chickadees-goldfinches-and-bluebirds/"><div class="post-text"><span class="attribute">Next</span><h3>Can eBird Help Choose Better State Birds? Part 2: Robins, Chickadees, Goldfinches, and Bluebirds</h3></div><div class="thumb"><img data-srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-768x576.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33.jpg 1075w' alt='A robin stands on a lawn' loading="lazy" data-src="https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-240x180.jpg" data-sizes="(max-width: 240px) 100vw, 240px" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src='https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-240x180.jpg' srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-768x576.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33.jpg 1075w' sizes='(max-width: 240px) 100vw, 240px' alt='A robin stands on a lawn' loading="lazy" /></noscript></div></a></li></ul>
-                        </footer> -->
-<!--                        <section id="global-cta" aria-label="Call to action" class="global-cta">
-                            <div class="wp-block-group cta">
-                                <h2 class="has-text-align-center">All About Birds is a free resource</h2>
-                                <p class="has-text-align-center">Available for everyone,<br>funded by donors like you</p>
-                                <div class="is-content-justification-center is-layout-flex wp-container-7 wp-block-buttons">
-                                    <div class="wp-block-button"><a class="wp-block-button__link has-orange-background-color has-background" href="https://give.birds.cornell.edu/page/39428/donate/1?ea.tracking.id=AAB">Donate</a></div>
-                                </div>
-                            </div>
-                        </section>-->
+                        <!--                        <footer class="article-footer" class="hide-for-print" aria-label="Article Navigation">
+                                                    <ul class="post-nav"><li class="next-post"><a href="https://www.allaboutbirds.org/news/can-ebird-help-choose-better-state-birds-part-2-robins-chickadees-goldfinches-and-bluebirds/"><div class="post-text"><span class="attribute">Next</span><h3>Can eBird Help Choose Better State Birds? Part 2: Robins, Chickadees, Goldfinches, and Bluebirds</h3></div><div class="thumb"><img data-srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-768x576.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33.jpg 1075w' alt='A robin stands on a lawn' loading="lazy" data-src="https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-240x180.jpg" data-sizes="(max-width: 240px) 100vw, 240px" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src='https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-240x180.jpg' srcset='https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-720x540.jpg 720w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-240x180.jpg 240w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-768x576.jpg 768w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33-480x360.jpg 480w, https://www.allaboutbirds.org/news/wp-content/uploads/2023/03/american-robin-American_Robin-Joel_Eckerson-319238541-1.33.jpg 1075w' sizes='(max-width: 240px) 100vw, 240px' alt='A robin stands on a lawn' loading="lazy" /></noscript></div></a></li></ul>
+                                                </footer> -->
+                        <!--                        <section id="global-cta" aria-label="Call to action" class="global-cta">
+                                                    <div class="wp-block-group cta">
+                                                        <h2 class="has-text-align-center">All About Birds is a free resource</h2>
+                                                        <p class="has-text-align-center">Available for everyone,<br>funded by donors like you</p>
+                                                        <div class="is-content-justification-center is-layout-flex wp-container-7 wp-block-buttons">
+                                                            <div class="wp-block-button"><a class="wp-block-button__link has-orange-background-color has-background" href="https://give.birds.cornell.edu/page/39428/donate/1?ea.tracking.id=AAB">Donate</a></div>
+                                                        </div>
+                                                    </div>
+                                                </section>-->
                         <footer class="article-footer hide-for-print" aria-label="Related articles">
                             <h2>More from experts</h2>
                             <div class="article-list card-display card-five">

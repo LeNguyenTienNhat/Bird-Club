@@ -174,13 +174,12 @@ public class MeetingManager {
 
     public List<Meeting> getList() {
         List<Meeting> meetings = new ArrayList<>();
-        String sql = "SELECT M.*, MM.URL "
+        String sql = "SELECT M.*, MM.image "
                 + "FROM Meeting AS M "
                 + "LEFT JOIN "
-                + "(SELECT MeID, URL "
-                + " FROM (SELECT MeID, URL, ROW_NUMBER() OVER (PARTITION BY MeID ORDER BY URL DESC) AS RowNum "
-                + "       FROM MeetingMedia WHERE category = 'thumbnail') AS MMSub "
-                + " WHERE RowNum = 1) AS MM "
+                + "(SELECT MeID, CONVERT(VARBINARY(MAX), image) AS image "
+                + " FROM MeetingMedia "
+                + " WHERE description = 'thumbnail') AS MM "
                 + "ON M.MeID = MM.MeID "
                 + "ORDER BY M.registrationDeadline DESC";
 
@@ -215,6 +214,53 @@ public class MeetingManager {
 
         return meetings;
     }
+    public List<Meeting> getListP(int pageNumber, int pageSize) {
+    List<Meeting> meetings = new ArrayList<>();
+    int offset = (pageNumber - 1) * pageSize;
+
+    String sql = "SELECT M.*, MM.image " +
+            "FROM Meeting AS M " +
+            "LEFT JOIN " +
+            "(SELECT MeID, CONVERT(VARBINARY(MAX), image) AS image " +
+            " FROM MeetingMedia " +
+            " WHERE description = 'thumbnail') AS MM " +
+            "ON M.MeID = MM.MeID " +
+            "ORDER BY M.registrationDeadline DESC " +
+            "OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+
+    try (Connection conn = DBUtils.getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        ps.setInt(1, offset);
+        ps.setInt(2, pageSize);
+
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Meeting meeting = new Meeting();
+                meeting.setMeID(rs.getString("MeID"));
+                meeting.setName(rs.getString("name"));
+                meeting.setDescription(rs.getString("description"));
+                meeting.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
+                meeting.setStatus(rs.getString("status"));
+                meeting.setLID(rs.getString("LID"));
+                meeting.setStartDate(tool.trimDate(rs.getString("startDate")));
+                meeting.setEndDate(tool.trimDate(rs.getString("endDate")));
+                meeting.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                meeting.setNote(rs.getString("note"));
+                meeting.setIncharge(rs.getString("incharge"));
+                meeting.setHost(rs.getString("host"));
+                meeting.setContact(rs.getString("contact"));
+
+                byte[] imageBytes = rs.getBytes("image");
+                meeting.setImage(imageBytes); // Set the image directly as byte[]
+                meetings.add(meeting);
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace(); // Handle the exception appropriately (e.g., logging, throwing custom exception)
+    }
+
+    return meetings;
+}
 
     public List<Meeting> getTop10() {
         List<Meeting> meetings = new ArrayList<>();
@@ -393,27 +439,5 @@ public class MeetingManager {
         return list;
     }
 
-    public static void main(String[] args) {
-        MeetingManager m = new MeetingManager();
 
-        List<Meeting> top10Meetings = m.getTop10();
-        for (Meeting meeting : top10Meetings) {
-            System.out.println("Meeting ID: " + meeting.getMeID());
-            System.out.println("Name: " + meeting.getName());
-            System.out.println("Description: " + meeting.getDescription());
-            System.out.println("Registration Deadline: " + meeting.getRegistrationDeadline());
-            System.out.println("Start Date: " + meeting.getStartDate());
-            System.out.println("End Date: " + meeting.getEndDate());
-            System.out.println("LID: " + meeting.getLID());
-            System.out.println("Status: " + meeting.getStatus());
-            System.out.println("Number of Participants: " + meeting.getNumberOfParticipant());
-            System.out.println("Category: " + meeting.getCategory());
-            System.out.println("Note: " + meeting.getNote());
-            System.out.println("Incharge: " + meeting.getIncharge());
-            System.out.println("Host: " + meeting.getHost());
-            System.out.println("Contact: " + meeting.getContact());
-            System.out.println("Image: " + Arrays.toString(meeting.getImage()));
-            System.out.println("----------------------");
-        }
-    }
 }

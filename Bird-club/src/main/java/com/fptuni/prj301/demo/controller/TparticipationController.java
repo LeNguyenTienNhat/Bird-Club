@@ -79,7 +79,7 @@ public class TparticipationController extends HttpServlet {
             Tournament tournament = tparticipationManager.getTournamentById(tid);
             String location = l.getCoordinationByTournamentId(tid);
             EventsMediaManager media = new EventsMediaManager();
-            String a = media.getURLByID("TournamentMedia", tid);
+            byte[]  a = media.getURLByID("TournamentMedia", tid);
             TparticipationManager p = new TparticipationManager();
 
             BirdManager b = new BirdManager();

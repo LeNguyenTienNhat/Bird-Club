@@ -69,10 +69,23 @@ public class StaffAccountMTController extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/staff_member.jsp");
             }
         } else if (action == null || action.equals("viewmeeting")) {
-            //display meeting
+            int pageNumber = 1; // Default page number
+            int pageSize = 5; // Default page size
+            String pageParam = request.getParameter("page");
+            if (pageParam != null && !pageParam.isEmpty()) {
+                pageNumber = Integer.parseInt(pageParam);
+            }
+
             MeetingManager meetingManager = new MeetingManager();
-            List<Meeting> meetingsList = meetingManager.getList();
+            List<Meeting> meetingsList = meetingManager.getListP(pageNumber, pageSize);
             request.setAttribute("meetingsList", meetingsList);
+
+            int totalMeetings = meetingManager.getTotalNumber(); // Get the total count of meetings
+            int totalPages = (int) Math.ceil((double) totalMeetings / pageSize); // Calculate the total number of pages
+
+            request.setAttribute("pageNumber", pageNumber);
+            request.setAttribute("pageSize", pageSize);
+            request.setAttribute("totalPages", totalPages);
 
             RequestDispatcher rd = request.getRequestDispatcher("member_meeting.jsp");
             rd.forward(request, response);

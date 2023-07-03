@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.Base64" %>
 <!DOCTYPE html>
 <html class="no-js"  lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
@@ -118,7 +119,7 @@
                             <div class="is-layout-flex wp-container-4 wp-block-columns">
                                 <div class="is-layout-flow wp-block-column" style="flex-basis:66.66%">
                                     <figure class="">
-                                        <img src=${img}>
+                                        <img src="data:image/jsp;base64,${Base64.getEncoder().encodeToString(img)}">
                                     </figure>
                                     <br>
                                     <dt><strong>Focus</strong>

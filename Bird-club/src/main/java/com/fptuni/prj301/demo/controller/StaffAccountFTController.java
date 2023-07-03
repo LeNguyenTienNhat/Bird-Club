@@ -69,13 +69,28 @@ public class StaffAccountFTController extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/staff_member.jsp");
             }
         } else if (action == null || action.equals("viewfieldtrip")) {
-            //display tournament
+            int pageNumber = 1; // Default page number
+            int pageSize = 5; // Default page size
+            String pageParam = request.getParameter("page");
+            if (pageParam != null && !pageParam.isEmpty()) {
+                pageNumber = Integer.parseInt(pageParam);
+            }
+
             FieldtripManager eventsManager = new FieldtripManager();
-            List<Fieldtrip> eventsList = eventsManager.getList();
+            List<Fieldtrip> eventsList = eventsManager.getListP(pageNumber, pageSize);
             request.setAttribute("eventsList", eventsList);
 
-            RequestDispatcher rd = request.getRequestDispatcher("member_fieldtrip.jsp");
-            rd.forward(request, response);
+            
+                int totalEvents = eventsManager.getTotalNumber(); // Get the total count of events
+                int totalPages = (int) Math.ceil((double) totalEvents / pageSize); // Calculate the total number of pages
+
+                request.setAttribute("pageNumber", pageNumber);
+                request.setAttribute("pageSize", pageSize);
+                request.setAttribute("totalPages", totalPages);
+
+                RequestDispatcher rd = request.getRequestDispatcher("member_fieldtrip.jsp");
+                rd.forward(request, response);
+            
         }
     }
 

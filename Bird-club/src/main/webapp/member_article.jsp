@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.Base64" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
@@ -73,7 +74,7 @@
                 <div class="content-container archive page-wider">
                     <header class="article-header" aria-label="Title">
                         <h1 id="archive-header" class="page-title">Browse All Articles</h1>
-                       
+
                     </header> 
                     <section aria-labelledby="archive-header">
                         <div class="wp-block-columns">
@@ -81,20 +82,29 @@
                                 <div class="article-list list-style archives">
                                     <ul>
                                         <c:if test="${ empty news}"> not found </c:if>
-                                        
+
                                         <c:forEach var="n" items="${news}">
 
                                             <li class="article-item">
                                                 <div class="article-item-container">
                                                     <div class="article-item-media" data-link-to="">
                                                         <div class="article-item-media-ratio">
-                                                            <img data-srcset="${n.getImage()}"  loading="lazy" data-src="${n.getImage()}" data-sizes="(max-width: 480px) 100vw, 480px" class=" ls-is-cached lazyloaded" src="${n.getImage()}" sizes="(max-width: 480px) 100vw, 480px" srcset="${n.getImage()}"><noscript><img src='${n.getImage()}' srcset='${n.getImage()}' sizes='(max-width: 480px) 100vw, 480px'  loading="lazy" /></noscript> </div>
+                                                            <c:if test="${empty n.getPicture()}">
+                                                                <div>No image available</div>
+                                                            </c:if>
+                                                            <c:if test="${not empty n.getPicture()}">
+                                                                <img data-srcset="data:image/jsp;base64,${Base64.getEncoder().encodeToString(n.getPicture())}" loading="lazy" data-src="data:image/jsp;base64,${Base64.getEncoder().encodeToString(n.getPicture())}" data-sizes="(max-width: 480px) 100vw, 480px" class="ls-is-cached lazyloaded" src="data:image/jsp;base64,${Base64.getEncoder().encodeToString(n.getPicture())}" sizes="(max-width: 480px) 100vw, 480px" srcset="data:image/jsp;base64,${Base64.getEncoder().encodeToString(n.getPicture())}">
+                                                                <noscript>
+                                                                <img src="data:image/jsp;base64,${Base64.getEncoder().encodeToString(n.getPicture())}" srcset="data:image/jsp;base64,${Base64.getEncoder().encodeToString(n.getPicture())}" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
+                                                                </noscript>
+                                                            </c:if>
+                                                        </div>
                                                     </div>
                                                     <div class="article-item-body">
                                                         <span class="attribution project">${n.getCategory()}</span>
                                                         <span class="article-item-header">
                                                             <a href="${pageContext.request.contextPath}/news?action=details&NID=${n.getNID()}" class="article-item-link" target="_self">
-                                                               ${n.getTitle()}  </a>
+                                                                ${n.getTitle()}  </a>
                                                         </span>
                                                         <span class="attribution topic">${n.getUploadDate()}</span>
                                                     </div>

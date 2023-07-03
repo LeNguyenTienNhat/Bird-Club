@@ -81,7 +81,7 @@ public class FieldTripParticipantsController extends HttpServlet {
             Fieldtrip fieldtrip = fieldtripManager.getFieldTripById(fid);
             String location = l.getCoordinationByFieldTripId(fid);
             EventsMediaManager media = new EventsMediaManager();
-            String a = media.getURLByID("FieldTripMedia", fid);
+            byte[]  a = media.getURLByID("FieldTripMedia", fid);
 
             boolean participantExists = false;
             for (FieldTripParticipants participant : field) {

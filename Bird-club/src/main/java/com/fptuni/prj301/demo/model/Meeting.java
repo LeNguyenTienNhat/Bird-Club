@@ -17,6 +17,7 @@ public class Meeting {
     private String host;
     private String contact;
     private byte[] image;
+    
 
     public byte[] getImage() {
         return image;

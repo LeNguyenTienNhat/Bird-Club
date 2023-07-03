@@ -108,7 +108,14 @@ public class TournamentManager {
 
     public List<Tournament> getList() {
         List<Tournament> tournaments = new ArrayList<>();
-        String sql = "SELECT * FROM Tournament ";
+        String sql = "SELECT TOP 10 T.*, TM.image "
+                + "FROM Tournament AS T "
+                + "LEFT JOIN "
+                + "(SELECT TID, CONVERT(VARBINARY(MAX), image) AS image "
+                + " FROM TournamentMedia "
+                + " WHERE description = 'thumbnail') AS TM "
+                + "ON T.TID = TM.TID "
+                + "ORDER BY T.startDate DESC";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -131,6 +138,7 @@ public class TournamentManager {
                     tournament.setIncharge(rs.getString("incharge"));
                     tournament.setHost(rs.getString("host"));
                     tournament.setContact(rs.getString("contact"));
+                    tournament.setImage(rs.getBytes("image"));
                     tournaments.add(tournament);
                 }
             }
@@ -140,48 +148,108 @@ public class TournamentManager {
         return tournaments;
     }
 
-public List<Tournament> getTop10() {
-    List<Tournament> tournaments = new ArrayList<>();
-    String sql = "SELECT TOP 10 T.*, TM.image "
-            + "FROM Tournament AS T "
-            + "LEFT JOIN TournamentMedia AS TM ON T.TID = TM.TID "
-             + "WHERE TM.description = 'thumbnail' "
-            + "ORDER BY T.startDate DESC";
-    try (Connection conn = DBUtils.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery()) {
+    public int getTotalNumber() {
+        int totalTournaments = 0;
+        String sql = "SELECT COUNT(*) AS total FROM Tournament";
 
-        while (rs.next()) {
-            Tournament tournament = new Tournament();
-            tournament.setTID(rs.getString("TID"));
-            tournament.setName(rs.getString("name"));
-            tournament.setDescription(rs.getString("description"));
-            tournament.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
-            tournament.setStartDate(tool.trimDate(rs.getString("startDate")));
-            tournament.setEndDate(tool.trimDate(rs.getString("endDate")));
-            tournament.setLID(rs.getString("LID"));
-            tournament.setStatus(rs.getString("status"));
-            tournament.setFee(rs.getInt("fee"));
-            tournament.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
-            tournament.setTotalPrize(rs.getInt("totalPrize"));
-            tournament.setCategory("Tournament");
-            tournament.setNote(rs.getString("note"));
-            tournament.setIncharge(rs.getString("incharge"));
-            tournament.setHost(rs.getString("host"));
-            tournament.setContact(rs.getString("contact"));
-
-            tournament.setImage(rs.getBytes("image")); 
-
-            tournaments.add(tournament);
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                totalTournaments = rs.getInt("total");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
-    } catch (SQLException e) {
-        e.printStackTrace();
+        return totalTournaments;
     }
 
-    return tournaments;
-}
+    public List<Tournament> getListP(int pageNumber, int pageSize) {
+        List<Tournament> tournaments = new ArrayList<>();
+        String sql = "SELECT T.*, TM.image "
+                + "FROM (SELECT ROW_NUMBER() OVER (ORDER BY startDate DESC) AS RowNum, * FROM Tournament) AS T "
+                + "LEFT JOIN TournamentMedia AS TM ON T.TID = TM.TID "
+                + "WHERE TM.description = 'thumbnail' AND T.RowNum BETWEEN ? AND ?";
 
+        int startRow = (pageNumber - 1) * pageSize + 1;
+        int endRow = startRow + pageSize - 1;
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, startRow);
+            ps.setInt(2, endRow);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Tournament tournament = new Tournament();
+                    tournament.setTID(rs.getString("TID"));
+                    tournament.setName(rs.getString("name"));
+                    tournament.setDescription(rs.getString("description"));
+                    tournament.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
+                    tournament.setStartDate(tool.trimDate(rs.getString("startDate")));
+                    tournament.setEndDate(tool.trimDate(rs.getString("endDate")));
+                    tournament.setLID(rs.getString("LID"));
+                    tournament.setStatus(rs.getString("status"));
+                    tournament.setFee(rs.getInt("fee"));
+                    tournament.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                    tournament.setTotalPrize(rs.getInt("totalPrize"));
+                    tournament.setCategory("Tournament");
+                    tournament.setNote(rs.getString("note"));
+                    tournament.setIncharge(rs.getString("incharge"));
+                    tournament.setHost(rs.getString("host"));
+                    tournament.setContact(rs.getString("contact"));
+                    tournament.setImage(rs.getBytes("image"));
+                    tournaments.add(tournament);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tournaments;
+    }
+
+    public List<Tournament> getTop10() {
+        List<Tournament> tournaments = new ArrayList<>();
+        String sql = "SELECT TOP 10 T.*, TM.image "
+                + "FROM Tournament AS T "
+                + "LEFT JOIN TournamentMedia AS TM ON T.TID = TM.TID "
+                + "WHERE TM.description = 'thumbnail' "
+                + "ORDER BY T.startDate DESC";
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                Tournament tournament = new Tournament();
+                tournament.setTID(rs.getString("TID"));
+                tournament.setName(rs.getString("name"));
+                tournament.setDescription(rs.getString("description"));
+                tournament.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
+                tournament.setStartDate(tool.trimDate(rs.getString("startDate")));
+                tournament.setEndDate(tool.trimDate(rs.getString("endDate")));
+                tournament.setLID(rs.getString("LID"));
+                tournament.setStatus(rs.getString("status"));
+                tournament.setFee(rs.getInt("fee"));
+                tournament.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                tournament.setTotalPrize(rs.getInt("totalPrize"));
+                tournament.setCategory("Tournament");
+                tournament.setNote(rs.getString("note"));
+                tournament.setIncharge(rs.getString("incharge"));
+                tournament.setHost(rs.getString("host"));
+                tournament.setContact(rs.getString("contact"));
+
+                tournament.setImage(rs.getBytes("image"));
+
+                tournaments.add(tournament);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return tournaments;
+    }
 
     public void insert(Tournament tournament) throws ClassNotFoundException, ParseException {
         String sql = "INSERT INTO Tournament"
@@ -339,8 +407,6 @@ public List<Tournament> getTop10() {
 
         return tournament;
     }
-
-
 
     public List<Tournament> getTop10Participation() throws SQLException {
         List<Tournament> list = new ArrayList();

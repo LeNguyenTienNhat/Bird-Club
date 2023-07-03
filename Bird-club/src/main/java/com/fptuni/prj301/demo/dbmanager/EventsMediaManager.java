@@ -20,7 +20,7 @@ public class EventsMediaManager {
             ps.setString(1, media.getID());
             ps.setString(2, media.getDescription());
             ps.setBytes(3, media.getImage());
-            
+
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Insertion failed due to internal error :(" + ex.getMessage());
@@ -57,7 +57,7 @@ public class EventsMediaManager {
     }
 
     //need to fix
-    public String getURLByID(String tableName, String ID) {
+    public byte[] getURLByID(String tableName, String ID) {
         String IDtype;
         if (tableName.equalsIgnoreCase("TournamentMedia")) {
             IDtype = "TID";
@@ -67,10 +67,7 @@ public class EventsMediaManager {
             IDtype = "MeID";
         }
 
-        String sql = "SELECT URL FROM (SELECT URL, ROW_NUMBER() OVER (ORDER BY URL DESC) AS RowNum "
-                + "FROM [" + tableName + "] WHERE " + IDtype + " = ? AND category = 'thumbnail') AS T "
-                + "WHERE RowNum = 1";
-
+         String sql = "SELECT Image FROM " + tableName + " WHERE " + IDtype + " = ? AND description = 'thumbnail'";
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
 
@@ -78,9 +75,8 @@ public class EventsMediaManager {
 
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    String url = rs.getString("URL");
-                    // Process the URL as needed
-                    return url;
+                    byte[] imageBytes = rs.getBytes("Image");
+                    return imageBytes;
                 }
             }
 
@@ -88,7 +84,7 @@ public class EventsMediaManager {
             e.printStackTrace();
         }
 
-        return null; // Return null if the URL is not found or an exception occurs
+        return null; // Return null if the image is not found or an exception occurs
     }
 
     public static void main(String[] args) {
@@ -96,15 +92,15 @@ public class EventsMediaManager {
         EventsMediaManager yourClass = new EventsMediaManager();
 
         // Test getList() method
-        String tableName = "TournamentMedia";
-        String ID = "TID1";
+        String tableName = "FieldTripMedia";
+        String ID = "FID29";
 
         // Print the details of the media objects
         // Test getURLByID() method
-        String mediaURL = yourClass.getURLByID(tableName, ID);
+        byte[] mediaURL = yourClass.getURLByID(tableName, ID);
         System.out.println("URL: " + mediaURL);
     }
-    
+
     public List<Media> getImagesData(String ID) {
         List<Media> list = new ArrayList<>();
         String tableName, IDtype;

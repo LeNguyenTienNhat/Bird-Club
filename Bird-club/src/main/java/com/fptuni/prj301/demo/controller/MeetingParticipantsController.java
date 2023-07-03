@@ -81,7 +81,7 @@ public class MeetingParticipantsController extends HttpServlet {
             Meeting meeting = meetingManager.getMeetingById(meid);
             String location = l.getCoordinationByMeetingId(meid);
             EventsMediaManager media = new EventsMediaManager();
-            String a = media.getURLByID("MeetingMedia", meid);
+            byte[]  a = media.getURLByID("MeetingMedia", meid);
 
             boolean participantExists = false;
             for (MeetingParticipants participant : meetingParticipants) {

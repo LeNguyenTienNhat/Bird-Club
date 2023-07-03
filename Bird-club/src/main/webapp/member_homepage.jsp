@@ -12,8 +12,8 @@
 <html class="no-js"  lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
         <meta charset="utf-8">
-        <link rel="icon" href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/favicon.png">
-        <link href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/images/apple-icon-touch.png" rel="apple-touch-icon" />	
+        <link rel="icon" href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/favicon.jsp">
+        <link href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/images/apple-icon-touch.jsp" rel="apple-touch-icon" />	
         <title>Home</title>
         <link rel="alternate" type="application/rss+xml" title="Birds, Cornell Lab of Ornithology &raquo; Feed" href="https://www.birds.cornell.edu/home/feed/" />
         <link rel="alternate" type="application/rss+xml" title="Birds, Cornell Lab of Ornithology &raquo; Comments Feed" href="https://www.birds.cornell.edu/home/comments/feed/" />
@@ -62,7 +62,7 @@
                     <style>
                         #hero-wrapper .hero-text { width: 520px !important; }
                     </style>
-                    <div class="is-layout-flow wp-block-group page-section has-background-image" style="background-image:url(images/banner.png)">
+                    <div class="is-layout-flow wp-block-group page-section has-background-image" style="background-image:url(images/banner.jsp)">
                         <div class="is-layout-flex wp-container-11 wp-block-columns">
                             <div class="is-layout-flow wp-block-column" style="flex-basis:50%">
                                 <h2 class="has-small-font-size" id="science-and-innovation">Chim Owner's de facto:</h2>
@@ -102,10 +102,10 @@
                                                 <div class="article-item-container">
                                                     <div class="article-item-media content-article" data-link-to="http://www.seychellesnewsagency.com/articles/2332/Eradication+success++Seychelles+wins+war+against+invasive+red-whiskered+bulbul">
                                                         <div class="article-item-media-ratio">
-                                                            <c:set var="base64Image" value="${Base64.getEncoder().encodeToString(n.getImage())}" />
-                                                            <img data-srcset="data:image/png;base64,${base64Image} 720w, data:image/png;base64,${base64Image} 768w, data:image/png;base64,${base64Image} 1280w, data:image/png;base64,${base64Image} 480w, data:image/png;base64,${base64Image} 1872w" loading="lazy" data-src="data:image/png;base64,${base64Image}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
+                                                            <c:set var="base64Image" value="${Base64.getEncoder().encodeToString(n.getPicture())}" />
+                                                            <img data-srcset="data:image/jsp;base64,${base64Image} 720w, data:image/jsp;base64,${base64Image} 768w, data:image/jsp;base64,${base64Image} 1280w, data:image/jsp;base64,${base64Image} 480w, data:image/jsp;base64,${base64Image} 1872w" loading="lazy" data-src="data:image/jsp;base64,${base64Image}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
                                                             <noscript>
-                                                            <img src="data:image/png;base64,${base64Image}" srcset="data:image/png;base64,${base64Image} 720w, data:image/png;base64,${base64Image} 768w, data:image/png;base64,${base64Image} 1280w, data:image/png;base64,${base64Image} 480w, data:image/png;base64,${base64Image} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
+                                                            <img src="data:image/jsp;base64,${base64Image}" srcset="data:image/jsp;base64,${base64Image} 720w, data:image/jsp;base64,${base64Image} 768w, data:image/jsp;base64,${base64Image} 1280w, data:image/jsp;base64,${base64Image} 480w, data:image/jsp;base64,${base64Image} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
                                                             </noscript>
                                                         </div>
                                                     </div>
@@ -139,9 +139,9 @@
                                                         <c:set var="base64ImageF" value="${Base64.getEncoder().encodeToString(e.getImage())}" />
                                                         <c:if test="${not empty base64ImageF}">
                                                             <div class="article-item-media-ratio">
-                                                                <img data-srcset="data:image/png;base64,${base64ImageF} 720w, data:image/png;base64,${base64ImageF} 768w, data:image/png;base64,${base64ImageF} 1280w, data:image/png;base64,${base64ImageF} 480w, data:image/png;base64,${base64ImageF} 1872w" loading="lazy" data-src="data:image/png;base64,${base64ImageF}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
+                                                                <img data-srcset="data:image/jsp;base64,${base64ImageF} 720w, data:image/jsp;base64,${base64ImageF} 768w, data:image/jsp;base64,${base64ImageF} 1280w, data:image/jsp;base64,${base64ImageF} 480w, data:image/jsp;base64,${base64ImageF} 1872w" loading="lazy" data-src="data:image/jsp;base64,${base64ImageF}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
                                                                 <noscript>
-                                                                <img src="data:image/png;base64,${base64ImageF}" srcset="data:image/png;base64,${base64ImageF} 720w, data:image/png;base64,${base64ImageF} 768w, data:image/png;base64,${base64ImageF} 1280w, data:image/png;base64,${base64ImageF} 480w, data:image/png;base64,${base64ImageF} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
+                                                                <img src="data:image/jsp;base64,${base64ImageF}" srcset="data:image/jsp;base64,${base64ImageF} 720w, data:image/jsp;base64,${base64ImageF} 768w, data:image/jsp;base64,${base64ImageF} 1280w, data:image/jsp;base64,${base64ImageF} 480w, data:image/jsp;base64,${base64ImageF} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
                                                                 </noscript>
                                                             </div>
                                                         </c:if>
@@ -175,9 +175,9 @@
                                                             <c:set var="base64ImageM" value="${Base64.getEncoder().encodeToString(m.getImage())}" />
                                                             <c:if test="${not empty base64ImageM}">
                                                                 <div class="article-item-media-ratio">
-                                                                    <img data-srcset="data:image/png;base64,${base64ImageM} 720w, data:image/png;base64,${base64ImageM} 768w, data:image/png;base64,${base64ImageM} 1280w, data:image/png;base64,${base64ImageM} 480w, data:image/png;base64,${base64ImageM} 1872w" loading="lazy" data-src="data:image/png;base64,${base64ImageM}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
+                                                                    <img data-srcset="data:image/jsp;base64,${base64ImageM} 720w, data:image/jsp;base64,${base64ImageM} 768w, data:image/jsp;base64,${base64ImageM} 1280w, data:image/jsp;base64,${base64ImageM} 480w, data:image/jsp;base64,${base64ImageM} 1872w" loading="lazy" data-src="data:image/jsp;base64,${base64ImageM}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
                                                                     <noscript>
-                                                                    <img src="data:image/png;base64,${base64ImageM}" srcset="data:image/png;base64,${base64ImageM} 720w, data:image/png;base64,${base64ImageM} 768w, data:image/png;base64,${base64ImageM} 1280w, data:image/png;base64,${base64ImageM} 480w, data:image/png;base64,${base64ImageM} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
+                                                                    <img src="data:image/jsp;base64,${base64ImageM}" srcset="data:image/jsp;base64,${base64ImageM} 720w, data:image/jsp;base64,${base64ImageM} 768w, data:image/jsp;base64,${base64ImageM} 1280w, data:image/jsp;base64,${base64ImageM} 480w, data:image/jsp;base64,${base64ImageM} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
                                                                     </noscript>
                                                                 </div>
                                                             </c:if>
@@ -214,9 +214,9 @@
                                                             <c:set var="base64ImageT" value="${Base64.getEncoder().encodeToString(t.getImage())}" />
                                                             <c:if test="${not empty base64ImageT}">
                                                                 <div class="article-item-media-ratio">
-                                                                    <img data-srcset="data:image/png;base64,${base64ImageT} 720w, data:image/png;base64,${base64ImageT} 768w, data:image/png;base64,${base64ImageT} 1280w, data:image/png;base64,${base64ImageT} 480w, data:image/png;base64,${base64ImageT} 1872w" loading="lazy" data-src="data:image/png;base64,${base64ImageT}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
+                                                                    <img data-srcset="data:image/jsp;base64,${base64ImageT} 720w, data:image/jsp;base64,${base64ImageT} 768w, data:image/jsp;base64,${base64ImageT} 1280w, data:image/jsp;base64,${base64ImageT} 480w, data:image/jsp;base64,${base64ImageT} 1872w" loading="lazy" data-src="data:image/jsp;base64,${base64ImageT}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
                                                                     <noscript>
-                                                                    <img src="data:image/png;base64,${base64ImageT}" srcset="data:image/png;base64,${base64ImageT} 720w, data:image/png;base64,${base64ImageT} 768w, data:image/png;base64,${base64ImageT} 1280w, data:image/png;base64,${base64ImageT} 480w, data:image/png;base64,${base64ImageT} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
+                                                                    <img src="data:image/jsp;base64,${base64ImageT}" srcset="data:image/jsp;base64,${base64ImageT} 720w, data:image/jsp;base64,${base64ImageT} 768w, data:image/jsp;base64,${base64ImageT} 1280w, data:image/jsp;base64,${base64ImageT} 480w, data:image/jsp;base64,${base64ImageT} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
                                                                     </noscript>
                                                                 </div>
                                                             </c:if>                                                        </div>

@@ -96,10 +96,97 @@ public class FieldtripManager {
 
         return fieldtrips;
     }
+    
+    public int getTotalCount() {
+        int totalCount = 0;
+        String sql = "SELECT COUNT(*) AS total FROM FieldTrip";
+
+        try (Connection conn = DBUtils.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            if (rs.next()) {
+                totalCount = rs.getInt("total");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return totalCount;
+    }
+    public static void main(String[] args) {
+    FieldtripManager eventsManager = new FieldtripManager();
+    int pageNumber = 2; // Page number
+    int pageSize = 3; // Page size
+
+    List<Fieldtrip> fieldtrips = eventsManager.getListP(pageNumber, pageSize);
+    int a = eventsManager.getTotalNumber();
+    for (Fieldtrip fieldtrip : fieldtrips) {
+        System.out.println(fieldtrip.getName());
+        System.out.println(fieldtrip.getImage());
+        // Print other fieldtrip properties as needed
+    }
+}
+        public List<Fieldtrip> getListP(int pageNumber, int pageSize) {
+        List<Fieldtrip> fieldtrips = new ArrayList<>();
+        String sql = "SELECT F.*, FM.image "
+                + "FROM FieldTrip AS F "
+                + "LEFT JOIN "
+                + "(SELECT FID, CONVERT(VARBINARY(MAX), image) AS image "
+                + " FROM FieldTripMedia "
+                + " WHERE description = 'thumbnail') AS FM "
+                + "ON F.FID = FM.FID "
+                + "ORDER BY F.startDate DESC "
+                + "OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            // Calculate the offset based on the pageNumber and pageSize
+            int offset = (pageNumber - 1) * pageSize;
+
+            // Set the parameter values in the prepared statement
+            ps.setInt(1, offset);
+            ps.setInt(2, pageSize);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Fieldtrip fieldtrip = new Fieldtrip();
+                    fieldtrip.setFID(rs.getString("FID"));
+                    fieldtrip.setName(rs.getString("name"));
+                    fieldtrip.setDescription(rs.getString("description"));
+                    fieldtrip.setRegistrationDeadline(tool.trimDate(rs.getString("registrationDeadline")));
+                    fieldtrip.setStartDate(tool.trimDate(rs.getString("startDate")));
+                    fieldtrip.setEndDate(tool.trimDate(rs.getString("endDate")));
+                    fieldtrip.setLID(rs.getString("LID"));
+                    fieldtrip.setStatus(rs.getString("status"));
+                    fieldtrip.setFee(rs.getInt("fee"));
+                    fieldtrip.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                    fieldtrip.setCategory("Fieldtrip");
+                    fieldtrip.setNote(rs.getString("note"));
+                    fieldtrip.setIncharge(rs.getString("incharge"));
+                    fieldtrip.setHost(rs.getString("host"));
+                    fieldtrip.setContact(rs.getString("contact"));
+                    byte[] imageBytes = rs.getBytes("image");
+                    fieldtrip.setImage(imageBytes); // Set the image directly as byte[]
+                    fieldtrips.add(fieldtrip);
+                }
+            }
+        } catch (SQLException e) {
+        }
+
+        return fieldtrips;
+    }
 
     public List<Fieldtrip> getList() {
         List<Fieldtrip> fieldtrips = new ArrayList<>();
-        String sql = "SELECT * FROM Fieldtrip ";
+        String sql = "SELECT F.*, FM.image "
+                + "FROM FieldTrip AS F "
+                + "LEFT JOIN "
+                + "(SELECT FID, CONVERT(VARBINARY(MAX), image) AS image "
+                + " FROM FieldTripMedia "
+                + " WHERE description = 'thumbnail') AS FM "
+                + "ON F.FID = FM.FID "
+                + "ORDER BY F.startDate DESC";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -122,6 +209,8 @@ public class FieldtripManager {
                     fieldtrip.setIncharge(rs.getString("incharge"));
                     fieldtrip.setHost(rs.getString("host"));
                     fieldtrip.setContact(rs.getString("contact"));
+                    byte[] imageBytes = rs.getBytes("image");
+                    fieldtrip.setImage(imageBytes); // Set the image directly as byte[]
                     fieldtrips.add(fieldtrip);
                 }
             }
@@ -161,8 +250,8 @@ public class FieldtripManager {
                 fieldtrip.setHost(rs.getString("host"));
                 fieldtrip.setContact(rs.getString("contact"));
 
-               byte[] imageBytes = rs.getBytes("image");
-               fieldtrip.setImage(imageBytes); // Set the image directly as byte[]
+                byte[] imageBytes = rs.getBytes("image");
+                fieldtrip.setImage(imageBytes); // Set the image directly as byte[]
 
                 fieldtrips.add(fieldtrip);
             }
@@ -357,8 +446,6 @@ public class FieldtripManager {
         }
         return count;
     }
-
-
 
     public List<Fieldtrip> getTop10Participation() {
         List<Fieldtrip> list = new ArrayList();

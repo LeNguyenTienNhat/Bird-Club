@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.Base64" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en-US">
     <head>
@@ -44,33 +45,33 @@
 
         <h2 class="has-text-align-center has-large-font-size">Field Trip List</h2>
         <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var searchInput = document.getElementById('searchInput');
-        var fieldtripItems = document.getElementsByClassName('type-tribe_events');
+            document.addEventListener('DOMContentLoaded', function () {
+                var searchInput = document.getElementById('searchInput');
+                var fieldtripItems = document.getElementsByClassName('type-tribe_events');
 
-        searchInput.addEventListener('input', function () {
-            performSearch();
-        });
+                searchInput.addEventListener('input', function () {
+                    performSearch();
+                });
 
-        function performSearch() {
-            var searchValue = searchInput.value.toLowerCase();
+                function performSearch() {
+                    var searchValue = searchInput.value.toLowerCase();
 
-            for (var i = 0; i < fieldtripItems.length; i++) {
-                var fieldtripName = fieldtripItems[i].querySelector('.tribe-events-calendar-list__event-title-link').textContent.toLowerCase();
-                var fieltripStatus = fieldtripItems[i].querySelector('.status-button').textContent.toLowerCase();
+                    for (var i = 0; i < fieldtripItems.length; i++) {
+                        var fieldtripName = fieldtripItems[i].querySelector('.tribe-events-calendar-list__event-title-link').textContent.toLowerCase();
+                        var fieltripStatus = fieldtripItems[i].querySelector('.status-button').textContent.toLowerCase();
 
-                if (fieldtripName.includes(searchValue) || fieltripStatus.includes(searchValue)) {
-                    fieldtripItems[i].style.display = 'block';
-                } else {
-                    fieldtripItems[i].style.display = 'none';
+                        if (fieldtripName.includes(searchValue) || fieltripStatus.includes(searchValue)) {
+                            fieldtripItems[i].style.display = 'block';
+                        } else {
+                            fieldtripItems[i].style.display = 'none';
+                        }
+                    }
                 }
-            }
-        }
 
-        // Initial search
-        performSearch();
-    });
-</script>
+                // Initial search
+                performSearch();
+            });
+        </script>
 
         <main id="main-content" class="page has-hero">
             <article id="article" class="post-1229 page type-page status-publish has-post-thumbnail hentry">
@@ -230,131 +231,8 @@
                             <input type="text" id="searchInput" placeholder="Search">
                         </div>
 
-<!--                        <div class="fieldtrip-container">
-                            <c:if test="${empty eventsList}">
-                                <div>
-                                    <p>No fieldtrip found.</p>
-                                </div>
-                            </c:if>
-                            <c:if test="${not empty eventsList}">
-                                <c:forEach var="f" items="${eventsList}" varStatus="loop">
-                                    <div class="fieldtrip-item">
-                                        <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
-                                            <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
 
-                                                <h4 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium" style="display: flex; justify-content: center;">
-
-                                                    <a href="${pageContext.request.contextPath}/FieldTripParticipantsController?action=view&FID=${f.getFID()}&UID=${users.getUID()}"
-                                                       title="${f.getName()}"
-                                                       style="display: flex; align-items: center;"
-                                                       class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
-                                                        ${f.getName()}
-                                                    </a>
-                                                </h4>
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <dt><strong>Date Start</strong></dt></dt>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <dd>
-                                                                        <abbr class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2" title="2023-05-27">${f.getStartDate()}</abbr>
-                                                                    </dd>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <dt><strong>Date End</strong></dt></dt>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <dd>
-                                                                        <div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
-                                                                            <div class="tribe-recurring-event-time">${f.getEndDate()}</div>
-                                                                        </div>
-                                                                    </dd>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <dt><strong>Status</strong></dt></dt>
-                                                                </div>
-                                                                <c:if test="${users.getRole().trim().equals('member')}">
-                                                                    <div class="col-md-8">
-                                                                        <dd>
-                                                                            <span class="status-button
-                                                                                  <c:choose>
-                                                                                      <c:when test="${f.getStatus().contains('pending')}">
-                                                                                          status-pending
-                                                                                      </c:when>
-                                                                                      <c:when test="${f.getStatus().contains('formClosed')}">
-                                                                                          status-formClosed
-                                                                                      </c:when>
-                                                                                      <c:when test="${f.getStatus().contains('ongoing')}">
-                                                                                          status-ongoing
-                                                                                      </c:when>
-                                                                                      <c:when test="${f.getStatus().contains('finished')}">
-                                                                                          status-finished
-                                                                                      </c:when>
-                                                                                  </c:choose>"
-                                                                                  >
-                                                                                ${f.getStatus()}
-                                                                            </span>
-                                                                        </dd>
-                                                                    </div>
-                                                                </c:if>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <dt><strong>Fee</strong></dt></dt>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <dd>
-                                                                        <div class="tribe-recurring-event-time">${f.getFee()}$</div>
-                                                                    </dd>
-                                                                </div>
-                                                            </div>
-                                                        </div> 
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <dt><strong>Participants</strong></dt></dt>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <dd>
-                                                                        <div class="tribe-recurring-event-time">${f.getNumberOfParticipant()}</div>
-                                                                    </dd>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </c:forEach>
-                            </c:if>
-                        </div>-->
-                         <style>
+                        <style>
                             .row {
                                 display: flex;
                             }
@@ -381,6 +259,17 @@
                                 padding: 4px 8px; /* Adjust the padding for a smaller button */
                             }
                         </style>
+
+                        <style>
+                            .no-js img.lazyload { display: none; }
+                            figure.wp-block-image img.lazyloading { min-width: 150px; }
+                            .lazyload, .lazyloading { opacity: 0; }
+                            .lazyloaded {
+                                opacity: 1;
+                                transition: opacity 400ms;
+                                transition-delay: 0ms;
+                            }
+                        </style>
                         <c:if test="${empty eventsList}">
                             <div>
                                 <p>No meeting found.</p>
@@ -390,14 +279,14 @@
                             <c:forEach var="f" items="${eventsList}" varStatus="loop">
                                 <div class="fieldtrip-item">
                                     <div id="post-3946" class="type-tribe_events post-3946 tribe-clearfix tribe-events-category-meetings tribe-events-organizer-873" style="margin-top: 20px; margin-bottom: 20px;">
-                                         <h3 class="tribe-events-list-event-title">
-                                        <a href="${pageContext.request.contextPath}/FieldTripParticipantsController?action=view&FID=${f.getFID()}&UID=${users.getUID()}"
-                                                       title="${f.getName()}"
-                                                       style="display: flex; align-items: center;"
-                                                       class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
-                                                        ${f.getName()}
-                                                    </a>
-                                         
+                                        <h3 class="tribe-events-list-event-title">
+                                            <a href="${pageContext.request.contextPath}/FieldTripParticipantsController?action=view&FID=${f.getFID()}&UID=${users.getUID()}"
+                                               title="${f.getName()}"
+                                               style="display: flex; align-items: center;"
+                                               class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
+                                                ${f.getName()}
+                                            </a>
+
                                             <c:if test="${users.getRole().trim().equals('member')}">
                                                 <span class="status-button
                                                       <c:choose>
@@ -418,8 +307,8 @@
                                                     ${f.getStatus()}
                                                 </span>
                                             </c:if>
-                                         </h3>
-                                        
+                                        </h3>
+
                                         <div class="tribe-events-event-meta" style="margin-bottom:10px;">
                                             <div class="author location">
                                                 <div class="tribe-event-schedule-details">
@@ -429,13 +318,19 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="tribe-events-event-image" style="width:300px; height: 300px;">
-                                                <a href="${pageContext.request.contextPath}/FieldTripParticipantsController?action=view&FID=${f.getFID()}&UID=${users.getUID()}" tabindex="-1">
-                                                    <img width="300" height="300" src="${f.getPictureURL()}" class="attachment-medium size-medium wp-post-image" alt="${f.getPictureURL()}" srcset="${f.getPictureURL()} 300w,${f.getPictureURL()}  150w,${f.getPictureURL()}  600w" sizes="(max-width: 300px) 100vw, 300px">
-                                                </a>
+                                            <div class="tribe-events-event-image" style="width: 300px; height: 300px;">
+                                                <c:if test="${not empty f.getImage()}">
+                                                    <a href="${pageContext.request.contextPath}/FieldTripParticipantsController?action=view&FID=${f.getFID()}&UID=${users.getUID()}" tabindex="-1">
+                                                        <img width="300" height="300" src="data:image/jsp;base64,${Base64.getEncoder().encodeToString(f.getImage())}" class="attachment-medium size-medium wp-post-image" alt="data:image/jsp;base64,${Base64.getEncoder().encodeToString(f.getImage())}" srcset="data:image/jsp;base64,${Base64.getEncoder().encodeToString(f.getImage())} 300w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(f.getImage())} 150w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(f.getImage())} 600w" sizes="(max-width: 300px) 100vw, 300px">
+                                                    </a>
+                                                </c:if>
+                                                <c:if test="${empty f.getImage()}">
+                                                    <div>No image available</div>
+                                                </c:if>
                                             </div>
                                             <div class="tribe-events-list-event-description col-md-6 tribe-events-content description entry-summary">
-                                                <p><strong>Leader: </strong> ${f.getIncharge()}</p> <p><strong>Fee: </strong>${f.getFee()}$</p>  
+                                                <p><strong>Leader: </strong> ${f.getIncharge()}</p>
+                                                <p><strong>Fee: </strong>${f.getFee()}$</p>  
                                                 <p><strong>Participant limit: </strong>${f.getNumberOfParticipant()}</p>
                                                 <p><strong>Focus: </strong>${f.getDescription()}</p>
                                                 <p><strong>Note: </strong> ${f.getNote()}</p>
@@ -446,8 +341,29 @@
                                     </div>
                                 </div>
                             </c:forEach>
-                        </c:if>
 
+                            <!-- Pagination controls -->
+                            <div class="pagination">
+                                <c:if test="${pageNumber > 1}">
+                                    <a href="${pageContext.request.contextPath}/StaffAccountFTController?action=viewfieldtrip&page=${pageNumber - 1}">&laquo; Previous</a>
+                                </c:if>
+
+                                <c:forEach var="page" begin="1" end="${totalPages}">
+                                    <c:choose>
+                                        <c:when test="${page == pageNumber}">
+                                            <span class="current-page">${page}</span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="${pageContext.request.contextPath}/StaffAccountFTController?action=viewfieldtrip&page=${page}">${page}</a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+
+                                <c:if test="${pageNumber < totalPages}">
+                                    <a href="${pageContext.request.contextPath}/StaffAccountFTController?action=viewfieldtrip&page=${pageNumber + 1}">Next &raquo;</a>
+                                </c:if>
+                            </div>
+                        </c:if>
 
 
                 </div>

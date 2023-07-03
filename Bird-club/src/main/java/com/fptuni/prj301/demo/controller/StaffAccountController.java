@@ -54,9 +54,9 @@ public class StaffAccountController extends HttpServlet {
             boolean success = userDao.approveUser(userId, role);
 
             if (success) {
-                String email= userDao.getUserEmail(userId);
-                Mailer.send("fptswp@gmail.com","fijqfrjphrrkenna", email,"Bird Club","You account have been approve", "http://localhost:8080/chimowners/member_checkout.jsp");
-                response.sendRedirect(request.getContextPath() +"staff_homepage.jsp");
+                String email = userDao.getUserEmail(userId);
+                Mailer.send("fptswp@gmail.com", "fijqfrjphrrkenna", email, "Bird Club", "You account have been approve", "http://localhost:8080/chimowners/member_checkout.jsp");
+                response.sendRedirect(request.getContextPath() + "staff_homepage.jsp");
             } else {
                 response.sendRedirect("staff_approval_failure.jsp");
             }
@@ -71,16 +71,29 @@ public class StaffAccountController extends HttpServlet {
             } else {
                 response.sendRedirect(request.getContextPath() + "/staff_member.jsp");
             }
-        }
-        else if (action == null || action.equals("viewlist")) {
-                //display tournament
-                 TournamentManager tournamentManager = new TournamentManager();
-                List<Tournament> tournamentsList = tournamentManager.getList();
-                request.setAttribute("tList", tournamentsList);
-                
-                RequestDispatcher rd = request.getRequestDispatcher("member_tournament.jsp");
-                rd.forward(request, response);
+        } else if (action == null || action.equals("viewlist")) {
+            int pageNumber = 1; // Default page number
+            int pageSize = 5; // Default page size
+
+            String pageParam = request.getParameter("page");
+            if (pageParam != null && !pageParam.isEmpty()) {
+                pageNumber = Integer.parseInt(pageParam);
             }
+
+            TournamentManager tournamentManager = new TournamentManager();
+            List<Tournament> tournamentsList = tournamentManager.getListP(pageNumber, pageSize);
+            request.setAttribute("tList", tournamentsList);
+
+            int totalTournaments = tournamentManager.getTotalNumber(); // Get the total count of tournaments
+            int totalPages = (int) Math.ceil((double) totalTournaments / pageSize); // Calculate the total number of pages
+
+            request.setAttribute("pageNumber", pageNumber);
+            request.setAttribute("pageSize", pageSize);
+            request.setAttribute("totalPages", totalPages);
+
+            RequestDispatcher rd = request.getRequestDispatcher("member_tournament.jsp");
+            rd.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
