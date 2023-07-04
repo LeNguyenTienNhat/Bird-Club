@@ -83,8 +83,8 @@ public class MemberManager {
 
     public boolean update(MemberProfile member) throws ClassNotFoundException {
         String sql = "UPDATE [User] SET userName = ?, "
-                + "fullName = ?, gender = ?, phone = ?, email = ?, "
-                + "avatar = ? WHERE UID = ?";
+                + "fullName = ?, gender = ?, phone = ?, email = ? "
+                + " WHERE UID = ?";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -93,8 +93,7 @@ public class MemberManager {
             ps.setString(3, member.getGender());
             ps.setString(4, member.getPhone());
             ps.setString(5, member.getEmail());
-            ps.setString(6, member.getAvatar());
-            ps.setString(7, member.getUID());
+            ps.setString(6, member.getUID());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Failed to update due to internal error :(" + ex.getMessage());
@@ -201,7 +200,7 @@ public class MemberManager {
 
     public int getTotalNumberAsDuration(int year, int month) {
         int count = 0;
-        String sql = "SELECT COUNT(UID) as num FROM [User] WHERE (DATEPART(yy, signupDate) = ? "
+        String sql = "SELECT * FROM [User] WHERE (DATEPART(yy, signupDate) = ? "
                 + " AND DATEPART(mm, signupDate) = ?)";
         try {
             Connection conn = DBUtils.getConnection();
@@ -209,8 +208,8 @@ public class MemberManager {
             ps.setInt(1, year);
             ps.setInt(2, month);
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                count = rs.getInt("num");
+            while (rs.next()) {
+                count++;
             }
             return count;
         } catch (SQLException ex) {
@@ -252,25 +251,7 @@ public class MemberManager {
         } catch (SQLException e) {
         }
     }
-    
-        public int getTotalNumberOfMember() {
-        int count = 0;
-        String sql = "SELECT COUNT(UID) as num FROM [User]";
-        try {
-            Connection conn = DBUtils.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                count = rs.getInt("num");
-            }
-            return count;
-        } catch (SQLException ex) {
-            System.out.println("Query error!" + ex.getMessage());
-        }
-        return count;
-    }
-        
-        public List<Member> getMemberListAsDuration(int year, int month) {
+    public List<Member> getMemberListAsDuration(int year, int month) {
         List<Member> list = new ArrayList();
         String sql = "SELECT * FROM [User] WHERE (DATEPART(yy, signupDate) = ? "
                 + " AND DATEPART(mm, signupDate) = ?)";

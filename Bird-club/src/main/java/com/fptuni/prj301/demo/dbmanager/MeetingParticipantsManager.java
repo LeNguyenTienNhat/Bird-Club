@@ -19,6 +19,7 @@ import java.util.List;
  * @author Legion
  */
 public class MeetingParticipantsManager {
+    
 
     public boolean insert(MeetingParticipants meetingparticipants) {
         String sql = "INSERT INTO [MeetingParticipants] (MeID, UID, docNo) VALUES (?, ?, ?)";
@@ -133,9 +134,9 @@ public class MeetingParticipantsManager {
     }
     
     public static void main(String[] args) {
-    String UID = "UID0";
+    String UID = "UID1";
     MeetingParticipantsManager meetingParticipantsManager = new MeetingParticipantsManager();
-    List<MeetingParticipants> meetingParticipants = meetingParticipantsManager.getParticipantList("MeID1");
+    List<MeetingParticipants> meetingParticipants = meetingParticipantsManager.getParticipantList("MeID26");
 
     boolean participantExists = false;
     for (MeetingParticipants participant : meetingParticipants) {

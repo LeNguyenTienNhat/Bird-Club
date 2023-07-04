@@ -150,41 +150,41 @@
                                         <div class="row mt-2">
                                             <div class="col-md-8">
                                                 <label class="labels">Name</label>
-                                                <input type="text" class="form-control" name="name" placeholder="Bird name" value="${birds.getName()}">
+                                                <input type="text" name="name" id="name" class="form-control" placeholder="Bird name" >
                                             </div>
                                             <div class="col-md-4">
                                                 <label class="labels">Age</label>
-                                                <input type="number" class="form-control" name="age" placeholder="Age" value="${birds.getAge()}">
+                                                <input type="text" name="age" id="age" class="form-control" placeholder="Age">
                                             </div>                    
                                         </div>
                                         <div class="row mt-2">  
                                             <div class="col-md-6">
                                                 <label class="labels">Gender</label>
-                                                <input type="text" class="form-control" name="gender" placeholder="Gender" value="${birds.getGender()}">
+                                                <input type="text" name="gender" id="gender" class="form-control" placeholder="Gender">
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="labels">Color</label>
-                                                <input type="text" class="form-control" name="color" placeholder="color" value="${birds.getColor()}">
+                                                <input type="text" name="color" id="color" class="form-control" placeholder="Color">
                                             </div>
                                         </div>     
                                         <div class="row mt-3">
                                             <div class="col-md-12">
                                                 <label class="labels">Description</label>
-                                                <input type="text" class="form-control" name="description" placeholder="Description" value="${birds.getDescription()}">
+                                                <input type="text" name="description" id="description" class="form-control" placeholder="Description">
                                             </div>
                                             
                                         </div>
 
                                         <div class="pt-5">
                                             <div class="flex justify-end">
-                                                <input type="hidden" name="action" value="updatebirdprofile">
-                                                <input type="hidden" name="BID" value="${birds.getBID()}">
+                                                <input type="hidden" name="action" value="upload">
+                                                <input type="hidden" name="UID" value="${users.getUID()}">
                                             </div>
                                         </div>
                                     </form>
 
                                     <div class="mt-5 text-center">
-                                        <button class="btn btn-primary profile-button" form="SaveProfileForm" type="submit">Save Profile</button>
+                                        <button class="btn btn-primary profile-button" form="SaveProfileForm" type="submit">Create new Bird</button>
                                     </div>
                                 </div>
                             </div>

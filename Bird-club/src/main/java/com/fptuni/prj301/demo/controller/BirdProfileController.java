@@ -6,14 +6,10 @@
 package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.BirdManager;
-import com.fptuni.prj301.demo.dbmanager.FieldtripManager;
-import com.fptuni.prj301.demo.dbmanager.MemberManager;
 import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.BirdProfile;
-import com.fptuni.prj301.demo.model.Fieldtrip;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,7 +41,8 @@ public class BirdProfileController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String action = request.getParameter("action");
-
+        BirdManager bird = new BirdManager();
+        Tools tool = new Tools();    
         if (action != null && action.equals("viewbirdprofile")) {
             // Process the view action
             BirdManager birdController = new BirdManager();
@@ -70,7 +67,27 @@ public class BirdProfileController extends HttpServlet {
                 // Redirect to a failure page
                 response.sendRedirect(request.getContextPath() + "/fail.jsp");
             }
-        }//update bird profile
+        }else if (action.equals("upload")) {
+            String BID = tool.generateID("Bird", "BID");
+            String UID = "UID1";
+            String name = request.getParameter("name");
+            String age = request.getParameter("age");
+            String gender = request.getParameter("gender");
+            String description;
+            try {
+                description = tool.formatPara(request.getParameter("description"));
+            } catch (Exception e) {
+                description = "Content hasn't been uploaded yet";
+            }
+            String color = request.getParameter("color");
+            String addDate = tool.getCurrentDate();
+            byte[] profilePic = new byte[0xFFFFFF];
+            Bird b = new Bird(BID, UID, name, age, gender, description, color, addDate, profilePic);
+            bird.insert(b);
+
+            RequestDispatcher rd = request.getRequestDispatcher("BirdProfileController");
+            rd.forward(request, response);
+        } //update bird profile
         if (action != null && action.equals("updatebirdprofile")) {
             HttpSession ss = request.getSession(true);
             String UID = request.getParameter("UID");
@@ -78,11 +95,10 @@ public class BirdProfileController extends HttpServlet {
             String name = request.getParameter("name");
             int age = Integer.parseInt(request.getParameter("age"));
             String gender = request.getParameter("gender");
-            String description = request.getParameter("description");
-            String imageURL = request.getParameter("imageURL");
+            String description = request.getParameter("description");           
             String color = request.getParameter("color");
 
-            BirdProfile birds = new BirdProfile(BID, UID, name, age, gender, description, imageURL, color);
+            BirdProfile birds = new BirdProfile(BID, UID, name, age, gender, description, color);
             BirdManager birdManager = new BirdManager();
             birdManager.update(birds);
             ss.setAttribute("birds", birds);

@@ -7,6 +7,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.Base64" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en-US">
     <head>
@@ -68,36 +69,7 @@
                                                                                 <td style="text-align: center;">Bird Name</td>
                                                                                 <td style="text-align: center;">Image</td>
                                                                                 <td style="text-align: center;"></td>
-                                    <c:if test="${empty birdList}">
-                                    <tr>
-                                        <td colspan="2">
-                                            <div>
-                                                <p>No bird found.</p>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    </c:if>
 
-                                    <c:if test="${not empty birdList}">
-                                        <c:forEach var="bird" items="${birdList}">
-                                            <tr>
-                                                <td style="text-align: center;">${bird.getName()}</td>
-                                                <td >
-                                                    <img src="${bird.getImageURL()}" alt="Description of the image" style="display: block;
-                                                         margin: auto; width: 200px; height: 150px; ">
-                                                </td>
-                                                <td  text-align: center;">
-                                                     <form action="${pageContext.request.contextPath}/BirdController" method="POST">
-                                                        <input type="hidden" name="action" value="add">
-                                                        <input type="hidden" name="BID" value="${bird.getBID()}" />
-                                                        <input type="hidden" name="TID" value="${sessionScope.sessionTID}"/>
-                                            <c:set var="TransactionType" scope="session" value="fee" /> 
-                                            <button type="submit" class="wp-block-button__link wp-element-button">Sign up</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                        </c:forEach>
-                                    </c:if>
                                 </table>-->
                                     <style>
                                         .bird-list {
@@ -169,7 +141,7 @@
                                                 <c:forEach var="bird" items="${birdList}">
                                                     <div class="bird-card">
                                                         <div class="left-content" style="padding-left:20px;">
-                                                            <img src="${bird.getImageURL()}" alt="Description of the image" class="bird-image">
+                                                            <img src="data:image/jsp;base64,${Base64.getEncoder().encodeToString(bird.getProfilePic())}" alt="Description of the image" class="bird-image">
                                                         </div>
 
                                                         <div class="right-content" style="text-align: center;padding-left:40px;" >
