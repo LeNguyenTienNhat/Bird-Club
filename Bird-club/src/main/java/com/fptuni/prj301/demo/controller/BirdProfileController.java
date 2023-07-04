@@ -6,14 +6,10 @@
 package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.BirdManager;
-import com.fptuni.prj301.demo.dbmanager.FieldtripManager;
-import com.fptuni.prj301.demo.dbmanager.MemberManager;
 import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.BirdProfile;
-import com.fptuni.prj301.demo.model.Fieldtrip;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

@@ -372,7 +372,7 @@ button[type="submit"] {
                                 <input type="text" id="searchInput" placeholder="Search">
                             </div>
                             <div class="add-container">
-                            <button class="add-button" href="member_addbird.jsp" ><i class="fas fa-plus"></i>Add Bird</button>
+                            <a href="member_addbird.jsp" class="nav-link"><i class="fas fa-plus"></i>Add Bird</a>
 </div>
 
 
