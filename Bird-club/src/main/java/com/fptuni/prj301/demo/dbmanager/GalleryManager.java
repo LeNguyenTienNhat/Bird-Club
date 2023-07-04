@@ -36,7 +36,7 @@ public class GalleryManager {
             while (rs.next()) {
                 Image i = new Image();
                 i.setDescription(rs.getString("description"));
-                i.setImage(rs.getBytes("URL"));
+                i.setImage(rs.getBytes("image"));
                 list.add(i);
             } rs.close();
         } catch (SQLException e) {
