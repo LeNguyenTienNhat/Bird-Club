@@ -48,7 +48,7 @@
             }
             .text-muted {
                 margin-bottom: 10px;
-                
+
             }
 
             .form-group {
@@ -102,7 +102,7 @@
             <div class="body-form">
                 <h3 class="text-muted">${sessionScope.TransactionType}</h3>
                 <div class="form-group">
-                    <button onclick="querydr()" class="cancel-button" style="background-color: red;">Hủy giao dịch</button>
+                    <button onclick="querydr()" class="cancel-button" style="background-color: red;">${docT}</button>
                     <button onclick="pay()">Thanh toán</button>
                 </div>
             </div>
@@ -134,7 +134,20 @@
             }
             function querydr() {
                 var docT = "${docT}";
-                var url = "${pageContext.request.contextPath}/BirdController?action=delete&docT=" + encodeURIComponent(docT);
+                var TransactionType = "${sessionScope.TransactionType}";
+                var old = "${sessionScope.old}";
+                var username = "${sessionScope.username}";
+
+                // Encode the values for URL inclusion
+                var encodedDocT = encodeURIComponent(docT || "");
+                var encodedTransactionType = encodeURIComponent(TransactionType || "");
+                var encodedOld = encodeURIComponent(old || "");
+                var encodedUsername = encodeURIComponent(username || "");
+
+                // Construct the URL with the parameters
+                var url = "${pageContext.request.contextPath}/BirdController?action=delete&docT=" + encodedDocT +
+                        "&old=" + encodedOld + "&TransactionType=" + encodedTransactionType +
+                        "&username=" + encodedUsername;
                 window.location.href = url;
             }
         </script>

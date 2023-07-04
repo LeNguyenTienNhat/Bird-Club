@@ -73,7 +73,7 @@
                                                     <a target="_self" href="member_FeedBack.jsp" class="menu-link sub-menu-link">Feedback</a>
                                                 </li>
                                                 <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom">
-                                                    <a target="_self" href="vnpay_pay.jsp" class="menu-link sub-menu-link">Donation</a>
+                                                    <a target="_self" href="${pageContext.request.contextPath}/MemberShipController?action=donate" class="menu-link sub-menu-link">Donation</a>
                                                 </li>
                                                 <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom">
                                                     <a target="_self" href="${pageContext.request.contextPath}/UserAccessController/logout" class="menu-link sub-menu-link">Log out</a>

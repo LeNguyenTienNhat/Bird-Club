@@ -63,8 +63,8 @@ public class MeetingParticipantsController extends HttpServlet {
 
             if (success) {
                 // Redirect to a success page
-                request.setAttribute("docM", docNo);
-                ss.setAttribute("docM", docNo);
+                request.setAttribute("docT", docNo);
+                ss.setAttribute("docT", docNo);
                 response.sendRedirect(request.getContextPath() + "/StaffAccountMTController?action=viewmeeting");
             } else {
                 // Redirect to a failure page
