@@ -137,7 +137,7 @@ public class TparticipationManager {
 
     public Tparticipation getParticipant(String TID, String bid) {
         Tparticipation t = null;
-        String sql = "SELECT * FROM [Tparticipation] WHERE TID = ? AND bid = ? ";
+        String sql = "SELECT * FROM [Tparticipation] WHERE TID = ? AND BID = ? ";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -150,6 +150,7 @@ public class TparticipationManager {
                 t.setBID(rs.getString("BID"));
                 t.setDocNo(rs.getString("docNo"));
                 t.setAchievement(rs.getString("achievement"));
+                t.setScore(rs.getBigDecimal("score"));
             }
         } catch (SQLException e) {
             // Handle the exception appropriately

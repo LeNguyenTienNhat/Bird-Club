@@ -55,6 +55,7 @@ public class BirdManager {
         return birds;
     }
 
+
     public String getBirdOwnerUIDByBID(String BID) {
         String sql = "SELECT * FROM [Bird] WHERE BID = ?";
         String UID = null;

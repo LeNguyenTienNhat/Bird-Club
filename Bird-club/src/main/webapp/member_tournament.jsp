@@ -238,149 +238,7 @@
                         }
 
                     </style>
-                    <div class="search-container">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" id="searchInput" placeholder="Search">
-                    </div>
-
-                    <!--                        <div class="tournament-container">
-                    <c:if test="${empty tList}">
-                        <div>
-                            <p>No tournament found.</p>
-                        </div>
-                    </c:if>
-                    <c:if test="${not empty tList}">
-                        <c:forEach var="t" items="${tList}" varStatus="loop">
-                            <div class="tournament-item">
-                                <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
-                                    <div class="tribe-events-calendar-list__event-details tribe-common-g-col">
-
-                                        <h4 class="tribe-events-calendar-list__event-title tribe-common-h6 tribe-common-h4--min-medium" style="display: flex; justify-content: center;">
-                                            <a href="${pageContext.request.contextPath}/TparticipationController?action=view&TID=${t.getTID()}&UID=${users.getUID()}"
-                                               title="${t.getName()}"
-                                               style="display: flex; align-items: center;"
-                                               class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
-                            ${t.getName()}
-                        </a>
-                        
-                    </h4>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <dt><strong>Date Start</strong></dt></dt>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <dd>
-                                            <abbr class="tribe-events-calendar-list__event-datetime-wrapper tribe-common-b2" title="2023-05-27">${t.getStartDate()}</abbr>
-                                        </dd>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <dt><strong>Date End</strong></dt></dt>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <dd>
-                                            <div class="tribe-events-abbr tribe-events-start-time published dtstart" title="2023-05-27">
-                                                <div class="tribe-recurring-event-time">${t.getEndDate()}</div>
-                                            </div>
-                                        </dd>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <dt><strong></strong></dt></dt>
-                                    </div>
-                            <c:if test="${users.getRole().trim().equals('member')}">
-                                <div class="col-md-8">
-                                    <dd>
-                                        <span class="status-button
-                                <c:choose>
-                                    <c:when test="${t.getStatus().contains('pending')}">
-                                        status-pending
-                                    </c:when>
-                                    <c:when test="${t.getStatus().contains('formClosed')}">
-                                        status-formClosed
-                                    </c:when>
-                                    <c:when test="${t.getStatus().contains('ongoing')}">
-                                        status-ongoing
-                                    </c:when>
-                                    <c:when test="${t.getStatus().contains('finished')}">
-                                        status-finished
-                                    </c:when>
-                                </c:choose>"
-                                >
-                                ${t.getStatus()}
-                            </span>
-                        </dd>
-                    </div>
-                            </c:if>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <dt><strong>Fee</strong></dt></dt>
-                            </div>
-                            <div class="col-md-8">
-                                <dd>
-                                    <div class="tribe-recurring-event-time">${t.getFee()}$</div>
-                                </dd>
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <dt><strong>Total Prize</strong></dt></dt>
-                            </div>
-                            <div class="col-md-8">
-                                <dd>
-                                    <div class="tribe-recurring-event-time">${t.getTotalPrize()}$</div>
-                                </dd>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <dt><strong>Participants</strong></dt></dt>
-                            </div>
-                            <div class="col-md-8">
-                                <dd>
-                                    <div class="tribe-recurring-event-time">${t.getNumberOfParticipant()}</div>
-                                </dd>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</div>
-                        </c:forEach>
-                    </c:if>
-                </div>
-                    -->                        <style>
+                     <style>
                         .tournament-container {
                             display: grid;
                             grid-template-columns: repeat(2, 1fr);
@@ -440,16 +298,16 @@
                                     <c:if test="${users.getRole().trim().equals('member')}">
                                         <span class="status-button
                                               <c:choose>
-                                                  <c:when test="${m.getStatus().contains('pending')}">
+                                                  <c:when test="${t.getStatus().contains('pending')}">
                                                       status-pending
                                                   </c:when>
-                                                  <c:when test="${m.getStatus().contains('formClosed')}">
+                                                  <c:when test="${t.getStatus().contains('formClosed')}">
                                                       status-formClosed
                                                   </c:when>
-                                                  <c:when test="${m.getStatus().contains('ongoing')}">
+                                                  <c:when test="${t.getStatus().contains('ongoing')}">
                                                       status-ongoing
                                                   </c:when>
-                                                  <c:when test="${m.getStatus().contains('finished')}">
+                                                  <c:when test="${t.getStatus().contains('finished')}">
                                                       status-finished
                                                   </c:when>
                                               </c:choose>"

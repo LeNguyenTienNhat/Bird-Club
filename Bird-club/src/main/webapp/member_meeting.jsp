@@ -269,21 +269,23 @@
 
                                         <div class="row">
                                             <div class="tribe-events-event-image" style="width: 300px; height: 300px;">
-                                                <c:if test="${not empty f.getImage()}">
-                                                    <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${f.getMeID()}&UID=${users.getUID()}">
+                                                <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${f.getMeID()}&UID=${users.getUID()}" >
+                                                    <c:if test="${not empty f.getImage()}">
                                                         <img width="300" height="300" src="data:image/jsp;base64,${Base64.getEncoder().encodeToString(f.getImage())}" class="attachment-medium size-medium wp-post-image" alt="data:image/jsp;base64,${Base64.getEncoder().encodeToString(f.getImage())}" srcset="data:image/jsp;base64,${Base64.getEncoder().encodeToString(f.getImage())} 300w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(f.getImage())} 150w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(f.getImage())} 600w" sizes="(max-width: 300px) 100vw, 300px">
-                                                    </a>
-                                                </c:if>
-                                                <c:if test="${empty f.getImage()}">
-                                                    <div>No image available</div>
-                                                </c:if>
+
+                                                    </c:if>
+                                                    <c:if test="${empty f.getImage()}">
+                                                        <div>No image available</div>
+                                                    </c:if>
+                                                </a>
                                             </div>
                                             <div class="tribe-events-list-event-description col-md-6 tribe-events-content description entry-summary">
                                                 <p><strong>Leader: </strong> ${f.getIncharge()}</p>
                                                 <p><strong>Participant limit: </strong>${f.getNumberOfParticipant()}</p>
                                                 <p><strong>Focus: </strong>${f.getDescription()}</p>
                                                 <p><strong>Note: </strong> ${f.getNote()}</p>
-                                                <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${f.getMeID()}" class="tribe-events-read-more" rel="bookmark">Find out more »</a>                                            </div>
+                                                <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${f.getMeID()}&UID=${users.getUID()}" class="tribe-events-read-more" rel="bookmark">Find out more »</a>
+                                            </div>
                                         </div>
                                         <hr>
                                     </div>
