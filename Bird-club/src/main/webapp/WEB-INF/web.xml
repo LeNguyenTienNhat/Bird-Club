@@ -75,6 +75,10 @@
         <servlet-name>StaffBlogs</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.StaffBlogs</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FeedBackController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.FeedBackController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomepageController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -246,6 +250,10 @@
     <servlet-mapping>
         <servlet-name>StaffBlogs</servlet-name>
         <url-pattern>/blogs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FeedBackController</servlet-name>
+        <url-pattern>/FeedBackController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

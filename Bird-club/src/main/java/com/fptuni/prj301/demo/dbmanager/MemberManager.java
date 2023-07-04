@@ -302,4 +302,21 @@ public class MemberManager {
         }
         return list;
     }
+    
+    public int getTotalNumberOfMember() {
+        int count = 0;
+        String sql = "SELECT COUNT(UID) as num FROM [User]";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt("num");
+            }
+            return count;
+        } catch (SQLException ex) {
+            System.out.println("Query error!" + ex.getMessage());
+        }
+        return count;
+    }
 }

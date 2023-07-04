@@ -42,7 +42,7 @@ public class StaffMediaController extends HttpServlet {
             String tableName = request.getParameter("tableName");
 
             //Inserting the image for club's gallery
-            if (ID.equalsIgnoreCase("Gallery")) {
+            if (ID.equals("Gallery")) {
                 Image image = new Image(description,pictureData);
                 gm.insert(image);
                 response.sendRedirect("gallery");
