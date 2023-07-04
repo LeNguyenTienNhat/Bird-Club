@@ -410,6 +410,25 @@ CREATE TABLE [dbo].[Transactions](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+/****** Object:  Table [dbo].[Feedback]    Script Date: 6/2/2023 8:22:23 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].Feedback(
+	[FeID] [nvarchar](10) NOT NULL,
+	[UID] [nchar](10) NOT NULL,
+	[title] [nvarchar](50) NOT NULL,
+	[detail] [nvarchar](max) NOT NULL,
+	[date] [datetime] NOT NULL,
+	[category] [nvarchar](20) NOT NULL,
+	[status] [nchar](10) NOT NULL,
+ CONSTRAINT [PK_Feedback] PRIMARY KEY CLUSTERED 
+(
+	[FeID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
 /****** Object:  Table [dbo].[User]    Script Date: 6/2/2023 8:22:23 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -512,6 +531,11 @@ ALTER TABLE [dbo].[Transactions]  WITH CHECK ADD  CONSTRAINT [FK_Payment_User] F
 REFERENCES [dbo].[User] ([UID])
 GO
 ALTER TABLE [dbo].[Transactions] CHECK CONSTRAINT [FK_Payment_User]
+GO
+ALTER TABLE [dbo].[Feedback]  WITH CHECK ADD  CONSTRAINT [FK_Feedback_User] FOREIGN KEY([UID])
+REFERENCES [dbo].[User] ([UID])
+GO
+ALTER TABLE [dbo].[Feedback] CHECK CONSTRAINT [FK_Feedback_User]
 GO
 ALTER TABLE [dbo].[User]  WITH CHECK ADD  CONSTRAINT [FK_User_Membership] FOREIGN KEY([MID])
 REFERENCES [dbo].[Membership] ([MID])
