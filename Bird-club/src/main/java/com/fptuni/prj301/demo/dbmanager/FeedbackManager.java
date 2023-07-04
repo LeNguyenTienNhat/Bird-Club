@@ -160,4 +160,26 @@ public class FeedbackManager {
         return count;
     }
 
+    public static void main(String[] args) {
+        FeedbackManager feedbackManager = new FeedbackManager();
+
+        // Create a new Feedback object
+        Feedback feedback = new Feedback();
+        feedback.setFeID("FeID1");
+        feedback.setUID("UID1");
+        feedback.setTitle("Test Feedback");
+        feedback.setDetail("This is a test feedback.");
+        feedback.setDate("2023-07-04"); // Set the date in the format "yyyy-MM-dd"
+        feedback.setCategory("General");
+        feedback.setStatus("Open");
+
+        // Insert the feedback into the database
+        try {
+            feedbackManager.insert(feedback);
+            System.out.println("Feedback inserted successfully.");
+        } catch (Exception e) {
+            System.out.println("Failed to insert the feedback.");
+            e.printStackTrace();
+        }
+    }
 }
