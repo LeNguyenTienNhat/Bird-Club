@@ -269,4 +269,38 @@ public class MemberManager {
         }
         return count;
     }
+        
+        public List<Member> getMemberListAsDuration(int year, int month) {
+        List<Member> list = new ArrayList();
+        String sql = "SELECT * FROM [User] WHERE (DATEPART(yy, signupDate) = ? "
+                + " AND DATEPART(mm, signupDate) = ?)";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, year);
+            ps.setInt(2, month);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Member member = new Member();
+                member.setUID(rs.getString("UID"));
+                member.setUserName(rs.getString("userName"));
+                member.setPassword(rs.getString("password"));
+                member.setFullName(rs.getString("fullName"));
+                member.setGender(rs.getString("gender"));
+                member.setPhone(rs.getString("phone"));
+                member.setEmail(rs.getString("email"));
+                member.setRole(rs.getString("role"));
+                member.setStatus(rs.getString("status"));
+                member.setSignupDate(tool.trimDate(rs.getString("signupDate")));
+                member.setExpiredDate(tool.trimDate(rs.getString("expiredDate")));
+                member.setMID(rs.getString("MID"));
+                member.setProfilePicture(rs.getBytes("profilePicture"));
+                list.add(member);
+            }
+            return list;
+        } catch (SQLException ex) {
+            System.out.println("Query error!" + ex.getMessage());
+        }
+        return list;
+    }
 }

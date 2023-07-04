@@ -4,7 +4,6 @@ import com.fptuni.prj301.demo.dbmanager.BirdManager;
 import com.fptuni.prj301.demo.dbmanager.MemberManager;
 import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.Member;
-import tool.utils.Tools;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -14,8 +13,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import tool.utils.DBgenerator;
 import tool.utils.EmailSender;
+import tool.utils.Tools;
 
 public class StaffMember extends HttpServlet {
 
@@ -27,14 +26,24 @@ public class StaffMember extends HttpServlet {
 
         //display a list of members
         if (action == null || action.equals("viewmembers")) {
-            int page, skip;
+            Tools tool = new Tools();
+            int page=1, skip;
             try {
                 page = Integer.parseInt(request.getParameter("page"));
                 skip = (page - 1) * 20;
             } catch (NumberFormatException e) {
                 skip = 0;
             }
-            List<Member> membersList = manager.getRecords(skip, 20, "member", "UID");
+            
+            int month, year;
+            List<Member> membersList;
+            try {
+                month = Integer.parseInt(request.getParameter("month"));
+                year = Integer.parseInt(request.getParameter("year"));
+                membersList = manager.getMemberListAsDuration(year, month);
+            } catch (NumberFormatException e) {
+                membersList = manager.getRecords(skip, 20, "member", "UID");
+            }
             int memberNum = manager.getNumberOfMembers("member");
             int guestNum = manager.getNumberOfMembers("guest");
             int ignoredNum = manager.getNumberOfMembers("ignored");
@@ -43,6 +52,7 @@ public class StaffMember extends HttpServlet {
             request.setAttribute("memberNum", memberNum);
             request.setAttribute("guestNum", guestNum);
             request.setAttribute("ignoredNum", ignoredNum);
+            request.setAttribute("page", page);
             RequestDispatcher rd = request.getRequestDispatcher("staff_members.jsp");
             rd.forward(request, response);
         } 

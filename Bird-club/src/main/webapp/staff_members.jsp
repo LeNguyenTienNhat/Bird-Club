@@ -284,6 +284,7 @@
                     <div>
                         <div class="">
                             <div class="lg:col-span-7 xl:col-span-8" id="events_list">
+
                                 <div data-controller="record-filters">
                                     <!-- Filters -->
                                     <section aria-labelledby="filter-heading" class="relative z-10 grid items-center">
@@ -299,53 +300,46 @@
                                             <div class="border-t border-gray-200 py-10" id="disclosure-1">
                                                 <div class="max-w-7xl mx-auto  gap-x-4 px-4 text-sm md:gap-x-6">
                                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 lg:grid-cols-3 md:gap-x-6 w-full">
-
                                                         <div class="space-y-4">
-
                                                             <div>
-                                                                <legend class="block font-medium">Family</legend>
+                                                                <legend class="block font-medium">Month</legend>
                                                                 <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="family" id="family"><option value="" label=" "></option>
-                                                                        <option value="Ducks, Geese, Swans">Ducks, Geese, Swans</option></select>
+                                                                    <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="month" id="month">                                                           
+                                                                        <%! int index; %>
+                                                                        <% for (index = 1; index <= 12; index++) {
+                                                                                out.print("<option value='" + index + "'>" + index + "</option>");
+                                                                            } %>
+                                                                    </select>
                                                                 </div>
                                                             </div>
-
                                                             <div>
-                                                                <legend class="block font-medium">Species</legend>
+                                                                <legend class="block font-medium">Year</legend>
                                                                 <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="bird_id" id="bird_id"><option value="" label=" "></option>
-                                                                        <option value="49">Tufted Duck</option></select>
+                                                                    <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="year" id="year">                                                           
+                                                                        <option value="2022">2022</option>
+                                                                            <option value="2023">2023</option>
+                                                                            <option value="2024">2024</option>
+                                                                    </select>
                                                                 </div>
                                                             </div>
-
                                                         </div>
-
                                                         <div class="space-y-4">
-
-                                                            <div>
-                                                                <legend class="block font-medium">Location</legend>
-                                                                <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="location_id" id="location_id"><option value="" label=" "></option>
-                                                                        <option value="1254">At Home</option></select>
-                                                                </div>
+                                                            <legend class="block font-medium">Confirm sort</legend>
+                                                            <div class="mt-1">                                               
+                                                                <button type="submit" class="flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="flex-none mr-2 w-5 h-5">
+                                                                    <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd"></path>
+                                                                    </svg>Sort</button>
                                                             </div>
-
-                                                            <div>
-                                                                <legend class="block font-medium">Member</legend>
-                                                                <div class="mt-1">
-                                                                    <select data-action="change->record-filters#submit" class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="member_id" id="member_id"><option value="" label=" "></option>
-                                                                        <option value="808">Kaedehara Yamamoto</option></select>
-                                                                </div>
-                                                            </div>
-
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="action" value="viewmembers">
+
                                         </form>  </section>
                                 </div>
+
 
                                 <!--                                Brief data-->
                                 <div class="flex flex-col sm:rounded-lg shadow">
@@ -448,16 +442,20 @@
                         <div class="hidden sm:block">
                             <span class="pagy-info">Displaying <b><% out.print(membersList.size()); %></b> member(s)</span>
                         </div>
-                            <%! int i;%>
-                            <% memberNum = (memberNum / 20) + 1;
-                                for (i = 1; i <= memberNum; i++) {
-                                    out.print("<span class='page'><form>"
-                                            + "<input type='hidden' name='page' value='" + i + "'>"
-                                            + "<input type='hidden' name='action' value='viewmembers'>"
-                                            + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
-                                            + "</form></span>");
-                                }
-                            %>
+                        <%! int i; String theme;%>
+                        <% memberNum = (memberNum / 20) + 1;
+                        theme = " bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 ";
+                        int pageNum = (Integer) request.getAttribute("page");
+                            for (i = 1; i <= memberNum; i++) {
+                                if (i==pageNum) theme = " bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 ";
+                                out.print("<span class='page'><form>"
+                                        + "<input type='hidden' name='page' value='" + i + "'>"
+                                        + "<input type='hidden' name='action' value='viewmembers'>"
+                                        + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent "+theme+" inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
+                                        + "</form></span>");
+                                theme = " bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 ";
+                            }
+                        %>
                     </div>
 
                 </div>
