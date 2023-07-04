@@ -35,7 +35,7 @@ public class BlogManager {
                     Blog blog = new Blog();
                     blog.setBLID(rs.getString("BLID"));
                     blog.setDescription(rs.getString("description"));
-                    blog.setCategory(rs.getString("category"));                    
+                    blog.setCategory(rs.getString("category"));
                     blog.setUploadDate(rs.getDate("uploadDate"));
                     blog.setUID(rs.getString("UID"));
                     blog.setVote(rs.getBigDecimal("vote"));
@@ -64,7 +64,7 @@ public class BlogManager {
                     blog = new Blog();
                     blog.setBLID(rs.getString("BLID"));
                     blog.setDescription(rs.getString("description"));
-                    blog.setCategory(rs.getString("category"));                    
+                    blog.setCategory(rs.getString("category"));
                     blog.setUploadDate(rs.getDate("uploadDate"));
                     blog.setUID(rs.getString("UID"));
                     blog.setVote(rs.getBigDecimal("vote"));
@@ -159,7 +159,7 @@ public class BlogManager {
         }
         return count;
     }
-    
+
     public void updateStatus(String BLID, String status) {
         String sql = "UPDATE [Blog] SET status = ? WHERE BLID = ?";
         try {
@@ -170,5 +170,29 @@ public class BlogManager {
             ps.executeUpdate();
         } catch (SQLException ex) {
         }
+    }
+
+    public List<Blog> getTopBlog(int num) {
+        List<Blog> list = new ArrayList();
+        String sql = "SELECT TOP "+num+" * FROM Blog ORDER BY vote DESC";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Blog blog = new Blog();
+                blog.setBLID(rs.getString("BLID"));
+                blog.setDescription(rs.getString("description"));
+                blog.setCategory(rs.getString("category"));
+                blog.setUploadDate(rs.getDate("uploadDate"));
+                blog.setUID(rs.getString("UID"));
+                blog.setVote(rs.getBigDecimal("vote"));
+                blog.setPicture(rs.getBytes("picture"));
+                blog.setStatus(rs.getString("status"));
+                list.add(blog);
+            }
+        } catch (SQLException ex) {
+        }
+        return list;
     }
 }

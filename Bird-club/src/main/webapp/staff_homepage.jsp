@@ -1,4 +1,6 @@
 
+<%@page import="java.util.Base64"%>
+<%@page import="com.fptuni.prj301.demo.model.Blog"%>
 <%@page import="com.fptuni.prj301.demo.model.Meeting"%>
 <%@page import="com.fptuni.prj301.demo.model.Fieldtrip"%>
 <%@page import="com.fptuni.prj301.demo.model.Tournament"%>
@@ -548,7 +550,7 @@
                         labels: ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
                                 datasets: [data]};
                         var chartOptions = {legend: {display: true, position: 'top', labels: {boxWidth: 80, fontColor: 'white'}}};
-                        var lineChart2= new Chart(NumOfMembers, {type: 'line', data: numberData, options: chartOptions});
+                        var lineChart2 = new Chart(NumOfMembers, {type: 'line', data: numberData, options: chartOptions});
                     </script>                   
                 </div>
 
@@ -572,6 +574,24 @@
             <div class="lg:grid lg:grid-cols-2 gap-4 mt-4">
 
                 <div class="bg-white shadow sm:rounded-lg p-6">
+                    <% List<Blog> blogList; %>
+                    <% blogList = (List<Blog>) request.getAttribute("blogList");
+                        Blog b = blogList.get(0);
+                        out.print("<div class='relative flex flex-col bg-white sm:rounded-lg shadow p-6'>");
+                        out.print("<div class='grid items-start lg:grid-cols-5 lg:gap-8'>");
+                        out.print("<div class='lg:col-span-3'>");
+                        out.print("<div class='mt-2'><span class='sr-only'></span>"
+                                + "</div><div class='font-semibold text-gray-700 mb-2'>Most voted blog of all time: </div>"
+                                + "<div>" + b.getVote() + " votes" + "</div>"
+                                + "<div class='mt-2'><span class='sr-only'></span>"
+                                + "</div><div class='font-semibold text-gray-700 space-x-2'></div>"
+                                + "<div class='mt-0.5 space-y-4 space-x-3'>" + b.getDescription() + "</div>"
+                                + "<div style='margin-top: 15px' class='flex items-start space-x-3'>"                               
+                                + "</div></div>");
+                        out.print("<div class='lg:col-span-2'>");
+                        out.print("<img src='data:image/png;base64," + Base64.getEncoder().encodeToString(b.getPicture()) + "'>");
+                        out.print("</div></div></div>");
+                    %>
 
                 </div>
 
