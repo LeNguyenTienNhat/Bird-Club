@@ -63,8 +63,8 @@
                                                 }
                                             </style>
                                             <ul class="sub-menu hidden menu-odd menu-depth-1" aria-hidden="true">
-                                                <li id="nav-menu-item-41702" class="menu-item menu-item-type-custom menu-item-object-custom">
-                                                    <a target="_self" href="member_BirdList.jsp" class="menu-link sub-menu-link">My bird</a>
+                                                <li id="nav-menu-item-41702" class="menu-item menu-item-type-custom menu-item-object-custom">                                                                                                                  
+                                                    <a target="_self" value="${users.getUID()}" href="${pageContext.request.contextPath}/BirdController?action=viewbirdprofile" class="menu-link sub-menu-link">My bird</a>
                                                 </li>
                                                 <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom">
                                                     <a target="_self" href="${pageContext.request.contextPath}/MemberShipController?action=view" class="menu-link sub-menu-link">Membership</a>

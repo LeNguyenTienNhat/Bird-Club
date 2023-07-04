@@ -19,20 +19,18 @@ public class BirdProfile {
     private int age;
     private String gender;
     private String description;
-    private String imageURL;
     private String color;
 
     public BirdProfile() {
     }
 
-    public BirdProfile(String BID, String UID, String name, int age, String gender, String description, String imageURL, String color) {
+    public BirdProfile(String BID, String UID, String name, int age, String gender, String description, String color) {
         this.BID = BID;
         this.UID = UID;
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.description = description;
-        this.imageURL = imageURL;
         this.color = color;
     }
 
@@ -123,16 +121,7 @@ public class BirdProfile {
     /**
      * @return the imageURL
      */
-    public String getImageURL() {
-        return imageURL;
-    }
-
-    /**
-     * @param imageURL the imageURL to set
-     */
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
+   
 
     /**
      * @return the color

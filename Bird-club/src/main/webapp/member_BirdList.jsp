@@ -372,81 +372,10 @@ button[type="submit"] {
                                 <input type="text" id="searchInput" placeholder="Search">
                             </div>
                             <div class="add-container">
-    <button class="add-button" onclick="showPopup()"><i class="fas fa-plus"></i>Add Bird</button>
+                            <button class="add-button" href="member_addbird.jsp" ><i class="fas fa-plus"></i>Add Bird</button>
 </div>
 
-<div class="popup" id="popupContainer">
-    <!-- Popup content goes here -->
-    <div class="button-container">
-        <h2 style="text-align: center;">Add a new Bird</h2>
-        
-        <form id="blogForm">
-            <div class="form-group">
-                <label for="imageInput">Image:</label>
-                <input type="file" id="imageInput" accept="image/*" />
-            </div>
-            
-            <div class="form-group">
-                <label for="nameInput">Name of Bird:</label>
-                <input type="text" id="nameInput" />
-            </div>
-            
-            <div class="form-group">
-                <label for="nameInput">Age:</label>
-                <input type="text" id="nameInput" />
-            </div>
-            
-            <div class="form-group">
-                <label for="nameInput">Description</label>
-                <input type="text" id="nameInput" />
-            </div>
-            
-            <div class="form-group">
-                <label for="nameInput">Gender</label>
-                <input type="text" id="nameInput" />
-            </div>
-            
-            <div class="form-group">
-                <label for="descriptionInput">Description:</label>
-                <textarea id="descriptionInput"></textarea>
-            </div>
-            
-            <button class="add-button" onclick="performAction()">Add</button>
-        </form>
-        
-        <button class="close-button" onclick="hidePopup()"><i class="fas fa-times"></i></button>
-    </div>
-</div><div class="backdrop" id="backdrop"></div>
-                            <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
 
-                            <script>
-                                     function showPopup() {
-    document.getElementById('popupContainer').style.display = 'block';
-    document.getElementById('backdrop').style.display = 'block';
-}
-
-function hidePopup() {
-    document.getElementById('popupContainer').style.display = 'none';
-    document.getElementById('backdrop').style.display = 'none';
-}
-
-function performAction() {
-    // Perform the desired action when the "Add" button is clicked
-    // You can access the form values using JavaScript and perform further processing or submission
-    var imageInput = document.getElementById('imageInput').value;
-    var nameInput = document.getElementById('nameInput').value;
-    var descriptionInput = document.getElementById('descriptionInput').value;
-    
-    // Perform your desired actions with the form inputs here
-    // For example, you can log them to the console
-    console.log('Image: ', imageInput);
-    console.log('Name of Blog: ', nameInput);
-    console.log('Description: ', descriptionInput);
-    
-    // Reset the form inputs if needed
-    document.getElementById('blogForm').reset();
-}
-                            </script>
                         </div>
                                         <style>
                                             .table-heading {
@@ -474,7 +403,7 @@ function performAction() {
                                                 <tr>
                                                     <td style="text-align: center;">${bird.getName()}</td>
                                                     <td >
-                                                        <img src="${bird.getImageURL()}" alt="Description of the image" style="display: block;
+                                                        <img src="${bird.getProfilePic()}" alt="Description of the image" style="display: block;
                                                              margin: auto; width: 200px; height: 150px; ">
                                                     </td>
                                                     <td  text-align: center;">

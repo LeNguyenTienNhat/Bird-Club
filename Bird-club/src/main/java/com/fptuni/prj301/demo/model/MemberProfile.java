@@ -16,19 +16,19 @@ public class MemberProfile {
     private String gender;
     private String phone;
     private String email;
-    private String avatar;
+
 
     public MemberProfile() {
     }
 
-    public MemberProfile(String UID, String userName, String fullName, String gender, String phone, String email, String avatar) {
+    public MemberProfile(String UID, String userName, String fullName, String gender, String phone, String email) {
         this.UID = UID;
         this.userName = userName;
         this.fullName = fullName;
         this.gender = gender;
         this.phone = phone;
         this.email = email;
-        this.avatar = avatar;
+
     }
 
     /**
@@ -118,16 +118,7 @@ public class MemberProfile {
     /**
      * @return the avatar
      */
-    public String getAvatar() {
-        return avatar;
-    }
-
-    /**
-     * @param avatar the avatar to set
-     */
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
+   
 
     
     

@@ -26,6 +26,10 @@ public class Bird {
     public Bird() {
     }
 
+    public Bird(String BID, String UID, String name, String age, String gender, String description, String color, String addDate, byte[] profilePic) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getBID() {
         return BID;
     }

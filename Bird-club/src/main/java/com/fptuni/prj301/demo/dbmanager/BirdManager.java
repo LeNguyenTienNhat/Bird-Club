@@ -105,7 +105,7 @@ public class BirdManager {
     public boolean update(BirdProfile bird) throws ClassNotFoundException {
         String sql = "UPDATE [Bird] SET name = ?, "
                 + "age = ?, "
-                + "gender = ?, description = ?, imageURL = ?, color = ? "
+                + "gender = ?, description = ?, color = ? "
                 + " WHERE BID = ?";
         try {
             Connection conn = DBUtils.getConnection();
@@ -114,9 +114,8 @@ public class BirdManager {
             ps.setInt(2, bird.getAge());
             ps.setString(3, bird.getGender());
             ps.setString(4, bird.getDescription());
-            ps.setString(5, bird.getImageURL());
-            ps.setString(6, bird.getColor());
-            ps.setString(7, bird.getBID());
+            ps.setString(5, bird.getColor());
+            ps.setString(6, bird.getBID());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Failed to update due to internal error :(" + ex.getMessage());
@@ -138,7 +137,6 @@ public class BirdManager {
                 int age = rs.getInt("age");
                 String gender = rs.getString("gender");
                 String description = rs.getString("description");
-                String imageURL = rs.getString("imageURL");
                 String color = rs.getString("color");
                 Date addDate = rs.getTimestamp("addDate");
                 byte[] profilePic = rs.getBytes("profilePic");

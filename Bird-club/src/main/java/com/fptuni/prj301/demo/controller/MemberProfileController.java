@@ -57,25 +57,18 @@ public class MemberProfileController extends HttpServlet {
             HttpSession ss = request.getSession(true);
             String UID = request.getParameter("UID");
             String userName = request.getParameter("userName");
-            //String password = request.getParameter("password");
             String fullName = request.getParameter("fullName");
             String gender = request.getParameter("gender");
             String phone = request.getParameter("phone");
-            String email = request.getParameter("email");
-            //String status = request.getParameter("status").trim();
-            //String role = request.getParameter("role").trim();
-
-            //String signupDate  = tool.convertDateFormat(request.getParameter("signupDate"));
-            //String expiredDate  = tool.convertDateFormat(request.getParameter("expiredDate"));
-            //String MID = request.getParameter("MID");
-            String avatar = request.getParameter("avatar");
-            MemberProfile users = new MemberProfile(UID, userName, fullName, gender, phone, email, avatar);
+            String email = request.getParameter("email");                 
+            MemberProfile users = new MemberProfile(UID, userName, fullName, gender, phone, email);
 
             memberManager.update(users);
             ss.setAttribute("users", users);
             request.setAttribute("action", "view");
-            RequestDispatcher rd = request.getRequestDispatcher("/member_profile.jsp");
-            rd.forward(request, response);
+            request.getRequestDispatcher("/member_profile.jsp").forward(request, response);
+//            RequestDispatcher rd = request.getRequestDispatcher("/member_profile.jsp");
+//            rd.forward(request, response);
             return;
         }
     }

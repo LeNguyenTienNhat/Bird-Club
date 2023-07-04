@@ -172,10 +172,7 @@
                                                 <label class="labels">Description</label>
                                                 <input type="text" class="form-control" name="description" placeholder="Description" value="${birds.getDescription()}">
                                             </div>
-                                            <div class="col-md-12">
-                                                <label class="labels">Image</label>
-                                                <input type="text" class="form-control" name="imageURL" placeholder="URL" value="${birds.getImageURL()}">
-                                            </div> 
+                                            
                                         </div>
 
                                         <div class="pt-5">
