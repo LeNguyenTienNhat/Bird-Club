@@ -403,7 +403,7 @@
                                                 out.print("<li class='relative flex flex-col bg-white sm:rounded-lg shadow p-6'>"
                                                         + "<div>"
                                                         + "<h1 class='font-bold text-xl text-gray-900 space-x-2'><span>"
-                                                        +"Blog "+ b.getBID() + " - " +b.getVote() + " vote(s)"
+                                                        +"Blog "+ b.getBLID() + " - " +b.getVote() + " vote(s)"
                                                         + "</span>");
 
                                                 if (b.getStatus().trim().equalsIgnoreCase("approved")) {
@@ -428,7 +428,7 @@
                                                         + "<div>" + b.getUID() + "</div>"
                                                         + "<div class='mt-2'><span class='sr-only'></span>"
                                                         + "</div><div class='font-semibold text-gray-700 space-x-2'>Description:   </div>"
-                                                        + "<div class='mt-0.5 space-y-4 space-x-3'>" + b.getBlogsContent() + "</div>"
+                                                        + "<div class='mt-0.5 space-y-4 space-x-3'>" + b.getDescription() + "</div>"
                                                         + "<div style='margin-top: 15px' class='flex items-start space-x-3'>"
                                                         + "</div>");
 
@@ -436,7 +436,7 @@
 
                                                 if (b.getStatus().trim().equalsIgnoreCase("idle")) {
                                                     out.print("<form>"
-                                                            + "<input type='hidden' name='BLID' value = '" + b.getBID() + "'>"
+                                                            + "<input type='hidden' name='BLID' value = '" + b.getBLID() + "'>"
                                                             + "<input type='hidden' name='action' value='approve'>"
                                                             + "<button class='flex justify-center py-2 px-4 text-base text-lime-500 border-transparent text-xs bg-white hover:bg-gray-100 hover:text-lime-500 focus:ring-lime-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                                             + "type='submit'>"
@@ -450,7 +450,7 @@
 
                                                 if (b.getStatus().trim().equalsIgnoreCase("idle")) {
                                                     out.print("<form>"
-                                                            + "<input type='hidden' name='BLID' value = '" + b.getBID() + "'>"
+                                                            + "<input type='hidden' name='BLID' value = '" + b.getBLID() + "'>"
                                                             + "<input type='hidden' name='action' value='denie'>"
                                                             + "<button class='flex justify-center py-2 px-4 text-base text-red-500 border-transparent text-xs bg-white hover:bg-gray-100 hover:text-red-500 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                                             + "type='submit'>"
@@ -464,7 +464,7 @@
 
                                                 if (b.getStatus().trim().equalsIgnoreCase("approved")) {
                                                     out.print("<form>"
-                                                            + "<input type='hidden' name='BLID' value = '" + b.getBID() + "'>"
+                                                            + "<input type='hidden' name='BLID' value = '" + b.getBLID() + "'>"
                                                             + "<input type='hidden' name='action' value='denie'>"
                                                             + "<button class='flex justify-center py-2 px-4 text-base text-red-500 border-transparent text-xs bg-white hover:bg-gray-100 hover:text-red-500 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                                             + "type='submit'>"
@@ -478,7 +478,7 @@
 
                                                 if (b.getStatus().trim().equalsIgnoreCase("denied")) {
                                                     out.print("<form>"
-                                                            + "<input type='hidden' name='BLID' value = '" + b.getBID() + "'>"
+                                                            + "<input type='hidden' name='BLID' value = '" + b.getBLID() + "'>"
                                                             + "<input type='hidden' name='action' value='approve'>"
                                                             + "<button class='flex justify-center py-2 px-4 text-base text-lime-500 border-transparent text-xs bg-white hover:bg-gray-100 hover:text-lime-500 focus:ring-lime-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                                             + "type='submit'>"
