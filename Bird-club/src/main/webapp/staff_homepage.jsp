@@ -337,37 +337,45 @@
                 <div class="bg-white shadow sm:rounded-lg p-6 mb-4">
                     <dl class="sm:rounded-t-lg grid grid-cols-4 bg-white overflow-hidden border-gray-200 divide-y divide-gray-200 md:divide-y-0 md:divide-x">
                         <div class="px-4 py-5 sm:p-6">
-                            <dt class="text-base font-normal text-gray-900">Available</dt>
+                            <dt class="text-base font-normal text-gray-900"><a href="members">Total members:</a></dt>
                             <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                 <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                    89
+                                    <% int totalMember = (Integer) request.getAttribute("totalMember");
+                                    out.print(totalMember);
+                                    %>
                                 </div>
                             </dd>
                         </div>
 
                         <div class="px-4 py-5 sm:p-6">
-                            <dt class="text-base font-normal text-gray-900">Trending</dt>
+                            <dt class="text-base font-normal text-gray-900">New member this month:</dt>
                             <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                 <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                    6
+                                    <% int newMemberThisMonth = (Integer) request.getAttribute("newMemberThisMonth");
+                                    out.print(newMemberThisMonth);
+                                    %>
                                 </div>
                             </dd>
                         </div>
 
                         <div class="px-4 py-5 sm:p-6">
-                            <dt class="text-base font-normal text-gray-900">Hidden</dt>
+                            <dt class="text-base font-normal text-gray-900"><a href="feedbacks">Feedback:</a> </dt>
                             <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                 <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                    7
+                                    <% int totalPendingFeedback = (Integer) request.getAttribute("totalPendingFeedback");
+                                    out.print(totalPendingFeedback);
+                                    %>
                                 </div>
                             </dd>
                         </div>
 
                         <div class="px-4 py-5 sm:p-6">
-                            <dt class="text-base font-normal text-gray-900">Hidden</dt>
+                            <dt class="text-base font-normal text-gray-900"><a href="events">On going events:</a></dt>
                             <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                 <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                    7
+                                    <% int totalOngoingEvents = (Integer) request.getAttribute("totalOngoingEvents");
+                                    out.print(totalOngoingEvents);
+                                    %>
                                 </div>
                             </dd>
                         </div>

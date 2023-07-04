@@ -201,7 +201,7 @@ public class MemberManager {
 
     public int getTotalNumberAsDuration(int year, int month) {
         int count = 0;
-        String sql = "SELECT * FROM [User] WHERE (DATEPART(yy, signupDate) = ? "
+        String sql = "SELECT COUNT(UID) as num FROM [User] WHERE (DATEPART(yy, signupDate) = ? "
                 + " AND DATEPART(mm, signupDate) = ?)";
         try {
             Connection conn = DBUtils.getConnection();
@@ -209,8 +209,8 @@ public class MemberManager {
             ps.setInt(1, year);
             ps.setInt(2, month);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                count++;
+            if (rs.next()) {
+                count = rs.getInt("num");
             }
             return count;
         } catch (SQLException ex) {
@@ -251,5 +251,22 @@ public class MemberManager {
             ps.executeUpdate();
         } catch (SQLException e) {
         }
+    }
+    
+        public int getTotalNumberOfMember() {
+        int count = 0;
+        String sql = "SELECT COUNT(UID) as num FROM [User]";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt("num");
+            }
+            return count;
+        } catch (SQLException ex) {
+            System.out.println("Query error!" + ex.getMessage());
+        }
+        return count;
     }
 }

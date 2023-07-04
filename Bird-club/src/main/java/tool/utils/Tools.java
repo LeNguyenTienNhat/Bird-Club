@@ -139,5 +139,12 @@ public class Tools {
     public int getRandomNumber(int min, int max) {
         return (int) (Math.random() * (max - min + 1) + min);
     }
+    
+        public int getDetailedCurrentDate(String category) {
+        LocalDateTime now = LocalDateTime.now();
+        if (category.equals("year")) return now.getYear();
+        if (category.equals("month")) return now.getMonthValue();
+        else return now.getDayOfMonth();
+    }
 
 }

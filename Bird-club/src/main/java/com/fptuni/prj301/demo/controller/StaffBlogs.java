@@ -1,7 +1,9 @@
 package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.BlogManager;
+import com.fptuni.prj301.demo.dbmanager.MemberManager;
 import com.fptuni.prj301.demo.model.Blog;
+import com.fptuni.prj301.demo.model.Member;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
@@ -38,6 +40,11 @@ public class StaffBlogs extends HttpServlet {
                 page = 1;
             }
             List<Blog> list = bm.getRecords(skip, 10, status, "uploadDate");
+            MemberManager mem = new MemberManager();
+            for (Blog b : list) {
+                Member m = mem.load(b.getUID());
+                b.setUID(m.getFullName());
+            }
             int listSize = list.size();
             int totalNum = bm.getTotalNum("all");
             int idleNum = bm.getTotalNum("idle");

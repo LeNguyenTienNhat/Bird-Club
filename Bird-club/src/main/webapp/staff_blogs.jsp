@@ -176,64 +176,6 @@
         </nav>
 
 
-
-
-
-        <div data-controller="modal" data-modal-target="container" data-modal-id-value="modal2" data-modal-persist-value="false" class="hidden fixed z-[2000] inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                <div     data-modal-target="overlay"      data-action="click->modal#close"
-                         class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"      aria-hidden="true"
-                         data-transition-enter="transition ease-out duration-300"      data-transition-enter-start="opacity-0"
-                         data-transition-enter-end="opacity-100"      data-transition-leave="transition ease-in duration-200"
-                         data-transition-leave-start="opacity-100"      data-transition-leave-end="opacity-0"      >    </div>
-                <!-- This element is to trick the browser into centering the modal contents. -->
-                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-                <div       data-modal-target="content" 
-                           class="hidden relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full sm:p-6"
-                           data-transition-enter="transition ease-out duration-300"      data-transition-enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                           data-transition-enter-end="opacity-100 translate-y-0 sm:scale-100"      data-transition-leave="transition ease-in duration-200"
-                           data-transition-leave-start="opacity-100 translate-y-0 sm:scale-100"      data-transition-leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"    >
-                    <div class="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
-                        <button data-action="click->modal#close" type="button" class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500">
-                            <span class="sr-only">Close</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class=" w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                            </svg></button></div>
-
-                    <div class="sm:flex sm:items-start">
-                        <turbo-frame data-modal-target="test" class="w-full" id="modal" target="_top" reloadable="" src="https://www.bird.club/clubs/birds-in-ohio/events/new?start_date=2023-06-01">
-                            <h3 class="text-lg leading-6 font-medium text-gray-900">New tournament</h3>
-                            <turbo-frame id="new_event" target="_top">
-
-                                <form class="space-y-4" accept-charset="UTF-8" action="./news" method="post">
-                                    <div class="mt-3"><label class="block text-sm font-medium text-gray-700" for="title">Title</label>
-                                        <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" name="title" id="title"></div></div>
-
-                                    <div><label class="block text-sm font-medium text-gray-700" for="category">Category: </label>
-                                        <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" name="category" id="category"></div></div>
-
-                                    <div class="sm:col-span-6">
-                                        <label class="block text-sm font-medium text-gray-700" for="status">Status: </label>
-                                        <div class="mt-1">
-                                            <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="status" id="status">
-                                                <option selected="selected" value="normal">Normal</option>
-                                                <option value="trending">Trending</option>
-                                            </select>
-                                        </div>
-                                        <p class="mt-2 text-sm text-gray-500">Pending. <br>
-                                            Placeholder. <br></p>
-                                    </div>
-
-                                    <div><label class="block text-sm font-medium text-gray-700" for="newsContent">Content:</label>
-                                        <div class="mt-1"> <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="newsContent" id="newsContent"></textarea>
-                                        </div></div>
-
-                                    <div class="text-right sm:col-span-4">
-                                        <input name="action" value="upload" type="hidden">
-                                        <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
-                                            Upload</button></div></form></turbo-frame></turbo-frame></div></div></div></div>
-
-
     <turbo-frame id="flash"></turbo-frame>
     <div class="bg-white">
         <div>
@@ -286,24 +228,6 @@
 
             <div class="grid grid-cols-1 items-start lg:grid-cols-5 lg:gap-8">
                 <div class="grid grid-cols-1 gap-4 lg:col-span-5">
-
-                    <div class="sm:flex sm:items-center px-4 sm:px-0">
-                        <div class="sm:flex-auto">
-                            <h1 class="text-xl font-semibold text-gray-900">BLOGS</h1>
-                            <p class="mt-2 text-sm text-gray-700">
-                                Blogs waiting for your approval.
-                            </p>
-                        </div>
-
-                        <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none" style="margin-left:1rem">
-                            <a class="w-full flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" data-turbo-frame="modal" href="">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="-ml-1 mr-3 w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                </svg>Upload</a>
-                        </div>
-                    </div>
-
-
                     <div data-controller="record-filters">
                         <!-- Filters -->
                         <section aria-labelledby="filter-heading" class="relative z-10 grid items-center">
@@ -409,11 +333,11 @@
                                                 if (b.getStatus().trim().equalsIgnoreCase("approved")) {
                                                     out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-green-100 text-green-800 text-xs rounded-full'>"
                                                             + "Approved"
-                                                            + "</span>");
+                                                            + "</span></h1>");
                                                 } else if (b.getStatus().trim().equalsIgnoreCase("denied")) {
                                                     out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-red-100 text-red-800 text-xs rounded-full'>"
-                                                            + "Waiting for approval"
-                                                            + "</span>");
+                                                            + "Denied"
+                                                            + "</span></h1>");
                                                 } else {
                                                     out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-gray-100 text-gray-800 text-xs rounded-full'>"
                                                             + "Waiting for approval"
