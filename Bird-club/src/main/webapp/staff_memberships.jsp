@@ -322,8 +322,6 @@
                                             <div><h1 class='font-bold text-xl text-gray-900 space-x-2'><span>
                                                         ${r.getName()}
                                                     </span>
-
-
                                                 </h1>
                                             </div>
                                             <div class='mt-2 flex items-start space-x-3'>

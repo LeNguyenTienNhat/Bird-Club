@@ -268,7 +268,7 @@
 
     <turbo-frame id="flash"></turbo-frame>
     <main class="pb-8 pt-8">
-        <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
+        <div class="max-w-3xl mx-auto px-8">
 
             <div class="grid grid-cols-1 items-start lg:grid-cols-5 lg:gap-8">
                 <div class="grid grid-cols-1 gap-4 lg:col-span-5">
@@ -310,7 +310,7 @@
                                                                        type="text" id="name" name="name">
                                                             </div>
                                                         </div>
-                                                        <div class="col-span-3">
+                                                        <div class="col-span-2">
                                                             <label class="block text-sm font-medium text-gray-700">Value</label>
                                                             <div class="mt-1">
                                                                 <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" 
@@ -319,8 +319,8 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-span-3">
-                                                            <label class="block text-sm font-medium text-gray-700" >Duration</label>
+                                                        <div class="col-span-1">
+                                                            <label class="block text-sm font-medium text-gray-700" >Duration (months)</label>
                                                             <div class="mt-1">
                                                                 <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="duration" id="duration">
                                                                     <%
@@ -338,7 +338,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-span-3">
+                                                        <div class="col-span-1">
                                                             <label class="block text-sm font-medium text-gray-700" >Status</label>
                                                             <div class="mt-1">
                                                                 <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="status" id="status">
@@ -354,22 +354,17 @@
                                                                 </select>
                                                             </div>
                                                         </div>
-
                                                     </div>
-
-
                                                 </div>
-
-                                                <div class="sm:col-span-4 md:col-span-2">
+                                                <div class="mt-4 sm:col-span-4 md:col-span-2">
                                                     <label class="block text-sm font-medium text-gray-700" >Description</label>
                                                     <div class="mt-1">
-                                                        <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="description"  id="description">${r.getDescription()}</textarea>
+                                                        <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="description"  id="description"> <% out.print(m.getDescription()); %> </textarea>
                                                     </div>
-
                                                 </div>
                                                         <input type="hidden" name="MID" <% out.print("value='"+m.getMID()+"'"); %>   >
                                                         <input type="hidden" name="action" value="update">
-                                                        <button type="submit" class="w-full flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">Update</button>
+                                                        <button type="submit" class="mt-4 flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">Update</button>
 
 
                                             </div>
