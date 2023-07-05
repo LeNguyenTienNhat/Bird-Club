@@ -423,11 +423,11 @@
                                                     </c:if>
                                                 </div>
                                             </div>
-                                            <div class="article-item-body">
-                                                <span class="attribution project">${b.getCategory()}</span>
+                                            <div class="article-item-body">                                            
                                                 <span class="article-item-header">
                                                     <a href="${pageContext.request.contextPath}/BlogController?action=view&BLID=${f.getBLID()}" class="article-item-link" target="_self">
-                                                        ${b.getDescription()}  </a>
+                                                        ${b.getCategory()}  </a>
+                                                        <span class="attribution project">${b.getDescription()}</span>
                                                 </span>
                                                 <span class="attribution topic">${b.getUploadDate()}</span>
                                             </div>
