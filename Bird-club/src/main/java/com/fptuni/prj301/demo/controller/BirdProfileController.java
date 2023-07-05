@@ -10,6 +10,7 @@ import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.BirdProfile;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -69,22 +70,27 @@ public class BirdProfileController extends HttpServlet {
             }
         }else if (action.equals("upload")) {
             String BID = tool.generateID("Bird", "BID");
+            String name, gender, description, color;
+            int age;       
             String UID = "UID1";
-            String name = request.getParameter("name");
-            String age = request.getParameter("age");
-            String gender = request.getParameter("gender");
-            String description;
+            name = request.getParameter("name");
+            try {
+                age = Integer.parseInt(request.getParameter("age"));
+            } catch (NumberFormatException e) {
+                age = 0;
+            }
+            gender = request.getParameter("gender");            
             try {
                 description = tool.formatPara(request.getParameter("description"));
             } catch (Exception e) {
                 description = "Content hasn't been uploaded yet";
             }
-            String color = request.getParameter("color");
-            String addDate = tool.getCurrentDate();
+            color = request.getParameter("color");           
             byte[] profilePic = new byte[0xFFFFFF];
-            Bird b = new Bird(BID, UID, name, age, gender, description, color, addDate, profilePic);
+            Bird b = new Bird(BID, UID, name, age, gender, description, color, profilePic);
             bird.insert(b);
-
+            
+            request.setAttribute("action", "viewbirdprofile");
             RequestDispatcher rd = request.getRequestDispatcher("BirdProfileController");
             rd.forward(request, response);
         } //update bird profile
