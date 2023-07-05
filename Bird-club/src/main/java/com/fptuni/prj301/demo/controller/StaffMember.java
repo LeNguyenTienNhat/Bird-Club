@@ -2,8 +2,10 @@ package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.BirdManager;
 import com.fptuni.prj301.demo.dbmanager.MemberManager;
+import com.fptuni.prj301.demo.dbmanager.TparticipationManager;
 import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.Member;
+import com.fptuni.prj301.demo.model.Tparticipation;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -14,7 +16,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import tool.utils.EmailSender;
-import tool.utils.Tools;
 
 public class StaffMember extends HttpServlet {
 
@@ -25,8 +26,7 @@ public class StaffMember extends HttpServlet {
         MemberManager manager = new MemberManager();
 
         //display a list of members
-        if (action == null || action.equals("viewmembers")) {
-            Tools tool = new Tools();
+        if (action == null || action.equals("viewmembers")) {           
             int page=1, skip;
             try {
                 page = Integer.parseInt(request.getParameter("page"));
@@ -141,6 +141,22 @@ public class StaffMember extends HttpServlet {
             manager.updateRole(UID, "ignored");
 
             RequestDispatcher rd = request.getRequestDispatcher("StaffMember");
+            rd.forward(request, response);
+        }
+        else if (action.equals("viewbirddetails")) {
+            String BID = request.getParameter("BID");
+            BirdManager bm = new BirdManager();
+            TparticipationManager tm = new TparticipationManager();            
+            Bird b = bm.load(BID);
+            String ownerName = manager.load(b.getUID()).getFullName();
+            b.setUID(ownerName);
+            List <Tparticipation> list = tm.getAllParticipations(BID);
+            int size = list.size();
+            
+            request.setAttribute("bird", b);
+            request.setAttribute("list", list);
+            request.setAttribute("size", size);
+            RequestDispatcher rd = request.getRequestDispatcher("staff_bird_profile.jsp");
             rd.forward(request, response);
         }
 

@@ -293,9 +293,7 @@
 
                                         <div class="table-header-group bg-white">
                                             <turbo-frame id="row_record_9959" class="contents" target="_top">
-
                                                 <!--List-->
-
                                                 <%
 
                                                     for (Bird b : birdsList) {
@@ -304,7 +302,7 @@
                                                                 + "<a class='hover:text-teal-600' href='http://localhost:8080/chimowners/members?action=viewmemberdetails&UID=" + b.getUID() + "'>" + b.getUID() + "</a></div>"
                                                                 
                                                                 + "<div class='table-cell border-b border-gray-500 text-sm w-full max-w-0 py-4 pl-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
-                                                                + "<a class='hover:text-teal-600' href='BID=" + b.getBID() + "'>" + b.getBID() + "</a></div>"
+                                                                + "<a class='hover:text-teal-600' href='http://localhost:8080/chimowners/members?action=viewbirddetails&BID=" + b.getBID() + "'>" + b.getBID() + "</a></div>"
                                                                         
                                                                 + "<div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
                                                                 + b.getName() + "</div>"
@@ -321,9 +319,7 @@
 
                                                     }
                                                 %>
-
                                             </turbo-frame>
-
                                         </div>
                                     </div>
                                 </div>
