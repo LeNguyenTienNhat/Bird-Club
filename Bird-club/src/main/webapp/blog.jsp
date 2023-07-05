@@ -12,6 +12,7 @@
     <head>
         <meta charset="utf-8">
         <title>Blog</title>
+        
         <link rel="alternate" type="application/rss+xml" title="Birds, Cornell Lab of Ornithology &raquo; Feed" href="https://www.birds.cornell.edu/home/feed/" />
         <link rel="alternate" type="application/rss+xml" title="Birds, Cornell Lab of Ornithology &raquo; Comments Feed" href="https://www.birds.cornell.edu/home/comments/feed/" />
         <link rel="alternate" type="text/calendar" title="Birds, Cornell Lab of Ornithology &raquo; iCal Feed" href="https://www.birds.cornell.edu/home/events/?ical=1" />
@@ -243,17 +244,7 @@
                                 display: none;
                             }
 
-                            .popup {
-                                margin-top: 50px;
-                                position: fixed;
-                                top: 50%;
-                                left: 50%;
-                                transform: translate(-50%, -50%);
-                                background-color: white;
-                                padding: 20px;
-                                z-index: 1000;
-                                display: none;
-                            }
+                           
 
                             .form-group {
                                 margin-bottom: 15px;
@@ -331,18 +322,88 @@
                                 order: -1;
                                 margin-right: 10px;
                             }
+                            
+                            
+                            .blog-button {
+  background-color: #587624;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  
+}
+
+.blog-button i {
+  margin-right: 5px;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.popup-content {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  max-width: 900px; /* Adjust this value as needed */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+.popup-content form {
+  max-width: 900px; /* Adjust the maximum width as needed */
+  margin: 0 auto;
+}
+
+.popup-content input[type="text"],
+.popup-content textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.popup-content .text-right {
+  text-align: right;
+}
+.h2{
+    text-align: center;
+}
+   
 
 
                         </style>
-                        <div data-controller="modal" data-modal-target="container" data-modal-id-value="modal2" data-modal-persist-value="false" class="hidden fixed z-[2000] inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-                            
+<!--                        <div data-controller="modal" data-modal-target="container" data-modal-id-value="modal2" data-modal-persist-value="false" class="hidden fixed z-[2000] inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                           
                             <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                                 <div     data-modal-target="overlay"      data-action="click->modal#close"
                                          class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"      aria-hidden="true"
                                          data-transition-enter="transition ease-out duration-300"      data-transition-enter-start="opacity-0"
                                          data-transition-enter-end="opacity-100"      data-transition-leave="transition ease-in duration-200"
                                          data-transition-leave-start="opacity-100"      data-transition-leave-end="opacity-0"      >    </div>
-                                <!-- This element is to trick the browser into centering the modal contents. -->
+                                 This element is to trick the browser into centering the modal contents. 
                                 <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
                                 <div       data-modal-target="content" 
                                            class="hidden relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full sm:p-6"
@@ -389,7 +450,61 @@
 
                                             </turbo-frame>
                                         </turbo-frame>
-                                    </div></div></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                                                    </div>-->
+
+<script>
+                                                        function openPopup() {
+  document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+                                                    </script>                       
+   <button class="blog-button" onclick="openPopup()">
+  <i class="fas fa-plus"></i> Add Blog
+</button>
+   <div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <h2 >Add Blog</h2>
+    <form class="space-y-4" action="./media" method="post" id="tournament" enctype="multipart/form-data">
+      <div class="mt-3">
+        <label class="block text-sm font-medium text-gray-700" for="image">Media:</label>
+        <div class="mt-1">
+          <input accept="image/*" color="teal" class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" type="file" name="image" id="image">
+        </div>
+      </div>
+      <input type="hidden" name="ID" value="${users.getUID()}">
+
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" class="block w-full px-4 py-2 text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500">
+      </div>
+
+      <div class="form-group">
+        <label for="descriptionInput">Description:</label>
+        <textarea id="descriptionInput" name="description" class="block w-full px-4 py-2 text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"></textarea>
+      </div>
+
+      <div class="text-right sm:col-span-4">
+        <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+          Add blog
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+                                                    
+                                                    
+                        
+                        
 
                         <div class="blog-container">
                             <ul>
@@ -438,8 +553,8 @@
                         </style>
 
 
-
-                </div>
+ </div>
+                
 
 
                 <script class="tribe-events-breakpoints">
