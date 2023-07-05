@@ -761,7 +761,7 @@
                                                         + "</form>");
 
                                                 out.print("<form>"
-                                                        + "<input type='hidden' name='FID' value = '" + f.getFID() + "'>"
+                                                        + "<input type='hidden' name='ID' value = '" + f.getFID() + "'>"
                                                         + "<input type='hidden' name='action' value='viewparticipants'>"
                                                         + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-gray-700 hover:text-white focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                                         + "type='submit'>"
@@ -912,7 +912,7 @@
                                                     + "</form>");
 
                                             out.print("<form>"
-                                                    + "<input type='hidden' name='MeID' value = '" + m.getMeID() + "'>"
+                                                    + "<input type='hidden' name='ID' value = '" + m.getMeID() + "'>"
                                                     + "<input type='hidden' name='action' value='viewparticipants'>"
                                                     + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-gray-700 hover:text-white focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                                     + "type='submit'>"

@@ -274,14 +274,6 @@
             <div class="grid grid-cols-1 items-start lg:grid-cols-5 lg:gap-8">
                 <div class="grid grid-cols-1 gap-4 lg:col-span-5">
 
-                    <div class="sm:flex sm:items-center px-4 sm:px-0">
-                        <div class="sm:flex-auto">
-                            <h1 class="text-xl font-semibold text-gray-900">Field trip name</h1>
-                            <p class="mt-2 text-sm text-gray-700">
-
-                            </p>
-                        </div>
-                    </div>
 
                     <section aria-labelledby="profile-overview-title">
                         <div class="bg-white shadow sm:rounded-lg">
@@ -297,7 +289,6 @@
                                             <div>
                                                 <div>
                                                     <h3 class="text-lg leading-6 font-medium text-gray-900">Edit</h3>
-                                                    <p class="mt-1 text-sm text-gray-500">View and edit the field trip's details</p>
                                                 </div>
                                                 <div class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-y-6 gap-x-4 sm:grid-cols-8">
                                                     <div class="col-span-1 sm:col-span-4 md:col-span-3 grid grid-cols-4 gap-4">

@@ -233,9 +233,9 @@
 
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
                         <div class="sm:flex-auto">
-                            <h1 class="text-xl font-semibold text-gray-900">TOURNAMENT'S PARTICIPANTS</h1>
+                            <h1 class="text-xl font-semibold text-gray-900">PARTICIPANTS</h1>
                             <p class="mt-2 text-sm text-gray-700">
-                                Available birds participating in Chim Owners' tournament.
+                                Available members participating in the event.
                             </p>
                         </div>
 
@@ -261,19 +261,19 @@
                                             </div>
 
                                             <div class="px-4 py-5 sm:p-6">
-                                                <dt class="text-base font-normal text-gray-900">Placeholder</dt>
+                                                <dt class="text-base font-normal text-gray-900"></dt>
                                                 <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                                     <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                        1
+                                                        
                                                     </div>
                                                 </dd>
                                             </div>
 
                                             <div class="px-4 py-5 sm:p-6">
-                                                <dt class="text-base font-normal text-gray-900">Placeholder</dt>
+                                                <dt class="text-base font-normal text-gray-900"></dt>
                                                 <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                                     <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                        1
+                                                        
                                                     </div>
                                                 </dd>
                                             </div>
@@ -310,7 +310,8 @@
 
 
                                                     <%
-                                                        if (list.size() == 0) {
+                                                        int size = (Integer) request.getAttribute("size");
+                                                        if (size == 0) {
                                                             out.print("<div class='border-b border-gray-200 text-sm max-w py-4 pl-4 pr-3 text-gray-900 bg-gray-100'>"
                                                                     + "Currently there is no participant.</div>");
                                                         } else {

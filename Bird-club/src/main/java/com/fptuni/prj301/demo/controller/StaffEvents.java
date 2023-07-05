@@ -377,7 +377,10 @@ public class StaffEvents extends HttpServlet {
                     ml.add(m);
                 }
             }
+            int size = ml.size();
+            
             request.setAttribute("list", ml);
+            request.setAttribute("size", size);
             RequestDispatcher rd = request.getRequestDispatcher("staff_event_participants.jsp");
             rd.forward(request, response);
         }
