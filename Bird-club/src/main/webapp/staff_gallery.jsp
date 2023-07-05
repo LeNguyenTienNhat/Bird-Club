@@ -1,6 +1,5 @@
 <%@page import="java.util.Base64"%>
 <%@page import="com.fptuni.prj301.demo.model.Image"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

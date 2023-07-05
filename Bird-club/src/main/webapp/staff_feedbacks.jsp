@@ -267,10 +267,10 @@
                                     </div>
 
                                     <div class="px-4 py-5 sm:p-6">
-                                        <dt class="text-base font-normal text-gray-900">Placeholder</dt>
+                                        <dt class="text-base font-normal text-gray-900"></dt>
                                         <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                             <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                <% out.print("0"); %>
+                                                
                                             </div>
                                         </dd>
                                     </div>
@@ -293,13 +293,13 @@
                                                 out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-green-100 text-green-800 text-xs rounded-full'>"
                                                         + "Technical"
                                                         + "</span>");
-                                            } else if (f.getCategory().trim().equalsIgnoreCase("a")) {
+                                            } else {
                                                 out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-yellow-100 text-yellow-800 text-xs rounded-full'>"
                                                         + "Normal"
                                                         + "</span>");
                                             }
 
-                                            if (f.getCategory().trim().equalsIgnoreCase("seen")) {
+                                            if (f.getStatus().trim().equalsIgnoreCase("seen")) {
                                                 out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-green-100 text-green-800 text-xs rounded-full'>"
                                                         + "Seen"
                                                         + "</span>");
@@ -318,9 +318,9 @@
                                                     + "<div class='mt-0.5 space-y-4 space-x-3'>" + f.getDetail() + "</div>"
                                                     + "<div style='margin-top: 15px' class='flex items-start space-x-3'>"
                                                     + "<form action='./feedbacks'><input type='hidden' name='FeID' value = '" + f.getFeID() + "'>"
-                                                    + "<input type='hidden' name='action' value='edit'>"
+                                                    + "<input type='hidden' name='action' value='mark'>"
                                                     + "<input class='flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
-                                                    + "type='submit' value='Edit'></form>"
+                                                    + "type='submit' value='Mark as read'></form>"
                                                     + "</div>");
                                             out.print("</div></li>");
                                         }%>   

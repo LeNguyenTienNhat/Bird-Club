@@ -22,13 +22,11 @@ public class FeedbackManager {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps;
             if (numOfRow == 20 && !category.isEmpty()) {
-                sql = sql + "WHERE category = ? "
-                        + "ORDER BY " + sortCategory + " DESC"
+                sql = sql + "ORDER BY " + sortCategory + " DESC"
                         + " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
                 ps = conn.prepareStatement(sql);
-                ps.setString(1, category);
-                ps.setInt(2, skip);
-                ps.setInt(3, numOfRow);
+                ps.setInt(1, skip);
+                ps.setInt(2, numOfRow);
             } else {
                 sql = sql + "ORDER BY " + sortCategory + " DESC";
                 ps = conn.prepareStatement(sql);
@@ -180,6 +178,19 @@ public class FeedbackManager {
         } catch (Exception e) {
             System.out.println("Failed to insert the feedback.");
             e.printStackTrace();
+        }
+    }
+    
+        public void updateStatus(String FeID, String status) throws ClassNotFoundException {
+        String sql = "UPDATE [Feedback] SET status = ? WHERE FeID = ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, status);
+            ps.setString(2, FeID);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Failed to update due to internal error :(" + ex.getMessage());
         }
     }
 }

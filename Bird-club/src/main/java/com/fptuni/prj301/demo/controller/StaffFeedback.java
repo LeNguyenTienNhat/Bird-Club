@@ -41,6 +41,13 @@ public class StaffFeedback extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("staff_feedbacks.jsp");
             rd.forward(request, response);
         }
+        
+        else if (action.equals("mark")) {
+            String FeID = request.getParameter("FeID");
+            fm.updateStatus(FeID, "seen");
+            RequestDispatcher rd = request.getRequestDispatcher("StaffFeedback");
+            rd.forward(request, response);
+        }
     }
 
     @Override

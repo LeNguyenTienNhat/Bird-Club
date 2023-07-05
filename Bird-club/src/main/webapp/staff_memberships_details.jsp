@@ -275,7 +275,7 @@
 
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
                         <div class="sm:flex-auto">
-                            <h1 class="text-xl font-semibold text-gray-900">Field trip name</h1>
+                            
                             <p class="mt-2 text-sm text-gray-700">
 
                             </p>
