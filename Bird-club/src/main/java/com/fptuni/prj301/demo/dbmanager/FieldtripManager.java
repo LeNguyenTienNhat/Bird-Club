@@ -96,14 +96,14 @@ public class FieldtripManager {
 
         return fieldtrips;
     }
-    
+
     public int getTotalCount() {
         int totalCount = 0;
         String sql = "SELECT COUNT(*) AS total FROM FieldTrip";
 
         try (Connection conn = DBUtils.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
 
             if (rs.next()) {
                 totalCount = rs.getInt("total");
@@ -114,20 +114,22 @@ public class FieldtripManager {
 
         return totalCount;
     }
-    public static void main(String[] args) {
-    FieldtripManager eventsManager = new FieldtripManager();
-    int pageNumber = 2; // Page number
-    int pageSize = 3; // Page size
 
-    List<Fieldtrip> fieldtrips = eventsManager.getListP(pageNumber, pageSize);
-    int a = eventsManager.getTotalNumber();
-    for (Fieldtrip fieldtrip : fieldtrips) {
-        System.out.println(fieldtrip.getName());
-        System.out.println(fieldtrip.getImage());
-        // Print other fieldtrip properties as needed
+    public static void main(String[] args) {
+        FieldtripManager eventsManager = new FieldtripManager();
+        int pageNumber = 2; // Page number
+        int pageSize = 3; // Page size
+
+        List<Fieldtrip> fieldtrips = eventsManager.getListP(pageNumber, pageSize);
+        int a = eventsManager.getTotalNumber();
+        for (Fieldtrip fieldtrip : fieldtrips) {
+            System.out.println(fieldtrip.getName());
+            System.out.println(fieldtrip.getImage());
+            // Print other fieldtrip properties as needed
+        }
     }
-}
-        public List<Fieldtrip> getListP(int pageNumber, int pageSize) {
+
+    public List<Fieldtrip> getListP(int pageNumber, int pageSize) {
         List<Fieldtrip> fieldtrips = new ArrayList<>();
         String sql = "SELECT F.*, FM.image "
                 + "FROM FieldTrip AS F "
@@ -413,6 +415,8 @@ public class FieldtripManager {
 
         return fieldtrip;
     }
+
+   
 
     public int getNumberAsStatus(String status) {
         int count = 0;

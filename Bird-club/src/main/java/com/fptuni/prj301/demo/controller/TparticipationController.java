@@ -81,6 +81,7 @@ public class TparticipationController extends HttpServlet {
             EventsMediaManager media = new EventsMediaManager();
             byte[]  a = media.getURLByID("TournamentMedia", tid);
             TparticipationManager p = new TparticipationManager();
+            List<byte[]> images = media.getImagesByDescription("TournamentMedia", tid);
 
             BirdManager b = new BirdManager();
             List<Bird> birds = b.getBirdsByUID(UID);
@@ -105,6 +106,7 @@ public class TparticipationController extends HttpServlet {
                 request.setAttribute("location", location);
                 request.setAttribute("img", a);
                 request.setAttribute("join", participantFound);
+                 request.setAttribute("gallery", images);
 
                 // Forward the request to the view page
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/member_tournament_details.jsp");

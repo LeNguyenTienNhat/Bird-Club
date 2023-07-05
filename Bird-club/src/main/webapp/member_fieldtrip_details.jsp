@@ -209,14 +209,14 @@
                                                     </div>
                                                 </div>
 
-                                                    <style>
-                                                        #map {
-                                                            height: 300px;
+                                                <style>
+                                                    #map {
+                                                        height: 300px;
                                                         width: 100%;
-                                                        }
-                                                    </style>
-                                                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB522yNJkfdTTRnsqsB0GXmfF2iRFfvdDw"></script>
-                                                    <script>
+                                                    }
+                                                </style>
+                                                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB522yNJkfdTTRnsqsB0GXmfF2iRFfvdDw"></script>
+                                                <script>
             function initMap() {
                 var locations = [
                     {
@@ -308,64 +308,77 @@
                     });
                 }
             }
-                                                    </script>
-                                                    <div id="map"></div>
+                                                </script>
+                                                <div id="map"></div>
 
-                                                    <script>
-                                                        // Initialize the map
-                                                        initMap();
-                                                    </script>
-                                                </div>
+                                                <script>
+                                                    // Initialize the map
+                                                    initMap();
+                                                </script>
                                         </div>
-                                        </dl>
-                                        <div class="is-content-justification-center is-layout-flex wp-container-1 wp-block-buttons">
-                                            <div class="wp-block-button">
-                                                <c:choose>
-                                                    <c:when test="${fieldtrip.getStatus().trim() eq 'pending'}">
-                                                        <form action="${pageContext.request.contextPath}/FieldTripParticipantsController" method="POST">
-                                                            <input type="hidden" name="action" value="add">
-                                                            <input type="hidden" name="UID" value="${users.getUID()}">
-                                                            <input type="hidden" name="FID" value="${fieldtrip.getFID()}">
-                                                            <c:set var="TransactionType" scope="session" value="fee" />
-                                                           
-                                                            <c:choose>
-                                                                <c:when test="${join}">
-                                                                    <p  class="wp-block-button__link has-green-background-color has-background">Register Success</p>
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                    <button type="submit" class="wp-block-button__link has-orange-background-color has-background">Join Field Trip</button>
-                                                                </c:otherwise>
-                                                            </c:choose>
-                                                        </form>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <form action="${pageContext.request.contextPath}/StaffAccountFTController" method="GET">
-                                                            <input type="hidden" name="action" value="viewfieldtrip">
-                                                            <button type="submit" class="wp-block-button__link has-blue-background-color has-background">Return</button>
-                                                        </form>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </div>
-                                        </div>
-                                        <script>
-                                            // Lấy tham số "registerSuccess" từ URL
-                                            const urlParams = new URLSearchParams(window.location.search);
-                                            const registerSuccess = urlParams.get('registerSuccess');
-
-                                            // Kiểm tra nếu có tham số "registerSuccess" và giá trị là "true"
-                                            if (registerSuccess === 'true') {
-                                                // Thay thế nút "Join field trip" bằng dòng chữ "Register success"
-                                                const joinFieldTripButton = document.querySelector('.wp-block-button__link');
-                                                joinFieldTripButton.textContent = 'Register success';
-                                                joinFieldTripButton.removeAttribute('href');
-                                            }
-                                        </script>
                                     </div>
+                                    </dl>
+                                    <div class="is-content-justification-center is-layout-flex wp-container-1 wp-block-buttons">
+                                        <div class="wp-block-button">
+                                            <c:choose>
+                                                <c:when test="${fieldtrip.getStatus().trim() eq 'pending'}">
+                                                    <form action="${pageContext.request.contextPath}/FieldTripParticipantsController" method="POST">
+                                                        <input type="hidden" name="action" value="add">
+                                                        <input type="hidden" name="UID" value="${users.getUID()}">
+                                                        <input type="hidden" name="FID" value="${fieldtrip.getFID()}">
+                                                        <c:set var="TransactionType" scope="session" value="fee" />
+
+                                                        <c:choose>
+                                                            <c:when test="${join}">
+                                                                <p  class="wp-block-button__link has-green-background-color has-background">Register Success</p>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <button type="submit" class="wp-block-button__link has-orange-background-color has-background">Join Field Trip</button>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </form>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <form action="${pageContext.request.contextPath}/StaffAccountFTController" method="GET">
+                                                        <input type="hidden" name="action" value="viewfieldtrip">
+                                                        <button type="submit" class="wp-block-button__link has-blue-background-color has-background">Return</button>
+                                                    </form>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        // Lấy tham số "registerSuccess" từ URL
+                                        const urlParams = new URLSearchParams(window.location.search);
+                                        const registerSuccess = urlParams.get('registerSuccess');
+
+                                        // Kiểm tra nếu có tham số "registerSuccess" và giá trị là "true"
+                                        if (registerSuccess === 'true') {
+                                            // Thay thế nút "Join field trip" bằng dòng chữ "Register success"
+                                            const joinFieldTripButton = document.querySelector('.wp-block-button__link');
+                                            joinFieldTripButton.textContent = 'Register success';
+                                            joinFieldTripButton.removeAttribute('href');
+                                        }
+                                    </script>
                                 </div>
                             </div>
                         </div>
                 </div>
+                </div>
 
+                </div>
+                <div>
+
+                    <c:choose>
+                        <c:when test="${not empty gallery}">
+                            <c:forEach items="${gallery}" var="imageBytes">
+                                <img src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(imageBytes)}" alt="Image">
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <p>No images available. Check back later for upcoming events.</p>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
 
                 </section> 
