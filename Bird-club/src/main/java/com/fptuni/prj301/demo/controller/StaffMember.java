@@ -7,6 +7,7 @@ import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.Member;
 import com.fptuni.prj301.demo.model.Tparticipation;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import tool.utils.EmailSender;
+import tool.utils.Tools;
 
 public class StaffMember extends HttpServlet {
 
@@ -26,15 +28,15 @@ public class StaffMember extends HttpServlet {
         MemberManager manager = new MemberManager();
 
         //display a list of members
-        if (action == null || action.equals("viewmembers")) {           
-            int page=1, skip;
+        if (action == null || action.equals("viewmembers")) {
+            int page = 1, skip;
             try {
                 page = Integer.parseInt(request.getParameter("page"));
                 skip = (page - 1) * 20;
             } catch (NumberFormatException e) {
                 skip = 0;
             }
-            
+
             int month, year;
             List<Member> membersList;
             try {
@@ -47,7 +49,7 @@ public class StaffMember extends HttpServlet {
             int memberNum = manager.getNumberOfMembers("member");
             int guestNum = manager.getNumberOfMembers("guest");
             int ignoredNum = manager.getNumberOfMembers("ignored");
-            
+
             request.setAttribute("membersList", membersList);
             request.setAttribute("memberNum", memberNum);
             request.setAttribute("guestNum", guestNum);
@@ -55,9 +57,7 @@ public class StaffMember extends HttpServlet {
             request.setAttribute("page", page);
             RequestDispatcher rd = request.getRequestDispatcher("staff_members.jsp");
             rd.forward(request, response);
-        } 
-        
-        //display a list of birds
+        } //display a list of birds
         else if (action.equals("viewbirds")) {
             int page, skip;
             try {
@@ -70,15 +70,13 @@ public class StaffMember extends HttpServlet {
             BirdManager bm = new BirdManager();
             List<Bird> birdsList = bm.getRecords(skip, 20);
             int totalNum = bm.getTotal();
-            
+
             request.setAttribute("birdsList", birdsList);
             request.setAttribute("birdNum", totalNum);
             request.setAttribute("page", page);
             RequestDispatcher rd = request.getRequestDispatcher("staff_members_birds.jsp");
             rd.forward(request, response);
-        } 
-        
-        else if (action.equals("viewguests")) {
+        } else if (action.equals("viewguests")) {
             int guestPage, guestSkip, ignoredPage, ignoredSkip;
             try {
                 guestPage = Integer.parseInt(request.getParameter("guestPage"));
@@ -96,23 +94,18 @@ public class StaffMember extends HttpServlet {
             List<Member> ignoredList = manager.getRecords(ignoredSkip, 20, "ignored", "UID");
             int guestNum = manager.getNumberOfMembers("guest");
             int ignoredNum = manager.getNumberOfMembers("ignored");
-            
+
             request.setAttribute("guestsList", guestsList);
             request.setAttribute("ignoredList", ignoredList);
             request.setAttribute("guestNum", guestNum);
             request.setAttribute("ignoredNum", ignoredNum);
             RequestDispatcher rd = request.getRequestDispatcher("staff_guests.jsp");
             rd.forward(request, response);
-        } 
-
-
-
-
-        //approve a member
+        } //approve a member
         else if (action.equals("approvemember")) {
             String UID = request.getParameter("UID");
             manager.updateRole(UID, "member");
-            
+
             MemberManager mm = new MemberManager();
             String email = mm.getUserEmail(UID);
             EmailSender e = new EmailSender();
@@ -124,8 +117,14 @@ public class StaffMember extends HttpServlet {
         else if (action.equals("viewmemberdetails")) {
             String UID = request.getParameter("UID");
             Member member = manager.load(UID);
-
+            BirdManager bm = new BirdManager();
+            List<Bird> list = bm.getBirdsByUID(UID);
+            Tools tool = new Tools();            
+            int size = list.size();
+            
             request.setAttribute("member", member);
+            request.setAttribute("list", list);
+            request.setAttribute("size", size);
             RequestDispatcher rd = request.getRequestDispatcher("staff_member_profile.jsp");
             rd.forward(request, response);
         } //Cancel approving a guest
@@ -142,17 +141,16 @@ public class StaffMember extends HttpServlet {
 
             RequestDispatcher rd = request.getRequestDispatcher("StaffMember");
             rd.forward(request, response);
-        }
-        else if (action.equals("viewbirddetails")) {
+        } else if (action.equals("viewbirddetails")) {
             String BID = request.getParameter("BID");
             BirdManager bm = new BirdManager();
-            TparticipationManager tm = new TparticipationManager();            
+            TparticipationManager tm = new TparticipationManager();
             Bird b = bm.load(BID);
             String ownerName = manager.load(b.getUID()).getFullName();
             b.setUID(ownerName);
-            List <Tparticipation> list = tm.getAllParticipations(BID);
+            List<Tparticipation> list = tm.getAllParticipations(BID);
             int size = list.size();
-            
+
             request.setAttribute("bird", b);
             request.setAttribute("list", list);
             request.setAttribute("size", size);

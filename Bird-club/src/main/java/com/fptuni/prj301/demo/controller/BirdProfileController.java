@@ -70,22 +70,18 @@ public class BirdProfileController extends HttpServlet {
             }
         }else if (action.equals("upload")) {
             String BID = tool.generateID("Bird", "BID");
-            String name, gender, description, color;
-            int age;       
-            String UID = "UID1";
-            name = request.getParameter("name");
-            try {
-                age = Integer.parseInt(request.getParameter("age"));
-            } catch (NumberFormatException e) {
-                age = 0;
-            }
-            gender = request.getParameter("gender");            
+            String UID = request.getParameter("UID");
+            String name = request.getParameter("name");
+            int age = Integer.parseInt(request.getParameter("age")) ;
+            String gender = request.getParameter("gender");
+            String description;
+
             try {
                 description = tool.formatPara(request.getParameter("description"));
             } catch (Exception e) {
                 description = "Content hasn't been uploaded yet";
             }
-            color = request.getParameter("color");           
+            String color = request.getParameter("color");
             byte[] profilePic = new byte[0xFFFFFF];
             Bird b = new Bird(BID, UID, name, age, gender, description, color, profilePic);
             bird.insert(b);

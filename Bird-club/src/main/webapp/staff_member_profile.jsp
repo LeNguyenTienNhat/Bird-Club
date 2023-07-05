@@ -1,3 +1,6 @@
+<%@page import="tool.utils.Tools"%>
+<%@page import="com.fptuni.prj301.demo.model.Bird"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.Base64"%>
 <%@page import="com.fptuni.prj301.demo.model.Member"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -236,8 +239,6 @@
                                 Details of  <% out.print(m.getFullName()); %>
                             </p>
                         </div>
-
-
                     </div>
 
                     <div>
@@ -333,21 +334,55 @@
                                     </div>
                                 </div>
 
+                            </div>
+                        </div></div></div></div>
+
+            <div class="mt-8 sm:flex sm:items-center px-4 sm:px-0">
+                <div class="sm:flex-auto">
+                    <h1 class="text-xl font-semibold text-gray-900">Birds</h1>
+                    <p class="mt-2 text-sm text-gray-700">
+                        Birds owned by <% out.print(m.getFullName()); %>
+                    </p>
+                </div>
+            </div>
+
+            <ul role="list" class="grid grid-cols-3 gap-6 mt-4">
+                <% List<Bird> list = (List<Bird>) request.getAttribute("list");
+                    int size = (Integer) request.getAttribute("size");
+                    Tools t = new Tools();
+
+                    if (size == 0) {
+                        out.print("This user doesn't own any bird");
+                    } else {
+                        for (Bird b : list) {
+                            out.print("<li class='col-span-1 flex flex-col text-center bg-white sm:rounded-lg shadow'>"
+                                    + "<div class='flex-1 flex flex-col p-8'>"
+                                    + "<div class='w-40 h-40 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden mx-auto flex-shrink-0'>"
+                                    + "<img src='data:image/png;base64," + Base64.getEncoder().encodeToString(b.getProfilePic()) + "' ></div> "
+                                    + "<h3 class='mt-6 text-gray-900 text-sm font-medium'>" + b.getName() + "</h3>"
+                                    + "<dl class='mt-1 flex-grow flex flex-col justify-between'>"
+                                    + "<dd class='text-gray-500 text-sm'>Added on <span class='font-bold'>" + t.trimDate(b.getAddDate().toString()) + "</span></dd></dl></div>"
+                                    + "<div class=' border-t border-gray-200 bg-gray-50 overflow-hidden sm:rounded-b-lg'>"
+                                    + "<div class='-mt-px flex divide-x divide-gray-200'>"
+                                    + "<div class='-ml-px w-0 flex-1 flex'>"
+                                    + "<form class='contents' action='./members'>"
+                                    + "<button class='relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500' type='submit'>"
+                                    + "<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-person-circle text-gray-400 w-5 h-5' viewBox='0 0 16 16'>"
+                                    + "<path d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z'/>"
+                                    + "<path fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z'/>"
+                                    + "</svg>"
+                                    + "<span class='ml-3'>Profile</span></button><input type='hidden' name='action' value='viewbirddetails'>"
+                                    + "<input type='hidden' name='BID' value='" + b.getBID() + "'>"
+                                    + "</form></div>"
+                                    + "</div></div></li>");
+                        }
+                    }
 
 
+                %>
+            </ul>
 
-
-
-
-
-
-
-
-
-
-
-
-                            </div></div></div></div></div></div>       
+        </div>       
     </main>
 
     <footer class="mt-8" aria-labelledby="footer-heading">
