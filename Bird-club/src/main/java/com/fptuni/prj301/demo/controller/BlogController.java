@@ -9,14 +9,20 @@ import com.fptuni.prj301.demo.dbmanager.BlogManager;
 import com.fptuni.prj301.demo.dbmanager.StaffAccountManager;
 import com.fptuni.prj301.demo.model.Blog;
 import com.fptuni.prj301.demo.model.UserSession;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+import tool.utils.UIDGenerator;
 
 /**
  *
@@ -58,6 +64,48 @@ public class BlogController extends HttpServlet {
 
             RequestDispatcher rd = request.getRequestDispatcher("blog.jsp");
             rd.forward(request, response);
+        } else if (action.equals("addblog")) {
+            // Process adding a new blog
+            String blid = UIDGenerator.generateBlogID();
+            String description = request.getParameter("description");
+            String category = request.getParameter("category");
+            String UID = request.getParameter("UID");
+
+            // Retrieve the image file from the request
+            Part filePart = request.getPart("image");
+            InputStream inputStream = filePart.getInputStream();
+
+            // Read the image data into a byte array
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, length);
+            }
+            byte[] pictureData = outputStream.toByteArray();
+
+            inputStream.close();
+            outputStream.close();
+
+            // Create a new Blog object and set its properties
+            Blog newBlog = new Blog();
+            newBlog.setBLID(blid);
+            newBlog.setDescription(description);
+            newBlog.setCategory(category);
+            newBlog.setUploadDate(new Date()); // Set upload date to current date
+            newBlog.setUID(UID); // Set the UID accordingly
+            newBlog.setVote(BigDecimal.ZERO); // Set vote to default value 0
+            newBlog.setPicture(pictureData);
+            newBlog.setStatus("idle"); // Set status to default value "idle"
+
+            // Create an instance of the BlogManager
+            BlogManager blogManager = new BlogManager();
+
+            // Add the new blog entry to the database
+            blogManager.addBlog(newBlog);
+
+            // Redirect to the viewblog action to display the updated blog list
+            response.sendRedirect(request.getContextPath() + "/BlogController?action=viewblog");
         }
     }
 
