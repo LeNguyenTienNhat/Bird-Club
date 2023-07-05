@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.Base64" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en-US">
     <head>
@@ -218,63 +219,63 @@
                             .add-container {
                                 margin-left: auto; /* Pushes the add container to the end of the row */
                             }
-                           .button-container {
-    display: flex;
-    justify-content: space-between;
-}
+                            .button-container {
+                                display: flex;
+                                justify-content: space-between;
+                            }
 
-.add-button {
-    margin-left: auto;
-}
+                            .add-button {
+                                margin-left: auto;
+                            }
                             .button {
                                 display: flex;
                                 justify-content: flex-end;
                             }
                             .backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px); /* Apply blur effect */
-    z-index: 999;
-    display: none;
-}
+                                position: fixed;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background-color: rgba(0, 0, 0, 0.5);
+                                backdrop-filter: blur(5px); /* Apply blur effect */
+                                z-index: 999;
+                                display: none;
+                            }
 
-.popup {
-    margin-top: 50px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    z-index: 1000;
-    display: none;
-}
+                            .popup {
+                                margin-top: 50px;
+                                position: fixed;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                background-color: white;
+                                padding: 20px;
+                                z-index: 1000;
+                                display: none;
+                            }
 
-.form-group {
-    margin-bottom: 15px;
-}
+                            .form-group {
+                                margin-bottom: 15px;
+                            }
 
-label {
-    display: block;
-    font-weight: bold;
-}
+                            label {
+                                display: block;
+                                font-weight: bold;
+                            }
 
-input[type="text"],
-textarea {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
+                            input[type="text"],
+                            textarea {
+                                width: 100%;
+                                padding: 5px;
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                            }
 
-button[type="submit"] {
-    margin-top: 10px;
-    
-}
+                            button[type="submit"] {
+                                margin-top: 10px;
+
+                            }
 
                             .button-container {
                                 display: flex;
@@ -330,7 +331,7 @@ button[type="submit"] {
                                 order: -1;
                                 margin-right: 10px;
                             }
-                           
+
 
                         </style>
                         <div class="row">
@@ -339,100 +340,102 @@ button[type="submit"] {
                                 <input type="text" id="searchInput" placeholder="Search">
                             </div>
                             <div class="add-container">
-    <button class="add-button" onclick="showPopup()"><i class="fas fa-plus"></i>Add Blog</button>
-</div>
+                                <button class="add-button" onclick="showPopup()"><i class="fas fa-plus"></i>Add Blog</button>
+                            </div>
 
-<div class="popup" id="popupContainer">
-    <!-- Popup content goes here -->
-    <div class="button-container">
-        <h2 style="text-align: center;">Add a new blog</h2>
-        
-        <form id="blogForm">
-            <div class="form-group">
-                <label for="imageInput">Image:</label>
-                <input type="file" id="imageInput" accept="image/*" />
-            </div>
-            
-            <div class="form-group">
-                <label for="nameInput">Name of Blog:</label>
-                <input type="text" id="nameInput" />
-            </div>
-            
-            <div class="form-group">
-                <label for="descriptionInput">Description:</label>
-                <textarea id="descriptionInput"></textarea>
-            </div>
-            
-            <button class="add-button" onclick="performAction()">Add</button>
-        </form>
-        
-        <button class="close-button" onclick="hidePopup()"><i class="fas fa-times"></i></button>
-    </div>
-</div>
+                            <div class="popup" id="popupContainer">
+                                <!-- Popup content goes here -->
+                                <div class="button-container">
+                                    <h2 style="text-align: center;">Add a new blog</h2>
 
-<div class="backdrop" id="backdrop"></div>
+                                    <form id="blogForm">
+                                        <div class="form-group">
+                                            <label for="imageInput">Image:</label>
+                                            <input type="file" id="imageInput" accept="image/*" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="nameInput">Name of Blog:</label>
+                                            <input type="text" id="nameInput" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="descriptionInput">Description:</label>
+                                            <textarea id="descriptionInput"></textarea>
+                                        </div>
+
+                                        <button class="add-button" onclick="performAction()">Add</button>
+                                    </form>
+
+                                    <button class="close-button" onclick="hidePopup()"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="backdrop" id="backdrop"></div>
                             <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
 
                             <script>
-                                     function showPopup() {
-    document.getElementById('popupContainer').style.display = 'block';
-    document.getElementById('backdrop').style.display = 'block';
-}
+            function showPopup() {
+                document.getElementById('popupContainer').style.display = 'block';
+                document.getElementById('backdrop').style.display = 'block';
+            }
 
-function hidePopup() {
-    document.getElementById('popupContainer').style.display = 'none';
-    document.getElementById('backdrop').style.display = 'none';
-}
+            function hidePopup() {
+                document.getElementById('popupContainer').style.display = 'none';
+                document.getElementById('backdrop').style.display = 'none';
+            }
 
-function performAction() {
-    // Perform the desired action when the "Add" button is clicked
-    // You can access the form values using JavaScript and perform further processing or submission
-    var imageInput = document.getElementById('imageInput').value;
-    var nameInput = document.getElementById('nameInput').value;
-    var descriptionInput = document.getElementById('descriptionInput').value;
-    
-    // Perform your desired actions with the form inputs here
-    // For example, you can log them to the console
-    console.log('Image: ', imageInput);
-    console.log('Name of Blog: ', nameInput);
-    console.log('Description: ', descriptionInput);
-    
-    // Reset the form inputs if needed
-    document.getElementById('blogForm').reset();
-}
+            function performAction() {
+                // Perform the desired action when the "Add" button is clicked
+                // You can access the form values using JavaScript and perform further processing or submission
+                var imageInput = document.getElementById('imageInput').value;
+                var nameInput = document.getElementById('nameInput').value;
+                var descriptionInput = document.getElementById('descriptionInput').value;
+
+                // Perform your desired actions with the form inputs here
+                // For example, you can log them to the console
+                console.log('Image: ', imageInput);
+                console.log('Name of Blog: ', nameInput);
+                console.log('Description: ', descriptionInput);
+
+                // Reset the form inputs if needed
+                document.getElementById('blogForm').reset();
+            }
                             </script>
                         </div>
 
 
                         <div class="blog-container">
                             <ul>
-                                        <c:if test="${ empty blogList}"> not found </c:if>
+                                <c:if test="${ empty blogList}"> not found </c:if>
 
-                                        <c:forEach var="b" items="${blogList}">
+                                <c:forEach var="b" items="${blogList}">
 
-                                            <li class="article-item">
-                                                <div class="article-item-container">
-                                                    <div class="article-item-media" data-link-to="">
-                                                        <div class="article-item-media-ratio">
-                                                            <c:if test="${empty b.getPicture()}">
-                                                                <div>No image available</div>
-                                                            </c:if>
-                                                            
-                                                        </div>
-                                                    </div>
-                                                    <div class="article-item-body">
-                                                        <span class="attribution project">${b.getCategory()}</span>
-                                                        <span class="article-item-header">
-                                                            <a href="${pageContext.request.contextPath}/BlogController?action=view&BLID=${f.getBLID()}" class="article-item-link" target="_self">
-                                                                ${b.getDescription()}  </a>
-                                                        </span>
-                                                        <span class="attribution topic">${b.getUploadDate()}</span>
-                                                    </div>
+                                    <li class="article-item">
+                                        <div class="article-item-container">
+                                            <div class="article-item-media" data-link-to="">
+                                                <div class="article-item-media-ratio">
+                                                    <c:if test="${empty b.getPicture()}">
+                                                        <div>No image available</div>
+                                                    </c:if>
+                                                    <c:if test="${not empty b.getPicture()}">
+                                                        <img src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(b.getPicture())}" alt="Image">
+                                                    </c:if>
                                                 </div>
-                                            </li>
+                                            </div>
+                                            <div class="article-item-body">
+                                                <span class="attribution project">${b.getCategory()}</span>
+                                                <span class="article-item-header">
+                                                    <a href="${pageContext.request.contextPath}/BlogController?action=view&BLID=${f.getBLID()}" class="article-item-link" target="_self">
+                                                        ${b.getDescription()}  </a>
+                                                </span>
+                                                <span class="attribution topic">${b.getUploadDate()}</span>
+                                            </div>
+                                        </div>
+                                    </li>
 
-                                        </c:forEach>   
-                                    </ul>
+                                </c:forEach>   
+                            </ul>
                         </div>
                         <style>
                             .blog-container {

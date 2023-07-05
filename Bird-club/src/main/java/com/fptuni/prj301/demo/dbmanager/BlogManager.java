@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 import tool.utils.Tools;
@@ -80,22 +81,26 @@ public class BlogManager {
     }
 
     public static void main(String[] args) {
-        // Test the getFieldTripById method
-        BlogManager blogDAO = new BlogManager();
-        String blid = "BLID1"; // Replace with the actual tournament ID
-        Blog blog = blogDAO.getBlogByBLID(blid);
+        BlogManager blogManager = new BlogManager();
+        List<Blog> blogs = blogManager.getList();
 
-        if (blog != null) {
-            System.out.println("Blog found:");
+        for (Blog blog : blogs) {
             System.out.println("BLID: " + blog.getBLID());
-            System.out.println("UID: " + blog.getUID());
-            System.out.println("Category: " + blog.getCategory());
             System.out.println("Description: " + blog.getDescription());
+            System.out.println("Category: " + blog.getCategory());
             System.out.println("Upload Date: " + blog.getUploadDate());
-            System.out.println("Comment: " + blog.getVote());
-            // Print other fieldtrip details as needed
-        } else {
-            System.out.println("Blog not found.");
+            System.out.println("UID: " + blog.getUID());
+            System.out.println("Vote: " + blog.getVote());
+            System.out.println("Status: " + blog.getStatus());
+            System.out.println("Picture: " + blog.getPicture()); // Note: This will print the byte array representation
+
+            // Convert and display the image as Base64 string
+            if (blog.getPicture() != null) {
+                String base64Image = Base64.getEncoder().encodeToString(blog.getPicture());
+                System.out.println("Picture (Base64): " + base64Image);
+            }
+
+            System.out.println("--------------------------------------");
         }
     }
 
@@ -174,7 +179,7 @@ public class BlogManager {
 
     public List<Blog> getTopBlog(int num) {
         List<Blog> list = new ArrayList();
-        String sql = "SELECT TOP "+num+" * FROM Blog ORDER BY vote DESC";
+        String sql = "SELECT TOP " + num + " * FROM Blog ORDER BY vote DESC";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
