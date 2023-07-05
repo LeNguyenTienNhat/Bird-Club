@@ -325,12 +325,12 @@ public class StaffEvents extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("staff_meeting_details.jsp");
             rd.forward(request, response);
         } //Start a field trip
-        else if (action.equals("startmeeing")) {
+        else if (action.equals("startmeeting")) {
             String MeID = request.getParameter("MeID");
             mm.updateStatus(MeID, "ongoing");
 
-            request.setAttribute("action", "viewtournaments");
-            RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
+            request.setAttribute("action", "viewevents");
+            RequestDispatcher rd = request.getRequestDispatcher("StaffEvents");
             rd.forward(request, response);
         } //View a field trip's media
         else if (action.equals("viewfieldtripmedia")) {
