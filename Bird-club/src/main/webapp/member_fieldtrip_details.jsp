@@ -368,16 +368,22 @@
 
                 </div>
                 <div>
-
                     <c:choose>
-                        <c:when test="${not empty gallery}">
-                            <c:forEach items="${gallery}" var="imageBytes">
-                                <img src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(imageBytes)}" alt="Image">
-                            </c:forEach>
+                        <c:when test="${fieldtrip.getStatus().contains('ongoing') || fieldtrip.getStatus().contains('finished')}">
+                            <c:choose>
+                                <c:when test="${not empty gallery}">
+                                    <c:forEach items="${gallery}" var="imageBytes">
+                                        <img src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(imageBytes)}" alt="Image">
+                                    </c:forEach>
+                                </c:when>
+                                <c:otherwise>
+                                    <p>No images available. Check back later for upcoming events.</p>
+                                </c:otherwise>
+                            </c:choose>
                         </c:when>
-                        <c:otherwise>
-                            <p>No images available. Check back later for upcoming events.</p>
-                        </c:otherwise>
+                        <c:when test="${fieldtrip.getStatus().contains('pending') || fieldtrip.getStatus().contains('formClosed')}">
+                            <p>Upcoming event. Images will be available during the event.</p>
+                        </c:when>
                     </c:choose>
                 </div>
 
