@@ -100,7 +100,7 @@ public class BirdController extends HttpServlet {
             String transactionType = request.getParameter("TransactionType");
             String UID = request.getParameter("username");
 
-            if (transactionType == null && old == null && UID == null) {
+            if (transactionType.trim().equals("donate")) {
                 response.sendRedirect(request.getContextPath() + "/home?action=view");
             } 
             
