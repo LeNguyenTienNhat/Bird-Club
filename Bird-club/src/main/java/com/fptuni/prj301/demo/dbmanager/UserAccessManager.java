@@ -85,7 +85,7 @@ public class UserAccessManager {
 
 public boolean SignUp(UserSession user) {
     String sql = "INSERT INTO [User] " +
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     try (Connection conn = DBUtils.getConnection();
          PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -101,6 +101,7 @@ public boolean SignUp(UserSession user) {
         ps.setDate(10, new java.sql.Date(user.getSignUpDate().getTime()));
         ps.setDate(11, new java.sql.Date(user.getExpriedDate().getTime()));
         ps.setString(12,user.getMID());
+         ps.setBytes(13, user.getImage());
         int rowsAffected = ps.executeUpdate();
 
         if (rowsAffected > 0) {

@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.Base64" %>
 <!DOCTYPE html>
 <html class="no-js"  lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
@@ -52,12 +53,16 @@
 
 
     <body class="home page-template page-template-page-home page-template-page-home-php page page-id-5 wp-embed-responsive theme-green nav-column tribe-no-js">
-         <%@ include file="member_header.jsp" %> 
+        <%@ include file="member_header.jsp" %> 
 
         <main id="main-content">
             <div class="is-layout-flow wp-block-group alignfull page-section macaulay">
                 <h2 class="has-text-align-center has-large-font-size" id="macaulay-library-photowall">Chim Owners' Library</h2>
                 <p>Epic pictures taken by experts from Chim Owners. For real.</p>
+                <c:forEach var="image" items="${list}">
+                    <img src="data:image/png;base64,${Base64.getEncoder().encodeToString(image)}" />
+                </c:forEach>
+
                 <div id="my_nanogallery2"></div>
                 <div class="is-horizontal is-content-justification-center is-layout-flex wp-container-33 wp-block-buttons">
                     <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://search.macaulaylibrary.org/catalog?sort=rating_rank_desc">Browse More Photos</a></div>
@@ -66,14 +71,14 @@
             <style>
                 #hero-wrapper .hero-text { width: 600px; }
             </style>   
-<!--            <section id="global-cta" aria-label="Call to action" class="global-cta">
-                <div class="wp-block-group cta">
-                    <h2>Don't miss a thing! Join our email list</h2>
-                    <p><script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script> <script>hbspt.forms.create({portalId: "95627", formId: "ee3402b4-bebe-48ff-870f-7e51695b366d"});</script></p>      </div>
-            </section>			-->
+            <!--            <section id="global-cta" aria-label="Call to action" class="global-cta">
+                            <div class="wp-block-group cta">
+                                <h2>Don't miss a thing! Join our email list</h2>
+                                <p><script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script> <script>hbspt.forms.create({portalId: "95627", formId: "ee3402b4-bebe-48ff-870f-7e51695b366d"});</script></p>      </div>
+                        </section>			-->
         </main>
 
- <%@ include file="member_footer.jsp" %>
+        <%@ include file="member_footer.jsp" %>
 
 
         <!-- BEGIN Search modal -->

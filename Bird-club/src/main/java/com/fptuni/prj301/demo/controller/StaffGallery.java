@@ -25,6 +25,14 @@ public class StaffGallery extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("staff_gallery.jsp");
             rd.forward(request, response);
         }
+         if (action == null || action.equals("view")) {
+            GalleryManager gm = new GalleryManager();
+            List <Image> list = gm.getList();
+            
+            request.setAttribute("list", list);
+            RequestDispatcher rd = request.getRequestDispatcher("member_gallery.jsp");
+            rd.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods.">

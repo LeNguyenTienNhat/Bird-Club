@@ -404,7 +404,7 @@
                                                     <tr>
                                                         <td style="text-align: center;">${bird.getName()}</td>
                                                         <td >
-                                                            <img src="data:image/png;base64,${Base64.getEncoder().encodeToString(bird.profilePic)}"
+                                                            <img src="data:image/jsp;base64,${Base64.getEncoder().encodeToString(bird.profilePic)}"
                                                                  alt="Description of the image"
                                                                  style="display: block; margin: auto; width: 200px; height: 150px;">
                                                         </td>
