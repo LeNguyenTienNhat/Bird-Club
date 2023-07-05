@@ -305,7 +305,13 @@
 
 
                         <div>
-                            <div class="">
+                            <div class="mt-8">
+                                <div class="sm:flex-auto mb-4">
+                                    <h1 class="text-xl font-semibold text-gray-900">Tournament joined</h1>
+                                    <p class="mt-2 text-sm text-gray-700">
+                                        Participation of  <% out.print(b.getName()); %> in ChimOwners
+                                    </p>
+                                </div>
                                 <div class="lg:col-span-7 xl:col-span-8" id="events_list">
                                     <div class="flex flex-col sm:rounded-lg shadow">
                                         <div class="overflow-hidden ring-1 ring-black ring-opacity-5 sm:rounded-b-lg">
@@ -339,9 +345,9 @@
                                                                 out.print("This bird has never been participated in any tournament before");
                                                             } else {
                                                                 for (Tparticipation t : list) {
-                                                                    out.print("<div class='table-row bg-white'>"
+                                                                    out.print("<div class='mt-4 table-row bg-white'>"
                                                                             + "<div class='table-cell border-b border-gray-500 text-sm w-full max-w-0 py-4 pl-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
-                                                                            + "<a class='hover:text-teal-600' href='" + t.getTID() + "'>" + t.getTID() + "</a></div>"                                                                            
+                                                                            + "<a class='hover:text-teal-600' href='http://localhost:8080/chimowners/tournaments?TID=" + t.getTID() + "&action=edittournament'>" + t.getTID() + "</a></div>"
                                                                             + "<div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
                                                                             + t.getDocNo() + "</div>"
                                                                             + " <div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"

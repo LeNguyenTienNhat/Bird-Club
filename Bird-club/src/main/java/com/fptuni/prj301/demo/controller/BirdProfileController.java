@@ -10,6 +10,7 @@ import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.BirdProfile;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -69,9 +70,9 @@ public class BirdProfileController extends HttpServlet {
             }
         }else if (action.equals("upload")) {
             String BID = tool.generateID("Bird", "BID");
-            String UID = "UID1";
+            String UID = request.getParameter("UID");
             String name = request.getParameter("name");
-            String age = request.getParameter("age");
+            int age = Integer.parseInt(request.getParameter("age")) ;
             String gender = request.getParameter("gender");
             String description;
             try {
@@ -80,9 +81,8 @@ public class BirdProfileController extends HttpServlet {
                 description = "Content hasn't been uploaded yet";
             }
             String color = request.getParameter("color");
-            String addDate = tool.getCurrentDate();
             byte[] profilePic = new byte[0xFFFFFF];
-            Bird b = new Bird(BID, UID, name, age, gender, description, color, addDate, profilePic);
+            Bird b = new Bird(BID, UID, name, age, gender, description, color, profilePic);
             bird.insert(b);
 
             RequestDispatcher rd = request.getRequestDispatcher("BirdProfileController");
