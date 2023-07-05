@@ -85,6 +85,22 @@
             display: flex;
             align-items: center;
         }
+        .button-group-pay button,
+.button-group-save button {
+  margin-right: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #337ab7;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.button-group-pay button:hover,
+.button-group-save button:hover {
+  background-color: #23527c;
+  cursor: pointer;
+}
     </style>
 </style>
 <body>
@@ -93,34 +109,50 @@
             <img src="https://i0.wp.com/discvietnam.com/wp-content/uploads/2020/07/C%E1%BB%95ng-thanh-to%C3%A1n-VNPAY-Logo-Th%E1%BA%BB-ATM-T%C3%A0i-kho%E1%BA%A3n-ng%C3%A2n-h%C3%A0ng-Online-Banking-M%C3%A3-QR-QR-Pay-Qu%C3%A9t-QR-Transparent.png?fit=360%2C140&ssl=1" alt="VNPAY Logo" width="115.95" height="32" />
         </div>
         <div class="separator-header"></div>
-        <div class="body-form">
-            <form action="/chimowners/vnpayajax" id="frmCreateOrder" method="post">
-                <div class="form-group">
-                    <label for="amount">Nhập số tiền</label>
-                    <input class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="number" value="10000" />
-                </div>
-                <div class="button-group">
-
-
-                    <button  type="submit" class="btn btn-default" href>Thanh toán</button>
-                </div>
-            </form>  
-            <form action="${pageContext.request.contextPath}/TransactionController?action=add" method="post">
-                <input type="hidden" id="amountCopy" name="amount" />
-                <input type="hidden" name="UID" value="${users.getUID()}">
-                <input type="hidden" name="TT" value="${sessionScope.TransactionType}" />
-                <input type="hidden" name="docT" value="${docT}">
-                <button style="margin-right:5px;" type="submit" class="btn btn-default">Lưu</button> 
-
-            </form>
-
-
-            <h3 class="text-muted">${sessionScope.TransactionType}</h3>
-            <script>
-                // Copy the value from the first input field to the hidden input field
-                document.getElementById("amountCopy").value = document.getElementById("amount").value;
-            </script>
+       <div class="body-form">
+    <form action="/chimowners/vnpayajax" id="frmCreateOrder" method="post">
+        <div class="form-group">
+            <label for="amount">Nhập số tiền</label>
+            <input class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="number" value="10000" />
         </div>
+        <div class="button-group-pay" style="display: none;">
+            <button style="margin-top:10px;" type="submit" class="btn btn-default" href>Thanh toán</button>
+        </div>
+    </form>  
+    <form action="${pageContext.request.contextPath}/TransactionController?action=add" method="post">
+        <input type="hidden" id="amountCopy" name="amount" />
+        <input type="hidden" name="UID" value="${users.getUID()}">
+        <input type="hidden" name="TT" value="${sessionScope.TransactionType}" />
+        <input type="hidden" name="docT" value="${docT}">
+        <div class="button-group-save">
+            <button style="margin-top:10px;" type="submit" class="btn btn-default">Lưu</button> 
+        </div>
+    </form>
+
+    <h3 class="text-muted">${sessionScope.TransactionType}</h3>
+    <script>
+        // Copy the value from the first input field to the hidden input field
+        document.getElementById("amountCopy").value = document.getElementById("amount").value;
+
+        // Function to toggle the button groups
+        function toggleButtonGroups() {
+            var buttonSave = document.querySelector(".button-group-save");
+            var buttonPay = document.querySelector(".button-group-pay");
+
+            // Toggle the visibility of button groups
+            buttonSave.style.display = "none";
+            buttonPay.style.display = "block";
+        }
+
+        // Add event listener to the save button
+        var buttonSave = document.querySelector(".button-group-save button");
+        buttonSave.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent form submission
+            toggleButtonGroups();
+        });
+    </script>
+</div>
+
         <div class="separator-footer"></div>
         <footer class="footer" style="width: 100%;">
             <p class="contact-info" style="justify-content: flex-end;">
