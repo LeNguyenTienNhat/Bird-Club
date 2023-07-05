@@ -157,4 +157,33 @@ public class NewsManager {
             System.out.println("Failed to update due to internal error :(" + ex.getMessage());
         }
     }
+    public static void main(String[] args) {
+    try {
+        // Create a new News object with the required data
+        News news = new News();
+        news.setNID("NID40");
+        news.setUID("UID1");
+        news.setTitle("Sample News");
+        news.setCategory("General");
+        news.setNewsContent("This is a sample news article.");
+        news.setStatus("Published");
+        // Set the upload date and time, assuming it's in the format "dd/MM/yyyy HH:mm"       
+        
+        news.setUploadDate("01/07/2023");
+
+        // Add an example image as a byte array (replace with your own image data)
+        byte[] image = "Example Image Data".getBytes();
+        news.setPicture(image);
+
+        // Create an instance of the NewsManager class
+        NewsManager newsManager = new NewsManager();
+
+        // Call the insert method to insert the news into the database
+        newsManager.insert(news);
+
+        System.out.println("News inserted successfully!");
+    } catch (Exception e) {
+        System.out.println("Failed to insert news: " + e.getMessage());
+    }
+}
 }

@@ -225,4 +225,40 @@ public class BirdManager {
         }
 
     }
+    public static void main(String[] args) {
+        // Test the getFieldTripById method
+       BirdManager birdManager = new BirdManager();
+
+    // Create a new Bird object
+    Bird bird = new Bird();
+    bird.setBID("BID143");
+    bird.setUID("UID1");
+    bird.setName("Parrot");
+    bird.setAge(2);
+    bird.setGender("Male");
+    bird.setDescription("Colorful parrot");
+    bird.setColor("Green");
+    bird.setColor("Green"); // Set the profile picture byte array if available
+
+    // Insert the bird into the database
+    birdManager.insert(bird);
+
+    // Retrieve the inserted bird by its BID
+    Bird retrievedBird = birdManager.getBirdByBID("BID14");
+    if (retrievedBird != null) {
+        System.out.println("Bird inserted successfully:");
+        System.out.println("BID: " + retrievedBird.getBID());
+        System.out.println("UID: " + retrievedBird.getUID());
+        System.out.println("Name: " + retrievedBird.getName());
+        System.out.println("Age: " + retrievedBird.getAge());
+        System.out.println("Gender: " + retrievedBird.getGender());
+        System.out.println("Description: " + retrievedBird.getDescription());
+        System.out.println("Color: " + retrievedBird.getColor());
+        System.out.println("Add Date: " + retrievedBird.getAddDate());
+        System.out.println("Add profile: " + retrievedBird.getProfilePic());
+        // Handle the profile picture byte array if needed
+    } else {
+        System.out.println("Failed to retrieve the inserted bird.");
+    }
+    }
 }

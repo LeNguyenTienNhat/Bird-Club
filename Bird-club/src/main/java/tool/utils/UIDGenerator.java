@@ -48,10 +48,16 @@ public class UIDGenerator {
         return "Doc.M" + randomNumber;
     }
     public static String generateDocMS() {
-        List<String> existingMeIDs = FieldTripParticipantsManager.ExistingDoc("Doc.MS%");
+        List<String> existingMeIDs = FieldTripParticipantsManager.ExistingDocM("Doc.MS%");
         int listSize = existingMeIDs.size();
         int randomNumber = listSize + 1;
         return "Doc.MS" + randomNumber;
+    }
+    public static String generateDocD() {
+        List<String> existingMeIDs = FieldTripParticipantsManager.ExistingDocD("Doc.D%");
+        int listSize = existingMeIDs.size();
+        int randomNumber = listSize + 1;
+        return "Doc.D" + randomNumber;
     }
     public static String generateNewPassword() {
     // Define the characters that can be used in the password
@@ -81,7 +87,7 @@ public class UIDGenerator {
     return "PID" + randomNumber;
 }
     public static void main(String[] args) {
-    String docNoT = generateDocMS();
+    String docNoT = generateDocD();
     System.out.println("Generated DocNo: " + docNoT);
 }
 

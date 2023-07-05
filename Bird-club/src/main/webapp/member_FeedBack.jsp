@@ -158,28 +158,34 @@
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-md-8 col-md-offset-2">
-                                                        <form>
+                                                        <form id="SaveProfileForm" action="FeedBackController" method="post">
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <label class="sr-only">Name</label>
-                                                                        <input type="text" class="form-control" required="" id="nameSix" placeholder="Your Name">
+                                                                        <label class="sr-only">Title</label>
+                                                                        <input type="text" class="form-control" required="" name="title" id="title" placeholder="Title">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <label class="sr-only">Email</label>
-                                                                        <input type="email" class="form-control" required="" id="emailSix" placeholder="Email Address">
+                                                                        <label class="sr-only">Category</label>
+                                                                        <input type="text" class="form-control" required="" name="category" id="category" placeholder="category">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <!--end of /.row-->
                                                             <div class="form-group">
-                                                                <label class="sr-only">Message</label>
-                                                                <textarea class="form-control" required="" rows="7" placeholder="Write Message"></textarea>
-                                                            </div>
-                                                            <button type="submit" class="btn btn-primary">Send Message</button>
+                                                                <label class="sr-only">Detail</label>
+                                                                <textarea type="text" class="form-control" required="" rows="7" name="detail" id="detail" placeholder="Write Message"></textarea>
+                                                            </div>   
+                                                            <div class="pt-5">
+                                                        <div class="flex justify-end">
+                                                            <input type="hidden" name="action" value="upload">
+                                                            <input type="hidden" name="UID" value="${users.getUID()}">
+                                                        </div>
+                                                                </div>
                                                         </form>
+                                                        <button class="btn btn-primary" form="SaveProfileForm" type="submit">Send Message</button>
                                                     </div>
                                                     <!-- /.col-md-8 -->
                                                 </div>

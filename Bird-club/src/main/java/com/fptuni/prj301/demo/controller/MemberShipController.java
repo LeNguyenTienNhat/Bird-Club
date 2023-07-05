@@ -116,6 +116,15 @@ public class MemberShipController extends HttpServlet {
             response.sendRedirect("/MemberShipController");
 
         }
+        
+         else if (action.equals("donate")) {
+             String docNo = UIDGenerator.generateDocD();
+            request.setAttribute("docT", docNo);
+                ss.setAttribute("docT", docNo);
+
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
+
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

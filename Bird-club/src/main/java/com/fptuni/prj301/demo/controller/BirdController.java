@@ -6,6 +6,7 @@
 package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.BirdManager;
+import com.fptuni.prj301.demo.dbmanager.MemberShipManager;
 import com.fptuni.prj301.demo.dbmanager.TournamentManager;
 import com.fptuni.prj301.demo.dbmanager.TparticipationManager;
 import com.fptuni.prj301.demo.dbmanager.TransactionManager;
@@ -61,7 +62,7 @@ public class BirdController extends HttpServlet {
             request.setAttribute("tournament", tournament);
             request.setAttribute("join", BID);
             request.setAttribute("birdList", birds);
-            
+
             request.getRequestDispatcher("/member_TsignUp.jsp").forward(request, response);
         }
         if (action != null && action.equals("add")) {
@@ -95,19 +96,33 @@ public class BirdController extends HttpServlet {
         }
         if (action != null && action.equals("delete")) {
             String docNoToDelete = request.getParameter("docT");
+            String old = request.getParameter("old");
+            String transactionType = request.getParameter("TransactionType");
+            String UID = request.getParameter("username");
 
-            if (docNoToDelete != null) {
+            if (transactionType == null && old == null && UID == null) {
+                response.sendRedirect(request.getContextPath() + "/home?action=view");
+            } 
+            
+            else if (transactionType.trim().equals("fee")) {
                 TparticipationManager tparticipationManager = new TparticipationManager();
                 boolean deletionSuccess = tparticipationManager.delete(docNoToDelete);
 
                 if (deletionSuccess) {
                     // Deletion successful, redirect to a success page
-                    response.sendRedirect(request.getContextPath() + "/member_homepage.jsp");
+                    response.sendRedirect(request.getContextPath() + "/home?action=view");
                 } else {
                     // Deletion failed, redirect to a failure page
-                    response.sendRedirect(request.getContextPath() + "/failure.jsp");
+                    response.sendRedirect(request.getContextPath() + "/.jsp");
                 }
-            } else {
+            } 
+            else if (old.trim() != null) {
+                MemberShipManager m =new MemberShipManager();
+                 boolean updateMembership =m.updateMembership(old, UID);
+                 if (updateMembership ) {
+                response.sendRedirect(request.getContextPath() + "/home?action=view");
+            } 
+            }else {
                 // Missing docT attribute, redirect to a failure page
                 response.sendRedirect(request.getContextPath() + "/failure.jsp");
             }

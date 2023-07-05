@@ -53,6 +53,25 @@ public class FieldTripParticipantsManager {
 
         return false;
     }
+    public static void main(String[] args) {
+    // Create a sample FieldTripParticipants object
+    FieldTripParticipants fieldTripParticipant = new FieldTripParticipants();
+    fieldTripParticipant.setFid("FID27");
+    fieldTripParticipant.setUid("UID1");
+    fieldTripParticipant.setDocNo("Doc.F2");
+
+    // Create an instance of the FieldTripParticipantsManager class
+    FieldTripParticipantsManager manager = new FieldTripParticipantsManager();
+
+    // Call the insert method and check the result
+    boolean insertionSuccess = manager.insert(fieldTripParticipant);
+
+    if (insertionSuccess) {
+        System.out.println("Insertion successful");
+    } else {
+        System.out.println("Insertion failed");
+    }
+}
 
     public boolean delete(String docNo) {
         String sql = "DELETE FROM [FieldTripParticipants] WHERE docNo = ?";
@@ -91,6 +110,46 @@ public class FieldTripParticipantsManager {
     }
 
     public static List<String> ExistingDoc(String pattern) {
+        List<String> existingDocNosF = new ArrayList<>();
+        String sql = "SELECT docNo FROM [FieldTripParticipants] WHERE docNo LIKE ?";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, pattern);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    String docNo = rs.getString("docNo");
+                    existingDocNosF.add(docNo);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return existingDocNosF;
+    }
+        public static List<String> ExistingDocM(String pattern) {
+        List<String> existingDocNosF = new ArrayList<>();
+        String sql = "SELECT docNo FROM [Transactions] WHERE docNo LIKE ?";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, pattern);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    String docNo = rs.getString("docNo");
+                    existingDocNosF.add(docNo);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return existingDocNosF;
+    }
+               public static List<String> ExistingDocD(String pattern) {
         List<String> existingDocNosF = new ArrayList<>();
         String sql = "SELECT docNo FROM [Transactions] WHERE docNo LIKE ?";
 
@@ -132,23 +191,4 @@ public class FieldTripParticipantsManager {
         return list;
     }
     
-public static void main(String[] args) {
-    String UID = "UID0";
-    FieldTripParticipantsManager f = new FieldTripParticipantsManager();
-    List<FieldTripParticipants> field = f.getParticipantList("FID11");
-
-    boolean participantExists = false;
-    for (FieldTripParticipants participant : field) {
-        if (participant.getUid().trim().equals(UID)) {
-            participantExists = true;
-            break;
-        }
-    }
-
-    if (participantExists) {
-        System.out.println("Participant exists for UID: " + UID);
-    } else {
-        System.out.println("Participant does not exist for UID: " + UID);
-    }
-}
 }

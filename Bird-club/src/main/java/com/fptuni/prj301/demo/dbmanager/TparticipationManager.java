@@ -57,15 +57,23 @@ public class TparticipationManager {
     }
 
     public boolean delete(String docNo) {
-        String sql = "DELETE FROM [Tparticipation] WHERE docNo = ?";
+        String sqlTParticipants = "DELETE FROM [ChimOwner].[dbo].[Tparticipation] WHERE docNo = ?";
+        String sqlFieldtripParticipants = "DELETE FROM [ChimOwner].[dbo].[FieldTripParticipants] WHERE docNo = ?";
 
         try (Connection conn = DBUtils.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, docNo);
+                PreparedStatement psTParticipants = conn.prepareStatement(sqlTParticipants);
+                PreparedStatement psFieldtripParticipants = conn.prepareStatement(sqlFieldtripParticipants)) {
 
-            int rowsAffected = ps.executeUpdate();
+            // Set the document number parameter for both prepared statements
+            psTParticipants.setString(1, docNo);
+            psFieldtripParticipants.setString(1, docNo);
 
-            return rowsAffected > 0;
+            // Execute the delete statements for TParticipants and FieldtripParticipants tables
+            int rowsAffectedTParticipants = psTParticipants.executeUpdate();
+            int rowsAffectedFieldtripParticipants = psFieldtripParticipants.executeUpdate();
+
+            // Check if any rows were affected in any of the tables
+            return (rowsAffectedTParticipants > 0) || (rowsAffectedFieldtripParticipants > 0);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -94,7 +102,7 @@ public class TparticipationManager {
 
     public static List<String> ExistingDoc(String pattern) {
         List<String> existingDocNos = new ArrayList<>();
-        String sql = "SELECT docNo FROM [Transactions] WHERE docNo LIKE ?";
+        String sql = "SELECT docNo FROM [Tparticipation] WHERE docNo LIKE ?";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
