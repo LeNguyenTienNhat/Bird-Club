@@ -297,7 +297,7 @@
                                             <div>
                                                 <div>
                                                     <h3 class="text-lg leading-6 font-medium text-gray-900">Edit</h3>
-                                                    <p class="mt-1 text-sm text-gray-500">View and edit the field trip's details</p>
+                                                    <p class="mt-1 text-sm text-gray-500">View and edit the tournament's details</p>
                                                 </div>
                                                 <div class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-y-6 gap-x-4 sm:grid-cols-8">
                                                     <div class="col-span-1 sm:col-span-4 md:col-span-3 grid grid-cols-4 gap-4">

@@ -202,7 +202,7 @@
 
                     <div class="sm:flex sm:items-start">
                         <turbo-frame data-modal-target="test" class="w-full" id="modal" target="_top" reloadable="" src="https://www.bird.club/clubs/birds-in-ohio/events/new?start_date=2023-06-01">
-                            <h3 class="text-lg leading-6 font-medium text-gray-900">New tournament</h3>
+                            
                             <turbo-frame id="new_event" target="_top">
 
                                 <form class="space-y-4" accept-charset="UTF-8" action="./news" method="post">
@@ -220,8 +220,7 @@
                                                 <option value="trending">Trending</option>
                                             </select>
                                         </div>
-                                        <p class="mt-2 text-sm text-gray-500">Pending. <br>
-                                            Placeholder. <br></p>
+                                        
                                     </div>
 
                                     <div><label class="block text-sm font-medium text-gray-700" for="newsContent">Content:</label>
@@ -308,7 +307,7 @@
                     <div>
                         <div class="lg:grid lg:grid-cols-12 lg:gap-x-16">
                             <div class="px-6 sm:px-0 mt-4 lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-8">
-                                <dl class="sm:rounded-t-lg grid grid-cols-1 bg-white overflow-hidden border-b border-gray-200 divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x">
+<!--                                <dl class="sm:rounded-t-lg grid grid-cols-1 bg-white overflow-hidden border-b border-gray-200 divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x">
                                     <div class="px-4 py-5 sm:p-6">
                                         <dt class="text-base font-normal text-gray-900">Available</dt>
                                         <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
@@ -335,7 +334,7 @@
                                             </div>
                                         </dd>
                                     </div>
-                                </dl>
+                                </dl>-->
                             </div>
 
                             <div class="lg:col-span-7 xl:col-span-7" id="events_list">
