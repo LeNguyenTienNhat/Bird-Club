@@ -57,7 +57,7 @@ public class FeedBackController extends HttpServlet {
             String status = "pending";
             Feedback f = new Feedback(FeID, UID, title, detail, date, category, status );
             fb.insert(f);
-            RequestDispatcher rd = request.getRequestDispatcher("FeedBackController");
+            RequestDispatcher rd = request.getRequestDispatcher("/member_FeedBack.jsp");
             rd.forward(request, response);
         }
     

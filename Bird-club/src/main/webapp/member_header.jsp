@@ -50,7 +50,7 @@
 
 
                                             <a target="_self" href="${pageContext.request.contextPath}/MemberProfileController?action=view" class="menu-link main-menu-link">
-                                                <img src="data:image/png;base64,${Base64.getEncoder().encodeToString(users.getImage())}" alt="Avatar" class="avatar-image">
+                                                <%--<img src="data:image/png;base64,${Base64.getEncoder().encodeToString(users.getImage())}" alt="Avatar" class="avatar-image">--%>
                                                 <span class="username">${users.getUserName()}</span> 
                                             </a>
                                             <button aria-haspopup="true" aria-label="Show submenu for Courses">
