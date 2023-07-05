@@ -7,6 +7,7 @@ package com.fptuni.prj301.demo.dbmanager;
 
 import com.fptuni.prj301.demo.model.Blog;
 import com.fptuni.prj301.demo.utils.DBUtils;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,7 +28,7 @@ public class BlogManager {
 
     public List<Blog> getList() {
         List<Blog> blogs = new ArrayList<>();
-        String sql = "SELECT * FROM Blog ";
+        String sql = "SELECT * FROM Blog where status='approved' ";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -50,6 +51,48 @@ public class BlogManager {
         }
 
         return blogs;
+    }
+
+    public void addBlog(Blog blog) {
+        String sql = "INSERT INTO Blog (BLID, description, category, uploadDate, UID, vote, picture, status) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, blog.getBLID());
+            ps.setString(2, blog.getDescription());
+            ps.setString(3, blog.getCategory());
+            ps.setDate(4, new java.sql.Date(blog.getUploadDate().getTime()));
+            ps.setString(5, blog.getUID());
+            ps.setBigDecimal(6, blog.getVote());
+            ps.setBytes(7, blog.getPicture());
+            ps.setString(8, blog.getStatus());
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle the exception or rethrow it to handle it at a higher level
+        }
+    }
+
+    public static List<String> ExistingBID() {
+        List<String> existingBLIDs = new ArrayList<>();
+        String sql = "SELECT BLID FROM Blog";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                String blid = rs.getString("BLID");
+                existingBLIDs.add(blid);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return existingBLIDs;
     }
 
     public Blog getBlogByBLID(String blid) {
@@ -81,26 +124,11 @@ public class BlogManager {
     }
 
     public static void main(String[] args) {
-        BlogManager blogManager = new BlogManager();
-        List<Blog> blogs = blogManager.getList();
+        List<String> existingBLIDs = ExistingBID();
 
-        for (Blog blog : blogs) {
-            System.out.println("BLID: " + blog.getBLID());
-            System.out.println("Description: " + blog.getDescription());
-            System.out.println("Category: " + blog.getCategory());
-            System.out.println("Upload Date: " + blog.getUploadDate());
-            System.out.println("UID: " + blog.getUID());
-            System.out.println("Vote: " + blog.getVote());
-            System.out.println("Status: " + blog.getStatus());
-            System.out.println("Picture: " + blog.getPicture()); // Note: This will print the byte array representation
-
-            // Convert and display the image as Base64 string
-            if (blog.getPicture() != null) {
-                String base64Image = Base64.getEncoder().encodeToString(blog.getPicture());
-                System.out.println("Picture (Base64): " + base64Image);
-            }
-
-            System.out.println("--------------------------------------");
+        System.out.println("Existing Blog IDs:");
+        for (String blid : existingBLIDs) {
+            System.out.println(blid);
         }
     }
 

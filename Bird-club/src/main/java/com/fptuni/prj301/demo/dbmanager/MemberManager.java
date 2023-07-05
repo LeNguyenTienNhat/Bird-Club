@@ -83,8 +83,8 @@ public class MemberManager {
 
     public boolean update(MemberProfile member) throws ClassNotFoundException {
         String sql = "UPDATE [User] SET userName = ?, "
-                + "fullName = ?, gender = ?, phone = ?, email = ?, "
-                + "WHERE UID = ?";
+                + "fullName = ?, gender = ?, phone = ?, "
+                + "email = ? WHERE UID = ?";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -93,7 +93,7 @@ public class MemberManager {
             ps.setString(3, member.getGender());
             ps.setString(4, member.getPhone());
             ps.setString(5, member.getEmail());
-            ps.setString(7, member.getUID());
+            ps.setString(6, member.getUID());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Failed to update due to internal error :(" + ex.getMessage());

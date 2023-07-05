@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import tool.utils.Tools;
@@ -224,26 +225,5 @@ public class BirdManager {
             System.out.println("Insertion failed due to internal error :(" + ex.getMessage());
         }
 
-    }
-    public static void main(String[] args) {
-        // Test the getFieldTripById method
-       BirdManager birdManager = new BirdManager();
-    byte[] profilePic = new byte[0xFFFFFF];
-    // Create a new Bird object
-    Bird bird = new Bird();
-    bird.setBID("BID143");
-    bird.setUID("UID1");
-    bird.setName("Parrot");
-    bird.setAge(2);
-    bird.setGender("Male");
-    bird.setDescription("Colorful parrot");
-    bird.setColor("Green");
-    bird.setProfilePic(profilePic); // Set the profile picture byte array if available
-
-    // Insert the bird into the database
-    birdManager.insert(bird);
-
-    // Retrieve the inserted bird by its BID
-    
     }
 }

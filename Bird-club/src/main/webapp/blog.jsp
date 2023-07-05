@@ -334,76 +334,59 @@
 
 
                         </style>
-                        <div class="row">
-                            <div class="search-container">
-                                <i class="fas fa-search search-icon"></i>
-                                <input type="text" id="searchInput" placeholder="Search">
-                            </div>
-                            <div class="add-container">
-                                <button class="add-button" onclick="showPopup()"><i class="fas fa-plus"></i>Add Blog</button>
-                            </div>
+                        <div data-controller="modal" data-modal-target="container" data-modal-id-value="modal2" data-modal-persist-value="false" class="hidden fixed z-[2000] inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                                <div     data-modal-target="overlay"      data-action="click->modal#close"
+                                         class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"      aria-hidden="true"
+                                         data-transition-enter="transition ease-out duration-300"      data-transition-enter-start="opacity-0"
+                                         data-transition-enter-end="opacity-100"      data-transition-leave="transition ease-in duration-200"
+                                         data-transition-leave-start="opacity-100"      data-transition-leave-end="opacity-0"      >    </div>
+                                <!-- This element is to trick the browser into centering the modal contents. -->
+                                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                                <div       data-modal-target="content" 
+                                           class="hidden relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full sm:p-6"
+                                           data-transition-enter="transition ease-out duration-300"      data-transition-enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                           data-transition-enter-end="opacity-100 translate-y-0 sm:scale-100"      data-transition-leave="transition ease-in duration-200"
+                                           data-transition-leave-start="opacity-100 translate-y-0 sm:scale-100"      data-transition-leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"    >
+                                    <div class="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
+                                        <button data-action="click->modal#close" type="button" class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500">
+                                            <span class="sr-only">Close</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class=" w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg></button></div>
 
-                            <div class="popup" id="popupContainer">
-                                <!-- Popup content goes here -->
-                                <div class="button-container">
-                                    <h2 style="text-align: center;">Add a new blog</h2>
+                                    <div class="sm:flex sm:items-start">
+                                        <turbo-frame data-modal-target="test" class="w-full" id="modal" target="_top" reloadable="" src="https://www.bird.club/clubs/birds-in-ohio/events/new?start_date=2023-06-01">
 
-                                    <form id="blogForm">
-                                        <div class="form-group">
-                                            <label for="imageInput">Image:</label>
-                                            <input type="file" id="imageInput" accept="image/*" />
-                                        </div>
+                                            <h3 class="text-lg leading-6 font-medium text-gray-900">New image</h3>
+                                            <turbo-frame id="new_event" target="_top">
 
-                                        <div class="form-group">
-                                            <label for="nameInput">Name of Blog:</label>
-                                            <input type="text" id="nameInput" />
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label for="descriptionInput">Description:</label>
-                                            <textarea id="descriptionInput"></textarea>
-                                        </div>
 
-                                        <button class="add-button" onclick="performAction()">Add</button>
-                                    </form>
+                                                <form class="space-y-4" action="./media" method="post" id="tournament" enctype="multipart/form-data">
+                                                    <div class="mt-3">
+                                                        <label class="block text-sm font-medium text-gray-700" for="image">Media</label>
+                                                        <div class="mt-1">
+                                                            <input accept="image/*" color="teal" 
+                                                                   class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" 
+                                                                   type="file" name="image" id="image"></div></div>
+                                                    <input type="hidden" name="ID" value="${users.getUID()}">
 
-                                    <button class="close-button" onclick="hidePopup()"><i class="fas fa-times"></i></button>
-                                </div>
-                            </div>
+                                                    <div class="form-group">
+                                                        <label for="category">Category:</label>
+                                                        <input type="text" id="category" name="category" />
+                                                    </div>
 
-                            <div class="backdrop" id="backdrop"></div>
-                            <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+                                                    <div class="form-group">
+                                                        <label for="descriptionInput">Description:</label>
+                                                        <textarea id="descriptionInput" name="description"></textarea>
+                                                    </div>
+                                                    <div class="text-right sm:col-span-4">
+                                                        <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                                            Add blog</button>
+                                                    </div></form>
 
-                            <script>
-            function showPopup() {
-                document.getElementById('popupContainer').style.display = 'block';
-                document.getElementById('backdrop').style.display = 'block';
-            }
-
-            function hidePopup() {
-                document.getElementById('popupContainer').style.display = 'none';
-                document.getElementById('backdrop').style.display = 'none';
-            }
-
-            function performAction() {
-                // Perform the desired action when the "Add" button is clicked
-                // You can access the form values using JavaScript and perform further processing or submission
-                var imageInput = document.getElementById('imageInput').value;
-                var nameInput = document.getElementById('nameInput').value;
-                var descriptionInput = document.getElementById('descriptionInput').value;
-
-                // Perform your desired actions with the form inputs here
-                // For example, you can log them to the console
-                console.log('Image: ', imageInput);
-                console.log('Name of Blog: ', nameInput);
-                console.log('Description: ', descriptionInput);
-
-                // Reset the form inputs if needed
-                document.getElementById('blogForm').reset();
-            }
-                            </script>
-                        </div>
-
+                                            </turbo-frame></turbo-frame></div></div></div></div>
 
                         <div class="blog-container">
                             <ul>

@@ -1,19 +1,24 @@
 package com.fptuni.prj301.demo.controller;
 
+import com.fptuni.prj301.demo.dbmanager.BlogManager;
 import com.fptuni.prj301.demo.dbmanager.EventsMediaManager;
 import com.fptuni.prj301.demo.dbmanager.GalleryManager;
 import com.fptuni.prj301.demo.dbmanager.NewsManager;
+import com.fptuni.prj301.demo.model.Blog;
 import com.fptuni.prj301.demo.model.Image;
 import com.fptuni.prj301.demo.model.Media;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigDecimal;
 import java.text.ParseException;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import tool.utils.UIDGenerator;
 
 public class StaffMediaController extends HttpServlet {
 
@@ -65,6 +70,28 @@ public class StaffMediaController extends HttpServlet {
                 Media media = new Media(ID, description, pictureData);
                 mm.insert(tableName, media);
                 response.sendRedirect("http://localhost:8080/chimowners/events?MeID=" + ID + "&action=viewmeetingmedia");
+            }
+            else if (ID.contains("UID")) {
+            String blid = UIDGenerator.generateBlogID();
+            String category = request.getParameter("category");
+              Blog newBlog = new Blog();
+            newBlog.setBLID(blid);
+            newBlog.setDescription(description);
+            newBlog.setCategory(category);
+            newBlog.setUploadDate(new Date()); // Set upload date to current date
+            newBlog.setUID(ID); // Set the UID accordingly
+            newBlog.setVote(BigDecimal.ZERO); // Set vote to default value 0
+            newBlog.setPicture(pictureData);
+            newBlog.setStatus("idle"); // Set status to default value "idle"
+
+            // Create an instance of the BlogManager
+            BlogManager blogManager = new BlogManager();
+
+            // Add the new blog entry to the database
+            blogManager.addBlog(newBlog);
+
+            // Redirect to the viewblog action to display the updated blog list
+            response.sendRedirect(request.getContextPath() + "/BlogController?action=viewblog");
             }
         } catch (ClassNotFoundException | ParseException ex) {
         }

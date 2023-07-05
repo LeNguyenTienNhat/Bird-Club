@@ -47,15 +47,13 @@ public class UserAccessController extends HttpServlet {
                     if (status.equals("unactivated")) {
                         response.sendRedirect(request.getContextPath() + "/login.jsp");
                         request.setAttribute("login_msg", "Username does not Exists");
-                    }
-                    else if (user.getExpriedDate() != null && user.getExpriedDate().before(new Date())) {
+                    } else if (user.getExpriedDate() != null && user.getExpriedDate().before(new Date())) {
                         ss.setAttribute("users", user);
                         ss.setAttribute("userID", userDao.searchByName(user.getUserName()));
                         boolean account = s.approveUser(user.getUID(), "guest");
                         response.sendRedirect(request.getContextPath() + "/home?action=view");
                         request.setAttribute("login_msg", "Membership has expired");
-                    } 
-                    else {
+                    } else {
                         if (role.equals("member") || role.equals("guest")) {
                             ss.setAttribute("users", user);
                             ss.setAttribute("userID", userDao.searchByName(user.getUserName()));
@@ -63,7 +61,7 @@ public class UserAccessController extends HttpServlet {
                         } else if (role.equals("staff")) {
                             ss.setAttribute("users", user);
                             response.sendRedirect(request.getContextPath() + "/staff_homepage.jsp");
-                        } 
+                        }
                     }
                 }
             }
@@ -83,7 +81,7 @@ public class UserAccessController extends HttpServlet {
             String phone = request.getParameter("phone");
             String email = request.getParameter("email");
             String gender = request.getParameter("gender");
-
+            byte[] profilePic = new byte[0xFFFFFF];
             // Check if username or email already exists
             UserAccessManager userDao = new UserAccessManager();
             boolean isUserExists = userDao.checkUserExists(username);
@@ -108,6 +106,7 @@ public class UserAccessController extends HttpServlet {
                 user.setStatus("unactivated");
                 user.setMID("MID00");
                 user.setRole("guest");
+                user.setImage(profilePic);
 
                 // Generate UID
                 String userId = UIDGenerator.generateUID();

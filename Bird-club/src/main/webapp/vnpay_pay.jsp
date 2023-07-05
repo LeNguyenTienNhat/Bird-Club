@@ -108,9 +108,10 @@
             <form action="${pageContext.request.contextPath}/TransactionController?action=add" method="post">
                 <input type="hidden" id="amountCopy" name="amount" />
                 <input type="hidden" name="UID" value="${users.getUID()}">
+                <input type="hidden" name="name" value="${users.getUserName()}">
                 <input type="hidden" name="TT" value="${sessionScope.TransactionType}" />
                 <input type="hidden" name="docT" value="${docT}">
-                <button style="margin-right:5px;" type="submit" class="btn btn-default">Lưu</button> 
+                <button style="margin-right:5px;" type="submit" class="btn btn-default">lưu</button> 
 
             </form>
 

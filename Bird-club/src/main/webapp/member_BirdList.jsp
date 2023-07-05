@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.Base64" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
@@ -66,7 +67,7 @@
     <body class="post-template-default single single-post postid-56828 single-format-standard wp-embed-responsive theme-green nav-column tribe-no-js">
         <div id="main-container">
 
-             <%@ include file="member_header.jsp" %>  
+            <%@ include file="member_header.jsp" %>  
 
             <main id="main-content">
 
@@ -104,319 +105,320 @@
                                     <body className='snippet-body'>                                         
                                         <table>
                                             <style>
-                            /* Table Styles */
-                            table {
-                                width: 100%;
-                                border-collapse: collapse;
-                            }
+                                                /* Table Styles */
+                                                table {
+                                                    width: 100%;
+                                                    border-collapse: collapse;
+                                                }
 
-                            td {
-                                padding: 10px;
-                                text-align: center;
-                                border: 1px solid #ccc;
-                            }
+                                                td {
+                                                    padding: 10px;
+                                                    text-align: center;
+                                                    border: 1px solid #ccc;
+                                                }
 
-                            /* Event Card Styles */
-                            .tribe-events-calendar-list {
-                                margin-bottom: 20px;
-                            }
+                                                /* Event Card Styles */
+                                                .tribe-events-calendar-list {
+                                                    margin-bottom: 20px;
+                                                }
 
-                            .tribe-events-calendar-list__event {
-                                background-color: #f2f2f2;
-                                border: 1px solid #ccc;
-                                padding: 10px;
-                                width: 500px; /* set the desired width */
-                                height: 200px; /* set the desired height */
-                            }
+                                                .tribe-events-calendar-list__event {
+                                                    background-color: #f2f2f2;
+                                                    border: 1px solid #ccc;
+                                                    padding: 10px;
+                                                    width: 500px; /* set the desired width */
+                                                    height: 200px; /* set the desired height */
+                                                }
 
-                            .tribe-events-calendar-list__event-title {
-                                margin-top: 0;
-                                margin-bottom: 10px;
-                            }
+                                                .tribe-events-calendar-list__event-title {
+                                                    margin-top: 0;
+                                                    margin-bottom: 10px;
+                                                }
 
-                            .tribe-events-calendar-list__event-datetime {
-                                font-weight: bold;
-                            }
+                                                .tribe-events-calendar-list__event-datetime {
+                                                    font-weight: bold;
+                                                }
 
-                            .tribe-events-calendar-list__event-title-link {
-                                color: #333;
-                                text-decoration: none;
-                            }
+                                                .tribe-events-calendar-list__event-title-link {
+                                                    color: #333;
+                                                    text-decoration: none;
+                                                }
 
-                            /* Button Styles */
-                            .wp-block-button__link {
-                                display: inline-block;
-                                padding: 10px 20px;
-                                background-color: #333;
-                                color: #fff;
-                                text-decoration: none;
-                                border: none;
-                                cursor: pointer;
-                                transition: background-color 0.3s ease;
-                            }
+                                                /* Button Styles */
+                                                .wp-block-button__link {
+                                                    display: inline-block;
+                                                    padding: 10px 20px;
+                                                    background-color: #333;
+                                                    color: #fff;
+                                                    text-decoration: none;
+                                                    border: none;
+                                                    cursor: pointer;
+                                                    transition: background-color 0.3s ease;
+                                                }
 
-                            .wp-block-button__link:hover {
-                                background-color: #555;
-                            }
-                            .status {
-                                display: inline-flex;
-                                align-items: center;
-                                padding: 0.5rem 0.75rem;
-                                font-weight: bold;
-                                background-color: #C6F6D5;
-                                color: #059669;
-                                font-size: 1rem;
-                                border-radius: 100px;
-                            }
+                                                .wp-block-button__link:hover {
+                                                    background-color: #555;
+                                                }
+                                                .status {
+                                                    display: inline-flex;
+                                                    align-items: center;
+                                                    padding: 0.5rem 0.75rem;
+                                                    font-weight: bold;
+                                                    background-color: #C6F6D5;
+                                                    color: #059669;
+                                                    font-size: 1rem;
+                                                    border-radius: 100px;
+                                                }
 
-                            .search{
-                                width: 100%;
+                                                .search{
+                                                    width: 100%;
 
-                            }
-                            .search-container {
-                                position: relative;
-                                display: inline-block;
-                                margin-bottom: 20px;
-                            }
+                                                }
+                                                .search-container {
+                                                    position: relative;
+                                                    display: inline-block;
+                                                    margin-bottom: 20px;
+                                                }
 
-                            .search-icon {
-                                position: absolute;
-                                top: 50%;
-                                left: 5px;
-                                transform: translateY(-50%);
-                                color: #999;
-                            }
+                                                .search-icon {
+                                                    position: absolute;
+                                                    top: 50%;
+                                                    left: 5px;
+                                                    transform: translateY(-50%);
+                                                    color: #999;
+                                                }
 
-                            #searchInput {
-                                width: 150px; /* Adjust the width as needed */
-                                padding: 5px 5px 5px 25px; /* Added padding to accommodate the icon */
-                                border: 1px solid #ccc;
-                                border-radius: 4px;
-                            }
+                                                #searchInput {
+                                                    width: 150px; /* Adjust the width as needed */
+                                                    padding: 5px 5px 5px 25px; /* Added padding to accommodate the icon */
+                                                    border: 1px solid #ccc;
+                                                    border-radius: 4px;
+                                                }
 
-                            /* Position the search input on the right */
-                            #searchInput::placeholder {
-                                text-align: left;
-                            }
+                                                /* Position the search input on the right */
+                                                #searchInput::placeholder {
+                                                    text-align: left;
+                                                }
 
-                            /* Align the search input to the right */
-                            #searchInput {
-                                text-align: left;
-                            }
-                            .row {
-                                display: grid;
-                                grid-template-columns: 1fr 1fr;
-                                grid-gap: 10px;
-                                margin-bottom: 5px;
-                            }
+                                                /* Align the search input to the right */
+                                                #searchInput {
+                                                    text-align: left;
+                                                }
+                                                .row {
+                                                    display: grid;
+                                                    grid-template-columns: 1fr 1fr;
+                                                    grid-gap: 10px;
+                                                    margin-bottom: 5px;
+                                                }
 
-                            dt, dd {
-                                padding: 5px;
+                                                dt, dd {
+                                                    padding: 5px;
 
-                            }
-                            .status-button {
-                                display: inline-block;
-                                padding: 5px 10px;
-                                border: none;
-                                border-radius: 1000px;
-                                color: white;
-                                font-weight: bold;
-                                text-align: center;
-                                text-decoration: none;
-                                cursor: pointer;
-                            }
-
-
-                            .status-pending {
-                                background-color: #dcfce7;
-                                color: #166534;
-                            }
-
-                            .status-formClosed {
-                                background-color: #fef9c3;
-                                color: #804d5e;
-                                margin-right: 10px;
-
-                            }
-
-                            .status-Trending {
-                                background-color: #FEE2E2;
-                                color: #991b1b;
-                            }
-
-                            .status-Normal {
-                                background-color: darkgray;
-                                color: #1f2937;
-                            }
-                            .add-container {
-                                margin-left: auto; /* Pushes the add container to the end of the row */
-                            }
-                           .button-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.add-button {
-    margin-left: auto;
-}
-                            .button {
-                                display: flex;
-                                justify-content: flex-end;
-                            }
-                            .backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px); /* Apply blur effect */
-    z-index: 999;
-    display: none;
-}
-
-.popup {
-    margin-top: 50px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    z-index: 1000;
-    display: none;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-}
-
-input[type="text"],
-textarea {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button[type="submit"] {
-    margin-top: 10px;
-    
-}
-
-                            .button-container {
-                                display: flex;
-                                flex-direction: column;
-                                align-items: center;
-                                margin-top: 20px;
-                                text-align: center;
-                            }
-
-                            .button-container h2 {
-                                margin-bottom: 10px;
-                            }
-
-                            .button-container .add-button {
-                                background-color: #4caf50;
-                                color: #fff;
-                                border: none;
-                                padding: 10px 20px;
-                                border-radius: 4px;
-                                cursor: pointer;
-                                margin-top: 10px;
-                            }
-
-                            .button-container .add-button:hover {
-                                background-color: #45a049;
-                            }
-
-                            .button-container .add-button:focus {
-                                outline: none;
-                            }
-
-                            .button-container button {
-                                background-color: transparent;
-                                color: #000;
-                                border: none;
-                                padding: 0;
-                                cursor: pointer;
-                                margin-top: 10px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                            }
-
-                            .button-container button:hover {
-                                color: #999;
-                            }
-
-                            .button-container button:focus {
-                                outline: none;
-                            }
-
-                            .button-container .close-button {
-                                order: -1;
-                                margin-right: 10px;
-                            }
-                           
-
-                        </style>
-                        <div class="row">
-                            <div class="search-container">
-                                <i class="fas fa-search search-icon"></i>
-                                <input type="text" id="searchInput" placeholder="Search">
-                            </div>
-                            <div class="add-container">
-                            <a href="member_addbird.jsp" class="nav-link"><i class="fas fa-plus"></i>Add Bird</a>
-</div>
+                                                }
+                                                .status-button {
+                                                    display: inline-block;
+                                                    padding: 5px 10px;
+                                                    border: none;
+                                                    border-radius: 1000px;
+                                                    color: white;
+                                                    font-weight: bold;
+                                                    text-align: center;
+                                                    text-decoration: none;
+                                                    cursor: pointer;
+                                                }
 
 
-                        </div>
-                                        <style>
-                                            .table-heading {
-                                                text-align: center;
-                                                text-size: 100px;
-                                            }
-                                        </style>                                        
-                                        <tr >
+                                                .status-pending {
+                                                    background-color: #dcfce7;
+                                                    color: #166534;
+                                                }
 
-                                            <td style="text-align: center;">Bird Name</td>
-                                            <td style="text-align: center;">Image</td>
-                                            <td style="text-align: center;"></td>
-                                            <c:if test="${empty birdList}">
-                                            <tr>
-                                                <td colspan="2">
-                                                    <div>
-                                                        <p>No bird found.</p>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </c:if>
+                                                .status-formClosed {
+                                                    background-color: #fef9c3;
+                                                    color: #804d5e;
+                                                    margin-right: 10px;
 
-                                        <c:if test="${not empty birdList}">
-                                            <c:forEach var="bird" items="${birdList}">
+                                                }
+
+                                                .status-Trending {
+                                                    background-color: #FEE2E2;
+                                                    color: #991b1b;
+                                                }
+
+                                                .status-Normal {
+                                                    background-color: darkgray;
+                                                    color: #1f2937;
+                                                }
+                                                .add-container {
+                                                    margin-left: auto; /* Pushes the add container to the end of the row */
+                                                }
+                                                .button-container {
+                                                    display: flex;
+                                                    justify-content: space-between;
+                                                }
+
+                                                .add-button {
+                                                    margin-left: auto;
+                                                }
+                                                .button {
+                                                    display: flex;
+                                                    justify-content: flex-end;
+                                                }
+                                                .backdrop {
+                                                    position: fixed;
+                                                    top: 0;
+                                                    left: 0;
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    background-color: rgba(0, 0, 0, 0.5);
+                                                    backdrop-filter: blur(5px); /* Apply blur effect */
+                                                    z-index: 999;
+                                                    display: none;
+                                                }
+
+                                                .popup {
+                                                    margin-top: 50px;
+                                                    position: fixed;
+                                                    top: 50%;
+                                                    left: 50%;
+                                                    transform: translate(-50%, -50%);
+                                                    background-color: white;
+                                                    padding: 20px;
+                                                    z-index: 1000;
+                                                    display: none;
+                                                }
+
+                                                .form-group {
+                                                    margin-bottom: 15px;
+                                                }
+
+                                                label {
+                                                    display: block;
+                                                    font-weight: bold;
+                                                }
+
+                                                input[type="text"],
+                                                textarea {
+                                                    width: 100%;
+                                                    padding: 5px;
+                                                    border: 1px solid #ccc;
+                                                    border-radius: 4px;
+                                                }
+
+                                                button[type="submit"] {
+                                                    margin-top: 10px;
+
+                                                }
+
+                                                .button-container {
+                                                    display: flex;
+                                                    flex-direction: column;
+                                                    align-items: center;
+                                                    margin-top: 20px;
+                                                    text-align: center;
+                                                }
+
+                                                .button-container h2 {
+                                                    margin-bottom: 10px;
+                                                }
+
+                                                .button-container .add-button {
+                                                    background-color: #4caf50;
+                                                    color: #fff;
+                                                    border: none;
+                                                    padding: 10px 20px;
+                                                    border-radius: 4px;
+                                                    cursor: pointer;
+                                                    margin-top: 10px;
+                                                }
+
+                                                .button-container .add-button:hover {
+                                                    background-color: #45a049;
+                                                }
+
+                                                .button-container .add-button:focus {
+                                                    outline: none;
+                                                }
+
+                                                .button-container button {
+                                                    background-color: transparent;
+                                                    color: #000;
+                                                    border: none;
+                                                    padding: 0;
+                                                    cursor: pointer;
+                                                    margin-top: 10px;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                }
+
+                                                .button-container button:hover {
+                                                    color: #999;
+                                                }
+
+                                                .button-container button:focus {
+                                                    outline: none;
+                                                }
+
+                                                .button-container .close-button {
+                                                    order: -1;
+                                                    margin-right: 10px;
+                                                }
+
+
+                                            </style>
+                                            <div class="row">
+                                                <div class="search-container">
+                                                    <i class="fas fa-search search-icon"></i>
+                                                    <input type="text" id="searchInput" placeholder="Search">
+                                                </div>
+                                                <div class="add-container">
+                                                    <a href="member_addbird.jsp" class="nav-link"><i class="fas fa-plus"></i>Add Bird</a>
+                                                </div>
+
+
+                                            </div>
+                                            <style>
+                                                .table-heading {
+                                                    text-align: center;
+                                                    text-size: 100px;
+                                                }
+                                            </style>                                        
+                                            <tr >
+
+                                                <td style="text-align: center;">Bird Name</td>
+                                                <td style="text-align: center;">Image</td>
+                                                <td style="text-align: center;"></td>
+                                                <c:if test="${empty birdList}">
                                                 <tr>
-                                                    <td style="text-align: center;">${bird.getName()}</td>
-                                                    <td >
-                                                        <img src="${bird.getProfilePic()}" alt="Description of the image" style="display: block;
-                                                             margin: auto; width: 200px; height: 150px; ">
-                                                    </td>
-                                                    <td  text-align: center;">
-                                                         <form action="${pageContext.request.contextPath}/BirdProfileController?action=view&BID=${bird.getBID()}" method="POST">
-                                                            <input type="hidden" name="action" value="viewbirddetail">
-                                                            <input type="hidden" name="BID" value="${bird.getBID()}" />                                                                                                                      
-                                                            <button type="submit" class="wp-block-button__link wp-element-button">Detail</button>
-                                                        </form>
+                                                    <td colspan="2">
+                                                        <div>
+                                                            <p>No bird found.</p>
+                                                        </div>
                                                     </td>
                                                 </tr>
-                                            </c:forEach>
-                                        </c:if>
-                                    </table>
+                                            </c:if>
+
+                                            <c:if test="${not empty birdList}">
+                                                <c:forEach var="bird" items="${birdList}">
+                                                    <tr>
+                                                        <td style="text-align: center;">${bird.getName()}</td>
+                                                        <td >
+                                                            <img src="data:image/jsp;base64,${Base64.getEncoder().encodeToString(bird.profilePic)}"
+                                                                 alt="Description of the image"
+                                                                 style="display: block; margin: auto; width: 200px; height: 150px;">
+                                                        </td>
+                                                        <td  text-align: center;">
+                                                             <form action="${pageContext.request.contextPath}/BirdProfileController?action=view&BID=${bird.getBID()}" method="POST">
+                                                                <input type="hidden" name="action" value="viewbirddetail">
+                                                                <input type="hidden" name="BID" value="${bird.getBID()}" />                                                                                                                      
+                                                                <button type="submit" class="wp-block-button__link wp-element-button">Detail</button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                </c:forEach>
+                                            </c:if>
+                                        </table>
                                         <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'></script>
                                         <script type='text/javascript' src='#'></script>
                                         <script type='text/javascript' src='#'></script>

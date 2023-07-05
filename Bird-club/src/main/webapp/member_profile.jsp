@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.Base64" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
@@ -139,7 +140,7 @@
                         <div class="row">
                             <div class="col-md-3 border-right">
                                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                    <img class="rounded-circle mt-5" width="150px" src="https://logodix.com/logo/1070634.png">
+                                    <img class="rounded-circle mt-5" width="150px" src="data:image/png;base64,${Base64.getEncoder().encodeToString(users.getImage())}">
                                     <span class="font-weight-bold">${users.getUserName()}</span>
                                     <span class="text-black-50">${users.getEmail()}</span><span> </span></div>
                             </div>

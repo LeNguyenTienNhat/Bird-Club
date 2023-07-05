@@ -5,6 +5,7 @@
  */
 package tool.utils;
 
+import com.fptuni.prj301.demo.dbmanager.BlogManager;
 import com.fptuni.prj301.demo.dbmanager.FieldTripParticipantsManager;
 import com.fptuni.prj301.demo.dbmanager.MeetingParticipantsManager;
 import com.fptuni.prj301.demo.dbmanager.TparticipationManager;
@@ -19,6 +20,12 @@ public class UIDGenerator {
         Random random = new Random();
         int randomNumber = random.nextInt(90000) + 10000;
         return "u" + randomNumber;
+    }
+    public static String generateBlogID() {
+        List<String> existingFIDs =BlogManager.ExistingBID();
+        int listSize = existingFIDs.size();
+        int fidNumber = listSize + 2;
+        return "BID" + fidNumber;
     }
 
 
@@ -87,7 +94,7 @@ public class UIDGenerator {
     return "PID" + randomNumber;
 }
     public static void main(String[] args) {
-    String docNoT = generateDocD();
+    String docNoT = generateDocMS();
     System.out.println("Generated DocNo: " + docNoT);
 }
 

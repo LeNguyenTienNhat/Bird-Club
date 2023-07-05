@@ -85,9 +85,9 @@ public class BirdProfileController extends HttpServlet {
             byte[] profilePic = new byte[0xFFFFFF];
             Bird b = new Bird(BID, UID, name, age, gender, description, color, profilePic);
             bird.insert(b);
-            
+            request.setAttribute("birds", b);
             request.setAttribute("action", "viewbirdprofile");
-            RequestDispatcher rd = request.getRequestDispatcher("BirdProfileController");
+            RequestDispatcher rd = request.getRequestDispatcher("/member_addbird.jsp");
             rd.forward(request, response);
         } //update bird profile
         if (action != null && action.equals("updatebirdprofile")) {
