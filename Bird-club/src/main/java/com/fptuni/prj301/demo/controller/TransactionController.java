@@ -6,6 +6,7 @@
 package com.fptuni.prj301.demo.controller;
 
 import com.fptuni.prj301.demo.dbmanager.TransactionManager;
+import com.fptuni.prj301.demo.dbmanager.UserAccessManager;
 import com.fptuni.prj301.demo.model.Transaction;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -26,11 +27,17 @@ public class TransactionController extends HttpServlet {
         String action = request.getParameter("action");
         if (action != null && action.equals("add")) {
             String PID = UIDGenerator.generatePID();
+
             BigDecimal amount1 = new BigDecimal(request.getParameter("amount")).multiply(BigDecimal.valueOf(100));
             String uid = request.getParameter("UID");
             String TT = request.getParameter("TT");
             String doc = request.getParameter("docT");
-
+            String name = request.getParameter("name");
+            if(name!=null){
+                UserAccessManager u =new UserAccessManager();
+                uid =u.findUIDByName(name);
+            }
+            
             Transaction transaction = new Transaction();
             transaction.setPID(PID);
             transaction.setUID(uid);
