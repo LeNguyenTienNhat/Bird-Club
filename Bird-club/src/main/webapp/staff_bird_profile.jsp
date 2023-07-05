@@ -1,5 +1,7 @@
+<%@page import="com.fptuni.prj301.demo.model.Tparticipation"%>
+<%@page import="com.fptuni.prj301.demo.model.Bird"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.Base64"%>
-<%@page import="com.fptuni.prj301.demo.model.Member"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -220,30 +222,30 @@
         </div>
     </div>
 
-    <%! Member m;%>
-    <% m = (Member) request.getAttribute("member"); %>
+    <%! Bird b;
+        List<Tparticipation> list;%>
+    <% b = (Bird) request.getAttribute("bird");
+        list = (List<Tparticipation>) request.getAttribute("list");
+    %>
 
     <main class="pb-8 pt-8">
         <div class="max-w-3xl mx-auto">
 
             <div class="grid grid-cols-1 items-start lg:grid-cols-5 lg:gap-8">
                 <div class="grid grid-cols-1 gap-4 lg:col-span-5">
-
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
                         <div class="sm:flex-auto">
                             <h1 class="text-xl font-semibold text-gray-900">PROFILE</h1>
                             <p class="mt-2 text-sm text-gray-700">
-                                Details of  <% out.print(m.getFullName()); %>
+                                Details of  <% out.print(b.getName()); %>
                             </p>
                         </div>
-
-
                     </div>
 
                     <div>
                         <div class="lg:grid lg:grid-cols-12 lg:gap-x-16">
                             <div class="px-6 sm:px-0 lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-9">
-                                <% out.print("<img style='height: auto; width: auto; display: block; margin-bottom: 25px' src='data:image/png;base64," + Base64.getEncoder().encodeToString(m.getProfilePicture()) + "'>"); %>                               
+                                <% out.print("<img style='height: auto; width: auto; display: block; margin-bottom: 25px' src='data:image/png;base64," + Base64.getEncoder().encodeToString(b.getProfilePic()) + "'>"); %>                               
                             </div>
                             <div class="lg:col-span-7 xl:col-span-8">
                                 <div class='pl-8 relative flex flex-col bg-white sm:rounded-lg shadow p-6'>
@@ -251,89 +253,115 @@
                                     </div>
 
                                     <div><h1 class='font-bold text-xl text-gray-900'><span>
-                                                <% out.print(m.getFullName()); %>
+                                                <% out.print(b.getName()); %>
                                             </span>
                                         </h1></div>
 
                                     <div class='mt-4 flex items-start space-x-3'>
                                         <div class='mt-0.5'><span class='sr-only'></span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-gender-ambiguous text-gray-900 w-5 h-5" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M11.5 1a.5.5 0 0 1 0-1h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-3.45 3.45A4 4 0 0 1 8.5 10.97V13H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V14H6a.5.5 0 0 1 0-1h1.5v-2.03a4 4 0 1 1 3.471-6.648L14.293 1H11.5zm-.997 4.346a3 3 0 1 0-5.006 3.309 3 3 0 0 0 5.006-3.31z"/>
-                                            </svg> </div><div class='font-semibold text-gray-700 space-x-2'>Gender:   </div> <div> <% out.print(m.getGender()); %>  </div></div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-fill text-gray-900 w-5 h-5" viewBox="0 0 16 16">
+                                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                                            </svg> </div><div class='font-semibold text-gray-700 space-x-2'>Owner:   </div> <div> <% out.print(b.getUID()); %>  </div></div>        
 
                                     <div class='mt-4 flex items-start space-x-3'>
                                         <div class='mt-0.5'><span class='sr-only'></span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-telephone text-gray-900 w-5 h-5" viewBox="0 0 16 16">
-                                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                                            </svg> </div><div class='font-semibold text-gray-700 space-x-2'>Phone number:   </div><div>  <% out.print(m.getPhone()); %>  </div></div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-gender-ambiguous text-gray-900 w-5 h-5" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M11.5 1a.5.5 0 0 1 0-1h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-3.45 3.45A4 4 0 0 1 8.5 10.97V13H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V14H6a.5.5 0 0 1 0-1h1.5v-2.03a4 4 0 1 1 3.471-6.648L14.293 1H11.5zm-.997 4.346a3 3 0 1 0-5.006 3.309 3 3 0 0 0 5.006-3.31z"/>
+                                            </svg> </div><div class='font-semibold text-gray-700 space-x-2'>Gender:   </div> <div> <% out.print(b.getGender()); %>  </div></div>
 
+                                    <div class='mt-4 flex items-start space-x-3'>
+                                        <div class='mt-0.5'><span class='sr-only'></span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-event text-gray-900 w-5 h-5" viewBox="0 0 16 16">
+                                            <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                            </svg> </div><div class='font-semibold text-gray-700 space-x-2'>Age:   </div><div>  <% out.print(b.getAge()); %>  </div></div>
 
-                                    <div class='mt-4 mb-4 flex items-start space-x-3'>
+                                    <div class='mt-4 flex items-start space-x-3'>
+                                        <div class='mt-0.5'><span class='sr-only'></span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-palette-fill text-gray-900 w-5 h-5" viewBox="0 0 16 16">
+                                            <path d="M12.433 10.07C14.133 10.585 16 11.15 16 8a8 8 0 1 0-8 8c1.996 0 1.826-1.504 1.649-3.08-.124-1.101-.252-2.237.351-2.92.465-.527 1.42-.237 2.433.07zM8 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm4.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                                            </svg> </div><div class='font-semibold text-gray-700 space-x-2'>Color:   </div><div>  <% out.print(b.getColor()); %>  </div></div>
+
+                                    <div class='mt-4 flex items-start space-x-3'>
                                         <div class='mt-1'><span class='sr-only'></span>  
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-envelope-at text-gray-900 w-5 h-5" viewBox="0 0 16 16">
-                                            <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
-                                            <path d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648Zm-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z"/>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-calendar-plus text-gray-900 w-5 h-5" viewBox="0 0 16 16">
+                                            <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
+                                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
                                             </svg> </div>
-                                        <div class='font-semibold text-gray-700 space-x-2'>Email address:   </div><div>  <% out.print(m.getEmail()); %>  </div></div>
+                                        <div class='font-semibold text-gray-700 space-x-2'>Added date:   </div><div>  <% out.print(b.getAddDate());%>  </div></div>
 
+                                    <div class='mt-4 flex items-start space-x-3'>
+                                        <div class='mt-0.5'><span class='sr-only'></span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen text-gray-900 w-5 h-5" viewBox="0 0 16 16">
+                                            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                                            </svg> </div><div class='font-semibold text-gray-700 space-x-2'>Description:   </div><div>  <% out.print(b.getDescription());%>  </div></div>
 
-
-                                    <%! String role;
-                                        String theme;
-                                        String value;
-                                        String action;
-                                        String inputStatus = "";%>
-                                    <% //Guest case
-                                        value = "Ignore";
-                                        action = "ignore";
-                                        theme = "flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 hover:bg-red-700 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2";
-                                        //Approved case
-                                        role = m.getRole();
-                                        if (role.trim().equalsIgnoreCase("member")) {
-                                            theme = "flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2";
-                                            value = "Cancel approval";
-                                            action = "cancel";
-                                        }   //Ignored case
-                                        role = m.getRole();
-                                        if (role.trim().equalsIgnoreCase("ignored")) {
-                                            theme = "flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-red-600 focus:ring-red-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2";
-                                            value = "The request is ignored";
-                                            action = "";
-                                            inputStatus = "disabled";
-                                        }
-                                    %>
-
-                                    <div style='margin-top: 15px' class='flex items-start space-x-3'>
-                                        <form method='post' action="./members">
-                                            <input type='hidden' name='UID' <% out.print("value='" + m.getUID() + "'"); %> >
-                                            <input type='hidden' name='action' <% out.print("value='" + action + "'"); %>               >
-                                            <input <% out.print("class='" + theme + "'"); %>
-                                                type='submit' <% out.print("value='" + value + "'"); %> <% out.print(inputStatus); %>      >
-                                        </form>
-
-                                        <form method='post' action="./members">
-                                            <input type='hidden' name='UID' <% out.print("value='" + m.getUID() + "'");%> >
-                                            <input type='hidden' name='action' value='approvemember'>
-
-                                            <%
-                                                value = "Approve";
-                                                theme = "flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-green-600 hover:bg-green-700 focus:ring-green-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2";
-                                                if (role.trim().equalsIgnoreCase("member")) {
-                                                    inputStatus = "disabled";
-                                                    theme = "flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent text-xs bg-green-600 focus:ring-green-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2";
-                                                    value = "Approved successfully";
-                                                }
-                                            %>
-
-                                            <input <% out.print("class='" + theme + "'"); %>
-                                                type='submit'     <% out.print("value='" + value + "'"); %>     <% out.print(inputStatus);%>       >
-
-                                        </form>
-
-                                    </div>
                                 </div>
 
 
+                            </div></div>
+
+
+
+
+                        <div>
+                            <div class="">
+                                <div class="lg:col-span-7 xl:col-span-8" id="events_list">
+                                    <div class="flex flex-col sm:rounded-lg shadow">
+                                        <div class="overflow-hidden ring-1 ring-black ring-opacity-5 sm:rounded-b-lg">
+                                            <div class="table min-w-full">
+                                                <div class="bg-gray-50 table-header-group">
+                                                    <div class="table-row">
+                                                        <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 pl-4 pr-3 sm:pl-6">
+                                                            TID 
+                                                        </div>                                                       
+                                                        <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3">
+                                                            DocNo
+                                                        </div>
+                                                        <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden sm:table-cell">
+                                                            Achievement
+                                                        </div>
+                                                        <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden lg:table-cell">
+                                                            Score
+                                                        </div>
+                                                        <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 relative pl-3 pr-4 sm:pr-6">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="table-header-group bg-white">
+                                                    <turbo-frame id="row_record_9959" class="contents" target="_top">
+                                                        <!--List-->
+                                                        <%
+                                                            int size = (Integer) request.getAttribute("size");
+                                                            if (size == 0) {
+                                                                out.print("This bird has never been participated in any tournament before");
+                                                            } else {
+                                                                for (Tparticipation t : list) {
+                                                                    out.print("<div class='table-row bg-white'>"
+                                                                            + "<div class='table-cell border-b border-gray-500 text-sm w-full max-w-0 py-4 pl-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
+                                                                            + "<a class='hover:text-teal-600' href='" + t.getTID() + "'>" + t.getTID() + "</a></div>"                                                                            
+                                                                            + "<div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
+                                                                            + t.getDocNo() + "</div>"
+                                                                            + " <div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
+                                                                            + t.getAchievement() + "</div>"
+                                                                            + "<div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden lg:table-cell'>"
+                                                                            + t.getScore() + "</div>"
+                                                                            + "<div class='table-cell border-b border-gray-200 text-sm text-gray-500 pl-3 pr-4 text-right sm:pr-6'>"
+                                                                            + " </div> </div>"
+                                                                            + "");
+                                                                }
+                                                            }
+                                                        %>
+                                                    </turbo-frame>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div></div></div>      
 
 
 
@@ -341,13 +369,7 @@
 
 
 
-
-
-
-
-
-
-                            </div></div></div></div></div></div>       
+                    </div></div></div></div>       
     </main>
 
     <footer class="mt-8" aria-labelledby="footer-heading">

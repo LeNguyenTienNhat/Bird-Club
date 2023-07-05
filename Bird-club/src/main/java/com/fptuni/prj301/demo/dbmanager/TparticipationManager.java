@@ -216,5 +216,29 @@ public class TparticipationManager {
         }
         return count;
     }
+    
+    public List<Tparticipation> getAllParticipations(String bid) {
+        List<Tparticipation> list = new ArrayList();
+        String sql = "SELECT * FROM [Tparticipation] WHERE BID = ? ";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, bid);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Tparticipation t = new Tparticipation();
+                t.setTID(rs.getString("TID"));
+                t.setBID(rs.getString("BID"));
+                t.setDocNo(rs.getString("docNo"));
+                t.setAchievement(rs.getString("achievement"));
+                t.setScore(rs.getBigDecimal("score"));
+                list.add(t);
+            }
+            return list;
+        } catch (SQLException e) {
+            // Handle the exception appropriately
+        }
+        return list;
+    }
 
 }
