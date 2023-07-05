@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html class="h-full bg-gray-100">
     <head>
-        <title>Events</title>
+        <title>Gallery</title>
         <meta name="csrf-param" content="authenticity_token" />
         <meta name="csrf-token" content="ahyUHbKwmmr7zSFLLkzvePiJVwXBL4woYSFM9G8nKMgn3UlVf_owDxDiNS3QLvjzvqSyEyX4pnBqDc1tkk2xTg" />
 
@@ -282,9 +282,9 @@
 
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
                         <div class="sm:flex-auto">
-                            <h1 class="text-xl font-semibold text-gray-900">Events</h1>
+                            <h1 class="text-xl font-semibold text-gray-900">Gallery</h1>
                             <p class="mt-2 text-sm text-gray-700">
-                                Available events hosted by Chim Owners.
+                                Available pictured posted by Chim Owners.
                             </p>
                         </div>
 
@@ -306,7 +306,7 @@
 
 
                                 <%! List<Image> list;%>    
-                                <% list = (ArrayList) request.getAttribute("list"); %>
+                                <% list = (List<Image>) request.getAttribute("list"); %>
 
                                 <ul role="list" class="grid grid-cols-2 gap-x-0.5 gap-y-0.5 sm:grid-cols-3 lg:grid-cols-4 mt-8 px-4 sm:px-0">
 
@@ -314,7 +314,7 @@
                                         for (Image i : list) {
                                             out.print("<li class='relative hover:opacity-75'>"
                                                     + "<a data-turbo-frame='photo_modal'></a><a data-turbo-frame='photo_modal' class='hover:opacity-75'>"
-                                                    + "<img src='data:image/png;base64," + Base64.getEncoder().encodeToString(i.getImage()) + "'>"
+                                                    + "<img src='data:image/jpg;base64," + Base64.getEncoder().encodeToString(i.getImage()) + "'>"
                                                     + "</a></li>");
                                         }
                                     %>
