@@ -85,6 +85,22 @@
             display: flex;
             align-items: center;
         }
+        .button-group-pay button,
+        .button-group-save button {
+            margin-right: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #337ab7;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .button-group-pay button:hover,
+        .button-group-save button:hover {
+            background-color: #23527c;
+            cursor: pointer;
+        }
     </style>
 </style>
 <body>
@@ -122,85 +138,123 @@
                 document.getElementById("amountCopy").value = document.getElementById("amount").value;
             </script>
         </div>
-        <div class="separator-footer"></div>
-        <footer class="footer" style="width: 100%;">
-            <p class="contact-info" style="justify-content: flex-end;">
-                <span class="column">
-                    <img src="https://th.bing.com/th/id/R.c4edfc51ab1813b98fb8915e8dbebb5b?rik=JIflTecz8tePgA&pid=ImgRaw&r=0" alt="" class="ic-default" style="width:15px; height:15px; ">
-                    <a href="tel:1900.5555.77" style="margin-left: 10px;" class="ubtn-text h3 color-info pl-2">1900.5555.77</a>
-                </span>
-                <span class="column">
-                    <img src="https://th.bing.com/th/id/OIP.fEe0L7RbU_P2y0uiAZdDZwHaEo?pid=ImgDet&rs=1" alt="" class="ic-default" style="width:30px; height:25px;">
-                    <a href="hotro@vnpay.vn" style="margin-left: 5px;" class="ubtn-text h3 color-info pl-2">hotro@vnpay.vn</a> 
-                </span>
-                <span class="column">
-                    <img src="https://www.hummings.com/assets/img/credit-card/ssl.png" alt="" class="ic-default" style=" margin-left:50px;width:84px; height:32px;">
-                    <img src="images/pci.png" alt="" class="ic-default" style="width:47px; height:32px;">
-                </span>
-            </p>
-        </footer>
-    </div>
+        <div class="button-group-pay" style="display: none;">
+            <button style="margin-top:10px;" type="submit" class="btn btn-default" href>Thanh toán</button>
+        </div>
+    </form>  
+    <form action="${pageContext.request.contextPath}/TransactionController?action=add" method="post">
+        <input type="hidden" id="amountCopy" name="amount" />
+        <input type="hidden" name="UID" value="${users.getUID()}">
+        <input type="hidden" name="TT" value="${sessionScope.TransactionType}" />
+        <input type="hidden" name="docT" value="${docT}">
+        <div class="button-group-save">
+            <button style="margin-top:10px;" type="submit" class="btn btn-default">Lưu</button> 
+        </div>
+    </form>
 
-    <!--        <div class="container">
-                <div class="header clearfix">
-                    <h3 class="text-muted">VNPAY DEMO</h3>
-                </div>
-                <h3>Tạo mới đơn hàng</h3>
-                <div class="table-responsive">
-                    <form action="/chimowners/vnpayajax" id="frmCreateOrder" method="post">        
-                        <div class="form-group">
-                            <label for="amount">Số tiền</label>
-                            <input class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="number" value="10000" />
-                        </div>
-                        <button type="submit" class="btn btn-default" href>Thanh toán</button>
-                    </form>
-    
-                    <form action="${pageContext.request.contextPath}/TransactionController?action=add" method="post">  
-                        <input type="hidden" id="amountCopy" name="amount" />
-                        <input type="hidden" name="UID" value="${users.getUID()}">
-                        <input type="hidden" name="TT" value="${sessionScope.TransactionType}" />
-                        <input type="hidden" name="docT" value="${docT}">
-                        <button type="submit" class="btn btn-default">Lưu</button>
-                    </form>
-    </div>
-                    <script>
-    // Copy the value from the first input field to the hidden input field
-                        document.getElementById("amountCopy").value = document.getElementById("amount").value;
-                    </script>
-                    <p>
-                        &nbsp;
-                    </p>
-                    <footer class="footer">
-                        <p>&copy; VNPAY 2020</p>
-                    </footer>
-                </div>-->
+    <h3 class="text-muted">${sessionScope.TransactionType}</h3>
+    <script>
+        // Copy the value from the first input field to the hidden input field
+        document.getElementById("amountCopy").value = document.getElementById("amount").value;
 
-    <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
-    <script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
-    <script type="text/javascript">
-                $("#frmCreateOrder").submit(function () {
-                    var postData = $("#frmCreateOrder").serialize();
-                    var submitUrl = $("#frmCreateOrder").attr("action");
-                    $.ajax({
-                        type: "POST",
-                        url: submitUrl,
-                        data: postData,
-                        dataType: 'JSON',
-                        success: function (x) {
-                            if (x.code === '00') {
-                                if (window.vnpay) {
-                                    vnpay.open({width: 768, height: 600, url: x.data});
-                                } else {
-                                    location.href = x.data;
-                                }
-                                return false;
-                            } else {
-                                alert(x.Message);
-                            }
+        // Function to toggle the button groups
+        function toggleButtonGroups() {
+            var buttonSave = document.querySelector(".button-group-save");
+            var buttonPay = document.querySelector(".button-group-pay");
+
+            // Toggle the visibility of button groups
+            buttonSave.style.display = "none";
+            buttonPay.style.display = "block";
+        }
+
+        // Add event listener to the save button
+        var buttonSave = document.querySelector(".button-group-save button");
+        buttonSave.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent form submission
+            toggleButtonGroups();
+        });
+    </script>
+</div>
+
+<div class="separator-footer"></div>
+<footer class="footer" style="width: 100%;">
+    <p class="contact-info" style="justify-content: flex-end;">
+        <span class="column">
+            <img src="https://th.bing.com/th/id/R.c4edfc51ab1813b98fb8915e8dbebb5b?rik=JIflTecz8tePgA&pid=ImgRaw&r=0" alt="" class="ic-default" style="width:15px; height:15px; ">
+            <a href="tel:1900.5555.77" style="margin-left: 10px;" class="ubtn-text h3 color-info pl-2">1900.5555.77</a>
+        </span>
+        <span class="column">
+            <img src="https://th.bing.com/th/id/OIP.fEe0L7RbU_P2y0uiAZdDZwHaEo?pid=ImgDet&rs=1" alt="" class="ic-default" style="width:30px; height:25px;">
+            <a href="hotro@vnpay.vn" style="margin-left: 5px;" class="ubtn-text h3 color-info pl-2">hotro@vnpay.vn</a> 
+        </span>
+        <span class="column">
+            <img src="https://www.hummings.com/assets/img/credit-card/ssl.png" alt="" class="ic-default" style=" margin-left:50px;width:84px; height:32px;">
+            <img src="images/pci.png" alt="" class="ic-default" style="width:47px; height:32px;">
+        </span>
+    </p>
+</footer>
+</div>
+
+<!--        <div class="container">
+            <div class="header clearfix">
+                <h3 class="text-muted">VNPAY DEMO</h3>
+            </div>
+            <h3>Tạo mới đơn hàng</h3>
+            <div class="table-responsive">
+                <form action="/chimowners/vnpayajax" id="frmCreateOrder" method="post">        
+                    <div class="form-group">
+                        <label for="amount">Số tiền</label>
+                        <input class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="number" value="10000" />
+                    </div>
+                    <button type="submit" class="btn btn-default" href>Thanh toán</button>
+                </form>
+
+                <form action="${pageContext.request.contextPath}/TransactionController?action=add" method="post">  
+                    <input type="hidden" id="amountCopy" name="amount" />
+                    <input type="hidden" name="UID" value="${users.getUID()}">
+                    <input type="hidden" name="TT" value="${sessionScope.TransactionType}" />
+                    <input type="hidden" name="docT" value="${docT}">
+                    <button type="submit" class="btn btn-default">Lưu</button>
+                </form>
+</div>
+                <script>
+// Copy the value from the first input field to the hidden input field
+                    document.getElementById("amountCopy").value = document.getElementById("amount").value;
+                </script>
+                <p>
+                    &nbsp;
+                </p>
+                <footer class="footer">
+                    <p>&copy; VNPAY 2020</p>
+                </footer>
+            </div>-->
+
+<link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
+<script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
+<script type="text/javascript">
+        $("#frmCreateOrder").submit(function () {
+            var postData = $("#frmCreateOrder").serialize();
+            var submitUrl = $("#frmCreateOrder").attr("action");
+            $.ajax({
+                type: "POST",
+                url: submitUrl,
+                data: postData,
+                dataType: 'JSON',
+                success: function (x) {
+                    if (x.code === '00') {
+                        if (window.vnpay) {
+                            vnpay.open({width: 768, height: 600, url: x.data});
+                        } else {
+                            location.href = x.data;
                         }
-                    });
-                    return false;
-                });
-    </script>       
+                        return false;
+                    } else {
+                        alert(x.Message);
+                    }
+                }
+            });
+            return false;
+        });
+</script>       
 </body>
 </html>

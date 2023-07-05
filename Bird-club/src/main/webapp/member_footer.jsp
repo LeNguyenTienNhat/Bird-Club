@@ -20,6 +20,7 @@
     left: 0;
     right: 0;
     width: 100%;
+    
     background-color: darkgray;
     color: #cbd5e0;
     padding: 10px;

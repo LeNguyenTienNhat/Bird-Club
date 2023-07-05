@@ -65,27 +65,34 @@
 
     <h2 class="has-text-align-center has-large-font-size">Tournament List</h2>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var searchInput = document.getElementById('searchInput');
-            var tournamentItems = document.getElementsByClassName('tournament-item');
+   <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var searchInput = document.getElementById('searchInput');
+                var tournamentItems = document.getElementsByClassName('type-tribe_events');
 
-            searchInput.addEventListener('input', function () {
-                var searchValue = searchInput.value.toLowerCase();
+                searchInput.addEventListener('input', function () {
+                    performSearch();
+                });
 
-                for (var i = 0; i < tournamentItems.length; i++) {
-                    var tournamentName = tournamentItems[i].querySelector('.tribe-events-calendar-list__event-title-link').textContent.toLowerCase();
-                    var tournamentStatus = tournamentItems[i].querySelector('.status-button').textContent.toLowerCase();
+                function performSearch() {
+                    var searchValue = searchInput.value.toLowerCase();
 
-                    if (tournamentName.includes(searchValue) || tournamentStatus.includes(searchValue)) {
-                        tournamentItems[i].style.display = 'block';
-                    } else {
-                        tournamentItems[i].style.display = 'none';
+                    for (var i = 0; i < tournamentItems.length; i++) {
+                        var tournamentName = tournamentItems[i].querySelector('.tribe-events-calendar-list__event-title-link').textContent.toLowerCase();
+                        var tournamentStatus = tournamentItems[i].querySelector('.status-button').textContent.toLowerCase();
+
+                        if (tournamentName.includes(searchValue) || tournamentStatus.includes(searchValue)) {
+                            tournamentItems[i].style.display = 'block';
+                        } else {
+                            tournamentItems[i].style.display = 'none';
+                        }
                     }
                 }
+
+                // Initial search
+                performSearch();
             });
-        });
-    </script>
+        </script>
     <main id="main-content" class="page has-hero">
         <article id="article" class="post-1229 page type-page status-publish has-post-thumbnail hentry">
 
@@ -238,19 +245,7 @@
                         }
 
                     </style>
-                     <style>
-                        .tournament-container {
-                            display: grid;
-                            grid-template-columns: repeat(2, 1fr);
-                            gap: 20px;
-                        }
-
-                        .tournament-item {
-                            border: 1px solid #ccc;
-                            padding: 20px;
-                            background-color: #f2f2f2; /* Add your desired background color here */
-                        }
-                    </style>
+          
                     <style>
                         .row {
                             display: flex;
@@ -278,6 +273,10 @@
                             padding: 4px 8px; /* Adjust the padding for a smaller button */
                         }
                     </style>
+                     <div class="search-container">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" id="searchInput" placeholder="Search">
+                        </div>
                     <c:if test="${empty tList}">
                         <div>
                             <p>No meeting found.</p>
@@ -338,7 +337,9 @@
                                         </c:choose>
                                     </div>
                                     <div class="tribe-events-list-event-description col-md-6 tribe-events-content description entry-summary">
-                                        <p><strong>Leader: </strong> ${t.getIncharge()}</p>   
+                                        <p><strong>Leader: </strong> ${t.getIncharge()}</p> 
+                                          <p><strong>Fee: </strong>${t.getFee()}$</p>
+                                          <p><strong>Prize: </strong>${t.getTotalPrize()}$</p>
                                         <p><strong>Participant limit: </strong>${t.getNumberOfParticipant()}</p>
                                         <p><strong>Focus: </strong>${t.getDescription()}</p>
                                         <p><strong>Note: </strong> ${t.getNote()}</p>
@@ -349,6 +350,36 @@
                             </div>
 
                         </c:forEach>
+                        <style>
+    .pagination {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .pagination a {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        color: #333;
+        background-color: #f5f5f5;
+    }
+
+    .pagination a:hover {
+        background-color: #587624;
+    }
+
+    .pagination .current-page {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        border: 1px solid #333;
+        color: #fff;
+        background-color: #587624;
+    }
+</style>
+
+
                         <div class="pagination">
                             <c:if test="${pageNumber > 1}">
                                 <a href="${pageContext.request.contextPath}/StaffAccountController?action=viewlist&page=${pageNumber - 1}">&laquo; Previous</a>
@@ -433,7 +464,7 @@
 
 
     </main>
-
+</body>
 
     <%@ include file="member_footer.jsp" %>
 

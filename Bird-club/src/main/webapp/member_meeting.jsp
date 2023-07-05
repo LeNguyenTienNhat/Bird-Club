@@ -47,21 +47,29 @@
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var searchInput = document.getElementById('searchInput');
-                var meetingItems = document.getElementsByClassName('fieldtrip-item');
+                var meetingItems = document.getElementsByClassName('type-tribe_events');
 
                 searchInput.addEventListener('input', function () {
+                    performSearch();
+                });
+
+                function performSearch() {
                     var searchValue = searchInput.value.toLowerCase();
 
                     for (var i = 0; i < meetingItems.length; i++) {
-                        var meetingName = meetingItems[i].querySelector('.tribe-events-calendar-list__event-title').textContent.toLowerCase();
+                        var meetingName = meetingItems[i].querySelector('.tribe-events-calendar-list__event-title-link').textContent.toLowerCase();
                         var meetingStatus = meetingItems[i].querySelector('.status-button').textContent.toLowerCase();
+
                         if (meetingName.includes(searchValue) || meetingStatus.includes(searchValue)) {
                             meetingItems[i].style.display = 'block';
                         } else {
                             meetingItems[i].style.display = 'none';
                         }
                     }
-                });
+                }
+
+                // Initial search
+                performSearch();
             });
         </script>
 
@@ -76,6 +84,7 @@
                                 width: 100%;
                                 border-collapse: collapse;
                             }
+
 
                             td {
                                 padding: 10px;
@@ -184,7 +193,9 @@
                             .status-button {
                                 display: inline-block;
                                 padding: 5px 10px;
+                                font-size: 12px;
                                 border: none;
+                                margin-left: 10px;
                                 border-radius: 1000px;
                                 color: white;
                                 font-weight: bold;
@@ -218,7 +229,10 @@
 
                         </style>
 
-
+                        <div class="search-container">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" id="searchInput" placeholder="Search">
+                        </div>
 
                         <c:if test="${empty  meetingsList}">
                             <div>
@@ -226,108 +240,126 @@
                             </div>
                         </c:if>
                         <c:if test="${not empty  meetingsList}">
-                            <c:forEach var="f" items="${ meetingsList}" varStatus="loop">
-                                <div class="fieldtrip-item">
-                                    <div id="post-3946" class="type-tribe_events post-3946 tribe-clearfix tribe-events-category-meetings tribe-events-organizer-873" style="margin-top: 20px; margin-bottom: 20px;">
-                                        <h3 class="tribe-events-list-event-title">
-                                            <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${f.getMeID()}"
-                                               title="${f.getName()}"
-                                               style="display: flex; align-items: center;"
+                            <c:forEach var="m" items="${ meetingsList}" varStatus="loop">                               
+                                <div id="post-3946" class="type-tribe_events post-3946 tribe-clearfix tribe-events-category-meetings tribe-events-organizer-873" style="margin-top: 20px; margin-bottom: 20px;">
+                                    <h3 class="tribe-events-list-event-title">
+                                        <div style="display: flex; align-items: center;">
+                                            <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}"
+                                               title="${m.getName()}"
                                                class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
-                                                ${f.getName()}
+                                                ${m.getName()}
                                             </a>
 
                                             <c:if test="${users.getRole().trim().equals('member')}">
                                                 <span class="status-button
                                                       <c:choose>
-                                                          <c:when test="${f.getStatus().contains('pending')}">
+                                                          <c:when test="${m.getStatus().contains('pending')}">
                                                               status-pending
                                                           </c:when>
-                                                          <c:when test="${f.getStatus().contains('formClosed')}">
+                                                          <c:when test="${m.getStatus().contains('formClosed')}">
                                                               status-formClosed
                                                           </c:when>
-                                                          <c:when test="${f.getStatus().contains('ongoing')}">
+                                                          <c:when test="${m.getStatus().contains('ongoing')}">
                                                               status-ongoing
                                                           </c:when>
-                                                          <c:when test="${f.getStatus().contains('finished')}">
+                                                          <c:when test="${m.getStatus().contains('finished')}">
                                                               status-finished
                                                           </c:when>
                                                       </c:choose>"
+                                                           
                                                       >
-                                                    ${f.getStatus()}
+                                                    ${m.getStatus()}
                                                 </span>
                                             </c:if>
-                                        </h3>
+                                        </div>
+                                    </h3>
 
-                                        <div class="tribe-events-event-meta" style="margin-bottom:10px;">
-                                            <div class="author location">
-                                                <div class="tribe-event-schedule-details">
-                                                    <span class="tribe-event-date-start"><em><strong>${f.getStartDate()}</strong></em></span> <em>to</em> <span class="tribe-event-time"><em><strong>${f.getEndDate()}</strong></em></span>
-                                                </div>
+
+
+                                    <div class="tribe-events-event-meta" style="margin-bottom:10px;">
+                                        <div class="author location">
+                                            <div class="tribe-event-schedule-details">
+                                                <span class="tribe-event-date-start"><em><strong>${m.getStartDate()}</strong></em></span> <em>to</em> <span class="tribe-event-time"><em><strong>${m.getEndDate()}</strong></em></span>
                                             </div>
                                         </div>
-
-                                        <div class="row">
-                                            <div class="tribe-events-event-image" style="width: 300px; height: 300px;">
-                                                <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${f.getMeID()}&UID=${users.getUID()}" >
-                                                    <c:if test="${not empty f.getImage()}">
-                                                        <img width="300" height="300" src="data:image/jsp;base64,${Base64.getEncoder().encodeToString(f.getImage())}" class="attachment-medium size-medium wp-post-image" alt="data:image/jsp;base64,${Base64.getEncoder().encodeToString(f.getImage())}" srcset="data:image/jsp;base64,${Base64.getEncoder().encodeToString(f.getImage())} 300w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(f.getImage())} 150w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(f.getImage())} 600w" sizes="(max-width: 300px) 100vw, 300px">
-
-                                                    </c:if>
-                                                    <c:if test="${empty f.getImage()}">
-                                                        <div>No image available</div>
-                                                    </c:if>
-                                                </a>
-                                            </div>
-                                            <div class="tribe-events-list-event-description col-md-6 tribe-events-content description entry-summary">
-                                                <p><strong>Leader: </strong> ${f.getIncharge()}</p>
-                                                <p><strong>Participant limit: </strong>${f.getNumberOfParticipant()}</p>
-                                                <p><strong>Focus: </strong>${f.getDescription()}</p>
-                                                <p><strong>Note: </strong> ${f.getNote()}</p>
-                                                <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${f.getMeID()}&UID=${users.getUID()}" class="tribe-events-read-more" rel="bookmark">Find out more »</a>
-                                            </div>
-                                        </div>
-                                        <hr>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="tribe-events-event-image" style="width: 300px; height: 300px;">
+                                            <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}&UID=${users.getUID()}" >
+                                                <c:if test="${not empty m.getImage()}">
+                                                    <img width="300" height="300" src="data:image/jsp;base64,${Base64.getEncoder().encodeToString(m.getImage())}" class="attachment-medium size-medium wp-post-image" alt="data:image/jsp;base64,${Base64.getEncoder().encodeToString(m.getImage())}" srcset="data:image/jsp;base64,${Base64.getEncoder().encodeToString(m.getImage())} 300w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(m.getImage())} 150w, data:image/jsp;base64,${Base64.getEncoder().encodeToString(m.getImage())} 600w" sizes="(max-width: 300px) 100vw, 300px">
+
+                                                </c:if>
+                                                <c:if test="${empty m.getImage()}">
+                                                    <div>No image available</div>
+                                                </c:if>
+                                            </a>
+                                        </div>
+                                        <div class="tribe-events-list-event-description col-md-6 tribe-events-content description entry-summary">
+                                            <p><strong>Leader: </strong> ${m.getIncharge()}</p>
+                                            <p><strong>Participant limit: </strong>${m.getNumberOfParticipant()}</p>
+                                            <p><strong>Focus: </strong>${m.getDescription()}</p>
+                                            <p><strong>Note: </strong> ${m.getNote()}</p>
+                                            <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}&UID=${users.getUID()}" class="tribe-events-read-more" rel="bookmark">Find out more »</a>
+                                        </div>
+                                    </div>
+                                    <hr>
                                 </div>
+
                             </c:forEach>
 
-                            <!-- Pagination controls -->
-                            <div class="pagination">
-                                <c:if test="${pageNumber > 1}">
-                                    <a href="${pageContext.request.contextPath}/StaffAccountMTController?action=viewmeeting&page=${pageNumber - 1}">&laquo; Previous</a>
-                                </c:if>
+                            <style>
+    .pagination {
+        margin: 20px 0;
+        text-align: center;
+    }
 
-                                <c:forEach var="page" begin="1" end="${totalPages}">
-                                    <c:choose>
-                                        <c:when test="${page == pageNumber}">
-                                            <span class="current-page">${page}</span>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <a href="${pageContext.request.contextPath}/StaffAccountMTController?action=viewmeeting&page=${page}">${page}</a>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </c:forEach>
+    .pagination a {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        color: #333;
+        background-color: #f5f5f5;
+    }
 
-                                <c:if test="${pageNumber < totalPages}">
-                                    <a href="${pageContext.request.contextPath}/StaffAccountMTController?action=viewmeeting&page=${pageNumber + 1}">Next &raquo;</a>
-                                </c:if>
-                            </div>
+    .pagination a:hover {
+        background-color: #587624;
+    }
+
+    .pagination .current-page {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        border: 1px solid #333;
+        color: #fff;
+        background-color: #587624;
+    }
+</style>
+
+
+                        <div class="pagination">
+                            <c:if test="${pageNumber > 1}">
+                                <a href="${pageContext.request.contextPath}/StaffAccountController?action=viewlist&page=${pageNumber - 1}">&laquo; Previous</a>
+                            </c:if>
+                            <c:forEach begin="1" end="${totalPages}" var="page">
+                                <c:choose>
+                                    <c:when test="${page == pageNumber}">
+                                        <span class="current-page">${page}</span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="${pageContext.request.contextPath}/StaffAccountController?action=viewlist&page=${page}">${page}</a>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:forEach>
+                            <c:if test="${pageNumber < totalPages}">
+                                <a href="${pageContext.request.contextPath}/StaffAccountController?action=viewlist&page=${pageNumber + 1}">Next &raquo;</a>
+                            </c:if>
+                        </div>
 
                         </c:if>
-                        <style>
-                            .meeting-container {
-                                display: grid;
-                                grid-template-columns: repeat(2, 1fr);
-                                gap: 20px;
-                            }
 
-                            .meeting-item {
-                                border: 1px solid #ccc;
-                                padding: 20px;
-                                background-color: #f2f2f2; /* Add your desired background color here */
-                            }
-                        </style>
 
                 </div>
 
@@ -395,67 +427,67 @@
 
 
         <!-- BEGIN Search modal -->
-        <div class="reveal" id="search-modal" data-reveal role="dialog" data-animation-in="fade-in fast" aria-label="Search">
-            <button class="close-button" data-close aria-label="Close" type="button"><span class="text">Cancel</span> <span class="symbol" aria-hidden="true">&times;</span></button>
-            <div class="search-container">
-                <div class="search-area row">
-                    <form role="search" method="get" class="search-form" action="/home/search/">
-                        <span class="fa fa-search" aria-hidden="true"></span>
-                        <label for="modal-search" class="sr-only">Search this website</label>
-                        <input id="modal-search" type="search" class="search-field" placeholder="Search: Enter Keywords" value="" name="q" title="Search for:" />
-                        <input type="submit" class="search-submit button" value="Search" />
-                    </form>
-                </div><!-- .search-form -->
-            </div><!-- .search-container -->
-            <aside id="search-modal-content" class="search-links" aria-label="Explore these links">
-
-                <div class="is-layout-flex wp-container-32 wp-block-columns">
-                    <div class="is-layout-flow wp-block-column">
-                        <p class="has-text-align-center">Bird ID help, Bird Guide</p>
-
-
-
-                        <div class="is-layout-flex wp-block-buttons is-content-justification-center">
-                            <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://www.allaboutbirds.org/">All About Birds</a></div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="is-layout-flow wp-block-column">
-                        <p class="has-text-align-center">Find birds near you</p>
-
-
-
-                        <div class="is-layout-flex wp-block-buttons is-content-justification-center">
-                            <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://ebird.org/">eBird</a></div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="is-layout-flow wp-block-column quick-links">
-                        <p class="has-text-align-center">Quick Links</p>
-
-
-
-                        <div class="is-layout-flex wp-container-30 wp-block-columns">
+        <!--        <div class="reveal" id="search-modal" data-reveal role="dialog" data-animation-in="fade-in fast" aria-label="Search">
+                    <button class="close-button" data-close aria-label="Close" type="button"><span class="text">Cancel</span> <span class="symbol" aria-hidden="true">&times;</span></button>
+                    <div class="search-container">
+                        <div class="search-area row">
+                            <form role="search" method="get" class="search-form" action="/home/search/">
+                                <span class="fa fa-search" aria-hidden="true"></span>
+                                <label for="modal-search" class="sr-only">Search this website</label>
+                                <input id="modal-search" type="search" class="search-field" placeholder="Search: Enter Keywords" value="" name="q" title="Search for:" />
+                                <input type="submit" class="search-submit button" value="Search" />
+                            </form>
+                        </div> .search-form 
+                    </div> .search-container 
+                    <aside id="search-modal-content" class="search-links" aria-label="Explore these links">
+        
+                        <div class="is-layout-flex wp-container-32 wp-block-columns">
                             <div class="is-layout-flow wp-block-column">
-                                <p class="has-text-align-center"><a href="https://www.birds.cornell.edu/home/visit/" data-type="page" data-id="1229">Visit Us</a><br><a href="https://www.birds.cornell.edu/home/staff-directory/" data-type="page" data-id="1414">Staff Directory</a></p>
+                                <p class="has-text-align-center">Bird ID help, Bird Guide</p>
+        
+        
+        
+                                <div class="is-layout-flex wp-block-buttons is-content-justification-center">
+                                    <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://www.allaboutbirds.org/">All About Birds</a></div>
+                                </div>
                             </div>
-
-
-
+        
+        
+        
                             <div class="is-layout-flow wp-block-column">
-                                <p class="has-text-align-center"><a href="https://www.birds.cornell.edu/home/members/" data-type="page" data-id="1321">Members</a><br><a href="https://www.birds.cornell.edu/students/">Students</a></p>
+                                <p class="has-text-align-center">Find birds near you</p>
+        
+        
+        
+                                <div class="is-layout-flex wp-block-buttons is-content-justification-center">
+                                    <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://ebird.org/">eBird</a></div>
+                                </div>
+                            </div>
+        
+        
+        
+                            <div class="is-layout-flow wp-block-column quick-links">
+                                <p class="has-text-align-center">Quick Links</p>
+        
+        
+        
+                                <div class="is-layout-flex wp-container-30 wp-block-columns">
+                                    <div class="is-layout-flow wp-block-column">
+                                        <p class="has-text-align-center"><a href="https://www.birds.cornell.edu/home/visit/" data-type="page" data-id="1229">Visit Us</a><br><a href="https://www.birds.cornell.edu/home/staff-directory/" data-type="page" data-id="1414">Staff Directory</a></p>
+                                    </div>
+        
+        
+        
+                                    <div class="is-layout-flow wp-block-column">
+                                        <p class="has-text-align-center"><a href="https://www.birds.cornell.edu/home/members/" data-type="page" data-id="1321">Members</a><br><a href="https://www.birds.cornell.edu/students/">Students</a></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </aside>
-
-        </div><!-- .reveal -->
-        <!-- //END Search modal -->
+                    </aside>
+        
+                </div> .reveal 
+                 //END Search modal -->
 
         <div
             class="hustle-ui hustle-slidein hustle-palette--gray_slate hustle_module_id_13 module_id_13  "

@@ -342,27 +342,54 @@
                                 </div>
                             </c:forEach>
 
-                            <!-- Pagination controls -->
-                            <div class="pagination">
-                                <c:if test="${pageNumber > 1}">
-                                    <a href="${pageContext.request.contextPath}/StaffAccountFTController?action=viewfieldtrip&page=${pageNumber - 1}">&laquo; Previous</a>
-                                </c:if>
+                           <style>
+    .pagination {
+        margin: 20px 0;
+        text-align: center;
+    }
 
-                                <c:forEach var="page" begin="1" end="${totalPages}">
-                                    <c:choose>
-                                        <c:when test="${page == pageNumber}">
-                                            <span class="current-page">${page}</span>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <a href="${pageContext.request.contextPath}/StaffAccountFTController?action=viewfieldtrip&page=${page}">${page}</a>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </c:forEach>
+    .pagination a {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        color: #333;
+        background-color: #f5f5f5;
+    }
 
-                                <c:if test="${pageNumber < totalPages}">
-                                    <a href="${pageContext.request.contextPath}/StaffAccountFTController?action=viewfieldtrip&page=${pageNumber + 1}">Next &raquo;</a>
-                                </c:if>
-                            </div>
+    .pagination a:hover {
+        background-color: #587624;
+    }
+
+    .pagination .current-page {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        border: 1px solid #333;
+        color: #fff;
+        background-color: #587624;
+    }
+</style>
+
+
+                        <div class="pagination">
+                            <c:if test="${pageNumber > 1}">
+                                <a href="${pageContext.request.contextPath}/StaffAccountController?action=viewlist&page=${pageNumber - 1}">&laquo; Previous</a>
+                            </c:if>
+                            <c:forEach begin="1" end="${totalPages}" var="page">
+                                <c:choose>
+                                    <c:when test="${page == pageNumber}">
+                                        <span class="current-page">${page}</span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="${pageContext.request.contextPath}/StaffAccountController?action=viewlist&page=${page}">${page}</a>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:forEach>
+                            <c:if test="${pageNumber < totalPages}">
+                                <a href="${pageContext.request.contextPath}/StaffAccountController?action=viewlist&page=${pageNumber + 1}">Next &raquo;</a>
+                            </c:if>
+                        </div>
                         </c:if>
 
 

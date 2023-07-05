@@ -335,6 +335,7 @@
 
                         </style>
                         <div data-controller="modal" data-modal-target="container" data-modal-id-value="modal2" data-modal-persist-value="false" class="hidden fixed z-[2000] inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                            
                             <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                                 <div     data-modal-target="overlay"      data-action="click->modal#close"
                                          class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"      aria-hidden="true"
@@ -386,7 +387,9 @@
                                                             Add blog</button>
                                                     </div></form>
 
-                                            </turbo-frame></turbo-frame></div></div></div></div>
+                                            </turbo-frame>
+                                        </turbo-frame>
+                                    </div></div></div></div>
 
                         <div class="blog-container">
                             <ul>
