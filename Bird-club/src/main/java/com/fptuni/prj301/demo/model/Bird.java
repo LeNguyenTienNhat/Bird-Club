@@ -121,17 +121,7 @@ public class Bird {
         this.addDate = addDate;
         this.profilePic = profilePic;
     }
-    public Bird(String BID, String UID, String name, int age, String gender, String description, String color, byte[] profilePic) {
-        this.BID = BID;
-        this.UID = UID;
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-        this.description = description;
-        this.color = color;
-        this.profilePic = profilePic;
-    }
-    
+  
     
     
     
