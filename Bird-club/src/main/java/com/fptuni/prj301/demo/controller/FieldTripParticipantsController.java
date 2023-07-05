@@ -82,6 +82,8 @@ public class FieldTripParticipantsController extends HttpServlet {
             String location = l.getCoordinationByFieldTripId(fid);
             EventsMediaManager media = new EventsMediaManager();
             byte[]  a = media.getURLByID("FieldTripMedia", fid);
+            List<byte[]> images = media.getImagesByDescription("FieldTripMedia",fid);
+            
 
             boolean participantExists = false;
             for (FieldTripParticipants participant : field) {
@@ -98,6 +100,7 @@ public class FieldTripParticipantsController extends HttpServlet {
                 request.setAttribute("location", location);
                 request.setAttribute("img", a);
                 request.setAttribute("join", participantExists);
+                 request.setAttribute("gallery", images);
                 // Forward the request to the view page
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/member_fieldtrip_details.jsp");
                 dispatcher.forward(request, response);

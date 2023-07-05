@@ -75,6 +75,7 @@ public class BirdProfileController extends HttpServlet {
             int age = Integer.parseInt(request.getParameter("age")) ;
             String gender = request.getParameter("gender");
             String description;
+
             try {
                 description = tool.formatPara(request.getParameter("description"));
             } catch (Exception e) {
@@ -84,7 +85,8 @@ public class BirdProfileController extends HttpServlet {
             byte[] profilePic = new byte[0xFFFFFF];
             Bird b = new Bird(BID, UID, name, age, gender, description, color, profilePic);
             bird.insert(b);
-
+            
+            request.setAttribute("action", "viewbirdprofile");
             RequestDispatcher rd = request.getRequestDispatcher("BirdProfileController");
             rd.forward(request, response);
         } //update bird profile

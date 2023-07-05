@@ -82,6 +82,7 @@ public class MeetingParticipantsController extends HttpServlet {
             String location = l.getCoordinationByMeetingId(meid);
             EventsMediaManager media = new EventsMediaManager();
             byte[]  a = media.getURLByID("MeetingMedia", meid);
+            List<byte[]> images = media.getImagesByDescription("MeetingMedia", meid);
 
             boolean participantExists = false;
             for (MeetingParticipants participant : meetingParticipants) {
@@ -98,6 +99,7 @@ public class MeetingParticipantsController extends HttpServlet {
                 request.setAttribute("location", location);
                 request.setAttribute("img", a);
                 request.setAttribute("join", participantExists);
+                 request.setAttribute("gallery", images);
                 // Forward the request to the view page member_tournament_details
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/member_meeting_details.jsp");
                 dispatcher.forward(request, response);

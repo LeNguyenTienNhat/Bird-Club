@@ -408,6 +408,7 @@ public class TournamentManager {
         return tournament;
     }
 
+
     public List<Tournament> getTop10Participation() throws SQLException {
         List<Tournament> list = new ArrayList();
         String sql = "select TOP 10 TID, COUNT(BID) AS 'num' from Tparticipation GROUP BY TID ORDER BY num DESC";

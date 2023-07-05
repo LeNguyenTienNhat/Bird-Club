@@ -67,7 +67,7 @@ public class EventsMediaManager {
             IDtype = "MeID";
         }
 
-         String sql = "SELECT Image FROM " + tableName + " WHERE " + IDtype + " = ? AND description = 'thumbnail'";
+        String sql = "SELECT Image FROM " + tableName + " WHERE " + IDtype + " = ? AND description = 'thumbnail'";
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
 
@@ -87,6 +87,37 @@ public class EventsMediaManager {
         return null; // Return null if the image is not found or an exception occurs
     }
 
+    public List<byte[]> getImagesByDescription(String tableName, String ID) {
+        String IDtype;
+        if (tableName.equalsIgnoreCase("TournamentMedia")) {
+            IDtype = "TID";
+        } else if (tableName.equalsIgnoreCase("FieldTripMedia")) {
+            IDtype = "FID";
+        } else {
+            IDtype = "MeID";
+        }
+
+        String sql = "SELECT Image FROM " + tableName + " WHERE " + IDtype + " = ? AND description = 'gallery'";
+        List<byte[]> images = new ArrayList<>();
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, ID);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    byte[] imageBytes = rs.getBytes("Image");
+                    images.add(imageBytes);
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return images;
+    }
+
     public static void main(String[] args) {
         // Create an instance of the class containing the getList() and getURLByID() methods
         EventsMediaManager yourClass = new EventsMediaManager();
@@ -97,8 +128,11 @@ public class EventsMediaManager {
 
         // Print the details of the media objects
         // Test getURLByID() method
-        byte[] mediaURL = yourClass.getURLByID(tableName, ID);
-        System.out.println("URL: " + mediaURL);
+        List<byte[]> mediaURL = yourClass.getImagesByDescription(tableName, ID);
+        System.out.println("URLs:");
+        for (byte[] imageBytes : mediaURL) {
+            System.out.println(imageBytes);
+        }
     }
 
     public List<Media> getImagesData(String ID) {

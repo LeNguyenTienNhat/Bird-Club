@@ -140,15 +140,28 @@
 
                 // Encode the values for URL inclusion
                 var encodedDocT = encodeURIComponent(docT || "");
-                var encodedTransactionType = encodeURIComponent(TransactionType || "");
-                var encodedOld = encodeURIComponent(old || "");
-                var encodedUsername = encodeURIComponent(username || "");
 
-                // Construct the URL with the parameters
-                var url = "${pageContext.request.contextPath}/BirdController?action=delete&docT=" + encodedDocT +
-                        "&old=" + encodedOld + "&TransactionType=" + encodedTransactionType +
-                        "&username=" + encodedUsername;
-                window.location.href = url;
+                // Construct the base URL
+                var baseUrl = "${pageContext.request.contextPath}/BirdController?action=delete&docT=" + encodedDocT;
+
+                // Append additional parameters if they are present
+                if (old) {
+                    var encodedOld = encodeURIComponent(old);
+                    baseUrl += "&old=" + encodedOld;
+                }
+
+                if (TransactionType) {
+                    var encodedTransactionType = encodeURIComponent(TransactionType);
+                    baseUrl += "&TransactionType=" + encodedTransactionType;
+                }
+
+                if (username) {
+                    var encodedUsername = encodeURIComponent(username);
+                    baseUrl += "&username=" + encodedUsername;
+                }
+
+                // Navigate to the final URL
+                window.location.href = baseUrl;
             }
         </script>
     </body>
