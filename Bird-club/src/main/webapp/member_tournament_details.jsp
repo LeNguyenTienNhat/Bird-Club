@@ -106,11 +106,11 @@
 
 
                             <div class="tribe-events-schedule tribe-clearfix">
-                                <h2 class="tribe-events-schedule__datetime">
+                                <h4 class="tribe-events-schedule__datetime">
                                     <span class="tribe-events-schedule__date tribe-events-schedule__date--start">
                                         ${tournament.getStartDate()} - ${tournament.getEndDate()}</span>
 
-                                </h2>
+                                </h4>
 
                             </div>
 
@@ -210,6 +210,7 @@
         </c:when>
     </c:choose>
 </div>
+</dt>
 
 <!-- Lightbox Modal -->
 <div id="lightbox-modal" class="lightbox-modal">
