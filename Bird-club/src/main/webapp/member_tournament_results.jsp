@@ -1,61 +1,75 @@
-<%-- 
-    Document   : member_fieldtrip_details
-    Created on : Jun 4, 2023, 2:51:03 PM
-    Author     : Tue
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 <head>
-      <style>
-        table {
-            border-collapse: collapse;
-            width: 300px;
-        }
-        
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-    </style>
-    
     <title>Score Ranking</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .column {
+            flex-basis: 30%;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .first {
+            height: 200px;
+        }
+
+        .second {
+            height: 150px;
+            margin-top: auto;
+        }
+
+        .third {
+            height: 100px;
+            margin-top: auto;
+        }
+
+        .column h2 {
+            margin-top: 0;
+        }
+
+        .column p {
+            margin-bottom: 0;
+        }
+        .gold {
+        color: gold;
+    }
+
+    .silver {
+        color: silver;
+    }
+
+    .bronze {
+        color: #cd7f32; /* Bronze color */
+    }
+    </style>
 </head>
 <body>
-    
-    <h1>Score Ranking</h1>
-    
-    <table>
-        <tr>
-            <th>Rank</th>
-            <th>Player</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>Player 1</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Player 2</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Player 3</td>
-        </tr>
-    </table>
+    <div class="container">
+    <div class="column second">
+        <h2><i class="fas fa-medal silver"></i></h2>
+        <p>Information</p>
+    </div>
+    <div class="column first">
+        <h2><i class="fas fa-trophy gold"></i></h2>
+        <p>Information</p>
+    </div>
+    <div class="column third">
+        <h2><i class="fas fa-award bronze"></i></h2>
+        <p>Information</p>
+    </div>
+</div>
+
+
 </body>
 </html>

@@ -18,6 +18,15 @@ public class Tparticipation {
     private String docNo;
     private String achievement;
     private BigDecimal score;
+    private Bird bird;
+
+    public Bird getBird() {
+        return bird;
+    }
+
+    public void setBird(Bird bird) {
+        this.bird = bird;
+    }
 
     public Tparticipation() {
     }
@@ -69,6 +78,5 @@ public class Tparticipation {
         this.achievement = achievement;
         this.score = score;
     }
-
 
 }

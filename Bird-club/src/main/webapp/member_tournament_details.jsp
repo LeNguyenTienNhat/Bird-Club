@@ -106,11 +106,11 @@
 
 
                             <div class="tribe-events-schedule tribe-clearfix">
-                                <h2 class="tribe-events-schedule__datetime">
+                                <h4 class="tribe-events-schedule__datetime">
                                     <span class="tribe-events-schedule__date tribe-events-schedule__date--start">
                                         ${tournament.getStartDate()} - ${tournament.getEndDate()}</span>
 
-                                </h2>
+                                </h4>
 
                             </div>
 
@@ -130,129 +130,236 @@
                                     <dd>${tournament.getNote()}<dd>
                                         </dt>
                                         <div class="is-layout-flex wp-block-buttons"></div>
-                                      <style>
-    .image-row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-bottom: 10px;
-    }
-    
-    .image-wrapper {
-        width: 70px;
-        margin-bottom: 10px;
-    }
-    
-    .image-wrapper img {
-        width: 100%;
-        height: auto;
-        cursor: pointer;
-    }
-    
-    .lightbox-modal {
-        display: none;
-        position: fixed;
-        z-index: 9999;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.9);
-    }
-    
-    .lightbox-image {
-        max-width: 800px;
-        max-height: 800px;
-        display: block;
-        margin: auto;
-        padding: 100px;
-        margin-top: 50px;
-    }
-    
-    .close-modal {
-        color: #fff;
-        font-size: 30px;
-        font-weight: bold;
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        cursor: pointer;
-    }
-</style>
+                                        <style>
+                                            .image-row {
+                                                display: flex;
+                                                flex-wrap: wrap;
+                                                justify-content: space-between;
+                                                margin-bottom: 10px;
+                                            }
 
-<dt><strong>Media</strong>
-                                      <div>
-    <c:choose>
-        <c:when test="${tournament.getStatus().contains('ongoing') || tournament.getStatus().contains('finished')}">
-            <c:choose>
-                <c:when test="${not empty gallery}">
-                    <div class="image-row">
-                        <c:forEach items="${gallery}" var="imageBytes" varStatus="loop">
-                            <div class="image-wrapper">
-                                <a href="javascript:void(0);" onclick="showImage('${Base64.getEncoder().encodeToString(imageBytes)}')">
-                                    <img src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(imageBytes)}" alt="Image">
-                                </a>
-                            </div>
-                            <c:if test="${loop.index % 5 == 4 && loop.index < gallery.size() - 1}">
-                                </div><div class="image-row">
-                            </c:if>
-                        </c:forEach>
-                    </div>
-                </c:when>
-                <c:otherwise>
-                    <p>No images available. Check back later for upcoming events.</p>
-                </c:otherwise>
-            </c:choose>
-        </c:when>
-        <c:when test="${tournament.getStatus().contains('pending') || tournament.getStatus().contains('formClosed')}">
-            <p>Upcoming event. Images will be available during the event.</p>
-        </c:when>
-    </c:choose>
-</div>
+                                            .image-wrapper {
+                                                width: 70px;
+                                                margin-bottom: 10px;
+                                            }
 
-<!-- Lightbox Modal -->
-<div id="lightbox-modal" class="lightbox-modal">
-    <span class="close-modal" onclick="closeModal()">&times;</span>
-    <img id="lightbox-image" class="lightbox-image" src="" alt="Lightbox Image">
-</div>
-<script>
-    var galleryImages = [];
-    var currentImageIndex = 0;
+                                            .image-wrapper img {
+                                                width: 100%;
+                                                height: auto;
+                                                cursor: pointer;
+                                            }
 
-    function initGallery(images) {
-        galleryImages = images;
-    }
+                                            .lightbox-modal {
+                                                display: none;
+                                                position: fixed;
+                                                z-index: 9999;
+                                                left: 0;
+                                                top: 0;
+                                                width: 100%;
+                                                height: 100%;
+                                                overflow: auto;
+                                                background-color: rgba(0, 0, 0, 0.9);
+                                            }
 
-    function showImage(base64Image) {
-        var lightboxImage = document.getElementById('lightbox-image');
-        lightboxImage.src = 'data:image/jpg;base64,' + base64Image;
+                                            .lightbox-image {
+                                                max-width: 800px;
+                                                max-height: 800px;
+                                                display: block;
+                                                margin: auto;
+                                                padding: 100px;
+                                                margin-top: 50px;
+                                            }
 
-        var lightboxModal = document.getElementById('lightbox-modal');
-        lightboxModal.style.display = 'block';
+                                            .close-modal {
+                                                color: #fff;
+                                                font-size: 30px;
+                                                font-weight: bold;
+                                                position: absolute;
+                                                top: 20px;
+                                                right: 30px;
+                                                cursor: pointer;
+                                            }
+                                        </style>
 
-        currentImageIndex = galleryImages.indexOf(base64Image);
-    }
+                                    <dt><strong>Media</strong>
+                                        <div>
+                                            <c:choose>
+                                                <c:when test="${tournament.getStatus().contains('ongoing') || tournament.getStatus().contains('finished')}">
+                                                    <c:choose>
+                                                        <c:when test="${not empty gallery}">
+                                                            <div class="image-row">
+                                                                <c:forEach items="${gallery}" var="imageBytes" varStatus="loop">
+                                                                    <div class="image-wrapper">
+                                                                        <a href="javascript:void(0);" onclick="showImage('${Base64.getEncoder().encodeToString(imageBytes)}')">
+                                                                            <img src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(imageBytes)}" alt="Image">
+                                                                        </a>
+                                                                    </div>
+                                                                    <c:if test="${loop.index % 5 == 4 && loop.index < gallery.size() - 1}">
+                                                                    </div><div class="image-row">
+                                                                    </c:if>
+                                                                </c:forEach>
+                                                            </div>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <p>No images available. Check back later for upcoming events.</p>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </c:when>
+                                                <c:when test="${tournament.getStatus().contains('pending') || tournament.getStatus().contains('formClosed')}">
+                                                    <p>Upcoming event. Images will be available during the event.</p>
+                                                </c:when>
+                                            </c:choose>
+                                        </div>
+                                    </dt>
 
-    function changeImage(direction) {
-        if (direction === 'prev') {
-            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-        } else if (direction === 'next') {
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-        }
+                                    <!-- Lightbox Modal -->
+                                    <div id="lightbox-modal" class="lightbox-modal">
+                                        <span class="close-modal" onclick="closeModal()">&times;</span>
+                                        <img id="lightbox-image" class="lightbox-image" src="" alt="Lightbox Image">
+                                    </div>
+                                    <script>
+                                        var galleryImages = [];
+                                        var currentImageIndex = 0;
 
-        var lightboxImage = document.getElementById('lightbox-image');
-        lightboxImage.src = 'data:image/jpg;base64,' + galleryImages[currentImageIndex];
-    }
+                                        function initGallery(images) {
+                                            galleryImages = images;
+                                        }
 
-    function closeModal() {
-        var lightboxModal = document.getElementById('lightbox-modal');
-        lightboxModal.style.display = 'none';
-    }
-</script>
+                                        function showImage(base64Image) {
+                                            var lightboxImage = document.getElementById('lightbox-image');
+                                            lightboxImage.src = 'data:image/jpg;base64,' + base64Image;
 
+                                            var lightboxModal = document.getElementById('lightbox-modal');
+                                            lightboxModal.style.display = 'block';
 
+                                            currentImageIndex = galleryImages.indexOf(base64Image);
+                                        }
 
+                                        function changeImage(direction) {
+                                            if (direction === 'prev') {
+                                                currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+                                            } else if (direction === 'next') {
+                                                currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+                                            }
+
+                                            var lightboxImage = document.getElementById('lightbox-image');
+                                            lightboxImage.src = 'data:image/jpg;base64,' + galleryImages[currentImageIndex];
+                                        }
+
+                                        function closeModal() {
+                                            var lightboxModal = document.getElementById('lightbox-modal');
+                                            lightboxModal.style.display = 'none';
+                                        }
+                                    </script>
+                                    <style>
+                                        .container {
+                                            display: flex;
+                                            justify-content: center;
+                                        }
+
+                                        .column {
+                                            flex-basis: 30%;
+                                            padding: 20px;
+                                            background-color: #f2f2f2;
+                                            border: 1px solid #ccc;
+                                            border-radius: 5px;
+                                            margin: 10px;
+                                            text-align: center;
+                                        }
+
+                                        .first {
+                                            height: 200px;
+                                        }
+
+                                        .second {
+                                            height: 150px;
+                                            margin-top: auto;
+                                        }
+
+                                        .third {
+                                            height: 100px;
+                                            margin-top: auto;
+                                        }
+
+                                        .column h2 {
+                                            margin-top: 0;
+                                        }
+
+                                        .column p {
+                                            margin-bottom: 0;
+                                        }
+                                        .gold {
+                                            color: gold;
+                                        }
+
+                                        .silver {
+                                            color: silver;
+                                        }
+
+                                        .bronze {
+                                            color: #cd7f32; /* Bronze color */
+                                        }
+                                    </style>
+                                    <dt><strong>Results</strong></dt>
+                                    <c:if test="${tournament.getStatus().contains('finished')}">
+                                        <div class="container">
+                                            <div class="column second">
+                                                <h2><i class="fas fa-medal silver"></i></h2>
+                                                    <c:forEach items="${list}" var="bird" begin="1" end="1">
+                                                    <p>${bird.bird.name}</p>
+                                                    <p>${bird.score}</p>
+                                                    <img src="data:image/png;base64,${Base64.getEncoder().encodeToString(bird.bird.profilePic)}"
+                                                         alt="Profile Picture"
+                                                         style="display: block; width: 50px; height: 50px;">
+                                                </c:forEach>
+                                            </div>
+                                            <div class="column first">
+                                                <h2><i class="fas fa-trophy gold"></i></h2>
+                                                    <c:forEach items="${list}" var="bird" begin="0" end="0">
+                                                    <p>${bird.bird.name}</p>
+                                                    <p>${bird.score}</p>
+                                                    <img src="data:image/png;base64,${Base64.getEncoder().encodeToString(bird.bird.profilePic)}"
+                                                         alt="Profile Picture"
+                                                         style="display: block; width: 50px; height: 50px;">
+                                                </c:forEach>
+                                            </div>
+                                            <div class="column third">
+                                                <h2><i class="fas fa-award bronze"></i></h2>
+                                                    <c:forEach items="${list}" var="bird" begin="2" end="2">
+                                                    <p>${bird.bird.name}</p>
+                                                    <p>${bird.score}</p>
+                                                    <img src="data:image/png;base64,${Base64.getEncoder().encodeToString(bird.bird.profilePic)}"
+                                                         alt="Profile Picture"
+                                                         style="display: block; width: 50px; height: 50px;">
+                                                </c:forEach>
+                                            </div>
+                                        </div>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Bird Name</th>
+                                                    <th>Score</th>
+                                                    <th>Profile Picture</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach items="${list}" var="tparticipation" begin="4" end="10">
+                                                    <tr>
+                                                        <td>${tparticipation.bird.name}</td>
+                                                        <td>${tparticipation.score}</td>
+                                                        <td>
+                                                            <img src="data:image/png;base64,${Base64.getEncoder().encodeToString(tparticipation.bird.profilePic)}"
+                                                                 alt="Profile Picture"
+                                                                 style="display: block; width: 100px; height: 100px;">
+                                                        </td>
+                                                    </tr>
+                                                </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </c:if>
+                                    <c:if test="${not tournament.getStatus().contains('finished')}">
+                                        <p>Coming Soon</p>
+                                    </c:if>
 
                                 </div>
 
@@ -343,97 +450,97 @@
                                                 </style>
                                                 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB522yNJkfdTTRnsqsB0GXmfF2iRFfvdDw"></script>
                                                 <script>
-            function initMap() {
-                var locations = [
-                    {
-                        address: "07 Công Trường Lam Sơn, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh 700000, Vietnam",
-                        latitude: 10.77685102126475,
-                        longitude: 106.70391609388912
-                    },
-                    {
-                        address: "64A Trương Định, Võ Thị Sáu, Quận 3, Thành phố Hồ Chí Minh, Vietnam",
-                        latitude: 10.777428062452405,
-                        longitude: 106.69047902458195
-                    },
-                    {
-                        address: "300A Nguyễn Tất Thành, Phường 13, Quận 4, Thành phố Hồ Chí Minh 70000, Vietnam",
-                        latitude: 10.761222612270188,
-                        longitude: 106.71054129574509
-                    },
-                    {
-                        address: "11 Đ. Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh, Vietnam",
-                        latitude: 10.772552112327606,
-                        longitude: 106.67005087643817
-                    },
-                    {
-                        address: "170 Lê Văn Khương, Thới An, Quận 12, Thành phố Hồ Chí Minh, Vietnam",
-                        latitude: 10.868584871487691,
-                        longitude: 106.65234149574671
-                    },
-                    {
-                        address: "Lô E2a-7, Đường D1, Đ. D1, Long Thạnh Mỹ, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh 700000, Vietnam",
-                        latitude: 10.841317261603312,
-                        longitude: 106.81002247062233
-                    },
-                    {
-                        address: "125 Đồng Văn Cống, Phường Thạnh Mỹ Lợi, Quận 2, Thành phố Hồ Chí Minh 700000, Vietnam",
-                        latitude: 10.77426740551232,
-                        longitude: 106.76228689574539
-                    },
-                    {
-                        address: "86 P. Nguyễn Văn Tuyết, Trung Liệt, Đống Đa, Hà Nội 700000, Vietnam",
-                        latitude: 21.011384683002458,
-                        longitude: 105.81883898061733
-                    },
-                    {
-                        address: "Đ. Bưởi, Thủ Lệ, Ba Đình, Hà Nội 100000, Vietnam",
-                        latitude: 21.030770449872584,
-                        longitude: 105.80553378247417
-                    },
-                    {
-                        address: "275 Đ. Âu Cơ, Quảng An, Tây Hồ, Hà Nội, Vietnam",
-                        latitude: 21.071328475112576,
-                        longitude: 105.82564411131197
-                    }
+                                        function initMap() {
+                                            var locations = [
+                                                {
+                                                    address: "07 Công Trường Lam Sơn, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh 700000, Vietnam",
+                                                    latitude: 10.77685102126475,
+                                                    longitude: 106.70391609388912
+                                                },
+                                                {
+                                                    address: "64A Trương Định, Võ Thị Sáu, Quận 3, Thành phố Hồ Chí Minh, Vietnam",
+                                                    latitude: 10.777428062452405,
+                                                    longitude: 106.69047902458195
+                                                },
+                                                {
+                                                    address: "300A Nguyễn Tất Thành, Phường 13, Quận 4, Thành phố Hồ Chí Minh 70000, Vietnam",
+                                                    latitude: 10.761222612270188,
+                                                    longitude: 106.71054129574509
+                                                },
+                                                {
+                                                    address: "11 Đ. Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh, Vietnam",
+                                                    latitude: 10.772552112327606,
+                                                    longitude: 106.67005087643817
+                                                },
+                                                {
+                                                    address: "170 Lê Văn Khương, Thới An, Quận 12, Thành phố Hồ Chí Minh, Vietnam",
+                                                    latitude: 10.868584871487691,
+                                                    longitude: 106.65234149574671
+                                                },
+                                                {
+                                                    address: "Lô E2a-7, Đường D1, Đ. D1, Long Thạnh Mỹ, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh 700000, Vietnam",
+                                                    latitude: 10.841317261603312,
+                                                    longitude: 106.81002247062233
+                                                },
+                                                {
+                                                    address: "125 Đồng Văn Cống, Phường Thạnh Mỹ Lợi, Quận 2, Thành phố Hồ Chí Minh 700000, Vietnam",
+                                                    latitude: 10.77426740551232,
+                                                    longitude: 106.76228689574539
+                                                },
+                                                {
+                                                    address: "86 P. Nguyễn Văn Tuyết, Trung Liệt, Đống Đa, Hà Nội 700000, Vietnam",
+                                                    latitude: 21.011384683002458,
+                                                    longitude: 105.81883898061733
+                                                },
+                                                {
+                                                    address: "Đ. Bưởi, Thủ Lệ, Ba Đình, Hà Nội 100000, Vietnam",
+                                                    latitude: 21.030770449872584,
+                                                    longitude: 105.80553378247417
+                                                },
+                                                {
+                                                    address: "275 Đ. Âu Cơ, Quảng An, Tây Hồ, Hà Nội, Vietnam",
+                                                    latitude: 21.071328475112576,
+                                                    longitude: 105.82564411131197
+                                                }
 
 
-                ];
+                                            ];
 
-                // Retrieve the selected location based on the value of ${location}
-                var selectedLocation = locations.find(function (loc) {
-                    return loc.address === "${location}";
-                });
+                                            // Retrieve the selected location based on the value of ${location}
+                                            var selectedLocation = locations.find(function (loc) {
+                                                return loc.address === "${location}";
+                                            });
 
-                if (selectedLocation) {
-                    // Create a map object and specify the DOM element for display
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 17,
-                        center: {lat: selectedLocation.latitude, lng: selectedLocation.longitude}
-                    });
+                                            if (selectedLocation) {
+                                                // Create a map object and specify the DOM element for display
+                                                var map = new google.maps.Map(document.getElementById('map'), {
+                                                    zoom: 17,
+                                                    center: {lat: selectedLocation.latitude, lng: selectedLocation.longitude}
+                                                });
 
-                    // Create a marker and set its position
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: {lat: selectedLocation.latitude, lng: selectedLocation.longitude},
-                        title: selectedLocation.address
-                    });
+                                                // Create a marker and set its position
+                                                var marker = new google.maps.Marker({
+                                                    map: map,
+                                                    position: {lat: selectedLocation.latitude, lng: selectedLocation.longitude},
+                                                    title: selectedLocation.address
+                                                });
 
-                    // Set the content for the info window
-                    var contentString = '<div id="info-window">' +
-                            '<h3>' + selectedLocation.address + '</h3>' +
-                            '</div>';
+                                                // Set the content for the info window
+                                                var contentString = '<div id="info-window">' +
+                                                        '<h3>' + selectedLocation.address + '</h3>' +
+                                                        '</div>';
 
-                    // Create an info window and set the content
-                    var infoWindow = new google.maps.InfoWindow({
-                        content: contentString
-                    });
+                                                // Create an info window and set the content
+                                                var infoWindow = new google.maps.InfoWindow({
+                                                    content: contentString
+                                                });
 
-                    // Open the info window when the marker is clicked
-                    marker.addListener('click', function () {
-                        infoWindow.open(map, marker);
-                    });
-                }
-            }
+                                                // Open the info window when the marker is clicked
+                                                marker.addListener('click', function () {
+                                                    infoWindow.open(map, marker);
+                                                });
+                                            }
+                                        }
                                                 </script>
                                                 <div id="map"></div>
 
@@ -500,25 +607,25 @@
                 </div>
 
                 </div>
-<!--                <div>
-                    <c:choose>
-                        <c:when test="${tournament.getStatus().contains('ongoing') || tournament.getStatus().contains('finished')}">
-                            <c:choose>
-                                <c:when test="${not empty gallery}">
-                                    <c:forEach items="${gallery}" var="imageBytes">
-                                        <img src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(imageBytes)}" alt="Image">
-                                    </c:forEach>
-                                </c:when>
-                                <c:otherwise>
-                                    <p>No images available. Check back later for upcoming events.</p>
-                                </c:otherwise>
-                            </c:choose>
-                        </c:when>
-                        <c:when test="${tournament.getStatus().contains('pending') || tournament.getStatus().contains('formClosed')}">
-                            <p>Upcoming event. Images will be available during the event.</p>
-                        </c:when>
-                    </c:choose>
-                </div>-->
+                <!--                <div>
+                <c:choose>
+                    <c:when test="${tournament.getStatus().contains('ongoing') || tournament.getStatus().contains('finished')}">
+                        <c:choose>
+                            <c:when test="${not empty gallery}">
+                                <c:forEach items="${gallery}" var="imageBytes">
+                                    <img src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(imageBytes)}" alt="Image">
+                                </c:forEach>
+                            </c:when>
+                            <c:otherwise>
+                                <p>No images available. Check back later for upcoming events.</p>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:when>
+                    <c:when test="${tournament.getStatus().contains('pending') || tournament.getStatus().contains('formClosed')}">
+                        <p>Upcoming event. Images will be available during the event.</p>
+                    </c:when>
+                </c:choose>
+            </div>-->
                 </section> 
 
                 </div>
