@@ -5,6 +5,7 @@
  */
 package com.fptuni.prj301.demo.dbmanager;
 
+import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.Tparticipation;
 import com.fptuni.prj301.demo.utils.DBUtils;
 import java.sql.Connection;
@@ -143,6 +144,43 @@ public class TparticipationManager {
         return list;
     }
 
+    public List<Tparticipation> getBirdList(String TID) {
+        List<Tparticipation> list = new ArrayList<>();
+        String sql = "SELECT TOP 10 T.*, B.name AS birdName, B.profilePic AS birdProfilePic "
+                + "FROM [Tparticipation] T "
+                + "JOIN [Bird] B ON T.BID = B.BID "
+                + "WHERE T.TID = ? "
+                + "ORDER BY T.score DESC";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, TID);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Tparticipation t = new Tparticipation();
+                t.setTID(rs.getString("TID"));
+                t.setBID(rs.getString("BID"));
+                t.setDocNo(rs.getString("docNo"));
+                t.setAchievement(rs.getString("achievement"));
+                t.setScore(rs.getBigDecimal("score"));
+
+                Bird bird = new Bird();
+                bird.setBID(rs.getString("BID"));
+                bird.setName(rs.getString("birdName"));
+                bird.setProfilePic(rs.getBytes("birdProfilePic"));
+
+                t.setBird(bird);
+
+                list.add(t);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
     public Tparticipation getParticipant(String TID, String bid) {
         Tparticipation t = null;
         String sql = "SELECT * FROM [Tparticipation] WHERE TID = ? AND BID = ? ";
@@ -216,7 +254,7 @@ public class TparticipationManager {
         }
         return count;
     }
-    
+
     public List<Tparticipation> getAllParticipations(String bid) {
         List<Tparticipation> list = new ArrayList();
         String sql = "SELECT * FROM [Tparticipation] WHERE BID = ? ";
