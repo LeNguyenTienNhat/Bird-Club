@@ -48,6 +48,7 @@ public class TransactionController extends HttpServlet {
 
             TransactionManager transactionManager = new TransactionManager();
             boolean insertionSuccess = transactionManager.insertTransaction(transaction);
+            if(uid ==null){request.getRequestDispatcher("/.jsp").forward(request, response);}
             if (insertionSuccess) {
                 request.setAttribute("successMessage", "Transaction saved successfully");
                 request.getRequestDispatcher("/vnpay_pay.jsp").forward(request, response);

@@ -109,90 +109,58 @@
             <img src="https://i0.wp.com/discvietnam.com/wp-content/uploads/2020/07/C%E1%BB%95ng-thanh-to%C3%A1n-VNPAY-Logo-Th%E1%BA%BB-ATM-T%C3%A0i-kho%E1%BA%A3n-ng%C3%A2n-h%C3%A0ng-Online-Banking-M%C3%A3-QR-QR-Pay-Qu%C3%A9t-QR-Transparent.png?fit=360%2C140&ssl=1" alt="VNPAY Logo" width="115.95" height="32" />
         </div>
         <div class="separator-header"></div>
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
+
         <div class="body-form">
             <form action="/chimowners/vnpayajax" id="frmCreateOrder" method="post">
                 <div class="form-group">
                     <label for="amount">Nhập số tiền</label>
                     <input class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="number" value="10000" />
                 </div>
-                <div class="button-group">
-
-
-                    <button  type="submit" class="btn btn-default" href>Thanh toán</button>
+                <div class="button-group ${not empty successMessage ? '' : 'hidden'}" id="btnThanhToanGroup">
+                    <button type="submit" class="btn btn-default" id="btnThanhToan">Thanh toán</button>
                 </div>
-            </form>  
+            </form>
             <form action="${pageContext.request.contextPath}/TransactionController?action=add" method="post">
                 <input type="hidden" id="amountCopy" name="amount" />
                 <input type="hidden" name="UID" value="${users.getUID()}">
                 <input type="hidden" name="name" value="${users.getUserName()}">
                 <input type="hidden" name="TT" value="${sessionScope.TransactionType}" />
                 <input type="hidden" name="docT" value="${docT}">
-                <button style="margin-right:5px;" type="submit" class="btn btn-default">lưu</button> 
-
+                <div class="button-group-save ${not empty successMessage ? 'hidden' : ''}">
+                    <button style="margin-top:10px;" type="submit" class="btn btn-default" id="btnLuu">Lưu</button>
+                </div>
             </form>
-
-
-            <h3 class="text-muted">${sessionScope.TransactionType}</h3>
-            <script>
-                // Copy the value from the first input field to the hidden input field
-                document.getElementById("amountCopy").value = document.getElementById("amount").value;
-            </script>
         </div>
-        <div class="button-group-pay" style="display: none;">
-            <button style="margin-top:10px;" type="submit" class="btn btn-default" href>Thanh toán</button>
-        </div>
-    </form>  
-    <form action="${pageContext.request.contextPath}/TransactionController?action=add" method="post">
-        <input type="hidden" id="amountCopy" name="amount" />
-        <input type="hidden" name="UID" value="${users.getUID()}">
-        <input type="hidden" name="TT" value="${sessionScope.TransactionType}" />
-        <input type="hidden" name="docT" value="${docT}">
-        <div class="button-group-save">
-            <button style="margin-top:10px;" type="submit" class="btn btn-default">Lưu</button> 
-        </div>
-    </form>
+        <script>
+            // Copy the value from the first input field to the hidden input field
+            document.getElementById("amountCopy").value = document.getElementById("amount").value;
+        </script>
 
-    <h3 class="text-muted">${sessionScope.TransactionType}</h3>
-    <script>
-        // Copy the value from the first input field to the hidden input field
-        document.getElementById("amountCopy").value = document.getElementById("amount").value;
 
-        // Function to toggle the button groups
-        function toggleButtonGroups() {
-            var buttonSave = document.querySelector(".button-group-save");
-            var buttonPay = document.querySelector(".button-group-pay");
+    </div>
 
-            // Toggle the visibility of button groups
-            buttonSave.style.display = "none";
-            buttonPay.style.display = "block";
-        }
-
-        // Add event listener to the save button
-        var buttonSave = document.querySelector(".button-group-save button");
-        buttonSave.addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent form submission
-            toggleButtonGroups();
-        });
-    </script>
-</div>
-
-<div class="separator-footer"></div>
-<footer class="footer" style="width: 100%;">
-    <p class="contact-info" style="justify-content: flex-end;">
-        <span class="column">
-            <img src="https://th.bing.com/th/id/R.c4edfc51ab1813b98fb8915e8dbebb5b?rik=JIflTecz8tePgA&pid=ImgRaw&r=0" alt="" class="ic-default" style="width:15px; height:15px; ">
-            <a href="tel:1900.5555.77" style="margin-left: 10px;" class="ubtn-text h3 color-info pl-2">1900.5555.77</a>
-        </span>
-        <span class="column">
-            <img src="https://th.bing.com/th/id/OIP.fEe0L7RbU_P2y0uiAZdDZwHaEo?pid=ImgDet&rs=1" alt="" class="ic-default" style="width:30px; height:25px;">
-            <a href="hotro@vnpay.vn" style="margin-left: 5px;" class="ubtn-text h3 color-info pl-2">hotro@vnpay.vn</a> 
-        </span>
-        <span class="column">
-            <img src="https://www.hummings.com/assets/img/credit-card/ssl.png" alt="" class="ic-default" style=" margin-left:50px;width:84px; height:32px;">
-            <img src="images/pci.png" alt="" class="ic-default" style="width:47px; height:32px;">
-        </span>
-    </p>
-</footer>
+    <div class="separator-footer"></div>
+    <footer class="footer" style="width: 100%;">
+        <p class="contact-info" style="justify-content: flex-end;">
+            <span class="column">
+                <img src="https://th.bing.com/th/id/R.c4edfc51ab1813b98fb8915e8dbebb5b?rik=JIflTecz8tePgA&pid=ImgRaw&r=0" alt="" class="ic-default" style="width:15px; height:15px; ">
+                <a href="tel:1900.5555.77" style="margin-left: 10px;" class="ubtn-text h3 color-info pl-2">1900.5555.77</a>
+            </span>
+            <span class="column">
+                <img src="https://th.bing.com/th/id/OIP.fEe0L7RbU_P2y0uiAZdDZwHaEo?pid=ImgDet&rs=1" alt="" class="ic-default" style="width:30px; height:25px;">
+                <a href="hotro@vnpay.vn" style="margin-left: 5px;" class="ubtn-text h3 color-info pl-2">hotro@vnpay.vn</a> 
+            </span>
+            <span class="column">
+                <img src="https://www.hummings.com/assets/img/credit-card/ssl.png" alt="" class="ic-default" style=" margin-left:50px;width:84px; height:32px;">
+                <img src="images/pci.png" alt="" class="ic-default" style="width:47px; height:32px;">
+            </span>
+        </p>
+    </footer>
 </div>
 
 <!--        <div class="container">
@@ -232,29 +200,29 @@
 <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
 <script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
 <script type="text/javascript">
-        $("#frmCreateOrder").submit(function () {
-            var postData = $("#frmCreateOrder").serialize();
-            var submitUrl = $("#frmCreateOrder").attr("action");
-            $.ajax({
-                type: "POST",
-                url: submitUrl,
-                data: postData,
-                dataType: 'JSON',
-                success: function (x) {
-                    if (x.code === '00') {
-                        if (window.vnpay) {
-                            vnpay.open({width: 768, height: 600, url: x.data});
+            $("#frmCreateOrder").submit(function () {
+                var postData = $("#frmCreateOrder").serialize();
+                var submitUrl = $("#frmCreateOrder").attr("action");
+                $.ajax({
+                    type: "POST",
+                    url: submitUrl,
+                    data: postData,
+                    dataType: 'JSON',
+                    success: function (x) {
+                        if (x.code === '00') {
+                            if (window.vnpay) {
+                                vnpay.open({width: 768, height: 600, url: x.data});
+                            } else {
+                                location.href = x.data;
+                            }
+                            return false;
                         } else {
-                            location.href = x.data;
+                            alert(x.Message);
                         }
-                        return false;
-                    } else {
-                        alert(x.Message);
                     }
-                }
+                });
+                return false;
             });
-            return false;
-        });
 </script>       
 </body>
 </html>
