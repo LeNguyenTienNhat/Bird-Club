@@ -1,0 +1,40 @@
+INSERT INTO [Feedback]
+VALUES('FeID1','UID14','10/10 staff','The staff has great leadership potential.',CONVERT(DATETIME,'15/2/2023', 103),'technical','pending');
+INSERT INTO [Feedback]
+VALUES('FeID2','UID49','The staff is a good one','The staff is a team player. They are receptive to feedback from other group members.',CONVERT(DATETIME,'1/7/2023', 103),'normal','pending');
+INSERT INTO [Feedback]
+VALUES('FeID3','UID38','Nice staff with good skills','Is able to work well with others and does not have any problems working in a team setting or group.',CONVERT(DATETIME,'4/11/2023', 103),'normal','pending');
+INSERT INTO [Feedback]
+VALUES('FeID4','UID31','The incharge staff needs to be promoted!','Highly skilled at working in a team setting. Able to resolve conflicts among participants.',CONVERT(DATETIME,'1/5/2023', 103),'normal','pending');
+INSERT INTO [Feedback]
+VALUES('FeID5','UID43','Your club has such handy people','The staff has a great ability to resolve conflicts quickly.',CONVERT(DATETIME,'19/11/2023', 103),'normal','pending');
+INSERT INTO [Feedback]
+VALUES('FeID6','UID20','Yea about the staff...','This is a highly effective team member. Although they have strong opinions, they are also open to the ideas of others. They can always bring a group together and focus on producing an outcome.',CONVERT(DATETIME,'28/2/2023', 103),'technical','pending');
+INSERT INTO [Feedback]
+VALUES('FeID7','UID34','Good review','Great at resolving conflicts among group members. He is able to bring different opinions together and facilitate a positive outcome.',CONVERT(DATETIME,'14/5/2023', 103),'normal','pending');
+INSERT INTO [Feedback]
+VALUES('FeID8','UID1','Yea the leader sent here was a capable one.','Highly effective at resolving conflicts. The staff has a strong understanding of the key players on the team and how their actions affect others.',CONVERT(DATETIME,'6/12/2023', 103),'technical','pending');
+INSERT INTO [Feedback]
+VALUES('FeID9','UID37','No way youre messing with ur own member bruh','The staff has a tendency to be controlling and not share information and ideas with his team members and other people he works with.',CONVERT(DATETIME,'14/9/2023', 103),'normal','pending');
+INSERT INTO [Feedback]
+VALUES('FeID10','UID14','Failed to register','I could not sign up for my favorite tournament.',CONVERT(DATETIME,'16/3/2023', 103),'normal','pending');
+INSERT INTO [Feedback]
+VALUES('FeID11','UID28','An improvement','The staff has made strides to become more open and honest with his team members.',CONVERT(DATETIME,'10/9/2023', 103),'technical','pending');
+INSERT INTO [Feedback]
+VALUES('FeID12','UID29','The leader is literally Bocchi the Rock','The staff prefers working alone. She is not very effective at building relationships.',CONVERT(DATETIME,'20/12/2023', 103),'normal','pending');
+INSERT INTO [Feedback]
+VALUES('FeID13','UID36','A complain','The staff contributes to team activities but has difficulty building rapport with coworkers.',CONVERT(DATETIME,'15/2/2023', 103),'technical','pending');
+INSERT INTO [Feedback]
+VALUES('FeID14','UID11','Encouragement from ur fellow members','The staff has worked hard at building strong relationships with people from all over the group, even when they have personality clashes or different backgrounds.',CONVERT(DATETIME,'28/4/2023', 103),'normal','pending');
+INSERT INTO [Feedback]
+VALUES('FeID15','UID37','Send more people like this pls','The staff has really helped when we have been brainstorming new ideas for campaigns, events, etc.',CONVERT(DATETIME,'14/5/2023', 103),'normal','pending');
+INSERT INTO [Feedback]
+VALUES('FeID16','UID14','Such a new breath','The staff has great creative skills. She is able to bring fresh ideas to the table and come up with solutions that are new and innovative.',CONVERT(DATETIME,'15/1/2023', 103),'normal','pending');
+INSERT INTO [Feedback]
+VALUES('FeID17','UID39','The staff is unique','Great at generating unique ideas. He can always think of original ways to solve problems.',CONVERT(DATETIME,'15/11/2023', 103),'technical','pending');
+INSERT INTO [Feedback]
+VALUES('FeID18','UID44','Did your staff graduate from an IT collage?','The staff is great with technology and new media. She has helped to propel our team forward when it comes to using the internet and social media tools.',CONVERT(DATETIME,'27/10/2023', 103),'normal','pending');
+INSERT INTO [Feedback]
+VALUES('FeID19','UID2','You accidentally sent a software engineer here','Highly skilled at using new media tools such as cloud-based software, websites, etc., for work purposes.',CONVERT(DATETIME,'21/1/2023', 103),'normal','pending');
+INSERT INTO [Feedback]
+VALUES('FeID20','UID15','Talented staff indeed','Great at utilizing new technologies. Able to find new ways to use these technologies to do their job better.',CONVERT(DATETIME,'19/6/2023', 103),'normal','pending');
