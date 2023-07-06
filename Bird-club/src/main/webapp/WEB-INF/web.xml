@@ -5,11 +5,15 @@
         <param-value>Vietnamese</param-value>
     </context-param>
     <welcome-file-list>
-        <welcome-file>home</welcome-file>
+        <welcome-file>staffhome</welcome-file>
     </welcome-file-list>
     <servlet>
         <servlet-name>HomepageController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.HomepageController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GalleryController</servlet-name>
+        <servlet-class>com.fptuni.prj301.demo.controller.GalleryController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomepageController</servlet-name>
@@ -83,7 +87,6 @@
         <servlet-name>FeedBackController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.FeedBackController</servlet-class>
     </servlet>
-
     <servlet>
         <servlet-name>StaffEvents</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.StaffEvents</servlet-class>
@@ -255,6 +258,10 @@
     <servlet-mapping>
         <servlet-name>FeedBackController</servlet-name>
         <url-pattern>/FeedBackController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GalleryController</servlet-name>
+        <url-pattern>/Gallery</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

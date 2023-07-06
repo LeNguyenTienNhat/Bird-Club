@@ -200,30 +200,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                             </svg></button></div>
 
-                    <div class="sm:flex sm:items-start">
-                        <turbo-frame data-modal-target="test" class="w-full" id="modal" target="_top" reloadable="" src="https://www.bird.club/clubs/birds-in-ohio/events/new?start_date=2023-06-01">
-
-                            <h3 class="text-lg leading-6 font-medium text-gray-900">New image</h3>
-                            <turbo-frame id="new_event" target="_top">
-
-                                <form class="space-y-4" action="./media" method="post" enctype="multipart/form-data">
-                                    <div class="mt-3">
-                                        <label class="block text-sm font-medium text-gray-700" for="image">Media</label>
-                                        <div class="mt-1">
-                                            <input accept="image/jpg,image/jpeg,image/png" color="teal" 
-                                                   class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" 
-                                                   type="file" name="image" id="image"></div></div>
-
-                                    <input type="hidden" name="ID"  value="Gallery">
-                                    <input type='hidden' name="tableName" value="Gallery">
-
-                                    <input type="text" name='description' placeholder="A brief description of the image" value="">
-                                    <div class="text-right sm:col-span-4">
-                                        <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
-                                            Add image</button>
-                                    </div></form>
-
-                            </turbo-frame></turbo-frame></div></div></div></div>
+                </div></div></div>
 
 
     <turbo-frame id="flash"></turbo-frame>
@@ -285,22 +262,48 @@
                             <p class="mt-2 text-sm text-gray-700">
                                 Available pictured posted by Chim Owners.
                             </p>
+                            <div class="lg:grid lg:grid-cols-3 gap-4 mt-4">
+                                <div class="bg-white shadow sm:rounded-lg p-6">
+                                    <form class="" action="./media" method="post" enctype="multipart/form-data">
+                                        <div class="">
+                                            <div class="">
+                                                <input accept="image/jpg,image/jpeg,image/png" color="teal" 
+                                                       class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" 
+                                                       type="file" name="image" id="image" onchange="loadFile(event)"></div></div>
+                                        <input type="hidden" name="ID"  value="Gallery">
+                                        <input type='hidden' name="tableName" value="Gallery">
+                                        <div class="sm:col-span-4" id="addimage" style="display: none">
+                                            <input type="text" name='description' placeholder="A brief description of the image" value="" class="w-full shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md">
+                                            <button type="submit" class="mt-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                                Add image</button>
+                                        </div></form>
+                                </div>
+
+                                <div class="bg-white shadow sm:rounded-lg p-6">
+                                    <img style='height: auto; width: 30rem; display: block; margin-bottom: 25px' id="output">                                        
+                                    <script>
+                                        var loadFile = function (event) {
+                                            var output = document.getElementById('output');
+                                            output.src = URL.createObjectURL(event.target.files[0]);
+                                            output.onload = function () {
+                                                URL.revokeObjectURL(output.src) // free memory
+                                            }
+                                            var x = document.getElementById('addimage');
+                                            if (x.style.display === "none") {
+                                                x.style.display = "block";
+                                            } else {
+                                                x.style.display = "none";
+                                            }
+                                        };
+                                    </script>
+                                </div>
+                            </div>
                         </div>
 
-
-                        <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none" style="margin-left:1rem">
-                            <a class="w-full flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" data-turbo-frame="modal" href="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-image-fill mr-4" viewBox="0 0 16 16">
-                                <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2V3zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z"/>
-                                </svg>Add an image</a>
-                        </div>
                     </div>
 
                     <div>
-                        <div class="lg:grid lg:grid-cols-12 lg:gap-x-16">
-                            <div class="px-6 sm:px-0 mt-4 lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-9">
-
-                            </div>
+                        <div class="grid grid-cols-12 gap-x-16">
                             <div class="lg:col-span-7 xl:col-span-8" id="events_list">
 
 
