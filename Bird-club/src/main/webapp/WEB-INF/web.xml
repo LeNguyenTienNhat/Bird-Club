@@ -5,12 +5,16 @@
         <param-value>Vietnamese</param-value>
     </context-param>
     <welcome-file-list>
-        <welcome-file>staffhome</welcome-file>
+        <welcome-file>home</welcome-file>
     </welcome-file-list>
     <servlet>
         <servlet-name>HomepageController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.HomepageController</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>HomepageController</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>StaffFieldTrips</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.StaffFieldTrips</servlet-class>
@@ -79,10 +83,7 @@
         <servlet-name>FeedBackController</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.FeedBackController</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>HomepageController</servlet-name>
-        <url-pattern>/home</url-pattern>
-    </servlet-mapping>
+
     <servlet>
         <servlet-name>StaffEvents</servlet-name>
         <servlet-class>com.fptuni.prj301.demo.controller.StaffEvents</servlet-class>

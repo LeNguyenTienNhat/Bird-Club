@@ -70,7 +70,7 @@ public class UserAccessController extends HttpServlet {
             if (session != null) {
                 session.invalidate();
             }
-            response.sendRedirect(request.getContextPath() + "/guest_homepage.jsp");
+            response.sendRedirect(request.getContextPath() + "/home?action=view");
         }
         if (path != null && path.equals("/signup")) {
             HttpSession ss = request.getSession(true);

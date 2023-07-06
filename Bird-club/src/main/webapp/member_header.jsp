@@ -45,17 +45,20 @@
 
 
                                         <li id="nav-menu-item-41129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
-
-
-
-
-                                            <a target="_self" href="${pageContext.request.contextPath}/MemberProfileController?action=view" class="menu-link main-menu-link">
-                                                <img src="data:image/png;base64,${Base64.getEncoder().encodeToString(users.getImage())}" alt="Avatar" class="avatar-image">
-                                                <span class="username">${users.getUserName()}</span> 
-                                            </a>
-                                            <button aria-haspopup="true" aria-label="Show submenu for Courses">
-                                                <span class="fa fa-chevron-down" aria-hidden="true"></span>
-                                            </button>
+                                            <c:choose>
+                                                <c:when test="${not empty users}">
+                                                    <a target="_self" href="${pageContext.request.contextPath}/MemberProfileController?action=view" class="menu-link main-menu-link">
+                                                        <img src="data:image/png;base64,${Base64.getEncoder().encodeToString(users.getImage())}" alt="Avatar" class="avatar-image">
+                                                        <span class="username">${users.getUserName()}</span>
+                                                    </a>
+                                                    <button aria-haspopup="true" aria-label="Show submenu for Courses">
+                                                        <span class="fa fa-chevron-down" aria-hidden="true"></span>
+                                                    </button>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <a target="_self" href="login.jsp" class="menu-link main-menu-link">Login</a>
+                                                </c:otherwise>
+                                            </c:choose>
                                             <style>
                                                 .avatar-image {
                                                     max-width: 30px; /* Adjust the value as needed */
@@ -63,7 +66,7 @@
                                                 }
                                             </style>
                                             <ul class="sub-menu hidden menu-odd menu-depth-1" aria-hidden="true">
-                                                <li id="nav-menu-item-41702" class="menu-item menu-item-type-custom menu-item-object-custom">                                                                                                                  
+                                                <li id="nav-menu-item-41702" class="menu-item menu-item-type-custom menu-item-object-custom">
                                                     <a target="_self" value="${users.getUID()}" href="${pageContext.request.contextPath}/BirdController?action=viewbirdprofile&UID=${users.getUID()}" class="menu-link sub-menu-link">My bird</a>
                                                 </li>
                                                 <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom">
@@ -75,24 +78,14 @@
                                                 <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom">
                                                     <a target="_self" href="${pageContext.request.contextPath}/MemberShipController?action=donate" class="menu-link sub-menu-link">Donation</a>
                                                 </li>
-                                                <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom">
-                                                    <a target="_self" href="${pageContext.request.contextPath}/UserAccessController/logout" class="menu-link sub-menu-link">Log out</a>
-                                                </li>
+                                                <c:choose>
+                                                    <c:when test="${not empty users and not empty users.UID}">
+                                                        <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom">
+                                                            <a target="_self" href="${pageContext.request.contextPath}/UserAccessController/logout" class="menu-link sub-menu-link">Log out</a>
+                                                        </li>
+                                                    </c:when>
+                                                </c:choose>
                                             </ul>
-
-
-
-
-                                            <!--                                        <li id="nav-menu-item-41129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a target="_self" href="member_profile.jsp" class="menu-link main-menu-link">Profile</a><button aria-haspopup="true" aria-label="Show submenu for Courses"><span class="fa fa-chevron-down" aria-hidden="true"></span></button>
-                                                                                        <ul class="sub-menu hidden menu-odd  menu-depth-1" aria-hidden="true">
-                                                                                            <li id="nav-menu-item-41702" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="member_BirdList.jsp" class="menu-link sub-menu-link">My bird</a></li>
-                                                                                            <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="${pageContext.request.contextPath}/MemberShipController?action=view"class="menu-link sub-menu-link">Membership</a></li>
-                                                                                            <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="member_Feedback.jsp" class="menu-link sub-menu-link">Feedback</a></li>
-                                                                                            <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="vnpay_pay.jsp" class="menu-link sub-menu-link">Donation</a></li>
-                                                                                            <li id="nav-menu-item-41703" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_self" href="${pageContext.request.contextPath}/UserAccessController/logout" class="menu-link sub-menu-link">Log out</a></li></ul>
-                                                                                    </li> -->
-
-
                                         </li>
 
                                     </ul>
