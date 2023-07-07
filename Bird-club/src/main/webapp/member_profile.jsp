@@ -133,17 +133,95 @@
                         color: #fff;
                         cursor: pointer;
                         border: solid 1px #BA68C8
-                    }</style>
+                    }
+                    /* Add custom styles to the button */
+button[type="submit"] {
+  background-color: teal;
+  color: white;
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Change the button background color on hover */
+button[type="submit"]:hover {
+  background-color: teal;
+}
+
+/* Change the button background color when focused */
+button[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 3px rgba(0, 128, 128, 0.3);
+}
+
+/* Change the button background color when active/pressed */
+button[type="submit"]:active {
+  background-color: teal;
+}
+ .text-center {
+        text-align: center;
+    }
+
+                </style>
                 </head>
                 <body className='snippet-body'>
                     <div class="container rounded bg-white mt-5 mb-5">
                         <div class="row">
-                            <div class="col-md-3 border-right">
-                                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                    <img class="rounded-circle mt-5" width="150px" src="data:image/png;base64,${Base64.getEncoder().encodeToString(users.getImage())}">
-                                    <span class="font-weight-bold">${users.getUserName()}</span>
-                                    <span class="text-black-50">${users.getEmail()}</span><span> </span></div>
-                            </div>
+                         <div class="col-md-3 border-right">
+    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+        <img class="rounded-circle mt-5" width="150px" src="data:image/png;base64,${Base64.getEncoder().encodeToString(users.getImage())}" style="width: 150px; height:150px;" onclick="showImageInput()">
+        <span class="font-weight-bold">${users.getUserName()}</span>
+        <span class="text-black-50">${users.getEmail()}</span>
+        <span></span>
+        <form class="space-y-4" action="./media" method="post" id="tournament" enctype="multipart/form-data">
+            <div class="mt-3" id="imageInput" style="display: none;">
+                <label class="block text-sm font-medium text-gray-700" for="image">Media</label>
+                <div class="mt-1">
+                    <input accept="image/*" color="teal" class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" type="file" name="image" id="image">
+                </div>
+            </div>
+            <input type="hidden" name="UID" value="${users.getUID()}">
+            <input type="hidden" name="ID" value="picture">
+            <div class="text-center mt-4" >
+                <button  type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" id="addImageButton">
+                    Add image
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .text-center {
+        text-align: center;
+    }
+    
+    #imageInput,
+    #addImageButton {
+        display: none;
+    }
+</style>
+
+<script>
+    function showImageInput() {
+        var imageInput = document.getElementById('imageInput');
+        var addImageButton = document.getElementById('addImageButton');
+
+        if (imageInput.style.display === 'none') {
+            imageInput.style.display = 'block';
+            addImageButton.style.display = 'block';
+        } else {
+            imageInput.style.display = 'none';
+            addImageButton.style.display = 'none';
+        }
+    }
+</script>
+
+
                             <div class="col-md-5 border-right">
                                 <div class="p-3 py-5">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
@@ -181,9 +259,9 @@
                                                 <input type="hidden" name="UID" value="${users.getUID()}">
                                             </div>
                                         </div>
-                                            
+
                                     </form>
-                                    
+
                                     <div class="mt-5 text-center">
                                         <button class="btn btn-primary profile-button" form="SaveProfileForm" type="submit">Save Profile</button>
                                     </div>
