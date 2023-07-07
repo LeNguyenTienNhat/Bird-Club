@@ -397,158 +397,6 @@
                         </style>
 
 
-<script>
-                                                        function openPopup() {
-  document.getElementById("popup").style.display = "block";
-}
-
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-}
-
-                                                    </script>                       
-   <button class="blog-button" onclick="openPopup()">
-  <i class="fas fa-plus"></i> Add Blog
-</button>
-   <div id="popup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closePopup()">&times;</span>
-    <h2 >Add Blog</h2>
-    <form class="space-y-4" action="./media" method="post" id="tournament" enctype="multipart/form-data">
-      <div class="mt-3">
-        <label class="block text-sm font-medium text-gray-700" for="image">Media:</label>
-        <div class="mt-1">
-          <input accept="image/*" color="teal" class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" type="file" name="image" id="image">
-        </div>
-      </div>
-      <input type="hidden" name="ID" value="${users.getUID()}">
-
-      <div class="form-group">
-        <label for="category">Category:</label>
-        <input type="text" id="category" name="category" class="block w-full px-4 py-2 text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500">
-      </div>
-
-      <div class="form-group">
-        <label for="descriptionInput">Description:</label>
-        <textarea id="descriptionInput" name="description" class="block w-full px-4 py-2 text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"></textarea>
-      </div>
-
-      <div class="text-right sm:col-span-4">
-        <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
-          Add blog
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-
-      <style>
-          /* Style for the article list container */
-/* Style for the blog container */
-.blog-container {
-  margin-top: 20px;
-  
-}
-
-/* Style for the article list */
-.blog-container ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Style for the "not found" message */
-.blog-container ul:empty::before {
-  content: "Not found";
-  color: #888;
-  font-style: italic;
-}
-
-/* Style for each article item */
-.article-item {
-  display: flex;
-  margin-bottom: 20px;
-  
-}
-
-/* Style for the article item container */
-.article-item-container {
-  display: flex;
-  align-items: flex-start;
-}
-
-/* Style for the article item media */
-.article-item-media {
-  flex: 0 0 120px;
-  margin-right: 20px;
-}
-
-/* Style for the article item media ratio */
-.article-item-media-ratio {
-  position: relative;
-  padding-top: 75%;
-  overflow: hidden;
-  width: 240px; height:185px;
-}
-
-/* Style for the "No image available" text */
-.article-item-media-ratio div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f1f1f1;
-  color: #888;
-  font-style: italic;
-}
-
-/* Style for the article item image */
-.article-item-media-ratio img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Style for the article item body */
-.article-item-body {
-  
-   display: flex;
-  flex-direction: column;
-  
-}
-
-/* Style for the article item header */
-.article-item-header {
-    color:#000;
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-/* Style for the article item link */
-.article-item-link {
-  color: #333;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-/* Style for the attribution project */
-.attribution.project {
-  font-size: 14px;
-  color: #888;
-}
-
-/* Style for the attribution topic */
-.attribution.topic {
-  font-size: 12px;
-  color: #888;
-}
-
-
-
                         <script>
                             function openPopup() {
                                 document.getElementById("popup").style.display = "block";
@@ -700,6 +548,158 @@ function closePopup() {
                             }
 
 
+
+                            <script>
+                            function openPopup() {
+                                document.getElementById("popup").style.display = "block";
+                            }
+
+                            function closePopup() {
+                                document.getElementById("popup").style.display = "none";
+                            }
+
+                            </script>                       
+                            <button class="blog-button" onclick="openPopup()">
+                            <i class="fas fa-plus"></i> Add Blog
+                            </button>
+                            <div id="popup" class="popup">
+                            <div class="popup-content">
+                            <span class="close" onclick="closePopup()">&times;</span>
+                            <h2 >Add Blog</h2>
+                            <form class="space-y-4" action="./media" method="post" id="tournament" enctype="multipart/form-data">
+                            <div class="mt-3">
+                            <label class="block text-sm font-medium text-gray-700" for="image">Media:</label>
+                            <div class="mt-1">
+                            <input accept="image/*" color="teal" class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" type="file" name="image" id="image">
+                            </div>
+                            </div>
+                            <input type="hidden" name="ID" value="${users.getUID()}">
+
+                            <div class="form-group">
+                            <label for="category">Category:</label>
+                            <input type="text" id="category" name="category" class="block w-full px-4 py-2 text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500">
+                            </div>
+
+                            <div class="form-group">
+                            <label for="descriptionInput">Description:</label>
+                            <textarea id="descriptionInput" name="description" class="block w-full px-4 py-2 text-sm border-gray-300 rounded-md focus:ring-teal-500 focus:border-teal-500"></textarea>
+                            </div>
+
+                            <div class="text-right sm:col-span-4">
+                            <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+                            Add blog
+                            </button>
+                            </div>
+                            </form>
+                            </div>
+                            </div>
+
+                            <style>
+                            /* Style for the article list container */
+                            /* Style for the blog container */
+                            .blog-container {
+                                margin-top: 20px;
+
+                            }
+
+                            /* Style for the article list */
+                            .blog-container ul {
+                                list-style-type: none;
+                                padding: 0;
+                                margin: 0;
+                            }
+
+                            /* Style for the "not found" message */
+                            .blog-container ul:empty::before {
+                                content: "Not found";
+                                color: #888;
+                                font-style: italic;
+                            }
+
+                            /* Style for each article item */
+                            .article-item {
+                                display: flex;
+                                margin-bottom: 20px;
+
+                            }
+
+                            /* Style for the article item container */
+                            .article-item-container {
+                                display: flex;
+                                align-items: flex-start;
+                            }
+
+                            /* Style for the article item media */
+                            .article-item-media {
+                                flex: 0 0 120px;
+                                margin-right: 20px;
+                            }
+
+                            /* Style for the article item media ratio */
+                            .article-item-media-ratio {
+                                position: relative;
+                                padding-top: 75%;
+                                overflow: hidden;
+                                width: 240px; height:185px;
+                            }
+
+                            /* Style for the "No image available" text */
+                            .article-item-media-ratio div {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                background-color: #f1f1f1;
+                                color: #888;
+                                font-style: italic;
+                            }
+
+                            /* Style for the article item image */
+                            .article-item-media-ratio img {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+
+                            /* Style for the article item body */
+                            .article-item-body {
+
+                                display: flex;
+                                flex-direction: column;
+
+                            }
+
+                            /* Style for the article item header */
+                            .article-item-header {
+                                color:#000;
+                                margin-bottom: 10px;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-start;
+                            }
+
+                            /* Style for the article item link */
+                            .article-item-link {
+                                color: #333;
+                                font-weight: bold;
+                                text-decoration: none;
+                            }
+
+                            /* Style for the attribution project */
+                            .attribution.project {
+                                font-size: 14px;
+                                color: #888;
+                            }
+
+                            /* Style for the attribution topic */
+                            .attribution.topic {
+                                font-size: 12px;
+                                color: #888;
+                            }
+
+
                         </style>
                         <div class="blog-container">
                             <ul>
@@ -731,6 +731,16 @@ function closePopup() {
                                                 <span class="like-icon">
                                                     <i class="far fa-thumbs-up"></i>  
                                                     <span class="vote-count">${b.getVote()}</span>
+                                                    <form action="BlogController" method="post" style="display: inline;">
+                                                        <input type="hidden" name="action" value="vote">
+                                                        <input type="hidden" name="BLID" value="${b.getBLID()}">
+                                                        <button type="submit" class="vote-button"><i class="fas fa-thumbs-up"></i> Vote</button>
+                                                    </form>
+                                                    <form action="BlogController" method="post" style="display: inline;">
+                                                        <input type="hidden" name="action" value="dislike">
+                                                        <input type="hidden" name="BLID" value="${b.getBLID()}">
+                                                        <button type="submit" class="vote-button"><i class="fas fa-thumbs-down"></i> Dislike</button>
+                                                    </form>
                                                 </span>
                                             </div>
                                         </div>
