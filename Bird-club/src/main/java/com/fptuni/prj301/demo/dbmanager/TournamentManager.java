@@ -22,10 +22,10 @@ public class TournamentManager {
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps;
-            if (numOfRow == 10 && !status.isEmpty()) {
+            if (numOfRow == 5 && !status.isEmpty()) {
                 sql = sql + "WHERE status=? "
-                        + " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY"
-                        + "ORDER BY " + sortCategory + "DESC";
+                        + "ORDER BY " + sortCategory + " DESC"
+                        + " OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
                 ps = conn.prepareStatement(sql);
                 ps.setString(1, status);
                 ps.setInt(2, skip);
@@ -148,13 +148,21 @@ public class TournamentManager {
         return tournaments;
     }
 
-    public int getTotalNumber() {
+    public int getTotalNumber(String status) {
         int totalTournaments = 0;
-        String sql = "SELECT COUNT(*) AS total FROM Tournament";
+        String sql = "SELECT COUNT(*) AS total FROM Tournament ";
 
-        try (Connection conn = DBUtils.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql);
-                ResultSet rs = ps.executeQuery()) {
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps;
+            if (!status.equals("all")) {
+                sql = sql + " where status=?";
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, status);
+            } else {
+                ps = conn.prepareStatement(sql);
+            }
+            ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 totalTournaments = rs.getInt("total");
             }
@@ -407,7 +415,6 @@ public class TournamentManager {
 
         return tournament;
     }
-
 
     public List<Tournament> getTop10Participation() throws SQLException {
         List<Tournament> list = new ArrayList();

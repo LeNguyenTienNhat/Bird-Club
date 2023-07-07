@@ -84,7 +84,7 @@ public class StaffAccountController extends HttpServlet {
             List<Tournament> tournamentsList = tournamentManager.getListP(pageNumber, pageSize);
             request.setAttribute("tList", tournamentsList);
 
-            int totalTournaments = tournamentManager.getTotalNumber(); // Get the total count of tournaments
+            int totalTournaments = tournamentManager.getTotalNumber("all"); // Get the total count of tournaments
             int totalPages = (int) Math.ceil((double) totalTournaments / pageSize); // Calculate the total number of pages
 
             request.setAttribute("pageNumber", pageNumber);

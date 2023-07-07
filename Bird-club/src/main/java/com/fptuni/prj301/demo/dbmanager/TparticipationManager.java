@@ -218,7 +218,7 @@ public class TparticipationManager {
 
     public List<Tparticipation> getRecords(int skip, int numOfRow, String TID) {
         List<Tparticipation> list = new ArrayList();
-        String sql = "SELECT * FROM [Tparticipation] WHERE TID = ? ORDER BY TID OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+        String sql = "SELECT * FROM [Tparticipation] WHERE TID = ? ORDER BY score DESC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -232,6 +232,7 @@ public class TparticipationManager {
                 t.setBID(rs.getString("BID"));
                 t.setDocNo(rs.getString("docNo"));
                 t.setAchievement(rs.getString("achievement"));
+                t.setScore(rs.getBigDecimal("score"));
                 list.add(t);
             }
         } catch (SQLException e) {
@@ -277,6 +278,18 @@ public class TparticipationManager {
             // Handle the exception appropriately
         }
         return list;
+    }
+    
+        public void updateScore(int score, String docNo) {
+        String sql = "UPDATE [Tparticipation] SET score = ? WHERE docNo = ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, score);
+            ps.setString(2, docNo);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+        }
     }
 
 }
