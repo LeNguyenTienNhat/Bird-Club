@@ -101,6 +101,21 @@ public class MemberManager {
         return false;
     }
 
+    public static boolean updateProfilePicture(byte[] profilePicture, String UID) throws ClassNotFoundException {
+        String sql = "UPDATE [User] SET profilePicture = ? WHERE UID = ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setBytes(1, profilePicture);
+            ps.setString(2, UID);
+            ps.executeUpdate();
+            return true; // Return true if the update is successful
+        } catch (SQLException ex) {
+            System.out.println("Failed to update profile picture due to internal error: " + ex.getMessage());
+        }
+        return false;
+    }
+
     public void updateRole(String UID, String role) {
         String sql = "UPDATE [User] SET role = ? WHERE UID = ?";
         try {
@@ -251,8 +266,8 @@ public class MemberManager {
         } catch (SQLException e) {
         }
     }
-    
-        public int getTotalNumberOfMember() {
+
+    public int getTotalNumberOfMember() {
         int count = 0;
         String sql = "SELECT COUNT(UID) as num FROM [User]";
         try {
@@ -268,8 +283,8 @@ public class MemberManager {
         }
         return count;
     }
-        
-        public List<Member> getMemberListAsDuration(int year, int month) {
+
+    public List<Member> getMemberListAsDuration(int year, int month) {
         List<Member> list = new ArrayList();
         String sql = "SELECT * FROM [User] WHERE (DATEPART(yy, signupDate) = ? "
                 + " AND DATEPART(mm, signupDate) = ?)";

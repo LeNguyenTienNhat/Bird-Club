@@ -142,7 +142,24 @@
                                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                                     <img class="rounded-circle mt-5" width="150px" src="data:image/png;base64,${Base64.getEncoder().encodeToString(users.getImage())}">
                                     <span class="font-weight-bold">${users.getUserName()}</span>
-                                    <span class="text-black-50">${users.getEmail()}</span><span> </span></div>
+                                    <span class="text-black-50">${users.getEmail()}</span><span> </span>
+                                    <form class="space-y-4" action="./media" method="post" id="tournament" enctype="multipart/form-data">
+                                        <div class="mt-3">
+                                            <label class="block text-sm font-medium text-gray-700" for="image">Media</label>
+                                            <div class="mt-1">
+                                                <input accept="image/*" color="teal" 
+                                                       class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" 
+                                                       type="file" name="image" id="image"></div></div>
+                                        <input type="hidden" name="UID" value="${users.getUID()}">
+                                        <input type="hidden" name="ID" value="picture">
+
+
+                                        <div class="text-right sm:col-span-4">
+                                            <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                                Add image</button>
+                                        </div></form>
+
+                                </div>
                             </div>
                             <div class="col-md-5 border-right">
                                 <div class="p-3 py-5">
@@ -181,9 +198,9 @@
                                                 <input type="hidden" name="UID" value="${users.getUID()}">
                                             </div>
                                         </div>
-                                            
+
                                     </form>
-                                    
+
                                     <div class="mt-5 text-center">
                                         <button class="btn btn-primary profile-button" form="SaveProfileForm" type="submit">Save Profile</button>
                                     </div>
