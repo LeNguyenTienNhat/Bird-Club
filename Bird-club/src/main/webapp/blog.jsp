@@ -392,8 +392,6 @@
                                 text-align: center;
                             }
                         </style>
-
-
 <!--
 <script>
                                                         function openPopup() {
@@ -544,13 +542,11 @@ function closePopup() {
   font-size: 12px;
   color: #888;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> bc0b26ccf3b096a513233cf2b6c995d7ad7ba702
 
 
 </style>
+
                         <script>
                             function openPopup() {
                                 document.getElementById("popup").style.display = "block";
@@ -702,6 +698,126 @@ function closePopup() {
                             }
 
 
+</style>
+                            <script>
+                            function openPopup() {
+                                document.getElementById("popup").style.display = "block";
+                            }
+
+                            function closePopup() {
+                                document.getElementById("popup").style.display = "none";
+                            }
+
+                            </script>                       
+                        
+
+                            <style>
+                            /* Style for the article list container */
+                            /* Style for the blog container */
+                            .blog-container {
+                                margin-top: 20px;
+
+                            }
+
+                            /* Style for the article list */
+                            .blog-container ul {
+                                list-style-type: none;
+                                padding: 0;
+                                margin: 0;
+                            }
+
+                            /* Style for the "not found" message */
+                            .blog-container ul:empty::before {
+                                content: "Not found";
+                                color: #888;
+                                font-style: italic;
+                            }
+
+                            /* Style for each article item */
+                            .article-item {
+                                display: flex;
+                                margin-bottom: 20px;
+
+                            }
+
+                            /* Style for the article item container */
+                            .article-item-container {
+                                display: flex;
+                                align-items: flex-start;
+                            }
+
+                            /* Style for the article item media */
+                            .article-item-media {
+                                flex: 0 0 120px;
+                                margin-right: 20px;
+                            }
+
+                            /* Style for the article item media ratio */
+                            .article-item-media-ratio {
+                                position: relative;
+                                padding-top: 75%;
+                                overflow: hidden;
+                                width: 240px; height:185px;
+                            }
+
+                            /* Style for the "No image available" text */
+                            .article-item-media-ratio div {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                background-color: #f1f1f1;
+                                color: #888;
+                                font-style: italic;
+                            }
+
+                            /* Style for the article item image */
+                            .article-item-media-ratio img {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+
+                            /* Style for the article item body */
+                            .article-item-body {
+
+                                display: flex;
+                                flex-direction: column;
+
+                            }
+
+                            /* Style for the article item header */
+                            .article-item-header {
+                                color:#000;
+                                margin-bottom: 10px;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-start;
+                            }
+
+                            /* Style for the article item link */
+                            .article-item-link {
+                                color: #333;
+                                font-weight: bold;
+                                text-decoration: none;
+                            }
+
+                            /* Style for the attribution project */
+                            .attribution.project {
+                                font-size: 14px;
+                                color: #888;
+                            }
+
+                            /* Style for the attribution topic */
+                            .attribution.topic {
+                                font-size: 12px;
+                                color: #888;
+                            }
+                            
+
+
                         </style>
                         <div class="blog-container">
                             <ul>
@@ -730,10 +846,27 @@ function closePopup() {
                                                     </a>
                                                 </span>
                                                 <span class="attribution topic">${b.getUploadDate()}</span>
-                                                <span class="like-icon">
-                                                    <i class="far fa-thumbs-up"></i>  
-                                                    <span class="vote-count">${b.getVote()}</span>
-                                                </span>
+                                               <span class="like-icon" style="font-size: 20px;">
+    <i class="far fa-thumbs-up"></i>
+    <span class="vote-count">${b.getVote()}</span>
+    <form action="BlogController" method="post" style="display: inline;">
+        <input type="hidden" name="action" value="vote">
+        <input type="hidden" name="BLID" value="${b.getBLID()}">
+        <button type="submit" class="vote-button" style="background-color: blue; font-size: 15px;">
+            <i class="fas fa-thumbs-up black-icon"></i> Vote
+        </button>
+    </form>
+    <form action="BlogController" method="post" style="display: inline;">
+        <input type="hidden" name="action" value="dislike">
+        <input type="hidden" name="BLID" value="${b.getBLID()}">
+        <button type="submit" class="vote-button" style="background-color: red; font-size: 15px;">
+            <i class="fas fa-thumbs-down black-icon"></i> Dislike
+        </button>
+    </form>
+</span>
+
+
+
                                             </div>
                                         </div>
                                     </li>
@@ -741,23 +874,21 @@ function closePopup() {
                             </ul>
                         </div>
                         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                        <script>
-                                    $(document).ready(function () {
-                                        $('.like-icon').click(function () {
-                                            var voteCount = $(this).find('.vote-count');
-                                            var currentVote = parseInt(voteCount.text());
+                       <script>
+$(document).ready(function() {
+  $('.vote-button').click(function() {
+    var voteCount = $(this).siblings('.vote-count');
+    var currentVote = parseInt(voteCount.text());
 
-                                            if ($(this).hasClass('liked')) {
-                                                voteCount.text(currentVote - 1);
-                                            } else {
-                                                voteCount.text(currentVote + 1);
-                                            }
-
-                                            $(this).find('i').toggleClass('far fa-thumbs-up fas fa-thumbs-up');
-                                            $(this).toggleClass('liked');
-                                        });
-                                    });
-                        </script>
+    if (!$(this).hasClass('voted')) {
+      voteCount.text(currentVote + 1);
+      $(this).addClass('voted');
+      $(this).siblings('.vote-button').prop('disabled', true);
+    }
+  });
+});
+</script>
+                        
 
 
 

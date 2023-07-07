@@ -106,6 +106,28 @@ public class BlogController extends HttpServlet {
 
             // Redirect to the viewblog action to display the updated blog list
             response.sendRedirect(request.getContextPath() + "/BlogController?action=viewblog");
+        } else if (action.equals("vote")) {
+            String blid = request.getParameter("BLID");
+
+            // Create an instance of the BlogManager
+            BlogManager blogManager = new BlogManager();
+
+            // Update the vote for the specified blog
+            blogManager.updateVote(blid);
+
+            // Redirect to the viewblog action to display the updated blog list
+            response.sendRedirect(request.getContextPath() + "/BlogController?action=viewblog");
+        } else if (action.equals("dislike")) {
+            String blid = request.getParameter("BLID");
+
+            // Create an instance of the BlogManager
+            BlogManager blogManager = new BlogManager();
+
+            // Dislike the specified blog by decrementing the vote count
+            blogManager.disVote(blid);
+
+            // Redirect to the viewblog action to display the updated blog list
+            response.sendRedirect(request.getContextPath() + "/BlogController?action=viewblog");
         }
     }
 
