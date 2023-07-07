@@ -53,6 +53,10 @@ public class TransactionController extends HttpServlet {
                 request.setAttribute("successMessage", "Transaction saved successfully");
                 request.getRequestDispatcher("/payment_success.jsp").forward(request, response);
                 return;
+            }else {
+                request.setAttribute("successMessage", "Transaction saved successfully");
+                request.getRequestDispatcher("/payment_fail.jsp").forward(request, response);
+                return;
             }
         }
 
