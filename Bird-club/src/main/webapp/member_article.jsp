@@ -61,7 +61,6 @@
                 transition-delay: 0ms;
             }
         </style>
-
     </head>
 
     <body class="post-template-default single single-post postid-56828 single-format-standard wp-embed-responsive theme-green nav-column tribe-no-js">
@@ -112,6 +111,7 @@
                                             </li>
 
                                         </c:forEach>   
+                                            
                                     </ul>
                                 </div>                            
                             </div>
