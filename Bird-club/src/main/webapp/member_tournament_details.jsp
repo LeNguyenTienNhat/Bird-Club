@@ -270,16 +270,16 @@
                                         }
 
                                         .first {
-                                            height: 350px;
+                                            height: 400px;
                                         }
 
                                         .second {
-                                            height: 300px;
+                                            height: 350px;
                                             margin-top: auto;
                                         }
 
                                         .third {
-                                            height: 250px;
+                                            height: 300px;
                                             margin-top: auto;
                                             
                                         }

@@ -142,7 +142,7 @@
         </script>
 
 
-    </div>
+  
 
     <div class="separator-footer"></div>
     <footer class="footer" style="width: 100%;">
