@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.Base64" %>
 <!doctype html>
 <html class="no-js" lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
@@ -139,7 +140,25 @@
                         <div class="row">
                             <div class="col-md-3 border-right">
                                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                    <img class="rounded-circle mt-2" width="300px" src="https://th.bing.com/th/id/R.ad89a3b2edb304e617c8d31cacec9410?rik=ssCYAK%2bbpjBxSg&riu=http%3a%2f%2fwww.wallpapermaiden.com%2fimage%2f2016%2f09%2f27%2fanime-girl-profile-view-white-hair-bird-anime-6574-resized.jpg&ehk=mkP1Kkuek6SoF7RbExLk%2blk%2bozGszpEyfh5a7sTYPFI%3d&risl=&pid=ImgRaw&r=0"><span class="font-weight-bold">${birds.getName()}</span><span class="text-black-50">${birds.getDescription()}</span><span> </span></div>
+                                    <img class="rounded-circle mt-2" width="300px" src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(birds.getProfilePic())}">
+                                    <span class="font-weight-bold">${birds.getName()}</span>
+                                    <span class="text-black-50">${birds.getDescription()}</span>
+                                    <form class="space-y-4" action="./media" method="post" id="tournament" enctype="multipart/form-data">
+                                        <div class="mt-3">
+                                            <label class="block text-sm font-medium text-gray-700" for="image">Media</label>
+                                            <div class="mt-1">
+                                                <input accept="image/*" color="teal" 
+                                                       class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" 
+                                                       type="file" name="image" id="image"></div></div>
+                                        <input type="hidden" name="BID" value="${birds.getBID()}">
+                                        <input type="hidden" name="ID" value="bird">
+
+
+                                        <div class="text-right sm:col-span-4">
+                                            <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                                Add image</button>
+                                        </div></form>
+                                </div>
                             </div>
                             <div class="col-md-5 border-right">
                                 <div class="p-3 py-5">
@@ -172,7 +191,7 @@
                                                 <label class="labels">Description</label>
                                                 <input type="text" class="form-control" name="description" placeholder="Description" value="${birds.getDescription()}">
                                             </div>
-                                            
+
                                         </div>
 
                                         <div class="pt-5">
@@ -186,10 +205,12 @@
                                     <div class="mt-5 text-center">
                                         <button class="btn btn-primary profile-button" form="SaveProfileForm" type="submit">Save Profile</button>
                                     </div>
+                                    <div class="mt-5 text-center">
+                                        <a target="_self" value="${users.getUID()}" href="${pageContext.request.contextPath}/BirdController?action=viewbirdprofile&UID=${users.getUID()}" class="menu-link sub-menu-link">My bird</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                     <div>
                         <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js'></script>
