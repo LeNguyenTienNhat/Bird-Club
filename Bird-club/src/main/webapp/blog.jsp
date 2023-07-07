@@ -12,7 +12,7 @@
     <head>
         <meta charset="utf-8">
         <title>Blog</title>
-        
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         <link rel="alternate" type="application/rss+xml" title="Birds, Cornell Lab of Ornithology &raquo; Feed" href="https://www.birds.cornell.edu/home/feed/" />
         <link rel="alternate" type="application/rss+xml" title="Birds, Cornell Lab of Ornithology &raquo; Comments Feed" href="https://www.birds.cornell.edu/home/comments/feed/" />
         <link rel="alternate" type="text/calendar" title="Birds, Cornell Lab of Ornithology &raquo; iCal Feed" href="https://www.birds.cornell.edu/home/events/?ical=1" />
@@ -395,65 +395,6 @@
 
 
                         </style>
-<!--                        <div data-controller="modal" data-modal-target="container" data-modal-id-value="modal2" data-modal-persist-value="false" class="hidden fixed z-[2000] inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-                           
-                            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                                <div     data-modal-target="overlay"      data-action="click->modal#close"
-                                         class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"      aria-hidden="true"
-                                         data-transition-enter="transition ease-out duration-300"      data-transition-enter-start="opacity-0"
-                                         data-transition-enter-end="opacity-100"      data-transition-leave="transition ease-in duration-200"
-                                         data-transition-leave-start="opacity-100"      data-transition-leave-end="opacity-0"      >    </div>
-                                 This element is to trick the browser into centering the modal contents. 
-                                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-                                <div       data-modal-target="content" 
-                                           class="hidden relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full sm:p-6"
-                                           data-transition-enter="transition ease-out duration-300"      data-transition-enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                                           data-transition-enter-end="opacity-100 translate-y-0 sm:scale-100"      data-transition-leave="transition ease-in duration-200"
-                                           data-transition-leave-start="opacity-100 translate-y-0 sm:scale-100"      data-transition-leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"    >
-                                    <div class="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
-                                        <button data-action="click->modal#close" type="button" class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500">
-                                            <span class="sr-only">Close</span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class=" w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                            </svg></button></div>
-
-                                    <div class="sm:flex sm:items-start">
-                                        <turbo-frame data-modal-target="test" class="w-full" id="modal" target="_top" reloadable="" src="https://www.bird.club/clubs/birds-in-ohio/events/new?start_date=2023-06-01">
-
-                                            <h3 class="text-lg leading-6 font-medium text-gray-900">New image</h3>
-                                            <turbo-frame id="new_event" target="_top">
-
-
-
-                                                <form class="space-y-4" action="./media" method="post" id="tournament" enctype="multipart/form-data">
-                                                    <div class="mt-3">
-                                                        <label class="block text-sm font-medium text-gray-700" for="image">Media</label>
-                                                        <div class="mt-1">
-                                                            <input accept="image/*" color="teal" 
-                                                                   class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" 
-                                                                   type="file" name="image" id="image"></div></div>
-                                                    <input type="hidden" name="ID" value="${users.getUID()}">
-
-                                                    <div class="form-group">
-                                                        <label for="category">Category:</label>
-                                                        <input type="text" id="category" name="category" />
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="descriptionInput">Description:</label>
-                                                        <textarea id="descriptionInput" name="description"></textarea>
-                                                    </div>
-                                                    <div class="text-right sm:col-span-4">
-                                                        <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
-                                                            Add blog</button>
-                                                    </div></form>
-
-                                            </turbo-frame>
-                                        </turbo-frame>
-                                    </div>
-                                </div>
-                            </div>
-                                                    </div>-->
 
 <script>
                                                         function openPopup() {
@@ -500,57 +441,170 @@ function closePopup() {
   </div>
 </div>
 
+      <style>
+          /* Style for the article list container */
+/* Style for the blog container */
+.blog-container {
+  margin-top: 20px;
+  
+}
 
-                                                    
-                                                    
-                        
-                        
+/* Style for the article list */
+.blog-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 
-                        <div class="blog-container">
-                            <ul>
-                                <c:if test="${ empty blogList}"> not found </c:if>
+/* Style for the "not found" message */
+.blog-container ul:empty::before {
+  content: "Not found";
+  color: #888;
+  font-style: italic;
+}
 
-                                <c:forEach var="b" items="${blogList}">
+/* Style for each article item */
+.article-item {
+  display: flex;
+  margin-bottom: 20px;
+  
+}
 
-                                    <li class="article-item">
-                                        <div class="article-item-container">
-                                            <div class="article-item-media" data-link-to="">
-                                                <div class="article-item-media-ratio">
-                                                    <c:if test="${empty b.getPicture()}">
-                                                        <div>No image available</div>
-                                                    </c:if>
-                                                    <c:if test="${not empty b.getPicture()}">
-                                                        <img src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(b.getPicture())}" alt="Image">
-                                                    </c:if>
-                                                </div>
-                                            </div>
-                                            <div class="article-item-body">                                            
-                                                <span class="article-item-header">
-                                                    <a href="${pageContext.request.contextPath}/BlogController?action=view&BLID=${f.getBLID()}" class="article-item-link" target="_self">
-                                                        ${b.getCategory()}  </a>
-                                                        <span class="attribution project">${b.getDescription()}</span>
-                                                </span>
-                                                <span class="attribution topic">${b.getUploadDate()}</span>
-                                            </div>
-                                        </div>
-                                    </li>
+/* Style for the article item container */
+.article-item-container {
+  display: flex;
+  align-items: flex-start;
+}
 
-                                </c:forEach>   
-                            </ul>
+/* Style for the article item media */
+.article-item-media {
+  flex: 0 0 120px;
+  margin-right: 20px;
+}
+
+/* Style for the article item media ratio */
+.article-item-media-ratio {
+  position: relative;
+  padding-top: 75%;
+  overflow: hidden;
+  width: 240px; height:185px;
+}
+
+/* Style for the "No image available" text */
+.article-item-media-ratio div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f1f1;
+  color: #888;
+  font-style: italic;
+}
+
+/* Style for the article item image */
+.article-item-media-ratio img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Style for the article item body */
+.article-item-body {
+  
+   display: flex;
+  flex-direction: column;
+  
+}
+
+/* Style for the article item header */
+.article-item-header {
+    color:#000;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Style for the article item link */
+.article-item-link {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Style for the attribution project */
+.attribution.project {
+  font-size: 14px;
+  color: #888;
+}
+
+/* Style for the attribution topic */
+.attribution.topic {
+  font-size: 12px;
+  color: #888;
+}
+
+
+          </style>
+                     <div class="blog-container">
+    <ul>
+        <c:if test="${ empty blogList}"> not found </c:if>
+
+        <c:forEach var="b" items="${blogList}">
+            <li class="article-item">
+                <div class="article-item-container">
+                    <div class="article-item-media" data-link-to="">
+                        <div class="article-item-media-ratio">
+                            <c:if test="${empty b.getPicture()}">
+                                <div>No image available</div>
+                            </c:if>
+                            <c:if test="${not empty b.getPicture()}">
+                                <img src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(b.getPicture())}" alt="Image">
+                            </c:if>
                         </div>
-                        <style>
-                            .blog-container {
-                                display: grid;
-                                grid-template-columns: 1fr; /* Change the grid template to have one column */
-                                gap: 20px;
-                            }
+                    </div>
+                    <div class="article-item-body">
+                        <span class="attribution project">${b.getCategory()}</span>
+                        <span class="article-item-header">
+                            <a href="${pageContext.request.contextPath}/BlogController?action=view&BLID=${f.getBLID()}" class="article-item-link" target="_self">
+                                ${b.getDescription()}
+                            </a>
+                        </span>
+                        <span class="attribution topic">${b.getUploadDate()}</span>
+                        <span class="like-icon">
+                            <i class="far fa-thumbs-up"></i>  
+                            <span class="vote-count">${b.getVote()}</span>
+                        </span>
+                    </div>
+                </div>
+            </li>
+        </c:forEach>
+    </ul>
+</div>
 
-                            .blog-item {
-                                border: 1px solid #ccc;
-                                padding: 20px;
-                                background-color: #f2f2f2; /* Add your desired background color here */
-                            }
-                        </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.like-icon').click(function() {
+            var voteCount = $(this).find('.vote-count');
+            var currentVote = parseInt(voteCount.text());
+
+            if ($(this).hasClass('liked')) {
+                voteCount.text(currentVote - 1);
+            } else {
+                voteCount.text(currentVote + 1);
+            }
+
+            $(this).find('i').toggleClass('far fa-thumbs-up fas fa-thumbs-up');
+            $(this).toggleClass('liked');
+        });
+    });
+</script>
+
+
+                      
 
 
  </div>

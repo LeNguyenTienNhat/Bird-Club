@@ -12,6 +12,7 @@
 <html class="no-js"  lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
         <meta charset="utf-8">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         <link rel="icon" href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/favicon.jsp">
         <link href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/images/apple-icon-touch.jsp" rel="apple-touch-icon" />	
         <title>Home</title>
@@ -57,23 +58,18 @@
     <body class="home page-template page-template-page-home page-template-page-home-php page page-id-5 wp-embed-responsive theme-green nav-column tribe-no-js">
         <main id="main-content">  
 
-            <div class="content-container home" style="padding: 0px">
+            <div class="content-container home" style="padding: 20px">
                 <section id="content" class="content" aria-label="Main content">            
                     <style>
                         #hero-wrapper .hero-text { width: 520px !important; }
                     </style>
-                    <div class="is-layout-flow wp-block-group page-section has-background-image" style="background-image:url(images/banner.jsp)">
-                        <div class="is-layout-flex wp-container-11 wp-block-columns">
-                            <div class="is-layout-flow wp-block-column" style="flex-basis:50%">
-                                <h2 class="has-small-font-size" id="science-and-innovation">Chim Owner's de facto:</h2>
-                                <h3 class="remove-margin-top has-large-font-size">In connection, we trust</h3>
-                                <p>We bring together our members from all walks of life to exchange new knowledge, share experiences, and help conserve our shared natural world.</p>
-                                <div class="is-layout-flex wp-block-buttons">
-                                    <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="member_events.jsp">What's happening?</a></div>
-                                </div></div>
-                            <div class="is-layout-flow wp-block-column"></div></div>
-                    </div>
-
+                   <div class="col-inner"><div class="w-space" style="height:15px"></div><div data-animation="fadeInLeft" class="w-custom-heading">
+    <h6 style="font-size: 2.5vw;color: #000000;text-align: center;font-family:Lato;font-weight:400;font-style:normal">    Welcome to the    </h6></div><div data-animation="fadeInRight" class="w-custom-heading">
+    
+        <h6 style="font-size: 3.5vw;color: #60895f;line-height: 0;text-align: center;font-family:Lato;font-weight:700;font-style:normal; margin-top:20px; "> RED-WHISKERED BULBUL BIRD CLUB    <img src="https://stickershop.line-scdn.net/stickershop/v1/product/1077345/LINEStorePC/main.png;compress=true" alt="Red-whiskered Bulbul" style="width:100px; height: 100px;"></h6> </div><div class="w-space" style="height:50px"></div><span class="w-icon-block w-large w-none" style="color:#7f7f7f">
+       <p style="font-size: 18px;color: #606060;line-height: 24px;text-align: center;font-family:Lato;font-weight:300;font-style:normal">    Founded in 1909 by Dr. Edward Vietor, the Brooklyn Bird Club has been active in Kings County for over 100 years. Our mission is to encourage and promote birdwatching and conservation in Brooklyn and beyond.    </p>
+            </span><div class="w-space" style="height:10px"></div><div class="w-custom-heading vc_custom_1495815196787">
+   
 
                     <!--                    <div class="is-layout-flow wp-block-group alignfull page-section macaulay">
                                             <h2 class="has-text-align-center has-large-font-size" id="macaulay-library-photowall">Chim Owners' Library</h2>
@@ -88,7 +84,7 @@
                     <style>
                         #hero-wrapper .hero-text { width: 600px; }
                     </style>
-
+                    <h2>Our club activities:</h2>
                     <div class="is-layout-flow wp-block-group alignfull page-section what-you-can-do">
                         <!--                        <h2 class="has-text-align-center has-orange-color has-text-color has-small-font-size" id="what-you-can-do">What you can do</h2>-->
                         <h3 class="has-text-align-right has-orange-color has-text-color has-large-font-size">News</h3>

@@ -73,7 +73,7 @@
 
                 <div class="content-container archive page-wider">
                     <header class="article-header" aria-label="Title">
-                        <h1 id="archive-header" class="page-title">Browse All Articles</h1>
+                        <h1 id="archive-header" class="page-title" style="text-align: center;">All Articles</h1>
 
                     </header> 
                     <section aria-labelledby="archive-header">
@@ -113,19 +113,7 @@
 
                                         </c:forEach>   
                                     </ul>
-                                </div>
-                                <!--                                <div class="page-navigation"><ul class="pagination">
-                                                                        <li><span aria-current="page" class=" current">1</span></li>
-                                                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/2/">2</a></li>
-                                                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/3/">3</a></li>
-                                                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/4/">4</a></li>
-                                                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/5/">5</a></li>
-                                                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/6/">6</a></li>
-                                                                        <li><span class="dots">…</span></li>
-                                                                        <li><a class="" href="https://www.allaboutbirds.org/news/archives/page/181/">181</a></li>
-                                                                        <li><a class="next" href="https://www.allaboutbirds.org/news/archives/page/2/">»</a></li>
-                                                                    </ul>
-                                                                </div>-->
+                                </div>                            
                             </div>
                         </div>
                     </section>
