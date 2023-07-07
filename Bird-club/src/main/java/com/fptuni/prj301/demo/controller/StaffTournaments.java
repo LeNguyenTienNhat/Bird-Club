@@ -13,10 +13,8 @@ import com.fptuni.prj301.demo.model.Media;
 import com.fptuni.prj301.demo.model.Member;
 import com.fptuni.prj301.demo.model.Tournament;
 import com.fptuni.prj301.demo.model.Tparticipation;
-import java.io.ByteArrayOutputStream;
 import tool.utils.Tools;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,26 +25,41 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 public class StaffTournaments extends HttpServlet {
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         String action = request.getParameter("action");
         Tools tool = new Tools();
         TournamentManager tournamentManager = new TournamentManager();
 
         //View all tournaments
         if (action == null || action.equals("viewtournaments")) {
+            int page, skip;
+            String status = request.getParameter("status");
+            if (status == null) {
+                status = "pending";
+            }
+            try {
+                page = Integer.parseInt(request.getParameter("page"));
+                skip = (page - 1) * 5;
+            } catch (NumberFormatException e) {
+                skip = 0;
+                page = 1;
+            }
             //display tournaments
-            List<Tournament> tournamentsList = tournamentManager.getRecords(0, 0, null, "startDate");
+            List<Tournament> tournamentsList = tournamentManager.getRecords(skip, 5, status, "startDate");
+            int size = tournamentManager.getTotalNumber(status);
             LocationManager lm = new LocationManager();
             List<Location> locationsList = lm.getList();
             request.setAttribute("tournamentsList", tournamentsList);
             request.setAttribute("locationsList", locationsList);
+            request.setAttribute("pageNum", page);
+            request.setAttribute("status", status);
+            request.setAttribute("size", size);
             RequestDispatcher rd = request.getRequestDispatcher("staff_tournaments.jsp");
             rd.forward(request, response);
         } //Add a tournament      
@@ -54,11 +67,11 @@ public class StaffTournaments extends HttpServlet {
             String TID = tool.generateID("Tournament", "TID");
             String name, description, registrationDeadline, startDate, endDate, LID, note, incharge, host, contact, status = "pending";
             int fee, numberOfParticipant, totalPrize;
-            
+
             name = request.getParameter("name");
             description = request.getParameter("description");
             LID = request.getParameter("LID");
-            
+
             if (name.isEmpty()) {
                 name = "Unassigned name";
             }
@@ -72,7 +85,7 @@ public class StaffTournaments extends HttpServlet {
             note = "Not available";
             host = "Currently no one is assigned";
             contact = "Contact address currently is not available";
-            
+
             try {
                 registrationDeadline = tool.convertDateFormat(request.getParameter("registrationDeadline"));
             } catch (Exception e) {
@@ -103,14 +116,14 @@ public class StaffTournaments extends HttpServlet {
             } catch (NumberFormatException e) {
                 totalPrize = 0;
             }
-                        
+
             Tournament tournament = new Tournament(TID, name, description, registrationDeadline,
                     startDate, endDate, LID, status, fee, numberOfParticipant, totalPrize, note, incharge, host, contact);
             try {
                 tournamentManager.insert(tournament);
             } catch (ParseException ex) {
             }
-            
+
             request.setAttribute("action", "viewtournaments");
             RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
             rd.forward(request, response);
@@ -119,11 +132,11 @@ public class StaffTournaments extends HttpServlet {
             String TID = request.getParameter("TID");
             String name = request.getParameter("name");
             String description = request.getParameter("description");
-            
+
             String registrationDeadline = tool.convertDateFormat(request.getParameter("registrationDeadline"));
             String startDate = tool.convertDateFormat(request.getParameter("startDate"));
             String endDate = tool.convertDateFormat(request.getParameter("endDate"));
-            
+
             String LID = request.getParameter("LID");
             String status = request.getParameter("status").trim();
             int fee = Integer.parseInt(request.getParameter("fee"));
@@ -135,7 +148,7 @@ public class StaffTournaments extends HttpServlet {
             String contact = request.getParameter("contact");
             Tournament tournament = new Tournament(TID, name, description, registrationDeadline,
                     startDate, endDate, LID, status, fee, numberOfParticipant, totalPrize, note, incharge, host, contact);
-            
+
             tournamentManager.update(tournament);
             request.setAttribute("action", "viewtournaments");
             RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
@@ -144,7 +157,7 @@ public class StaffTournaments extends HttpServlet {
         else if (action.equals("terminatetournament")) {
             String TID = request.getParameter("TID");
             tournamentManager.updateStatus(TID, "finished");
-            
+
             request.setAttribute("action", "viewtournaments");
             RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
             rd.forward(request, response);
@@ -152,7 +165,7 @@ public class StaffTournaments extends HttpServlet {
         else if (action.equals("closeform")) {
             String TID = request.getParameter("TID");
             tournamentManager.updateStatus(TID, "formClosed");
-            
+
             request.setAttribute("action", "viewtournaments");
             RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
             rd.forward(request, response);
@@ -160,7 +173,7 @@ public class StaffTournaments extends HttpServlet {
         else if (action.equals("start")) {
             String TID = request.getParameter("TID");
             tournamentManager.updateStatus(TID, "ongoing");
-            
+
             request.setAttribute("action", "viewtournaments");
             RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
             rd.forward(request, response);
@@ -173,7 +186,7 @@ public class StaffTournaments extends HttpServlet {
             List<Location> locationsList = lm.getList();
             EventsMediaManager emm = new EventsMediaManager();
             List<Media> mediaList = emm.getImagesData(TID);
-            
+
             request.setAttribute("tournament", tournament);
             request.setAttribute("location", l);
             request.setAttribute("mediaList", mediaList);
@@ -186,7 +199,7 @@ public class StaffTournaments extends HttpServlet {
             Tournament t = tournamentManager.load(TID);
             EventsMediaManager m = new EventsMediaManager();
             List<Media> list = m.getList("TournamentMedia", TID);
-            
+
             request.setAttribute("tournament", t);
             request.setAttribute("list", list);
             RequestDispatcher rd = request.getRequestDispatcher("staff_tournament_media.jsp");
@@ -195,16 +208,19 @@ public class StaffTournaments extends HttpServlet {
             int page, skip;
             try {
                 page = Integer.parseInt(request.getParameter("page"));
-                skip = (page - 1) * 20;
+                skip = (page - 1) * 10;
             } catch (NumberFormatException e) {
                 skip = 0;
+                page = 1;
             }
-            
+
             String TID = request.getParameter("TID");
+            Tournament t = tournamentManager.load(TID);
+            String status = t.getStatus();
             TparticipationManager tm = new TparticipationManager();
             BirdManager bm = new BirdManager();
             MemberManager mm = new MemberManager();
-            List<Tparticipation> list = tm.getRecords(skip, 20, TID);
+            List<Tparticipation> list = tm.getRecords(skip, 10, TID);
             int size = tm.getParticipantListSize(TID);
             List<BirdParticipation> bl = new ArrayList();
             for (Tparticipation tp : list) {
@@ -217,29 +233,43 @@ public class StaffTournaments extends HttpServlet {
                 bp.setUID(bird.getUID());
                 bp.setFullname(member.getFullName());
                 bp.setAchievement(tp.getAchievement());
+                bp.setScore(tp.getScore().intValue());
                 bl.add(bp);
             }
-            
+
             request.setAttribute("TID", TID);
             request.setAttribute("list", bl);
             request.setAttribute("size", size);
+            request.setAttribute("pageNum", page);
+            request.setAttribute("status", status);
             RequestDispatcher rd = request.getRequestDispatcher("staff_tournament_participants.jsp");
             rd.forward(request, response);
         } else if (action.equals("updateachievement")) {
-            String achievement = (String) request.getParameter("ach");
-            String docNo = (String) request.getParameter("docNo");
-            String TID = (String) request.getParameter("TID");
+            String achievement = request.getParameter("ach");
+            String docNo = request.getParameter("docNo");
+            String TID = request.getParameter("TID");
             TparticipationManager tm = new TparticipationManager();
             tm.updateAchievement(docNo, achievement);
-            
+
+            request.setAttribute("action", "viewtournamentparticipants");
+            request.setAttribute("TID", TID);
+            RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
+            rd.forward(request, response);
+        } else if (action.equals("updatescore")) {
+            String TID = request.getParameter("TID");
+            int score = Integer.parseInt(request.getParameter("score"));
+            String docNo = request.getParameter("docNo");
+            TparticipationManager tm = new TparticipationManager();
+            tm.updateScore(score, docNo);
+
             request.setAttribute("action", "viewtournamentparticipants");
             request.setAttribute("TID", TID);
             RequestDispatcher rd = request.getRequestDispatcher("StaffTournaments");
             rd.forward(request, response);
         }
-        
+
     }
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -250,7 +280,7 @@ public class StaffTournaments extends HttpServlet {
             Logger.getLogger(StaffTournaments.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -261,5 +291,5 @@ public class StaffTournaments extends HttpServlet {
             Logger.getLogger(StaffTournaments.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }

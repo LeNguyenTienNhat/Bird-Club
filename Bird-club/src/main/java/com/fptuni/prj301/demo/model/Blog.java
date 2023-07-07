@@ -7,6 +7,7 @@ package com.fptuni.prj301.demo.model;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -16,12 +17,22 @@ public class Blog {
 
     private String BLID;
     private String description;
-    private String category;  
+    private String category;
     private Date uploadDate;
     private String UID;
     private BigDecimal vote;
     private byte[] picture;
     private String status;
+    private List<Comment> comments;
+
+    // Constructors, getters, and setters
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 
     public Blog() {
     }
@@ -100,7 +111,5 @@ public class Blog {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    
-    
+
 }

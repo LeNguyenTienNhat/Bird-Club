@@ -8,14 +8,16 @@ public class BirdParticipation {
     private String UID;
     private String fullname;
     private String achievement;
+    private int score;
 
-    public BirdParticipation(String docNo, String BID, String birdName, String UID, String fullname, String achievement) {
+    public BirdParticipation(String docNo, String BID, String birdName, String UID, String fullname, String achievement, int score) {
         this.docNo = docNo;
         this.BID = BID;
         this.birdName = birdName;
         this.UID = UID;
         this.fullname = fullname;
         this.achievement = achievement;
+        this.score = score;
     }
 
     public BirdParticipation() {
@@ -67,6 +69,14 @@ public class BirdParticipation {
 
     public void setAchievement(String achievement) {
         this.achievement = achievement;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
     
     
