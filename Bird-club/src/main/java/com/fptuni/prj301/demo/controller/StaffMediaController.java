@@ -1,10 +1,12 @@
 package com.fptuni.prj301.demo.controller;
 
+import com.fptuni.prj301.demo.dbmanager.BirdManager;
 import com.fptuni.prj301.demo.dbmanager.BlogManager;
 import com.fptuni.prj301.demo.dbmanager.EventsMediaManager;
 import com.fptuni.prj301.demo.dbmanager.GalleryManager;
 import com.fptuni.prj301.demo.dbmanager.MemberManager;
 import com.fptuni.prj301.demo.dbmanager.NewsManager;
+import com.fptuni.prj301.demo.model.Bird;
 import com.fptuni.prj301.demo.model.Blog;
 import com.fptuni.prj301.demo.model.Image;
 import com.fptuni.prj301.demo.model.Media;
@@ -45,7 +47,6 @@ public class StaffMediaController extends HttpServlet {
             GalleryManager gm = new GalleryManager();
             NewsManager nm = new NewsManager();
 
-           
             String tableName = request.getParameter("tableName");
 
             //Inserting the image for club's gallery
@@ -107,6 +108,26 @@ public class StaffMediaController extends HttpServlet {
                     // Forward the request to the member_profile.jsp
                     request.setAttribute("action", "view");
                     request.getRequestDispatcher("/member_profile.jsp").forward(request, response);
+                } else {
+                    // Handle the update failure case
+                    // Redirect to an appropriate page or display an error message
+                    response.sendRedirect(request.getContextPath() + "/error.jsp");
+                }
+            } else if (ID.contains("bird")) {
+                HttpSession session = request.getSession();
+                Bird user = (Bird) session.getAttribute("birds");
+                String BID = request.getParameter("BID");
+                BirdManager memberManager = new BirdManager();
+                boolean updateSuccess = memberManager.updateProfilePicture(pictureData, BID);
+
+                if (updateSuccess) {
+                    // Update the profile picture in the user object
+                    user.setProfilePic(pictureData);
+                    session.setAttribute("birds", user);
+
+                    // Forward the request to the member_profile.jsp
+                    request.setAttribute("action", "view");
+                    request.getRequestDispatcher("/member_BirdDetail.jsp").forward(request, response);
                 } else {
                     // Handle the update failure case
                     // Redirect to an appropriate page or display an error message

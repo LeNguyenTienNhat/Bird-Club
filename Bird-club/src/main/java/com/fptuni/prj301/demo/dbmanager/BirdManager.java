@@ -56,7 +56,6 @@ public class BirdManager {
         return birds;
     }
 
-
     public String getBirdOwnerUIDByBID(String BID) {
         String sql = "SELECT * FROM [Bird] WHERE BID = ?";
         String UID = null;
@@ -121,6 +120,21 @@ public class BirdManager {
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Failed to update due to internal error :(" + ex.getMessage());
+        }
+        return false;
+    }
+
+    public boolean updateProfilePicture(byte[] profilePicture, String BID) throws ClassNotFoundException {
+        String sql = "UPDATE [Bird] SET profilePic = ? WHERE BID = ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setBytes(1, profilePicture);
+            ps.setString(2, BID);
+            ps.executeUpdate();
+            return true; // Return true if the update is successful
+        } catch (SQLException ex) {
+            System.out.println("Failed to update profile picture due to internal error: " + ex.getMessage());
         }
         return false;
     }

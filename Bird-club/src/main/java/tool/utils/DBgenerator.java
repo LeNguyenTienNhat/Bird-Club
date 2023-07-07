@@ -25,7 +25,7 @@ public class DBgenerator {
     public byte[] ImageToByteArray(String path) throws IOException {
         BufferedImage bImage = ImageIO.read(new File(path));
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ImageIO.write(bImage, "png", bos);
+        ImageIO.write(bImage, "jpg", bos);
         byte[] data = bos.toByteArray();
         return data;
     }
@@ -82,7 +82,7 @@ public class DBgenerator {
         String[] fullnameList = db.getArrayOfLine(FULLNAME_PATH);
         //Copy absolute path of username.txt
         String[] usernameList = db.getArrayOfLine(USERNAME_PATH);
-        byte[] profilePicture = db.ImageToByteArray(USER_PROFILE_PICTURE_PATH);
+        byte[] profilePicture = db.generateProfilePictureByteArray(USER_PROFILE_PICTURE_PATH);
         for (int i = 0; i < 50; i++) {
             Member m = new Member();
             m.setUID("UID" + i);

@@ -544,6 +544,10 @@ function closePopup() {
   font-size: 12px;
   color: #888;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> bc0b26ccf3b096a513233cf2b6c995d7ad7ba702
 
 
 </style>

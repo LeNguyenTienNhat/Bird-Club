@@ -162,8 +162,10 @@ button[type="submit"]:focus {
 button[type="submit"]:active {
   background-color: teal;
 }
- .text-center {
-        text-align: center;
+
+    .row{
+        display: flex;
+        justify-content: space-between;
     }
 
                 </style>
@@ -171,7 +173,7 @@ button[type="submit"]:active {
                 <body className='snippet-body'>
                     <div class="container rounded bg-white mt-5 mb-5">
                         <div class="row">
-                         <div class="col-md-3 border-right">
+                         <div class="col-md-5 border-right">
     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
         <img class="rounded-circle mt-5" width="150px" src="data:image/png;base64,${Base64.getEncoder().encodeToString(users.getImage())}" style="width: 150px; height:150px;" onclick="showImageInput()">
         <span class="font-weight-bold">${users.getUserName()}</span>
@@ -186,12 +188,29 @@ button[type="submit"]:active {
             </div>
             <input type="hidden" name="UID" value="${users.getUID()}">
             <input type="hidden" name="ID" value="picture">
-            <div class="text-center mt-4" >
-                <button  type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" id="addImageButton">
+            <div class="text-center sm:col-span-4">
+                <button  type="submit" class=" text-center px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none  focus:ring-2 focus:ring-offset-2" id="addImageButton">
                     Add image
                 </button>
             </div>
         </form>
+            <style>
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+
+</style>
+            <div class="row mt-5">
+    <form action="${pageContext.request.contextPath}/BirdController" method="POST">
+        <input type="hidden" name="action" value="viewbirdprofile">
+        <input type="hidden" name="UID" value="${users.getUID()}">
+        <button type="submit" class="custom-button">My Bird</button>
+    </form>
+    <a class="custom-button mt-3" href="member_membership.jsp">Membership</a>
+</div>
+
     </div>
 </div>
 
@@ -222,13 +241,13 @@ button[type="submit"]:active {
 </script>
 
 
-                            <div class="col-md-5 border-right">
-                                <div class="p-3 py-5">
+                            <div class="col-md-5 border-right" style="width:57%;">
+                                <div class=" py-5">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <h4 class="text-right">Profile Settings</h4>
                                     </div>
                                     <form id="SaveProfileForm" action="MemberProfileController" method="post">
-                                        <div class="row mt-2">
+                                        <div class="row mt-3">
                                             <div class="col-md-6">
                                                 <label class="labels">Username</label>
                                                 <input type="text" class="form-control" name="userName" placeholder="User name" value="${users.getUserName()}">
@@ -259,10 +278,9 @@ button[type="submit"]:active {
                                                 <input type="hidden" name="UID" value="${users.getUID()}">
                                             </div>
                                         </div>
-
                                     </form>
 
-                                    <div class="mt-5 text-center">
+                                    <div class=" text-center">
                                         <button class="btn btn-primary profile-button" form="SaveProfileForm" type="submit">Save Profile</button>
                                     </div>
 
@@ -272,12 +290,7 @@ button[type="submit"]:active {
                                             margin-right: 85px;
                                         }
                                     </style>
-                                    <form action="${pageContext.request.contextPath}/BirdController" method="POST">
-                                        <input type="hidden" name="action" value="viewbirdprofile">
-                                        <input type="hidden" name="UID" value="${users.getUID()}">                                                                                                                      
-                                        <button type="submit" class="wp-block-button__link has-blush-light-purple-gradient-background has-background">My Bird</button>
-                                    </form>
-                                    <a href="member_membership.jsp" class="nav-link">Membership</a>
+                                    
                                 </div>
                             </div>
 
