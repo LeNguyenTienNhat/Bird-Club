@@ -272,7 +272,7 @@
                                                        type="file" name="image" id="image" onchange="loadFile(event)"></div></div>
                                         <input type="hidden" name="ID"  value="Gallery">
                                         <input type='hidden' name="tableName" value="Gallery">
-                                        <div class="sm:col-span-4" id="addimage" style="display: none">
+                                        <div class="sm:col-span-4 mt-4" id="addimage" style="display: none">
                                             <input type="text" name='description' placeholder="A brief description of the image" value="" class="w-full shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md">
                                             <button type="submit" class="mt-4 px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
                                                 Add image</button>
