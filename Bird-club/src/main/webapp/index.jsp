@@ -102,8 +102,8 @@
             <div class="body-form">
                 <h3 class="text-muted">${sessionScope.TransactionType}</h3>
                 <div class="form-group">
-                    <button onclick="querydr()" class="cancel-button" style="background-color: red;">${docT}</button>
-                    <button onclick="pay()">Thanh toán</button>
+                    <button onclick="querydr()" class="cancel-button" style="background-color: red;">hủy thanh toán</button>
+                    <button onclick="pay()">Next</button>
                 </div>
             </div>
             <div class="separator-footer"></div>
