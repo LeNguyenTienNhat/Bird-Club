@@ -21,6 +21,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import tool.utils.UIDGenerator;
 
@@ -46,7 +47,6 @@ public class BlogController extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action != null && action.equals("view")) {
-
             StaffAccountManager staffAccountManager = new StaffAccountManager();
             List<UserSession> userList = staffAccountManager.getUsersWithUnactiveStatus();
 
@@ -57,78 +57,70 @@ public class BlogController extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/staff_member.jsp");
             }
         } else if (action == null || action.equals("viewblog")) {
-            //display tournament
-            BlogManager blogmanager = new BlogManager();
-            List<Blog> blogList = blogmanager.getList();
+            // Display blog
+            BlogManager blogManager = new BlogManager();
+            List<Blog> blogList = blogManager.getList();
             request.setAttribute("blogList", blogList);
+
+            // Get the current scroll position from the request parameter
+            int scrollPosition = 0;
+            if (request.getParameter("scrollPosition") != null) {
+                scrollPosition = Integer.parseInt(request.getParameter("scrollPosition"));
+            }
+            request.setAttribute("scrollPosition", scrollPosition);
 
             RequestDispatcher rd = request.getRequestDispatcher("blog.jsp");
             rd.forward(request, response);
-        } else if (action.equals("addblog")) {
-            // Process adding a new blog
-            String blid = UIDGenerator.generateBlogID();
-            String description = request.getParameter("description");
-            String category = request.getParameter("category");
-            String UID = request.getParameter("UID");
-
-            // Retrieve the image file from the request
-            Part filePart = request.getPart("image");
-            InputStream inputStream = filePart.getInputStream();
-
-            // Read the image data into a byte array
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = inputStream.read(buffer)) != -1) {
-                outputStream.write(buffer, 0, length);
-            }
-            byte[] pictureData = outputStream.toByteArray();
-
-            inputStream.close();
-            outputStream.close();
-
-            // Create a new Blog object and set its properties
-            Blog newBlog = new Blog();
-            newBlog.setBLID(blid);
-            newBlog.setDescription(description);
-            newBlog.setCategory(category);
-            newBlog.setUploadDate(new Date()); // Set upload date to current date
-            newBlog.setUID(UID); // Set the UID accordingly
-            newBlog.setVote(BigDecimal.ZERO); // Set vote to default value 0
-            newBlog.setPicture(pictureData);
-            newBlog.setStatus("idle"); // Set status to default value "idle"
-
-            // Create an instance of the BlogManager
-            BlogManager blogManager = new BlogManager();
-
-            // Add the new blog entry to the database
-            blogManager.addBlog(newBlog);
-
-            // Redirect to the viewblog action to display the updated blog list
-            response.sendRedirect(request.getContextPath() + "/BlogController?action=viewblog");
         } else if (action.equals("vote")) {
             String blid = request.getParameter("BLID");
 
             // Create an instance of the BlogManager
             BlogManager blogManager = new BlogManager();
+            HttpSession session = request.getSession();
 
-            // Update the vote for the specified blog
-            blogManager.updateVote(blid);
+            try {
+                // Update the vote for the specified blog
+                blogManager.updateVote(blid);
+                session.setAttribute(blid + "_like", "ok");
+                session.setAttribute(blid + "_dislike", "!ok");
+            } catch (Exception e) {
+                // Handle any exceptions that occur during the vote update
+                e.printStackTrace(); // You can change this to appropriate error handling
+            }
 
             // Redirect to the viewblog action to display the updated blog list
-            response.sendRedirect(request.getContextPath() + "/BlogController?action=viewblog");
+            String scrollPosition = request.getParameter("scrollPosition");
+            String redirectURL = request.getContextPath() + "/BlogController?action=viewblog&BLID=" + blid;
+            if (scrollPosition != null) {
+                redirectURL += "&scrollPosition=" + scrollPosition;
+            }
+            response.sendRedirect(redirectURL);
         } else if (action.equals("dislike")) {
             String blid = request.getParameter("BLID");
 
             // Create an instance of the BlogManager
             BlogManager blogManager = new BlogManager();
+            HttpSession session = request.getSession();
 
-            // Dislike the specified blog by decrementing the vote count
-            blogManager.disVote(blid);
+            try {
+                // Dislike the specified blog by decrementing the vote count
+                blogManager.disVote(blid);
+                session.setAttribute(blid + "_like", "!ok");
+                session.setAttribute(blid + "_dislike", "ok");
+            } catch (Exception e) {
+                // Handle any exceptions that occur during the vote update
+                e.printStackTrace(); // You can change this to appropriate error handling
+            }
 
             // Redirect to the viewblog action to display the updated blog list
-            response.sendRedirect(request.getContextPath() + "/BlogController?action=viewblog");
+            String scrollPosition = request.getParameter("scrollPosition");
+            String redirectURL = request.getContextPath() + "/BlogController?action=viewblog&BLID=" + blid;
+            if (scrollPosition != null) {
+                redirectURL += "&scrollPosition=" + scrollPosition;
+            }
+            response.sendRedirect(redirectURL);
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
