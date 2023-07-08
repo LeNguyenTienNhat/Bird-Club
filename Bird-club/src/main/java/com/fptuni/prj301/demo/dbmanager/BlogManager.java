@@ -76,6 +76,36 @@ public class BlogManager {
         }
     }
 
+    public void updateVote(String blogID) {
+        String sql = "UPDATE Blog SET vote = vote + 1 WHERE BLID = ?";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, blogID);
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle the exception or rethrow it to handle it at a higher level
+        }
+    }
+
+    public void disVote(String blogID) {
+        String sql = "UPDATE Blog SET vote = CASE WHEN vote > 0 THEN vote - 1 ELSE 0 END WHERE BLID = ?";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, blogID);
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle the exception or rethrow it to handle it at a higher level
+        }
+    }
+
     public static List<String> ExistingBID() {
         List<String> existingBLIDs = new ArrayList<>();
         String sql = "SELECT BLID FROM Blog";

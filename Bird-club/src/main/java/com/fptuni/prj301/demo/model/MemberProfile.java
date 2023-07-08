@@ -16,6 +16,15 @@ public class MemberProfile {
     private String gender;
     private String phone;
     private String email;
+    private byte[] profilePicture;
+
+    public byte[] getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
+    }
 
 
     public MemberProfile() {

@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import tool.utils.DBgenerator;
 import tool.utils.Tools;
 
 /**
@@ -57,10 +58,11 @@ public class BirdProfileController extends HttpServlet {
             String UID = request.getParameter("UID");
             BirdManager birdManager = new BirdManager();
             Bird birds = birdManager.getBirdByBID(bid);
+             HttpSession session = request.getSession();
 
             if (birds != null) {
                 // Store the Tparticipation object in request scope
-                request.setAttribute("birds", birds);
+               session.setAttribute("birds", birds);
                 // Forward the request to the view page
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/member_BirdDetail.jsp");
                 dispatcher.forward(request, response);
@@ -82,7 +84,8 @@ public class BirdProfileController extends HttpServlet {
                 description = "Content hasn't been uploaded yet";
             }
             String color = request.getParameter("color");
-            byte[] profilePic = new byte[0xFFFFFF];
+            DBgenerator d = new DBgenerator();
+            byte[] profilePic = d.ImageToByteArray("D:\\gt\\Bird-club\\src\\main\\webapp\\media\\bird.jpg");
             Bird b = new Bird(BID, UID, name, age, gender, description, color, profilePic);
             bird.insert(b);
             request.setAttribute("birds", b);

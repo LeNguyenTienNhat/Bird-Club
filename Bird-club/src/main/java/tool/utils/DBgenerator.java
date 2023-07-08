@@ -15,7 +15,7 @@ import javax.imageio.ImageIO;
 public class DBgenerator {
 
     //Absolute path of user.png in media folder
-    String USER_PROFILE_PICTURE_PATH = "C:\\Users\\Tue\\Documents\\SWP\\Bird-club\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\user.jpg";
+    String USER_PROFILE_PICTURE_PATH = "C:\\Users\\Tue\\Documents\\SWP\\Bird-club\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\user.png";
     //Absolute path of bird.jpg in media folder
     String BIRD_PROFILE_PICTURE_PATH = "C:\\Users\\Tue\\Documents\\SWP\\Bird-club\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\bird.jpg";
     String FULLNAME_PATH = "C:\\Users\\Tue\\Documents\\SWP\\Bird-club\\Bird-Club\\Bird-club\\fullName.txt";
@@ -23,6 +23,14 @@ public class DBgenerator {
     String BIRDNAME_PATH = "C:\\Users\\Tue\\Documents\\SWP\\Bird-club\\Bird-Club\\Bird-club\\petName.txt";
 
     public byte[] ImageToByteArray(String path) throws IOException {
+        BufferedImage bImage = ImageIO.read(new File(path));
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ImageIO.write(bImage, "jpg", bos);
+        byte[] data = bos.toByteArray();
+        return data;
+    }
+
+    public byte[] generateProfilePictureByteArray(String path) throws IOException {
         BufferedImage bImage = ImageIO.read(new File(path));
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ImageIO.write(bImage, "png", bos);
@@ -74,7 +82,7 @@ public class DBgenerator {
         String[] fullnameList = db.getArrayOfLine(FULLNAME_PATH);
         //Copy absolute path of username.txt
         String[] usernameList = db.getArrayOfLine(USERNAME_PATH);
-        byte[] profilePicture = db.ImageToByteArray(USER_PROFILE_PICTURE_PATH);
+        byte[] profilePicture = db.generateProfilePictureByteArray(USER_PROFILE_PICTURE_PATH);
         for (int i = 0; i < 50; i++) {
             Member m = new Member();
             m.setUID("UID" + i);

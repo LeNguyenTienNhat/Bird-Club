@@ -132,7 +132,7 @@
                 <input type="hidden" name="TT" value="${sessionScope.TransactionType}" />
                 <input type="hidden" name="docT" value="${docT}">
                 <div class="button-group-save ${not empty successMessage ? 'hidden' : ''}">
-                    <button style="margin-top:10px;" type="submit" class="btn btn-default" id="btnLuu">Lưu</button>
+                    <button style="margin-top:10px;" type="submit" class="btn btn-default" id="btnLuu">thanh toán</button>
                 </div>
             </form>
         </div>
@@ -142,7 +142,7 @@
         </script>
 
 
-    </div>
+  
 
     <div class="separator-footer"></div>
     <footer class="footer" style="width: 100%;">

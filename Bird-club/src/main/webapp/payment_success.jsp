@@ -38,7 +38,9 @@
                 justify-content: center;
                 align-items: center;
                 margin-top: 20px;
+                width:100%;
             }
+            
 
             .separator-header,
             .separator-footer {
@@ -81,6 +83,16 @@
                 display: flex;
                 align-items: center;
             }
+            .fa-check-circle {
+    color: green; /* Sets the color to green */
+    font-size: 24px;
+    
+            }
+            .back-icon {
+        color: black;
+          text-decoration: none;
+          font-size: 18px;
+    }
         </style>
 
         <meta charset="utf-8">
@@ -92,6 +104,7 @@
         <link href="/vnpay_jsp/assets/bootstrap.min.css" rel="stylesheet"/>
         <link href="/vnpay_jsp/assets/jumbotron-narrow.css" rel="stylesheet">      
         <script src="/vnpay_jsp/assets/jquery-1.11.3.min.js"></script>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     </head>
     <body>        
         <div class="container">
@@ -99,13 +112,12 @@
                 <img src="https://i0.wp.com/discvietnam.com/wp-content/uploads/2020/07/C%E1%BB%95ng-thanh-to%C3%A1n-VNPAY-Logo-Th%E1%BA%BB-ATM-T%C3%A0i-kho%E1%BA%A3n-ng%C3%A2n-h%C3%A0ng-Online-Banking-M%C3%A3-QR-QR-Pay-Qu%C3%A9t-QR-Transparent.png?fit=360%2C140&ssl=1" alt="VNPAY Logo" width="115.95" height="32" />
             </div>
             <div class="separator-header"></div>
-            <div class="body-form">
-                <h3 class="text-muted">${sessionScope.TransactionType}</h3>
-                <div class="form-group">
-                    <button onclick="querydr()" class="cancel-button" style="background-color: red;">hủy thanh toán</button>
-                    <button onclick="pay()">Next</button>
-                </div>
-            </div>
+            <div class="body-form" style="position: relative;">
+                 <a href="javascript:history.back()" class="back-icon" style="position: absolute; top: 0; left: 0;">
+        &#8592; Back
+    </a>
+    <h3><i class="fas fa-check-circle"></i> Successful payment </h3>
+</div>
             <div class="separator-footer"></div>
 
             <footer class="footer" style="width: 100%;">

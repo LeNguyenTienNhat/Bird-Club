@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import tool.utils.DBgenerator;
 import tool.utils.Mailer;
 import tool.utils.UIDGenerator;
 
@@ -81,7 +82,8 @@ public class UserAccessController extends HttpServlet {
             String phone = request.getParameter("phone");
             String email = request.getParameter("email");
             String gender = request.getParameter("gender");
-            byte[] profilePic = new byte[0xFFFFFF];
+            DBgenerator d = new DBgenerator();
+            byte[] profilePic = d.generateProfilePictureByteArray("D:\\gt\\Bird-club\\src\\main\\webapp\\media\\user.png");
             // Check if username or email already exists
             UserAccessManager userDao = new UserAccessManager();
             boolean isUserExists = userDao.checkUserExists(username);
