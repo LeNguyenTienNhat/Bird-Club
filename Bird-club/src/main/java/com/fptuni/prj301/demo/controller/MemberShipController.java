@@ -63,7 +63,7 @@ public class MemberShipController extends HttpServlet {
                 ss.setAttribute("docT", docNo);
                 response.sendRedirect(request.getContextPath() + "/index.jsp");
             } else {
-                response.sendRedirect(request.getContextPath() + "/EventDetails.jsp");
+                response.sendRedirect(request.getContextPath() + "/error.html");
             }
         } 
 
