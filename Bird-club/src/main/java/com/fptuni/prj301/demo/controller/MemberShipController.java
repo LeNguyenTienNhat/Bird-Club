@@ -120,7 +120,7 @@ public class MemberShipController extends HttpServlet {
          else if (action.equals("donate")) {
              String docNo = UIDGenerator.generateDocD();
             request.setAttribute("docT", docNo);
-             ss.setAttribute("TransactionType", "donate");
+             ss.setAttribute("TransactionType", "donation");
                 ss.setAttribute("docT", docNo);
 
             response.sendRedirect(request.getContextPath() + "/index.jsp");

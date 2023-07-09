@@ -1,3 +1,5 @@
+<%@page import="java.util.Base64"%>
+<%@page import="com.fptuni.prj301.demo.model.UserSession"%>
 <%@page import="com.fptuni.prj301.demo.model.Location"%>
 <%@page import="com.fptuni.prj301.demo.model.Meeting"%>
 <%@page import="com.fptuni.prj301.demo.model.Fieldtrip"%>
@@ -102,44 +104,43 @@
                                 <div data-controller="dropdown">
                                     <div data-dropdown-target="button" data-action="click->dropdown#toggleMenu click@window->dropdown#hideMenu">
 
+                                        <% UserSession user = (UserSession) session.getAttribute("users");
+                                            String fullname = user.getFullName();
+                                            String email = user.getEmail();
+                                            byte[] avatar = user.getImage();
+                                        %>                                                                                
                                         <div>
                                             <button type="button" class="max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                                 <div class="w-8 h-8 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden  flex-shrink-0">
-                                                    <img src="https://staticg.sportskeeda.com/editor/2021/04/bd904-16194408810325-800.jpg" />
-                                                </div> 
-                                                <span class="hidden ml-3 text-gray-700 text-sm font-medium lg:block"><span class="sr-only">Open user menu for </span>Nguoi choi chim</span>
+                                                    <% out.print("<img src='data:image/jpg;base64," + Base64.getEncoder().encodeToString(user.getImage()) + "'>"); %>
+                                                </div>
+                                                <span class="hidden ml-3 text-gray-700 text-sm font-medium lg:block"> <% out.print(fullname); %>  </span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="hidden flex-shrink-0 ml-1 h-5 w-5 text-gray-400 lg:block w-5 h-5">
                                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                                </svg></button>
+                                                </svg>
+                                            </button>
                                         </div>
-
                                     </div>
-
                                     <div 
                                         class="hidden z-10 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-100" 
                                         role="menu" 
                                         aria-orientation="vertical" 
                                         aria-labelledby="menu-button" 
                                         tabindex="-1"
-
                                         data-dropdown-target="menu"
                                         data-transition-enter="transition ease-out duration-100"
                                         data-transition-enter-start="transform opacity-0 scale-95"
                                         data-transition-enter-end="transform opacity-100 scale-100"
-
                                         data-transition-leave="transition ease-in duration-75"
                                         data-transition-leave-start="transform opacity-100 scale-100"
                                         data-transition-leave-end="transform opacity-0 scale-95"
                                         >
-
                                         <div class="px-4 py-3" role="none">
                                             <p class="text-sm" role="none">Signed in as</p>
-                                            <p class="text-sm font-medium text-gray-900 truncate" role="none">kaedeharayamamoto@gmail.com</p>
+                                            <p class="text-sm font-medium text-gray-900 truncate" role="none"> <% out.print(email); %> </p>
                                         </div>
-
-
                                         <div class="py-1" role="none">
-                                            <a data-turbo-method="delete" class="hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm" href="/members/sign_out"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5">
+                                            <a data-turbo-method="delete" class="hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm" href="login.jsp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
                                                 </svg>
                                                 Sign out</a>
@@ -833,7 +834,6 @@
                                                     + "<path d='M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z'/>"
                                                     + "<path d='M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1.5a.5.5 0 0 0 1 0V11a.5.5 0 0 0-.5-.5Zm0 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z'/>"
                                                     + "</div><div class='font-semibold text-gray-700 space-x-2'>Participant limit:   </div> <div>" + m.getNumberOfParticipant() + " members</div></div>"
-                                                    
                                                     + "<div class='mt-2 flex items-start space-x-3'>"
                                                     + "<div class='mt-0.5'><span class='sr-only'></span>"
                                                     + "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-info-circle-fill text-gray-400' viewBox='0 0 16 16'>"
@@ -935,7 +935,7 @@
 
             <div class="pt-6 flex items-center justify-between">
                 <div class="hidden sm:block">
-                            <span class="pagy-info">Displaying <b><% out.print(fList.size() + mList.size()); %></b> event(s)</span>
+                    <span class="pagy-info">Displaying <b><% out.print(fList.size() + mList.size()); %></b> event(s)</span>
                 </div>
                 <nav class="pagy-nav pagination">
                     <%! int i;%>

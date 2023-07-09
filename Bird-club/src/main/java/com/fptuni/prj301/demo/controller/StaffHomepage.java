@@ -31,6 +31,7 @@ public class StaffHomepage extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         String action = request.getParameter("action");
+        
         Tools tool = new Tools();
         FieldtripManager fm = new FieldtripManager();
         MeetingManager mm = new MeetingManager();
@@ -84,6 +85,8 @@ public class StaffHomepage extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("staff_homepage.jsp");
             rd.forward(request, response);
         }
+        
+        
     }
 
     @Override
