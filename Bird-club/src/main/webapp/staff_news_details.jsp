@@ -270,16 +270,7 @@
         <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
 
             <div class="grid grid-cols-1 items-start lg:grid-cols-5 lg:gap-8">
-                <div class="grid grid-cols-1 gap-4 lg:col-span-5">
-
-                    <div class="sm:flex sm:items-center px-4 sm:px-0">
-                        <div class="sm:flex-auto">
-                            <h1 class="text-xl font-semibold text-gray-900">Field trip name</h1>
-                            <p class="mt-2 text-sm text-gray-700">
-
-                            </p>
-                        </div>
-                    </div>                   
+                <div class="grid grid-cols-1 gap-4 lg:col-span-5">                 
 
                     <section aria-labelledby="profile-overview-title">
                         <div class="bg-white shadow sm:rounded-lg">
@@ -318,10 +309,6 @@
                                                                 </select>
 
                                                             </div>
-                                                            <p class="mt-2 text-sm text-gray-500">
-                                                                Normal: A normal article. It locates somewhere on the user's News screen. <br>
-                                                                Trending: Hot one. Put this on the news feed/headline. Our fellows must see this.<br>
-                                                                Hidden: In case you don't want to overwhelm your fellows with enormous amount of content. Or you accidently wrote a stupid article and wanted to prevent the members from seeing this (which is more likely). Eliminate completely "Tin chuan chua anh?".<br></p>
                                                         </div>
 
                                                         <div class="sm:col-span-6">
@@ -335,10 +322,6 @@
                                                                 </select>
 
                                                             </div>
-                                                            <p class="mt-2 text-sm text-gray-500">
-                                                                News: Just news. Like a new events is coming, or overall notices.  <br>
-                                                                Announcement: You want to inform people about a tournament's result.<br>
-                                                                Article: In case you want to write an academic article. Or you want to flex your academic.<br></p>
                                                         </div>
 
                                                         <div class="sm:col-span-4 md:col-span-2">
@@ -346,7 +329,7 @@
                                                             <div class="mt-1">
                                                                 <textarea rows="15" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="content"  id="content"><% out.print(n.getNewsContent()); %></textarea>
                                                             </div>
-                                                            <p class="mt-2 text-sm text-gray-500">Not a brief content, as you have to write more to help prevent any confusion. Unless the readers are a bunch of TikTok retards who can't barely read any text that's longer than 100 characters.</p>
+                                                            <p class="mt-2 text-sm text-gray-500">Not a brief content, as you have to write more to help prevent any confusion.</p>
                                                         </div>
 
                                                     </div>

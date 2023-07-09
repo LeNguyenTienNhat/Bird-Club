@@ -7,6 +7,7 @@ import com.fptuni.prj301.demo.dbmanager.MeetingManager;
 import com.fptuni.prj301.demo.dbmanager.MemberManager;
 import com.fptuni.prj301.demo.dbmanager.TournamentManager;
 import com.fptuni.prj301.demo.dbmanager.TparticipationManager;
+import com.fptuni.prj301.demo.dbmanager.TransactionManager;
 import com.fptuni.prj301.demo.model.Blog;
 import com.fptuni.prj301.demo.model.Fieldtrip;
 import com.fptuni.prj301.demo.model.Meeting;
@@ -68,6 +69,13 @@ public class StaffHomepage extends HttpServlet {
             for (int i = 1; i < memberList.size(); i++) {
                 bList.add(bList.get(i - 1) + memberList.get(i));
             }
+            //Data for revenue chart
+            TransactionManager trm = new TransactionManager();
+            List<Integer> revenueList = new ArrayList();
+            int membership = trm.countNumAsTransactionType("membership"); revenueList.add(membership);
+            int fee = trm.countNumAsTransactionType("fee"); revenueList.add(fee);
+            int donation = trm.countNumAsTransactionType("donation"); revenueList.add(donation);
+                        
             //Data for top blog            
             List<Blog> blogList = bm.getTopBlog(1);
 
@@ -82,6 +90,7 @@ public class StaffHomepage extends HttpServlet {
             request.setAttribute("topFieldtrip", topFieldtrip);
             request.setAttribute("topMeeting", topMeeting);
             request.setAttribute("blogList", blogList);
+            request.setAttribute("revenueList", revenueList);
             RequestDispatcher rd = request.getRequestDispatcher("staff_homepage.jsp");
             rd.forward(request, response);
         }

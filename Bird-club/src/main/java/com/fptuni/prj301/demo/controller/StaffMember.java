@@ -76,7 +76,8 @@ public class StaffMember extends HttpServlet {
             request.setAttribute("page", page);
             RequestDispatcher rd = request.getRequestDispatcher("staff_members_birds.jsp");
             rd.forward(request, response);
-        } else if (action.equals("viewguests")) {
+        } //view pending approval
+        else if (action.equals("viewguests")) {
             int guestPage, guestSkip, ignoredPage, ignoredSkip;
             try {
                 guestPage = Integer.parseInt(request.getParameter("guestPage"));
@@ -119,9 +120,9 @@ public class StaffMember extends HttpServlet {
             Member member = manager.load(UID);
             BirdManager bm = new BirdManager();
             List<Bird> list = bm.getBirdsByUID(UID);
-            Tools tool = new Tools();            
+            Tools tool = new Tools();
             int size = list.size();
-            
+
             request.setAttribute("member", member);
             request.setAttribute("list", list);
             request.setAttribute("size", size);

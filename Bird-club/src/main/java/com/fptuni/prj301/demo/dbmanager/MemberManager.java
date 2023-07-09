@@ -17,7 +17,7 @@ public class MemberManager {
 
     public List<Member> getRecords(int skip, int numOfRow, String role, String orderCategory) throws ClassNotFoundException {
         List<Member> list = new ArrayList<>();
-        String sql = "SELECT * FROM [User] WHERE role=? "
+        String sql = "SELECT * FROM [User] WHERE role=? AND MID!='MID00' "
                 + "ORDER BY " + orderCategory;
         try {
             Connection conn = DBUtils.getConnection();

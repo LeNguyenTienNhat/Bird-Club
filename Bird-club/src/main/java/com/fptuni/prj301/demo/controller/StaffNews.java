@@ -28,7 +28,19 @@ public class StaffNews extends HttpServlet {
 
         //View all news
         if (action == null || action.equals("viewnews")) {
-            List<News> list = nm.getList();
+            int page, skip;
+            String category = request.getParameter("category");
+            if (category == null) {
+                category = "all";
+            }
+            try {
+                page = Integer.parseInt(request.getParameter("page"));
+                skip = (page - 1) * 5;
+            } catch (NumberFormatException e) {
+                skip = 0;
+                page = 1;
+            }
+            List<News> list = nm.getRecords(skip, 5, category);
             for (News n : list) {
                 String shortDescription;
                 try {
@@ -38,10 +50,19 @@ public class StaffNews extends HttpServlet {
                 }
                 n.setNewsContent(shortDescription + "...");
             }
-            int numOfNews = list.size();
+            int totalNum = nm.countNumAsCategory(category);
 
+            int numOfNews = nm.countNumAsCategory("News");
+            int numOfAnnouncement = nm.countNumAsCategory("Announcement");
+            int numOfArticle = nm.countNumAsCategory("Article");
+            
             request.setAttribute("list", list);
-            request.setAttribute("numOfNews", numOfNews);
+            request.setAttribute("category", category);
+            request.setAttribute("pageNum", page);
+            request.setAttribute("totalNum", totalNum);     
+            request.setAttribute("numOfNews", numOfNews);  
+            request.setAttribute("numOfAnnouncement", numOfAnnouncement);  
+            request.setAttribute("numOfArticle", numOfArticle);  
             RequestDispatcher rd = request.getRequestDispatcher("staff_news.jsp");
             rd.forward(request, response);
         } //Upload a news

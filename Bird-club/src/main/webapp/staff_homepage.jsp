@@ -539,14 +539,17 @@
 
 
                 <div class="bg-white shadow sm:rounded-lg p-6">                                                                   
-                    <h3 class="font-bold text-gray-700 truncate">Top 10</h3>
+                    <h3 class="font-bold text-gray-700 truncate">Revenue</h3>
                     <canvas id="pieChart" class="p-6"></canvas>
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <% List<Integer> revenueList = (List<Integer>) request.getAttribute("revenueList"); %>
                     <script>
                         const pieChart = document.getElementById('pieChart');
-                        var pieChartData = {labels: ['Red', 'Blue', 'Yellow'],
-                                datasets: [{label: 'My First Dataset', data: [300, 50, 100],
-                                        backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
+                        var pieChartData = {labels: ['Membership', 'Fee', 'Donation'],
+                                datasets: [{label: 'Revenue overall', data: [
+                        <% out.print(revenueList.get(0)+", "+revenueList.get(1)+", "+revenueList.get(2)); %>
+                                        ],
+                                        backgroundColor: ['rgb(77, 205, 207)', 'rgb(31, 82, 83)', 'rgb(45, 121, 122)'],
                                         hoverOffset: 4}]};
                         var firstPieChart = new Chart(pieChart, {type: 'pie', data: pieChartData});
                     </script>                                                

@@ -126,8 +126,6 @@ public class NewsManager {
         return n;
     }
 
- 
-
     public void update(News n) throws ClassNotFoundException {
         String sql = "UPDATE News SET title = ?, category = ?, "
                 + "newsContent = ? , status = ? WHERE NID = ?";
@@ -157,33 +155,98 @@ public class NewsManager {
             System.out.println("Failed to update due to internal error :(" + ex.getMessage());
         }
     }
+
     public static void main(String[] args) {
-    try {
-        // Create a new News object with the required data
-        News news = new News();
-        news.setNID("NID40");
-        news.setUID("UID1");
-        news.setTitle("Sample News");
-        news.setCategory("General");
-        news.setNewsContent("This is a sample news article.");
-        news.setStatus("Published");
-        // Set the upload date and time, assuming it's in the format "dd/MM/yyyy HH:mm"       
-        
-        news.setUploadDate("01/07/2023");
+        try {
+            // Create a new News object with the required data
+            News news = new News();
+            news.setNID("NID40");
+            news.setUID("UID1");
+            news.setTitle("Sample News");
+            news.setCategory("General");
+            news.setNewsContent("This is a sample news article.");
+            news.setStatus("Published");
+            // Set the upload date and time, assuming it's in the format "dd/MM/yyyy HH:mm"       
 
-        // Add an example image as a byte array (replace with your own image data)
-        byte[] image = "Example Image Data".getBytes();
-        news.setPicture(image);
+            news.setUploadDate("01/07/2023");
 
-        // Create an instance of the NewsManager class
-        NewsManager newsManager = new NewsManager();
+            // Add an example image as a byte array (replace with your own image data)
+            byte[] image = "Example Image Data".getBytes();
+            news.setPicture(image);
 
-        // Call the insert method to insert the news into the database
-        newsManager.insert(news);
+            // Create an instance of the NewsManager class
+            NewsManager newsManager = new NewsManager();
 
-        System.out.println("News inserted successfully!");
-    } catch (Exception e) {
-        System.out.println("Failed to insert news: " + e.getMessage());
+            // Call the insert method to insert the news into the database
+            newsManager.insert(news);
+
+            System.out.println("News inserted successfully!");
+        } catch (Exception e) {
+            System.out.println("Failed to insert news: " + e.getMessage());
+        }
     }
-}
+
+    public List<News> getRecords(int skip, int numOfRow, String category) {
+        List<News> list = new ArrayList();
+        String sql = "SELECT * FROM [News] ";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps;
+            if (!category.equals("all")) {
+                sql = sql + " WHERE category=? "
+                        + " ORDER BY uploadDate DESC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, category);
+                ps.setInt(2, skip);
+                ps.setInt(3, numOfRow);
+            } else {
+                sql = sql + " ORDER BY uploadDate DESC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+                ps = conn.prepareStatement(sql);
+                ps.setInt(1, skip);
+                ps.setInt(2, numOfRow);
+            }
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                News n = new News();
+                n.setNID(rs.getString("NID"));
+                n.setUID(rs.getString("UID"));
+                n.setTitle(rs.getString("title"));
+                n.setCategory(rs.getString("category"));
+                n.setNewsContent(rs.getString("newsContent"));
+
+                String formattedDate = tool.trimDate(rs.getString("uploadDate"));
+                formattedDate = tool.convertDisplayDate(formattedDate);
+                n.setUploadDate(formattedDate);
+
+                n.setStatus(rs.getString("status"));
+                n.setPicture(rs.getBytes("picture"));
+                list.add(n);
+            }
+        } catch (SQLException e) {
+        }
+        return list;
+    }
+    
+        public int countNumAsCategory(String category) {
+        int count = 0;
+        String sql = "SELECT COUNT(NID) as num FROM [News] ";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps;
+            if (!category.equals("all")) {
+                sql = sql + " where category = ? ";
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, category);
+            } else {
+                ps = conn.prepareStatement(sql);
+            }
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt("num");
+            }
+        } catch (SQLException e) {
+        }
+        return count;
+    }
+
 }
