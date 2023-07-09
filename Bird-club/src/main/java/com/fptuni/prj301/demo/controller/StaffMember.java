@@ -106,12 +106,17 @@ public class StaffMember extends HttpServlet {
         else if (action.equals("approvemember")) {
             String UID = request.getParameter("UID");
             manager.updateRole(UID, "member");
-
+            manager.updateStatus(UID, "activated");
             MemberManager mm = new MemberManager();
-            String email = mm.getUserEmail(UID);
+            Member member = mm.load(UID);
+            String email = member.getEmail();
+            String fullname = member.getFullName();
+            String gender = member.getGender();
+            if (gender.equalsIgnoreCase("male")) gender="Mr.";
+            else gender="Mrs.";
             EmailSender e = new EmailSender();
-            e.sendEmail(email, "Approval notification", ""
-                    + "Congratulation on becoming one of ChimOwners' members", "http://localhost:8080/chimowners/");
+            e.sendEmail(email, "Approval notification", "<p>Dear " +gender+" "+fullname+ "</p>"
+                    + "<p>Congratulation on becoming one of ChimOwners' members</p>", "http://localhost:8080/chimowners/");
             RequestDispatcher rd = request.getRequestDispatcher("StaffMember");
             rd.forward(request, response);
         } //view a member's details

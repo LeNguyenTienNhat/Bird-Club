@@ -21,13 +21,21 @@ import java.sql.SQLException;
  */
 public class MemberShipManager {
 
-    public List<MemberShip> getAllRecords() {
+    public List<MemberShip> getAllRecords(String requestedStatus) {
         List<MemberShip> records = new ArrayList<>();
-        String sql = "SELECT * FROM Membership WHERE status='available' ";
+        String sql = "SELECT * FROM Membership ";
 
-        try (Connection conn = DBUtils.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql);
-                ResultSet rs = ps.executeQuery()) {
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps;
+            if (!requestedStatus.equals("all")) {
+                sql = sql + " WHERE status = ? ";
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, requestedStatus);
+            } else {
+                ps = conn.prepareStatement(sql);
+            }
+            ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 String MID = rs.getString("MID");
@@ -168,13 +176,13 @@ public class MemberShipManager {
             System.out.println("Insertion failed due to internal error :(" + ex.getMessage());
         }
     }
-    
+
     public void update(MemberShip m) {
         String sql = "UPDATE Membership SET name = ?, value = ?, duration = ?, description = ?,"
                 + "status = ? WHERE MID = ?";
         try {
             Connection conn = DBUtils.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);       
+            PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, m.getName());
             ps.setBigDecimal(2, m.getValue());
             ps.setString(3, m.getDuration());

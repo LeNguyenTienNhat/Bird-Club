@@ -45,7 +45,7 @@ public class MemberShipController extends HttpServlet {
         
         //MEMBER INTERFACE: View a list of memberships
         if (action.equals("view")) {
-            List<MemberShip> records = mbs.getAllRecords();
+            List<MemberShip> records = mbs.getAllRecords("available ");
             request.setAttribute("records", records);
             request.getRequestDispatcher("/member_membership.jsp").forward(request, response);
         } 
@@ -85,7 +85,7 @@ public class MemberShipController extends HttpServlet {
 
         //STAFF INTERFACE: View a list of memberships
         else if (action == null || action.equals("list")) {
-            List<MemberShip> r = mbs.getAllRecords();
+            List<MemberShip> r = mbs.getAllRecords("all");
             request.setAttribute("r", r);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/staff_memberships.jsp");
             dispatcher.forward(request, response);

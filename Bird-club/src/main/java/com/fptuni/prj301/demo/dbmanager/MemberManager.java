@@ -128,6 +128,19 @@ public class MemberManager {
             System.out.println("Failed to update due to internal error :(" + ex.getMessage());
         }
     }
+    
+    public void updateStatus(String UID, String status) {
+        String sql = "UPDATE [User] SET status = ? WHERE UID = ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, status);
+            ps.setString(2, UID);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Failed to update due to internal error :(" + ex.getMessage());
+        }
+    }
 
     public Member load(String UID) throws ClassNotFoundException {
         String sql = "select * from [User] where UID = ?";
