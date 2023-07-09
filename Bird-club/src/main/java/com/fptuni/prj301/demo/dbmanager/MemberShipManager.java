@@ -23,7 +23,7 @@ public class MemberShipManager {
 
     public List<MemberShip> getAllRecords() {
         List<MemberShip> records = new ArrayList<>();
-        String sql = "SELECT * FROM Membership";
+        String sql = "SELECT * FROM Membership WHERE status='available' ";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql);
@@ -74,13 +74,13 @@ public class MemberShipManager {
         return membership;
     }
 
-    public boolean updateMembership(String membership, String UID) {
+    public boolean updateMembership(String membership, String userName) {
         String sql = "UPDATE [User] SET MID = ? WHERE userName = ?";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, membership);
-            ps.setString(2, UID);
+            ps.setString(2, userName);
 
             int rowsUpdated = ps.executeUpdate();
 
