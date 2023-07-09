@@ -1,3 +1,5 @@
+<%@page import="java.util.Base64"%>
+<%@page import="com.fptuni.prj301.demo.model.UserSession"%>
 <%@page import="com.fptuni.prj301.demo.model.Location"%>
 <%@page import="java.util.List"%>
 <%@page import="com.fptuni.prj301.demo.model.Tournament"%>
@@ -169,45 +171,43 @@
                                 <div data-controller="dropdown">
                                     <div data-dropdown-target="button" data-action="click->dropdown#toggleMenu click@window->dropdown#hideMenu">
 
+                                        <% UserSession user = (UserSession) session.getAttribute("users");
+                                            String fullname = user.getFullName();
+                                            String email = user.getEmail();
+                                            byte[] avatar = user.getImage();
+                                        %>                                                                                
                                         <div>
                                             <button type="button" class="max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                                 <div class="w-8 h-8 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden  flex-shrink-0">
-                                                    <img src="https://www.bird.club/assets/avatars/raven-fcf919bd3575083b93e6c2e97c49df2320e84254f6cd2f7656273601d1ddc12b.png">
+                                                    <% out.print("<img src='data:image/jpg;base64," + Base64.getEncoder().encodeToString(user.getImage()) + "'>"); %>
                                                 </div>
-
-                                                <span class="hidden ml-3 text-gray-700 text-sm font-medium lg:block"><span class="sr-only">Open user menu for </span>Kaedehara Yamamoto</span>
+                                                <span class="hidden ml-3 text-gray-700 text-sm font-medium lg:block"> <% out.print(fullname); %>  </span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="hidden flex-shrink-0 ml-1 h-5 w-5 text-gray-400 lg:block w-5 h-5">
                                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                                                 </svg>
-
                                             </button>
                                         </div>
-
                                     </div>
-                                    <div class="hidden z-10 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-100" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" data-dropdown-target="menu" data-transition-enter="transition ease-out duration-100" data-transition-enter-start="transform opacity-0 scale-95" data-transition-enter-end="transform opacity-100 scale-100" data-transition-leave="transition ease-in duration-75" data-transition-leave-start="transform opacity-100 scale-100" data-transition-leave-end="transform opacity-0 scale-95">
-
+                                    <div 
+                                        class="hidden z-10 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-100" 
+                                        role="menu" 
+                                        aria-orientation="vertical" 
+                                        aria-labelledby="menu-button" 
+                                        tabindex="-1"
+                                        data-dropdown-target="menu"
+                                        data-transition-enter="transition ease-out duration-100"
+                                        data-transition-enter-start="transform opacity-0 scale-95"
+                                        data-transition-enter-end="transform opacity-100 scale-100"
+                                        data-transition-leave="transition ease-in duration-75"
+                                        data-transition-leave-start="transform opacity-100 scale-100"
+                                        data-transition-leave-end="transform opacity-0 scale-95"
+                                        >
                                         <div class="px-4 py-3" role="none">
                                             <p class="text-sm" role="none">Signed in as</p>
-                                            <p class="text-sm font-medium text-gray-900 truncate" role="none">kaedeharayamamoto@gmail.com</p>
-                                        </div>
-
-                                        <div class="py-1" role="none">
-                                            <a class="hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm" href="/clubs/new"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                                </svg>
-                                                Create new club</a>
-                                            <a class="hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm" href="/clubs/birds-in-ohio"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                                </svg>
-                                                Birds in Ohio</a>
-                                            <a class="hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm" href="/members/edit"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                </svg>
-                                                Edit Settings</a>
+                                            <p class="text-sm font-medium text-gray-900 truncate" role="none"> <% out.print(email); %> </p>
                                         </div>
                                         <div class="py-1" role="none">
-                                            <a data-turbo-method="delete" class="hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm" href="/members/sign_out"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5">
+                                            <a data-turbo-method="delete" class="hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm" href="login.jsp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
                                                 </svg>
                                                 Sign out</a>
@@ -330,7 +330,9 @@
                                                             </div>
                                                         </div>
 
-                                                        <%! List<Location> locationsList; String select; String tournamentLocID;
+                                                        <%! List<Location> locationsList;
+                                                            String select;
+                                                            String tournamentLocID;
                                                             Location loc;%>
                                                         <% locationsList = (List<Location>) request.getAttribute("locationsList");
                                                             loc = (Location) request.getAttribute("location");
@@ -342,16 +344,16 @@
                                                                 <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="LID" id="LID">
                                                                     <%
                                                                         for (Location l : locationsList) {
-                                                                            select="";
+                                                                            select = "";
                                                                             if (tournamentLocID.equalsIgnoreCase(l.getLid().trim())) {
-                                                                                 select="selected='selected'";
+                                                                                select = "selected='selected'";
                                                                             }
-                                                                            out.print("<option "+select+" value='" + l.getLid() + "'>" + l.getName() + "</option>");
+                                                                            out.print("<option " + select + " value='" + l.getLid() + "'>" + l.getName() + "</option>");
                                                                         }
                                                                     %>
                                                                 </select>
                                                             </div>
-                                                                <p class="block text-sm font-medium text-gray-700">Details: <% out.print(loc.getCoordination()); %></p>                                                        
+                                                            <p class="block text-sm font-medium text-gray-700">Details: <% out.print(loc.getCoordination()); %></p>                                                        
                                                         </div>
 
                                                         <div class="col-span-1">
@@ -403,7 +405,9 @@
                                                                         select2 = "selected='selected'";
                                                                     } else if (tournament.getStatus().trim().equalsIgnoreCase("ongoing")) {
                                                                         select3 = "selected='selected'";
-                                                                    } else select4 = "selected='selected'";
+                                                                    } else {
+                                                                        select4 = "selected='selected'";
+                                                                    }
                                                                 %>
 
 

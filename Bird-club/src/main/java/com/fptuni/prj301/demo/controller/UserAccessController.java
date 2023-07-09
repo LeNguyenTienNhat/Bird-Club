@@ -27,7 +27,7 @@ public class UserAccessController extends HttpServlet {
         if (path != null && path.equals("/login")) {
             System.out.println("Path: " + path);
             String username = request.getParameter("username");
-            String password = request.getParameter("password");
+            String password = request.getParameter("password").trim();
             HttpSession ss = request.getSession(true);
 
             if (username == null || password == null) {
@@ -37,10 +37,10 @@ public class UserAccessController extends HttpServlet {
                 UserAccessManager userDao = new UserAccessManager();
                 UserSession user = userDao.searchByName(username);
                 StaffAccountManager s = new StaffAccountManager();
-                if (user == null || !password.equals(user.getPassword())) {
+                if (user == null || !password.equals(user.getPassword().trim())) {
                     // Invalid username or password
                     response.sendRedirect(request.getContextPath() + "/login.jsp");
-                    request.setAttribute("login_msg", "Username does not Exists");
+                    request.setAttribute("login_msg", "Wrong password");
                 } else {
                     String role = user.getRole().trim();
                     String status = user.getStatus().trim();
@@ -61,7 +61,7 @@ public class UserAccessController extends HttpServlet {
                             response.sendRedirect(request.getContextPath() + "/home?action=view");
                         } else if (role.equals("staff")) {
                             ss.setAttribute("users", user);
-                            response.sendRedirect(request.getContextPath() + "/staff_homepage.jsp");
+                            response.sendRedirect(request.getContextPath() + "/staffhome");
                         }
                     }
                 }
@@ -72,8 +72,7 @@ public class UserAccessController extends HttpServlet {
                 session.invalidate();
             }
             response.sendRedirect(request.getContextPath() + "/home?action=view");
-        }
-        if (path != null && path.equals("/signup")) {
+        } else if (path != null && path.equals("/signup")) {
             HttpSession ss = request.getSession(true);
             String username = request.getParameter("username");
             String password = request.getParameter("password");
@@ -83,7 +82,7 @@ public class UserAccessController extends HttpServlet {
             String email = request.getParameter("email");
             String gender = request.getParameter("gender");
             DBgenerator d = new DBgenerator();
-            byte[] profilePic = d.generateProfilePictureByteArray("D:\\gt\\Bird-club\\src\\main\\webapp\\media\\user.png");
+            byte[] profilePic = d.generateProfilePictureByteArray("D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\user.png");
             // Check if username or email already exists
             UserAccessManager userDao = new UserAccessManager();
             boolean isUserExists = userDao.checkUserExists(username);
@@ -127,11 +126,10 @@ public class UserAccessController extends HttpServlet {
                     ss.setAttribute("users", user);
                     response.sendRedirect(request.getContextPath() + "/MemberShipController?action=view");
                 } else {
-                    response.sendRedirect(request.getContextPath() + "/EventDetails.jsp");
+                    response.sendRedirect(request.getContextPath() + "/error.html");
                 }
             }
-        }
-        if (path != null && path.equals("/forgot")) {
+        } else if (path != null && path.equals("/forgot")) {
             String email = request.getParameter("email");
 
             if (email != null) {

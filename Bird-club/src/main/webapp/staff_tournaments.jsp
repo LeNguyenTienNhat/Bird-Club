@@ -1,3 +1,5 @@
+<%@page import="java.util.Base64"%>
+<%@page import="com.fptuni.prj301.demo.model.UserSession"%>
 <%@page import="com.fptuni.prj301.demo.model.Location"%>
 <%@page import="com.fptuni.prj301.demo.model.Tournament"%>
 <%@page import="java.util.List"%>
@@ -101,44 +103,43 @@
                                 <div data-controller="dropdown">
                                     <div data-dropdown-target="button" data-action="click->dropdown#toggleMenu click@window->dropdown#hideMenu">
 
+                                        <% UserSession user = (UserSession) session.getAttribute("users");
+                                            String fullname = user.getFullName();
+                                            String email = user.getEmail();
+                                            byte[] avatar = user.getImage();
+                                        %>                                                                                
                                         <div>
                                             <button type="button" class="max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                                 <div class="w-8 h-8 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden  flex-shrink-0">
-                                                    <img src="https://staticg.sportskeeda.com/editor/2021/04/bd904-16194408810325-800.jpg" />
-                                                </div> 
-                                                <span class="hidden ml-3 text-gray-700 text-sm font-medium lg:block"><span class="sr-only">Open user menu for </span>Nguoi choi chim</span>
+                                                    <% out.print("<img src='data:image/jpg;base64," + Base64.getEncoder().encodeToString(user.getImage()) + "'>"); %>
+                                                </div>
+                                                <span class="hidden ml-3 text-gray-700 text-sm font-medium lg:block"> <% out.print(fullname); %>  </span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="hidden flex-shrink-0 ml-1 h-5 w-5 text-gray-400 lg:block w-5 h-5">
                                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                                </svg></button>
+                                                </svg>
+                                            </button>
                                         </div>
-
                                     </div>
-
                                     <div 
                                         class="hidden z-10 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-100" 
                                         role="menu" 
                                         aria-orientation="vertical" 
                                         aria-labelledby="menu-button" 
                                         tabindex="-1"
-
                                         data-dropdown-target="menu"
                                         data-transition-enter="transition ease-out duration-100"
                                         data-transition-enter-start="transform opacity-0 scale-95"
                                         data-transition-enter-end="transform opacity-100 scale-100"
-
                                         data-transition-leave="transition ease-in duration-75"
                                         data-transition-leave-start="transform opacity-100 scale-100"
                                         data-transition-leave-end="transform opacity-0 scale-95"
                                         >
-
                                         <div class="px-4 py-3" role="none">
                                             <p class="text-sm" role="none">Signed in as</p>
-                                            <p class="text-sm font-medium text-gray-900 truncate" role="none">kaedeharayamamoto@gmail.com</p>
+                                            <p class="text-sm font-medium text-gray-900 truncate" role="none"> <% out.print(email); %> </p>
                                         </div>
-
-
                                         <div class="py-1" role="none">
-                                            <a data-turbo-method="delete" class="hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm" href="/members/sign_out"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5">
+                                            <a data-turbo-method="delete" class="hover:bg-gray-100 group flex items-center hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm" href="login.jsp"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="mr-3 text-gray-400 group-hover:text-gray-500 w-5 h-5">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
                                                 </svg>
                                                 Sign out</a>
@@ -386,7 +387,7 @@
 
                                     <%! List<Tournament> tournamentsList;%> 
                                     <% tournamentsList = (List<Tournament>) request.getAttribute("tournamentsList");
-                                    int totalNum = (Integer) request.getAttribute("size");
+                                        int totalNum = (Integer) request.getAttribute("size");
                                         if (totalNum == 0) {
                                             out.print("There is no tournament");
                                         } else {
@@ -550,7 +551,7 @@
             <div class="pt-6 flex items-center justify-between">
                 <nav class="pagy-nav pagination">
                     <%! int i;%>
-                    <% 
+                    <%
                         int pageNum = (Integer) request.getAttribute("pageNum");
                         String status = (String) request.getAttribute("status");
 

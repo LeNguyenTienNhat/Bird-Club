@@ -77,7 +77,7 @@
                         <h1>User Login</h1>
                         <input type=text" placeholder="Username" name="username"/>
                         <input type="password" placeholder="Password" name="password"/>                 
-                        <p style="color: red;">${login_msg}</p> 
+                        <p style="color: gray;">${request.login_msg}</p> 
                         <button type="submit">Login</button>
                         <a href="${pageContext.request.contextPath}/forgot.jsp">Forgot password?</a>
                     </form> 

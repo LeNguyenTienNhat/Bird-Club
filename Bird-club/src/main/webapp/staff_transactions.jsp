@@ -1,16 +1,13 @@
-<%@page import="com.fptuni.prj301.demo.model.UserSession"%>
 <%@page import="java.util.Base64"%>
-<%@page import="com.fptuni.prj301.demo.model.Meeting"%>
-<%@page import="com.fptuni.prj301.demo.model.Fieldtrip"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.fptuni.prj301.demo.model.Media"%>
+<%@page import="com.fptuni.prj301.demo.model.UserSession"%>
+<%@page import="com.fptuni.prj301.demo.model.Transaction"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html class="h-full bg-gray-100">
     <head>
-        <title>Events</title>
+        <title>Member</title>
         <meta name="csrf-param" content="authenticity_token" />
         <meta name="csrf-token" content="ahyUHbKwmmr7zSFLLkzvePiJVwXBL4woYSFM9G8nKMgn3UlVf_owDxDiNS3QLvjzvqSyEyX4pnBqDc1tkk2xTg" />
 
@@ -98,10 +95,11 @@
                             <turbo-frame id="notifications_desktop">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="text-gray-400 w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-                                </svg></turbo-frame>      
+                                </svg>
 
 
-                            <div class="ml-3 relative" data-controller="dropdown">
+
+                            </turbo-frame>      <div class="ml-3 relative" data-controller="dropdown">
                                 <div data-controller="dropdown">
                                     <div data-dropdown-target="button" data-action="click->dropdown#toggleMenu click@window->dropdown#hideMenu">
 
@@ -150,96 +148,33 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-            </div>
-            <div class="hidden sm:hidden" id="mobile-menu" data-navbar-target="menu">
-                <div class="pt-4 pb-3 border-t border-gray-200">
-                    <div class="flex items-center px-4">
-                        <div class="flex-shrink-0">
-                            <div class="w-12 h-12 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden  flex-shrink-0">
-                                <img src="https://www.bird.club/assets/avatars/raven-fcf919bd3575083b93e6c2e97c49df2320e84254f6cd2f7656273601d1ddc12b.png" />
+                <div class="hidden sm:hidden" id="mobile-menu" data-navbar-target="menu">
+                    <div class="pt-4 pb-3 border-t border-gray-200">
+                        <div class="flex items-center px-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden  flex-shrink-0">
+                                    <img src="https://www.bird.club/assets/avatars/raven-fcf919bd3575083b93e6c2e97c49df2320e84254f6cd2f7656273601d1ddc12b.png" />
+                                </div>
+
                             </div>
-
+                            <div class="ml-3">
+                                <div class="text-base font-medium text-gray-800">Nguoi choi chim</div>
+                                <div class="text-sm font-medium text-gray-500">kaedeharayamamoto@gmail.com</div>
+                            </div>
                         </div>
-                        <div class="ml-3">
-                            <div class="text-base font-medium text-gray-800">Nguoi choi chim</div>
-                            <div class="text-sm font-medium text-gray-500">kaedeharayamamoto@gmail.com</div>
+                        <div class="mt-3 space-y-1">
+                            <h3 class="px-4 text-sm text-gray-700 font-bold">Clubs</h3>
+                            <a class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" href="/clubs/birds-in-ohio">Chim Owners</a>
+                            <a class="border-t border-gray-200 block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" href="/members/edit">Edit Settings</a>
+                            <a data-turbo-method="delete" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" href="/members/sign_out">Sign out</a>
                         </div>
-                    </div>
-                    <div class="mt-3 space-y-1">
-                        <h3 class="px-4 text-sm text-gray-700 font-bold">Clubs</h3>
-                        <a class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" href="/clubs/birds-in-ohio">Chim Owners</a>
-                        <a class="border-t border-gray-200 block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" href="/members/edit">Edit Settings</a>
-                        <a data-turbo-method="delete" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" href="/members/sign_out">Sign out</a>
                     </div>
                 </div>
-            </div>
 
         </nav>
-
-
-
-
-
-        <div data-controller="modal" data-modal-target="container" data-modal-id-value="modal2" data-modal-persist-value="false" class="hidden fixed z-[2000] inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                <div     data-modal-target="overlay"      data-action="click->modal#close"
-                         class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"      aria-hidden="true"
-                         data-transition-enter="transition ease-out duration-300"      data-transition-enter-start="opacity-0"
-                         data-transition-enter-end="opacity-100"      data-transition-leave="transition ease-in duration-200"
-                         data-transition-leave-start="opacity-100"      data-transition-leave-end="opacity-0"      >    </div>
-                <!-- This element is to trick the browser into centering the modal contents. -->
-                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-                <div       data-modal-target="content" 
-                           class="hidden relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full sm:p-6"
-                           data-transition-enter="transition ease-out duration-300"      data-transition-enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                           data-transition-enter-end="opacity-100 translate-y-0 sm:scale-100"      data-transition-leave="transition ease-in duration-200"
-                           data-transition-leave-start="opacity-100 translate-y-0 sm:scale-100"      data-transition-leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"    >
-                    <div class="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
-                        <button data-action="click->modal#close" type="button" class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500">
-                            <span class="sr-only">Close</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class=" w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                            </svg></button></div>
-
-                    <div class="sm:flex sm:items-start">
-                        <turbo-frame data-modal-target="test" class="w-full" id="modal" target="_top" reloadable="" src="https://www.bird.club/clubs/birds-in-ohio/events/new?start_date=2023-06-01">
-
-                            <h3 class="text-lg leading-6 font-medium text-gray-900">New image</h3>
-                            <turbo-frame id="new_event" target="_top">
-
-                                <%! String ID; %>
-                                <% String tableName = (String) request.getAttribute("tableName");
-                                    if (tableName.equalsIgnoreCase("FieldTripMedia")) {
-                                        Fieldtrip f = (Fieldtrip) request.getAttribute("fieldtrip");
-                                        ID = f.getFID();
-                                    } else {
-                                        Meeting m = (Meeting) request.getAttribute("meeting");
-                                        ID = m.getMeID();
-                                    }
-                                %>
-
-                                <form class="space-y-4" action="./media" method="post" enctype="multipart/form-data">
-                                    <div class="mt-3">
-                                        <label class="block text-sm font-medium text-gray-700" for="image">Media</label>
-                                        <div class="mt-1">
-                                            <input accept="image/jpg,image/jpeg,image/png" color="teal" 
-                                                   class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" 
-                                                   type="file" name="image" id="image"></div></div>
-                                    <input type="hidden" name="ID"  <%  out.print("value='" + ID + "'");  %>      >
-                                    <input type='hidden' name="tableName" <%  out.print("value='" + tableName + "'");  %> >
-                                    <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="description" id="description">
-                                        <option value="thumbnail">Thumbnail</option>
-                                        <option value="gallery">Gallery</option>                                   
-                                    </select>
-                                    <div class="text-right sm:col-span-4">
-                                        <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
-                                            Add image</button>
-                                    </div></form>
-
-                            </turbo-frame></turbo-frame></div></div></div></div>
 
 
     <turbo-frame id="flash"></turbo-frame>
@@ -261,13 +196,12 @@
                     </div>
                 </div>
             </div>
-
             <div class="hidden sm:block mt-4">
                 <nav class="-mb-px flex space-x-8">
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="staffhome">Home</a>
-                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="members">Members</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-teal-600 border-teal-600 focus:outline-none" href="members">Members</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="blogs">Blogs</a>
-                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-teal-600 border-teal-600 focus:outline-none" href="events">Events</a>
+                    <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="events">Events</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="tournaments">Tournaments</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="news">News</a>
                     <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none" href="gallery">Gallery</a>
@@ -278,7 +212,15 @@
             </div>
             <div class="sm:hidden py-4">
                 <label for="current-tab" class="sr-only">Select a tab</label>
-
+                <select data-controller="select" data-action="change->select#change" data-select-target="menu" id="current-tab" name="current-tab" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md">
+                    <option value="" >Home</option>
+                    <option value="" selected>Members</option>
+                    <option value="" >Blogs</option>
+                    <option value="" >Events</option>
+                    <option value="" >Articles</option>
+                    <option value="" >Gallery</option>
+                    <option value="" >Feedback</option>
+                </select>
             </div>
 
             <div class="hidden xs:block md:hidden mt-6 min-w-0 flex-1">
@@ -292,64 +234,211 @@
     <main class="pb-8 pt-8">
         <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
 
-            <div class="grid grid-cols-1 items-start lg:grid-cols-5 lg:gap-8">
+            <div class="">
                 <div class="grid grid-cols-1 gap-4 lg:col-span-5">
-
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
-                        <div class="sm:flex-auto">
-                            <h1 class="text-xl font-semibold text-gray-900">MEDIA</h1>
-                            <p class="mt-2 text-sm text-gray-700">
-                                Available images uploaded by Chim Owners.
-                            </p>
-                        </div>
-
-
-                        <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none" style="margin-left:1rem">
-                            <a class="w-full flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2" data-turbo-frame="modal" href="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-image-fill mr-4" viewBox="0 0 16 16">
-                                <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2V3zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z"/>
-                                </svg>Add an image</a>
-                        </div>
                     </div>
+                </div>
 
-                    <div>
-                        <div class="lg:grid lg:grid-cols-12 lg:gap-x-16">
-                            <div class="px-6 sm:px-0 mt-4 lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-9">
+                <%! List<Transaction> list;%>
+                <% list = (List<Transaction>) request.getAttribute("list"); %>  
+
+
+                <div>
+                    <div class="">
+                        <div class="lg:col-span-7 xl:col-span-8" id="events_list">
+
+                            <div data-controller="record-filters">
+                                <!-- Filters -->
+                                <section aria-labelledby="filter-heading" class="relative z-10 grid items-center">
+                                    <h2 id="filter-heading" class="sr-only">Filters</h2>
+                                    <div class="relative col-start-1 row-start-1 py-4">
+                                        <div class="max-w-7xl mx-auto flex space-x-6 divide-x divide-gray-200 text-sm px-4">
+                                            <div><button data-record-filters-target="toggle" data-action="record-filters#toggle" type="button" class="group text-gray-700 font-medium flex items-center" aria-controls="disclosure-1" aria-expanded="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="flex-none mr-2 text-gray-400 group-hover:text-gray-500 w-5 h-5">
+                                                    <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd"></path>
+                                                    </svg>Filter</button></div></div></div>
+
+                                    <form class="hidden" data-record-filters-target="form" data-turbo-action="advance" accept-charset="UTF-8" method="get">
+                                        <div class="border-t border-gray-200 py-10" id="disclosure-1">
+                                            <div class="max-w-7xl mx-auto  gap-x-4 px-4 text-sm md:gap-x-6">
+                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 lg:grid-cols-3 md:gap-x-6 w-full">
+                                                    <div class="space-y-4">
+                                                        <div>
+                                                            <legend class="block font-medium">Transaction type:</legend>
+                                                            <div class="mt-1">
+                                                                <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="transactionType" id="transactionType">                                                           
+                                                                    <option value="all">All categories</option>
+                                                                    <option value="membership">Membership purchase</option>
+                                                                    <option value="fee">Participation fee</option>
+                                                                    <option value="donation">Donation</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="space-y-4">
+                                                        <legend class="block font-medium">Confirm sort</legend>
+                                                        <div class="mt-1">                                               
+                                                            <button type="submit" class="flex justify-center py-2 px-4 text-base text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="flex-none mr-2 w-5 h-5">
+                                                                <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd"></path>
+                                                                </svg>Sort</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="action" value="view">
+
+                                    </form>  </section>
+                            </div>
+
+
+                            <!--                                Brief data-->
+                            <div class="flex flex-col sm:rounded-lg shadow">
+                                <div>
+                                    <dl class="sm:rounded-t-lg grid grid-cols-1 bg-white overflow-hidden border-b border-gray-200 divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x">
+                                        <div class="px-4 py-5 sm:p-6">
+                                            <dt class="text-base font-normal text-gray-900">Total revenue</dt>
+                                            <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                                                <div class="flex items-baseline text-2xl font-semibold text-teal-600">
+                                                    <% int revenue = (Integer) request.getAttribute("revenue");
+                                                        out.print(revenue);
+                                                    %>
+                                                </div>
+                                            </dd>
+                                        </div>
+
+                                        <div class="px-4 py-5 sm:p-6">
+                                            <dt class="text-base font-normal text-gray-900">Total transactions</dt>
+                                            <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                                                <div class="flex items-baseline text-2xl font-semibold text-teal-600">
+                                                    <% int totalNum = (Integer) request.getAttribute("totalNum"); 
+                                                    out.print(totalNum);
+                                                    %>
+                                                </div>
+                                            </dd>
+                                        </div>
+
+                                        <div class="px-4 py-5 sm:p-6">
+                                            <dt class="text-base font-normal text-gray-900"></dt>
+                                            <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                                                <div class="flex items-baseline text-2xl font-semibold text-teal-600">
+
+                                                </div>
+                                            </dd>
+                                        </div>
+                                    </dl>
+                                </div>
+
+                                <div class="overflow-hidden ring-1 ring-black ring-opacity-5 sm:rounded-b-lg">
+                                    <div class="table min-w-full">
+                                        <div class="bg-gray-50 table-header-group">
+                                            <div class="table-row">
+                                                <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 pl-4 pr-3 sm:pl-6">
+                                                    ID
+                                                </div>
+                                                <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 relative">
+                                                    User
+                                                </div>
+                                                <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden sm:table-cell">
+
+                                                </div>
+                                                <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden sm:table-cell">
+                                                    Value
+                                                </div>
+                                                <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden lg:table-cell">
+                                                    Date
+                                                </div>
+                                                <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 relative pl-3 pr-4 sm:pr-6">
+                                                    Type
+                                                </div>
+                                                <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden sm:table-cell">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table-header-group bg-white">
+                                            <turbo-frame id="row_record_9959" class="contents" target="_top">
+
+                                                <!--List-->
+
+                                                <%
+
+                                                    for (Transaction m : list) {
+                                                        out.print("<div class='table-row bg-white'>"
+                                                                + " <div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500 pl-2'>"
+                                                                + m.getPID() + "</div>"
+                                                                + "<div class='table-cell border-b border-gray-500 text-sm w-full max-w-0 py-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
+                                                                + "<a class='hover:text-teal-600' href='http://localhost:8080/chimowners/members?action=viewmemberdetails&UID=" + m.getUID() + "'>" + m.getUID() + "</a></div>"
+                                                                + "<div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
+                                                                + " </div>"
+                                                                + " <div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
+                                                                + m.getValue() + "</div>"
+                                                                + "<div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden lg:table-cell'>"
+                                                                + m.getPaymentDate() + "</div>"
+                                                                + " <div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden sm:table-cell'>"
+                                                                + m.getTransactionType() + "</div>"
+                                                                + "<div class='table-cell border-b border-gray-200 text-sm text-gray-500 pl-3 pr-4 text-right sm:pr-6'>"
+                                                                + " </div> </div>"
+                                                                + "");
+
+                                                    }
+                                                %>
+
+                                            </turbo-frame>
+
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
-                            <div class="lg:col-span-7 xl:col-span-8" id="events_list">
 
-
-                                <%! List<Media> list;%>    
-                                <% list = (ArrayList) request.getAttribute("list"); %>
-
-                                <ul role="list" class="grid grid-cols-2 gap-x-0.5 gap-y-0.5 sm:grid-cols-3 lg:grid-cols-4 mt-8 px-4 sm:px-0">
-
-                                    <%
-                                        for (Media m : list) {
-                                            out.print("<li class='relative hover:opacity-75'>"
-                                                    + "<a data-turbo-frame='photo_modal'></a><a data-turbo-frame='photo_modal' class='hover:opacity-75'>"
-                                                    + "<img src='data:image/jpeg;base64," + Base64.getEncoder().encodeToString(m.getImage()) + "'>"
-                                                    + "</a></li>");
-                                        }
-                                    %>
-
-                                </ul>
-
-                            </div></div></div></div></div></div>       
-    </main>
-
-    <footer class="mt-8" aria-labelledby="footer-heading">
-        <h2 id="footer-heading" class="sr-only">Footer</h2>
-        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:py-12 lg:px-8">
-            <div class="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
-                <div class="flex space-x-6 md:order-2">
-                    <a href="mailto:hello@bird.club" class="text-gray-400 hover:text-gray-900">Contact us</a>
+                        </div></div></div>
+            </div>
+            <div class="pt-6 flex items-center">
+                <div class="hidden sm:block">
+                    <span class="pagy-info">Displaying <b><% out.print(list.size()); %></b> transaction(s)</span>
                 </div>
-                <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1"></p>
+                <%! int i;
+                    String theme;%>
+                <%
+                    int pageNum = (Integer) request.getAttribute("pageNum");
+                    String transactionType = (String) request.getAttribute("transactionType");
+                    totalNum = (totalNum / 20) + 1;
+                    theme = " bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 ";
+
+                    for (i = 1; i <= totalNum; i++) {
+                        if (i == pageNum) {
+                            theme = " bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 ";
+                        }
+                        out.print("<span class='page'><form>"
+                                + "<input type='hidden' name='page' value='" + i + "'>"
+                                + "<input type='hidden' name='action' value='view'>"
+                                + "<input type='hidden' name='transactionType' value='" + transactionType + "'>"
+                                + "<button type='submit' class='ml-4 px-4 py-2 text-sm text-white shadow-sm border-transparent " + theme + " inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'>" + i + "</button>"
+                                + "</form></span>");
+                        theme = " bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 ";
+                    }
+                %>
             </div>
         </div>
-    </footer>
+
+    </div>
+</main>
+
+
+<footer class="mt-8" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="sr-only">Footer</h2>
+    <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:py-12 lg:px-8">
+        <div class="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
+            <div class="flex space-x-6 md:order-2">
+                <a href="mailto:hello@bird.club" class="text-gray-400 hover:text-gray-900">Contact us</a>
+            </div>
+            <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">&copy; 2023 BirdClub. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>

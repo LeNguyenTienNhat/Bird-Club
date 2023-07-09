@@ -2,6 +2,7 @@ package com.fptuni.prj301.demo.dbmanager;
 
 import com.fptuni.prj301.demo.model.UserSession;
 import com.fptuni.prj301.demo.utils.DBUtils;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +10,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import tool.utils.DBgenerator;
 
 public class UserAccessManager {
 
@@ -162,10 +166,11 @@ public class UserAccessManager {
 
     public UserSession searchByName(String username) {
         UserSession user = null;
-        String sql = "SELECT *, profilePicture FROM [User] WHERE username = ?";
+        String sql = "SELECT * FROM [User] WHERE userName = ?";
 
-        try (Connection conn = DBUtils.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql)) {
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
 
@@ -185,11 +190,18 @@ public class UserAccessManager {
                 user.setGender(rs.getString("gender"));
                 // Update to set profile picture from the image field
                 user.setImage(rs.getBytes("profilePicture"));
+                if (user.getImage()==null) {
+                    DBgenerator db = new DBgenerator();
+                    try {
+                       byte[] image =  db.generateProfilePictureByteArray("D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\user.png");
+                        user.setImage(image);
+                    } catch (IOException ex) {
+                    }
+                }
             }
-
             rs.close();
+            return user;
         } catch (SQLException e) {
-            e.printStackTrace();
         }
 
         return user;

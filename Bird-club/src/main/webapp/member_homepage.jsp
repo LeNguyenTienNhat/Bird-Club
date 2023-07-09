@@ -64,10 +64,10 @@
                         #hero-wrapper .hero-text { width: 520px !important; }
                     </style>
                    <div class="col-inner"><div class="w-space" style="height:15px"></div><div data-animation="fadeInLeft" class="w-custom-heading">
-    <h6 style="font-size: 2.5vw;color: #000000;text-align: center;font-family:Lato;font-weight:400;font-style:normal">    Welcome to the    </h6></div><div data-animation="fadeInRight" class="w-custom-heading">
+    <h6 style="font-size: 2.5vw;color: #000000;text-align: center;font-family:Lato;font-weight:400;font-style:normal">    Welcome to    </h6></div><div data-animation="fadeInRight" class="w-custom-heading">
     
-        <h6 style="font-size: 3.5vw;color: #60895f;line-height: 0;text-align: center;font-family:Lato;font-weight:700;font-style:normal; margin-top:20px; "> RED-WHISKERED BULBUL BIRD CLUB    <img src="https://stickershop.line-scdn.net/stickershop/v1/product/1077345/LINEStorePC/main.png;compress=true" alt="Red-whiskered Bulbul" style="width:100px; height: 100px;"></h6> </div><div class="w-space" style="height:50px"></div><span class="w-icon-block w-large w-none" style="color:#7f7f7f">
-       <p style="font-size: 18px;color: #606060;line-height: 24px;text-align: center;font-family:Lato;font-weight:300;font-style:normal">    Founded in 1909 by Dr. Edward Vietor, the Brooklyn Bird Club has been active in Kings County for over 100 years. Our mission is to encourage and promote birdwatching and conservation in Brooklyn and beyond.    </p>
+        <h6 style="font-size: 3.5vw;color: #60895f;line-height: 0;text-align: center;font-family:Lato;font-weight:700;font-style:normal; margin-top:20px; "> CHIMOWNERS' RED-WHISKERED BULBUL BIRD CLUB    <img src="https://stickershop.line-scdn.net/stickershop/v1/product/1077345/LINEStorePC/main.png;compress=true" alt="Red-whiskered Bulbul" style="width:100px; height: 100px;"></h6> </div><div class="w-space" style="height:50px"></div><span class="w-icon-block w-large w-none" style="color:#7f7f7f">
+       <p style="font-size: 18px;color: #606060;line-height: 24px;text-align: center;font-family:Lato;font-weight:300;font-style:normal">    Founded in 2023 by Nguyen Van A, CHIMOWNERS Bird Club has been active in Ho Chi Minh City for a couple of months. Our mission is to encourage and promote bird-watching, and strengthen friendship among bird lovers in Ho Chi Minh City and beyond.    </p>
             </span><div class="w-space" style="height:10px"></div><div class="w-custom-heading vc_custom_1495815196787">
    
 
