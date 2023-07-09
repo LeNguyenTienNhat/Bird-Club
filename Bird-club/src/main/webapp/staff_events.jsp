@@ -806,7 +806,7 @@
                                             }
 
                                             out.print("<span class='inline-flex items-center px-2.5 py-0.5 font-medium bg-gray-100 text-gray-800 text-xs rounded-full'>"
-                                                    + "Field trip"
+                                                    + "Meeting"
                                                     + "</span>");
 
                                             out.print("<h1 class='font-semibold text-lg text-gray-900 space-x-2 mb-4'>" + m.getStartDate() + "</h1>");
