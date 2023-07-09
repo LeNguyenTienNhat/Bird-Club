@@ -46,8 +46,8 @@ public class UserAccessController extends HttpServlet {
                     String status = user.getStatus().trim();
 
                     if (status.equals("unactivated")) {
-                        response.sendRedirect(request.getContextPath() + "/login.jsp");
-                        request.setAttribute("login_msg", "Username does not Exists");
+                        ss.setAttribute("users", user);
+                        response.sendRedirect(request.getContextPath() + "/MemberShipController?action=view");
                     } else if (user.getExpriedDate() != null && user.getExpriedDate().before(new Date())) {
                         ss.setAttribute("users", user);
                         ss.setAttribute("userID", userDao.searchByName(user.getUserName()));
