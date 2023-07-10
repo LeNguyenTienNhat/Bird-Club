@@ -1,7 +1,8 @@
 <!--
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 --><!DOCTYPE html>
-<html lang="en">
+<html lang="en">        i
     <head>
         <style>
             .container {
@@ -113,7 +114,7 @@
             </div>
             <div class="separator-header"></div>
             <div class="body-form" style="position: relative;">
-                 <a href="javascript:history.back()" class="back-icon" style="position: absolute; top: 0; left: 0;">
+                 <a href="${pageContext.request.contextPath}/home?action=view" class="back-icon" style="position: absolute; top: 0; left: 0;">
         &#8592; Back
     </a>
     <h3><i class="fas fa-check-circle"></i> Successful payment </h3>
