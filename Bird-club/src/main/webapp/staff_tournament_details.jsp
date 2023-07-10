@@ -299,7 +299,7 @@
                                                     <h3 class="text-lg leading-6 font-medium text-gray-900">Edit</h3>
                                                     <p class="mt-1 text-sm text-gray-500">View and edit the tournament's details</p>
                                                 </div>
-                                                <div class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-y-6 gap-x-4 sm:grid-cols-8">
+                                                <div class="mt-6 grid grid-cols-3 gap-y-6 gap-x-4">
                                                     <div class="col-span-1 sm:col-span-4 md:col-span-3 grid grid-cols-4 gap-4">
 
                                                         <div class="col-span-3">
@@ -447,7 +447,7 @@
 
                                                     <div class="sm:col-span-4 md:col-span-1 flex">
                                                         <div class="flex-grow lg:mt-0 lg:ml-6 lg:flex-grow-0 lg:flex-shrink-0">
-                                                            <p class="text-sm font-medium text-gray-700" aria-hidden="true">Photo</p>
+                                                            <p class="text-sm font-medium text-gray-700" aria-hidden="true"></p>
                                                             <div class="mt-1 lg:hidden">
                                                                 <div class="flex items-center">
                                                                     <div class="flex-shrink-0 inline-block rounded-full overflow-hidden h-12 w-12" aria-hidden="true">
@@ -463,16 +463,6 @@
                                                                             <input class="absolute w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-md block text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" type="file" name="member[photo]" id="member_photo">
                                                                         </div></div></div></div>
 
-                                                            <div class="hidden relative rounded-full overflow-hidden lg:block col-span-2 sm:col-span-4">
-                                                                <div class="w-40 h-40 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden  flex-shrink-0">
-                                                                    <img src="images/fumo.jpg">
-                                                                </div>
-
-                                                                <label for="desktop-user-photo" class="absolute inset-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center text-sm font-medium text-white opacity-0 hover:opacity-100 focus-within:opacity-100">
-                                                                    <span>Change</span>
-                                                                    <span class="sr-only"> user photo</span>
-                                                                    <input class="absolute inset-0 w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-md block text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" type="file" name="member[photo]" id="member_photo">
-                                                                </label></div>
                                                         </div>
                                                     </div>
 
