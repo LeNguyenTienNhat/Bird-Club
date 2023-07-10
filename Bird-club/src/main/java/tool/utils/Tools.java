@@ -1,6 +1,7 @@
 package tool.utils;
 
 import com.fptuni.prj301.demo.utils.DBUtils;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -149,10 +150,31 @@ public class Tools {
         }
     }
 
-    public int formatRevenue(int revenue) {
-        int formattedRevenue=revenue;
-        
-        return formattedRevenue;
+    public String formatRevenue(int revenue) {
+        StringBuilder sb = new StringBuilder();
+        String r = Integer.toString(revenue);
+        int size = r.length();
+        int firstStringIndex = (size % 3) - 1; 
+        try {
+            String a = r.substring(0, firstStringIndex);
+            if (a.isEmpty()) a = String.valueOf(r.charAt(0));
+            sb.append(a).append(",");
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+        for (int i = firstStringIndex + 1; i < size - 2; i = i + 3) {
+            sb.append(r.substring(i, i + 3));
+            if (i+3<size-2) {
+                sb.append(",");
+            }
+        }
+        return sb.toString();
+    }
+
+    public static void main(String[] args) throws IOException {
+        Tools tool = new Tools();
+        String revenue = tool.formatRevenue(4459552);
+        System.out.print(revenue);
     }
 
 }

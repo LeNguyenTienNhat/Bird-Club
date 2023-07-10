@@ -37,8 +37,9 @@ public class StaffTransactions extends HttpServlet {
             List<Transaction> list = tm.getRecords(skip, 20, transactionType);
             revenue = tm.getSumAsTransactionType(transactionType);
             Tools tool = new Tools();
+            String formattedRevenue = tool.formatRevenue(revenue);
 
-            request.setAttribute("revenue", revenue);
+            request.setAttribute("revenue", formattedRevenue);
             request.setAttribute("list", list);
             request.setAttribute("pageNum", page);
             request.setAttribute("transactionType", transactionType);

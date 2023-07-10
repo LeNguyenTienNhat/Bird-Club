@@ -250,7 +250,7 @@
                                         <div class="row mt-3">
                                             <div class="col-md-6">
                                                 <label class="labels">Username</label>
-                                                <input type="text" class="form-control" name="userName" placeholder="User name" value="${users.getUserName()}">
+                                                <input type="text" class="form-control" name="userName" placeholder="User name" value="${users.getUserName()}" disabled="">
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="labels">Full name</label>
