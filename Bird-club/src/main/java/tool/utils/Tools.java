@@ -154,7 +154,7 @@ public class Tools {
         StringBuilder sb = new StringBuilder();
         String r = Integer.toString(revenue);
         int size = r.length();
-        int firstStringIndex = (size % 3) - 1; 
+        int firstStringIndex = (size % 3); 
         try {
             String a = r.substring(0, firstStringIndex);
             if (a.isEmpty()) a = String.valueOf(r.charAt(0));
@@ -162,7 +162,7 @@ public class Tools {
         } catch (Exception e) {
             System.out.print(e);
         }
-        for (int i = firstStringIndex + 1; i < size - 2; i = i + 3) {
+        for (int i = firstStringIndex; i < size - 2; i = i + 3) {
             sb.append(r.substring(i, i + 3));
             if (i+3<size-2) {
                 sb.append(",");
@@ -173,7 +173,7 @@ public class Tools {
 
     public static void main(String[] args) throws IOException {
         Tools tool = new Tools();
-        String revenue = tool.formatRevenue(4459552);
+        String revenue = tool.formatRevenue(41459552);
         System.out.print(revenue);
     }
 
