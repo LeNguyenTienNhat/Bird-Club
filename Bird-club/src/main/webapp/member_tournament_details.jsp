@@ -134,18 +134,17 @@
                                             .image-row {
                                                 display: flex;
                                                 flex-wrap: wrap;
-                                                justify-content: space-between;
                                                 margin-bottom: 10px;
+                                                
                                             }
 
                                             .image-wrapper {
-                                                width: 70px;
-                                                margin-bottom: 10px;
+                                                width: 250px;
+                                                margin: 5px 5px 5px 5px;
                                             }
 
                                             .image-wrapper img {
-                                                width: 100%;
-                                                height: auto;
+                                                object-fit: cover;
                                                 cursor: pointer;
                                             }
 
