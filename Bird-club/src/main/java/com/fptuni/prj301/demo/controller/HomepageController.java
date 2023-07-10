@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -47,41 +47,40 @@ public class HomepageController extends HttpServlet {
         if (action != null && action.equals("view")) {
             TournamentManager tournamentManager = new TournamentManager();
             List<Tournament> tournamentsList = tournamentManager.getTop10();
-           
+
             FieldtripManager eventsManager = new FieldtripManager();
             List<Fieldtrip> eventsList = eventsManager.getTop10();
-            
+
             MeetingManager meetingManager = new MeetingManager();
             List<Meeting> meetingsList = meetingManager.getTop10();
-             NewsManager nm = new NewsManager();
-             List<News> list = nm.getTop10();
-            
-            ss.setAttribute("news", list); 
-            
+            NewsManager nm = new NewsManager();
+            List<News> list = nm.getTop10();
+
+            ss.setAttribute("news", list);
+
             request.setAttribute("meetingsList", meetingsList);
             request.setAttribute("eventsList", eventsList);
             request.setAttribute("tList", tournamentsList);
-             
+
             request.getRequestDispatcher("/member_homepage.jsp").forward(request, response);
-        }
-         else {
-             TournamentManager tournamentManager = new TournamentManager();
+        } else {
+            TournamentManager tournamentManager = new TournamentManager();
             List<Tournament> tournamentsList = tournamentManager.getTop10();
-           
+
             FieldtripManager eventsManager = new FieldtripManager();
             List<Fieldtrip> eventsList = eventsManager.getTop10();
-            
+
             MeetingManager meetingManager = new MeetingManager();
             List<Meeting> meetingsList = meetingManager.getTop10();
-             NewsManager nm = new NewsManager();
-             List<News> list = nm.getTop10();
-            
-            ss.setAttribute("news", list); 
-            
+            NewsManager nm = new NewsManager();
+            List<News> list = nm.getTop10();
+
+            ss.setAttribute("news", list);
+
             request.setAttribute("meetingsList", meetingsList);
             request.setAttribute("eventsList", eventsList);
             request.setAttribute("tList", tournamentsList);
-             
+
             response.sendRedirect(request.getContextPath() + "/home?action=view");
         }
     }

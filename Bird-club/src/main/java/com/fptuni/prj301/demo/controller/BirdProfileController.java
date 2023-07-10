@@ -79,13 +79,13 @@ public class BirdProfileController extends HttpServlet {
             String description;
 
             try {
-                description = tool.formatPara(request.getParameter("description"));
+                description = request.getParameter("description");
             } catch (Exception e) {
                 description = "Content hasn't been uploaded yet";
             }
             String color = request.getParameter("color");
             DBgenerator d = new DBgenerator();
-            byte[] profilePic = d.ImageToByteArray("D:\\gt\\Bird-club\\src\\main\\webapp\\media\\bird.jpg");
+            byte[] profilePic = d.ImageToByteArray("D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\bird.jpg");
             Bird b = new Bird(BID, UID, name, age, gender, description, color, profilePic);
             bird.insert(b);
             request.setAttribute("birds", b);

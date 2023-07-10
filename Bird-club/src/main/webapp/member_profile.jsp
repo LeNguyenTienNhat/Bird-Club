@@ -208,7 +208,7 @@
                                             <input type="hidden" name="UID" value="${users.getUID()}">
                                             <button type="submit" class="custom-button">My Bird</button>
                                         </form>
-                                        <a class="custom-button mt-3" href="member_membership.jsp">Membership</a>
+                                        <a class="custom-button mt-3" href="http://localhost:8080/chimowners/MemberShipController?action=view">Membership</a>
                                     </div>
 
                                 </div>

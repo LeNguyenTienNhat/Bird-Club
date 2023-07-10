@@ -202,16 +202,6 @@
                                 e.preventDefault();
                             });</script>
                     </div>
-                    <section id="global-cta" aria-label="Call to action" class="global-cta">
-                        <div class="wp-block-group cta">
-                            <h2 class="has-text-align-center">All About Birds is a free resource</h2>
-                            <p class="has-text-align-center">Available for everyone,<br>funded by donors like you</p>
-                            <div class="is-content-justification-center is-layout-flex wp-container-7 wp-block-buttons">
-                                <div class="wp-block-button"><a class="wp-block-button__link has-orange-background-color has-background" href="https://give.birds.cornell.edu/page/39428/donate/1?ea.tracking.id=AAB">Donate</a></div>
-                            </div>
-                        </div>
-                    </section>
-
                     </article> 
             </main>
             <%@ include file="member_footer.jsp" %>

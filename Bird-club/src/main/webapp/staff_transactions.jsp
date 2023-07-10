@@ -1,3 +1,4 @@
+<%@page import="java.math.BigDecimal"%>
 <%@page import="java.util.Base64"%>
 <%@page import="com.fptuni.prj301.demo.model.UserSession"%>
 <%@page import="com.fptuni.prj301.demo.model.Transaction"%>
@@ -302,7 +303,7 @@
                                             <dt class="text-base font-normal text-gray-900">Total revenue</dt>
                                             <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                                 <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                    <% int revenue = (Integer) request.getAttribute("revenue");
+                                                    <% BigDecimal revenue = (BigDecimal) request.getAttribute("revenue");
                                                         out.print(revenue);
                                                     %>
                                                 </div>

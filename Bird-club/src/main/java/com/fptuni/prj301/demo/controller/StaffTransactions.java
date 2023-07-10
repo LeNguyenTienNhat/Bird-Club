@@ -3,12 +3,14 @@ package com.fptuni.prj301.demo.controller;
 import com.fptuni.prj301.demo.dbmanager.TransactionManager;
 import com.fptuni.prj301.demo.model.Transaction;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import tool.utils.Tools;
 
 public class StaffTransactions extends HttpServlet {
 
@@ -34,6 +36,8 @@ public class StaffTransactions extends HttpServlet {
             int totalNum = tm.countNumAsTransactionType(transactionType);
             List<Transaction> list = tm.getRecords(skip, 20, transactionType);
             revenue = tm.getSumAsTransactionType(transactionType);
+            Tools tool = new Tools();
+
             request.setAttribute("revenue", revenue);
             request.setAttribute("list", list);
             request.setAttribute("pageNum", page);

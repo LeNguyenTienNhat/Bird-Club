@@ -1,9 +1,11 @@
 package tool.utils;
 
 import com.fptuni.prj301.demo.utils.DBUtils;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -145,6 +147,12 @@ public class Tools {
         } else {
             return now.getDayOfMonth();
         }
+    }
+
+    public int formatRevenue(int revenue) {
+        int formattedRevenue=revenue;
+        
+        return formattedRevenue;
     }
 
 }
