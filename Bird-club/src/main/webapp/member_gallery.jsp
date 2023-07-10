@@ -60,7 +60,7 @@
                 <h2 class="has-text-align-center has-large-font-size" id="macaulay-library-photowall">Chim Owners' Library</h2>
                 <p>Epic pictures taken by experts from Chim Owners. For real.</p>
                 <c:forEach var="image" items="${list}">
-                    <img src="data:image/png;base64,${Base64.getEncoder().encodeToString(image)}" />
+                    <img src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(image.getImage())}" />
                 </c:forEach>
 
                 <div id="my_nanogallery2"></div>
