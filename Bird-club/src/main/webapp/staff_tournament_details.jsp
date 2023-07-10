@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.fptuni.prj301.demo.model.Media"%>
 <%@page import="java.util.Base64"%>
 <%@page import="com.fptuni.prj301.demo.model.UserSession"%>
 <%@page import="com.fptuni.prj301.demo.model.Location"%>
@@ -483,6 +485,30 @@
                                 </div>
                             </div>
                         </div></section>
+
+
+
+                    <div>
+                        <div class="lg:grid lg:grid-cols-12 lg:gap-x-16">
+                            <div class="px-6 sm:px-0 mt-4 lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-9">
+                            </div>
+                            <div class="lg:col-span-7 xl:col-span-8" id="events_list">
+                                <%! List<Media> list;%>    
+                                <% list = (ArrayList) request.getAttribute("mediaList"); %>
+
+                                <ul role="list" class="grid grid-cols-2 gap-x-0.5 gap-y-0.5 sm:grid-cols-3 lg:grid-cols-4 mt-8 px-4 sm:px-0">
+
+                                    <%
+                                        for (Media m : list) {
+                                            out.print("<li class='relative hover:opacity-75'>"
+                                                    + "<a data-turbo-frame='photo_modal'></a><a data-turbo-frame='photo_modal' class='hover:opacity-75'>"
+                                                    + "<img src='data:image/jpeg;base64," + Base64.getEncoder().encodeToString(m.getImage()) + "'>"
+                                                    + "</a></li>");
+                                        }
+                                    %>
+
+                                </ul>
+                            </div></div></div>
                 </div>
 
             </div>

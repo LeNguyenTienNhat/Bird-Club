@@ -152,29 +152,6 @@
 
                     </div>
                 </div>
-                <div class="hidden sm:hidden" id="mobile-menu" data-navbar-target="menu">
-                    <div class="pt-4 pb-3 border-t border-gray-200">
-                        <div class="flex items-center px-4">
-                            <div class="flex-shrink-0">
-                                <div class="w-12 h-12 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden  flex-shrink-0">
-                                    <img src="https://www.bird.club/assets/avatars/raven-fcf919bd3575083b93e6c2e97c49df2320e84254f6cd2f7656273601d1ddc12b.png" />
-                                </div>
-
-                            </div>
-                            <div class="ml-3">
-                                <div class="text-base font-medium text-gray-800">Nguoi choi chim</div>
-                                <div class="text-sm font-medium text-gray-500">kaedeharayamamoto@gmail.com</div>
-                            </div>
-                        </div>
-                        <div class="mt-3 space-y-1">
-                            <h3 class="px-4 text-sm text-gray-700 font-bold">Clubs</h3>
-                            <a class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" href="/clubs/birds-in-ohio">Chim Owners</a>
-                            <a class="border-t border-gray-200 block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" href="/members/edit">Edit Settings</a>
-                            <a data-turbo-method="delete" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" href="/members/sign_out">Sign out</a>
-                        </div>
-                    </div>
-                </div>
-
         </nav>
 
 
@@ -328,7 +305,8 @@
 
                                 </ul>
 
-                            </div></div></div></div></div></div>       
+                            </div>
+                        </div></div></div></div></div>       
     </main>
 
     <footer class="mt-8" aria-labelledby="footer-heading">
