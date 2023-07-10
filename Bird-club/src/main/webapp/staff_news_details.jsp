@@ -294,7 +294,7 @@
                                                         <div class="col-span-3">
                                                             <label class="block text-sm font-medium text-gray-700" for="title">Title</label>
                                                             <div class="mt-1">
-                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="title" <% out.print("value= '" + n.getTitle() + "'"); %> name="title" id="title">
+                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" type="title" <% out.print("value= '" + n.getTitle() + "'"); %> name="title" id="title">
                                                             </div>
                                                         </div>
 
@@ -327,7 +327,7 @@
                                                         <div class="sm:col-span-4 md:col-span-2">
                                                             <label class="block text-sm font-medium text-gray-700" for="content">Content</label>
                                                             <div class="mt-1">
-                                                                <textarea rows="15" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="content"  id="content"><% out.print(n.getNewsContent()); %></textarea>
+                                                                <textarea rows="10" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="content"  id="content"><% out.print(n.getNewsContent()); %></textarea>
                                                             </div>
                                                             <p class="mt-2 text-sm text-gray-500">Not a brief content, as you have to write more to help prevent any confusion.</p>
                                                         </div>

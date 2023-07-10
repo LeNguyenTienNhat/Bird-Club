@@ -150,29 +150,6 @@
 
                     </div>
                 </div>
-                <div class="hidden sm:hidden" id="mobile-menu" data-navbar-target="menu">
-                    <div class="pt-4 pb-3 border-t border-gray-200">
-                        <div class="flex items-center px-4">
-                            <div class="flex-shrink-0">
-                                <div class="w-12 h-12 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden  flex-shrink-0">
-                                    <img src="https://www.bird.club/assets/avatars/raven-fcf919bd3575083b93e6c2e97c49df2320e84254f6cd2f7656273601d1ddc12b.png" />
-                                </div>
-
-                            </div>
-                            <div class="ml-3">
-                                <div class="text-base font-medium text-gray-800">Nguoi choi chim</div>
-                                <div class="text-sm font-medium text-gray-500">kaedeharayamamoto@gmail.com</div>
-                            </div>
-                        </div>
-                        <div class="mt-3 space-y-1">
-                            <h3 class="px-4 text-sm text-gray-700 font-bold">Clubs</h3>
-                            <a class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" href="/clubs/birds-in-ohio">Chim Owners</a>
-                            <a class="border-t border-gray-200 block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" href="/members/edit">Edit Settings</a>
-                            <a data-turbo-method="delete" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" href="/members/sign_out">Sign out</a>
-                        </div>
-                    </div>
-                </div>
-
         </nav>
 
 
@@ -210,7 +187,13 @@
                                         <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" name="title" id="title"></div></div>
 
                                     <div><label class="block text-sm font-medium text-gray-700" for="category">Category: </label>
-                                        <div class="mt-1"><input class="block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" name="category" id="category"></div></div>
+                                        <div class="mt-1">
+                                            <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="category" id="category">
+                                                <option selected="selected" value="news">News</option>
+                                                <option value="announcement">Announcement</option>
+                                                <option value="article">Article</option>
+                                            </select>
+                                        </div></div>
 
                                     <div class="sm:col-span-6">
                                         <label class="block text-sm font-medium text-gray-700" for="status">Status: </label>
@@ -313,8 +296,8 @@
                                         <dt class="text-base font-normal text-gray-900">News</dt>
                                         <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                             <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                <% int numOfNews = (Integer) request.getAttribute("numOfNews"); 
-                                                out.print(numOfNews);
+                                                <% int numOfNews = (Integer) request.getAttribute("numOfNews");
+                                                    out.print(numOfNews);
                                                 %>
                                             </div>
                                         </dd>
@@ -324,8 +307,8 @@
                                         <dt class="text-base font-normal text-gray-900">Announcement</dt>
                                         <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                             <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                <% int numOfAnnouncement = (Integer) request.getAttribute("numOfAnnouncement"); 
-                                                out.print(numOfAnnouncement);
+                                                <% int numOfAnnouncement = (Integer) request.getAttribute("numOfAnnouncement");
+                                                    out.print(numOfAnnouncement);
                                                 %>
                                             </div>
                                         </dd>
@@ -335,8 +318,8 @@
                                         <dt class="text-base font-normal text-gray-900">Article</dt>
                                         <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
                                             <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                                <% int numOfArticle = (Integer) request.getAttribute("numOfArticle"); 
-                                                out.print(numOfArticle);
+                                                <% int numOfArticle = (Integer) request.getAttribute("numOfArticle");
+                                                    out.print(numOfArticle);
                                                 %>
                                             </div>
                                         </dd>

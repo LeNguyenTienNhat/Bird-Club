@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import tool.utils.DBgenerator;
 import tool.utils.Tools;
 
 public class StaffNews extends HttpServlet {
@@ -80,7 +81,8 @@ public class StaffNews extends HttpServlet {
             String uploadDate = tool.getCurrentDate();
 
             String status = request.getParameter("status");
-            byte[] image = new byte[0xFFFFFF];
+            DBgenerator db = new DBgenerator();
+            byte[] image = db.ImageToByteArray("D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\placeholder.png");
             News n = new News(NID, UID, title, category, newsContent, uploadDate, status, image);
             nm.insert(n);
 
