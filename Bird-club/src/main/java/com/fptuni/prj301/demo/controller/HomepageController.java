@@ -65,6 +65,23 @@ public class HomepageController extends HttpServlet {
             request.getRequestDispatcher("/member_homepage.jsp").forward(request, response);
         }
          else {
+             TournamentManager tournamentManager = new TournamentManager();
+            List<Tournament> tournamentsList = tournamentManager.getTop10();
+           
+            FieldtripManager eventsManager = new FieldtripManager();
+            List<Fieldtrip> eventsList = eventsManager.getTop10();
+            
+            MeetingManager meetingManager = new MeetingManager();
+            List<Meeting> meetingsList = meetingManager.getTop10();
+             NewsManager nm = new NewsManager();
+             List<News> list = nm.getTop10();
+            
+            ss.setAttribute("news", list); 
+            
+            request.setAttribute("meetingsList", meetingsList);
+            request.setAttribute("eventsList", eventsList);
+            request.setAttribute("tList", tournamentsList);
+             
             response.sendRedirect(request.getContextPath() + "/home?action=view");
         }
     }
