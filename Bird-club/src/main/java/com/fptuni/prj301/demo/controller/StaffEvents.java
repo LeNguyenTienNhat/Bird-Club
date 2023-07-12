@@ -267,6 +267,8 @@ public class StaffEvents extends HttpServlet {
             mm.insert(meeting);
 
             request.setAttribute("action", "viewevents");
+            request.setAttribute("category", "Meeting");
+            request.setAttribute("status", "pending");
             RequestDispatcher rd = request.getRequestDispatcher("StaffEvents");
             rd.forward(request, response);
         } //Update a meeting's details

@@ -374,7 +374,7 @@
 
                         <div class="pagination">
                             <c:if test="${pageNumber > 1}">
-                                <a href="${pageContext.request.contextPath}/StaffAccountController?action=viewlist&page=${pageNumber - 1}">&laquo; Previous</a>
+                                <a href="${pageContext.request.contextPath}/StaffAccountFTController?action=viewfieldtrip&page=${pageNumber - 1}">&laquo; Previous</a>
                             </c:if>
                             <c:forEach begin="1" end="${totalPages}" var="page">
                                 <c:choose>
@@ -382,12 +382,12 @@
                                         <span class="current-page">${page}</span>
                                     </c:when>
                                     <c:otherwise>
-                                        <a href="${pageContext.request.contextPath}/StaffAccountController?action=viewlist&page=${page}">${page}</a>
+                                        <a href="${pageContext.request.contextPath}/StaffAccountFTController?action=viewfieldtrip&page=${page}">${page}</a>
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>
                             <c:if test="${pageNumber < totalPages}">
-                                <a href="${pageContext.request.contextPath}/StaffAccountController?action=viewlist&page=${pageNumber + 1}">Next &raquo;</a>
+                                <a href="${pageContext.request.contextPath}/StaffAccountFTController?action=viewfieldtrip&page=${pageNumber + 1}">Next &raquo;</a>
                             </c:if>
                         </div>
                         </c:if>
