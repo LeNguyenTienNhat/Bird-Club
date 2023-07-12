@@ -17,6 +17,7 @@ import tool.utils.UIDGenerator;
 import static tool.utils.UIDGenerator.generateNewPassword;
 
 public class UserAccessController extends HttpServlet {
+    String DEFAULT_PICTURE = "D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\user.png";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -47,7 +48,12 @@ public class UserAccessController extends HttpServlet {
 
                     if (status.equals("unactivated")) {
                         ss.setAttribute("users", user);
-                        response.sendRedirect(request.getContextPath() + "/MemberShipController?action=view");
+                        if (role.equals("guest")) {
+                            response.sendRedirect(request.getContextPath() + "/home?action=view");
+                        } else {
+                            response.sendRedirect(request.getContextPath() + "/MemberShipController?action=view");
+                        }
+                        
                     } else if (user.getExpriedDate() != null && user.getExpriedDate().before(new Date())) {
                         ss.setAttribute("users", user);
                         ss.setAttribute("userID", userDao.searchByName(user.getUserName()));
@@ -82,7 +88,7 @@ public class UserAccessController extends HttpServlet {
             String email = request.getParameter("email");
             String gender = request.getParameter("gender");
             DBgenerator d = new DBgenerator();
-            byte[] profilePic = d.generateProfilePictureByteArray("D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\user.png");
+            byte[] profilePic = d.generateProfilePictureByteArray(DEFAULT_PICTURE);
             // Check if username or email already exists
             UserAccessManager userDao = new UserAccessManager();
             boolean isUserExists = userDao.checkUserExists(username);

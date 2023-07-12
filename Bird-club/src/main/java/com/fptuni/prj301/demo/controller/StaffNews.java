@@ -26,6 +26,7 @@ public class StaffNews extends HttpServlet {
         String action = request.getParameter("action");
         NewsManager nm = new NewsManager();
         Tools tool = new Tools();
+        String DEFAULT_PICTURE = "D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\placeholder.png";
 
         //View all news
         if (action == null || action.equals("viewnews")) {
@@ -56,14 +57,14 @@ public class StaffNews extends HttpServlet {
             int numOfNews = nm.countNumAsCategory("News");
             int numOfAnnouncement = nm.countNumAsCategory("Announcement");
             int numOfArticle = nm.countNumAsCategory("Article");
-            
+
             request.setAttribute("list", list);
             request.setAttribute("category", category);
             request.setAttribute("pageNum", page);
-            request.setAttribute("totalNum", totalNum);     
-            request.setAttribute("numOfNews", numOfNews);  
-            request.setAttribute("numOfAnnouncement", numOfAnnouncement);  
-            request.setAttribute("numOfArticle", numOfArticle);  
+            request.setAttribute("totalNum", totalNum);
+            request.setAttribute("numOfNews", numOfNews);
+            request.setAttribute("numOfAnnouncement", numOfAnnouncement);
+            request.setAttribute("numOfArticle", numOfArticle);
             RequestDispatcher rd = request.getRequestDispatcher("staff_news.jsp");
             rd.forward(request, response);
         } //Upload a news
@@ -82,7 +83,7 @@ public class StaffNews extends HttpServlet {
 
             String status = request.getParameter("status");
             DBgenerator db = new DBgenerator();
-            byte[] image = db.ImageToByteArray("D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\placeholder.png");
+            byte[] image = db.ImageToByteArray(DEFAULT_PICTURE);
             News n = new News(NID, UID, title, category, newsContent, uploadDate, status, image);
             nm.insert(n);
 
@@ -116,20 +117,22 @@ public class StaffNews extends HttpServlet {
         } else if (action.equals("view")) {
             List<News> list = nm.getList();
             HttpSession ss = request.getSession(true);// Retrieve the news data
-            if(list!=null){
-            ss.setAttribute("news", list);  // Set the news list as a request attribute
-            response.sendRedirect(request.getContextPath() + "/member_article.jsp"); } 
+            if (list != null) {
+                ss.setAttribute("news", list);  // Set the news list as a request attribute
+                response.sendRedirect(request.getContextPath() + "/member_article.jsp");
+            }
 
-        }else if (action.equals("details")) {
+        } else if (action.equals("details")) {
             String nid = request.getParameter("NID");
-            News n= nm.load(nid);
+            News n = nm.load(nid);
             HttpSession ss = request.getSession(true);// Retrieve the news data
             UserAccessManager u = new UserAccessManager();
-             UserSession user = u.searchName(n.getUID());
-            if(n!=null){
-            ss.setAttribute("news", n);  // Set the news list as a request attribute
-            ss.setAttribute("u", user);
-            response.sendRedirect(request.getContextPath() + "/member_article_details.jsp"); } 
+            UserSession user = u.searchName(n.getUID());
+            if (n != null) {
+                ss.setAttribute("news", n);  // Set the news list as a request attribute
+                ss.setAttribute("u", user);
+                response.sendRedirect(request.getContextPath() + "/member_article_details.jsp");
+            }
 
         }
 

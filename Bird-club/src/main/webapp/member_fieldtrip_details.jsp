@@ -185,7 +185,7 @@
 
                                                 <div class="row">
                                                     <dt>Fee</dt>
-                                                    <dd >${fieldtrip.getFee()}$</dd>
+                                                    <dd >${fieldtrip.getFee()}VND</dd>
                                                 </div>
                                                 <div class="row">
                                                     <dt>Contact</dt>

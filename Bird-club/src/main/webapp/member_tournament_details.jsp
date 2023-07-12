@@ -417,11 +417,11 @@
                                                 </div>
                                                 <div class="row">
                                                     <dt>Prize</dt>
-                                                    <dd>${tournament.getTotalPrize()}$</dd>
+                                                    <dd>${tournament.getTotalPrize()}VND</dd>
                                                 </div>
                                                 <div class="row">
                                                     <dt>Fee</dt>
-                                                    <dd >${tournament.getFee()}$</dd>
+                                                    <dd >${tournament.getFee()}VND</dd>
                                                 </div>
                                                 <div class="row">
                                                     <dt>Contact</dt>

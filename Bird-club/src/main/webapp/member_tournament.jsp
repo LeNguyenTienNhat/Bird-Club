@@ -338,8 +338,8 @@
                                     </div>
                                     <div class="tribe-events-list-event-description col-md-6 tribe-events-content description entry-summary">
                                         <p><strong>Leader: </strong> ${t.getIncharge()}</p> 
-                                          <p><strong>Fee: </strong>${t.getFee()}$</p>
-                                          <p><strong>Prize: </strong>${t.getTotalPrize()}$</p>
+                                          <p><strong>Fee: </strong>${t.getFee()}VND</p>
+                                          <p><strong>Prize: </strong>${t.getTotalPrize()}VND</p>
                                         <p><strong>Participant limit: </strong>${t.getNumberOfParticipant()}</p>
                                         <p><strong>Focus: </strong>${t.getDescription()}</p>
                                         <p><strong>Note: </strong> ${t.getNote()}</p>

@@ -292,7 +292,7 @@
                                 <%! Tournament tournament; %>
                                 <% tournament = (Tournament) request.getAttribute("tournament"); %>
 
-                                <div class="p-6">
+                                <div class="" style=" padding: 100px">
                                     <div class="space-y-8 divide-y divide-gray-200">
                                         <form class="edit_member" id="edit" action="./tournaments" method="post">
                                             <turbo-frame id="flash"></turbo-frame>

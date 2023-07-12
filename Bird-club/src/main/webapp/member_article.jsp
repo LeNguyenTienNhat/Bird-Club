@@ -10,7 +10,7 @@
 <html class="no-js" lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
         <meta charset="utf-8">
-        <title>Articles</title>
+        <title>News</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta class="foundation-mq">
@@ -72,7 +72,7 @@
 
                 <div class="content-container archive page-wider">
                     <header class="article-header" aria-label="Title">
-                        <h1 id="archive-header" class="page-title" style="text-align: center;">All Articles</h1>
+                        <h1 id="archive-header" class="page-title" style="text-align: center;">NEWS</h1>
 
                     </header> 
                     <section aria-labelledby="archive-header">
@@ -145,28 +145,6 @@
                 </div>
             </section>
         </div>
-
-
-        <div class="reveal" id="newsletter-modal" data-reveal role="dialog" data-animation-in="fade-in fast" data-v-offset="0" aria-label="Newsletter Sign Up">
-            <button class="close-button" data-close aria-label="Close" type="button"><span class="text">Cancel</span> <span class="symbol" aria-hidden="true">&times;</span></button>
-            <div class="content">
-                <h2 class="has-text-align-center">Don't miss a thing! Join our email list</h2>
-                <p class="has-text-align-center">The Cornell Lab will send you updates about birds, <br>birding, and opportunities to help bird conservation.</p>
-                <p><div class="hubspot-news">
-                    <script type="text/javascript" charset="utf-8" src="//js.hsforms.net/forms/current.js"></script>
-                    <script type="text/javascript">
-            hbspt.forms.create({
-                portalId: '95627',
-                formId: 'de085739-e692-431e-b987-0736c9c7e87a',
-                target: '.hubspot-news'
-            });
-                    </script>
-                </div></p>
-                <div class="hubspot-news"></div> </div>
-        </div>
-
-
-
         <section class="reveal merlin-web-interact" id="merlin-id" data-reveal role="dialog" data-animation-in="slide-in-right fast" data-animation-out="slide-out-right fast" data-v-offset="0" aria-label="Merlin Web">
             <div class="close-bar">
                 <button class="close-button" data-close aria-label="Close Merlin bird ID" type="button"><span class="symbol" aria-hidden="true">&times;</span> Close Merlin</button>

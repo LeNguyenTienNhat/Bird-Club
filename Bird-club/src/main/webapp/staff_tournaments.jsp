@@ -464,7 +464,7 @@
                                                         + "<div style='margin-top: 20px' class='flex items-start space-x-3'>");
 
                                                 if (tournament.getStatus().trim().equalsIgnoreCase("pending")) {
-                                                    out.print("<form method='post'>"
+                                                    out.print("<form>"
                                                             + "<input type='hidden' name='TID' value = '" + tournament.getTID() + "'>"
                                                             + "<input type='hidden' name='action' value='closeform'>"
                                                             + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-yellow-100 hover:text-gray-500 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
@@ -475,7 +475,7 @@
                                                 }
 
                                                 if (tournament.getStatus().trim().equalsIgnoreCase("formClosed")) {
-                                                    out.print("<form method='post'>"
+                                                    out.print("<form>"
                                                             + "<input type='hidden' name='TID' value = '" + tournament.getTID() + "'>"
                                                             + "<input type='hidden' name='action' value='start'>"
                                                             + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-lime-200 hover:text-gray-500 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
@@ -487,7 +487,7 @@
                                                 }
 
                                                 if (tournament.getStatus().trim().equalsIgnoreCase("ongoing")) {
-                                                    out.print("<form method='post'><input type='hidden' name='TID' value = '" + tournament.getTID() + "'>"
+                                                    out.print("<form><input type='hidden' name='TID' value = '" + tournament.getTID() + "'>"
                                                             + "<input type='hidden' name='action' value='terminatetournament'>"
                                                             + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-red-200 hover:text-gray-500 focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"
                                                             + "type='submit'>"
@@ -515,9 +515,9 @@
                                                         + "<path d='M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z'/>"
                                                         + "<path d='M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z'/>"
                                                         + "</svg>"
-                                                        + "Media</button>");
+                                                        + "Media</button></form>");
 
-                                                out.print("</form>"
+                                                out.print(""
                                                         + "<form action='./mail'>"
                                                         + "<input type='hidden' name='ID' value = '" + tournament.getTID() + "'>"
                                                         + "<button class='flex justify-center py-2 px-4 text-base text-gray-500 border-transparent text-xs bg-white hover:bg-gray-700 hover:text-white focus:ring-gray-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2'"

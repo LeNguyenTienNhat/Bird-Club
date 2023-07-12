@@ -330,7 +330,7 @@
                                             </div>
                                             <div class="tribe-events-list-event-description col-md-6 tribe-events-content description entry-summary">
                                                 <p><strong>Leader: </strong> ${f.getIncharge()}</p>
-                                                <p><strong>Fee: </strong>${f.getFee()}$</p>  
+                                                <p><strong>Fee: </strong>${f.getFee()}VND</p>  
                                                 <p><strong>Participant limit: </strong>${f.getNumberOfParticipant()}</p>
                                                 <p><strong>Focus: </strong>${f.getDescription()}</p>
                                                 <p><strong>Note: </strong> ${f.getNote()}</p>

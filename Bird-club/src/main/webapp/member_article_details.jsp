@@ -105,7 +105,7 @@
                                                         </div>
                                                     </div>
                                                 </section>-->
-                        <footer class="article-footer hide-for-print" aria-label="Related articles">
+<!--                        <footer class="article-footer hide-for-print" aria-label="Related articles">
                             <h2>More from experts</h2>
                             <div class="article-list card-display card-five">
                                 <ul>
@@ -176,7 +176,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </footer> 
+                        </footer> -->
                         <div id="disqus_thread"></div>
                     </div>
                 </article> 
