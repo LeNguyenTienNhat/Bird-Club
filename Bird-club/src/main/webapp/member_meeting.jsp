@@ -244,7 +244,7 @@
                                 <div id="post-3946" class="type-tribe_events post-3946 tribe-clearfix tribe-events-category-meetings tribe-events-organizer-873" style="margin-top: 20px; margin-bottom: 20px;">
                                     <h3 class="tribe-events-list-event-title">
                                         <div style="display: flex; align-items: center;">
-                                            <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}"
+                                            <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}&UID=${users.getUID()}"
                                                title="${m.getName()}"
                                                class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin">
                                                 ${m.getName()}
@@ -301,7 +301,7 @@
                                             <p><strong>Participant limit: </strong>${m.getNumberOfParticipant()}</p>
                                             <p><strong>Focus: </strong>${m.getDescription()}</p>
                                             <p><strong>Note: </strong> ${m.getNote()}</p>
-                                            <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}&UID=${users.getUID()}" class="tribe-events-read-more" rel="bookmark">Find out more »</a>
+                                            <a href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&UID=${users.getUID()}&MeID=${m.getMeID()}" class="tribe-events-read-more" rel="bookmark">Find out more »</a>
                                         </div>
                                     </div>
                                     <hr>

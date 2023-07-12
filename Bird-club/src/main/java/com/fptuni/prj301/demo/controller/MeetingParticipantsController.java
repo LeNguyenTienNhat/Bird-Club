@@ -68,7 +68,7 @@ public class MeetingParticipantsController extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/StaffAccountMTController?action=viewmeeting");
             } else {
                 // Redirect to a failure page
-                response.sendRedirect(request.getContextPath() + "/failure.jsp");
+                response.sendRedirect(request.getContextPath() + "/error.html");
             }
         } else if (action.equals("view")) {
             // Retrieve the Tparticipation object from the database based on the provided parameters (e.g., docNo)

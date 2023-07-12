@@ -312,7 +312,7 @@
                                         <div class="wp-block-button">
                                             <c:choose>
                                                 <c:when test="${meeting.getStatus().trim() eq 'pending'}">
-                                                    <form action="${pageContext.request.contextPath}/MeetingParticipantsController" method="POST">
+                                                    <form action="${pageContext.request.contextPath}/MeetingParticipantsController" method="GET">
                                                         <input type="hidden" name="action" value="add">
                                                         <input type="hidden" name="UID" value="${users.getUID()}">
                                                         <input type="hidden" name="MeID" value="${meeting.getMeID()}">

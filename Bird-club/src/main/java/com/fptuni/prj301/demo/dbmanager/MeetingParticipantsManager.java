@@ -37,7 +37,7 @@ public class MeetingParticipantsManager {
             int count = rs.getInt(1);
 
             if (count > 0) {
-                // Record with same Fid and UId already exists
+                // Record with same MeID and UId already exists
                 return false;
             }
 
