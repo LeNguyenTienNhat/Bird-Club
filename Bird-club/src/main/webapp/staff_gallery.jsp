@@ -294,7 +294,7 @@
                                         for (Image i : list) {
                                             out.print("<li class='relative hover:opacity-75'>"
                                                     + "<a data-turbo-frame='photo_modal'></a><a data-turbo-frame='photo_modal' class='hover:opacity-75'>"
-                                                    + "<img src='data:image/jpg;base64," + Base64.getEncoder().encodeToString(i.getImage()) + "'>"
+                                                    + "<img style='object-fit: cover;' src='data:image/jpg;base64," + Base64.getEncoder().encodeToString(i.getImage()) + "'>"
                                                     + "</a></li>");
                                         }
                                     %>

@@ -194,19 +194,28 @@
                                         <div class="mt-1">
                                             <input accept="image/*" color="teal" 
                                                    class="cursor-pointer block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" 
-                                                   type="file" name="image" id="image"></div></div>
+                                                   type="file" name="image" id="image" onchange="loadFile(event)"></div></div>
                                     <input type="hidden" name="ID"  <%  out.print("value='" + t.getTID() + "'");  %>      >
                                     <input type='hidden' name="tableName" value="TournamentMedia">
-                                    <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="description" id="description">
-                                        <option value="thumbnail">Thumbnail</option>
-                                        <option value="gallery">Gallery</option>                                   
-                                    </select>
+                                    <img style='height: auto; width: 30rem; display: block; margin-bottom: 25px' id="output">   
+                                    <div  id="addimage" style="display: none">
+                                        <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="description" id="description">
+                                            <option value="thumbnail">Thumbnail</option>
 
-
-                                    <div class="text-right sm:col-span-4">
-                                        <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
-                                            Add image</button>
-                                    </div></form>
+                                            <% String hidden = "";
+                                                String status = t.getStatus().trim();
+                                                if (status.equals("pending") || status.equals("formClosed")) {
+                                                    hidden = "hidden";
+                                                }
+                                                out.print("<option value='gallery' " + hidden + " >Gallery</option>");
+                                            %>                   
+                                        </select>
+                                        <div class="text-right sm:col-span-4">
+                                            <button type="submit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                                Add image</button>
+                                        </div>
+                                    </div>
+                                </form>
 
                             </turbo-frame></turbo-frame></div></div></div></div>
 
@@ -266,9 +275,9 @@
 
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
                         <div class="sm:flex-auto">
-                            <h1 class="text-xl font-semibold text-gray-900">Events</h1>
+                            <h1 class="text-xl font-semibold text-gray-900">Images</h1>
                             <p class="mt-2 text-sm text-gray-700">
-                                Available events hosted by Chim Owners.
+                                Available images uploaded by Chim Owners.
                             </p>
                         </div>
 
@@ -282,13 +291,24 @@
                     </div>
 
                     <div>
-                        <div class="lg:grid lg:grid-cols-12 lg:gap-x-16">
-                            <div class="px-6 sm:px-0 mt-4 lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-9">
+                        <div class="">                                                                
+                            <script>
+                                var loadFile = function (event) {
+                                    var output = document.getElementById('output');
+                                    output.src = URL.createObjectURL(event.target.files[0]);
+                                    output.onload = function () {
+                                        URL.revokeObjectURL(output.src) // free memory
+                                    }
+                                    var x = document.getElementById('addimage');
+                                    if (x.style.display === "none") {
+                                        x.style.display = "block";
+                                    } else {
+                                        x.style.display = "none";
+                                    }
+                                };
+                            </script>
 
-                            </div>
                             <div class="lg:col-span-7 xl:col-span-8" id="events_list">
-
-
                                 <%! List<Media> list;%>    
                                 <% list = (ArrayList) request.getAttribute("list"); %>
 
@@ -297,14 +317,12 @@
                                     <%
                                         for (Media m : list) {
                                             out.print("<li class='relative hover:opacity-75'>"
-                                                    + "<a data-turbo-frame='photo_modal'></a><a data-turbo-frame='photo_modal' class='hover:opacity-75'>"
+                                                    + "<a data-turbo-frame='' class='hover:opacity-75'>"
                                                     + "<img src='data:image/jpeg;base64," + Base64.getEncoder().encodeToString(m.getImage()) + "'>"
                                                     + "</a></li>");
                                         }
                                     %>
-
                                 </ul>
-
                             </div>
                         </div></div></div></div></div>       
     </main>

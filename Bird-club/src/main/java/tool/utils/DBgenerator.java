@@ -1,8 +1,10 @@
 package tool.utils;
 
 import com.fptuni.prj301.demo.dbmanager.BirdManager;
+import com.fptuni.prj301.demo.dbmanager.GalleryManager;
 import com.fptuni.prj301.demo.dbmanager.MemberManager;
 import com.fptuni.prj301.demo.model.Bird;
+import com.fptuni.prj301.demo.model.Image;
 import com.fptuni.prj301.demo.model.Member;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
@@ -10,18 +12,22 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
 public class DBgenerator {
 
     //Absolute path of user.png in media folder
-    String USER_PROFILE_PICTURE_PATH = "C:\\Users\\Tue\\Documents\\SWP\\Bird-club\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\user.png";
+    String USER_PROFILE_PICTURE_PATH = "D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\user.png";
     //Absolute path of bird.jpg in media folder
-    String BIRD_PROFILE_PICTURE_PATH = "C:\\Users\\Tue\\Documents\\SWP\\Bird-club\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\bird.jpg";
-    String FULLNAME_PATH = "C:\\Users\\Tue\\Documents\\SWP\\Bird-club\\Bird-Club\\Bird-club\\fullName.txt";
-    String USERNAME_PATH = "C:\\Users\\Tue\\Documents\\SWP\\Bird-club\\Bird-Club\\Bird-club\\username.txt";
-    String BIRDNAME_PATH = "C:\\Users\\Tue\\Documents\\SWP\\Bird-club\\Bird-Club\\Bird-club\\petName.txt";
-
+    String BIRD_PROFILE_PICTURE_PATH = "D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\bird.jpg";
+    String FULLNAME_PATH = "D:\\gt\\Bird-Club\\Bird-club\\fullName.txt";
+    String USERNAME_PATH = "D:\\gt\\Bird-Club\\Bird-club\\username.txt";
+    String BIRDNAME_PATH = "D:\\gt\\Bird-Club\\Bird-club\\petName.txt";
+    String GALLERY_PATH = "D:\\Picture\\FieldTripMedia\\";
+    
     public byte[] ImageToByteArray(String path) throws IOException {
         BufferedImage bImage = ImageIO.read(new File(path));
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -29,11 +35,11 @@ public class DBgenerator {
         byte[] data = bos.toByteArray();
         return data;
     }
-
+    
     public byte[] generateProfilePictureByteArray(String path) throws IOException {
         BufferedImage bImage = ImageIO.read(new File(path));
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ImageIO.write(bImage, "png", bos);
+        ImageIO.write(bImage, "jpg", bos);
         byte[] data = bos.toByteArray();
         return data;
     }
@@ -59,7 +65,7 @@ public class DBgenerator {
             return null;
         }
     }
-
+    
     public String getRandomDate(int startMonth, int endMonth, int year) {
         Tools tool = new Tools();
         //generate date info
@@ -74,7 +80,7 @@ public class DBgenerator {
         sb.append(year);
         return sb.toString();
     }
-
+    
     public void generateUser() throws IOException {
         DBgenerator db = new DBgenerator();
         Tools tool = new Tools();
@@ -106,7 +112,7 @@ public class DBgenerator {
             }
             int membershipCode = tool.getRandomNumber(1, 3);
             m.setMID("MID0" + Integer.toString(membershipCode));
-
+            
             int duration;
             switch (membershipCode) {
                 case 1:
@@ -123,7 +129,7 @@ public class DBgenerator {
             String year = "2023";
             int signUpMonth = tool.getRandomNumber(1, 12);
             m.setSignupDate(day + "/" + Integer.toString(signUpMonth) + "/" + year);
-
+            
             int expiredMonth = signUpMonth + duration;
             if (expiredMonth > 12) {
                 year = "2024";
@@ -131,13 +137,13 @@ public class DBgenerator {
             }
             m.setExpiredDate(day + "/" + Integer.toString(expiredMonth) + "/" + year);
             m.setProfilePicture(profilePicture);
-
+            
             MemberManager mm = new MemberManager();
             mm.insert(m);
         }
-
+        
     }
-
+    
     public void generateBird() throws IOException {
         DBgenerator db = new DBgenerator();
         Tools tool = new Tools();
@@ -159,16 +165,34 @@ public class DBgenerator {
             b.setDescription("Not uploaded yet");
             b.setColor("black");
             b.setProfilePic(profilePicture);
-
+            
             BirdManager bm = new BirdManager();
             bm.insert(b);
         }
     }
-
+    
+    public void generateGallery(int numOfPics) throws IOException {
+        DBgenerator db = new DBgenerator();
+        GalleryManager gm = new GalleryManager();        
+        for (int i = 1; i <= numOfPics; i++) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(GALLERY_PATH).append(Integer.toString(i)).append(".jpg");
+            byte[] picture = db.ImageToByteArray(sb.toString());
+            Image image = new Image("gallery", picture);
+            try {
+                gm.insert(image);
+            } catch (ClassNotFoundException | ParseException ex) {
+                Logger.getLogger(DBgenerator.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    }
+    
     public static void main(String[] args) throws IOException {
         DBgenerator db = new DBgenerator();
-        db.generateUser();
-        db.generateBird();
+//        db.generateUser();
+//        db.generateBird();
+//        db.generateGallery(40);
     }
-
+    
 }

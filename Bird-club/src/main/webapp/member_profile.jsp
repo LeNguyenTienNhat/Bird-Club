@@ -310,7 +310,6 @@
                     </div>
                     </article> 
             </main>
-            <%@ include file="member_footer.jsp" %>
         </div>
 
         <div class="reveal" id="search-modal" data-reveal role="dialog" data-animation-in="fade-in fast" aria-label="Search">

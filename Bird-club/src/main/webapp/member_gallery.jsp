@@ -56,17 +56,13 @@
         <%@ include file="member_header.jsp" %> 
 
         <main id="main-content">
-            <div class="is-layout-flow wp-block-group alignfull page-section macaulay">
+            <div class="is-layout-flow wp-block-group page-section macaulay">
                 <h2 class="has-text-align-center has-large-font-size" id="macaulay-library-photowall">Chim Owners' Library</h2>
                 <p>Epic pictures taken by experts from Chim Owners. For real.</p>
                 <c:forEach var="image" items="${list}">
-                    <img src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(image.getImage())}" />
+                    <img style="object-fit: cover; width: 500px; height: 300px" src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(image.getImage())}" />
                 </c:forEach>
 
-                <div id="my_nanogallery2"></div>
-                <div class="is-horizontal is-content-justification-center is-layout-flex wp-container-33 wp-block-buttons">
-                    <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://search.macaulaylibrary.org/catalog?sort=rating_rank_desc">Browse More Photos</a></div>
-                </div>
             </div>
             <style>
                 #hero-wrapper .hero-text { width: 600px; }
