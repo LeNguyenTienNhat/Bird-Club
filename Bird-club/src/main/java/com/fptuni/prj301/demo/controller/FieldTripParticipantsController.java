@@ -68,7 +68,7 @@ public class FieldTripParticipantsController extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/index.jsp");
             } else {
                 // Redirect to a failure page
-                response.sendRedirect(request.getContextPath() + "/failure.jsp");
+                response.sendRedirect(request.getContextPath() + "/login.jsp");
             }
         } else if (action.equals("view")) {
             // Retrieve the Tparticipation object from the database based on the provided parameters (e.g., docNo)
@@ -121,11 +121,11 @@ public class FieldTripParticipantsController extends HttpServlet {
                     response.sendRedirect(request.getContextPath() + "/member_homepage.jsp");
                 } else {
                     // Deletion failed, redirect to a failure page
-                    response.sendRedirect(request.getContextPath() + "/failure.jsp");
+                    response.sendRedirect(request.getContextPath() + "/login.jsp");
                 }
             } else {
                 // Missing docT attribute, redirect to a failure page
-                response.sendRedirect(request.getContextPath() + "/failure.jsp");
+                response.sendRedirect(request.getContextPath() + "/login.jsp");
             }
         }
         if (action != null && action.equals("save")) {
