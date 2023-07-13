@@ -150,7 +150,7 @@
                             <div class="membership-options">
                                 <div class="membership-option" onclick="selectMembershipOption(this)">
                                     <h2>${r.getName()}</h2>
-                                    <p class="membership-fee">Fee: ${r.getValue()}$</p>
+                                    <p class="membership-fee">Fee: ${r.getValue()} VND</p>
                                     <div class="membership-description">${r.getDescription()}</div>
                                     <input type="hidden" name="action" value="add">
                                     <input type="hidden" name="UID" value="${users.getUserName()}" />

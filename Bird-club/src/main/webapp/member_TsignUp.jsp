@@ -56,21 +56,6 @@
                             <main class="pb-8 pt-8">                                                                          
                                 <div class="grid grid-cols-1 gap-4 lg:col-span-5">             
 
-                                    <!--                                    <table>
-                                                                            <style>
-                                                                                .table-heading {
-                                                                                    text-align: center;
-                                                                                    text-size: 100px;
-                                                                                }
-                                                                            </style>
-                                                                            <td class="table-heading has-text-align-center has-large-font-size" colspan="3">Bird List</td>
-                                                                            <tr >
-                                    
-                                                                                <td style="text-align: center;">Bird Name</td>
-                                                                                <td style="text-align: center;">Image</td>
-                                                                                <td style="text-align: center;"></td>
-
-                                </table>-->
                                     <style>
                                         .bird-list {
                                             display: flex;
@@ -127,7 +112,7 @@
                                             <input style="color:gray;" type="text" id="tournament-status" name="tournament-status" class="readonly-field" value="${tournament.getStatus()}" readonly>
 
                                             <label style="color: white" for="tournament-fee">Tournament Fee</label>
-                                            <input style="color:gray;  width: 200px;" type="text" id="tournament-fee" name="tournament-fee" class="readonly-field" value="${tournament.getFee()}$" readonly>
+                                            <input style="color:gray;  width: 200px;" type="text" id="tournament-fee" name="tournament-fee" class="readonly-field" value="${tournament.getFee()} VND" readonly>
                                         </div>
 
                                         <div class="bird-selection">

@@ -193,7 +193,7 @@
                                                                             <img src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(imageBytes)}" alt="Image">
                                                                         </a>
                                                                     </div>
-                                                                    <c:if test="${loop.index % 5 == 4 && loop.index < gallery.size() - 1}">
+                                                                    <c:if test="${loop.index % 2 == 1 && loop.index < gallery.size() - 1}">
                                                                     </div><div class="image-row">
                                                                     </c:if>
                                                                 </c:forEach>

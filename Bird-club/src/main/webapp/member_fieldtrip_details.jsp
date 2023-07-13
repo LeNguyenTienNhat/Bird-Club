@@ -131,6 +131,123 @@
                                     </dt>
 
                                     <div class="is-layout-flex wp-block-buttons"></div>
+                                     <style>
+                                            .image-row {
+                                                display: flex;
+                                                flex-wrap: wrap;
+                                                margin-bottom: 10px;
+                                                
+                                            }
+
+                                            .image-wrapper {
+                                                width: 250px;
+                                                margin: 5px 5px 5px 5px;
+                                            }
+
+                                            .image-wrapper img {
+                                                object-fit: cover;
+                                                cursor: pointer;
+                                            }
+
+                                            .lightbox-modal {
+                                                display: none;
+                                                position: fixed;
+                                                z-index: 9999;
+                                                left: 0;
+                                                top: 0;
+                                                width: 100%;
+                                                height: 100%;
+                                                overflow: auto;
+                                                background-color: rgba(0, 0, 0, 0.9);
+                                            }
+
+                                            .lightbox-image {
+                                                max-width: 800px;
+                                                max-height: 800px;
+                                                display: block;
+                                                margin: auto;
+                                                padding: 100px;
+                                                margin-top: 50px;
+                                            }
+
+                                            .close-modal {
+                                                color: #fff;
+                                                font-size: 30px;
+                                                font-weight: bold;
+                                                position: absolute;
+                                                top: 20px;
+                                                right: 30px;
+                                                cursor: pointer;
+                                            }
+                                        </style>
+                                     <dt><strong>Media</strong>
+                                        <div>
+                                            <c:choose>
+                                                <c:when test="${fieldtrip.getStatus().contains('ongoing') || fieldtrip.getStatus().contains('finished')}">
+                                                    <c:choose>
+                                                        <c:when test="${not empty gallery}">
+                                                            <div class="image-row">
+                                                                <c:forEach items="${gallery}" var="imageBytes" varStatus="loop">
+                                                                    <div class="image-wrapper">
+                                                                        <a href="javascript:void(0);" onclick="showImage('${Base64.getEncoder().encodeToString(imageBytes)}')">
+                                                                            <img src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(imageBytes)}" alt="Image">
+                                                                        </a>
+                                                                    </div>
+                                                                    <c:if test="${loop.index % 2 == 1 && loop.index < gallery.size() - 1}">
+                                                                    </div><div class="image-row">
+                                                                    </c:if>
+                                                                </c:forEach>
+                                                            </div>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <p>No images available. Check back later for upcoming events.</p>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </c:when>
+                                                <c:when test="${fieldtrip.getStatus().contains('pending') || fieldtrip.getStatus().contains('formClosed')}">
+                                                    <p>Upcoming event. Images will be available during the event.</p>
+                                                </c:when>
+                                            </c:choose>
+                                        </div>
+                                    </dt>
+                                     <div id="lightbox-modal" class="lightbox-modal">
+                                        <span class="close-modal" onclick="closeModal()">&times;</span>
+                                        <img id="lightbox-image" class="lightbox-image" src="" alt="Lightbox Image">
+                                    </div>
+                                    <script>
+                                        var galleryImages = [];
+                                        var currentImageIndex = 0;
+
+                                        function initGallery(images) {
+                                            galleryImages = images;
+                                        }
+
+                                        function showImage(base64Image) {
+                                            var lightboxImage = document.getElementById('lightbox-image');
+                                            lightboxImage.src = 'data:image/jpg;base64,' + base64Image;
+
+                                            var lightboxModal = document.getElementById('lightbox-modal');
+                                            lightboxModal.style.display = 'block';
+
+                                            currentImageIndex = galleryImages.indexOf(base64Image);
+                                        }
+
+                                        function changeImage(direction) {
+                                            if (direction === 'prev') {
+                                                currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+                                            } else if (direction === 'next') {
+                                                currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+                                            }
+
+                                            var lightboxImage = document.getElementById('lightbox-image');
+                                            lightboxImage.src = 'data:image/jpg;base64,' + galleryImages[currentImageIndex];
+                                        }
+
+                                        function closeModal() {
+                                            var lightboxModal = document.getElementById('lightbox-modal');
+                                            lightboxModal.style.display = 'none';
+                                        }
+                                    </script>
 
                                 </div>
 
@@ -367,25 +484,7 @@
                 </div>
 
                 </div>
-                <div>
-                    <c:choose>
-                        <c:when test="${fieldtrip.getStatus().contains('ongoing') || fieldtrip.getStatus().contains('finished')}">
-                            <c:choose>
-                                <c:when test="${not empty gallery}">
-                                    <c:forEach items="${gallery}" var="imageBytes">
-                                        <img src="data:image/jpg;base64,${Base64.getEncoder().encodeToString(imageBytes)}" alt="Image">
-                                    </c:forEach>
-                                </c:when>
-                                <c:otherwise>
-                                    <p>No images available. Check back later for upcoming events.</p>
-                                </c:otherwise>
-                            </c:choose>
-                        </c:when>
-                        <c:when test="${fieldtrip.getStatus().contains('pending') || fieldtrip.getStatus().contains('formClosed')}">
-                            <p>Upcoming event. Images will be available during the event.</p>
-                        </c:when>
-                    </c:choose>
-                </div>
+               
 
                 </section> 
 
