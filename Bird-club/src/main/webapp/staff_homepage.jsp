@@ -248,21 +248,12 @@
         </div>
 
     <turbo-frame id="flash"></turbo-frame>
-    <div class="bg-white">
-        <div>
-            <img class="h-32 w-full object-cover lg:h-48" src="https://cdn.shopify.com/s/files/1/0020/1926/2510/products/red-whiskered-bulbul-3_1024x1024@2x.jpg?v=1551037298" />
-        </div>
+    <div class="bg-white shadow">
+
         <div class="max-w-3xl lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
-                <div class="flex">
-                    <div class="rounded-xl bg-white p-4 text-gray-400 object-scale-down h-24 w-24 sm:h-32 sm:w-32 items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200.49 262.32" class="h-16 w-16 sm:h-24 sm:w-24 mx-auto"><defs><style>.cls-1{fill:url(#linear-gradient);}.cls-2{fill:url(#linear-gradient-2);}</style><linearGradient id="linear-gradient" x1="-1.31" y1="139.14" x2="154.62" y2="89.2" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#52c3cc"></stop><stop offset="1" stop-color="#45ddd5"></stop></linearGradient><linearGradient id="linear-gradient-2" x1="-1.3" y1="153.23" x2="160.24" y2="101.49" xlink:href="#linear-gradient"></linearGradient></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M40.7,122.53l9.92,9.91c16.31,16.31,9.17,42.07,3.79,62a405.22,405.22,0,0,1-24,65.74,1.48,1.48,0,0,0,2.33,1.72c17.2-15.52,30.88-30.84,46.63-46.3,17.36-17,33.21-37.12,38.31-60.92A80.78,80.78,0,0,0,113,106.66c-8.55-20.15-24.67-36-40.4-51.19C53.51,37,15.24,0,15.24,0S4.5,14.19,1.67,29.5c-2,11.09-2.45,22.59.14,33.57C7.47,87,23.73,105.55,40.7,122.53"></path><path class="cls-2" d="M200.49,114.77s-31.91-4.67-46.5,9.92C150.7,128,148.8,132,146.16,135c-5,5.79-11.95,8.2-18,9.27a90.45,90.45,0,0,0-6.95-41.12A104.54,104.54,0,0,0,112.44,87l.91-.7a44.4,44.4,0,0,1,26.06-9.09,41.63,41.63,0,0,1,29.46,12.18Z"></path></g></g></svg>
-                    </div>
-                </div>
                 <div class="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
                     <div class="xs:hidden md:block mt-6 min-w-0 flex-1">
-                        <h1 class="text-2xl font-bold text-gray-900 truncate">
-                            Chim Owners
-                        </h1>
                     </div>
                 </div>
             </div>
@@ -303,259 +294,298 @@
 
 
 
-    <main class="pb-8 pt-8">
+    <main class="pb-8 pt-4">
         <%! List<Integer> list;%>
         <% list = (List<Integer>) request.getAttribute("list"); %>
-        <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
+        <div class="">
 
-            <div class="lg:grid lg:grid-cols-1 gap-2">
-                <div class="bg-white shadow sm:rounded-lg p-6 mb-4">
-                    <dl class="sm:rounded-t-lg grid grid-cols-4 bg-white overflow-hidden border-gray-200 divide-y divide-gray-200 md:divide-y-0 md:divide-x">
-                        <div class="px-4 py-5 sm:p-6">
-                            <dt class="text-base font-normal text-gray-900"><a href="members">Total members:</a></dt>
-                            <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
-                                <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                    <% int totalMember = (Integer) request.getAttribute("totalMember");
-                                        out.print(totalMember);
-                                    %>
-                                </div>
-                            </dd>
+            <div class="">
+                <dl class="lg:grid lg:grid-cols-5 gap-4 mb-4">
+                    <div class="bg-white shadow sm:rounded-lg p-6">
+                        <dt class="text-base font-normal text-gray-900"><a href="members">Total members:</a></dt>
+                        <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                            <div class="flex items-baseline text-2xl font-semibold text-teal-600">
+                                <% int totalMember = (Integer) request.getAttribute("totalMember");
+                                    out.print(totalMember);
+                                %>
+                            </div>
+                        </dd>
+                    </div>
+
+                    <div class="bg-white shadow sm:rounded-lg p-6">
+                        <dt class="text-base font-normal text-gray-900">New members this month:</dt>
+                        <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                            <div class="flex items-baseline text-2xl font-semibold text-teal-600">
+                                <% int newMemberThisMonth = (Integer) request.getAttribute("newMemberThisMonth");
+                                    out.print(newMemberThisMonth);
+                                %>
+                            </div>
+                        </dd>
+                    </div>
+
+                    <div class="bg-white shadow sm:rounded-lg p-6">
+                        <dt class="text-base font-normal text-gray-900"><a href="feedbacks">Pending feedbacks:</a> </dt>
+                        <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                            <div class="flex items-baseline text-2xl font-semibold text-teal-600">
+                                <% int totalPendingFeedback = (Integer) request.getAttribute("totalPendingFeedback");
+                                    out.print(totalPendingFeedback);
+                                %>
+                            </div>
+                        </dd>
+                    </div>
+
+                    <div class="bg-white shadow sm:rounded-lg p-6">
+                        <dt class="text-base font-normal text-gray-900"><a href="events">On going events:</a></dt>
+                        <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                            <div class="flex items-baseline text-2xl font-semibold text-teal-600">
+                                <% int totalOngoingEvents = (Integer) request.getAttribute("totalOngoingEvents");
+                                    out.print(totalOngoingEvents);
+                                %>
+                            </div>
+                        </dd>
+                    </div>
+
+                    <div class="bg-white shadow sm:rounded-lg p-6">
+                        <dt class="text-base font-normal text-gray-900"><a href="events">Placeholder:</a></dt>
+                        <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                            <div class="flex items-baseline text-2xl font-semibold text-teal-600">
+                                10
+                            </div>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+
+
+            <div class="lg:grid lg:grid-cols-4 gap-4">
+                <div class="col-span-3 lg:grid lg:grid-cols-3 gap-4">
+                    <div class="bg-white shadow sm:rounded-lg p-6">
+                        <h3 class="font-bold text-gray-700 truncate">Top 10 tournaments</h3>
+                        <canvas id="myChart"></canvas>
+                            <%! List<Tournament> topTournament;%>
+                            <% topTournament = (List<Tournament>) request.getAttribute("topTournament");                        %>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <script>
+                            const ctx = document.getElementById('myChart');
+                            new Chart(ctx, {
+                            type: 'bar',
+                                    data: {
+                                    labels: [
+                            <%
+                                for (int i = 0; i < topTournament.size() - 1; i++) {
+                                    out.print("'" + topTournament.get(i).getTID() + "',");
+                                }
+                                out.print("'" + topTournament.get(topTournament.size() - 1).getTID() + "'");
+                            %>],
+                                            datasets: [{
+                                            label: '# of participants',
+                                                    data: [
+                            <%
+                                for (int i = 0; i < topTournament.size() - 1; i++) {
+                                    out.print("'" + topTournament.get(i).getNumberOfParticipant() + "',");
+                                }
+                                out.print("'" + topTournament.get(topTournament.size() - 1).getNumberOfParticipant() + "'");
+                            %>],
+                                                    borderWidth: 1
+                                            }]
+                                    },
+                                    options: {
+                                    scales: {
+                                    y: {
+                                    beginAtZero: true
+                                    }
+                                    }
+                                    }
+                            });
+                        </script>
+                    </div>
+
+
+                    <div class="bg-white shadow sm:rounded-lg p-6">
+                        <h3 class="font-bold text-gray-700 truncate">New registrations per month in 2023</h3>
+                        <canvas id="NumOfSignup"></canvas>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <script>
+                            var NumOfSignup = document.getElementById("NumOfSignup");
+                            var data = {
+                            label: "Members",
+                            <% out.print("data: [");
+                                for (int i = 0; i < list.size() - 1; i++) {
+                                    out.print("'" + list.get(i) + "',");
+                                }
+                                out.print("'" + list.get(list.size() - 1) + "'" + "],");
+                            %>
+
+                            lineTension: 0,
+                                    fill: false,
+                                    borderColor: '#febc2c'};
+                            var numberData = {
+                            labels: ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                                    datasets: [data]};
+                            var chartOptions = {legend: {display: true, position: 'top', labels: {boxWidth: 80, fontColor: 'white'}}};
+                            var lineChart = new Chart(NumOfSignup, {type: 'line', data: numberData, options: chartOptions});
+                        </script>                   
+                    </div>
+
+                    <div class="bg-white shadow sm:rounded-lg p-6">
+                        <h3 class="font-bold text-gray-700 truncate">Member increases in 2023</h3>
+                        <canvas id="NumOfMembers"></canvas>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <%! List<Integer> bList;%>
+                        <% bList = (List<Integer>) request.getAttribute("bList"); %>
+                        <script>
+                            var NumOfMembers = document.getElementById("NumOfMembers");
+                            var data = {
+                            label: "Members",
+                            <% out.print("data: [");
+                                for (int i = 0; i < bList.size() - 1; i++) {
+                                    out.print("'" + bList.get(i) + "',");
+                                }
+                                out.print("'" + bList.get(bList.size() - 1) + "'" + "],");
+                            %>
+
+                            lineTension: 0,
+                                    fill: false,
+                                    borderColor: '#0d9488'};
+                            var numberData = {
+                            labels: ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                                    datasets: [data]};
+                            var chartOptions = {legend: {display: true, position: 'top', labels: {boxWidth: 80, fontColor: 'white'}}};
+                            var lineChart2 = new Chart(NumOfMembers, {type: 'line', data: numberData, options: chartOptions});
+                        </script>                   
+                    </div>           
+
+
+
+                    <div class="bg-white shadow sm:rounded-lg p-6">
+                        <h3 class="font-bold text-gray-700 truncate">Top 10 field trips</h3>
+                        <canvas id="myChart2"></canvas>
+                            <%! List<Fieldtrip> topFieldtrip;%>
+                            <% topFieldtrip = (List<Fieldtrip>) request.getAttribute("topFieldtrip");                        %>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <script>
+                            const ctx2 = document.getElementById('myChart2');
+                            new Chart(ctx2, {
+                            type: 'bar',
+                                    data: {
+                                    labels: [
+                            <%
+                                for (int i = 0; i < topFieldtrip.size() - 1; i++) {
+                                    out.print("'" + topFieldtrip.get(i).getFID() + "',");
+                                }
+                                out.print("'" + topFieldtrip.get(topFieldtrip.size() - 1).getFID() + "'");
+                            %>],
+                                            datasets: [{
+                                            label: '# of participants',
+                                                    data: [
+                            <%
+                                for (int i = 0; i < topFieldtrip.size() - 1; i++) {
+                                    out.print("'" + topFieldtrip.get(i).getNumberOfParticipant() + "',");
+                                }
+                                out.print("'" + topFieldtrip.get(topFieldtrip.size() - 1).getNumberOfParticipant() + "'");
+                            %>],
+                                                    borderWidth: 1
+                                            }]
+                                    },
+                                    options: {
+                                    scales: {
+                                    y: {
+                                    beginAtZero: true
+                                    }
+                                    }
+                                    }
+                            });
+                        </script>
+                    </div>             
+
+                                                   
+                    <div class="bg-white shadow sm:rounded-lg p-6 col-span-2">
+                        <h3 class="font-bold text-gray-700 truncate">On going events</h3>
+                        <div style="overflow-y: scroll;">
+                                            
                         </div>
 
-                        <div class="px-4 py-5 sm:p-6">
-                            <dt class="text-base font-normal text-gray-900">New member this month:</dt>
-                            <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
-                                <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                    <% int newMemberThisMonth = (Integer) request.getAttribute("newMemberThisMonth");
-                                        out.print(newMemberThisMonth);
-                                    %>
-                                </div>
-                            </dd>
-                        </div>
+                    </div>
 
-                        <div class="px-4 py-5 sm:p-6">
-                            <dt class="text-base font-normal text-gray-900"><a href="feedbacks">Feedback:</a> </dt>
-                            <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
-                                <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                    <% int totalPendingFeedback = (Integer) request.getAttribute("totalPendingFeedback");
-                                        out.print(totalPendingFeedback);
-                                    %>
-                                </div>
-                            </dd>
-                        </div>
+                    <div class="bg-white shadow sm:rounded-lg p-6">
+                        <h3 class="font-bold text-gray-700 truncate">Top 10 meetings</h3>
+                        <canvas id="myChart3"></canvas>
+                            <%! List<Meeting> topMeeting;%>
+                            <% topMeeting = (List<Meeting>) request.getAttribute("topMeeting");                        %>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <script>
+                            const ctx3 = document.getElementById('myChart3');
+                            new Chart(ctx3, {
+                            type: 'bar',
+                                    data: {
+                                    labels: [
+                            <%
+                                for (int i = 0; i < topMeeting.size() - 1; i++) {
+                                    out.print("'" + topMeeting.get(i).getMeID() + "',");
+                                }
+                                out.print("'" + topMeeting.get(topMeeting.size() - 1).getMeID() + "'");
+                            %>],
+                                            datasets: [{
+                                            label: '# of participants',
+                                                    data: [
+                            <%
+                                for (int i = 0; i < topMeeting.size() - 1; i++) {
+                                    out.print("'" + topMeeting.get(i).getNumberOfParticipant() + "',");
+                                }
+                                out.print("'" + topMeeting.get(topMeeting.size() - 1).getNumberOfParticipant() + "'");
+                            %>],
+                                                    borderWidth: 1
+                                            }]
+                                    },
+                                    options: {
+                                    scales: {
+                                    y: {
+                                    beginAtZero: true
+                                    }
+                                    }
+                                    }
+                            });
+                        </script>
+                    </div>                     
 
-                        <div class="px-4 py-5 sm:p-6">
-                            <dt class="text-base font-normal text-gray-900"><a href="events">On going events:</a></dt>
-                            <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
-                                <div class="flex items-baseline text-2xl font-semibold text-teal-600">
-                                    <% int totalOngoingEvents = (Integer) request.getAttribute("totalOngoingEvents");
-                                        out.print(totalOngoingEvents);
-                                    %>
-                                </div>
-                            </dd>
-                        </div>
-                    </dl>
+                </div>
+
+
+                <div class="gap-4">
+                    <div class="bg-white shadow sm:rounded-lg p-6 mb-4">                                                                   
+                        <h3 class="font-bold text-gray-700 truncate">Revenue</h3>
+                        <canvas id="pieChart" class="p-6"></canvas>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <% List<Integer> revenueList = (List<Integer>) request.getAttribute("revenueList"); %>
+                        <script>
+                            const pieChart = document.getElementById('pieChart');
+                            var pieChartData = {labels: ['Membership', 'Fee', 'Donation'],
+                                    datasets: [{label: 'Revenue overall', data: [
+                            <% out.print(revenueList.get(0) + ", " + revenueList.get(1) + ", " + revenueList.get(2)); %>
+                                    ],
+                                            backgroundColor: ['rgb(77, 205, 207)', 'rgb(31, 82, 83)', 'rgb(45, 121, 122)'],
+                                            hoverOffset: 4}]};
+                            var firstPieChart = new Chart(pieChart, {type: 'pie', data: pieChartData});
+                        </script>                                                
+                    </div> 
+
+                    <div class="bg-white shadow sm:rounded-lg p-6">
+
+                    </div>
+
+
                 </div>
             </div>
 
-            <div class="lg:grid lg:grid-cols-3 gap-4">
-                <div class="bg-white shadow sm:rounded-lg p-6">
-                    <h3 class="font-bold text-gray-700 truncate">Top 10 tournaments</h3>
-                    <canvas id="myChart"></canvas>
-                        <%! List<Tournament> topTournament;%>
-                        <% topTournament = (List<Tournament>) request.getAttribute("topTournament");                        %>
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                    <script>
-                        const ctx = document.getElementById('myChart');
-                        new Chart(ctx, {
-                        type: 'bar',
-                                data: {
-                                labels: [
-                        <%
-                            for (int i = 0; i < topTournament.size() - 1; i++) {
-                                out.print("'" + topTournament.get(i).getTID() + "',");
-                            }
-                            out.print("'" + topTournament.get(topTournament.size() - 1).getTID() + "'");
-                        %>],
-                                        datasets: [{
-                                        label: '# of participants',
-                                                data: [
-                        <%
-                            for (int i = 0; i < topTournament.size() - 1; i++) {
-                                out.print("'" + topTournament.get(i).getNumberOfParticipant() + "',");
-                            }
-                            out.print("'" + topTournament.get(topTournament.size() - 1).getNumberOfParticipant() + "'");
-                        %>],
-                                                borderWidth: 1
-                                        }]
-                                },
-                                options: {
-                                scales: {
-                                y: {
-                                beginAtZero: true
-                                }
-                                }
-                                }
-                        });
-                    </script>
-                </div>
-
-                <div class="bg-white shadow sm:rounded-lg p-6">
-                    <h3 class="font-bold text-gray-700 truncate">Top 10 field trips</h3>
-                    <canvas id="myChart2"></canvas>
-                        <%! List<Fieldtrip> topFieldtrip;%>
-                        <% topFieldtrip = (List<Fieldtrip>) request.getAttribute("topFieldtrip");                        %>
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                    <script>
-                        const ctx2 = document.getElementById('myChart2');
-                        new Chart(ctx2, {
-                        type: 'bar',
-                                data: {
-                                labels: [
-                        <%
-                            for (int i = 0; i < topFieldtrip.size() - 1; i++) {
-                                out.print("'" + topFieldtrip.get(i).getFID() + "',");
-                            }
-                            out.print("'" + topFieldtrip.get(topFieldtrip.size() - 1).getFID() + "'");
-                        %>],
-                                        datasets: [{
-                                        label: '# of participants',
-                                                data: [
-                        <%
-                            for (int i = 0; i < topFieldtrip.size() - 1; i++) {
-                                out.print("'" + topFieldtrip.get(i).getNumberOfParticipant() + "',");
-                            }
-                            out.print("'" + topFieldtrip.get(topFieldtrip.size() - 1).getNumberOfParticipant() + "'");
-                        %>],
-                                                borderWidth: 1
-                                        }]
-                                },
-                                options: {
-                                scales: {
-                                y: {
-                                beginAtZero: true
-                                }
-                                }
-                                }
-                        });
-                    </script>
-                </div>             
-
-                <div class="bg-white shadow sm:rounded-lg p-6">
-                    <h3 class="font-bold text-gray-700 truncate">Top 10 meetings</h3>
-                    <canvas id="myChart3"></canvas>
-                        <%! List<Meeting> topMeeting;%>
-                        <% topMeeting = (List<Meeting>) request.getAttribute("topMeeting");                        %>
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                    <script>
-                        const ctx3 = document.getElementById('myChart3');
-                        new Chart(ctx3, {
-                        type: 'bar',
-                                data: {
-                                labels: [
-                        <%
-                            for (int i = 0; i < topMeeting.size() - 1; i++) {
-                                out.print("'" + topMeeting.get(i).getMeID() + "',");
-                            }
-                            out.print("'" + topMeeting.get(topMeeting.size() - 1).getMeID() + "'");
-                        %>],
-                                        datasets: [{
-                                        label: '# of participants',
-                                                data: [
-                        <%
-                            for (int i = 0; i < topMeeting.size() - 1; i++) {
-                                out.print("'" + topMeeting.get(i).getNumberOfParticipant() + "',");
-                            }
-                            out.print("'" + topMeeting.get(topMeeting.size() - 1).getNumberOfParticipant() + "'");
-                        %>],
-                                                borderWidth: 1
-                                        }]
-                                },
-                                options: {
-                                scales: {
-                                y: {
-                                beginAtZero: true
-                                }
-                                }
-                                }
-                        });
-                    </script>
-                </div>
-
-                <div class="bg-white shadow sm:rounded-lg p-6">
-                    <h3 class="font-bold text-gray-700 truncate">New registrations in 2023</h3>
-                    <canvas id="NumOfSignup"></canvas>
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                    <script>
-                        var NumOfSignup = document.getElementById("NumOfSignup");
-                        var data = {
-                        label: "Members",
-                        <% out.print("data: [");
-                            for (int i = 0; i < list.size() - 1; i++) {
-                                out.print("'" + list.get(i) + "',");
-                            }
-                            out.print("'" + list.get(list.size() - 1) + "'" + "],");
-                        %>
-
-                        lineTension: 0,
-                                fill: false,
-                                borderColor: '#febc2c'};
-                        var numberData = {
-                        labels: ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                                datasets: [data]};
-                        var chartOptions = {legend: {display: true, position: 'top', labels: {boxWidth: 80, fontColor: 'white'}}};
-                        var lineChart = new Chart(NumOfSignup, {type: 'line', data: numberData, options: chartOptions});
-                    </script>                   
-                </div>
 
 
-                <div class="bg-white shadow sm:rounded-lg p-6">
-                    <h3 class="font-bold text-gray-700 truncate">Member increases in 2023</h3>
-                    <canvas id="NumOfMembers"></canvas>
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                    <%! List<Integer> bList;%>
-                    <% bList = (List<Integer>) request.getAttribute("bList"); %>
-                    <script>
-                        var NumOfMembers = document.getElementById("NumOfMembers");
-                        var data = {
-                        label: "Members",
-                        <% out.print("data: [");
-                            for (int i = 0; i < bList.size() - 1; i++) {
-                                out.print("'" + bList.get(i) + "',");
-                            }
-                            out.print("'" + bList.get(bList.size() - 1) + "'" + "],");
-                        %>
-
-                        lineTension: 0,
-                                fill: false,
-                                borderColor: '#febc2c'};
-                        var numberData = {
-                        labels: ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                                datasets: [data]};
-                        var chartOptions = {legend: {display: true, position: 'top', labels: {boxWidth: 80, fontColor: 'white'}}};
-                        var lineChart2 = new Chart(NumOfMembers, {type: 'line', data: numberData, options: chartOptions});
-                    </script>                   
-                </div>
 
 
-                <div class="bg-white shadow sm:rounded-lg p-6">                                                                   
-                    <h3 class="font-bold text-gray-700 truncate">Revenue</h3>
-                    <canvas id="pieChart" class="p-6"></canvas>
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                    <% List<Integer> revenueList = (List<Integer>) request.getAttribute("revenueList"); %>
-                    <script>
-                        const pieChart = document.getElementById('pieChart');
-                        var pieChartData = {labels: ['Membership', 'Fee', 'Donation'],
-                                datasets: [{label: 'Revenue overall', data: [
-                        <% out.print(revenueList.get(0)+", "+revenueList.get(1)+", "+revenueList.get(2)); %>
-                                        ],
-                                        backgroundColor: ['rgb(77, 205, 207)', 'rgb(31, 82, 83)', 'rgb(45, 121, 122)'],
-                                        hoverOffset: 4}]};
-                        var firstPieChart = new Chart(pieChart, {type: 'pie', data: pieChartData});
-                    </script>                                                
-                </div>                       
 
-            </div>
+
+
+
+
 
             <div class="lg:grid lg:grid-cols-2 gap-4 mt-4">
 
@@ -563,7 +593,7 @@
                     <% List<Blog> blogList; %>
                     <% blogList = (List<Blog>) request.getAttribute("blogList");
                         Blog b = blogList.get(0);
-                        out.print("<div class='relative flex flex-col bg-white sm:rounded-lg shadow p-6'>");
+                        out.print("<div class='relative flex flex-col p-6'>");
                         out.print("<div class='grid items-start lg:grid-cols-5 lg:gap-8'>");
                         out.print("<div class='lg:col-span-3'>");
                         out.print("<div class='mt-2'><span class='sr-only'></span>"

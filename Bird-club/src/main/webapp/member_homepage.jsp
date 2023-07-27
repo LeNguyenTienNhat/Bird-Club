@@ -12,7 +12,7 @@
 <html class="no-js"  lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
         <meta charset="utf-8">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         <link rel="icon" href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/favicon.jsp">
         <link href="https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/images/apple-icon-touch.jsp" rel="apple-touch-icon" />	
         <title>Home</title>
@@ -63,312 +63,316 @@
                     <style>
                         #hero-wrapper .hero-text { width: 520px !important; }
                     </style>
-                   <div class="col-inner"><div class="w-space" style="height:15px"></div><div data-animation="fadeInLeft" class="w-custom-heading">
-    <h6 style="font-size: 2.5vw;color: #000000;text-align: center;font-family:Lato;font-weight:400;font-style:normal">    Welcome to    </h6></div><div data-animation="fadeInRight" class="w-custom-heading">
-    
-        <h6 style="font-size: 2.5vw;color: #60895f;line-height: 0;text-align: center;font-family:Lato;font-weight:700;font-style:normal; margin-top:20px; "> CHIMOWNERS' RED-WHISKERED BULBUL BIRD CLUB    <img src="https://stickershop.line-scdn.net/stickershop/v1/product/1077345/LINEStorePC/main.png;compress=true" alt="Red-whiskered Bulbul" style="width:100px; height: 100px;"></h6> </div><div class="w-space" style="height:50px"></div><span class="w-icon-block w-large w-none" style="color:#7f7f7f">
-       <p style="font-size: 18px;color: #606060;line-height: 24px;text-align: center;font-family:Lato;font-weight:300;font-style:normal">    Founded in 2023 by Nguyen Van A, CHIMOWNERS Bird Club has been active in Ho Chi Minh City for a couple of months. Our mission is to encourage and promote bird-watching, and strengthen friendship among bird lovers in Ho Chi Minh City and beyond.    </p>
-            </span><div class="w-space" style="height:10px"></div><div class="w-custom-heading vc_custom_1495815196787">
-   
+                    <div class="col-inner"><div class="w-space" style="height:15px"></div><div data-animation="fadeInLeft" class="w-custom-heading">
+                            <h6 style="font-size: 2.5vw;color: #000000;text-align: center;font-family:Lato;font-weight:400;font-style:normal">    Welcome to    </h6></div><div data-animation="fadeInRight" class="w-custom-heading">
 
-                    <!--                    <div class="is-layout-flow wp-block-group alignfull page-section macaulay">
-                                            <h2 class="has-text-align-center has-large-font-size" id="macaulay-library-photowall">Chim Owners' Library</h2>
-                                            <p>Epic pictures taken by experts from Chim Owners. For real.</p>
-                    
-                                            <div id="my_nanogallery2"></div>
-                    
-                                            <div class="is-horizontal is-content-justification-center is-layout-flex wp-container-33 wp-block-buttons">
-                                                <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="member_gallery.jsp">Browse More Photos</a></div>
-                                            </div>
-                                        </div>-->
-                    <style>
-                        #hero-wrapper .hero-text { width: 600px; }
-                    </style>
-                    <h2>Our club activities:</h2>
-                    <div class="is-layout-flow wp-block-group alignfull page-section what-you-can-do">
-                        <!--                        <h2 class="has-text-align-center has-orange-color has-text-color has-small-font-size" id="what-you-can-do">What you can do</h2>-->
-                        <h3 class="has-text-align-right has-orange-color has-text-color has-large-font-size">News</h3>
-                        <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
-                        <div class="is-layout-flex wp-container-15 wp-block-columns">
-                            <div class="is-layout-flow wp-block-column">
-                                <div class="article-list card-display carousel card-three ">
-                                    <ul>
-                                        <c:forEach var="n" items="${news}" varStatus="loop">
-                                            <li class="article-item">
-                                                <div class="article-item-container">
-                                                    <div class="article-item-media content-article" data-link-to="http://www.seychellesnewsagency.com/articles/2332/Eradication+success++Seychelles+wins+war+against+invasive+red-whiskered+bulbul">
-                                                        <div class="article-item-media-ratio">
-                                                            <c:set var="base64Image" value="${Base64.getEncoder().encodeToString(n.getPicture())}" />
-                                                            <img data-srcset="data:image/jsp;base64,${base64Image} 720w, data:image/jsp;base64,${base64Image} 768w, data:image/jsp;base64,${base64Image} 1280w, data:image/jsp;base64,${base64Image} 480w, data:image/jsp;base64,${base64Image} 1872w" loading="lazy" data-src="data:image/jsp;base64,${base64Image}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
-                                                            <noscript>
-                                                            <img src="data:image/jsp;base64,${base64Image}" srcset="data:image/jsp;base64,${base64Image} 720w, data:image/jsp;base64,${base64Image} 768w, data:image/jsp;base64,${base64Image} 1280w, data:image/jsp;base64,${base64Image} 480w, data:image/jsp;base64,${base64Image} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
-                                                            </noscript>
-                                                        </div>
-                                                    </div>
-                                                    <div class="article-item-body">
-                                                        <span class="attribution"></span>
-                                                        <a class="article-item-link" href="${pageContext.request.contextPath}/news?action=details&NID=${n.getNID()}">
-                                                            <span class="article-item-header">${n.getTitle()}</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </c:forEach>
-                                    </ul></div>
-                            </div>
+                            <h6 style="font-size: 2.5vw;color: #60895f;line-height: 0;text-align: center;font-family:Lato;font-weight:700;font-style:normal; margin-top:20px; "> CHIMOWNERS' RED-WHISKERED BULBUL BIRD CLUB    <img src="https://stickershop.line-scdn.net/stickershop/v1/product/1077345/LINEStorePC/main.png;compress=true" alt="Red-whiskered Bulbul" style="width:100px; height: 100px;"></h6> </div><div class="w-space" style="height:50px"></div><span class="w-icon-block w-large w-none" style="color:#7f7f7f">
+                            <p style="font-size: 18px;color: #606060;line-height: 24px;text-align: center;font-family:Lato;font-weight:300;font-style:normal">    Founded in 2023 by Nguyen Van A, CHIMOWNERS Bird Club has been active in Ho Chi Minh City for a couple of months. Our mission is to encourage and promote bird-watching, and strengthen friendship among bird lovers in Ho Chi Minh City and beyond.    </p>
+                        </span><div class="w-space" style="height:10px"></div><div class="w-custom-heading vc_custom_1495815196787">
 
-                        </div>
-                    </div>
-                    <!-- Field trip-->
-                    <div class="is-layout-flow wp-block-group alignfull page-section what-you-can-do">
-                        <!--                        <h2 class="has-text-align-right has-orange-color has-text-color has-small-font-size" id="what-you-can-do">Where you can do</h2>-->
-                        <h3 class="has-text-align-right has-orange-color has-text-color has-large-font-size">Field trip </h3>
-                        <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
-                        <div class="is-layout-flex wp-container-15 wp-block-columns">
-                            <div class="is-layout-flow wp-block-column">
-                                <div class="article-list card-display carousel card-three ">
-                                    <ul>
-                                        <c:forEach var="e" items="${eventsList}" varStatus="loop">
-                                            <li class="article-item">
-                                                <div class="article-item-container">
-                                                    <div class="article-item-media content-article" data-link-to="member_fieldtrip_details.jsp">
-                                                        <c:set var="base64ImageF" value="${Base64.getEncoder().encodeToString(e.getImage())}" />
-                                                        <c:if test="${not empty base64ImageF}">
-                                                            <div class="article-item-media-ratio">
-                                                                <img data-srcset="data:image/jsp;base64,${base64ImageF} 720w, data:image/jsp;base64,${base64ImageF} 768w, data:image/jsp;base64,${base64ImageF} 1280w, data:image/jsp;base64,${base64ImageF} 480w, data:image/jsp;base64,${base64ImageF} 1872w" loading="lazy" data-src="data:image/jsp;base64,${base64ImageF}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
-                                                                <noscript>
-                                                                <img src="data:image/jsp;base64,${base64ImageF}" srcset="data:image/jsp;base64,${base64ImageF} 720w, data:image/jsp;base64,${base64ImageF} 768w, data:image/jsp;base64,${base64ImageF} 1280w, data:image/jsp;base64,${base64ImageF} 480w, data:image/jsp;base64,${base64ImageF} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
-                                                                </noscript>
+
+                            <!--                    <div class="is-layout-flow wp-block-group alignfull page-section macaulay">
+                                                    <h2 class="has-text-align-center has-large-font-size" id="macaulay-library-photowall">Chim Owners' Library</h2>
+                                                    <p>Epic pictures taken by experts from Chim Owners. For real.</p>
+                            
+                                                    <div id="my_nanogallery2"></div>
+                            
+                                                    <div class="is-horizontal is-content-justification-center is-layout-flex wp-container-33 wp-block-buttons">
+                                                        <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="member_gallery.jsp">Browse More Photos</a></div>
+                                                    </div>
+                                                </div>-->
+                            <style>
+                                #hero-wrapper .hero-text { width: 600px; }                       
+                            </style>
+
+                            <h2>Our club activities:</h2>
+                            <!--Tournament-->
+                            <div class="is-layout-flow wp-block-group alignfull page-section what-you-can-do">
+                                <!--                        <h2 class="has-text-align-center has-orange-color has-text-color has-small-font-size" id="what-you-can-do">What you can do</h2>-->
+                                <h3 class="has-text-align-right has-orange-color has-text-color has-large-font-size">Tournaments</h3>
+                                <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
+                                <div class="is-layout-flex wp-container-15 wp-block-columns">
+                                    <div class="is-layout-flow wp-block-column">
+                                        <div class="article-list card-display carousel card-three ">
+                                            <ul>
+                                                Copy code
+                                                <c:forEach var="t" items="${tList}" varStatus="loop">
+                                                    <li class="article-item">
+                                                        <div class="article-item-container">
+                                                            <div class="article-item-media content-article" data-link-to="member_tournament.jsp">
+                                                                <c:set var="base64ImageT" value="${Base64.getEncoder().encodeToString(t.getImage())}" />
+                                                                <c:if test="${not empty base64ImageT}">
+                                                                    <div class="article-item-media-ratio">
+                                                                        <img data-srcset="data:image/jsp;base64,${base64ImageT} 720w, data:image/jsp;base64,${base64ImageT} 768w, data:image/jsp;base64,${base64ImageT} 1280w, data:image/jsp;base64,${base64ImageT} 480w, data:image/jsp;base64,${base64ImageT} 1872w" loading="lazy" data-src="data:image/jsp;base64,${base64ImageT}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
+                                                                        <noscript>
+                                                                        <img src="data:image/jsp;base64,${base64ImageT}" srcset="data:image/jsp;base64,${base64ImageT} 720w, data:image/jsp;base64,${base64ImageT} 768w, data:image/jsp;base64,${base64ImageT} 1280w, data:image/jsp;base64,${base64ImageT} 480w, data:image/jsp;base64,${base64ImageT} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
+                                                                        </noscript>
+                                                                    </div>
+                                                                </c:if>                                                        </div>
+                                                            <div class="article-item-body">
+                                                                <span class="attribution">${t.getStartDate()} – ${t.getEndDate()}</span>
+                                                                <a class="article-item-link" href="${pageContext.request.contextPath}/TparticipationController?action=view&TID=${t.getTID()}">
+                                                                    <span class="article-item-header">${t.getName()}</span>
+                                                                </a>
                                                             </div>
-                                                        </c:if>
-                                                    </div>
-                                                    <div class="article-item-body">
-                                                        <span class="attribution">${e.getStartDate()} – ${e.getEndDate()}</span>
-                                                        <a class="article-item-link" href="${pageContext.request.contextPath}/FieldTripParticipantsController?action=view&FID=${e.getFID()}">
-                                                            <span class="article-item-header">${e.getName()}</span>
-                                                        </a>
-                                                    </div>
+                                                        </div>
+                                                    </li>
+                                                </c:forEach>
+                                            </ul></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Field trip-->
+                            <div class="is-layout-flow wp-block-group alignfull page-section what-you-can-do">
+                                <!--                        <h2 class="has-text-align-right has-orange-color has-text-color has-small-font-size" id="what-you-can-do">Where you can do</h2>-->
+                                <h3 class="has-text-align-right has-orange-color has-text-color has-large-font-size">Field trip </h3>
+                                <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
+                                <div class="is-layout-flex wp-container-15 wp-block-columns">
+                                    <div class="is-layout-flow wp-block-column">
+                                        <div class="article-list card-display carousel card-three ">
+                                            <ul>
+                                                <c:forEach var="e" items="${eventsList}" varStatus="loop">
+                                                    <li class="article-item">
+                                                        <div class="article-item-container">
+                                                            <div class="article-item-media content-article" data-link-to="member_fieldtrip_details.jsp">
+                                                                <c:set var="base64ImageF" value="${Base64.getEncoder().encodeToString(e.getImage())}" />
+                                                                <c:if test="${not empty base64ImageF}">
+                                                                    <div class="article-item-media-ratio">
+                                                                        <img data-srcset="data:image/jsp;base64,${base64ImageF} 720w, data:image/jsp;base64,${base64ImageF} 768w, data:image/jsp;base64,${base64ImageF} 1280w, data:image/jsp;base64,${base64ImageF} 480w, data:image/jsp;base64,${base64ImageF} 1872w" loading="lazy" data-src="data:image/jsp;base64,${base64ImageF}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
+                                                                        <noscript>
+                                                                        <img src="data:image/jsp;base64,${base64ImageF}" srcset="data:image/jsp;base64,${base64ImageF} 720w, data:image/jsp;base64,${base64ImageF} 768w, data:image/jsp;base64,${base64ImageF} 1280w, data:image/jsp;base64,${base64ImageF} 480w, data:image/jsp;base64,${base64ImageF} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
+                                                                        </noscript>
+                                                                    </div>
+                                                                </c:if>
+                                                            </div>
+                                                            <div class="article-item-body">
+                                                                <span class="attribution">${e.getStartDate()} – ${e.getEndDate()}</span>
+                                                                <a class="article-item-link" href="${pageContext.request.contextPath}/FieldTripParticipantsController?action=view&FID=${e.getFID()}">
+                                                                    <span class="article-item-header">${e.getName()}</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </c:forEach>
+                                            </ul></div>
+                                    </div>
+
+                                </div>
+                                <!--Meeting-->
+                                <div class="is-layout-flow wp-block-group alignfull page-section what-you-can-do">
+                                    <!--                        <h2 class="has-text-align-center has-orange-color has-text-color has-small-font-size" id="what-you-can-do">What you can do</h2>-->
+                                    <h3 class="has-text-align-right has-orange-color has-text-color has-large-font-size">Meeting</h3>
+                                    <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
+                                    <div class="is-layout-flex wp-container-15 wp-block-columns">
+                                        <div class="is-layout-flow wp-block-column">
+                                            <div class="article-list card-display carousel card-three ">
+                                                <ul>
+                                                    <c:forEach var="m" items="${meetingsList}" varStatus="loop">
+                                                        <li class="article-item">
+                                                            <div class="article-item-container">
+                                                                <div class="article-item-media content-article" data-link-to="member_tournament.jsp">
+                                                                    <c:set var="base64ImageM" value="${Base64.getEncoder().encodeToString(m.getImage())}" />
+                                                                    <c:if test="${not empty base64ImageM}">
+                                                                        <div class="article-item-media-ratio">
+                                                                            <img data-srcset="data:image/jsp;base64,${base64ImageM} 720w, data:image/jsp;base64,${base64ImageM} 768w, data:image/jsp;base64,${base64ImageM} 1280w, data:image/jsp;base64,${base64ImageM} 480w, data:image/jsp;base64,${base64ImageM} 1872w" loading="lazy" data-src="data:image/jsp;base64,${base64ImageM}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
+                                                                            <noscript>
+                                                                            <img src="data:image/jsp;base64,${base64ImageM}" srcset="data:image/jsp;base64,${base64ImageM} 720w, data:image/jsp;base64,${base64ImageM} 768w, data:image/jsp;base64,${base64ImageM} 1280w, data:image/jsp;base64,${base64ImageM} 480w, data:image/jsp;base64,${base64ImageM} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
+                                                                            </noscript>
+                                                                        </div>
+                                                                    </c:if>
+                                                                </div>
+                                                                <div class="article-item-body">
+                                                                    <span class="attribution">${m.getStartDate()} – ${m.getEndDate()}</span>
+                                                                    <a class="article-item-link" href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}">
+                                                                        <span class="article-item-header">${m.getName()}</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </c:forEach>
+                                                </ul></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="is-layout-flow wp-block-group alignfull page-section what-you-can-do">
+                                    <!--                        <h2 class="has-text-align-center has-orange-color has-text-color has-small-font-size" id="what-you-can-do">What you can do</h2>-->
+                                    <h3 class="has-text-align-right has-orange-color has-text-color has-large-font-size">News</h3>
+                                    <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
+                                    <div class="is-layout-flex wp-container-15 wp-block-columns">
+                                        <div class="is-layout-flow wp-block-column">
+                                            <div class="article-list card-display carousel card-three ">
+                                                <ul>
+                                                    <c:forEach var="n" items="${news}" varStatus="loop">
+                                                        <li class="article-item">
+                                                            <div class="article-item-container">
+                                                                <div class="article-item-media content-article" data-link-to="http://www.seychellesnewsagency.com/articles/2332/Eradication+success++Seychelles+wins+war+against+invasive+red-whiskered+bulbul">
+                                                                    <div class="article-item-media-ratio">
+                                                                        <c:set var="base64Image" value="${Base64.getEncoder().encodeToString(n.getPicture())}" />
+                                                                        <img data-srcset="data:image/jsp;base64,${base64Image} 720w, data:image/jsp;base64,${base64Image} 768w, data:image/jsp;base64,${base64Image} 1280w, data:image/jsp;base64,${base64Image} 480w, data:image/jsp;base64,${base64Image} 1872w" loading="lazy" data-src="data:image/jsp;base64,${base64Image}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
+                                                                        <noscript>
+                                                                        <img src="data:image/jsp;base64,${base64Image}" srcset="data:image/jsp;base64,${base64Image} 720w, data:image/jsp;base64,${base64Image} 768w, data:image/jsp;base64,${base64Image} 1280w, data:image/jsp;base64,${base64Image} 480w, data:image/jsp;base64,${base64Image} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
+                                                                        </noscript>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="article-item-body">
+                                                                    <span class="attribution"></span>
+                                                                    <a class="article-item-link" href="${pageContext.request.contextPath}/news?action=details&NID=${n.getNID()}">
+                                                                        <span class="article-item-header">${n.getTitle()}</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </c:forEach>
+                                                </ul></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <c:choose>
+                                    <c:when test="${empty users}">
+                                        <div class="is-layout-flow wp-block-group alignfull main-section has-gray-background-color has-background">
+                                            <h2 class="has-text-align-center has-white-color has-text-color has-large-font-size" id="join-as-member">Make a Difference</h2>
+                                            <p class="has-text-align-center has-white-color has-text-color">Let’s work together to protect birds and habitats</p>
+                                            <div class="is-layout-flex wp-block-buttons is-content-justification-center">
+                                                <div class="wp-block-button"><a class="wp-block-button__link has-orange-background-color has-background" href="login.jsp">Join as a Member</a></div>
+                                            </div>
+                                            <p class="has-text-align-center has-white-color has-text-color"><small>Get the beautiful&nbsp;<em>Living Bird</em>&nbsp;magazine right in your mailbox</small></p>
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="is-layout-flow wp-block-group alignfull main-section has-gray-background-color has-background">
+                                            <h2 class="has-text-align-center has-white-color has-text-color has-large-font-size" id="join-as-member">Make a Difference</h2>
+                                            <p class="has-text-align-center has-white-color has-text-color">Let’s work together to protect birds and habitats</p>
+                                            <div class="is-layout-flex wp-block-buttons is-content-justification-center">
+                                                <div class="wp-block-button"><a class="wp-block-button__link has-orange-background-color has-background" href="${pageContext.request.contextPath}/MemberShipController?action=donate">Donation</a></div>
+                                            </div>
+                                            <p class="has-text-align-center has-white-color has-text-color"><small>Get the beautiful&nbsp;<em>Living Bird</em>&nbsp;magazine right in your mailbox</small></p>
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
+                                <style>
+                                    #hero-wrapper .hero-text { width: 600px; }
+                                </style>  
+
+                                </section>
+                            </div>
+                            </article> 
+
+
+
+
+
+                            </main>
+
+                            <!--Footer-->
+                            <%@ include file="member_footer.jsp" %>
+
+
+                            <!-- BEGIN Search modal -->
+                            <div class="reveal" id="search-modal" data-reveal role="dialog" data-animation-in="fade-in fast" aria-label="Search">
+                                <button class="close-button" data-close aria-label="Close" type="button"><span class="text">Cancel</span> <span class="symbol" aria-hidden="true">&times;</span></button>
+                                <div class="search-container">
+                                    <div class="search-area row">
+                                        <form role="search" method="get" class="search-form" action="/home/search/">
+                                            <span class="fa fa-search" aria-hidden="true"></span>
+                                            <label for="modal-search" class="sr-only">Search this website</label>
+                                            <input id="modal-search" type="search" class="search-field" placeholder="Search: Enter Keywords" value="" name="q" title="Search for:" />
+                                            <input type="submit" class="search-submit button" value="Search" />
+                                        </form>
+                                    </div><!-- .search-form -->
+                                </div><!-- .search-container -->
+                                <aside id="search-modal-content" class="search-links" aria-label="Explore these links">
+
+                                    <div class="is-layout-flex wp-container-44 wp-block-columns">
+                                        <div class="is-layout-flow wp-block-column">
+                                            <p class="has-text-align-center">Bird ID help, Bird Guide</p>
+
+
+
+                                            <div class="is-layout-flex wp-block-buttons is-content-justification-center">
+                                                <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://www.allaboutbirds.org/">All About Birds</a></div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="is-layout-flow wp-block-column">
+                                            <p class="has-text-align-center">Find birds near you</p>
+
+
+
+                                            <div class="is-layout-flex wp-block-buttons is-content-justification-center">
+                                                <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://ebird.org/">eBird</a></div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="is-layout-flow wp-block-column quick-links">
+                                            <p class="has-text-align-center">Quick Links</p>
+
+
+
+                                            <div class="is-layout-flex wp-container-42 wp-block-columns">
+                                                <div class="is-layout-flow wp-block-column">
+                                                    <p class="has-text-align-center"><a href="https://www.birds.cornell.edu/home/visit/" data-type="page" data-id="1229">Visit Us</a><br><a href="https://www.birds.cornell.edu/home/staff-directory/" data-type="page" data-id="1414">Staff Directory</a></p>
                                                 </div>
-                                            </li>
-                                        </c:forEach>
-                                    </ul></div>
-                            </div>
 
-                        </div>
-                        <!--Meeting-->
-                        <div class="is-layout-flow wp-block-group alignfull page-section what-you-can-do">
-                            <!--                        <h2 class="has-text-align-center has-orange-color has-text-color has-small-font-size" id="what-you-can-do">What you can do</h2>-->
-                            <h3 class="has-text-align-right has-orange-color has-text-color has-large-font-size">Meeting</h3>
-                            <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
-                            <div class="is-layout-flex wp-container-15 wp-block-columns">
-                                <div class="is-layout-flow wp-block-column">
-                                    <div class="article-list card-display carousel card-three ">
-                                        <ul>
-                                            <c:forEach var="m" items="${meetingsList}" varStatus="loop">
-                                                <li class="article-item">
-                                                    <div class="article-item-container">
-                                                        <div class="article-item-media content-article" data-link-to="member_tournament.jsp">
-                                                            <c:set var="base64ImageM" value="${Base64.getEncoder().encodeToString(m.getImage())}" />
-                                                            <c:if test="${not empty base64ImageM}">
-                                                                <div class="article-item-media-ratio">
-                                                                    <img data-srcset="data:image/jsp;base64,${base64ImageM} 720w, data:image/jsp;base64,${base64ImageM} 768w, data:image/jsp;base64,${base64ImageM} 1280w, data:image/jsp;base64,${base64ImageM} 480w, data:image/jsp;base64,${base64ImageM} 1872w" loading="lazy" data-src="data:image/jsp;base64,${base64ImageM}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
-                                                                    <noscript>
-                                                                    <img src="data:image/jsp;base64,${base64ImageM}" srcset="data:image/jsp;base64,${base64ImageM} 720w, data:image/jsp;base64,${base64ImageM} 768w, data:image/jsp;base64,${base64ImageM} 1280w, data:image/jsp;base64,${base64ImageM} 480w, data:image/jsp;base64,${base64ImageM} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
-                                                                    </noscript>
-                                                                </div>
-                                                            </c:if>
-                                                        </div>
-                                                        <div class="article-item-body">
-                                                            <span class="attribution">${m.getStartDate()} – ${m.getEndDate()}</span>
-                                                            <a class="article-item-link" href="${pageContext.request.contextPath}/MeetingParticipantsController?action=view&MeID=${m.getMeID()}">
-                                                                <span class="article-item-header">${m.getName()}</span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </c:forEach>
-                                        </ul></div>
-                                </div>
 
-                            </div>
-                        </div>
 
-                        <!--Tournament-->
-                        <div class="is-layout-flow wp-block-group alignfull page-section what-you-can-do">
-                            <!--                        <h2 class="has-text-align-center has-orange-color has-text-color has-small-font-size" id="what-you-can-do">What you can do</h2>-->
-                            <h3 class="has-text-align-right has-orange-color has-text-color has-large-font-size">Tournaments</h3>
-                            <div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
-                            <div class="is-layout-flex wp-container-15 wp-block-columns">
-                                <div class="is-layout-flow wp-block-column">
-                                    <div class="article-list card-display carousel card-three ">
-                                        <ul>
-                                            Copy code
-                                            <c:forEach var="t" items="${tList}" varStatus="loop">
-                                                <li class="article-item">
-                                                    <div class="article-item-container">
-                                                        <div class="article-item-media content-article" data-link-to="member_tournament.jsp">
-                                                            <c:set var="base64ImageT" value="${Base64.getEncoder().encodeToString(t.getImage())}" />
-                                                            <c:if test="${not empty base64ImageT}">
-                                                                <div class="article-item-media-ratio">
-                                                                    <img data-srcset="data:image/jsp;base64,${base64ImageT} 720w, data:image/jsp;base64,${base64ImageT} 768w, data:image/jsp;base64,${base64ImageT} 1280w, data:image/jsp;base64,${base64ImageT} 480w, data:image/jsp;base64,${base64ImageT} 1872w" loading="lazy" data-src="data:image/jsp;base64,${base64ImageT}" data-sizes="(max-width: 480px) 100vw, 480px" class="lazyload" />
-                                                                    <noscript>
-                                                                    <img src="data:image/jsp;base64,${base64ImageT}" srcset="data:image/jsp;base64,${base64ImageT} 720w, data:image/jsp;base64,${base64ImageT} 768w, data:image/jsp;base64,${base64ImageT} 1280w, data:image/jsp;base64,${base64ImageT} 480w, data:image/jsp;base64,${base64ImageT} 1872w" sizes="(max-width: 480px) 100vw, 480px" loading="lazy" />
-                                                                    </noscript>
-                                                                </div>
-                                                            </c:if>                                                        </div>
-                                                        <div class="article-item-body">
-                                                            <span class="attribution">${t.getStartDate()} – ${t.getEndDate()}</span>
-                                                            <a class="article-item-link" href="${pageContext.request.contextPath}/TparticipationController?action=view&TID=${t.getTID()}">
-                                                                <span class="article-item-header">${t.getName()}</span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </c:forEach>
-                                        </ul></div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <c:choose>
-                            <c:when test="${empty users}">
-                                <div class="is-layout-flow wp-block-group alignfull main-section has-gray-background-color has-background">
-                                    <h2 class="has-text-align-center has-white-color has-text-color has-large-font-size" id="join-as-member">Make a Difference</h2>
-                                    <p class="has-text-align-center has-white-color has-text-color">Let’s work together to protect birds and habitats</p>
-                                    <div class="is-layout-flex wp-block-buttons is-content-justification-center">
-                                        <div class="wp-block-button"><a class="wp-block-button__link has-orange-background-color has-background" href="login.jsp">Join as a Member</a></div>
+                                                <div class="is-layout-flow wp-block-column">
+                                                    <p class="has-text-align-center"><a href="https://www.birds.cornell.edu/home/members/" data-type="page" data-id="1321">Members</a><br><a href="https://www.birds.cornell.edu/students/">Students</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p class="has-text-align-center has-white-color has-text-color"><small>Get the beautiful&nbsp;<em>Living Bird</em>&nbsp;magazine right in your mailbox</small></p>
-                                </div>
-                            </c:when>
-                            <c:otherwise>
-                                <div class="is-layout-flow wp-block-group alignfull main-section has-gray-background-color has-background">
-                                    <h2 class="has-text-align-center has-white-color has-text-color has-large-font-size" id="join-as-member">Make a Difference</h2>
-                                    <p class="has-text-align-center has-white-color has-text-color">Let’s work together to protect birds and habitats</p>
-                                    <div class="is-layout-flex wp-block-buttons is-content-justification-center">
-                                        <div class="wp-block-button"><a class="wp-block-button__link has-orange-background-color has-background" href="${pageContext.request.contextPath}/MemberShipController?action=donate">Donation</a></div>
-                                    </div>
-                                    <p class="has-text-align-center has-white-color has-text-color"><small>Get the beautiful&nbsp;<em>Living Bird</em>&nbsp;magazine right in your mailbox</small></p>
-                                </div>
-                            </c:otherwise>
-                        </c:choose>
-                        <style>
-                            #hero-wrapper .hero-text { width: 600px; }
-                        </style>  
+                                </aside>
 
-                </section>
-            </div>
-        </article> 
+                            </div>		
+                            <noscript><iframe 
+                                height="0" width="0" style="display:none;visibility:hidden" data-src="//www.googletagmanager.com/ns.html?id=GTM-P7854M" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></iframe></noscript>
 
-
-
-
-
-    </main>
-
-    <!--Footer-->
-    <%@ include file="member_footer.jsp" %>
-
-
-    <!-- BEGIN Search modal -->
-    <div class="reveal" id="search-modal" data-reveal role="dialog" data-animation-in="fade-in fast" aria-label="Search">
-        <button class="close-button" data-close aria-label="Close" type="button"><span class="text">Cancel</span> <span class="symbol" aria-hidden="true">&times;</span></button>
-        <div class="search-container">
-            <div class="search-area row">
-                <form role="search" method="get" class="search-form" action="/home/search/">
-                    <span class="fa fa-search" aria-hidden="true"></span>
-                    <label for="modal-search" class="sr-only">Search this website</label>
-                    <input id="modal-search" type="search" class="search-field" placeholder="Search: Enter Keywords" value="" name="q" title="Search for:" />
-                    <input type="submit" class="search-submit button" value="Search" />
-                </form>
-            </div><!-- .search-form -->
-        </div><!-- .search-container -->
-        <aside id="search-modal-content" class="search-links" aria-label="Explore these links">
-
-            <div class="is-layout-flex wp-container-44 wp-block-columns">
-                <div class="is-layout-flow wp-block-column">
-                    <p class="has-text-align-center">Bird ID help, Bird Guide</p>
-
-
-
-                    <div class="is-layout-flex wp-block-buttons is-content-justification-center">
-                        <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://www.allaboutbirds.org/">All About Birds</a></div>
-                    </div>
-                </div>
-
-
-
-                <div class="is-layout-flow wp-block-column">
-                    <p class="has-text-align-center">Find birds near you</p>
-
-
-
-                    <div class="is-layout-flex wp-block-buttons is-content-justification-center">
-                        <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://ebird.org/">eBird</a></div>
-                    </div>
-                </div>
-
-
-
-                <div class="is-layout-flow wp-block-column quick-links">
-                    <p class="has-text-align-center">Quick Links</p>
-
-
-
-                    <div class="is-layout-flex wp-container-42 wp-block-columns">
-                        <div class="is-layout-flow wp-block-column">
-                            <p class="has-text-align-center"><a href="https://www.birds.cornell.edu/home/visit/" data-type="page" data-id="1229">Visit Us</a><br><a href="https://www.birds.cornell.edu/home/staff-directory/" data-type="page" data-id="1414">Staff Directory</a></p>
-                        </div>
-
-
-
-                        <div class="is-layout-flow wp-block-column">
-                            <p class="has-text-align-center"><a href="https://www.birds.cornell.edu/home/members/" data-type="page" data-id="1321">Members</a><br><a href="https://www.birds.cornell.edu/students/">Students</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </aside>
-
-    </div>		
-    <noscript><iframe 
-        height="0" width="0" style="display:none;visibility:hidden" data-src="//www.googletagmanager.com/ns.html?id=GTM-P7854M" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></iframe></noscript>
-
-    <link rel="stylesheet" href=https://lightbox.allaboutbirds.org/wp-content/plugins/clo-lightbox/clo-lightbox.min.css>
-    <script type="text/javascript" src="https://lightbox.allaboutbirds.org/wp-content/plugins/clo-lightbox/clo-lightbox.js"></script>
-    <script type="text/javascript">
+                            <link rel="stylesheet" href=https://lightbox.allaboutbirds.org/wp-content/plugins/clo-lightbox/clo-lightbox.min.css>
+                            <script type="text/javascript" src="https://lightbox.allaboutbirds.org/wp-content/plugins/clo-lightbox/clo-lightbox.js"></script>
+                            <script type="text/javascript">
             if (!window.location.pathname.toLowerCase().includes('terms-of-use') && !window.location.pathname.toLowerCase().includes('our-commitment-to-diversity-equity-inclusion-and-justice') && !window.location.pathname.toLowerCase().includes('web-accessibility-assistance')) {
                 var clo_lightbox = new CLO_Lightbox();
                 clo_lightbox.create('bce', 'bcehome', window.location.pathname, 'live');
             }
-    </script>		<script>
-        (function (body) {
-            'use strict';
-            body.className = body.className.replace(/\btribe-no-js\b/, 'tribe-js');
-        })(document.body);
-    </script>
-    <script> /* <![CDATA[ */var tribe_l10n_datatables = {"aria": {"sort_ascending": ": activate to sort column ascending", "sort_descending": ": activate to sort column descending"}, "length_menu": "Show _MENU_ entries", "empty_table": "No data available in table", "info": "Showing _START_ to _END_ of _TOTAL_ entries", "info_empty": "Showing 0 to 0 of 0 entries", "info_filtered": "(filtered from _MAX_ total entries)", "zero_records": "No matching records found", "search": "Search:", "all_selected_text": "All items on this page were selected. ", "select_all_link": "Select all pages", "clear_selection": "Clear Selection.", "pagination": {"all": "All", "next": "Next", "previous": "Previous"}, "select": {"rows": {"0": "", "_": ": Selected %d rows", "1": ": Selected 1 row"}}, "datepicker": {"dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"], "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesShort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesMin": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "nextText": "Next", "prevText": "Prev", "currentText": "Today", "closeText": "Done", "today": "Today", "clear": "Clear"}};/* ]]> */</script><style id='core-block-supports-inline-css' type='text/css'>
-        .wp-block-buttons.wp-container-18{justify-content:flex-end;}.wp-block-buttons.wp-container-1,.wp-block-buttons.wp-container-3,.wp-block-buttons.wp-container-5,.wp-block-buttons.wp-container-28,.wp-block-buttons.wp-container-33{justify-content:center;}.wp-block-columns.wp-container-7,.wp-block-columns.wp-container-11,.wp-block-columns.wp-container-15,.wp-block-columns.wp-container-20,.wp-block-columns.wp-container-24,.wp-block-columns.wp-container-31,.wp-block-columns.wp-container-42,.wp-block-columns.wp-container-44{flex-wrap:nowrap;}
-    </style>
-    <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=5.7.2' id='swv-js'></script>
-    <script type='text/javascript' id='contact-form-7-js-extra'>
-        /* <![CDATA[ */
-        var wpcf7 = {"api": {"root": "https:\/\/www.birds.cornell.edu\/home\/wp-json\/", "namespace": "contact-form-7\/v1"}, "cached": "1"};
-        /* ]]> */
-    </script>
-    <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.7.2' id='contact-form-7-js'></script>
-    <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/plugins/wp-smush-pro/app/assets/js/smush-lazy-load.min.js?ver=3.12.3' id='smush-lazy-load-js'></script>
-    <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/scripts/foundation.min.js?ver=6.1.1' id='foundation-js-js'></script>
-    <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/scripts/slick.min.js?ver=6.1.1' id='slick-js-js'></script>
-    <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/scripts/scripts.js?ver=1684241978' id='bp-site-js-js'></script>
-    <script type='text/javascript' src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js' id='jquery-ui-js'></script>
-    <script type='text/javascript' id='bp-bce-site-js-js-extra'>
-        /* <![CDATA[ */
-        var wp_post_vars = {"postSlug": "home-page"};
-        /* ]]> */
-    </script>
-    <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/themes/birdpress2-bce/scripts/scripts.js?ver=1684846858' id='bp-bce-site-js-js'></script>
-    <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/themes/birdpress2-bce/scripts/jquery.nanogallery2.min.js' id='nanogallery2-js'></script>
-    <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/themes/birdpress2-bce/scripts/photowall.js' id='photowall-js'></script>		
-</body>	
-</html>
+                            </script>		<script>
+                                (function (body) {
+                                    'use strict';
+                                    body.className = body.className.replace(/\btribe-no-js\b/, 'tribe-js');
+                                })(document.body);
+                            </script>
+                            <script> /* <![CDATA[ */var tribe_l10n_datatables = {"aria": {"sort_ascending": ": activate to sort column ascending", "sort_descending": ": activate to sort column descending"}, "length_menu": "Show _MENU_ entries", "empty_table": "No data available in table", "info": "Showing _START_ to _END_ of _TOTAL_ entries", "info_empty": "Showing 0 to 0 of 0 entries", "info_filtered": "(filtered from _MAX_ total entries)", "zero_records": "No matching records found", "search": "Search:", "all_selected_text": "All items on this page were selected. ", "select_all_link": "Select all pages", "clear_selection": "Clear Selection.", "pagination": {"all": "All", "next": "Next", "previous": "Previous"}, "select": {"rows": {"0": "", "_": ": Selected %d rows", "1": ": Selected 1 row"}}, "datepicker": {"dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"], "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesShort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesMin": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "nextText": "Next", "prevText": "Prev", "currentText": "Today", "closeText": "Done", "today": "Today", "clear": "Clear"}};/* ]]> */</script><style id='core-block-supports-inline-css' type='text/css'>
+                                .wp-block-buttons.wp-container-18{justify-content:flex-end;}.wp-block-buttons.wp-container-1,.wp-block-buttons.wp-container-3,.wp-block-buttons.wp-container-5,.wp-block-buttons.wp-container-28,.wp-block-buttons.wp-container-33{justify-content:center;}.wp-block-columns.wp-container-7,.wp-block-columns.wp-container-11,.wp-block-columns.wp-container-15,.wp-block-columns.wp-container-20,.wp-block-columns.wp-container-24,.wp-block-columns.wp-container-31,.wp-block-columns.wp-container-42,.wp-block-columns.wp-container-44{flex-wrap:nowrap;}
+                            </style>
+                            <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=5.7.2' id='swv-js'></script>
+                            <script type='text/javascript' id='contact-form-7-js-extra'>
+                                /* <![CDATA[ */
+                                var wpcf7 = {"api": {"root": "https:\/\/www.birds.cornell.edu\/home\/wp-json\/", "namespace": "contact-form-7\/v1"}, "cached": "1"};
+                                /* ]]> */
+                            </script>
+                            <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.7.2' id='contact-form-7-js'></script>
+                            <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/plugins/wp-smush-pro/app/assets/js/smush-lazy-load.min.js?ver=3.12.3' id='smush-lazy-load-js'></script>
+                            <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/scripts/foundation.min.js?ver=6.1.1' id='foundation-js-js'></script>
+                            <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/scripts/slick.min.js?ver=6.1.1' id='slick-js-js'></script>
+                            <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/themes/birdpress2/scripts/scripts.js?ver=1684241978' id='bp-site-js-js'></script>
+                            <script type='text/javascript' src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js' id='jquery-ui-js'></script>
+                            <script type='text/javascript' id='bp-bce-site-js-js-extra'>
+                                /* <![CDATA[ */
+                                var wp_post_vars = {"postSlug": "home-page"};
+                                /* ]]> */
+                            </script>
+                            <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/themes/birdpress2-bce/scripts/scripts.js?ver=1684846858' id='bp-bce-site-js-js'></script>
+                            <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/themes/birdpress2-bce/scripts/jquery.nanogallery2.min.js' id='nanogallery2-js'></script>
+                            <script type='text/javascript' src='https://www.birds.cornell.edu/home/wp-content/themes/birdpress2-bce/scripts/photowall.js' id='photowall-js'></script>		
+                            </body>	
+                            </html>

@@ -271,10 +271,10 @@
 
     <turbo-frame id="flash"></turbo-frame>
     <main class="pb-8 pt-8">
-        <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
+        <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-5xl lg:px-8">
 
-            <div class="grid grid-cols-1 items-start lg:grid-cols-5 lg:gap-8">
-                <div class="grid grid-cols-1 gap-4 lg:col-span-5">
+            <div class="">
+                <div class="">
 
                     <div class="sm:flex sm:items-center px-4 sm:px-0">
                         <div class="sm:flex-auto">
@@ -286,205 +286,176 @@
                     </div>
 
                     <section aria-labelledby="profile-overview-title">
-                        <div class="bg-white shadow sm:rounded-lg">
-                            <div class="bg-white sm:rounded-b-lg sm:rounded-t-lg">
+                        <div class="bg-white sm:rounded-b-lg sm:rounded-t-lg"  style=" padding: 50px">
 
-                                <%! Tournament tournament; %>
-                                <% tournament = (Tournament) request.getAttribute("tournament"); %>
+                            <%! Tournament tournament; %>
+                            <% tournament = (Tournament) request.getAttribute("tournament"); %>
 
-                                <div class="" style=" padding: 100px">
-                                    <div class="space-y-8 divide-y divide-gray-200">
-                                        <form class="edit_member" id="edit" action="./tournaments" method="post">
-                                            <turbo-frame id="flash"></turbo-frame>
-                                            <div>
-                                                <div>
-                                                    <h3 class="text-lg leading-6 font-medium text-gray-900">Edit</h3>
-                                                    <p class="mt-1 text-sm text-gray-500">View and edit the tournament's details</p>
+                            <div class="space-y-8 divide-y divide-gray-200">
+                                <form class="edit_member" id="edit" action="./tournaments" method="post">
+                                    <turbo-frame id="flash"></turbo-frame>
+                                    <div>
+                                        <div class="">
+                                            <h3 class="text-lg leading-6 font-medium text-gray-900">Edit</h3>
+                                            <p class="mt-1 text-sm text-gray-500">View and edit the tournament's details</p>
+                                        </div>
+                                        <div class="grid grid-cols-3 lg:grid-cols-5 gap-6 ">
+
+                                            <div class="col-span-3">
+                                                <label class="block text-sm font-medium text-gray-700" for="name">Name</label>
+                                                <div class="mt-1">
+                                                    <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'" + tournament.getName() + "'"); %> name="name" id="name">
                                                 </div>
-                                                <div class="mt-6 grid grid-cols-3 gap-y-6 gap-x-4">
-                                                    <div class="col-span-1 sm:col-span-4 md:col-span-3 grid grid-cols-4 gap-4">
+                                            </div>
 
-                                                        <div class="col-span-3">
-                                                            <label class="block text-sm font-medium text-gray-700" for="name">Name</label>
-                                                            <div class="mt-1">
-                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'" + tournament.getName() + "'"); %> name="name" id="name">
-                                                            </div>
-                                                        </div>
+                                            <div class="col-span-2">
+                                                <label class="block text-sm font-medium text-gray-700" for="host">Host</label>
+                                                <div class="mt-1">
+                                                    <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'" + tournament.getHost() + "'"); %> name="host" id="host">
+                                                </div>
+                                            </div>
 
-                                                        <div class="col-span-3">
-                                                            <label class="block text-sm font-medium text-gray-700" for="host">Host</label>
-                                                            <div class="mt-1">
-                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'" + tournament.getHost() + "'"); %> name="host" id="host">
-                                                            </div>
-                                                        </div>
+                                            <div class="col-span-3">
+                                                <label class="block text-sm font-medium text-gray-700" for="incharge">In charge</label>
+                                                <div class="mt-1">
+                                                    <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'" + tournament.getIncharge() + "'"); %> name="incharge" id="incharge">
+                                                </div>
+                                            </div>
 
-                                                        <div class="col-span-3">
-                                                            <label class="block text-sm font-medium text-gray-700" for="incharge">In charge</label>
-                                                            <div class="mt-1">
-                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'" + tournament.getIncharge() + "'"); %> name="incharge" id="incharge">
-                                                            </div>
-                                                        </div>
+                                            <div class="col-span-2">
+                                                <label class="block text-sm font-medium text-gray-700" for="contact">Contact</label>
+                                                <div class="mt-1">
+                                                    <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'" + tournament.getContact() + "'"); %> name="contact" id="contact">
+                                                </div>
+                                            </div>
 
-                                                        <div class="col-span-3">
-                                                            <label class="block text-sm font-medium text-gray-700" for="contact">Contact</label>
-                                                            <div class="mt-1">
-                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value= <% out.print("'" + tournament.getContact() + "'"); %> name="contact" id="contact">
-                                                            </div>
-                                                        </div>
+                                            <%! List<Location> locationsList;
+                                                String select;
+                                                String tournamentLocID;
+                                                Location loc;%>
+                                            <% locationsList = (List<Location>) request.getAttribute("locationsList");
+                                                loc = (Location) request.getAttribute("location");
+                                                tournamentLocID = tournament.getLID().trim();
+                                            %>
+                                            <div class="col-span-full"><label class="block text-sm font-medium text-gray-700" for="event_location">Location:</label>
+                                                <div class="mt-1">
 
-                                                        <%! List<Location> locationsList;
-                                                            String select;
-                                                            String tournamentLocID;
-                                                            Location loc;%>
-                                                        <% locationsList = (List<Location>) request.getAttribute("locationsList");
-                                                            loc = (Location) request.getAttribute("location");
-                                                            tournamentLocID = tournament.getLID().trim();
+                                                    <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="LID" id="LID">
+                                                        <%
+                                                            for (Location l : locationsList) {
+                                                                select = "";
+                                                                if (tournamentLocID.equalsIgnoreCase(l.getLid().trim())) {
+                                                                    select = "selected='selected'";
+                                                                }
+                                                                out.print("<option " + select + " value='" + l.getLid() + "'>" + l.getName() + "</option>");
+                                                            }
                                                         %>
-                                                        <div><label class="block text-sm font-medium text-gray-700" for="event_location">Location:</label>
-                                                            <div class="mt-1">
-
-                                                                <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="LID" id="LID">
-                                                                    <%
-                                                                        for (Location l : locationsList) {
-                                                                            select = "";
-                                                                            if (tournamentLocID.equalsIgnoreCase(l.getLid().trim())) {
-                                                                                select = "selected='selected'";
-                                                                            }
-                                                                            out.print("<option " + select + " value='" + l.getLid() + "'>" + l.getName() + "</option>");
-                                                                        }
-                                                                    %>
-                                                                </select>
-                                                            </div>
-                                                            <p class="block text-sm font-medium text-gray-700">Details: <% out.print(loc.getCoordination()); %></p>                                                        
-                                                        </div>
-
-                                                        <div class="col-span-1">
-                                                            <label class="block text-sm font-medium text-gray-700" for="startDate">Start date</label>
-                                                            <div class="mt-1">
-                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'" + tournament.getStartDate() + "'"); %> name="startDate" id="startDate">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-span-1">
-                                                            <label class="block text-sm font-medium text-gray-700" for="endDate">End date</label>
-                                                            <div class="mt-1">
-                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'" + tournament.getEndDate() + "'"); %> name="endDate" id="endDate">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-span-1">
-                                                            <label class="block text-sm font-medium text-gray-700" for="totalPrize">Total prize</label>
-                                                            <div class="mt-1">
-                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'" + tournament.getTotalPrize() + "'"); %> name="totalPrize" id="totalPrize">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="sm:col-span-4 md:col-span-2">
-                                                            <label class="block text-sm font-medium text-gray-700" for="description">Description</label>
-                                                            <div class="mt-1">
-                                                                <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="description"  id="description"><% out.print(tournament.getDescription()); %></textarea>
-                                                            </div>
-                                                            <p class="mt-2 text-sm text-gray-500">A brief description of the tournament</p>
-                                                        </div>
-
-                                                        <div class="sm:col-span-4 md:col-span-2">
-                                                            <label class="block text-sm font-medium text-gray-700" for="note">Note</label>
-                                                            <div class="mt-1">
-                                                                <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="note"  id="note"><% out.print(tournament.getNote()); %></textarea>
-                                                            </div>
-                                                            <p class="mt-2 text-sm text-gray-500">A brief note to notice our participants</p>
-                                                        </div>
-
-                                                        <div class="sm:col-span-6">
-                                                            <label class="block text-sm font-medium text-gray-700" for="status">Status: </label>
-                                                            <div class="mt-1">
-                                                                <%! String select1, select2, select3, select4;%>
-                                                                <% select1 = select2 = select3 = select4 = ""; %>
-                                                                <%
-                                                                    if (tournament.getStatus().trim().equalsIgnoreCase("pending")) {
-                                                                        select1 = "selected='selected'";
-                                                                    } else if (tournament.getStatus().trim().equalsIgnoreCase("formClosed")) {
-                                                                        select2 = "selected='selected'";
-                                                                    } else if (tournament.getStatus().trim().equalsIgnoreCase("ongoing")) {
-                                                                        select3 = "selected='selected'";
-                                                                    } else {
-                                                                        select4 = "selected='selected'";
-                                                                    }
-                                                                %>
-
-
-                                                                <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="status" id="status">
-                                                                    <option <% out.print(select1); %> value="pending">Pending</option>
-                                                                    <option <% out.print(select2); %> value="formClosed">Form closed</option>
-                                                                    <option <% out.print(select3); %> value="ongoing">On going</option>
-                                                                    <option <% out.print(select4); %> value="finished">Terminated</option>
-                                                                </select>
-
-                                                            </div>
-                                                            <p class="mt-2 text-sm text-gray-500">Pending. <br>
-                                                                Placeholder. <br></p>
-                                                        </div>
-
-                                                        <div class="col-span-1">
-                                                            <label class="block text-sm font-medium text-gray-700" for="fee">Participation fee</label>
-                                                            <div class="mt-1">
-                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'" + tournament.getFee() + "'"); %> name="fee" id="fee">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-span-1">
-                                                            <label class="block text-sm font-medium text-gray-700" for="registrationDeadline">Registration deadline</label>
-                                                            <div class="mt-1">
-                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'" + tournament.getRegistrationDeadline() + "'"); %> name="registrationDeadline" id="registrationDeadline">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-span-1">
-                                                            <label class="block text-sm font-medium text-gray-700" for="numberOfParticipant">Max number of participants</label>
-                                                            <div class="mt-1">
-                                                                <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'" + tournament.getNumberOfParticipant() + "'"); %> name="numberOfParticipant" id="numberOfParticipant">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="sm:col-span-4 md:col-span-1 flex">
-                                                        <div class="flex-grow lg:mt-0 lg:ml-6 lg:flex-grow-0 lg:flex-shrink-0">
-                                                            <p class="text-sm font-medium text-gray-700" aria-hidden="true"></p>
-                                                            <div class="mt-1 lg:hidden">
-                                                                <div class="flex items-center">
-                                                                    <div class="flex-shrink-0 inline-block rounded-full overflow-hidden h-12 w-12" aria-hidden="true">
-                                                                        <div class="w-12 h-12 bg-lime-100 flex items-center justify-center rounded-full overflow-hidden  flex-shrink-0">
-                                                                            <img src="https://www.bird.club/assets/avatars/raven-fcf919bd3575083b93e6c2e97c49df2320e84254f6cd2f7656273601d1ddc12b.png">
-                                                                        </div></div>
-                                                                    <div class="ml-5 rounded-md shadow-sm">
-                                                                        <div class="group relative border border-gray-300 rounded-md py-2 px-3 flex items-center justify-center hover:bg-gray-50 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-sky-500">
-                                                                            <label for="mobile-user-photo" class="relative text-sm leading-4 font-medium text-gray-700 pointer-events-none">
-                                                                                <span>Change</span>
-                                                                                <span class="sr-only"> user photo</span>
-                                                                            </label>
-                                                                            <input class="absolute w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-md block text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100" type="file" name="member[photo]" id="member_photo">
-                                                                        </div></div></div></div>
-
-                                                        </div>
-                                                    </div>
-
+                                                    </select>
                                                 </div>
-                                                <div class="pt-5">
-                                                    <div class="flex justify-end">
-                                                        <input type="hidden" name="action" value="updatetournament">
-                                                        <input type="hidden" name="TID" value=<% out.print("'" + tournament.getTID() + "'");%>>
+                                                <p class="block text-sm font-medium text-gray-700">Details: <% out.print(loc.getCoordination()); %></p>                                                        
+                                            </div>
+                                            <div class="col-span-4 grid grid-cols-4 gap-6">
+
+                                                <div class="col-span-2">
+                                                    <label class="block text-sm font-medium text-gray-700" for="registrationDeadline">Registration deadline (yyyy/mm/dd)</label>
+                                                    <div class="mt-1">
+                                                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'" + tournament.getRegistrationDeadline() + "'"); %> name="registrationDeadline" id="registrationDeadline">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-span-2">
+                                                    <label class="block text-sm font-medium text-gray-700" for="startDate">Start date (yyyy/mm/dd)</label>
+                                                    <div class="mt-1">
+                                                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'" + tournament.getStartDate() + "'"); %> name="startDate" id="startDate">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-span-2">
+                                                    <label class="block text-sm font-medium text-gray-700" for="endDate">End date (yyyy/mm/dd)</label>
+                                                    <div class="mt-1">
+                                                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'" + tournament.getEndDate() + "'"); %> name="endDate" id="endDate">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-span-2">
+                                                    <label class="block text-sm font-medium text-gray-700" for="totalPrize">Total prize (VND)</label>
+                                                    <div class="mt-1">
+                                                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'" + tournament.getTotalPrize() + "'"); %> name="totalPrize" id="totalPrize">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-span-1">
+                                                    <label class="w-full block text-sm font-medium text-gray-700" for="status">Status: </label>
+                                                    <div class="mt-1">
+                                                        <%! String select1, select2, select3, select4;%>
+                                                        <% select1 = select2 = select3 = select4 = ""; %>
+                                                        <%
+                                                            if (tournament.getStatus().trim().equalsIgnoreCase("pending")) {
+                                                                select1 = "selected='selected'";
+                                                            } else if (tournament.getStatus().trim().equalsIgnoreCase("formClosed")) {
+                                                                select2 = "selected='selected'";
+                                                            } else if (tournament.getStatus().trim().equalsIgnoreCase("ongoing")) {
+                                                                select3 = "selected='selected'";
+                                                            } else {
+                                                                select4 = "selected='selected'";
+                                                            }
+                                                        %>
+
+                                                        <select class="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md focus:ring-teal-500 focus:border-teal-500" name="status" id="status">
+                                                            <option <% out.print(select1); %> value="pending">Pending</option>
+                                                            <option <% out.print(select2); %> value="formClosed">Form closed</option>
+                                                            <option <% out.print(select3); %> value="ongoing">On going</option>
+                                                            <option <% out.print(select4); %> value="finished">Terminated</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-span-2">
+                                                    <label class="block text-sm font-medium text-gray-700" for="fee">Participation fee (VND)</label>
+                                                    <div class="mt-1">
+                                                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'" + tournament.getFee() + "'"); %> name="fee" id="fee">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-span-1">
+                                                    <label class="block text-sm font-medium text-gray-700" for="numberOfParticipant">Max participants</label>
+                                                    <div class="mt-1">
+                                                        <input class="w-full block shadow-sm sm:text-sm border-gray-300 focus:ring-teal-500 focus:border-teal-500 rounded-md" type="text" value=<% out.print("'" + tournament.getNumberOfParticipant() + "'"); %> name="numberOfParticipant" id="numberOfParticipant">
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>            
-                                        <button type="submit" form="edit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
-                                            Update</button>
+                                        </div>
+                                        <div class="col-span-full mt-8">
+                                            <label class="block text-sm font-medium text-gray-700" for="description">Description</label>
+                                            <div class="mt-1">
+                                                <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="description"  id="description"><% out.print(tournament.getDescription()); %></textarea>
+                                            </div>
+                                            <p class="mt-2 text-sm text-gray-500">A brief description of the tournament</p>
+                                        </div>
 
+                                        <div class="col-span-full">
+                                            <label class="block text-sm font-medium text-gray-700" for="note">Note</label>
+                                            <div class="mt-1">
+                                                <textarea rows="5" class="w-full block shadow-sm sm:text-sm border-gray-300 rounded-md outline-none focus:ring-teal-500 focus:border-teal-500" name="note"  id="note"><% out.print(tournament.getNote()); %></textarea>
+                                            </div>
+                                            <p class="mt-2 text-sm text-gray-500">A brief note to notice our participants</p>
+                                        </div>
+
+                                        <div class="pt-5">
+                                            <div class="flex justify-end">
+                                                <input type="hidden" name="action" value="updatetournament">
+                                                <input type="hidden" name="TID" value=<% out.print("'" + tournament.getTID() + "'");%>>
+                                            </div>
+                                        </div>
                                     </div>
+                                </form>            
+                                <button type="submit" form="edit" class="px-4 py-2 text-sm text-white shadow-sm border-transparent bg-teal-600 hover:bg-teal-700 focus:ring-teal-500 inline-flex items-center border font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                    Update</button>
 
-                                </div>
                             </div>
-                        </div></section>
+                        </div>
+                    </section>
 
 
 
