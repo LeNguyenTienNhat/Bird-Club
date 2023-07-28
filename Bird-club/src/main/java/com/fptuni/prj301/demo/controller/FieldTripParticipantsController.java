@@ -18,6 +18,8 @@ import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,7 +36,7 @@ import tool.utils.UIDGenerator;
 public class FieldTripParticipantsController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String action = request.getParameter("action");
@@ -52,6 +54,9 @@ public class FieldTripParticipantsController extends HttpServlet {
             String uid = request.getParameter("UID");
             String docNo = UIDGenerator.generateDocF();
             HttpSession ss = request.getSession(true);
+            FieldtripManager eventsManager = new FieldtripManager();
+            Fieldtrip f = eventsManager.load(fid);
+            int fee = f.getFee();
             // Create a new Tparticipation object with the provided parameters
             FieldTripParticipants fieldTripParticipants = new FieldTripParticipants();
             fieldTripParticipants.setFid(fid);
@@ -65,10 +70,11 @@ public class FieldTripParticipantsController extends HttpServlet {
                 // Redirect to a success page
                 request.setAttribute("docT", docNo);
                 ss.setAttribute("docT", docNo);
-                response.sendRedirect(request.getContextPath() + "/index.jsp");
+                ss.setAttribute("amounttopay", fee);
+                response.sendRedirect(request.getContextPath() + "/vnpay_pay.jsp");
             } else {
                 // Redirect to a failure page
-                response.sendRedirect(request.getContextPath() + "/login.jsp");
+                response.sendRedirect(request.getContextPath() + "/error.html");
             }
         } else if (action.equals("view")) {
             // Retrieve the Tparticipation object from the database based on the provided parameters (e.g., docNo)
@@ -165,7 +171,11 @@ public class FieldTripParticipantsController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(FieldTripParticipantsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -179,7 +189,11 @@ public class FieldTripParticipantsController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(FieldTripParticipantsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

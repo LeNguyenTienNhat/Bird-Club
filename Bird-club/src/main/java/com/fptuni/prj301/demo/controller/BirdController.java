@@ -90,7 +90,7 @@ public class BirdController extends HttpServlet {
                 request.setAttribute("docT", docNo);
                 ss.setAttribute("docT", docNo);
                 ss.setAttribute("amounttopay", fee);
-                ss.setAttribute("TransactionType", "Fee");
+                ss.setAttribute("TransactionType", "fee");
                 response.sendRedirect(request.getContextPath() + "/vnpay_pay.jsp");
             } else {
                 // Redirect to a failure page
