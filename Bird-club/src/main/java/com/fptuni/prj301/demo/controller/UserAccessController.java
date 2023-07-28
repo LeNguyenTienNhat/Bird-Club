@@ -17,7 +17,8 @@ import tool.utils.UIDGenerator;
 import static tool.utils.UIDGenerator.generateNewPassword;
 
 public class UserAccessController extends HttpServlet {
-    String DEFAULT_PICTURE = "D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\user.png";
+
+    String DEFAULT_PICTURE = "D:\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\user.png";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -48,12 +49,8 @@ public class UserAccessController extends HttpServlet {
 
                     if (status.equals("unactivated")) {
                         ss.setAttribute("users", user);
-                        if (role.equals("guest")) {
-                            response.sendRedirect(request.getContextPath() + "/home?action=view");
-                        } else {
-                            response.sendRedirect(request.getContextPath() + "/MemberShipController?action=view");
-                        }
-                        
+                        response.sendRedirect(request.getContextPath() + "/MemberShipController?action=view");
+
                     } else if (user.getExpriedDate() != null && user.getExpriedDate().before(new Date())) {
                         ss.setAttribute("users", user);
                         ss.setAttribute("userID", userDao.searchByName(user.getUserName()));

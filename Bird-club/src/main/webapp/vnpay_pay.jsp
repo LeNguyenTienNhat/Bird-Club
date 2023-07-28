@@ -119,7 +119,10 @@
             <form action="/chimowners/vnpayajax" id="frmCreateOrder" method="post">
                 <div class="form-group">
                     <label for="amount">Nhập số tiền</label>
-                    <input class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="number" value="10000" />
+                    <%! int amounttopay; %>
+                    <% amounttopay = (Integer) session.getAttribute("amounttopay"); %>
+                    <input class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." 
+                           id="amount" max="100000000" min="1" name="amount" type="number" <% out.print("value='"+amounttopay+"'"); %> >
                 </div>
                 <div class="button-group ${not empty successMessage ? '' : 'hidden'}" id="btnThanhToanGroup">
                     <button type="submit" class="btn btn-default" id="btnThanhToan">Thanh toán</button>
@@ -132,7 +135,7 @@
                 <input type="hidden" name="TT" value="${sessionScope.TransactionType}" />
                 <input type="hidden" name="docT" value="${docT}">
                 <div class="button-group-save ${not empty successMessage ? 'hidden' : ''}">
-                    <button style="margin-top:10px;" type="submit" class="btn btn-default" id="btnLuu">thanh toán</button>
+                    <button style="margin-top:10px;" type="submit" class="btn btn-default" id="btnLuu">Thanh toán</button>
                 </div>
             </form>
         </div>
@@ -162,40 +165,6 @@
         </p>
     </footer>
 </div>
-
-<!--        <div class="container">
-            <div class="header clearfix">
-                <h3 class="text-muted">VNPAY DEMO</h3>
-            </div>
-            <h3>Tạo mới đơn hàng</h3>
-            <div class="table-responsive">
-                <form action="/chimowners/vnpayajax" id="frmCreateOrder" method="post">        
-                    <div class="form-group">
-                        <label for="amount">Số tiền</label>
-                        <input class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="number" value="10000" />
-                    </div>
-                    <button type="submit" class="btn btn-default" href>Thanh toán</button>
-                </form>
-
-                <form action="${pageContext.request.contextPath}/TransactionController?action=add" method="post">  
-                    <input type="hidden" id="amountCopy" name="amount" />
-                    <input type="hidden" name="UID" value="${users.getUID()}">
-                    <input type="hidden" name="TT" value="${sessionScope.TransactionType}" />
-                    <input type="hidden" name="docT" value="${docT}">
-                    <button type="submit" class="btn btn-default">Lưu</button>
-                </form>
-</div>
-                <script>
-// Copy the value from the first input field to the hidden input field
-                    document.getElementById("amountCopy").value = document.getElementById("amount").value;
-                </script>
-                <p>
-                    &nbsp;
-                </p>
-                <footer class="footer">
-                    <p>&copy; VNPAY 2020</p>
-                </footer>
-            </div>-->
 
 <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
 <script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>

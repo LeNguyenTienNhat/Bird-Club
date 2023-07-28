@@ -144,6 +144,20 @@ public class StaffMember extends HttpServlet {
         else if (action.equals("ignore")) {
             String UID = request.getParameter("UID");
             manager.updateRole(UID, "ignored");
+            MemberManager mm = new MemberManager();
+            Member member = mm.load(UID);
+            String email = member.getEmail();
+            String fullname = member.getFullName();
+            String gender = member.getGender();
+            if (gender.equalsIgnoreCase("male")) gender="Mr.";
+            else gender="Mrs.";
+            EmailSender e = new EmailSender();
+            e.sendEmail(email, "About your request...", "<p>Dear " +gender+" "+fullname+ "</p>"
+                    + "<p>We've review your request to officially become a member of ChimOwners bird club.</p>"
+                    + "<p>However, it seems like that we may take longer to finally accept your request.</p>"
+                    + "<p>Feel free to contact us at fptswp@gmail.com for further information.</p>"
+                    + "<p>In case you're no longer interest in our club, contact chimownerrefunds@gmail.com for refunding</p>"
+                    , "http://localhost:8080/chimowners/");
 
             RequestDispatcher rd = request.getRequestDispatcher("StaffMember");
             rd.forward(request, response);

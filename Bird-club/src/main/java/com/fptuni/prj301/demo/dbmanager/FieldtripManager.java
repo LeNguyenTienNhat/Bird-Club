@@ -63,7 +63,7 @@ public class FieldtripManager {
 
     public List<Fieldtrip> getStatus(String status) {
         List<Fieldtrip> fieldtrips = new ArrayList<>();
-        String sql = "SELECT * FROM Fieldtrip WHERE status = ?";
+        String sql = "SELECT * FROM FieldTrip WHERE status = ?";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql)) {

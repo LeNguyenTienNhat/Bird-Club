@@ -50,18 +50,21 @@ public class MemberShipController extends HttpServlet {
             request.getRequestDispatcher("/member_membership.jsp").forward(request, response);
         } 
 
-        //MEMBER INTERFACE: A member purchased a membership bundle
-        else if (action.equals("add")) {
+        
+        //MEMBER INTERFACE: A member purchased a membership bundle successfully
+        else if (action.equals("purchase")) {
             String userId = request.getParameter("UID");
             String membership = request.getParameter("membership");
+            int amount = Integer.parseInt(request.getParameter("amount"));
             boolean updateMembership = mbs.updateMembership(membership, userId);
             boolean updateExpiredDay = mbs.updateExpiredDay(membership, userId);
 
             if (updateMembership && updateExpiredDay) {
                 String docNo = UIDGenerator.generateDocMS();
                 request.setAttribute("docT", docNo);
+                ss.setAttribute("amounttopay", amount);
                 ss.setAttribute("docT", docNo);
-                response.sendRedirect(request.getContextPath() + "/index.jsp");
+                response.sendRedirect(request.getContextPath() + "/vnpay_pay.jsp");
             } else {
                 response.sendRedirect(request.getContextPath() + "/error.html");
             }

@@ -26,7 +26,7 @@ public class StaffNews extends HttpServlet {
         String action = request.getParameter("action");
         NewsManager nm = new NewsManager();
         Tools tool = new Tools();
-        String DEFAULT_PICTURE = "D:\\gt\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\placeholder.png";
+        String DEFAULT_PICTURE = "D:\\Bird-Club\\Bird-club\\src\\main\\webapp\\media\\placeholder.png";
 
         //View all news
         if (action == null || action.equals("viewnews")) {

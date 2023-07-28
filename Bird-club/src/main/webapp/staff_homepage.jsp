@@ -63,7 +63,7 @@
                 vertical-align: bottom !important;
                 margin-right: -1px !important;
             }</style>
-        
+
         <style type="text/css" data-tag-name="trix-toolbar">trix-toolbar {
                 display: block;
             }
@@ -82,8 +82,8 @@
 
             trix-toolbar [data-trix-dialog] [data-trix-validate]:invalid {
                 background-color: #ffdddd;
-                }</style>
-        
+            }</style>
+
         <style type="text/css">.turbo-progress-bar {
                 position: fixed;
                 display: block;
@@ -583,19 +583,8 @@
                                     }
                             });
                         </script>
-                    </div>             
 
-
-                    <div class="bg-white shadow sm:rounded-lg p-6 col-span-2">
-                        <h3 class="font-bold text-gray-700 truncate">On going events</h3>
-                        <div style="overflow-y: scroll;">
-
-                        </div>
-
-                    </div>
-
-                    <div class="bg-white shadow sm:rounded-lg p-6">
-                        <h3 class="font-bold text-gray-700 truncate">Top 10 meetings</h3>
+                        <h3 class="font-bold text-gray-700 truncate mt-8">Top 10 meetings</h3>
                         <canvas id="myChart3"></canvas>
                             <%! List<Meeting> topMeeting;%>
                             <% topMeeting = (List<Meeting>) request.getAttribute("topMeeting");                        %>
@@ -633,7 +622,92 @@
                                     }
                             });
                         </script>
-                    </div>                     
+                    </div>             
+
+
+                    <div class="bg-white shadow sm:rounded-lg p-6 col-span-2">
+                        <h3 class="font-bold text-gray-700 truncate mb-4">On going events</h3>
+
+                        <div class="">
+                            <%! List<Tournament> tournamentsList;
+                                List<Fieldtrip> fList;
+                                List<Meeting> mList;%>
+
+                            <% tournamentsList = (List<Tournament>) request.getAttribute("tournamentsList");
+                                fList = (List<Fieldtrip>) request.getAttribute("fList");
+                                mList = (List<Meeting>) request.getAttribute("mList");
+                            %>
+                            <div class="ring-1 ring-black ring-opacity-5 sm:rounded-b-lg">
+                                <div class="table min-w-full">
+                                    <div class="bg-gray-50 table-header-group">
+                                        <div class="table-row">
+                                            <div class="table-cell border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 relative">
+                                                Name
+                                            </div>
+                                            <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden sm:table-cell">
+                                                Started since
+                                            </div>
+                                            <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden lg:table-cell">
+                                                Estimated end date
+                                            </div>
+                                            <div class="border-b border-gray-300 py-3.5 text-left text-sm font-semibold text-gray-900 px-3 hidden lg:table-cell"> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-header-group bg-white">
+                                        <div class="contents  ">
+                                            <% if (tournamentsList.size() != 0) {
+                                                    for (Tournament t : tournamentsList) {
+                                                        out.print("<div class='table-row bg-white'>"
+                                                                + "<div class='table-cell border-b border-gray-500 text-sm w-full max-w-0 py-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
+                                                                + "<a class='hover:text-teal-600' href='http://localhost:8080/chimowners/tournaments?action=edittournament&TID=" + t.getTID() + "'>" + t.getName() + "</a></div>"
+                                                                + " <div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
+                                                                + t.getStartDate() + "</div>"
+                                                                + "<div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden lg:table-cell'>"
+                                                                + t.getEndDate() + "</div>"
+                                                                + "<div class='table-cell border-b border-gray-200 text-sm text-gray-500 pl-3 pr-4 text-right sm:pr-6'>"
+                                                                + " </div> </div>"
+                                                                + "");
+                                                    }
+                                                }%>
+
+                                            <% if (fList.size() != 0) {
+                                                    for (Fieldtrip f : fList) {
+                                                        out.print("<div class='table-row bg-white'>"
+                                                                + "<div class='table-cell border-b border-gray-500 text-sm w-full max-w-0 py-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
+                                                                + "<a class='hover:text-teal-600' href='http://localhost:8080/chimowners/events?action=editfieldtrip&FID=" + f.getFID() + "'>" + f.getName() + "</a></div>"
+                                                                + " <div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
+                                                                + f.getStartDate() + "</div>"
+                                                                + "<div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden lg:table-cell'>"
+                                                                + f.getEndDate() + "</div>"
+                                                                + "<div class='table-cell border-b border-gray-200 text-sm text-gray-500 pl-3 pr-4 text-right sm:pr-6'>"
+                                                                + " </div> </div>"
+                                                                + "");
+                                                    }
+                                                }%>
+
+                                            <% if (mList.size() != 0) {
+                                                    for (Meeting me : mList) {
+                                                        out.print("<div class='table-row bg-white'>"
+                                                                + "<div class='table-cell border-b border-gray-500 text-sm w-full max-w-0 py-4 pr-3 sm:w-auto sm:max-w-none sm:pl-6 text-gray-900'>"
+                                                                + "<a class='hover:text-teal-600' href='http://localhost:8080/chimowners/events?action=editmeeting&MeID=" + me.getMeID() + "'>" + me.getName() + "</a></div>"
+                                                                + " <div class='table-cell border-b border-gray-200 text-sm px-3 text-gray-500'>"
+                                                                + me.getStartDate() + "</div>"
+                                                                + "<div class='border-b border-gray-200 text-sm px-3 text-gray-500 hidden lg:table-cell'>"
+                                                                + me.getEndDate() + "</div>"
+                                                                + "<div class='table-cell border-b border-gray-200 text-sm text-gray-500 pl-3 pr-4 text-right sm:pr-6'>"
+                                                                + " </div> </div>"
+                                                                + "");
+                                                    }
+                                                }%>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>   
+
+                        </div>
+
+                    </div>                   
 
                 </div>
 
@@ -648,7 +722,7 @@
                             const pieChart = document.getElementById('pieChart');
                             var pieChartData = {labels: ['Membership', 'Fee', 'Donation'],
                                     datasets: [{label: 'Revenue overall', data: [
-                            <% out.print(revenueList.get(0) + ", " + revenueList.get(1) + ", " + revenueList.get(2)); %>
+                            <% out.print(revenueList.get(0) + ", " + revenueList.get(1) + ", " + revenueList.get(2));%>
                                     ],
                                             backgroundColor: ['rgb(77, 205, 207)', 'rgb(31, 82, 83)', 'rgb(45, 121, 122)'],
                                             hoverOffset: 4}]};
@@ -657,61 +731,50 @@
                     </div> 
 
                     <div class="bg-white shadow sm:rounded-lg p-6">
+                        <h3 class="font-bold text-gray-700 truncate mb-4">Contact</h3>
+                        <div class="table min-w-full">
+                            <div class="table-header-group bg-white">
+                                <div class="contents  ">
+                                    <% if (tournamentsList.size() != 0) {
+                                            for (Tournament t : tournamentsList) {
+                                                out.print("<div class='table-row bg-white mb-4'>"
+                                                        + "<div class='table-cell text-sm text-gray-900'>"
+                                                        + t.getIncharge() + "</div>"
+                                                        + "<div class='table-cell text-sm text-gray-500'>"
+                                                        + t.getContact() + "</div>"
+                                                        + "</div>"
+                                                        + "");
+                                            }
+                                        }%>
 
+                                    <% if (fList.size() != 0) {
+                                            for (Fieldtrip f : fList) {
+                                                out.print("<div class='table-row bg-white mb-4'>"
+                                                        + "<div class='table-cell text-sm text-gray-900'>"
+                                                        + f.getIncharge() + "</div>"
+                                                        + "<div class='table-cell text-sm text-gray-500'>"
+                                                        + f.getContact() + "</div>"
+                                                        + "</div>"
+                                                        + "");
+                                            }
+                                        }%>
+
+                                    <% if (mList.size() != 0) {
+                                            for (Meeting me : mList) {
+                                                out.print("<div class='table-row bg-white mb-4'>"
+                                                        + "<div class='table-cell text-sm text-gray-900'>"
+                                                        + me.getIncharge() + "</div>"
+                                                        + "<div class='table-cell text-sm text-gray-500'>"
+                                                        + "</div>"
+                                                        + "");
+                                            }
+                                        }%>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-            <div class="lg:grid lg:grid-cols-2 gap-4 mt-4">
-
-                <div class="bg-white shadow sm:rounded-lg p-6">
-                    <% List<Blog> blogList; %>
-                    <% blogList = (List<Blog>) request.getAttribute("blogList");
-                        Blog b = blogList.get(0);
-                        out.print("<div class='relative flex flex-col p-6'>");
-                        out.print("<div class='grid items-start lg:grid-cols-5 lg:gap-8'>");
-                        out.print("<div class='lg:col-span-3'>");
-                        out.print("<div class='mt-2'><span class='sr-only'></span>"
-                                + "</div><div class='font-semibold text-gray-700 mb-2'>Most voted blog of all time: </div>"
-                                + "<div>" + b.getVote() + " votes" + "</div>"
-                                + "<div class='mt-2'><span class='sr-only'></span>"
-                                + "</div><div class='font-semibold text-gray-700 space-x-2'></div>"
-                                + "<div class='mt-0.5 space-y-4 space-x-3'>" + b.getDescription() + "</div>"
-                                + "<div style='margin-top: 15px' class='flex items-start space-x-3'>"
-                                + "</div></div>");
-                        out.print("<div class='lg:col-span-2'>");
-                        out.print("<img src='data:image/png;base64," + Base64.getEncoder().encodeToString(b.getPicture()) + "'>");
-                        out.print("</div></div></div>");
-                    %>
-
-                </div>
-
-                <div class="bg-white shadow sm:rounded-lg p-6">
-
-                </div>
-
-            </div>
-
-            <div class="lg:grid lg:grid-cols-4 gap-4 mt-4">
-                <div class="bg-white shadow sm:rounded-lg p-6"></div>
-                <div class="bg-white shadow sm:rounded-lg p-6"></div>
-                <div class="bg-white shadow sm:rounded-lg p-6"></div>
-                <div class="bg-white shadow sm:rounded-lg p-6"></div>
-            </div>                 
-
-
         </div>
     </main>
     <footer class="mt-8" aria-labelledby="footer-heading">

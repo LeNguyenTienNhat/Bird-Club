@@ -32,12 +32,13 @@ public class StaffHomepage extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         String action = request.getParameter("action");
-        
+
         Tools tool = new Tools();
         FieldtripManager fm = new FieldtripManager();
         MeetingManager mm = new MeetingManager();
         BlogManager bm = new BlogManager();
         FeedbackManager fem = new FeedbackManager();
+        TournamentManager tournamentManager = new TournamentManager();
 
         if (action == null || action.equals("staffhome")) {
             MemberManager mem = new MemberManager();
@@ -48,7 +49,7 @@ public class StaffHomepage extends HttpServlet {
             int newMemberThisMonth = mem.getTotalNumberAsDuration(year, month);
             int totalOngoingEvents = fm.getNumberAsStatus("ongoing") + mm.getNumberAsStatus("ongoing");
             int totalPendingFeedback = fem.getNumberAsStatus("pending");
-            
+
             //Data for members' sign-ups chart            
             List<Integer> list = mem.getTotalNumberAsYear(2023);
 
@@ -72,13 +73,18 @@ public class StaffHomepage extends HttpServlet {
             //Data for revenue chart
             TransactionManager trm = new TransactionManager();
             List<Integer> revenueList = new ArrayList();
-            int membership = trm.countNumAsTransactionType("membership"); revenueList.add(membership);
-            int fee = trm.countNumAsTransactionType("fee"); revenueList.add(fee);
-            int donation = trm.countNumAsTransactionType("donation"); revenueList.add(donation);
-                        
-            //Data for top blog            
-            List<Blog> blogList = bm.getTopBlog(1);
+            int membership = trm.countNumAsTransactionType("membership");
+            revenueList.add(membership);
+            int fee = trm.countNumAsTransactionType("fee");
+            revenueList.add(fee);
+            int donation = trm.countNumAsTransactionType("donation");
+            revenueList.add(donation);
 
+            //Data for on going events
+            List<Tournament> tournamentsList = tournamentManager.getStatus("ongoing");
+            List<Fieldtrip> fList = fm.getStatus("ongoing");
+            List<Meeting> mList = mm.getStatus("ongoing");
+            
             //Send data
             request.setAttribute("totalOngoingEvents", totalOngoingEvents);
             request.setAttribute("totalMember", totalMember);
@@ -89,13 +95,14 @@ public class StaffHomepage extends HttpServlet {
             request.setAttribute("topTournament", topTournament);
             request.setAttribute("topFieldtrip", topFieldtrip);
             request.setAttribute("topMeeting", topMeeting);
-            request.setAttribute("blogList", blogList);
             request.setAttribute("revenueList", revenueList);
+            request.setAttribute("tournamentsList", tournamentsList);
+            request.setAttribute("fList", fList);
+            request.setAttribute("mList", mList);
             RequestDispatcher rd = request.getRequestDispatcher("staff_homepage.jsp");
             rd.forward(request, response);
         }
-        
-        
+
     }
 
     @Override

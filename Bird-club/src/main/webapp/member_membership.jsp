@@ -104,7 +104,7 @@
 
         .membership-description {
             position: absolute;
-            bottom: -70%;
+            bottom: -50%;
             left: 0;
             width: 100%;
             background-color: #ffffff;
@@ -116,7 +116,7 @@
         }
 
         .membership-options:hover .membership-description {
-            bottom: -70%;
+            bottom: -50%;
             opacity: 1;
         }
 
@@ -151,8 +151,10 @@
                                 <div class="membership-option" onclick="selectMembershipOption(this)">
                                     <h2>${r.getName()}</h2>
                                     <p class="membership-fee">Fee: ${r.getValue()} VND</p>
+                                    <p class="membership-fee">${r.getDuration()}</p>
                                     <div class="membership-description">${r.getDescription()}</div>
-                                    <input type="hidden" name="action" value="add">
+                                    <input type="hidden" name="action" value="purchase">
+                                    <input type="hidden" name="amount" value="${r.getValue()}">
                                     <input type="hidden" name="UID" value="${users.getUserName()}" />
                                     <input type="hidden" name="membership" value="${r.getMID()}" />
                                      <c:set var="username" scope="session" value="${users.getUserName()}" />

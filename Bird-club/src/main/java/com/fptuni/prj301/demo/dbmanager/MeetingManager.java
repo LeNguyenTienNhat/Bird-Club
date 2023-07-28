@@ -440,5 +440,45 @@ public class MeetingManager {
         return list;
     }
 
+    public List<Meeting> getStatus(String status) {
+        List<Meeting> list = new ArrayList<>();
+        String sql = "SELECT * FROM Meeting WHERE status = ?";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, status);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Meeting meeting = new Meeting();
+                    meeting.setMeID(rs.getString("MeID"));
+                    meeting.setName(rs.getString("name"));
+                    meeting.setDescription(rs.getString("description"));
+                    String registrationDeadline = rs.getString("registrationDeadline");
+                    meeting.setStatus(rs.getString("status"));
+                    meeting.setLID(rs.getString("LID"));
+                    String startDate = rs.getString("startDate");
+                    String endDate = rs.getString("endDate");
+                    registrationDeadline = tool.trimDate(registrationDeadline);
+                    startDate = tool.trimDate(startDate);
+                    endDate = tool.trimDate(endDate);
+                    meeting.setRegistrationDeadline(tool.convertDisplayDate(registrationDeadline));
+                    meeting.setStartDate(tool.convertDisplayDate(startDate));
+                    meeting.setEndDate(tool.convertDisplayDate(endDate));
+                    meeting.setNumberOfParticipant(rs.getInt("numberOfParticipant"));
+                    meeting.setNote(rs.getString("note"));
+                    meeting.setIncharge(rs.getString("incharge"));
+                    meeting.setHost(rs.getString("host"));
+                    meeting.setContact(rs.getString("contact"));
+                    meeting.setCategory("Meeting");
+                    list.add(meeting);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
 
 }
