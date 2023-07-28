@@ -568,13 +568,13 @@
                                                         <form action="${pageContext.request.contextPath}/BirdController" method="POST">
                                                             <input type="hidden" name="action" value="view">
                                                             <input type="hidden" name="UID" value="${users.getUID()}">
-                                                            <input type="hidden" name="TID" value="${tournament.getTID()}">
+                                                            <input type="hidden" name="TID" value="${tournament.getTID()}">                                                           
                                                             <c:set var="sessionTID" scope="session" value="${tournament.getTID()}"/>
 
                                                             <c:choose>
                                                                 <c:when test="${join}">
                                                                     <input type="hidden" name="bird" value="${bird}">
-                                                                    <button type="submit" class="wp-block-button__link has-green-background-color has-background" > register success</button>
+                                                                    <button type="submit" class="wp-block-button__link has-green-background-color has-background" > Registered</button>
                                                                 </c:when>
                                                                 <c:otherwise>
                                                                     <button type="submit" class="wp-block-button__link has-orange-background-color has-background">Join Tournament</button>

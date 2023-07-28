@@ -48,17 +48,16 @@ public class BirdController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
         String action = request.getParameter("action");
         if (action != null && action.equals("view")) {
-            // Process the view action
+            //View birds owned to participate in the tournament
             BirdManager birdController = new BirdManager();
-            String tid = request.getParameter("TID");
+            String TID = request.getParameter("TID");
             String UID = request.getParameter("UID");
             String BID = request.getParameter("bird");
             List<Bird> birds = birdController.getBirdsByUID(UID);
             TournamentManager t = new TournamentManager();
-            Tournament tournament = t.getTournamentById(tid);
+            Tournament tournament = t.getTournamentById(TID);
             request.setAttribute("tournament", tournament);
             request.setAttribute("join", BID);
             request.setAttribute("birdList", birds);
@@ -71,6 +70,9 @@ public class BirdController extends HttpServlet {
             String docNo = UIDGenerator.generateDocT();
             HttpSession ss = request.getSession(true);
 
+            TournamentManager t = new TournamentManager();
+            Tournament tournament = t.getTournamentById(tid);
+            int fee = tournament.getFee();
             // Create a new Tparticipation object with the provided parameters
             Tparticipation tparticipation = new Tparticipation();
             tparticipation.setTID(tid);
@@ -87,11 +89,12 @@ public class BirdController extends HttpServlet {
                 // Redirect to a success page
                 request.setAttribute("docT", docNo);
                 ss.setAttribute("docT", docNo);
-
-                response.sendRedirect(request.getContextPath() + "/index.jsp");
+                ss.setAttribute("amounttopay", fee);
+                ss.setAttribute("TransactionType", "Fee");
+                response.sendRedirect(request.getContextPath() + "/vnpay_pay.jsp");
             } else {
                 // Redirect to a failure page
-                response.sendRedirect(request.getContextPath() + "/member_TsignUp.jsp");
+                response.sendRedirect(request.getContextPath() + "/error.html");
             }
         }
         if (action != null && action.equals("delete")) {
@@ -102,9 +105,7 @@ public class BirdController extends HttpServlet {
 
             if (transactionType.trim().equals("donate")) {
                 response.sendRedirect(request.getContextPath() + "/home?action=view");
-            } 
-            
-            else if (transactionType.trim().equals("fee")) {
+            } else if (transactionType.trim().equals("fee")) {
                 TparticipationManager tparticipationManager = new TparticipationManager();
                 boolean deletionSuccess = tparticipationManager.delete(docNoToDelete);
 
@@ -115,14 +116,13 @@ public class BirdController extends HttpServlet {
                     // Deletion failed, redirect to a failure page
                     response.sendRedirect(request.getContextPath() + "/.jsp");
                 }
-            } 
-            else if (old.trim() != null) {
-                MemberShipManager m =new MemberShipManager();
-                 boolean updateMembership =m.updateMembership(old, UID);
-                 if (updateMembership ) {
-                response.sendRedirect(request.getContextPath() + "/home?action=view");
-            } 
-            }else {
+            } else if (old.trim() != null) {
+                MemberShipManager m = new MemberShipManager();
+                boolean updateMembership = m.updateMembership(old, UID);
+                if (updateMembership) {
+                    response.sendRedirect(request.getContextPath() + "/home?action=view");
+                }
+            } else {
                 // Missing docT attribute, redirect to a failure page
                 response.sendRedirect(request.getContextPath() + "/failure.jsp");
             }
