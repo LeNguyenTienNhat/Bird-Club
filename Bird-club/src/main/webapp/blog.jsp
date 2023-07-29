@@ -838,12 +838,11 @@
                                                 </div>
                                             </div>
                                             <div class="article-item-body">
-                                                <span class="attribution project">${b.getCategory()}</span>
+                                                
                                                 <span class="article-item-header">
-                                                    <a href="${pageContext.request.contextPath}/BlogController?action=view&BLID=${f.getBLID()}" class="article-item-link" target="_self">
+                                                    <a class="article-item-link" target="_self">
                                                         ${b.getCategory()}  </a>
-                                                    <span class="attribution project">${b.getDescription()}</span>
-                                                    </a>
+                                                    <span class="attribution project">${b.getDescription()}</span>                                                   
                                                 </span>
                                                 <span class="attribution topic">${b.getUploadDate()}</span>
                                                 <span class="like-icon" style="font-size: 20px;">

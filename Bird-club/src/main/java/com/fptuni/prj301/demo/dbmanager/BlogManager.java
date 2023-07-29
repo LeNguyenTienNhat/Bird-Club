@@ -258,4 +258,16 @@ public class BlogManager {
         }
         return list;
     }
+    
+    public void updateThumbnail(String BLID, byte[] picture) {
+        String sql = "UPDATE [Blog] SET picture = ? WHERE BLID = ?";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setBytes(1, picture);
+            ps.setString(2, BLID);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+        }
+    }
 }

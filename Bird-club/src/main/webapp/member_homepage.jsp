@@ -70,20 +70,28 @@
                             <p style="font-size: 18px;color: #606060;line-height: 24px;text-align: center;font-family:Lato;font-weight:300;font-style:normal">    Founded in 2023 by Nguyen Van A, CHIMOWNERS Bird Club has been active in Ho Chi Minh City for a couple of months. Our mission is to encourage and promote bird-watching, and strengthen friendship among bird lovers in Ho Chi Minh City and beyond.    </p>
                         </span><div class="w-space" style="height:10px"></div><div class="w-custom-heading vc_custom_1495815196787">
 
-
-                            <!--                    <div class="is-layout-flow wp-block-group alignfull page-section macaulay">
-                                                    <h2 class="has-text-align-center has-large-font-size" id="macaulay-library-photowall">Chim Owners' Library</h2>
-                                                    <p>Epic pictures taken by experts from Chim Owners. For real.</p>
-                            
-                                                    <div id="my_nanogallery2"></div>
-                            
-                                                    <div class="is-horizontal is-content-justification-center is-layout-flex wp-container-33 wp-block-buttons">
-                                                        <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="member_gallery.jsp">Browse More Photos</a></div>
-                                                    </div>
-                                                </div>-->
                             <style>
                                 #hero-wrapper .hero-text { width: 600px; }                       
                             </style>
+
+
+
+
+                            <div id="science-innovation" class="wp-block-group page-section has-background-image" style="background-image:url(media/banner.jpg); height: 50px">
+                                <div class="wp-block-columns is-layout-flex wp-container-11">
+                                    <div class="wp-block-column is-layout-flow" style="flex-basis:50%">
+                                        <h2 class="wp-block-heading has-small-font-size" id="science-and-innovation">Passion &amp; Friendship</h2>
+                                        <h3 class="wp-block-heading remove-margin-top has-large-font-size">It's not mere hobby. It's our passion and we're proud</h3>
+                                        <p>We bring together people from all walks of life in the quest to generate new friendships and conserve our value. You can help.</p>   
+
+                                        
+                                        <img src="https://uongbi.gov.vn/ckfinder/userfiles/images/IMG-0639.jpg" style="height: 300px; width: auto">
+                               
+                                    </div>
+                                    <div class="wp-block-column is-layout-flow"></div>
+                                </div>
+                            </div>
+
 
                             <h2>Our club activities:</h2>
                             <!--Tournament-->
@@ -95,7 +103,6 @@
                                     <div class="is-layout-flow wp-block-column">
                                         <div class="article-list card-display carousel card-three ">
                                             <ul>
-                                                Copy code
                                                 <c:forEach var="t" items="${tList}" varStatus="loop">
                                                     <li class="article-item">
                                                         <div class="article-item-container">
