@@ -40,7 +40,7 @@ public class DBgenerator {
     public byte[] generateProfilePictureByteArray(String path) throws IOException {
         BufferedImage bImage = ImageIO.read(new File(path));
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ImageIO.write(bImage, "jpg", bos);
+        ImageIO.write(bImage, "png", bos);
         byte[] data = bos.toByteArray();
         return data;
     }
